@@ -1,260 +1,269 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUTOMATION_EDITOR_TASK_IS_VALID_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_EDITOR_TASK_IS_TASK_DONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_HIGH_RES_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_OF_UI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_AT_CAMERA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_TEST_TELEMETRY_STORAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_LOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_EPIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_LEVEL_RELATIVE_TO_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VISUALIZE_BUFFER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VIEW_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_AVERAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_AVERAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_CALL_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_RENDERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_GAMEPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_FINISH_LOADING_BEFORE_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ENABLE_STAT_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_DISABLE_STAT_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_COMPARE_IMAGE_AGAINST_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_AUTOMATION_WAIT_FOR_LOADING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ARE_AUTOMATED_TESTS_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_TELEMETRY_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_SET_TIME_LIMIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_BOOLEAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_REGISTER_AUTO_DESTROY_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_RECEIVE_TEST_FINISHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_RECEIVE_START_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_RECEIVE_PREPARE_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ON_WANTS_RE_RUN_CHECK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ON_ADDITIONAL_TEST_FINISHED_MESSAGE_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_LOG_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_IS_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_IS_READY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_IS_ENABLED_IN_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_GET_CURRENT_RERUN_REASON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_FINISH_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_EDIT_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_DEBUG_GATHER_RELEVANT_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DATE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_TRUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_BOX2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_FALSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRACE_QUERY_RESULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR_ORIENTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOX2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ADD_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ADD_RERUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ADD_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_TEST_ADD_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_FUNCTIONAL_AI_TEST_BASE_IS_ONE_OF_SPAWNED_PAWNS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_WRITE_LOG_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_TRIGGER_GPU_TRACE_IF_RECORD_FALLS_BELOW_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_STOP_CPU_PROFILING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_START_CPU_PROFILING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_SAMPLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_ON_BEGIN_TESTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_ON_ALL_TESTS_COMPLETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_RENDER_THREAD_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GPU_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GAME_THREAD_BUDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_END_STATS_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING_BASELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_STATS_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING_BASELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FUNCTIONAL_TESTING_MANAGER_RUN_ALL_FUNCTIONAL_TESTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_COMPLETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_BEGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FUNCTIONAL_TEST_UTILITY_LIBRARY_TRACE_CHANNEL_TEST_UTIL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROUND_TRUTH_DATA_SAVE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROUND_TRUTH_DATA_RESET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROUND_TRUTH_DATA_LOAD_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROUND_TRUTH_DATA_CAN_MODIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_QUERY_TEST_RESULTS_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_automation_editor_task_is_valid_task: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_editor_task_is_task_done: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_take_high_res_screenshot: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_take_automation_screenshot_of_ui: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_take_automation_screenshot_at_camera: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_take_automation_screenshot: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_test_telemetry_storage: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_scalability_quality_to_low: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_scalability_quality_to_epic: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_scalability_quality_level_relative_to_max: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_editor_viewport_visualize_buffer: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_editor_viewport_view_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_editor_active_viewport_wireframe_opacity: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_set_editor_active_viewport_view_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_stat_inc_max: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_stat_inc_average: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_stat_exc_max: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_stat_exc_average: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_stat_call_count: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_editor_active_viewport_wireframe_opacity: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_editor_active_viewport_view_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_default_screenshot_options_for_rendering: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_get_default_screenshot_options_for_gameplay: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_finish_loading_before_screenshot: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_enable_stat_group: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_disable_stat_group: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_compare_image_against_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_automation_wait_for_loading: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_are_automated_tests_running: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_test_warning: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_test_telemetry_data: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_test_info: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_test_error: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_expected_plain_log_message: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_expected_plain_log_error: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_expected_log_message: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_blueprint_function_library_add_expected_log_error: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_set_time_limit: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_set_console_variable_from_integer: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_set_console_variable_from_float: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_set_console_variable_from_boolean: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_set_console_variable: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_register_auto_destroy_actor: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_receive_test_finished: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_receive_start_test: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_receive_prepare_test: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_on_wants_re_run_check: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_on_additional_test_finished_message_request: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_log_message: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_is_running: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_is_ready: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_is_enabled_in_world: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_is_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_get_current_rerun_reason: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_finish_test: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_edit_tags: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_debug_gather_relevant_actors: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_value_int: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_value_float: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_value_double: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_value_date_time: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_true: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_vector4: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_vector: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_transform: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_string: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_rotator: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_quat: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_plane: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_matrix: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_not_equal_box2_d: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_false: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_vector4: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_vector: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_transform: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_trace_query_results: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_string: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_rotator_orientation: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_rotator: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_quat: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_plane: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_object: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_name: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_matrix: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_int: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_float: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_double: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_box2_d: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_assert_equal_bool: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_add_warning: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_add_rerun: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_add_info: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_test_add_error: *mut crate::ffi::UFunctionOpague,
+    pub a_functional_ai_test_base_is_one_of_spawned_pawns: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_write_log_file: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_trigger_gpu_trace_if_record_falls_below_budget: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_stop_cpu_profiling: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_start_cpu_profiling: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_sample: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_on_begin_tests: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_on_all_tests_complete: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_is_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_is_current_record_within_render_thread_budget: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_is_current_record_within_gpu_budget: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_is_current_record_within_game_thread_budget: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_end_stats_file: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_end_recording_baseline: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_end_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_begin_stats_file: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_begin_recording_baseline: *mut crate::ffi::UFunctionOpague,
+    pub u_automation_performace_helper_begin_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_functional_testing_manager_run_all_functional_tests: *mut crate::ffi::UFunctionOpague,
+    pub a_phased_automation_actor_base_on_functional_testing_complete: *mut crate::ffi::UFunctionOpague,
+    pub a_phased_automation_actor_base_on_functional_testing_begin: *mut crate::ffi::UFunctionOpague,
+    pub u_functional_test_utility_library_trace_channel_test_util: *mut crate::ffi::UFunctionOpague,
+    pub u_ground_truth_data_save_object: *mut crate::ffi::UFunctionOpague,
+    pub u_ground_truth_data_reset_object: *mut crate::ffi::UFunctionOpague,
+    pub u_ground_truth_data_load_object: *mut crate::ffi::UFunctionOpague,
+    pub u_ground_truth_data_can_modify: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_query_test_results_to_string: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_automation_editor_task_is_valid_task: std::ptr::null_mut(),
+            u_automation_editor_task_is_task_done: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_take_high_res_screenshot: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_take_automation_screenshot_of_ui: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_take_automation_screenshot_at_camera: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_take_automation_screenshot: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_test_telemetry_storage: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_scalability_quality_to_low: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_scalability_quality_to_epic: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_scalability_quality_level_relative_to_max: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_editor_viewport_visualize_buffer: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_editor_viewport_view_mode: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_editor_active_viewport_wireframe_opacity: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_set_editor_active_viewport_view_mode: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_stat_inc_max: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_stat_inc_average: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_stat_exc_max: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_stat_exc_average: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_stat_call_count: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_editor_active_viewport_wireframe_opacity: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_editor_active_viewport_view_mode: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_default_screenshot_options_for_rendering: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_get_default_screenshot_options_for_gameplay: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_finish_loading_before_screenshot: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_enable_stat_group: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_disable_stat_group: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_compare_image_against_reference: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_automation_wait_for_loading: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_are_automated_tests_running: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_test_warning: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_test_telemetry_data: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_test_info: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_test_error: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_expected_plain_log_message: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_expected_plain_log_error: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_expected_log_message: std::ptr::null_mut(),
+            u_automation_blueprint_function_library_add_expected_log_error: std::ptr::null_mut(),
+            a_functional_test_set_time_limit: std::ptr::null_mut(),
+            a_functional_test_set_console_variable_from_integer: std::ptr::null_mut(),
+            a_functional_test_set_console_variable_from_float: std::ptr::null_mut(),
+            a_functional_test_set_console_variable_from_boolean: std::ptr::null_mut(),
+            a_functional_test_set_console_variable: std::ptr::null_mut(),
+            a_functional_test_register_auto_destroy_actor: std::ptr::null_mut(),
+            a_functional_test_receive_test_finished: std::ptr::null_mut(),
+            a_functional_test_receive_start_test: std::ptr::null_mut(),
+            a_functional_test_receive_prepare_test: std::ptr::null_mut(),
+            a_functional_test_on_wants_re_run_check: std::ptr::null_mut(),
+            a_functional_test_on_additional_test_finished_message_request: std::ptr::null_mut(),
+            a_functional_test_log_message: std::ptr::null_mut(),
+            a_functional_test_is_running: std::ptr::null_mut(),
+            a_functional_test_is_ready: std::ptr::null_mut(),
+            a_functional_test_is_enabled_in_world: std::ptr::null_mut(),
+            a_functional_test_is_enabled: std::ptr::null_mut(),
+            a_functional_test_get_current_rerun_reason: std::ptr::null_mut(),
+            a_functional_test_finish_test: std::ptr::null_mut(),
+            a_functional_test_edit_tags: std::ptr::null_mut(),
+            a_functional_test_debug_gather_relevant_actors: std::ptr::null_mut(),
+            a_functional_test_assert_value_int: std::ptr::null_mut(),
+            a_functional_test_assert_value_float: std::ptr::null_mut(),
+            a_functional_test_assert_value_double: std::ptr::null_mut(),
+            a_functional_test_assert_value_date_time: std::ptr::null_mut(),
+            a_functional_test_assert_true: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_vector4: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_vector2_d: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_vector: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_transform: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_string: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_rotator: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_quat: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_plane: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_matrix: std::ptr::null_mut(),
+            a_functional_test_assert_not_equal_box2_d: std::ptr::null_mut(),
+            a_functional_test_assert_is_valid: std::ptr::null_mut(),
+            a_functional_test_assert_false: std::ptr::null_mut(),
+            a_functional_test_assert_equal_vector4: std::ptr::null_mut(),
+            a_functional_test_assert_equal_vector2_d: std::ptr::null_mut(),
+            a_functional_test_assert_equal_vector: std::ptr::null_mut(),
+            a_functional_test_assert_equal_transform: std::ptr::null_mut(),
+            a_functional_test_assert_equal_trace_query_results: std::ptr::null_mut(),
+            a_functional_test_assert_equal_string: std::ptr::null_mut(),
+            a_functional_test_assert_equal_rotator_orientation: std::ptr::null_mut(),
+            a_functional_test_assert_equal_rotator: std::ptr::null_mut(),
+            a_functional_test_assert_equal_quat: std::ptr::null_mut(),
+            a_functional_test_assert_equal_plane: std::ptr::null_mut(),
+            a_functional_test_assert_equal_object: std::ptr::null_mut(),
+            a_functional_test_assert_equal_name: std::ptr::null_mut(),
+            a_functional_test_assert_equal_matrix: std::ptr::null_mut(),
+            a_functional_test_assert_equal_int: std::ptr::null_mut(),
+            a_functional_test_assert_equal_float: std::ptr::null_mut(),
+            a_functional_test_assert_equal_double: std::ptr::null_mut(),
+            a_functional_test_assert_equal_box2_d: std::ptr::null_mut(),
+            a_functional_test_assert_equal_bool: std::ptr::null_mut(),
+            a_functional_test_add_warning: std::ptr::null_mut(),
+            a_functional_test_add_rerun: std::ptr::null_mut(),
+            a_functional_test_add_info: std::ptr::null_mut(),
+            a_functional_test_add_error: std::ptr::null_mut(),
+            a_functional_ai_test_base_is_one_of_spawned_pawns: std::ptr::null_mut(),
+            u_automation_performace_helper_write_log_file: std::ptr::null_mut(),
+            u_automation_performace_helper_trigger_gpu_trace_if_record_falls_below_budget: std::ptr::null_mut(),
+            u_automation_performace_helper_tick: std::ptr::null_mut(),
+            u_automation_performace_helper_stop_cpu_profiling: std::ptr::null_mut(),
+            u_automation_performace_helper_start_cpu_profiling: std::ptr::null_mut(),
+            u_automation_performace_helper_sample: std::ptr::null_mut(),
+            u_automation_performace_helper_on_begin_tests: std::ptr::null_mut(),
+            u_automation_performace_helper_on_all_tests_complete: std::ptr::null_mut(),
+            u_automation_performace_helper_is_recording: std::ptr::null_mut(),
+            u_automation_performace_helper_is_current_record_within_render_thread_budget: std::ptr::null_mut(),
+            u_automation_performace_helper_is_current_record_within_gpu_budget: std::ptr::null_mut(),
+            u_automation_performace_helper_is_current_record_within_game_thread_budget: std::ptr::null_mut(),
+            u_automation_performace_helper_end_stats_file: std::ptr::null_mut(),
+            u_automation_performace_helper_end_recording_baseline: std::ptr::null_mut(),
+            u_automation_performace_helper_end_recording: std::ptr::null_mut(),
+            u_automation_performace_helper_begin_stats_file: std::ptr::null_mut(),
+            u_automation_performace_helper_begin_recording_baseline: std::ptr::null_mut(),
+            u_automation_performace_helper_begin_recording: std::ptr::null_mut(),
+            u_functional_testing_manager_run_all_functional_tests: std::ptr::null_mut(),
+            a_phased_automation_actor_base_on_functional_testing_complete: std::ptr::null_mut(),
+            a_phased_automation_actor_base_on_functional_testing_begin: std::ptr::null_mut(),
+            u_functional_test_utility_library_trace_channel_test_util: std::ptr::null_mut(),
+            u_ground_truth_data_save_object: std::ptr::null_mut(),
+            u_ground_truth_data_reset_object: std::ptr::null_mut(),
+            u_ground_truth_data_load_object: std::ptr::null_mut(),
+            u_ground_truth_data_can_modify: std::ptr::null_mut(),
+            u_trace_query_test_results_to_string: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -264,14 +273,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidTask"),
-            &raw mut U_AUTOMATION_EDITOR_TASK_IS_VALID_TASK,
+            &raw mut __FUNCTION_PTRS.u_automation_editor_task_is_valid_task,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTaskDone"),
-            &raw mut U_AUTOMATION_EDITOR_TASK_IS_TASK_DONE,
+            &raw mut __FUNCTION_PTRS.u_automation_editor_task_is_task_done,
         );
     }
     unsafe {
@@ -282,245 +291,280 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TakeHighResScreenshot"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_HIGH_RES_SCREENSHOT,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_take_high_res_screenshot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TakeAutomationScreenshotOfUI"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_OF_UI,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_take_automation_screenshot_of_ui,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TakeAutomationScreenshotAtCamera"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_AT_CAMERA,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_take_automation_screenshot_at_camera,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TakeAutomationScreenshot"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_take_automation_screenshot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTestTelemetryStorage"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_TEST_TELEMETRY_STORAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_test_telemetry_storage,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetScalabilityQualityToLow"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_LOW,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_scalability_quality_to_low,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetScalabilityQualityToEpic"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_EPIC,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_scalability_quality_to_epic,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetScalabilityQualityLevelRelativeToMax"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_LEVEL_RELATIVE_TO_MAX,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_scalability_quality_level_relative_to_max,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEditorViewportVisualizeBuffer"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VISUALIZE_BUFFER,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_editor_viewport_visualize_buffer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEditorViewportViewMode"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VIEW_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_editor_viewport_view_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEditorActiveViewportWireframeOpacity"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_editor_active_viewport_wireframe_opacity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEditorActiveViewportViewMode"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_set_editor_active_viewport_view_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStatIncMax"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_MAX,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_stat_inc_max,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStatIncAverage"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_AVERAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_stat_inc_average,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStatExcMax"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_MAX,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_stat_exc_max,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStatExcAverage"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_AVERAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_stat_exc_average,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStatCallCount"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_CALL_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_stat_call_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEditorActiveViewportWireframeOpacity"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_editor_active_viewport_wireframe_opacity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEditorActiveViewportViewMode"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_editor_active_viewport_view_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForRendering"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_RENDERING,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_default_screenshot_options_for_rendering,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultScreenshotOptionsForGameplay"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_GAMEPLAY,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_get_default_screenshot_options_for_gameplay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinishLoadingBeforeScreenshot"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_FINISH_LOADING_BEFORE_SCREENSHOT,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_finish_loading_before_screenshot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableStatGroup"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ENABLE_STAT_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_enable_stat_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisableStatGroup"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_DISABLE_STAT_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_disable_stat_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CompareImageAgainstReference"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_COMPARE_IMAGE_AGAINST_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_compare_image_against_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AutomationWaitForLoading"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_AUTOMATION_WAIT_FOR_LOADING,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_automation_wait_for_loading,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AreAutomatedTestsRunning"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ARE_AUTOMATED_TESTS_RUNNING,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_are_automated_tests_running,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTestWarning"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_WARNING,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_test_warning,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTestTelemetryData"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_TELEMETRY_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_test_telemetry_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTestInfo"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_test_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTestError"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_ERROR,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_test_error,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddExpectedPlainLogMessage"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_MESSAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_expected_plain_log_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddExpectedPlainLogError"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_ERROR,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_expected_plain_log_error,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddExpectedLogMessage"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_MESSAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_expected_log_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddExpectedLogError"),
-            &raw mut U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_ERROR,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_blueprint_function_library_add_expected_log_error,
         );
     }
     unsafe {
@@ -531,413 +575,414 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTimeLimit"),
-            &raw mut A_FUNCTIONAL_TEST_SET_TIME_LIMIT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_set_time_limit,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConsoleVariableFromInteger"),
-            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_INTEGER,
+            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable_from_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConsoleVariableFromFloat"),
-            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_FLOAT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable_from_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConsoleVariableFromBoolean"),
-            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_BOOLEAN,
+            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable_from_boolean,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConsoleVariable"),
-            &raw mut A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_set_console_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterAutoDestroyActor"),
-            &raw mut A_FUNCTIONAL_TEST_REGISTER_AUTO_DESTROY_ACTOR,
+            &raw mut __FUNCTION_PTRS.a_functional_test_register_auto_destroy_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTestFinished"),
-            &raw mut A_FUNCTIONAL_TEST_RECEIVE_TEST_FINISHED,
+            &raw mut __FUNCTION_PTRS.a_functional_test_receive_test_finished,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveStartTest"),
-            &raw mut A_FUNCTIONAL_TEST_RECEIVE_START_TEST,
+            &raw mut __FUNCTION_PTRS.a_functional_test_receive_start_test,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceivePrepareTest"),
-            &raw mut A_FUNCTIONAL_TEST_RECEIVE_PREPARE_TEST,
+            &raw mut __FUNCTION_PTRS.a_functional_test_receive_prepare_test,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnWantsReRunCheck"),
-            &raw mut A_FUNCTIONAL_TEST_ON_WANTS_RE_RUN_CHECK,
+            &raw mut __FUNCTION_PTRS.a_functional_test_on_wants_re_run_check,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnAdditionalTestFinishedMessageRequest"),
-            &raw mut A_FUNCTIONAL_TEST_ON_ADDITIONAL_TEST_FINISHED_MESSAGE_REQUEST,
+            &raw mut __FUNCTION_PTRS
+                .a_functional_test_on_additional_test_finished_message_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LogMessage"),
-            &raw mut A_FUNCTIONAL_TEST_LOG_MESSAGE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_log_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRunning"),
-            &raw mut A_FUNCTIONAL_TEST_IS_RUNNING,
+            &raw mut __FUNCTION_PTRS.a_functional_test_is_running,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReady"),
-            &raw mut A_FUNCTIONAL_TEST_IS_READY,
+            &raw mut __FUNCTION_PTRS.a_functional_test_is_ready,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEnabledInWorld"),
-            &raw mut A_FUNCTIONAL_TEST_IS_ENABLED_IN_WORLD,
+            &raw mut __FUNCTION_PTRS.a_functional_test_is_enabled_in_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut A_FUNCTIONAL_TEST_IS_ENABLED,
+            &raw mut __FUNCTION_PTRS.a_functional_test_is_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentRerunReason"),
-            &raw mut A_FUNCTIONAL_TEST_GET_CURRENT_RERUN_REASON,
+            &raw mut __FUNCTION_PTRS.a_functional_test_get_current_rerun_reason,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinishTest"),
-            &raw mut A_FUNCTIONAL_TEST_FINISH_TEST,
+            &raw mut __FUNCTION_PTRS.a_functional_test_finish_test,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditTags"),
-            &raw mut A_FUNCTIONAL_TEST_EDIT_TAGS,
+            &raw mut __FUNCTION_PTRS.a_functional_test_edit_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DebugGatherRelevantActors"),
-            &raw mut A_FUNCTIONAL_TEST_DEBUG_GATHER_RELEVANT_ACTORS,
+            &raw mut __FUNCTION_PTRS.a_functional_test_debug_gather_relevant_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertValue_Int"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_INT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertValue_Float"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_FLOAT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertValue_Double"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DOUBLE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_double,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertValue_DateTime"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_VALUE_DATE_TIME,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_value_date_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertTrue"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_TRUE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_true,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Vector4"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR4,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Vector2D"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Vector"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Transform"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_String"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_STRING,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Rotator"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_ROTATOR,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Quat"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_QUAT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Plane"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_PLANE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Matrix"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_MATRIX,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_matrix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertNotEqual_Box2D"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_BOX2_D,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_not_equal_box2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertIsValid"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_IS_VALID,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertFalse"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_FALSE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_false,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Vector4"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR4,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Vector2D"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Vector"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Transform"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_TraceQueryResults"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRACE_QUERY_RESULTS,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_trace_query_results,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_String"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_STRING,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_RotatorOrientation"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR_ORIENTATION,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_rotator_orientation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Rotator"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Quat"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_QUAT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Plane"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_PLANE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Object"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_OBJECT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Name"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_NAME,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Matrix"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_MATRIX,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_matrix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Int"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_INT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Float"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_FLOAT,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Double"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_DOUBLE,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_double,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Box2D"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOX2_D,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_box2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssertEqual_Bool"),
-            &raw mut A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOOL,
+            &raw mut __FUNCTION_PTRS.a_functional_test_assert_equal_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddWarning"),
-            &raw mut A_FUNCTIONAL_TEST_ADD_WARNING,
+            &raw mut __FUNCTION_PTRS.a_functional_test_add_warning,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddRerun"),
-            &raw mut A_FUNCTIONAL_TEST_ADD_RERUN,
+            &raw mut __FUNCTION_PTRS.a_functional_test_add_rerun,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInfo"),
-            &raw mut A_FUNCTIONAL_TEST_ADD_INFO,
+            &raw mut __FUNCTION_PTRS.a_functional_test_add_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddError"),
-            &raw mut A_FUNCTIONAL_TEST_ADD_ERROR,
+            &raw mut __FUNCTION_PTRS.a_functional_test_add_error,
         );
     }
     unsafe {
@@ -948,7 +993,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsOneOfSpawnedPawns"),
-            &raw mut A_FUNCTIONAL_AI_TEST_BASE_IS_ONE_OF_SPAWNED_PAWNS,
+            &raw mut __FUNCTION_PTRS.a_functional_ai_test_base_is_one_of_spawned_pawns,
         );
     }
     unsafe {
@@ -959,126 +1004,132 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteLogFile"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_WRITE_LOG_FILE,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_write_log_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TriggerGPUTraceIfRecordFallsBelowBudget"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_TRIGGER_GPU_TRACE_IF_RECORD_FALLS_BELOW_BUDGET,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_performace_helper_trigger_gpu_trace_if_record_falls_below_budget,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Tick"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_TICK,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCPUProfiling"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_STOP_CPU_PROFILING,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_stop_cpu_profiling,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartCPUProfiling"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_START_CPU_PROFILING,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_start_cpu_profiling,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Sample"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_SAMPLE,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_sample,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnBeginTests"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_ON_BEGIN_TESTS,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_on_begin_tests,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnAllTestsComplete"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_ON_ALL_TESTS_COMPLETE,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_on_all_tests_complete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_is_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCurrentRecordWithinRenderThreadBudget"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_RENDER_THREAD_BUDGET,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_performace_helper_is_current_record_within_render_thread_budget,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGPUBudget"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GPU_BUDGET,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_performace_helper_is_current_record_within_gpu_budget,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCurrentRecordWithinGameThreadBudget"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GAME_THREAD_BUDGET,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_performace_helper_is_current_record_within_game_thread_budget,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndStatsFile"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_END_STATS_FILE,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_end_stats_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndRecordingBaseline"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING_BASELINE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_performace_helper_end_recording_baseline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndRecording"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_end_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginStatsFile"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_STATS_FILE,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_begin_stats_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginRecordingBaseline"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING_BASELINE,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_performace_helper_begin_recording_baseline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginRecording"),
-            &raw mut U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_automation_performace_helper_begin_recording,
         );
     }
     unsafe {
@@ -1089,7 +1140,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RunAllFunctionalTests"),
-            &raw mut U_FUNCTIONAL_TESTING_MANAGER_RUN_ALL_FUNCTIONAL_TESTS,
+            &raw mut __FUNCTION_PTRS
+                .u_functional_testing_manager_run_all_functional_tests,
         );
     }
     unsafe {
@@ -1100,14 +1152,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnFunctionalTestingComplete"),
-            &raw mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_COMPLETE,
+            &raw mut __FUNCTION_PTRS
+                .a_phased_automation_actor_base_on_functional_testing_complete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnFunctionalTestingBegin"),
-            &raw mut A_PHASED_AUTOMATION_ACTOR_BASE_ON_FUNCTIONAL_TESTING_BEGIN,
+            &raw mut __FUNCTION_PTRS
+                .a_phased_automation_actor_base_on_functional_testing_begin,
         );
     }
     unsafe {
@@ -1118,7 +1172,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TraceChannelTestUtil"),
-            &raw mut U_FUNCTIONAL_TEST_UTILITY_LIBRARY_TRACE_CHANNEL_TEST_UTIL,
+            &raw mut __FUNCTION_PTRS
+                .u_functional_test_utility_library_trace_channel_test_util,
         );
     }
     unsafe {
@@ -1129,28 +1184,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveObject"),
-            &raw mut U_GROUND_TRUTH_DATA_SAVE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_ground_truth_data_save_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetObject"),
-            &raw mut U_GROUND_TRUTH_DATA_RESET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_ground_truth_data_reset_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadObject"),
-            &raw mut U_GROUND_TRUTH_DATA_LOAD_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_ground_truth_data_load_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanModify"),
-            &raw mut U_GROUND_TRUTH_DATA_CAN_MODIFY,
+            &raw mut __FUNCTION_PTRS.u_ground_truth_data_can_modify,
         );
     }
     unsafe {
@@ -1161,7 +1216,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ToString"),
-            &raw mut U_TRACE_QUERY_TEST_RESULTS_TO_STRING,
+            &raw mut __FUNCTION_PTRS.u_trace_query_test_results_to_string,
         );
     }
 }
@@ -1322,7 +1377,8 @@ impl UAutomationEditorTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_EDITOR_TASK_IS_VALID_TASK,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_editor_task_is_valid_task,
                 __buffer,
             )
         };
@@ -1332,7 +1388,8 @@ impl UAutomationEditorTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_EDITOR_TASK_IS_VALID_TASK,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_editor_task_is_valid_task,
                 __buffer,
             )
         };
@@ -1346,7 +1403,8 @@ impl UAutomationEditorTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_EDITOR_TASK_IS_TASK_DONE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_editor_task_is_task_done,
                 __buffer,
             )
         };
@@ -1356,7 +1414,8 @@ impl UAutomationEditorTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_EDITOR_TASK_IS_TASK_DONE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_editor_task_is_task_done,
                 __buffer,
             )
         };
@@ -1402,7 +1461,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_HIGH_RES_SCREENSHOT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_high_res_screenshot,
                 __buffer,
             )
         };
@@ -1470,7 +1530,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_HIGH_RES_SCREENSHOT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_high_res_screenshot,
                 __buffer,
             )
         };
@@ -1489,7 +1550,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_OF_UI,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot_of_ui,
                 __buffer,
             )
         };
@@ -1523,7 +1585,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_OF_UI,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot_of_ui,
                 __buffer,
             )
         };
@@ -1543,7 +1606,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_AT_CAMERA,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot_at_camera,
                 __buffer,
             )
         };
@@ -1591,7 +1655,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT_AT_CAMERA,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot_at_camera,
                 __buffer,
             )
         };
@@ -1610,7 +1675,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot,
                 __buffer,
             )
         };
@@ -1647,7 +1713,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_TAKE_AUTOMATION_SCREENSHOT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_take_automation_screenshot,
                 __buffer,
             )
         };
@@ -1660,7 +1727,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_TEST_TELEMETRY_STORAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_test_telemetry_storage,
                 __buffer,
             )
         };
@@ -1677,7 +1745,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_TEST_TELEMETRY_STORAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_test_telemetry_storage,
                 __buffer,
             )
         };
@@ -1692,7 +1761,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_LOW,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_to_low,
                 __buffer,
             )
         };
@@ -1709,7 +1779,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_LOW,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_to_low,
                 __buffer,
             )
         };
@@ -1724,7 +1795,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_EPIC,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_to_epic,
                 __buffer,
             )
         };
@@ -1741,7 +1813,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_TO_EPIC,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_to_epic,
                 __buffer,
             )
         };
@@ -1757,7 +1830,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_LEVEL_RELATIVE_TO_MAX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_level_relative_to_max,
                 __buffer,
             )
         };
@@ -1777,7 +1851,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_SCALABILITY_QUALITY_LEVEL_RELATIVE_TO_MAX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_scalability_quality_level_relative_to_max,
                 __buffer,
             )
         };
@@ -1790,7 +1865,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VISUALIZE_BUFFER,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_viewport_visualize_buffer,
                 __buffer,
             )
         };
@@ -1807,7 +1883,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VISUALIZE_BUFFER,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_viewport_visualize_buffer,
                 __buffer,
             )
         };
@@ -1822,7 +1899,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VIEW_MODE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_viewport_view_mode,
                 __buffer,
             )
         };
@@ -1839,7 +1917,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_VIEWPORT_VIEW_MODE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_viewport_view_mode,
                 __buffer,
             )
         };
@@ -1852,7 +1931,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_active_viewport_wireframe_opacity,
                 __buffer,
             )
         };
@@ -1865,7 +1945,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_active_viewport_wireframe_opacity,
                 __buffer,
             )
         };
@@ -1880,7 +1961,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_active_viewport_view_mode,
                 __buffer,
             )
         };
@@ -1897,7 +1979,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_SET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_set_editor_active_viewport_view_mode,
                 __buffer,
             )
         };
@@ -1910,7 +1993,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_MAX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_inc_max,
                 __buffer,
             )
         };
@@ -1927,7 +2011,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_MAX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_inc_max,
                 __buffer,
             )
         };
@@ -1941,7 +2026,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_AVERAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_inc_average,
                 __buffer,
             )
         };
@@ -1958,7 +2044,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_INC_AVERAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_inc_average,
                 __buffer,
             )
         };
@@ -1972,7 +2059,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_MAX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_exc_max,
                 __buffer,
             )
         };
@@ -1989,7 +2077,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_MAX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_exc_max,
                 __buffer,
             )
         };
@@ -2003,7 +2092,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_AVERAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_exc_average,
                 __buffer,
             )
         };
@@ -2020,7 +2110,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_EXC_AVERAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_exc_average,
                 __buffer,
             )
         };
@@ -2034,7 +2125,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_CALL_COUNT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_call_count,
                 __buffer,
             )
         };
@@ -2051,7 +2143,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_STAT_CALL_COUNT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_stat_call_count,
                 __buffer,
             )
         };
@@ -2065,7 +2158,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_editor_active_viewport_wireframe_opacity,
                 __buffer,
             )
         };
@@ -2075,7 +2169,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_WIREFRAME_OPACITY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_editor_active_viewport_wireframe_opacity,
                 __buffer,
             )
         };
@@ -2089,7 +2184,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_editor_active_viewport_view_mode,
                 __buffer,
             )
         };
@@ -2099,7 +2195,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_EDITOR_ACTIVE_VIEWPORT_VIEW_MODE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_editor_active_viewport_view_mode,
                 __buffer,
             )
         };
@@ -2118,7 +2215,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_RENDERING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_default_screenshot_options_for_rendering,
                 __buffer,
             )
         };
@@ -2138,7 +2236,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_RENDERING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_default_screenshot_options_for_rendering,
                 __buffer,
             )
         };
@@ -2155,7 +2254,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_GAMEPLAY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_default_screenshot_options_for_gameplay,
                 __buffer,
             )
         };
@@ -2175,7 +2275,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_GET_DEFAULT_SCREENSHOT_OPTIONS_FOR_GAMEPLAY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_get_default_screenshot_options_for_gameplay,
                 __buffer,
             )
         };
@@ -2189,7 +2290,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_FINISH_LOADING_BEFORE_SCREENSHOT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_finish_loading_before_screenshot,
                 __buffer,
             )
         };
@@ -2199,7 +2301,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_FINISH_LOADING_BEFORE_SCREENSHOT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_finish_loading_before_screenshot,
                 __buffer,
             )
         };
@@ -2215,7 +2318,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ENABLE_STAT_GROUP,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_enable_stat_group,
                 __buffer,
             )
         };
@@ -2239,7 +2343,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ENABLE_STAT_GROUP,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_enable_stat_group,
                 __buffer,
             )
         };
@@ -2255,7 +2360,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_DISABLE_STAT_GROUP,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_disable_stat_group,
                 __buffer,
             )
         };
@@ -2279,7 +2385,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_DISABLE_STAT_GROUP,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_disable_stat_group,
                 __buffer,
             )
         };
@@ -2298,7 +2405,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_COMPARE_IMAGE_AGAINST_REFERENCE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_compare_image_against_reference,
                 __buffer,
             )
         };
@@ -2343,7 +2451,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_COMPARE_IMAGE_AGAINST_REFERENCE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_compare_image_against_reference,
                 __buffer,
             )
         };
@@ -2361,7 +2470,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_AUTOMATION_WAIT_FOR_LOADING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_automation_wait_for_loading,
                 __buffer,
             )
         };
@@ -2392,7 +2502,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_AUTOMATION_WAIT_FOR_LOADING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_automation_wait_for_loading,
                 __buffer,
             )
         };
@@ -2405,7 +2516,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ARE_AUTOMATED_TESTS_RUNNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_are_automated_tests_running,
                 __buffer,
             )
         };
@@ -2415,7 +2527,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ARE_AUTOMATED_TESTS_RUNNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_are_automated_tests_running,
                 __buffer,
             )
         };
@@ -2429,7 +2542,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_WARNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_warning,
                 __buffer,
             )
         };
@@ -2446,7 +2560,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_WARNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_warning,
                 __buffer,
             )
         };
@@ -2463,7 +2578,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_TELEMETRY_DATA,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_telemetry_data,
                 __buffer,
             )
         };
@@ -2494,7 +2610,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_TELEMETRY_DATA,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_telemetry_data,
                 __buffer,
             )
         };
@@ -2507,7 +2624,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_INFO,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_info,
                 __buffer,
             )
         };
@@ -2524,7 +2642,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_INFO,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_info,
                 __buffer,
             )
         };
@@ -2537,7 +2656,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_error,
                 __buffer,
             )
         };
@@ -2554,7 +2674,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_TEST_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_test_error,
                 __buffer,
             )
         };
@@ -2571,7 +2692,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_MESSAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_plain_log_message,
                 __buffer,
             )
         };
@@ -2602,7 +2724,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_MESSAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_plain_log_message,
                 __buffer,
             )
         };
@@ -2619,7 +2742,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_plain_log_error,
                 __buffer,
             )
         };
@@ -2650,7 +2774,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_PLAIN_LOG_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_plain_log_error,
                 __buffer,
             )
         };
@@ -2668,7 +2793,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_MESSAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_log_message,
                 __buffer,
             )
         };
@@ -2702,7 +2828,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_MESSAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_log_message,
                 __buffer,
             )
         };
@@ -2720,7 +2847,8 @@ impl UAutomationBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_log_error,
                 __buffer,
             )
         };
@@ -2754,7 +2882,8 @@ impl UAutomationBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_BLUEPRINT_FUNCTION_LIBRARY_ADD_EXPECTED_LOG_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_blueprint_function_library_add_expected_log_error,
                 __buffer,
             )
         };
@@ -2836,7 +2965,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_TIME_LIMIT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_time_limit,
                 __buffer,
             )
         };
@@ -2860,7 +2990,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_TIME_LIMIT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_time_limit,
                 __buffer,
             )
         };
@@ -2873,7 +3004,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_INTEGER,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_integer,
                 __buffer,
             )
         };
@@ -2889,7 +3021,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_INTEGER,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_integer,
                 __buffer,
             )
         };
@@ -2902,7 +3035,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_FLOAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_float,
                 __buffer,
             )
         };
@@ -2918,7 +3052,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_FLOAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_float,
                 __buffer,
             )
         };
@@ -2931,7 +3066,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_BOOLEAN,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_boolean,
                 __buffer,
             )
         };
@@ -2947,7 +3083,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE_FROM_BOOLEAN,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable_from_boolean,
                 __buffer,
             )
         };
@@ -2960,7 +3097,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable,
                 __buffer,
             )
         };
@@ -2980,7 +3118,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_SET_CONSOLE_VARIABLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_set_console_variable,
                 __buffer,
             )
         };
@@ -2996,7 +3135,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_REGISTER_AUTO_DESTROY_ACTOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_register_auto_destroy_actor,
                 __buffer,
             )
         };
@@ -3013,10 +3153,148 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_REGISTER_AUTO_DESTROY_ACTOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_register_auto_destroy_actor,
                 __buffer,
             )
         };
+    }
+    pub fn receive_test_finished(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_receive_test_finished,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_receive_test_finished,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_start_test(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_receive_start_test,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_receive_start_test,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_prepare_test(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_receive_prepare_test,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_receive_prepare_test,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_wants_re_run_check(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_on_wants_re_run_check,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_on_wants_re_run_check,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn on_additional_test_finished_message_request(
+        &self,
+        test_result: EFunctionalTestResult,
+    ) -> FString {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_on_additional_test_finished_message_request,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &test_result,
+                __buffer.add(0).cast::<EFunctionalTestResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_on_additional_test_finished_message_request,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FString>().read() }
     }
     pub fn log_message(&mut self, message: FString) {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -3026,7 +3304,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_LOG_MESSAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_log_message,
                 __buffer,
             )
         };
@@ -3043,7 +3322,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_LOG_MESSAGE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_log_message,
                 __buffer,
             )
         };
@@ -3056,7 +3336,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_IS_RUNNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_running,
                 __buffer,
             )
         };
@@ -3066,7 +3347,34 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_IS_RUNNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_running,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn is_ready(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_ready,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_ready,
                 __buffer,
             )
         };
@@ -3083,7 +3391,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_IS_ENABLED_IN_WORLD,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_enabled_in_world,
                 __buffer,
             )
         };
@@ -3100,7 +3409,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_IS_ENABLED_IN_WORLD,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_enabled_in_world,
                 __buffer,
             )
         };
@@ -3114,7 +3424,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_IS_ENABLED,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_enabled,
                 __buffer,
             )
         };
@@ -3124,7 +3435,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_IS_ENABLED,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_is_enabled,
                 __buffer,
             )
         };
@@ -3138,7 +3450,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_GET_CURRENT_RERUN_REASON,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_get_current_rerun_reason,
                 __buffer,
             )
         };
@@ -3148,7 +3461,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_GET_CURRENT_RERUN_REASON,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_get_current_rerun_reason,
                 __buffer,
             )
         };
@@ -3162,7 +3476,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_FINISH_TEST,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_finish_test,
                 __buffer,
             )
         };
@@ -3186,10 +3501,44 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_FINISH_TEST,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_finish_test,
                 __buffer,
             )
         };
+    }
+    pub fn debug_gather_relevant_actors(
+        &self,
+    ) -> TArray<UPtr<crate::bindings::engine::AActor>> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_debug_gather_relevant_actors,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_debug_gather_relevant_actors,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .read()
+        }
     }
     pub fn assert_value_int(
         &mut self,
@@ -3206,7 +3555,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_INT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_int,
                 __buffer,
             )
         };
@@ -3239,7 +3589,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_INT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_int,
                 __buffer,
             )
         };
@@ -3260,7 +3611,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_FLOAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_float,
                 __buffer,
             )
         };
@@ -3293,7 +3645,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_FLOAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_float,
                 __buffer,
             )
         };
@@ -3314,7 +3667,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_DOUBLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_double,
                 __buffer,
             )
         };
@@ -3347,7 +3701,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_DOUBLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_double,
                 __buffer,
             )
         };
@@ -3368,7 +3723,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_DATE_TIME,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_date_time,
                 __buffer,
             )
         };
@@ -3409,7 +3765,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_VALUE_DATE_TIME,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_value_date_time,
                 __buffer,
             )
         };
@@ -3428,7 +3785,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_TRUE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_true,
                 __buffer,
             )
         };
@@ -3455,7 +3813,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_TRUE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_true,
                 __buffer,
             )
         };
@@ -3475,7 +3834,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR4,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_vector4,
                 __buffer,
             )
         };
@@ -3509,7 +3869,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR4,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_vector4,
                 __buffer,
             )
         };
@@ -3529,7 +3890,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_vector2_d,
                 __buffer,
             )
         };
@@ -3563,7 +3925,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_vector2_d,
                 __buffer,
             )
         };
@@ -3583,7 +3946,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_vector,
                 __buffer,
             )
         };
@@ -3617,7 +3981,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_VECTOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_vector,
                 __buffer,
             )
         };
@@ -3637,7 +4002,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_TRANSFORM,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_transform,
                 __buffer,
             )
         };
@@ -3673,7 +4039,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_TRANSFORM,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_transform,
                 __buffer,
             )
         };
@@ -3693,7 +4060,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_STRING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_string,
                 __buffer,
             )
         };
@@ -3723,7 +4091,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_STRING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_string,
                 __buffer,
             )
         };
@@ -3743,7 +4112,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_ROTATOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_rotator,
                 __buffer,
             )
         };
@@ -3777,7 +4147,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_ROTATOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_rotator,
                 __buffer,
             )
         };
@@ -3797,7 +4168,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_QUAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_quat,
                 __buffer,
             )
         };
@@ -3831,7 +4203,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_QUAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_quat,
                 __buffer,
             )
         };
@@ -3851,7 +4224,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_PLANE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_plane,
                 __buffer,
             )
         };
@@ -3885,7 +4259,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_PLANE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_plane,
                 __buffer,
             )
         };
@@ -3905,7 +4280,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_MATRIX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_matrix,
                 __buffer,
             )
         };
@@ -3941,7 +4317,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_MATRIX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_matrix,
                 __buffer,
             )
         };
@@ -3961,7 +4338,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_BOX2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_box2_d,
                 __buffer,
             )
         };
@@ -3995,7 +4373,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_NOT_EQUAL_BOX2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_not_equal_box2_d,
                 __buffer,
             )
         };
@@ -4014,7 +4393,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_IS_VALID,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_is_valid,
                 __buffer,
             )
         };
@@ -4045,7 +4425,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_IS_VALID,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_is_valid,
                 __buffer,
             )
         };
@@ -4064,7 +4445,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_FALSE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_false,
                 __buffer,
             )
         };
@@ -4091,7 +4473,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_FALSE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_false,
                 __buffer,
             )
         };
@@ -4112,7 +4495,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR4,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_vector4,
                 __buffer,
             )
         };
@@ -4149,7 +4533,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR4,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_vector4,
                 __buffer,
             )
         };
@@ -4170,7 +4555,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_vector2_d,
                 __buffer,
             )
         };
@@ -4207,7 +4593,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_vector2_d,
                 __buffer,
             )
         };
@@ -4228,7 +4615,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_vector,
                 __buffer,
             )
         };
@@ -4265,7 +4653,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_VECTOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_vector,
                 __buffer,
             )
         };
@@ -4286,7 +4675,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRANSFORM,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_transform,
                 __buffer,
             )
         };
@@ -4329,7 +4719,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRANSFORM,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_transform,
                 __buffer,
             )
         };
@@ -4349,7 +4740,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRACE_QUERY_RESULTS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_trace_query_results,
                 __buffer,
             )
         };
@@ -4383,7 +4775,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_TRACE_QUERY_RESULTS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_trace_query_results,
                 __buffer,
             )
         };
@@ -4403,7 +4796,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_STRING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_string,
                 __buffer,
             )
         };
@@ -4433,7 +4827,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_STRING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_string,
                 __buffer,
             )
         };
@@ -4454,7 +4849,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR_ORIENTATION,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_rotator_orientation,
                 __buffer,
             )
         };
@@ -4491,7 +4887,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR_ORIENTATION,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_rotator_orientation,
                 __buffer,
             )
         };
@@ -4512,7 +4909,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_rotator,
                 __buffer,
             )
         };
@@ -4549,7 +4947,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_ROTATOR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_rotator,
                 __buffer,
             )
         };
@@ -4570,7 +4969,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_QUAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_quat,
                 __buffer,
             )
         };
@@ -4607,7 +5007,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_QUAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_quat,
                 __buffer,
             )
         };
@@ -4628,7 +5029,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_PLANE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_plane,
                 __buffer,
             )
         };
@@ -4665,7 +5067,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_PLANE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_plane,
                 __buffer,
             )
         };
@@ -4685,7 +5088,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_object,
                 __buffer,
             )
         };
@@ -4719,7 +5123,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_object,
                 __buffer,
             )
         };
@@ -4739,7 +5144,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_NAME,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_name,
                 __buffer,
             )
         };
@@ -4769,7 +5175,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_NAME,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_name,
                 __buffer,
             )
         };
@@ -4790,7 +5197,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_MATRIX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_matrix,
                 __buffer,
             )
         };
@@ -4833,7 +5241,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_MATRIX,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_matrix,
                 __buffer,
             )
         };
@@ -4853,7 +5262,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_INT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_int,
                 __buffer,
             )
         };
@@ -4879,7 +5289,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_INT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_int,
                 __buffer,
             )
         };
@@ -4900,7 +5311,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_FLOAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_float,
                 __buffer,
             )
         };
@@ -4929,7 +5341,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_FLOAT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_float,
                 __buffer,
             )
         };
@@ -4950,7 +5363,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_DOUBLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_double,
                 __buffer,
             )
         };
@@ -4979,7 +5393,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_DOUBLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_double,
                 __buffer,
             )
         };
@@ -5000,7 +5415,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOX2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_box2_d,
                 __buffer,
             )
         };
@@ -5039,7 +5455,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOX2_D,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_box2_d,
                 __buffer,
             )
         };
@@ -5059,7 +5476,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOOL,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_bool,
                 __buffer,
             )
         };
@@ -5085,7 +5503,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ASSERT_EQUAL_BOOL,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_assert_equal_bool,
                 __buffer,
             )
         };
@@ -5099,7 +5518,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_WARNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_warning,
                 __buffer,
             )
         };
@@ -5116,7 +5536,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_WARNING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_warning,
                 __buffer,
             )
         };
@@ -5129,7 +5550,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_RERUN,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_rerun,
                 __buffer,
             )
         };
@@ -5142,7 +5564,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_RERUN,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_rerun,
                 __buffer,
             )
         };
@@ -5155,7 +5578,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_INFO,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_info,
                 __buffer,
             )
         };
@@ -5172,7 +5596,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_INFO,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_info,
                 __buffer,
             )
         };
@@ -5185,7 +5610,8 @@ impl AFunctionalTest {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_error,
                 __buffer,
             )
         };
@@ -5202,7 +5628,8 @@ impl AFunctionalTest {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_TEST_ADD_ERROR,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_test_add_error,
                 __buffer,
             )
         };
@@ -5249,7 +5676,8 @@ impl AFunctionalAITestBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::A_FUNCTIONAL_AI_TEST_BASE_IS_ONE_OF_SPAWNED_PAWNS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_ai_test_base_is_one_of_spawned_pawns,
                 __buffer,
             )
         };
@@ -5266,7 +5694,8 @@ impl AFunctionalAITestBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::A_FUNCTIONAL_AI_TEST_BASE_IS_ONE_OF_SPAWNED_PAWNS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_functional_ai_test_base_is_one_of_spawned_pawns,
                 __buffer,
             )
         };
@@ -5324,7 +5753,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_WRITE_LOG_FILE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_write_log_file,
                 __buffer,
             )
         };
@@ -5348,7 +5778,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_WRITE_LOG_FILE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_write_log_file,
                 __buffer,
             )
         };
@@ -5361,7 +5792,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_TRIGGER_GPU_TRACE_IF_RECORD_FALLS_BELOW_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_trigger_gpu_trace_if_record_falls_below_budget,
                 __buffer,
             )
         };
@@ -5371,7 +5803,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_TRIGGER_GPU_TRACE_IF_RECORD_FALLS_BELOW_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_trigger_gpu_trace_if_record_falls_below_budget,
                 __buffer,
             )
         };
@@ -5384,7 +5817,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_TICK,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_tick,
                 __buffer,
             )
         };
@@ -5401,7 +5835,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_TICK,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_tick,
                 __buffer,
             )
         };
@@ -5414,7 +5849,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_STOP_CPU_PROFILING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_stop_cpu_profiling,
                 __buffer,
             )
         };
@@ -5424,7 +5860,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_STOP_CPU_PROFILING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_stop_cpu_profiling,
                 __buffer,
             )
         };
@@ -5437,7 +5874,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_START_CPU_PROFILING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_start_cpu_profiling,
                 __buffer,
             )
         };
@@ -5447,7 +5885,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_START_CPU_PROFILING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_start_cpu_profiling,
                 __buffer,
             )
         };
@@ -5460,7 +5899,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_SAMPLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_sample,
                 __buffer,
             )
         };
@@ -5477,7 +5917,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_SAMPLE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_sample,
                 __buffer,
             )
         };
@@ -5490,7 +5931,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_ON_BEGIN_TESTS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_on_begin_tests,
                 __buffer,
             )
         };
@@ -5500,7 +5942,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_ON_BEGIN_TESTS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_on_begin_tests,
                 __buffer,
             )
         };
@@ -5513,7 +5956,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_ON_ALL_TESTS_COMPLETE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_on_all_tests_complete,
                 __buffer,
             )
         };
@@ -5523,7 +5967,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_ON_ALL_TESTS_COMPLETE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_on_all_tests_complete,
                 __buffer,
             )
         };
@@ -5536,7 +5981,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_RECORDING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_recording,
                 __buffer,
             )
         };
@@ -5546,7 +5992,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_RECORDING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_recording,
                 __buffer,
             )
         };
@@ -5560,7 +6007,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_RENDER_THREAD_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_render_thread_budget,
                 __buffer,
             )
         };
@@ -5570,7 +6018,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_RENDER_THREAD_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_render_thread_budget,
                 __buffer,
             )
         };
@@ -5584,7 +6033,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GPU_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_gpu_budget,
                 __buffer,
             )
         };
@@ -5594,7 +6044,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GPU_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_gpu_budget,
                 __buffer,
             )
         };
@@ -5608,7 +6059,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GAME_THREAD_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_game_thread_budget,
                 __buffer,
             )
         };
@@ -5618,7 +6070,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_IS_CURRENT_RECORD_WITHIN_GAME_THREAD_BUDGET,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_is_current_record_within_game_thread_budget,
                 __buffer,
             )
         };
@@ -5632,7 +6085,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_END_STATS_FILE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_end_stats_file,
                 __buffer,
             )
         };
@@ -5642,7 +6096,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_END_STATS_FILE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_end_stats_file,
                 __buffer,
             )
         };
@@ -5655,7 +6110,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING_BASELINE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_end_recording_baseline,
                 __buffer,
             )
         };
@@ -5665,7 +6121,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING_BASELINE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_end_recording_baseline,
                 __buffer,
             )
         };
@@ -5678,7 +6135,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_end_recording,
                 __buffer,
             )
         };
@@ -5688,7 +6146,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_END_RECORDING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_end_recording,
                 __buffer,
             )
         };
@@ -5701,7 +6160,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_BEGIN_STATS_FILE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_begin_stats_file,
                 __buffer,
             )
         };
@@ -5718,7 +6178,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_BEGIN_STATS_FILE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_begin_stats_file,
                 __buffer,
             )
         };
@@ -5731,7 +6192,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING_BASELINE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_begin_recording_baseline,
                 __buffer,
             )
         };
@@ -5748,7 +6210,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING_BASELINE,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_begin_recording_baseline,
                 __buffer,
             )
         };
@@ -5767,7 +6230,8 @@ impl UAutomationPerformaceHelper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_begin_recording,
                 __buffer,
             )
         };
@@ -5805,7 +6269,8 @@ impl UAutomationPerformaceHelper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_AUTOMATION_PERFORMACE_HELPER_BEGIN_RECORDING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_automation_performace_helper_begin_recording,
                 __buffer,
             )
         };
@@ -5865,7 +6330,8 @@ impl UFunctionalTestingManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_FUNCTIONAL_TESTING_MANAGER_RUN_ALL_FUNCTIONAL_TESTS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_functional_testing_manager_run_all_functional_tests,
                 __buffer,
             )
         };
@@ -5899,7 +6365,8 @@ impl UFunctionalTestingManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_FUNCTIONAL_TESTING_MANAGER_RUN_ALL_FUNCTIONAL_TESTS,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_functional_testing_manager_run_all_functional_tests,
                 __buffer,
             )
         };
@@ -5925,6 +6392,56 @@ impl APhasedAutomationActorBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn on_functional_testing_complete(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_phased_automation_actor_base_on_functional_testing_complete,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_phased_automation_actor_base_on_functional_testing_complete,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_functional_testing_begin(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_phased_automation_actor_base_on_functional_testing_begin,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .a_phased_automation_actor_base_on_functional_testing_begin,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -5995,7 +6512,8 @@ impl UFunctionalTestUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_FUNCTIONAL_TEST_UTILITY_LIBRARY_TRACE_CHANNEL_TEST_UTIL,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_functional_test_utility_library_trace_channel_test_util,
                 __buffer,
             )
         };
@@ -6135,7 +6653,8 @@ impl UFunctionalTestUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_FUNCTIONAL_TEST_UTILITY_LIBRARY_TRACE_CHANNEL_TEST_UTIL,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_functional_test_utility_library_trace_channel_test_util,
                 __buffer,
             )
         };
@@ -6220,7 +6739,8 @@ impl UGroundTruthData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_SAVE_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_save_object,
                 __buffer,
             )
         };
@@ -6237,7 +6757,8 @@ impl UGroundTruthData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_SAVE_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_save_object,
                 __buffer,
             )
         };
@@ -6250,7 +6771,8 @@ impl UGroundTruthData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_RESET_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_reset_object,
                 __buffer,
             )
         };
@@ -6260,7 +6782,8 @@ impl UGroundTruthData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_RESET_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_reset_object,
                 __buffer,
             )
         };
@@ -6273,7 +6796,8 @@ impl UGroundTruthData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_LOAD_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_load_object,
                 __buffer,
             )
         };
@@ -6283,7 +6807,8 @@ impl UGroundTruthData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_LOAD_OBJECT,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_load_object,
                 __buffer,
             )
         };
@@ -6302,7 +6827,8 @@ impl UGroundTruthData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_CAN_MODIFY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_can_modify,
                 __buffer,
             )
         };
@@ -6312,7 +6838,8 @@ impl UGroundTruthData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_GROUND_TRUTH_DATA_CAN_MODIFY,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_ground_truth_data_can_modify,
                 __buffer,
             )
         };
@@ -6397,7 +6924,8 @@ impl UTraceQueryTestResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::functional_testing::U_TRACE_QUERY_TEST_RESULTS_TO_STRING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_trace_query_test_results_to_string,
                 __buffer,
             )
         };
@@ -6407,7 +6935,8 @@ impl UTraceQueryTestResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::functional_testing::U_TRACE_QUERY_TEST_RESULTS_TO_STRING,
+                crate::bindings::functional_testing::__FUNCTION_PTRS
+                    .u_trace_query_test_results_to_string,
                 __buffer,
             )
         };

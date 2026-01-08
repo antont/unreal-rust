@@ -1,26 +1,35 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_LOCATION_SERVICES_STOP_LOCATION_SERVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCATION_SERVICES_START_LOCATION_SERVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCATION_SERVICES_IS_LOCATION_ACCURACY_AVAILABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCATION_SERVICES_INIT_LOCATION_SERVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCATION_SERVICES_GET_LOCATION_SERVICES_IMPL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCATION_SERVICES_GET_LAST_KNOWN_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCATION_SERVICES_ARE_LOCATION_SERVICES_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_location_services_stop_location_services: *mut crate::ffi::UFunctionOpague,
+    pub u_location_services_start_location_services: *mut crate::ffi::UFunctionOpague,
+    pub u_location_services_is_location_accuracy_available: *mut crate::ffi::UFunctionOpague,
+    pub u_location_services_init_location_services: *mut crate::ffi::UFunctionOpague,
+    pub u_location_services_get_location_services_impl: *mut crate::ffi::UFunctionOpague,
+    pub u_location_services_get_last_known_location: *mut crate::ffi::UFunctionOpague,
+    pub u_location_services_are_location_services_enabled: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_location_services_stop_location_services: std::ptr::null_mut(),
+            u_location_services_start_location_services: std::ptr::null_mut(),
+            u_location_services_is_location_accuracy_available: std::ptr::null_mut(),
+            u_location_services_init_location_services: std::ptr::null_mut(),
+            u_location_services_get_location_services_impl: std::ptr::null_mut(),
+            u_location_services_get_last_known_location: std::ptr::null_mut(),
+            u_location_services_are_location_services_enabled: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -30,49 +39,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopLocationServices"),
-            &raw mut U_LOCATION_SERVICES_STOP_LOCATION_SERVICES,
+            &raw mut __FUNCTION_PTRS.u_location_services_stop_location_services,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartLocationServices"),
-            &raw mut U_LOCATION_SERVICES_START_LOCATION_SERVICES,
+            &raw mut __FUNCTION_PTRS.u_location_services_start_location_services,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLocationAccuracyAvailable"),
-            &raw mut U_LOCATION_SERVICES_IS_LOCATION_ACCURACY_AVAILABLE,
+            &raw mut __FUNCTION_PTRS.u_location_services_is_location_accuracy_available,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitLocationServices"),
-            &raw mut U_LOCATION_SERVICES_INIT_LOCATION_SERVICES,
+            &raw mut __FUNCTION_PTRS.u_location_services_init_location_services,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocationServicesImpl"),
-            &raw mut U_LOCATION_SERVICES_GET_LOCATION_SERVICES_IMPL,
+            &raw mut __FUNCTION_PTRS.u_location_services_get_location_services_impl,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLastKnownLocation"),
-            &raw mut U_LOCATION_SERVICES_GET_LAST_KNOWN_LOCATION,
+            &raw mut __FUNCTION_PTRS.u_location_services_get_last_known_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AreLocationServicesEnabled"),
-            &raw mut U_LOCATION_SERVICES_ARE_LOCATION_SERVICES_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_location_services_are_location_services_enabled,
         );
     }
 }
@@ -135,7 +144,8 @@ impl ULocationServices {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_STOP_LOCATION_SERVICES,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_stop_location_services,
                 __buffer,
             )
         };
@@ -145,7 +155,8 @@ impl ULocationServices {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_STOP_LOCATION_SERVICES,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_stop_location_services,
                 __buffer,
             )
         };
@@ -159,7 +170,8 @@ impl ULocationServices {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_START_LOCATION_SERVICES,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_start_location_services,
                 __buffer,
             )
         };
@@ -169,7 +181,8 @@ impl ULocationServices {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_START_LOCATION_SERVICES,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_start_location_services,
                 __buffer,
             )
         };
@@ -183,7 +196,8 @@ impl ULocationServices {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_IS_LOCATION_ACCURACY_AVAILABLE,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_is_location_accuracy_available,
                 __buffer,
             )
         };
@@ -200,7 +214,8 @@ impl ULocationServices {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_IS_LOCATION_ACCURACY_AVAILABLE,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_is_location_accuracy_available,
                 __buffer,
             )
         };
@@ -218,7 +233,8 @@ impl ULocationServices {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_INIT_LOCATION_SERVICES,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_init_location_services,
                 __buffer,
             )
         };
@@ -249,7 +265,8 @@ impl ULocationServices {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_INIT_LOCATION_SERVICES,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_init_location_services,
                 __buffer,
             )
         };
@@ -263,7 +280,8 @@ impl ULocationServices {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LOCATION_SERVICES_IMPL,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_get_location_services_impl,
                 __buffer,
             )
         };
@@ -273,7 +291,8 @@ impl ULocationServices {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LOCATION_SERVICES_IMPL,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_get_location_services_impl,
                 __buffer,
             )
         };
@@ -287,7 +306,8 @@ impl ULocationServices {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LAST_KNOWN_LOCATION,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_get_last_known_location,
                 __buffer,
             )
         };
@@ -297,7 +317,8 @@ impl ULocationServices {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_GET_LAST_KNOWN_LOCATION,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_get_last_known_location,
                 __buffer,
             )
         };
@@ -311,7 +332,8 @@ impl ULocationServices {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_ARE_LOCATION_SERVICES_ENABLED,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_are_location_services_enabled,
                 __buffer,
             )
         };
@@ -321,7 +343,8 @@ impl ULocationServices {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::location_services_bp_library::U_LOCATION_SERVICES_ARE_LOCATION_SERVICES_ENABLED,
+                crate::bindings::location_services_bp_library::__FUNCTION_PTRS
+                    .u_location_services_are_location_services_enabled,
                 __buffer,
             )
         };

@@ -1,432 +1,441 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_FACTORY_SCRIPT_FACTORY_CREATE_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FACTORY_SCRIPT_FACTORY_CAN_IMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_EDITOR_TOOLKIT_MENU_CONTEXT_GET_EDITING_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FBX_IMPORT_UI_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUDIM_TEXTURE_FUNCTION_LIBRARY_MAKE_UDIM_VIRTUAL_TEXTURE_FROM_TEXTURE2_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_UNLOCK_SELECTED_GROUPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_UNGROUP_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_UNGROUP_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_SET_GROUPING_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_REMOVE_SELECTED_FROM_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_LOCK_SELECTED_GROUPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_IS_GROUPING_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_GROUP_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_GROUP_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_GET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_CAN_GROUP_SELECTED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_CAN_GROUP_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_GROUPING_UTILS_ADD_SELECTED_TO_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_IMPORT_TASK_IS_ASYNC_IMPORT_COMPLETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_IMPORT_TASK_GET_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COOK_FUNCTION_LIBRARY_COOK_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_SET_LEVEL_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_SET_LEVELS_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_MOVE_SELECTED_ACTORS_TO_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_MOVE_ACTORS_TO_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_MAKE_LEVEL_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_K2_REMOVE_LEVEL_FROM_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD_WITH_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_GET_LEVELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_UTILS_CREATE_NEW_STREAMING_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL_FROM_SEARCH_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_REIMPORT_FBX_SCENE_FACTORY_SCRIPT_REIMPORT_HELPER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_UNLOAD_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_CURRENT_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_RELOAD_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_MAP_FROM_TEMPLATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_BLANK_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_IMPORT_SCENE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_MAP_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_CONTENT_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LOADING_AND_SAVING_UTILS_EXPORT_SCENE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_UPDATE_ALL_VIEW_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_UPDATE_ALL_ACTORS_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_ALL_VIEWS_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_TRY_GET_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_TOGGLE_LAYER_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_TOGGLE_LAYERS_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_SET_LAYER_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_SET_LAYERS_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_RENAME_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_REMOVE_LEVEL_LAYER_INFORMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_MAKE_ALL_LAYERS_VISIBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_IS_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_IS_ACTOR_VALID_FOR_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_INITIALIZE_NEW_ACTOR_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_GET_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_GET_SELECTED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_GET_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_EDITOR_REFRESH_LAYER_BROWSER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_EDITOR_MAP_CHANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTORS_FROM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTOR_FROM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_DELETE_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_DELETE_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_CREATE_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_LEVEL_LAYER_INFORMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_ALL_LAYERS_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_ALL_LAYER_NAMES_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PACKAGE_TOOLS_SANITIZE_PACKAGE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PACKAGE_TOOLS_PACKAGE_NAME_TO_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PACKAGE_TOOLS_FILENAME_TO_PACKAGE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PROPERTY_EDITOR_TEST_ACTOR_GET_OPTIONS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_EDITOR_SUBSYSTEM_OPEN_EDITOR_FOR_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_EDITOR_SUBSYSTEM_CLOSE_ALL_EDITORS_FOR_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REPARENT_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_RENAME_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTION_CONTAINERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_BASE_GAME_COLLECTION_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_ASSETS_IN_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_EMPTY_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_DESTROY_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_OR_EMPTY_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_COLLECTION_EXISTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SET_SELECTED_LEVEL_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SET_COMPONENT_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_SELECTION_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SELECT_NOTHING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL_CHILDREN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_INVERT_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_GET_SELECTED_LEVEL_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_GET_ACTOR_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_SELECTED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_DELETE_SELECTED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_CONVERT_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ACTOR_SUBSYSTEM_CLEAR_ACTOR_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_SORT_BY_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_SET_METADATA_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_SET_DIRTY_FLAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_RENAME_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_RENAME_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_RENAME_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_REMOVE_ON_EXTRACT_ASSET_FROM_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_REMOVE_METADATA_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_ON_EXTRACT_ASSET_FROM_FILE_DYNAMIC_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_MAKE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_LOAD_BLUEPRINT_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_LOAD_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS_BY_TAG_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_GET_TAG_VALUES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_GET_PATH_NAME_FOR_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG_VALUES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_GET_LOADED_ASSET_FILENAME_LENGTH_FOR_COOKING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_GET_ASSET_FILENAME_LENGTH_FOR_COOKING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_GET_ALL_ASSETS_BY_META_DATA_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_FIND_PACKAGE_REFERENCERS_FOR_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_FIND_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_CONTAIN_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DOES_ASSET_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DO_ASSETS_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_CONSOLIDATE_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_SUBSYSTEM_ADD_ON_EXTRACT_ASSET_FROM_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_TOGGLE_PREVIEW_PLATFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_SET_PREVIEW_PLATFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_PREVIEW_PLATFORM_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_EDITOR_SUBSYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_DISABLE_PREVIEW_PLATFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMPORT_SUBSYSTEM_ON_ASSET_REIMPORT_DYN_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMPORT_SUBSYSTEM_ON_ASSET_PRE_IMPORT_DYN_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMPORT_SUBSYSTEM_ON_ASSET_POST_LOD_IMPORT_DYN_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMPORT_SUBSYSTEM_ON_ASSET_POST_IMPORT_DYN_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UNREAL_EDITOR_SUBSYSTEM_SET_LEVEL_VIEWPORT_CAMERA_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UNREAL_EDITOR_SUBSYSTEM_GET_LEVEL_VIEWPORT_CAMERA_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UNREAL_EDITOR_SUBSYSTEM_GET_GAME_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UNREAL_EDITOR_SUBSYSTEM_GET_EDITOR_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_factory_script_factory_create_file: *mut crate::ffi::UFunctionOpague,
+    pub u_factory_script_factory_can_import: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_editor_toolkit_menu_context_get_editing_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_fbx_import_ui_reset_to_default: *mut crate::ffi::UFunctionOpague,
+    pub uudim_texture_function_library_make_udim_virtual_texture_from_texture2_ds: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_unlock_selected_groups: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_ungroup_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_ungroup_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_set_grouping_active: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_remove_selected_from_group: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_lock_selected_groups: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_is_grouping_active: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_group_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_group_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_get: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_can_group_selected_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_can_group_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_grouping_utils_add_selected_to_group: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_import_task_is_async_import_complete: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_import_task_get_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_cook_function_library_cook_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_set_level_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_set_levels_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_move_selected_actors_to_level: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_move_actors_to_level: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_make_level_current: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_k2_remove_level_from_world: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_k2_add_level_to_world_with_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_k2_add_level_to_world: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_get_levels: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_utils_create_new_streaming_level: *mut crate::ffi::UFunctionOpague,
+    pub u_material_import_helpers_find_existing_material_from_search_location: *mut crate::ffi::UFunctionOpague,
+    pub u_material_import_helpers_find_existing_material: *mut crate::ffi::UFunctionOpague,
+    pub u_reimport_fbx_scene_factory_script_reimport_helper: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_unload_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_save_packages_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_save_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_save_map: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_save_dirty_packages_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_save_dirty_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_save_current_level: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_reload_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_new_map_from_template: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_new_blank_map: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_load_map_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_load_map: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_import_scene: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_get_dirty_map_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_get_dirty_content_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_fully_load_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_fully_load_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_loading_and_saving_utils_export_scene: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_update_all_view_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_update_all_actors_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_update_actor_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_update_actor_all_views_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_try_get_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_toggle_layer_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_toggle_layers_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_set_layer_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_set_layers_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_select_actors_in_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_select_actors_in_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_rename_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_remove_selected_actors_from_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_remove_selected_actors_from_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_remove_level_layer_information: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_remove_actors_from_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_remove_actors_from_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_remove_actor_from_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_remove_actor_from_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_make_all_layers_visible: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_is_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_is_actor_valid_for_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_initialize_new_actor_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_get_world: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_get_selected_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_get_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_get_actors_from_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_get_actors_from_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_editor_refresh_layer_browser: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_editor_map_change: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_disassociate_actors_from_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_disassociate_actor_from_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_delete_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_delete_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_create_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_append_actors_from_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_append_actors_from_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_selected_actors_to_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_selected_actors_to_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_level_layer_information: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_all_layers_to: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_all_layer_names_to: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_actor_to_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_actor_to_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_actors_to_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_subsystem_add_actors_to_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_package_tools_sanitize_package_name: *mut crate::ffi::UFunctionOpague,
+    pub u_package_tools_package_name_to_filename: *mut crate::ffi::UFunctionOpague,
+    pub u_package_tools_filename_to_package_name: *mut crate::ffi::UFunctionOpague,
+    pub a_property_editor_test_actor_get_options_func: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_editor_subsystem_open_editor_for_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_editor_subsystem_close_all_editors_for_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_reparent_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_rename_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_remove_assets_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_remove_asset_ptrs_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_remove_asset_ptr_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_remove_asset_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_remove_asset_datas_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_remove_asset_data_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_collections_containing_asset_ptr: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_collections_containing_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_collections_containing_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_collections_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_collections: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_collection_containers: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_base_game_collection_container: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_get_assets_in_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_empty_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_destroy_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_create_or_empty_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_create_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_collection_exists: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_add_asset_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_add_assets_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_add_asset_ptr_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_add_asset_ptrs_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_add_asset_data_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_collection_manager_scripting_subsystem_add_asset_datas_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_spawn_actor_from_object: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_spawn_actor_from_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_set_selected_level_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_set_component_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_set_actor_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_set_actor_selection_state: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_select_nothing: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_select_all_children: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_select_all: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_invert_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_get_selected_level_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_get_all_level_actors_components: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_get_all_level_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_get_actor_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_duplicate_selected_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_duplicate_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_duplicate_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_destroy_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_destroy_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_delete_selected_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_convert_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_actor_subsystem_clear_actor_selection_set: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_sort_by_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_set_metadata_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_set_dirty_flag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_save_loaded_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_save_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_save_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_save_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_rename_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_rename_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_rename_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_remove_on_extract_asset_from_file: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_remove_metadata_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_on_extract_asset_from_file_dynamic_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_make_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_load_blueprint_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_load_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_list_assets_by_tag_value: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_list_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_get_tag_values: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_get_path_name_for_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_get_metadata_tag_values: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_get_metadata_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_get_loaded_asset_filename_length_for_cooking: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_get_asset_filename_length_for_cooking: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_get_all_assets_by_meta_data_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_find_package_referencers_for_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_find_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_duplicate_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_duplicate_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_duplicate_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_does_directory_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_does_directory_contain_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_does_asset_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_do_assets_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_delete_loaded_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_delete_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_delete_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_delete_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_consolidate_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_checkout_loaded_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_checkout_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_checkout_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_checkout_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_subsystem_add_on_extract_asset_from_file: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_subsystem_blueprint_library_toggle_preview_platform: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_subsystem_blueprint_library_set_preview_platform: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_subsystem_blueprint_library_get_preview_platform_options: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_subsystem_blueprint_library_get_editor_subsystem: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_subsystem_blueprint_library_disable_preview_platform: *mut crate::ffi::UFunctionOpague,
+    pub u_import_subsystem_on_asset_reimport_dyn_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_import_subsystem_on_asset_pre_import_dyn_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_import_subsystem_on_asset_post_lod_import_dyn_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_import_subsystem_on_asset_post_import_dyn_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_unreal_editor_subsystem_set_level_viewport_camera_info: *mut crate::ffi::UFunctionOpague,
+    pub u_unreal_editor_subsystem_get_level_viewport_camera_info: *mut crate::ffi::UFunctionOpague,
+    pub u_unreal_editor_subsystem_get_game_world: *mut crate::ffi::UFunctionOpague,
+    pub u_unreal_editor_subsystem_get_editor_world: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_factory_script_factory_create_file: std::ptr::null_mut(),
+            u_factory_script_factory_can_import: std::ptr::null_mut(),
+            u_asset_editor_toolkit_menu_context_get_editing_objects: std::ptr::null_mut(),
+            u_fbx_import_ui_reset_to_default: std::ptr::null_mut(),
+            uudim_texture_function_library_make_udim_virtual_texture_from_texture2_ds: std::ptr::null_mut(),
+            u_actor_grouping_utils_unlock_selected_groups: std::ptr::null_mut(),
+            u_actor_grouping_utils_ungroup_selected: std::ptr::null_mut(),
+            u_actor_grouping_utils_ungroup_actors: std::ptr::null_mut(),
+            u_actor_grouping_utils_set_grouping_active: std::ptr::null_mut(),
+            u_actor_grouping_utils_remove_selected_from_group: std::ptr::null_mut(),
+            u_actor_grouping_utils_lock_selected_groups: std::ptr::null_mut(),
+            u_actor_grouping_utils_is_grouping_active: std::ptr::null_mut(),
+            u_actor_grouping_utils_group_selected: std::ptr::null_mut(),
+            u_actor_grouping_utils_group_actors: std::ptr::null_mut(),
+            u_actor_grouping_utils_get: std::ptr::null_mut(),
+            u_actor_grouping_utils_can_group_selected_actors: std::ptr::null_mut(),
+            u_actor_grouping_utils_can_group_actors: std::ptr::null_mut(),
+            u_actor_grouping_utils_add_selected_to_group: std::ptr::null_mut(),
+            u_asset_import_task_is_async_import_complete: std::ptr::null_mut(),
+            u_asset_import_task_get_objects: std::ptr::null_mut(),
+            u_cook_function_library_cook_asset: std::ptr::null_mut(),
+            u_editor_level_utils_set_level_visibility: std::ptr::null_mut(),
+            u_editor_level_utils_set_levels_visibility: std::ptr::null_mut(),
+            u_editor_level_utils_move_selected_actors_to_level: std::ptr::null_mut(),
+            u_editor_level_utils_move_actors_to_level: std::ptr::null_mut(),
+            u_editor_level_utils_make_level_current: std::ptr::null_mut(),
+            u_editor_level_utils_k2_remove_level_from_world: std::ptr::null_mut(),
+            u_editor_level_utils_k2_add_level_to_world_with_transform: std::ptr::null_mut(),
+            u_editor_level_utils_k2_add_level_to_world: std::ptr::null_mut(),
+            u_editor_level_utils_get_levels: std::ptr::null_mut(),
+            u_editor_level_utils_create_new_streaming_level: std::ptr::null_mut(),
+            u_material_import_helpers_find_existing_material_from_search_location: std::ptr::null_mut(),
+            u_material_import_helpers_find_existing_material: std::ptr::null_mut(),
+            u_reimport_fbx_scene_factory_script_reimport_helper: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_unload_packages: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_save_packages_with_dialog: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_save_packages: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_save_map: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_save_dirty_packages_with_dialog: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_save_dirty_packages: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_save_current_level: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_reload_packages: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_new_map_from_template: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_new_blank_map: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_load_map_with_dialog: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_load_map: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_import_scene: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_get_dirty_map_packages: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_get_dirty_content_packages: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_fully_load_packages: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_fully_load_assets: std::ptr::null_mut(),
+            u_editor_loading_and_saving_utils_export_scene: std::ptr::null_mut(),
+            u_layers_subsystem_update_all_view_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_update_all_actors_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_update_actor_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_update_actor_all_views_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_try_get_layer: std::ptr::null_mut(),
+            u_layers_subsystem_toggle_layer_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_toggle_layers_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_set_layer_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_set_layers_visibility: std::ptr::null_mut(),
+            u_layers_subsystem_select_actors_in_layers: std::ptr::null_mut(),
+            u_layers_subsystem_select_actors_in_layer: std::ptr::null_mut(),
+            u_layers_subsystem_rename_layer: std::ptr::null_mut(),
+            u_layers_subsystem_remove_selected_actors_from_layers: std::ptr::null_mut(),
+            u_layers_subsystem_remove_selected_actors_from_layer: std::ptr::null_mut(),
+            u_layers_subsystem_remove_level_layer_information: std::ptr::null_mut(),
+            u_layers_subsystem_remove_actors_from_layers: std::ptr::null_mut(),
+            u_layers_subsystem_remove_actors_from_layer: std::ptr::null_mut(),
+            u_layers_subsystem_remove_actor_from_layers: std::ptr::null_mut(),
+            u_layers_subsystem_remove_actor_from_layer: std::ptr::null_mut(),
+            u_layers_subsystem_make_all_layers_visible: std::ptr::null_mut(),
+            u_layers_subsystem_is_layer: std::ptr::null_mut(),
+            u_layers_subsystem_is_actor_valid_for_layer: std::ptr::null_mut(),
+            u_layers_subsystem_initialize_new_actor_layers: std::ptr::null_mut(),
+            u_layers_subsystem_get_world: std::ptr::null_mut(),
+            u_layers_subsystem_get_selected_actors: std::ptr::null_mut(),
+            u_layers_subsystem_get_layer: std::ptr::null_mut(),
+            u_layers_subsystem_get_actors_from_layers: std::ptr::null_mut(),
+            u_layers_subsystem_get_actors_from_layer: std::ptr::null_mut(),
+            u_layers_subsystem_editor_refresh_layer_browser: std::ptr::null_mut(),
+            u_layers_subsystem_editor_map_change: std::ptr::null_mut(),
+            u_layers_subsystem_disassociate_actors_from_layers: std::ptr::null_mut(),
+            u_layers_subsystem_disassociate_actor_from_layers: std::ptr::null_mut(),
+            u_layers_subsystem_delete_layers: std::ptr::null_mut(),
+            u_layers_subsystem_delete_layer: std::ptr::null_mut(),
+            u_layers_subsystem_create_layer: std::ptr::null_mut(),
+            u_layers_subsystem_append_actors_from_layers: std::ptr::null_mut(),
+            u_layers_subsystem_append_actors_from_layer: std::ptr::null_mut(),
+            u_layers_subsystem_add_selected_actors_to_layers: std::ptr::null_mut(),
+            u_layers_subsystem_add_selected_actors_to_layer: std::ptr::null_mut(),
+            u_layers_subsystem_add_level_layer_information: std::ptr::null_mut(),
+            u_layers_subsystem_add_all_layers_to: std::ptr::null_mut(),
+            u_layers_subsystem_add_all_layer_names_to: std::ptr::null_mut(),
+            u_layers_subsystem_add_actor_to_layers: std::ptr::null_mut(),
+            u_layers_subsystem_add_actor_to_layer: std::ptr::null_mut(),
+            u_layers_subsystem_add_actors_to_layers: std::ptr::null_mut(),
+            u_layers_subsystem_add_actors_to_layer: std::ptr::null_mut(),
+            u_package_tools_sanitize_package_name: std::ptr::null_mut(),
+            u_package_tools_package_name_to_filename: std::ptr::null_mut(),
+            u_package_tools_filename_to_package_name: std::ptr::null_mut(),
+            a_property_editor_test_actor_get_options_func: std::ptr::null_mut(),
+            u_asset_editor_subsystem_open_editor_for_assets: std::ptr::null_mut(),
+            u_asset_editor_subsystem_close_all_editors_for_asset: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_reparent_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_rename_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_remove_assets_from_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_remove_asset_ptrs_from_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_remove_asset_ptr_from_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_remove_asset_from_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_remove_asset_datas_from_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_remove_asset_data_from_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_collections_containing_asset_ptr: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_collections_containing_asset_data: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_collections_containing_asset: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_collections_by_name: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_collections: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_collection_containers: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_base_game_collection_container: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_get_assets_in_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_empty_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_destroy_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_create_or_empty_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_create_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_collection_exists: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_add_asset_to_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_add_assets_to_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_add_asset_ptr_to_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_add_asset_ptrs_to_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_add_asset_data_to_collection: std::ptr::null_mut(),
+            u_collection_manager_scripting_subsystem_add_asset_datas_to_collection: std::ptr::null_mut(),
+            u_editor_actor_subsystem_spawn_actor_from_object: std::ptr::null_mut(),
+            u_editor_actor_subsystem_spawn_actor_from_class: std::ptr::null_mut(),
+            u_editor_actor_subsystem_set_selected_level_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_set_component_transform: std::ptr::null_mut(),
+            u_editor_actor_subsystem_set_actor_transform: std::ptr::null_mut(),
+            u_editor_actor_subsystem_set_actor_selection_state: std::ptr::null_mut(),
+            u_editor_actor_subsystem_select_nothing: std::ptr::null_mut(),
+            u_editor_actor_subsystem_select_all_children: std::ptr::null_mut(),
+            u_editor_actor_subsystem_select_all: std::ptr::null_mut(),
+            u_editor_actor_subsystem_invert_selection: std::ptr::null_mut(),
+            u_editor_actor_subsystem_get_selected_level_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_get_all_level_actors_components: std::ptr::null_mut(),
+            u_editor_actor_subsystem_get_all_level_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_get_actor_reference: std::ptr::null_mut(),
+            u_editor_actor_subsystem_duplicate_selected_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_duplicate_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_duplicate_actor: std::ptr::null_mut(),
+            u_editor_actor_subsystem_destroy_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_destroy_actor: std::ptr::null_mut(),
+            u_editor_actor_subsystem_delete_selected_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_convert_actors: std::ptr::null_mut(),
+            u_editor_actor_subsystem_clear_actor_selection_set: std::ptr::null_mut(),
+            u_editor_asset_subsystem_sort_by_meta_data: std::ptr::null_mut(),
+            u_editor_asset_subsystem_set_metadata_tag: std::ptr::null_mut(),
+            u_editor_asset_subsystem_set_dirty_flag: std::ptr::null_mut(),
+            u_editor_asset_subsystem_save_loaded_assets: std::ptr::null_mut(),
+            u_editor_asset_subsystem_save_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_save_directory: std::ptr::null_mut(),
+            u_editor_asset_subsystem_save_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_rename_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_rename_directory: std::ptr::null_mut(),
+            u_editor_asset_subsystem_rename_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_remove_on_extract_asset_from_file: std::ptr::null_mut(),
+            u_editor_asset_subsystem_remove_metadata_tag: std::ptr::null_mut(),
+            u_editor_asset_subsystem_on_extract_asset_from_file_dynamic_delegate_signature: std::ptr::null_mut(),
+            u_editor_asset_subsystem_make_directory: std::ptr::null_mut(),
+            u_editor_asset_subsystem_load_blueprint_class: std::ptr::null_mut(),
+            u_editor_asset_subsystem_load_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_list_assets_by_tag_value: std::ptr::null_mut(),
+            u_editor_asset_subsystem_list_assets: std::ptr::null_mut(),
+            u_editor_asset_subsystem_get_tag_values: std::ptr::null_mut(),
+            u_editor_asset_subsystem_get_path_name_for_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_get_metadata_tag_values: std::ptr::null_mut(),
+            u_editor_asset_subsystem_get_metadata_tag: std::ptr::null_mut(),
+            u_editor_asset_subsystem_get_loaded_asset_filename_length_for_cooking: std::ptr::null_mut(),
+            u_editor_asset_subsystem_get_asset_filename_length_for_cooking: std::ptr::null_mut(),
+            u_editor_asset_subsystem_get_all_assets_by_meta_data_tags: std::ptr::null_mut(),
+            u_editor_asset_subsystem_find_package_referencers_for_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_find_asset_data: std::ptr::null_mut(),
+            u_editor_asset_subsystem_duplicate_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_duplicate_directory: std::ptr::null_mut(),
+            u_editor_asset_subsystem_duplicate_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_does_directory_exist: std::ptr::null_mut(),
+            u_editor_asset_subsystem_does_directory_contain_assets: std::ptr::null_mut(),
+            u_editor_asset_subsystem_does_asset_exist: std::ptr::null_mut(),
+            u_editor_asset_subsystem_do_assets_exist: std::ptr::null_mut(),
+            u_editor_asset_subsystem_delete_loaded_assets: std::ptr::null_mut(),
+            u_editor_asset_subsystem_delete_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_delete_directory: std::ptr::null_mut(),
+            u_editor_asset_subsystem_delete_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_consolidate_assets: std::ptr::null_mut(),
+            u_editor_asset_subsystem_checkout_loaded_assets: std::ptr::null_mut(),
+            u_editor_asset_subsystem_checkout_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_checkout_directory: std::ptr::null_mut(),
+            u_editor_asset_subsystem_checkout_asset: std::ptr::null_mut(),
+            u_editor_asset_subsystem_add_on_extract_asset_from_file: std::ptr::null_mut(),
+            u_editor_subsystem_blueprint_library_toggle_preview_platform: std::ptr::null_mut(),
+            u_editor_subsystem_blueprint_library_set_preview_platform: std::ptr::null_mut(),
+            u_editor_subsystem_blueprint_library_get_preview_platform_options: std::ptr::null_mut(),
+            u_editor_subsystem_blueprint_library_get_editor_subsystem: std::ptr::null_mut(),
+            u_editor_subsystem_blueprint_library_disable_preview_platform: std::ptr::null_mut(),
+            u_import_subsystem_on_asset_reimport_dyn_delegate_signature: std::ptr::null_mut(),
+            u_import_subsystem_on_asset_pre_import_dyn_delegate_signature: std::ptr::null_mut(),
+            u_import_subsystem_on_asset_post_lod_import_dyn_delegate_signature: std::ptr::null_mut(),
+            u_import_subsystem_on_asset_post_import_dyn_delegate_signature: std::ptr::null_mut(),
+            u_unreal_editor_subsystem_set_level_viewport_camera_info: std::ptr::null_mut(),
+            u_unreal_editor_subsystem_get_level_viewport_camera_info: std::ptr::null_mut(),
+            u_unreal_editor_subsystem_get_game_world: std::ptr::null_mut(),
+            u_unreal_editor_subsystem_get_editor_world: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -436,14 +445,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptFactoryCreateFile"),
-            &raw mut U_FACTORY_SCRIPT_FACTORY_CREATE_FILE,
+            &raw mut __FUNCTION_PTRS.u_factory_script_factory_create_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptFactoryCanImport"),
-            &raw mut U_FACTORY_SCRIPT_FACTORY_CAN_IMPORT,
+            &raw mut __FUNCTION_PTRS.u_factory_script_factory_can_import,
         );
     }
     unsafe {
@@ -454,7 +463,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEditingObjects"),
-            &raw mut U_ASSET_EDITOR_TOOLKIT_MENU_CONTEXT_GET_EDITING_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_editor_toolkit_menu_context_get_editing_objects,
         );
     }
     unsafe {
@@ -465,7 +475,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut U_FBX_IMPORT_UI_RESET_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_fbx_import_ui_reset_to_default,
         );
     }
     unsafe {
@@ -476,7 +486,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeUDIMVirtualTextureFromTexture2Ds"),
-            &raw mut UUDIM_TEXTURE_FUNCTION_LIBRARY_MAKE_UDIM_VIRTUAL_TEXTURE_FROM_TEXTURE2_DS,
+            &raw mut __FUNCTION_PTRS
+                .uudim_texture_function_library_make_udim_virtual_texture_from_texture2_ds,
         );
     }
     unsafe {
@@ -487,91 +498,91 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnlockSelectedGroups"),
-            &raw mut U_ACTOR_GROUPING_UTILS_UNLOCK_SELECTED_GROUPS,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_unlock_selected_groups,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UngroupSelected"),
-            &raw mut U_ACTOR_GROUPING_UTILS_UNGROUP_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_ungroup_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UngroupActors"),
-            &raw mut U_ACTOR_GROUPING_UTILS_UNGROUP_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_ungroup_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGroupingActive"),
-            &raw mut U_ACTOR_GROUPING_UTILS_SET_GROUPING_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_set_grouping_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSelectedFromGroup"),
-            &raw mut U_ACTOR_GROUPING_UTILS_REMOVE_SELECTED_FROM_GROUP,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_remove_selected_from_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LockSelectedGroups"),
-            &raw mut U_ACTOR_GROUPING_UTILS_LOCK_SELECTED_GROUPS,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_lock_selected_groups,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsGroupingActive"),
-            &raw mut U_ACTOR_GROUPING_UTILS_IS_GROUPING_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_is_grouping_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GroupSelected"),
-            &raw mut U_ACTOR_GROUPING_UTILS_GROUP_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_group_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GroupActors"),
-            &raw mut U_ACTOR_GROUPING_UTILS_GROUP_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_group_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Get"),
-            &raw mut U_ACTOR_GROUPING_UTILS_GET,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_get,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanGroupSelectedActors"),
-            &raw mut U_ACTOR_GROUPING_UTILS_CAN_GROUP_SELECTED_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_can_group_selected_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanGroupActors"),
-            &raw mut U_ACTOR_GROUPING_UTILS_CAN_GROUP_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_can_group_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSelectedToGroup"),
-            &raw mut U_ACTOR_GROUPING_UTILS_ADD_SELECTED_TO_GROUP,
+            &raw mut __FUNCTION_PTRS.u_actor_grouping_utils_add_selected_to_group,
         );
     }
     unsafe {
@@ -582,14 +593,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAsyncImportComplete"),
-            &raw mut U_ASSET_IMPORT_TASK_IS_ASYNC_IMPORT_COMPLETE,
+            &raw mut __FUNCTION_PTRS.u_asset_import_task_is_async_import_complete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjects"),
-            &raw mut U_ASSET_IMPORT_TASK_GET_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_asset_import_task_get_objects,
         );
     }
     unsafe {
@@ -600,7 +611,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CookAsset"),
-            &raw mut U_COOK_FUNCTION_LIBRARY_COOK_ASSET,
+            &raw mut __FUNCTION_PTRS.u_cook_function_library_cook_asset,
         );
     }
     unsafe {
@@ -611,70 +622,71 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelVisibility"),
-            &raw mut U_EDITOR_LEVEL_UTILS_SET_LEVEL_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_set_level_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelsVisibility"),
-            &raw mut U_EDITOR_LEVEL_UTILS_SET_LEVELS_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_set_levels_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveSelectedActorsToLevel"),
-            &raw mut U_EDITOR_LEVEL_UTILS_MOVE_SELECTED_ACTORS_TO_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_move_selected_actors_to_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveActorsToLevel"),
-            &raw mut U_EDITOR_LEVEL_UTILS_MOVE_ACTORS_TO_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_move_actors_to_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLevelCurrent"),
-            &raw mut U_EDITOR_LEVEL_UTILS_MAKE_LEVEL_CURRENT,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_make_level_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_RemoveLevelFromWorld"),
-            &raw mut U_EDITOR_LEVEL_UTILS_K2_REMOVE_LEVEL_FROM_WORLD,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_k2_remove_level_from_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_AddLevelToWorldWithTransform"),
-            &raw mut U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD_WITH_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_utils_k2_add_level_to_world_with_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_AddLevelToWorld"),
-            &raw mut U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_k2_add_level_to_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevels"),
-            &raw mut U_EDITOR_LEVEL_UTILS_GET_LEVELS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_get_levels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewStreamingLevel"),
-            &raw mut U_EDITOR_LEVEL_UTILS_CREATE_NEW_STREAMING_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_editor_level_utils_create_new_streaming_level,
         );
     }
     unsafe {
@@ -685,14 +697,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindExistingMaterialFromSearchLocation"),
-            &raw mut U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL_FROM_SEARCH_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_import_helpers_find_existing_material_from_search_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindExistingMaterial"),
-            &raw mut U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_material_import_helpers_find_existing_material,
         );
     }
     unsafe {
@@ -703,7 +716,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptReimportHelper"),
-            &raw mut U_REIMPORT_FBX_SCENE_FACTORY_SCRIPT_REIMPORT_HELPER,
+            &raw mut __FUNCTION_PTRS.u_reimport_fbx_scene_factory_script_reimport_helper,
         );
     }
     unsafe {
@@ -714,126 +727,134 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnloadPackages"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_UNLOAD_PACKAGES,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_unload_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SavePackagesWithDialog"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_save_packages_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SavePackages"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_save_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveMap"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_MAP,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_save_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveDirtyPackagesWithDialog"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_save_dirty_packages_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveDirtyPackages"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_save_dirty_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveCurrentLevel"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_CURRENT_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_save_current_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReloadPackages"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_RELOAD_PACKAGES,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_reload_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NewMapFromTemplate"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_MAP_FROM_TEMPLATE,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_new_map_from_template,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NewBlankMap"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_BLANK_MAP,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_new_blank_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadMapWithDialog"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_load_map_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadMap"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_load_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportScene"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_IMPORT_SCENE,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_import_scene,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDirtyMapPackages"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_MAP_PACKAGES,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_get_dirty_map_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDirtyContentPackages"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_CONTENT_PACKAGES,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_get_dirty_content_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FullyLoadPackages"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_PACKAGES,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_loading_and_saving_utils_fully_load_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FullyLoadAssets"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_fully_load_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportScene"),
-            &raw mut U_EDITOR_LOADING_AND_SAVING_UTILS_EXPORT_SCENE,
+            &raw mut __FUNCTION_PTRS.u_editor_loading_and_saving_utils_export_scene,
         );
     }
     unsafe {
@@ -844,322 +865,323 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateAllViewVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_UPDATE_ALL_VIEW_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_update_all_view_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateAllActorsVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_UPDATE_ALL_ACTORS_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_update_all_actors_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateActorVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_update_actor_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateActorAllViewsVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_ALL_VIEWS_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_update_actor_all_views_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryGetLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_TRY_GET_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_try_get_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ToggleLayerVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_TOGGLE_LAYER_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_toggle_layer_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ToggleLayersVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_TOGGLE_LAYERS_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_toggle_layers_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLayerVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_SET_LAYER_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_set_layer_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLayersVisibility"),
-            &raw mut U_LAYERS_SUBSYSTEM_SET_LAYERS_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_set_layers_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectActorsInLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_select_actors_in_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectActorsInLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_select_actors_in_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_RENAME_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_rename_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSelectedActorsFromLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYERS,
+            &raw mut __FUNCTION_PTRS
+                .u_layers_subsystem_remove_selected_actors_from_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSelectedActorsFromLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_remove_selected_actors_from_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLevelLayerInformation"),
-            &raw mut U_LAYERS_SUBSYSTEM_REMOVE_LEVEL_LAYER_INFORMATION,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_remove_level_layer_information,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorsFromLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_remove_actors_from_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorsFromLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_remove_actors_from_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorFromLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_remove_actor_from_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorFromLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_remove_actor_from_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeAllLayersVisible"),
-            &raw mut U_LAYERS_SUBSYSTEM_MAKE_ALL_LAYERS_VISIBLE,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_make_all_layers_visible,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_IS_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_is_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActorValidForLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_IS_ACTOR_VALID_FOR_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_is_actor_valid_for_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitializeNewActorLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_INITIALIZE_NEW_ACTOR_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_initialize_new_actor_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorld"),
-            &raw mut U_LAYERS_SUBSYSTEM_GET_WORLD,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_get_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedActors"),
-            &raw mut U_LAYERS_SUBSYSTEM_GET_SELECTED_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_get_selected_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_GET_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_get_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorsFromLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_get_actors_from_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorsFromLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_get_actors_from_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorRefreshLayerBrowser"),
-            &raw mut U_LAYERS_SUBSYSTEM_EDITOR_REFRESH_LAYER_BROWSER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_editor_refresh_layer_browser,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorMapChange"),
-            &raw mut U_LAYERS_SUBSYSTEM_EDITOR_MAP_CHANGE,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_editor_map_change,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisassociateActorsFromLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTORS_FROM_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_disassociate_actors_from_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisassociateActorFromLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTOR_FROM_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_disassociate_actor_from_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_DELETE_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_delete_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_DELETE_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_delete_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_CREATE_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_create_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AppendActorsFromLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_append_actors_from_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AppendActorsFromLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_append_actors_from_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSelectedActorsToLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_selected_actors_to_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSelectedActorsToLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_selected_actors_to_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLevelLayerInformation"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_LEVEL_LAYER_INFORMATION,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_level_layer_information,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAllLayersTo"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_ALL_LAYERS_TO,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_all_layers_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAllLayerNamesTo"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_ALL_LAYER_NAMES_TO,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_all_layer_names_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorToLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_actor_to_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorToLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_actor_to_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorsToLayers"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYERS,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_actors_to_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorsToLayer"),
-            &raw mut U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_subsystem_add_actors_to_layer,
         );
     }
     unsafe {
@@ -1170,21 +1192,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SanitizePackageName"),
-            &raw mut U_PACKAGE_TOOLS_SANITIZE_PACKAGE_NAME,
+            &raw mut __FUNCTION_PTRS.u_package_tools_sanitize_package_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PackageNameToFilename"),
-            &raw mut U_PACKAGE_TOOLS_PACKAGE_NAME_TO_FILENAME,
+            &raw mut __FUNCTION_PTRS.u_package_tools_package_name_to_filename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FilenameToPackageName"),
-            &raw mut U_PACKAGE_TOOLS_FILENAME_TO_PACKAGE_NAME,
+            &raw mut __FUNCTION_PTRS.u_package_tools_filename_to_package_name,
         );
     }
     unsafe {
@@ -1195,7 +1217,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOptionsFunc"),
-            &raw mut A_PROPERTY_EDITOR_TEST_ACTOR_GET_OPTIONS_FUNC,
+            &raw mut __FUNCTION_PTRS.a_property_editor_test_actor_get_options_func,
         );
     }
     unsafe {
@@ -1206,14 +1228,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenEditorForAssets"),
-            &raw mut U_ASSET_EDITOR_SUBSYSTEM_OPEN_EDITOR_FOR_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_editor_subsystem_open_editor_for_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CloseAllEditorsForAsset"),
-            &raw mut U_ASSET_EDITOR_SUBSYSTEM_CLOSE_ALL_EDITORS_FOR_ASSET,
+            &raw mut __FUNCTION_PTRS.u_asset_editor_subsystem_close_all_editors_for_asset,
         );
     }
     unsafe {
@@ -1224,189 +1246,216 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReparentCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REPARENT_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_reparent_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_RENAME_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_rename_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetsFromCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_remove_assets_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetPtrsFromCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_remove_asset_ptrs_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetPtrFromCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_remove_asset_ptr_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetFromCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_remove_asset_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetDatasFromCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_remove_asset_datas_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetDataFromCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_remove_asset_data_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetPtr"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_collections_containing_asset_ptr,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetData"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_collections_containing_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionsContainingAsset"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_collections_containing_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionsByName"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_collections_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollections"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_collections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionContainers"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTION_CONTAINERS,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_collection_containers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBaseGameCollectionContainer"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_BASE_GAME_COLLECTION_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_base_game_collection_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsInCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_get_assets_in_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EmptyCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_EMPTY_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_empty_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DestroyCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_DESTROY_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_destroy_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateOrEmptyCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_OR_EMPTY_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_create_or_empty_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_create_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CollectionExists"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_COLLECTION_EXISTS,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_collection_exists,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetToCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_add_asset_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetsToCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_add_assets_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetPtrToCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_add_asset_ptr_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetPtrsToCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_add_asset_ptrs_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetDataToCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_add_asset_data_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetDatasToCollection"),
-            &raw mut U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_collection_manager_scripting_subsystem_add_asset_datas_to_collection,
         );
     }
     unsafe {
@@ -1417,154 +1466,155 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnActorFromObject"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_spawn_actor_from_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnActorFromClass"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_CLASS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_spawn_actor_from_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelectedLevelActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SET_SELECTED_LEVEL_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_set_selected_level_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetComponentTransform"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SET_COMPONENT_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_set_component_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActorTransform"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_set_actor_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActorSelectionState"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_SELECTION_STATE,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_set_actor_selection_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectNothing"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SELECT_NOTHING,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_select_nothing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectAllChildren"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL_CHILDREN,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_select_all_children,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectAll"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_select_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InvertSelection"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_INVERT_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_invert_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedLevelActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_GET_SELECTED_LEVEL_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_get_selected_level_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllLevelActorsComponents"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_actor_subsystem_get_all_level_actors_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllLevelActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_get_all_level_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_GET_ACTOR_REFERENCE,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_get_actor_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateSelectedActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_SELECTED_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_duplicate_selected_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_duplicate_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateActor"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_duplicate_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DestroyActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_destroy_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DestroyActor"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_destroy_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteSelectedActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_DELETE_SELECTED_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_delete_selected_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertActors"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_CONVERT_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_convert_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
-            &raw mut U_EDITOR_ACTOR_SUBSYSTEM_CLEAR_ACTOR_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS.u_editor_actor_subsystem_clear_actor_selection_set,
         );
     }
     unsafe {
@@ -1575,84 +1625,85 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortByMetaData"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_SORT_BY_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_sort_by_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMetadataTag"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_SET_METADATA_TAG,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_set_metadata_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDirtyFlag"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_SET_DIRTY_FLAG,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_set_dirty_flag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveLoadedAssets"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_save_loaded_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_save_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveDirectory"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_save_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_SAVE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_save_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_RENAME_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_rename_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameDirectory"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_RENAME_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_rename_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_RENAME_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_rename_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveOnExtractAssetFromFile"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_REMOVE_ON_EXTRACT_ASSET_FROM_FILE,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_remove_on_extract_asset_from_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMetadataTag"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_REMOVE_METADATA_TAG,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_remove_metadata_tag,
         );
         (bindings
             .core_fns
@@ -1661,224 +1712,232 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "OnExtractAssetFromFileDynamic__DelegateSignature",
             ),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_ON_EXTRACT_ASSET_FROM_FILE_DYNAMIC_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_on_extract_asset_from_file_dynamic_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeDirectory"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_MAKE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_make_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadBlueprintClass"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_LOAD_BLUEPRINT_CLASS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_load_blueprint_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_LOAD_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_load_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ListAssetsByTagValue"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS_BY_TAG_VALUE,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_list_assets_by_tag_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ListAssets"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_list_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTagValues"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_GET_TAG_VALUES,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_get_tag_values,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathNameForLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_GET_PATH_NAME_FOR_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_get_path_name_for_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetadataTagValues"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG_VALUES,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_get_metadata_tag_values,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetadataTag"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_get_metadata_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoadedAssetFilenameLengthForCooking"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_GET_LOADED_ASSET_FILENAME_LENGTH_FOR_COOKING,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_get_loaded_asset_filename_length_for_cooking,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetFilenameLengthForCooking"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_GET_ASSET_FILENAME_LENGTH_FOR_COOKING,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_get_asset_filename_length_for_cooking,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllAssetsByMetaDataTags"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_GET_ALL_ASSETS_BY_META_DATA_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_get_all_assets_by_meta_data_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPackageReferencersForAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_find_package_referencers_for_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindAssetData"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_FIND_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_find_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_duplicate_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateDirectory"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_duplicate_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_duplicate_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesDirectoryExist"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_EXIST,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_does_directory_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesDirectoryContainAssets"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_CONTAIN_ASSETS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_does_directory_contain_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesAssetExist"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DOES_ASSET_EXIST,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_does_asset_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoAssetsExist"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DO_ASSETS_EXIST,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_do_assets_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteLoadedAssets"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_delete_loaded_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_delete_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteDirectory"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_delete_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_DELETE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_delete_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConsolidateAssets"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_CONSOLIDATE_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_consolidate_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutLoadedAssets"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_checkout_loaded_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_checkout_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutDirectory"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_checkout_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutAsset"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_subsystem_checkout_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddOnExtractAssetFromFile"),
-            &raw mut U_EDITOR_ASSET_SUBSYSTEM_ADD_ON_EXTRACT_ASSET_FROM_FILE,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_subsystem_add_on_extract_asset_from_file,
         );
     }
     unsafe {
@@ -1889,35 +1948,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TogglePreviewPlatform"),
-            &raw mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_TOGGLE_PREVIEW_PLATFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_subsystem_blueprint_library_toggle_preview_platform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreviewPlatform"),
-            &raw mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_SET_PREVIEW_PLATFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_subsystem_blueprint_library_set_preview_platform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviewPlatformOptions"),
-            &raw mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_PREVIEW_PLATFORM_OPTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_subsystem_blueprint_library_get_preview_platform_options,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEditorSubsystem"),
-            &raw mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_EDITOR_SUBSYSTEM,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_subsystem_blueprint_library_get_editor_subsystem,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisablePreviewPlatform"),
-            &raw mut U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_DISABLE_PREVIEW_PLATFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_subsystem_blueprint_library_disable_preview_platform,
         );
     }
     unsafe {
@@ -1928,28 +1992,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnAssetReimport_Dyn__DelegateSignature"),
-            &raw mut U_IMPORT_SUBSYSTEM_ON_ASSET_REIMPORT_DYN_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_import_subsystem_on_asset_reimport_dyn_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnAssetPreImport_Dyn__DelegateSignature"),
-            &raw mut U_IMPORT_SUBSYSTEM_ON_ASSET_PRE_IMPORT_DYN_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_import_subsystem_on_asset_pre_import_dyn_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnAssetPostLODImport_Dyn__DelegateSignature"),
-            &raw mut U_IMPORT_SUBSYSTEM_ON_ASSET_POST_LOD_IMPORT_DYN_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_import_subsystem_on_asset_post_lod_import_dyn_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnAssetPostImport_Dyn__DelegateSignature"),
-            &raw mut U_IMPORT_SUBSYSTEM_ON_ASSET_POST_IMPORT_DYN_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_import_subsystem_on_asset_post_import_dyn_delegate_signature,
         );
     }
     unsafe {
@@ -1960,28 +2028,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelViewportCameraInfo"),
-            &raw mut U_UNREAL_EDITOR_SUBSYSTEM_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_unreal_editor_subsystem_set_level_viewport_camera_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelViewportCameraInfo"),
-            &raw mut U_UNREAL_EDITOR_SUBSYSTEM_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_unreal_editor_subsystem_get_level_viewport_camera_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGameWorld"),
-            &raw mut U_UNREAL_EDITOR_SUBSYSTEM_GET_GAME_WORLD,
+            &raw mut __FUNCTION_PTRS.u_unreal_editor_subsystem_get_game_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEditorWorld"),
-            &raw mut U_UNREAL_EDITOR_SUBSYSTEM_GET_EDITOR_WORLD,
+            &raw mut __FUNCTION_PTRS.u_unreal_editor_subsystem_get_editor_world,
         );
     }
 }
@@ -2063,6 +2133,75 @@ impl UFactory {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn script_factory_create_file(
+        &mut self,
+        in_task: UPtr<UAssetImportTask>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_factory_script_factory_create_file,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_task,
+                __buffer.add(0).cast::<UPtr<UAssetImportTask>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_factory_script_factory_create_file,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn script_factory_can_import(&mut self, filename: FString) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_factory_script_factory_can_import,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &filename,
+                __buffer.add(0).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_factory_script_factory_can_import,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -3405,7 +3544,8 @@ impl UAssetEditorToolkitMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ASSET_EDITOR_TOOLKIT_MENU_CONTEXT_GET_EDITING_OBJECTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_editor_toolkit_menu_context_get_editing_objects,
                 __buffer,
             )
         };
@@ -3415,7 +3555,8 @@ impl UAssetEditorToolkitMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ASSET_EDITOR_TOOLKIT_MENU_CONTEXT_GET_EDITING_OBJECTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_editor_toolkit_menu_context_get_editing_objects,
                 __buffer,
             )
         };
@@ -4434,7 +4575,8 @@ impl UFbxImportUI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_FBX_IMPORT_UI_RESET_TO_DEFAULT,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_fbx_import_ui_reset_to_default,
                 __buffer,
             )
         };
@@ -4444,7 +4586,8 @@ impl UFbxImportUI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_FBX_IMPORT_UI_RESET_TO_DEFAULT,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_fbx_import_ui_reset_to_default,
                 __buffer,
             )
         };
@@ -7039,7 +7182,8 @@ impl UUDIMTextureFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::UUDIM_TEXTURE_FUNCTION_LIBRARY_MAKE_UDIM_VIRTUAL_TEXTURE_FROM_TEXTURE2_DS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .uudim_texture_function_library_make_udim_virtual_texture_from_texture2_ds,
                 __buffer,
             )
         };
@@ -7088,7 +7232,8 @@ impl UUDIMTextureFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::UUDIM_TEXTURE_FUNCTION_LIBRARY_MAKE_UDIM_VIRTUAL_TEXTURE_FROM_TEXTURE2_DS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .uudim_texture_function_library_make_udim_virtual_texture_from_texture2_ds,
                 __buffer,
             )
         };
@@ -7545,7 +7690,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNLOCK_SELECTED_GROUPS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_unlock_selected_groups,
                 __buffer,
             )
         };
@@ -7555,7 +7701,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNLOCK_SELECTED_GROUPS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_unlock_selected_groups,
                 __buffer,
             )
         };
@@ -7568,7 +7715,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_SELECTED,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_ungroup_selected,
                 __buffer,
             )
         };
@@ -7578,7 +7726,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_SELECTED,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_ungroup_selected,
                 __buffer,
             )
         };
@@ -7594,7 +7743,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_ungroup_actors,
                 __buffer,
             )
         };
@@ -7611,7 +7761,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_UNGROUP_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_ungroup_actors,
                 __buffer,
             )
         };
@@ -7624,7 +7775,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_SET_GROUPING_ACTIVE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_set_grouping_active,
                 __buffer,
             )
         };
@@ -7641,7 +7793,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_SET_GROUPING_ACTIVE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_set_grouping_active,
                 __buffer,
             )
         };
@@ -7654,7 +7807,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_REMOVE_SELECTED_FROM_GROUP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_remove_selected_from_group,
                 __buffer,
             )
         };
@@ -7664,7 +7818,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_REMOVE_SELECTED_FROM_GROUP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_remove_selected_from_group,
                 __buffer,
             )
         };
@@ -7677,7 +7832,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_LOCK_SELECTED_GROUPS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_lock_selected_groups,
                 __buffer,
             )
         };
@@ -7687,7 +7843,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_LOCK_SELECTED_GROUPS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_lock_selected_groups,
                 __buffer,
             )
         };
@@ -7700,7 +7857,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_IS_GROUPING_ACTIVE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_is_grouping_active,
                 __buffer,
             )
         };
@@ -7710,7 +7868,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_IS_GROUPING_ACTIVE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_is_grouping_active,
                 __buffer,
             )
         };
@@ -7724,7 +7883,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_SELECTED,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_group_selected,
                 __buffer,
             )
         };
@@ -7734,7 +7894,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_SELECTED,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_group_selected,
                 __buffer,
             )
         };
@@ -7751,7 +7912,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_group_actors,
                 __buffer,
             )
         };
@@ -7768,7 +7930,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GROUP_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_group_actors,
                 __buffer,
             )
         };
@@ -7782,7 +7945,7 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_actor_grouping_utils_get,
                 __buffer,
             )
         };
@@ -7792,7 +7955,7 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_GET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_actor_grouping_utils_get,
                 __buffer,
             )
         };
@@ -7806,7 +7969,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_can_group_selected_actors,
                 __buffer,
             )
         };
@@ -7816,7 +7980,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_can_group_selected_actors,
                 __buffer,
             )
         };
@@ -7833,7 +7998,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_can_group_actors,
                 __buffer,
             )
         };
@@ -7850,7 +8016,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_CAN_GROUP_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_can_group_actors,
                 __buffer,
             )
         };
@@ -7864,7 +8031,8 @@ impl UActorGroupingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_ADD_SELECTED_TO_GROUP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_add_selected_to_group,
                 __buffer,
             )
         };
@@ -7874,7 +8042,8 @@ impl UActorGroupingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ACTOR_GROUPING_UTILS_ADD_SELECTED_TO_GROUP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_actor_grouping_utils_add_selected_to_group,
                 __buffer,
             )
         };
@@ -8217,7 +8386,8 @@ impl UAssetImportTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_IS_ASYNC_IMPORT_COMPLETE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_import_task_is_async_import_complete,
                 __buffer,
             )
         };
@@ -8227,7 +8397,8 @@ impl UAssetImportTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_IS_ASYNC_IMPORT_COMPLETE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_import_task_is_async_import_complete,
                 __buffer,
             )
         };
@@ -8241,7 +8412,8 @@ impl UAssetImportTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_GET_OBJECTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_import_task_get_objects,
                 __buffer,
             )
         };
@@ -8251,7 +8423,8 @@ impl UAssetImportTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ASSET_IMPORT_TASK_GET_OBJECTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_import_task_get_objects,
                 __buffer,
             )
         };
@@ -9881,7 +10054,8 @@ impl UCookFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COOK_FUNCTION_LIBRARY_COOK_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_cook_function_library_cook_asset,
                 __buffer,
             )
         };
@@ -9919,7 +10093,8 @@ impl UCookFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COOK_FUNCTION_LIBRARY_COOK_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_cook_function_library_cook_asset,
                 __buffer,
             )
         };
@@ -10042,7 +10217,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVEL_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_set_level_visibility,
                 __buffer,
             )
         };
@@ -10080,7 +10256,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVEL_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_set_level_visibility,
                 __buffer,
             )
         };
@@ -10098,7 +10275,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVELS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_set_levels_visibility,
                 __buffer,
             )
         };
@@ -10136,7 +10314,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_SET_LEVELS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_set_levels_visibility,
                 __buffer,
             )
         };
@@ -10152,7 +10331,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_SELECTED_ACTORS_TO_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_move_selected_actors_to_level,
                 __buffer,
             )
         };
@@ -10176,7 +10356,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_SELECTED_ACTORS_TO_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_move_selected_actors_to_level,
                 __buffer,
             )
         };
@@ -10195,7 +10376,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_ACTORS_TO_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_move_actors_to_level,
                 __buffer,
             )
         };
@@ -10235,7 +10417,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MOVE_ACTORS_TO_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_move_actors_to_level,
                 __buffer,
             )
         };
@@ -10251,7 +10434,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MAKE_LEVEL_CURRENT,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_make_level_current,
                 __buffer,
             )
         };
@@ -10268,7 +10452,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_MAKE_LEVEL_CURRENT,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_make_level_current,
                 __buffer,
             )
         };
@@ -10285,7 +10470,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_REMOVE_LEVEL_FROM_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_k2_remove_level_from_world,
                 __buffer,
             )
         };
@@ -10316,7 +10502,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_REMOVE_LEVEL_FROM_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_k2_remove_level_from_world,
                 __buffer,
             )
         };
@@ -10335,7 +10522,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD_WITH_TRANSFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_k2_add_level_to_world_with_transform,
                 __buffer,
             )
         };
@@ -10375,7 +10563,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD_WITH_TRANSFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_k2_add_level_to_world_with_transform,
                 __buffer,
             )
         };
@@ -10398,7 +10587,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_k2_add_level_to_world,
                 __buffer,
             )
         };
@@ -10431,7 +10621,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_K2_ADD_LEVEL_TO_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_k2_add_level_to_world,
                 __buffer,
             )
         };
@@ -10452,7 +10643,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_GET_LEVELS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_get_levels,
                 __buffer,
             )
         };
@@ -10469,7 +10661,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_GET_LEVELS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_get_levels,
                 __buffer,
             )
         };
@@ -10492,7 +10685,8 @@ impl UEditorLevelUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_CREATE_NEW_STREAMING_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_create_new_streaming_level,
                 __buffer,
             )
         };
@@ -10525,7 +10719,8 @@ impl UEditorLevelUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LEVEL_UTILS_CREATE_NEW_STREAMING_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_level_utils_create_new_streaming_level,
                 __buffer,
             )
         };
@@ -11512,7 +11707,8 @@ impl UMaterialImportHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL_FROM_SEARCH_LOCATION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_material_import_helpers_find_existing_material_from_search_location,
                 __buffer,
             )
         };
@@ -11550,7 +11746,8 @@ impl UMaterialImportHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL_FROM_SEARCH_LOCATION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_material_import_helpers_find_existing_material_from_search_location,
                 __buffer,
             )
         };
@@ -11577,7 +11774,8 @@ impl UMaterialImportHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_material_import_helpers_find_existing_material,
                 __buffer,
             )
         };
@@ -11615,7 +11813,8 @@ impl UMaterialImportHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_MATERIAL_IMPORT_HELPERS_FIND_EXISTING_MATERIAL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_material_import_helpers_find_existing_material,
                 __buffer,
             )
         };
@@ -12322,7 +12521,8 @@ impl UReimportFbxSceneFactory {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_REIMPORT_FBX_SCENE_FACTORY_SCRIPT_REIMPORT_HELPER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_reimport_fbx_scene_factory_script_reimport_helper,
                 __buffer,
             )
         };
@@ -12339,7 +12539,8 @@ impl UReimportFbxSceneFactory {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_REIMPORT_FBX_SCENE_FACTORY_SCRIPT_REIMPORT_HELPER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_reimport_fbx_scene_factory_script_reimport_helper,
                 __buffer,
             )
         };
@@ -12377,7 +12578,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_UNLOAD_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_unload_packages,
                 __buffer,
             )
         };
@@ -12410,7 +12612,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_UNLOAD_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_unload_packages,
                 __buffer,
             )
         };
@@ -12432,7 +12635,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES_WITH_DIALOG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_packages_with_dialog,
                 __buffer,
             )
         };
@@ -12458,7 +12662,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES_WITH_DIALOG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_packages_with_dialog,
                 __buffer,
             )
         };
@@ -12475,7 +12680,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_packages,
                 __buffer,
             )
         };
@@ -12501,7 +12707,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_packages,
                 __buffer,
             )
         };
@@ -12518,7 +12725,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_MAP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_map,
                 __buffer,
             )
         };
@@ -12542,7 +12750,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_MAP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_map,
                 __buffer,
             )
         };
@@ -12559,7 +12768,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES_WITH_DIALOG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_dirty_packages_with_dialog,
                 __buffer,
             )
         };
@@ -12583,7 +12793,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES_WITH_DIALOG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_dirty_packages_with_dialog,
                 __buffer,
             )
         };
@@ -12600,7 +12811,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_dirty_packages,
                 __buffer,
             )
         };
@@ -12624,7 +12836,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_DIRTY_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_dirty_packages,
                 __buffer,
             )
         };
@@ -12638,7 +12851,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_CURRENT_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_current_level,
                 __buffer,
             )
         };
@@ -12648,7 +12862,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_SAVE_CURRENT_LEVEL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_save_current_level,
                 __buffer,
             )
         };
@@ -12667,7 +12882,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_RELOAD_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_reload_packages,
                 __buffer,
             )
         };
@@ -12707,7 +12923,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_RELOAD_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_reload_packages,
                 __buffer,
             )
         };
@@ -12729,7 +12946,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_MAP_FROM_TEMPLATE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_new_map_from_template,
                 __buffer,
             )
         };
@@ -12753,7 +12971,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_MAP_FROM_TEMPLATE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_new_map_from_template,
                 __buffer,
             )
         };
@@ -12771,7 +12990,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_BLANK_MAP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_new_blank_map,
                 __buffer,
             )
         };
@@ -12788,7 +13008,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_NEW_BLANK_MAP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_new_blank_map,
                 __buffer,
             )
         };
@@ -12802,7 +13023,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP_WITH_DIALOG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_load_map_with_dialog,
                 __buffer,
             )
         };
@@ -12812,7 +13034,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP_WITH_DIALOG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_load_map_with_dialog,
                 __buffer,
             )
         };
@@ -12826,7 +13049,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_load_map,
                 __buffer,
             )
         };
@@ -12843,7 +13067,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_LOAD_MAP,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_load_map,
                 __buffer,
             )
         };
@@ -12859,7 +13084,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_IMPORT_SCENE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_import_scene,
                 __buffer,
             )
         };
@@ -12876,7 +13102,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_IMPORT_SCENE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_import_scene,
                 __buffer,
             )
         };
@@ -12891,7 +13118,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_MAP_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_get_dirty_map_packages,
                 __buffer,
             )
         };
@@ -12910,7 +13138,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_MAP_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_get_dirty_map_packages,
                 __buffer,
             )
         };
@@ -12931,7 +13160,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_CONTENT_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_get_dirty_content_packages,
                 __buffer,
             )
         };
@@ -12950,7 +13180,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_GET_DIRTY_CONTENT_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_get_dirty_content_packages,
                 __buffer,
             )
         };
@@ -12971,7 +13202,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_fully_load_packages,
                 __buffer,
             )
         };
@@ -12990,7 +13222,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_PACKAGES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_fully_load_packages,
                 __buffer,
             )
         };
@@ -13005,7 +13238,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_fully_load_assets,
                 __buffer,
             )
         };
@@ -13024,7 +13258,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_FULLY_LOAD_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_fully_load_assets,
                 __buffer,
             )
         };
@@ -13037,7 +13272,8 @@ impl UEditorLoadingAndSavingUtils {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_EXPORT_SCENE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_export_scene,
                 __buffer,
             )
         };
@@ -13054,7 +13290,8 @@ impl UEditorLoadingAndSavingUtils {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_LOADING_AND_SAVING_UTILS_EXPORT_SCENE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_loading_and_saving_utils_export_scene,
                 __buffer,
             )
         };
@@ -13172,7 +13409,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_VIEW_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_all_view_visibility,
                 __buffer,
             )
         };
@@ -13189,7 +13427,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_VIEW_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_all_view_visibility,
                 __buffer,
             )
         };
@@ -13206,7 +13445,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_ACTORS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_all_actors_visibility,
                 __buffer,
             )
         };
@@ -13230,7 +13470,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ALL_ACTORS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_all_actors_visibility,
                 __buffer,
             )
         };
@@ -13251,7 +13492,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_actor_visibility,
                 __buffer,
             )
         };
@@ -13296,7 +13538,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_actor_visibility,
                 __buffer,
             )
         };
@@ -13319,7 +13562,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_ALL_VIEWS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_actor_all_views_visibility,
                 __buffer,
             )
         };
@@ -13336,7 +13580,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_UPDATE_ACTOR_ALL_VIEWS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_update_actor_all_views_visibility,
                 __buffer,
             )
         };
@@ -13353,7 +13598,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TRY_GET_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_try_get_layer,
                 __buffer,
             )
         };
@@ -13377,7 +13623,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TRY_GET_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_try_get_layer,
                 __buffer,
             )
         };
@@ -13397,7 +13644,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYER_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_toggle_layer_visibility,
                 __buffer,
             )
         };
@@ -13414,7 +13662,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYER_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_toggle_layer_visibility,
                 __buffer,
             )
         };
@@ -13427,7 +13676,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYERS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_toggle_layers_visibility,
                 __buffer,
             )
         };
@@ -13444,7 +13694,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_TOGGLE_LAYERS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_toggle_layers_visibility,
                 __buffer,
             )
         };
@@ -13457,7 +13708,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYER_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_set_layer_visibility,
                 __buffer,
             )
         };
@@ -13481,7 +13733,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYER_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_set_layer_visibility,
                 __buffer,
             )
         };
@@ -13498,7 +13751,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYERS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_set_layers_visibility,
                 __buffer,
             )
         };
@@ -13522,7 +13776,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SET_LAYERS_VISIBILITY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_set_layers_visibility,
                 __buffer,
             )
         };
@@ -13541,7 +13796,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_select_actors_in_layers,
                 __buffer,
             )
         };
@@ -13571,7 +13827,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_select_actors_in_layers,
                 __buffer,
             )
         };
@@ -13591,7 +13848,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_select_actors_in_layer,
                 __buffer,
             )
         };
@@ -13621,7 +13879,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_SELECT_ACTORS_IN_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_select_actors_in_layer,
                 __buffer,
             )
         };
@@ -13639,7 +13898,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_RENAME_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_rename_layer,
                 __buffer,
             )
         };
@@ -13663,7 +13923,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_RENAME_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_rename_layer,
                 __buffer,
             )
         };
@@ -13680,7 +13941,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_selected_actors_from_layers,
                 __buffer,
             )
         };
@@ -13697,7 +13959,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_selected_actors_from_layers,
                 __buffer,
             )
         };
@@ -13711,7 +13974,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_selected_actors_from_layer,
                 __buffer,
             )
         };
@@ -13728,7 +13992,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_SELECTED_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_selected_actors_from_layer,
                 __buffer,
             )
         };
@@ -13745,7 +14010,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_LEVEL_LAYER_INFORMATION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_level_layer_information,
                 __buffer,
             )
         };
@@ -13762,7 +14028,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_LEVEL_LAYER_INFORMATION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_level_layer_information,
                 __buffer,
             )
         };
@@ -13780,7 +14047,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actors_from_layers,
                 __buffer,
             )
         };
@@ -13811,7 +14079,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actors_from_layers,
                 __buffer,
             )
         };
@@ -13830,7 +14099,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actors_from_layer,
                 __buffer,
             )
         };
@@ -13861,7 +14131,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actors_from_layer,
                 __buffer,
             )
         };
@@ -13880,7 +14151,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actor_from_layers,
                 __buffer,
             )
         };
@@ -13911,7 +14183,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actor_from_layers,
                 __buffer,
             )
         };
@@ -13930,7 +14203,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actor_from_layer,
                 __buffer,
             )
         };
@@ -13961,7 +14235,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_REMOVE_ACTOR_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_remove_actor_from_layer,
                 __buffer,
             )
         };
@@ -13975,7 +14250,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_MAKE_ALL_LAYERS_VISIBLE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_make_all_layers_visible,
                 __buffer,
             )
         };
@@ -13985,7 +14261,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_MAKE_ALL_LAYERS_VISIBLE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_make_all_layers_visible,
                 __buffer,
             )
         };
@@ -13998,7 +14275,7 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_layers_subsystem_is_layer,
                 __buffer,
             )
         };
@@ -14015,7 +14292,7 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_layers_subsystem_is_layer,
                 __buffer,
             )
         };
@@ -14032,7 +14309,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_ACTOR_VALID_FOR_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_is_actor_valid_for_layer,
                 __buffer,
             )
         };
@@ -14049,7 +14327,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_IS_ACTOR_VALID_FOR_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_is_actor_valid_for_layer,
                 __buffer,
             )
         };
@@ -14066,7 +14345,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_INITIALIZE_NEW_ACTOR_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_initialize_new_actor_layers,
                 __buffer,
             )
         };
@@ -14083,7 +14363,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_INITIALIZE_NEW_ACTOR_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_initialize_new_actor_layers,
                 __buffer,
             )
         };
@@ -14097,7 +14378,7 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_layers_subsystem_get_world,
                 __buffer,
             )
         };
@@ -14107,7 +14388,7 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_layers_subsystem_get_world,
                 __buffer,
             )
         };
@@ -14121,7 +14402,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_get_selected_actors,
                 __buffer,
             )
         };
@@ -14131,7 +14413,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_get_selected_actors,
                 __buffer,
             )
         };
@@ -14153,7 +14436,7 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_layers_subsystem_get_layer,
                 __buffer,
             )
         };
@@ -14170,7 +14453,7 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS.u_layers_subsystem_get_layer,
                 __buffer,
             )
         };
@@ -14189,7 +14472,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_get_actors_from_layers,
                 __buffer,
             )
         };
@@ -14206,7 +14490,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_get_actors_from_layers,
                 __buffer,
             )
         };
@@ -14228,7 +14513,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_get_actors_from_layer,
                 __buffer,
             )
         };
@@ -14245,7 +14531,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_GET_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_get_actors_from_layer,
                 __buffer,
             )
         };
@@ -14264,7 +14551,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_REFRESH_LAYER_BROWSER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_editor_refresh_layer_browser,
                 __buffer,
             )
         };
@@ -14274,7 +14562,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_REFRESH_LAYER_BROWSER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_editor_refresh_layer_browser,
                 __buffer,
             )
         };
@@ -14287,7 +14576,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_MAP_CHANGE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_editor_map_change,
                 __buffer,
             )
         };
@@ -14297,7 +14587,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_EDITOR_MAP_CHANGE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_editor_map_change,
                 __buffer,
             )
         };
@@ -14313,7 +14604,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_disassociate_actors_from_layers,
                 __buffer,
             )
         };
@@ -14330,7 +14622,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_disassociate_actors_from_layers,
                 __buffer,
             )
         };
@@ -14347,7 +14640,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTOR_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_disassociate_actor_from_layers,
                 __buffer,
             )
         };
@@ -14364,7 +14658,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DISASSOCIATE_ACTOR_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_disassociate_actor_from_layers,
                 __buffer,
             )
         };
@@ -14378,7 +14673,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_delete_layers,
                 __buffer,
             )
         };
@@ -14395,7 +14691,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_delete_layers,
                 __buffer,
             )
         };
@@ -14408,7 +14705,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_delete_layer,
                 __buffer,
             )
         };
@@ -14425,7 +14723,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_DELETE_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_delete_layer,
                 __buffer,
             )
         };
@@ -14441,7 +14740,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_CREATE_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_create_layer,
                 __buffer,
             )
         };
@@ -14458,7 +14758,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_CREATE_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_create_layer,
                 __buffer,
             )
         };
@@ -14478,7 +14779,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_append_actors_from_layers,
                 __buffer,
             )
         };
@@ -14502,7 +14804,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_append_actors_from_layers,
                 __buffer,
             )
         };
@@ -14525,7 +14828,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_append_actors_from_layer,
                 __buffer,
             )
         };
@@ -14549,7 +14853,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_APPEND_ACTORS_FROM_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_append_actors_from_layer,
                 __buffer,
             )
         };
@@ -14571,7 +14876,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_selected_actors_to_layers,
                 __buffer,
             )
         };
@@ -14588,7 +14894,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_selected_actors_to_layers,
                 __buffer,
             )
         };
@@ -14602,7 +14909,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_selected_actors_to_layer,
                 __buffer,
             )
         };
@@ -14619,7 +14927,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_SELECTED_ACTORS_TO_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_selected_actors_to_layer,
                 __buffer,
             )
         };
@@ -14636,7 +14945,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_LEVEL_LAYER_INFORMATION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_level_layer_information,
                 __buffer,
             )
         };
@@ -14653,7 +14963,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_LEVEL_LAYER_INFORMATION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_level_layer_information,
                 __buffer,
             )
         };
@@ -14669,7 +14980,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYERS_TO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_all_layers_to,
                 __buffer,
             )
         };
@@ -14686,7 +14998,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYERS_TO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_all_layers_to,
                 __buffer,
             )
         };
@@ -14705,7 +15018,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYER_NAMES_TO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_all_layer_names_to,
                 __buffer,
             )
         };
@@ -14722,7 +15036,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ALL_LAYER_NAMES_TO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_all_layer_names_to,
                 __buffer,
             )
         };
@@ -14742,7 +15057,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actor_to_layers,
                 __buffer,
             )
         };
@@ -14766,7 +15082,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actor_to_layers,
                 __buffer,
             )
         };
@@ -14784,7 +15101,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actor_to_layer,
                 __buffer,
             )
         };
@@ -14808,7 +15126,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTOR_TO_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actor_to_layer,
                 __buffer,
             )
         };
@@ -14826,7 +15145,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actors_to_layers,
                 __buffer,
             )
         };
@@ -14850,7 +15170,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actors_to_layers,
                 __buffer,
             )
         };
@@ -14868,7 +15189,8 @@ impl ULayersSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actors_to_layer,
                 __buffer,
             )
         };
@@ -14892,7 +15214,8 @@ impl ULayersSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_LAYERS_SUBSYSTEM_ADD_ACTORS_TO_LAYER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_layers_subsystem_add_actors_to_layer,
                 __buffer,
             )
         };
@@ -15242,7 +15565,8 @@ impl UPackageTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_SANITIZE_PACKAGE_NAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_package_tools_sanitize_package_name,
                 __buffer,
             )
         };
@@ -15259,7 +15583,8 @@ impl UPackageTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_SANITIZE_PACKAGE_NAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_package_tools_sanitize_package_name,
                 __buffer,
             )
         };
@@ -15276,7 +15601,8 @@ impl UPackageTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_PACKAGE_NAME_TO_FILENAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_package_tools_package_name_to_filename,
                 __buffer,
             )
         };
@@ -15300,7 +15626,8 @@ impl UPackageTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_PACKAGE_NAME_TO_FILENAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_package_tools_package_name_to_filename,
                 __buffer,
             )
         };
@@ -15314,7 +15641,8 @@ impl UPackageTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_FILENAME_TO_PACKAGE_NAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_package_tools_filename_to_package_name,
                 __buffer,
             )
         };
@@ -15331,7 +15659,8 @@ impl UPackageTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_PACKAGE_TOOLS_FILENAME_TO_PACKAGE_NAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_package_tools_filename_to_package_name,
                 __buffer,
             )
         };
@@ -15916,7 +16245,8 @@ impl UAssetEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_OPEN_EDITOR_FOR_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_editor_subsystem_open_editor_for_assets,
                 __buffer,
             )
         };
@@ -15946,7 +16276,8 @@ impl UAssetEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_OPEN_EDITOR_FOR_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_editor_subsystem_open_editor_for_assets,
                 __buffer,
             )
         };
@@ -15963,7 +16294,8 @@ impl UAssetEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_CLOSE_ALL_EDITORS_FOR_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_editor_subsystem_close_all_editors_for_asset,
                 __buffer,
             )
         };
@@ -15980,7 +16312,8 @@ impl UAssetEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_ASSET_EDITOR_SUBSYSTEM_CLOSE_ALL_EDITORS_FOR_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_asset_editor_subsystem_close_all_editors_for_asset,
                 __buffer,
             )
         };
@@ -16061,7 +16394,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REPARENT_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_reparent_collection,
                 __buffer,
             )
         };
@@ -16085,7 +16419,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REPARENT_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_reparent_collection,
                 __buffer,
             )
         };
@@ -16104,7 +16439,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_RENAME_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_rename_collection,
                 __buffer,
             )
         };
@@ -16137,7 +16473,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_RENAME_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_rename_collection,
                 __buffer,
             )
         };
@@ -16155,7 +16492,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_assets_from_collection,
                 __buffer,
             )
         };
@@ -16181,7 +16519,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_assets_from_collection,
                 __buffer,
             )
         };
@@ -16199,7 +16538,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_ptrs_from_collection,
                 __buffer,
             )
         };
@@ -16225,7 +16565,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_ptrs_from_collection,
                 __buffer,
             )
         };
@@ -16243,7 +16584,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_ptr_from_collection,
                 __buffer,
             )
         };
@@ -16267,7 +16609,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_ptr_from_collection,
                 __buffer,
             )
         };
@@ -16285,7 +16628,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_from_collection,
                 __buffer,
             )
         };
@@ -16311,7 +16655,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_from_collection,
                 __buffer,
             )
         };
@@ -16329,7 +16674,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_datas_from_collection,
                 __buffer,
             )
         };
@@ -16355,7 +16701,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_datas_from_collection,
                 __buffer,
             )
         };
@@ -16373,7 +16720,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_data_from_collection,
                 __buffer,
             )
         };
@@ -16397,7 +16745,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_remove_asset_data_from_collection,
                 __buffer,
             )
         };
@@ -16416,7 +16765,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_containing_asset_ptr,
                 __buffer,
             )
         };
@@ -16447,7 +16797,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_containing_asset_ptr,
                 __buffer,
             )
         };
@@ -16472,7 +16823,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_containing_asset_data,
                 __buffer,
             )
         };
@@ -16503,7 +16855,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_containing_asset_data,
                 __buffer,
             )
         };
@@ -16528,7 +16881,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_containing_asset,
                 __buffer,
             )
         };
@@ -16561,7 +16915,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_containing_asset,
                 __buffer,
             )
         };
@@ -16586,7 +16941,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_BY_NAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_by_name,
                 __buffer,
             )
         };
@@ -16617,7 +16973,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS_BY_NAME,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections_by_name,
                 __buffer,
             )
         };
@@ -16641,7 +16998,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections,
                 __buffer,
             )
         };
@@ -16665,7 +17023,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTIONS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collections,
                 __buffer,
             )
         };
@@ -16687,7 +17046,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTION_CONTAINERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collection_containers,
                 __buffer,
             )
         };
@@ -16697,7 +17057,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_COLLECTION_CONTAINERS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_collection_containers,
                 __buffer,
             )
         };
@@ -16715,7 +17076,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_BASE_GAME_COLLECTION_CONTAINER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_base_game_collection_container,
                 __buffer,
             )
         };
@@ -16725,7 +17087,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_BASE_GAME_COLLECTION_CONTAINER,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_base_game_collection_container,
                 __buffer,
             )
         };
@@ -16743,7 +17106,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_assets_in_collection,
                 __buffer,
             )
         };
@@ -16769,7 +17133,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_get_assets_in_collection,
                 __buffer,
             )
         };
@@ -16789,7 +17154,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_EMPTY_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_empty_collection,
                 __buffer,
             )
         };
@@ -16806,7 +17172,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_EMPTY_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_empty_collection,
                 __buffer,
             )
         };
@@ -16820,7 +17187,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_DESTROY_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_destroy_collection,
                 __buffer,
             )
         };
@@ -16837,7 +17205,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_DESTROY_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_destroy_collection,
                 __buffer,
             )
         };
@@ -16857,7 +17226,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_OR_EMPTY_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_create_or_empty_collection,
                 __buffer,
             )
         };
@@ -16897,7 +17267,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_OR_EMPTY_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_create_or_empty_collection,
                 __buffer,
             )
         };
@@ -16923,7 +17294,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_create_collection,
                 __buffer,
             )
         };
@@ -16963,7 +17335,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_CREATE_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_create_collection,
                 __buffer,
             )
         };
@@ -16985,7 +17358,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_COLLECTION_EXISTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_collection_exists,
                 __buffer,
             )
         };
@@ -17018,7 +17392,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_COLLECTION_EXISTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_collection_exists,
                 __buffer,
             )
         };
@@ -17036,7 +17411,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_to_collection,
                 __buffer,
             )
         };
@@ -17062,7 +17438,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_to_collection,
                 __buffer,
             )
         };
@@ -17080,7 +17457,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_assets_to_collection,
                 __buffer,
             )
         };
@@ -17106,7 +17484,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_assets_to_collection,
                 __buffer,
             )
         };
@@ -17124,7 +17503,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_ptr_to_collection,
                 __buffer,
             )
         };
@@ -17148,7 +17528,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_ptr_to_collection,
                 __buffer,
             )
         };
@@ -17166,7 +17547,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_ptrs_to_collection,
                 __buffer,
             )
         };
@@ -17192,7 +17574,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_ptrs_to_collection,
                 __buffer,
             )
         };
@@ -17210,7 +17593,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_data_to_collection,
                 __buffer,
             )
         };
@@ -17234,7 +17618,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_data_to_collection,
                 __buffer,
             )
         };
@@ -17252,7 +17637,8 @@ impl UCollectionManagerScriptingSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_datas_to_collection,
                 __buffer,
             )
         };
@@ -17278,7 +17664,8 @@ impl UCollectionManagerScriptingSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_COLLECTION_MANAGER_SCRIPTING_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_collection_manager_scripting_subsystem_add_asset_datas_to_collection,
                 __buffer,
             )
         };
@@ -17319,7 +17706,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_OBJECT,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_spawn_actor_from_object,
                 __buffer,
             )
         };
@@ -17357,7 +17745,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_OBJECT,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_spawn_actor_from_object,
                 __buffer,
             )
         };
@@ -17379,7 +17768,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_CLASS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_spawn_actor_from_class,
                 __buffer,
             )
         };
@@ -17417,7 +17807,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SPAWN_ACTOR_FROM_CLASS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_spawn_actor_from_class,
                 __buffer,
             )
         };
@@ -17436,7 +17827,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_selected_level_actors,
                 __buffer,
             )
         };
@@ -17453,7 +17845,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_selected_level_actors,
                 __buffer,
             )
         };
@@ -17470,7 +17863,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_COMPONENT_TRANSFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_component_transform,
                 __buffer,
             )
         };
@@ -17494,7 +17888,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_COMPONENT_TRANSFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_component_transform,
                 __buffer,
             )
         };
@@ -17512,7 +17907,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_TRANSFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_actor_transform,
                 __buffer,
             )
         };
@@ -17536,7 +17932,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_TRANSFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_actor_transform,
                 __buffer,
             )
         };
@@ -17554,7 +17951,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -17578,7 +17976,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -17591,7 +17990,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_NOTHING,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_select_nothing,
                 __buffer,
             )
         };
@@ -17601,7 +18001,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_NOTHING,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_select_nothing,
                 __buffer,
             )
         };
@@ -17614,7 +18015,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL_CHILDREN,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_select_all_children,
                 __buffer,
             )
         };
@@ -17631,7 +18033,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL_CHILDREN,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_select_all_children,
                 __buffer,
             )
         };
@@ -17644,7 +18047,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_select_all,
                 __buffer,
             )
         };
@@ -17661,7 +18065,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_SELECT_ALL,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_select_all,
                 __buffer,
             )
         };
@@ -17674,7 +18079,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_INVERT_SELECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_invert_selection,
                 __buffer,
             )
         };
@@ -17691,7 +18097,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_INVERT_SELECTION,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_invert_selection,
                 __buffer,
             )
         };
@@ -17706,7 +18113,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_selected_level_actors,
                 __buffer,
             )
         };
@@ -17716,7 +18124,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_selected_level_actors,
                 __buffer,
             )
         };
@@ -17737,7 +18146,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_all_level_actors_components,
                 __buffer,
             )
         };
@@ -17747,7 +18157,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_all_level_actors_components,
                 __buffer,
             )
         };
@@ -17768,7 +18179,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_all_level_actors,
                 __buffer,
             )
         };
@@ -17778,7 +18190,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ALL_LEVEL_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_all_level_actors,
                 __buffer,
             )
         };
@@ -17800,7 +18213,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ACTOR_REFERENCE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_actor_reference,
                 __buffer,
             )
         };
@@ -17817,7 +18231,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_GET_ACTOR_REFERENCE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_get_actor_reference,
                 __buffer,
             )
         };
@@ -17836,7 +18251,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_duplicate_selected_actors,
                 __buffer,
             )
         };
@@ -17853,7 +18269,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_duplicate_selected_actors,
                 __buffer,
             )
         };
@@ -17871,7 +18288,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_duplicate_actors,
                 __buffer,
             )
         };
@@ -17902,7 +18320,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_duplicate_actors,
                 __buffer,
             )
         };
@@ -17926,7 +18345,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTOR,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_duplicate_actor,
                 __buffer,
             )
         };
@@ -17957,7 +18377,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DUPLICATE_ACTOR,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_duplicate_actor,
                 __buffer,
             )
         };
@@ -17976,7 +18397,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_destroy_actors,
                 __buffer,
             )
         };
@@ -17993,7 +18415,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_destroy_actors,
                 __buffer,
             )
         };
@@ -18010,7 +18433,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTOR,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_destroy_actor,
                 __buffer,
             )
         };
@@ -18027,7 +18451,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DESTROY_ACTOR,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_destroy_actor,
                 __buffer,
             )
         };
@@ -18044,7 +18469,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DELETE_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_delete_selected_actors,
                 __buffer,
             )
         };
@@ -18061,7 +18487,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_DELETE_SELECTED_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_delete_selected_actors,
                 __buffer,
             )
         };
@@ -18079,7 +18506,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CONVERT_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_convert_actors,
                 __buffer,
             )
         };
@@ -18110,7 +18538,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CONVERT_ACTORS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_convert_actors,
                 __buffer,
             )
         };
@@ -18129,7 +18558,8 @@ impl UEditorActorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_clear_actor_selection_set,
                 __buffer,
             )
         };
@@ -18139,7 +18569,8 @@ impl UEditorActorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ACTOR_SUBSYSTEM_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_actor_subsystem_clear_actor_selection_set,
                 __buffer,
             )
         };
@@ -18179,7 +18610,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SORT_BY_META_DATA,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_sort_by_meta_data,
                 __buffer,
             )
         };
@@ -18219,7 +18651,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SORT_BY_META_DATA,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_sort_by_meta_data,
                 __buffer,
             )
         };
@@ -18244,7 +18677,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_METADATA_TAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_set_metadata_tag,
                 __buffer,
             )
         };
@@ -18267,7 +18701,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_METADATA_TAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_set_metadata_tag,
                 __buffer,
             )
         };
@@ -18284,7 +18719,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_DIRTY_FLAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_set_dirty_flag,
                 __buffer,
             )
         };
@@ -18308,7 +18744,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SET_DIRTY_FLAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_set_dirty_flag,
                 __buffer,
             )
         };
@@ -18326,7 +18763,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_loaded_assets,
                 __buffer,
             )
         };
@@ -18352,7 +18790,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_loaded_assets,
                 __buffer,
             )
         };
@@ -18370,7 +18809,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_loaded_asset,
                 __buffer,
             )
         };
@@ -18394,7 +18834,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_loaded_asset,
                 __buffer,
             )
         };
@@ -18413,7 +18854,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_directory,
                 __buffer,
             )
         };
@@ -18444,7 +18886,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_directory,
                 __buffer,
             )
         };
@@ -18462,7 +18905,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_asset,
                 __buffer,
             )
         };
@@ -18486,7 +18930,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_SAVE_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_save_asset,
                 __buffer,
             )
         };
@@ -18504,7 +18949,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_rename_loaded_asset,
                 __buffer,
             )
         };
@@ -18528,7 +18974,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_rename_loaded_asset,
                 __buffer,
             )
         };
@@ -18546,7 +18993,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_rename_directory,
                 __buffer,
             )
         };
@@ -18570,7 +19018,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_rename_directory,
                 __buffer,
             )
         };
@@ -18588,7 +19037,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_rename_asset,
                 __buffer,
             )
         };
@@ -18612,7 +19062,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_RENAME_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_rename_asset,
                 __buffer,
             )
         };
@@ -18629,7 +19080,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_ON_EXTRACT_ASSET_FROM_FILE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_remove_on_extract_asset_from_file,
                 __buffer,
             )
         };
@@ -18646,7 +19098,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_ON_EXTRACT_ASSET_FROM_FILE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_remove_on_extract_asset_from_file,
                 __buffer,
             )
         };
@@ -18663,7 +19116,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_METADATA_TAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_remove_metadata_tag,
                 __buffer,
             )
         };
@@ -18683,7 +19137,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_REMOVE_METADATA_TAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_remove_metadata_tag,
                 __buffer,
             )
         };
@@ -18696,7 +19151,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_MAKE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_make_directory,
                 __buffer,
             )
         };
@@ -18713,7 +19169,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_MAKE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_make_directory,
                 __buffer,
             )
         };
@@ -18730,7 +19187,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_BLUEPRINT_CLASS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_load_blueprint_class,
                 __buffer,
             )
         };
@@ -18747,7 +19205,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_BLUEPRINT_CLASS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_load_blueprint_class,
                 __buffer,
             )
         };
@@ -18769,7 +19228,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_load_asset,
                 __buffer,
             )
         };
@@ -18786,7 +19246,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LOAD_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_load_asset,
                 __buffer,
             )
         };
@@ -18809,7 +19270,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS_BY_TAG_VALUE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_list_assets_by_tag_value,
                 __buffer,
             )
         };
@@ -18829,7 +19291,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS_BY_TAG_VALUE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_list_assets_by_tag_value,
                 __buffer,
             )
         };
@@ -18848,7 +19311,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_list_assets,
                 __buffer,
             )
         };
@@ -18879,7 +19343,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_LIST_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_list_assets,
                 __buffer,
             )
         };
@@ -18893,7 +19358,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_TAG_VALUES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_tag_values,
                 __buffer,
             )
         };
@@ -18910,7 +19376,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_TAG_VALUES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_tag_values,
                 __buffer,
             )
         };
@@ -18927,7 +19394,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_PATH_NAME_FOR_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_path_name_for_loaded_asset,
                 __buffer,
             )
         };
@@ -18944,7 +19412,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_PATH_NAME_FOR_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_path_name_for_loaded_asset,
                 __buffer,
             )
         };
@@ -18961,7 +19430,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG_VALUES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_metadata_tag_values,
                 __buffer,
             )
         };
@@ -18978,7 +19448,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG_VALUES,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_metadata_tag_values,
                 __buffer,
             )
         };
@@ -18996,7 +19467,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_metadata_tag,
                 __buffer,
             )
         };
@@ -19016,7 +19488,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_METADATA_TAG,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_metadata_tag,
                 __buffer,
             )
         };
@@ -19033,7 +19506,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_LOADED_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_loaded_asset_filename_length_for_cooking,
                 __buffer,
             )
         };
@@ -19050,7 +19524,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_LOADED_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_loaded_asset_filename_length_for_cooking,
                 __buffer,
             )
         };
@@ -19064,7 +19539,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_asset_filename_length_for_cooking,
                 __buffer,
             )
         };
@@ -19081,7 +19557,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ASSET_FILENAME_LENGTH_FOR_COOKING,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_asset_filename_length_for_cooking,
                 __buffer,
             )
         };
@@ -19099,7 +19576,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ALL_ASSETS_BY_META_DATA_TAGS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_all_assets_by_meta_data_tags,
                 __buffer,
             )
         };
@@ -19127,7 +19605,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_GET_ALL_ASSETS_BY_META_DATA_TAGS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_get_all_assets_by_meta_data_tags,
                 __buffer,
             )
         };
@@ -19150,7 +19629,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_find_package_referencers_for_asset,
                 __buffer,
             )
         };
@@ -19174,7 +19654,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_find_package_referencers_for_asset,
                 __buffer,
             )
         };
@@ -19191,7 +19672,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_ASSET_DATA,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_find_asset_data,
                 __buffer,
             )
         };
@@ -19208,7 +19690,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_FIND_ASSET_DATA,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_find_asset_data,
                 __buffer,
             )
         };
@@ -19228,7 +19711,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_duplicate_loaded_asset,
                 __buffer,
             )
         };
@@ -19252,7 +19736,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_duplicate_loaded_asset,
                 __buffer,
             )
         };
@@ -19275,7 +19760,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_duplicate_directory,
                 __buffer,
             )
         };
@@ -19299,7 +19785,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_duplicate_directory,
                 __buffer,
             )
         };
@@ -19317,7 +19804,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_duplicate_asset,
                 __buffer,
             )
         };
@@ -19341,7 +19829,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DUPLICATE_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_duplicate_asset,
                 __buffer,
             )
         };
@@ -19360,7 +19849,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_EXIST,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_does_directory_exist,
                 __buffer,
             )
         };
@@ -19377,7 +19867,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_EXIST,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_does_directory_exist,
                 __buffer,
             )
         };
@@ -19395,7 +19886,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_CONTAIN_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_does_directory_contain_assets,
                 __buffer,
             )
         };
@@ -19419,7 +19911,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_DIRECTORY_CONTAIN_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_does_directory_contain_assets,
                 __buffer,
             )
         };
@@ -19433,7 +19926,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_ASSET_EXIST,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_does_asset_exist,
                 __buffer,
             )
         };
@@ -19450,7 +19944,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DOES_ASSET_EXIST,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_does_asset_exist,
                 __buffer,
             )
         };
@@ -19464,7 +19959,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DO_ASSETS_EXIST,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_do_assets_exist,
                 __buffer,
             )
         };
@@ -19481,7 +19977,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DO_ASSETS_EXIST,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_do_assets_exist,
                 __buffer,
             )
         };
@@ -19498,7 +19995,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_loaded_assets,
                 __buffer,
             )
         };
@@ -19517,7 +20015,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_loaded_assets,
                 __buffer,
             )
         };
@@ -19534,7 +20033,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_loaded_asset,
                 __buffer,
             )
         };
@@ -19551,7 +20051,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_loaded_asset,
                 __buffer,
             )
         };
@@ -19565,7 +20066,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_directory,
                 __buffer,
             )
         };
@@ -19582,7 +20084,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_directory,
                 __buffer,
             )
         };
@@ -19596,7 +20099,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_asset,
                 __buffer,
             )
         };
@@ -19613,7 +20117,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_DELETE_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_delete_asset,
                 __buffer,
             )
         };
@@ -19631,7 +20136,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CONSOLIDATE_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_consolidate_assets,
                 __buffer,
             )
         };
@@ -19657,7 +20163,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CONSOLIDATE_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_consolidate_assets,
                 __buffer,
             )
         };
@@ -19674,7 +20181,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_loaded_assets,
                 __buffer,
             )
         };
@@ -19693,7 +20201,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSETS,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_loaded_assets,
                 __buffer,
             )
         };
@@ -19710,7 +20219,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_loaded_asset,
                 __buffer,
             )
         };
@@ -19727,7 +20237,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_LOADED_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_loaded_asset,
                 __buffer,
             )
         };
@@ -19745,7 +20256,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_directory,
                 __buffer,
             )
         };
@@ -19769,7 +20281,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_DIRECTORY,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_directory,
                 __buffer,
             )
         };
@@ -19783,7 +20296,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_asset,
                 __buffer,
             )
         };
@@ -19800,7 +20314,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_CHECKOUT_ASSET,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_checkout_asset,
                 __buffer,
             )
         };
@@ -19817,7 +20332,8 @@ impl UEditorAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_ADD_ON_EXTRACT_ASSET_FROM_FILE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_add_on_extract_asset_from_file,
                 __buffer,
             )
         };
@@ -19834,7 +20350,8 @@ impl UEditorAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_ASSET_SUBSYSTEM_ADD_ON_EXTRACT_ASSET_FROM_FILE,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_asset_subsystem_add_on_extract_asset_from_file,
                 __buffer,
             )
         };
@@ -19868,7 +20385,8 @@ impl UEditorSubsystemBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_TOGGLE_PREVIEW_PLATFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_toggle_preview_platform,
                 __buffer,
             )
         };
@@ -19878,7 +20396,8 @@ impl UEditorSubsystemBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_TOGGLE_PREVIEW_PLATFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_toggle_preview_platform,
                 __buffer,
             )
         };
@@ -19891,7 +20410,8 @@ impl UEditorSubsystemBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_SET_PREVIEW_PLATFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_set_preview_platform,
                 __buffer,
             )
         };
@@ -19908,7 +20428,8 @@ impl UEditorSubsystemBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_SET_PREVIEW_PLATFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_set_preview_platform,
                 __buffer,
             )
         };
@@ -19923,7 +20444,8 @@ impl UEditorSubsystemBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_EDITOR_SUBSYSTEM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_get_editor_subsystem,
                 __buffer,
             )
         };
@@ -19944,7 +20466,8 @@ impl UEditorSubsystemBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_GET_EDITOR_SUBSYSTEM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_get_editor_subsystem,
                 __buffer,
             )
         };
@@ -19963,7 +20486,8 @@ impl UEditorSubsystemBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_DISABLE_PREVIEW_PLATFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_disable_preview_platform,
                 __buffer,
             )
         };
@@ -19973,7 +20497,8 @@ impl UEditorSubsystemBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_EDITOR_SUBSYSTEM_BLUEPRINT_LIBRARY_DISABLE_PREVIEW_PLATFORM,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_editor_subsystem_blueprint_library_disable_preview_platform,
                 __buffer,
             )
         };
@@ -20074,7 +20599,8 @@ impl UUnrealEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_set_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -20098,7 +20624,8 @@ impl UUnrealEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_set_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -20115,7 +20642,8 @@ impl UUnrealEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_get_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -20139,7 +20667,8 @@ impl UUnrealEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_get_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -20165,7 +20694,8 @@ impl UUnrealEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_GAME_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_get_game_world,
                 __buffer,
             )
         };
@@ -20175,7 +20705,8 @@ impl UUnrealEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_GAME_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_get_game_world,
                 __buffer,
             )
         };
@@ -20189,7 +20720,8 @@ impl UUnrealEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_EDITOR_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_get_editor_world,
                 __buffer,
             )
         };
@@ -20199,7 +20731,8 @@ impl UUnrealEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::unreal_ed::U_UNREAL_EDITOR_SUBSYSTEM_GET_EDITOR_WORLD,
+                crate::bindings::unreal_ed::__FUNCTION_PTRS
+                    .u_unreal_editor_subsystem_get_editor_world,
                 __buffer,
             )
         };

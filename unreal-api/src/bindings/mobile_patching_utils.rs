@@ -1,42 +1,51 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOBILE_INSTALLED_CONTENT_MOUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_INSTALLED_CONTENT_GET_INSTALLED_CONTENT_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_INSTALLED_CONTENT_GET_DISK_FREE_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PENDING_CONTENT_START_INSTALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PENDING_CONTENT_GET_TOTAL_DOWNLOADED_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PENDING_CONTENT_GET_REQUIRED_DISK_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PENDING_CONTENT_GET_INSTALL_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_STATUS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PATCHING_LIBRARY_REQUEST_CONTENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PATCHING_LIBRARY_HAS_ACTIVE_WI_FI_CONNECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PATCHING_LIBRARY_GET_SUPPORTED_PLATFORM_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PATCHING_LIBRARY_GET_INSTALLED_CONTENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOBILE_PATCHING_LIBRARY_GET_ACTIVE_DEVICE_PROFILE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_mobile_installed_content_mount: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_installed_content_get_installed_content_size: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_installed_content_get_disk_free_space: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_pending_content_start_install: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_pending_content_get_total_downloaded_size: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_pending_content_get_required_disk_space: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_pending_content_get_install_progress: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_pending_content_get_download_status_text: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_pending_content_get_download_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_pending_content_get_download_size: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_patching_library_request_content: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_patching_library_has_active_wi_fi_connection: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_patching_library_get_supported_platform_names: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_patching_library_get_installed_content: *mut crate::ffi::UFunctionOpague,
+    pub u_mobile_patching_library_get_active_device_profile_name: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_mobile_installed_content_mount: std::ptr::null_mut(),
+            u_mobile_installed_content_get_installed_content_size: std::ptr::null_mut(),
+            u_mobile_installed_content_get_disk_free_space: std::ptr::null_mut(),
+            u_mobile_pending_content_start_install: std::ptr::null_mut(),
+            u_mobile_pending_content_get_total_downloaded_size: std::ptr::null_mut(),
+            u_mobile_pending_content_get_required_disk_space: std::ptr::null_mut(),
+            u_mobile_pending_content_get_install_progress: std::ptr::null_mut(),
+            u_mobile_pending_content_get_download_status_text: std::ptr::null_mut(),
+            u_mobile_pending_content_get_download_speed: std::ptr::null_mut(),
+            u_mobile_pending_content_get_download_size: std::ptr::null_mut(),
+            u_mobile_patching_library_request_content: std::ptr::null_mut(),
+            u_mobile_patching_library_has_active_wi_fi_connection: std::ptr::null_mut(),
+            u_mobile_patching_library_get_supported_platform_names: std::ptr::null_mut(),
+            u_mobile_patching_library_get_installed_content: std::ptr::null_mut(),
+            u_mobile_patching_library_get_active_device_profile_name: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -46,21 +55,22 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Mount"),
-            &raw mut U_MOBILE_INSTALLED_CONTENT_MOUNT,
+            &raw mut __FUNCTION_PTRS.u_mobile_installed_content_mount,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstalledContentSize"),
-            &raw mut U_MOBILE_INSTALLED_CONTENT_GET_INSTALLED_CONTENT_SIZE,
+            &raw mut __FUNCTION_PTRS
+                .u_mobile_installed_content_get_installed_content_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDiskFreeSpace"),
-            &raw mut U_MOBILE_INSTALLED_CONTENT_GET_DISK_FREE_SPACE,
+            &raw mut __FUNCTION_PTRS.u_mobile_installed_content_get_disk_free_space,
         );
     }
     unsafe {
@@ -71,49 +81,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartInstall"),
-            &raw mut U_MOBILE_PENDING_CONTENT_START_INSTALL,
+            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_start_install,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTotalDownloadedSize"),
-            &raw mut U_MOBILE_PENDING_CONTENT_GET_TOTAL_DOWNLOADED_SIZE,
+            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_total_downloaded_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRequiredDiskSpace"),
-            &raw mut U_MOBILE_PENDING_CONTENT_GET_REQUIRED_DISK_SPACE,
+            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_required_disk_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstallProgress"),
-            &raw mut U_MOBILE_PENDING_CONTENT_GET_INSTALL_PROGRESS,
+            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_install_progress,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDownloadStatusText"),
-            &raw mut U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_STATUS_TEXT,
+            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_status_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDownloadSpeed"),
-            &raw mut U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SPEED,
+            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDownloadSize"),
-            &raw mut U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SIZE,
+            &raw mut __FUNCTION_PTRS.u_mobile_pending_content_get_download_size,
         );
     }
     unsafe {
@@ -124,35 +134,38 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestContent"),
-            &raw mut U_MOBILE_PATCHING_LIBRARY_REQUEST_CONTENT,
+            &raw mut __FUNCTION_PTRS.u_mobile_patching_library_request_content,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasActiveWiFiConnection"),
-            &raw mut U_MOBILE_PATCHING_LIBRARY_HAS_ACTIVE_WI_FI_CONNECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_mobile_patching_library_has_active_wi_fi_connection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedPlatformNames"),
-            &raw mut U_MOBILE_PATCHING_LIBRARY_GET_SUPPORTED_PLATFORM_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_mobile_patching_library_get_supported_platform_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstalledContent"),
-            &raw mut U_MOBILE_PATCHING_LIBRARY_GET_INSTALLED_CONTENT,
+            &raw mut __FUNCTION_PTRS.u_mobile_patching_library_get_installed_content,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveDeviceProfileName"),
-            &raw mut U_MOBILE_PATCHING_LIBRARY_GET_ACTIVE_DEVICE_PROFILE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_mobile_patching_library_get_active_device_profile_name,
         );
     }
 }
@@ -184,7 +197,8 @@ impl UMobileInstalledContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_INSTALLED_CONTENT_MOUNT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_installed_content_mount,
                 __buffer,
             )
         };
@@ -204,7 +218,8 @@ impl UMobileInstalledContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_INSTALLED_CONTENT_MOUNT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_installed_content_mount,
                 __buffer,
             )
         };
@@ -218,7 +233,8 @@ impl UMobileInstalledContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_INSTALLED_CONTENT_GET_INSTALLED_CONTENT_SIZE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_installed_content_get_installed_content_size,
                 __buffer,
             )
         };
@@ -228,7 +244,8 @@ impl UMobileInstalledContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_INSTALLED_CONTENT_GET_INSTALLED_CONTENT_SIZE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_installed_content_get_installed_content_size,
                 __buffer,
             )
         };
@@ -242,7 +259,8 @@ impl UMobileInstalledContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_INSTALLED_CONTENT_GET_DISK_FREE_SPACE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_installed_content_get_disk_free_space,
                 __buffer,
             )
         };
@@ -252,7 +270,8 @@ impl UMobileInstalledContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_INSTALLED_CONTENT_GET_DISK_FREE_SPACE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_installed_content_get_disk_free_space,
                 __buffer,
             )
         };
@@ -291,7 +310,8 @@ impl UMobilePendingContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_START_INSTALL,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_start_install,
                 __buffer,
             )
         };
@@ -315,7 +335,8 @@ impl UMobilePendingContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_START_INSTALL,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_start_install,
                 __buffer,
             )
         };
@@ -328,7 +349,8 @@ impl UMobilePendingContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_TOTAL_DOWNLOADED_SIZE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_total_downloaded_size,
                 __buffer,
             )
         };
@@ -338,7 +360,8 @@ impl UMobilePendingContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_TOTAL_DOWNLOADED_SIZE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_total_downloaded_size,
                 __buffer,
             )
         };
@@ -352,7 +375,8 @@ impl UMobilePendingContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_REQUIRED_DISK_SPACE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_required_disk_space,
                 __buffer,
             )
         };
@@ -362,7 +386,8 @@ impl UMobilePendingContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_REQUIRED_DISK_SPACE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_required_disk_space,
                 __buffer,
             )
         };
@@ -376,7 +401,8 @@ impl UMobilePendingContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_INSTALL_PROGRESS,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_install_progress,
                 __buffer,
             )
         };
@@ -386,7 +412,8 @@ impl UMobilePendingContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_INSTALL_PROGRESS,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_install_progress,
                 __buffer,
             )
         };
@@ -400,7 +427,8 @@ impl UMobilePendingContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_STATUS_TEXT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_download_status_text,
                 __buffer,
             )
         };
@@ -410,7 +438,8 @@ impl UMobilePendingContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_STATUS_TEXT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_download_status_text,
                 __buffer,
             )
         };
@@ -424,7 +453,8 @@ impl UMobilePendingContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SPEED,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_download_speed,
                 __buffer,
             )
         };
@@ -434,7 +464,8 @@ impl UMobilePendingContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SPEED,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_download_speed,
                 __buffer,
             )
         };
@@ -448,7 +479,8 @@ impl UMobilePendingContent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SIZE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_download_size,
                 __buffer,
             )
         };
@@ -458,7 +490,8 @@ impl UMobilePendingContent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PENDING_CONTENT_GET_DOWNLOAD_SIZE,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_pending_content_get_download_size,
                 __buffer,
             )
         };
@@ -499,7 +532,8 @@ impl UMobilePatchingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_REQUEST_CONTENT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_request_content,
                 __buffer,
             )
         };
@@ -544,7 +578,8 @@ impl UMobilePatchingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_REQUEST_CONTENT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_request_content,
                 __buffer,
             )
         };
@@ -557,7 +592,8 @@ impl UMobilePatchingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_HAS_ACTIVE_WI_FI_CONNECTION,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_has_active_wi_fi_connection,
                 __buffer,
             )
         };
@@ -567,7 +603,8 @@ impl UMobilePatchingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_HAS_ACTIVE_WI_FI_CONNECTION,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_has_active_wi_fi_connection,
                 __buffer,
             )
         };
@@ -581,7 +618,8 @@ impl UMobilePatchingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_GET_SUPPORTED_PLATFORM_NAMES,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_get_supported_platform_names,
                 __buffer,
             )
         };
@@ -591,7 +629,8 @@ impl UMobilePatchingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_GET_SUPPORTED_PLATFORM_NAMES,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_get_supported_platform_names,
                 __buffer,
             )
         };
@@ -607,7 +646,8 @@ impl UMobilePatchingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_GET_INSTALLED_CONTENT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_get_installed_content,
                 __buffer,
             )
         };
@@ -624,7 +664,8 @@ impl UMobilePatchingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_GET_INSTALLED_CONTENT,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_get_installed_content,
                 __buffer,
             )
         };
@@ -638,7 +679,8 @@ impl UMobilePatchingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_GET_ACTIVE_DEVICE_PROFILE_NAME,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_get_active_device_profile_name,
                 __buffer,
             )
         };
@@ -648,7 +690,8 @@ impl UMobilePatchingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mobile_patching_utils::U_MOBILE_PATCHING_LIBRARY_GET_ACTIVE_DEVICE_PROFILE_NAME,
+                crate::bindings::mobile_patching_utils::__FUNCTION_PTRS
+                    .u_mobile_patching_library_get_active_device_profile_name,
                 __buffer,
             )
         };

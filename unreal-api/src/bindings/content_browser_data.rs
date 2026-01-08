@@ -1,48 +1,57 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_content_browser_data_subsystem_get_items_under_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_get_items_at_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_get_item_at_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_get_available_data_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_get_active_data_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_deactivate_data_source: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_deactivate_all_data_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_activate_data_source: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_data_subsystem_activate_all_data_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_library_is_folder: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_library_is_file: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_library_get_virtual_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_library_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_path_extensions_set_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_path_extensions_make_content_browser_item_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_path_extensions_get_virtual_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_path_extensions_get_internal_path: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_item_path_extensions_break_content_browser_item_path: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_content_browser_data_subsystem_get_items_under_path: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_get_items_at_path: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_get_item_at_path: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_get_available_data_sources: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_get_active_data_sources: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_deactivate_data_source: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_deactivate_all_data_sources: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_activate_data_source: std::ptr::null_mut(),
+            u_content_browser_data_subsystem_activate_all_data_sources: std::ptr::null_mut(),
+            u_content_browser_item_library_is_folder: std::ptr::null_mut(),
+            u_content_browser_item_library_is_file: std::ptr::null_mut(),
+            u_content_browser_item_library_get_virtual_path: std::ptr::null_mut(),
+            u_content_browser_item_library_get_display_name: std::ptr::null_mut(),
+            u_content_browser_item_path_extensions_set_path: std::ptr::null_mut(),
+            u_content_browser_item_path_extensions_make_content_browser_item_path: std::ptr::null_mut(),
+            u_content_browser_item_path_extensions_get_virtual_path: std::ptr::null_mut(),
+            u_content_browser_item_path_extensions_get_internal_path: std::ptr::null_mut(),
+            u_content_browser_item_path_extensions_break_content_browser_item_path: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -52,63 +61,70 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemsUnderPath"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_data_subsystem_get_items_under_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemsAtPath"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH,
+            &raw mut __FUNCTION_PTRS.u_content_browser_data_subsystem_get_items_at_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemAtPath"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH,
+            &raw mut __FUNCTION_PTRS.u_content_browser_data_subsystem_get_item_at_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAvailableDataSources"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_data_subsystem_get_available_data_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveDataSources"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_data_subsystem_get_active_data_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivateDataSource"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_data_subsystem_deactivate_data_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivateAllDataSources"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_data_subsystem_deactivate_all_data_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateDataSource"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_data_subsystem_activate_data_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateAllDataSources"),
-            &raw mut U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_data_subsystem_activate_all_data_sources,
         );
     }
     unsafe {
@@ -119,28 +135,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFolder"),
-            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER,
+            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_is_folder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFile"),
-            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE,
+            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_is_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVirtualPath"),
-            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH,
+            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_get_virtual_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_content_browser_item_library_get_display_name,
         );
     }
     unsafe {
@@ -151,35 +167,39 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPath"),
-            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH,
+            &raw mut __FUNCTION_PTRS.u_content_browser_item_path_extensions_set_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeContentBrowserItemPath"),
-            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_item_path_extensions_make_content_browser_item_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVirtualPath"),
-            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_item_path_extensions_get_virtual_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInternalPath"),
-            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_item_path_extensions_get_internal_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakContentBrowserItemPath"),
-            &raw mut U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_item_path_extensions_break_content_browser_item_path,
         );
     }
 }
@@ -399,7 +419,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_items_under_path,
                 __buffer,
             )
         };
@@ -419,7 +440,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_UNDER_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_items_under_path,
                 __buffer,
             )
         };
@@ -437,7 +459,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_items_at_path,
                 __buffer,
             )
         };
@@ -457,7 +480,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEMS_AT_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_items_at_path,
                 __buffer,
             )
         };
@@ -475,7 +499,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_item_at_path,
                 __buffer,
             )
         };
@@ -495,7 +520,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ITEM_AT_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_item_at_path,
                 __buffer,
             )
         };
@@ -509,7 +535,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_available_data_sources,
                 __buffer,
             )
         };
@@ -519,7 +546,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_AVAILABLE_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_available_data_sources,
                 __buffer,
             )
         };
@@ -533,7 +561,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_active_data_sources,
                 __buffer,
             )
         };
@@ -543,7 +572,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_GET_ACTIVE_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_get_active_data_sources,
                 __buffer,
             )
         };
@@ -557,7 +587,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_deactivate_data_source,
                 __buffer,
             )
         };
@@ -570,7 +601,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_DATA_SOURCE,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_deactivate_data_source,
                 __buffer,
             )
         };
@@ -584,7 +616,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_deactivate_all_data_sources,
                 __buffer,
             )
         };
@@ -594,7 +627,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_DEACTIVATE_ALL_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_deactivate_all_data_sources,
                 __buffer,
             )
         };
@@ -607,7 +641,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_activate_data_source,
                 __buffer,
             )
         };
@@ -620,7 +655,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_DATA_SOURCE,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_activate_data_source,
                 __buffer,
             )
         };
@@ -634,7 +670,8 @@ impl UContentBrowserDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_activate_all_data_sources,
                 __buffer,
             )
         };
@@ -644,7 +681,8 @@ impl UContentBrowserDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_DATA_SUBSYSTEM_ACTIVATE_ALL_DATA_SOURCES,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_data_subsystem_activate_all_data_sources,
                 __buffer,
             )
         };
@@ -678,7 +716,8 @@ impl UContentBrowserItemLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_is_folder,
                 __buffer,
             )
         };
@@ -695,7 +734,8 @@ impl UContentBrowserItemLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FOLDER,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_is_folder,
                 __buffer,
             )
         };
@@ -709,7 +749,8 @@ impl UContentBrowserItemLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_is_file,
                 __buffer,
             )
         };
@@ -726,7 +767,8 @@ impl UContentBrowserItemLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_IS_FILE,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_is_file,
                 __buffer,
             )
         };
@@ -740,7 +782,8 @@ impl UContentBrowserItemLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_get_virtual_path,
                 __buffer,
             )
         };
@@ -757,7 +800,8 @@ impl UContentBrowserItemLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_VIRTUAL_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_get_virtual_path,
                 __buffer,
             )
         };
@@ -771,7 +815,8 @@ impl UContentBrowserItemLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_get_display_name,
                 __buffer,
             )
         };
@@ -788,7 +833,8 @@ impl UContentBrowserItemLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_LIBRARY_GET_DISPLAY_NAME,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_library_get_display_name,
                 __buffer,
             )
         };
@@ -827,7 +873,8 @@ impl UContentBrowserItemPathExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_set_path,
                 __buffer,
             )
         };
@@ -854,7 +901,8 @@ impl UContentBrowserItemPathExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_SET_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_set_path,
                 __buffer,
             )
         };
@@ -873,7 +921,8 @@ impl UContentBrowserItemPathExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_make_content_browser_item_path,
                 __buffer,
             )
         };
@@ -893,7 +942,8 @@ impl UContentBrowserItemPathExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_MAKE_CONTENT_BROWSER_ITEM_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_make_content_browser_item_path,
                 __buffer,
             )
         };
@@ -907,7 +957,8 @@ impl UContentBrowserItemPathExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_get_virtual_path,
                 __buffer,
             )
         };
@@ -924,7 +975,8 @@ impl UContentBrowserItemPathExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_VIRTUAL_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_get_virtual_path,
                 __buffer,
             )
         };
@@ -938,7 +990,8 @@ impl UContentBrowserItemPathExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_get_internal_path,
                 __buffer,
             )
         };
@@ -955,7 +1008,8 @@ impl UContentBrowserItemPathExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_GET_INTERNAL_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_get_internal_path,
                 __buffer,
             )
         };
@@ -973,7 +1027,8 @@ impl UContentBrowserItemPathExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_break_content_browser_item_path,
                 __buffer,
             )
         };
@@ -1004,7 +1059,8 @@ impl UContentBrowserItemPathExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser_data::U_CONTENT_BROWSER_ITEM_PATH_EXTENSIONS_BREAK_CONTENT_BROWSER_ITEM_PATH,
+                crate::bindings::content_browser_data::__FUNCTION_PTRS
+                    .u_content_browser_item_path_extensions_break_content_browser_item_path,
                 __buffer,
             )
         };

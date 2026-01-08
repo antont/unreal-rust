@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ACTOR_SEQUENCE_COMPONENT_STOP_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE_REVERSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_SEQUENCE_COMPONENT_PAUSE_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_actor_sequence_component_stop_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_sequence_component_play_sequence_reverse: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_sequence_component_play_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_sequence_component_pause_sequence: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_actor_sequence_component_stop_sequence: std::ptr::null_mut(),
+            u_actor_sequence_component_play_sequence_reverse: std::ptr::null_mut(),
+            u_actor_sequence_component_play_sequence: std::ptr::null_mut(),
+            u_actor_sequence_component_pause_sequence: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,28 +33,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopSequence"),
-            &raw mut U_ACTOR_SEQUENCE_COMPONENT_STOP_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_stop_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlaySequenceReverse"),
-            &raw mut U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE_REVERSE,
+            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_play_sequence_reverse,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlaySequence"),
-            &raw mut U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_play_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PauseSequence"),
-            &raw mut U_ACTOR_SEQUENCE_COMPONENT_PAUSE_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_actor_sequence_component_pause_sequence,
         );
     }
 }
@@ -100,7 +109,8 @@ impl UActorSequenceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_STOP_SEQUENCE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_stop_sequence,
                 __buffer,
             )
         };
@@ -110,7 +120,8 @@ impl UActorSequenceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_STOP_SEQUENCE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_stop_sequence,
                 __buffer,
             )
         };
@@ -123,7 +134,8 @@ impl UActorSequenceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE_REVERSE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_play_sequence_reverse,
                 __buffer,
             )
         };
@@ -133,7 +145,8 @@ impl UActorSequenceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE_REVERSE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_play_sequence_reverse,
                 __buffer,
             )
         };
@@ -146,7 +159,8 @@ impl UActorSequenceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_play_sequence,
                 __buffer,
             )
         };
@@ -156,7 +170,8 @@ impl UActorSequenceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PLAY_SEQUENCE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_play_sequence,
                 __buffer,
             )
         };
@@ -169,7 +184,8 @@ impl UActorSequenceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PAUSE_SEQUENCE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_pause_sequence,
                 __buffer,
             )
         };
@@ -179,7 +195,8 @@ impl UActorSequenceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::actor_sequence::U_ACTOR_SEQUENCE_COMPONENT_PAUSE_SEQUENCE,
+                crate::bindings::actor_sequence::__FUNCTION_PTRS
+                    .u_actor_sequence_component_pause_sequence,
                 __buffer,
             )
         };

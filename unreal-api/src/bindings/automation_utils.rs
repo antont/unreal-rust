@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUTOMATION_UTILS_BLUEPRINT_LIBRARY_TAKE_GAMEPLAY_AUTOMATION_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_automation_utils_blueprint_library_take_gameplay_automation_screenshot: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_automation_utils_blueprint_library_take_gameplay_automation_screenshot: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TakeGameplayAutomationScreenshot"),
-            &raw mut U_AUTOMATION_UTILS_BLUEPRINT_LIBRARY_TAKE_GAMEPLAY_AUTOMATION_SCREENSHOT,
+            &raw mut __FUNCTION_PTRS
+                .u_automation_utils_blueprint_library_take_gameplay_automation_screenshot,
         );
     }
 }
@@ -55,7 +65,8 @@ impl UAutomationUtilsBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::automation_utils::U_AUTOMATION_UTILS_BLUEPRINT_LIBRARY_TAKE_GAMEPLAY_AUTOMATION_SCREENSHOT,
+                crate::bindings::automation_utils::__FUNCTION_PTRS
+                    .u_automation_utils_blueprint_library_take_gameplay_automation_screenshot,
                 __buffer,
             )
         };
@@ -93,7 +104,8 @@ impl UAutomationUtilsBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::automation_utils::U_AUTOMATION_UTILS_BLUEPRINT_LIBRARY_TAKE_GAMEPLAY_AUTOMATION_SCREENSHOT,
+                crate::bindings::automation_utils::__FUNCTION_PTRS
+                    .u_automation_utils_blueprint_library_take_gameplay_automation_screenshot,
                 __buffer,
             )
         };

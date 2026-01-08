@@ -1,66 +1,75 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_SYNC_FILES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_SYNC_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_REVERT_FILES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_REVERT_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_REVERT_AND_RELOAD_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_ADD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_ADD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_LAST_ERROR_MSG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_IS_AVAILABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_CURRENT_PROVIDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_COPY_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_source_control_helpers_sync_files: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_sync_file: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_revert_unchanged_files: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_revert_unchanged_file: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_revert_files: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_revert_file: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_revert_and_reload_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_query_file_states: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_query_file_state_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_query_file_state: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_mark_files_for_delete: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_mark_files_for_add: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_mark_file_for_delete: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_mark_file_for_add: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_last_error_msg: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_is_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_is_available: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_current_provider: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_copy_file: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_check_out_or_add_files: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_check_out_or_add_file: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_check_out_files: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_check_out_file: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_check_in_files: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_check_in_file: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_async_query_file_states: *mut crate::ffi::UFunctionOpague,
+    pub u_source_control_helpers_async_query_file_state: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_source_control_helpers_sync_files: std::ptr::null_mut(),
+            u_source_control_helpers_sync_file: std::ptr::null_mut(),
+            u_source_control_helpers_revert_unchanged_files: std::ptr::null_mut(),
+            u_source_control_helpers_revert_unchanged_file: std::ptr::null_mut(),
+            u_source_control_helpers_revert_files: std::ptr::null_mut(),
+            u_source_control_helpers_revert_file: std::ptr::null_mut(),
+            u_source_control_helpers_revert_and_reload_packages: std::ptr::null_mut(),
+            u_source_control_helpers_query_file_states: std::ptr::null_mut(),
+            u_source_control_helpers_query_file_state_delegate_delegate_signature: std::ptr::null_mut(),
+            u_source_control_helpers_query_file_state: std::ptr::null_mut(),
+            u_source_control_helpers_mark_files_for_delete: std::ptr::null_mut(),
+            u_source_control_helpers_mark_files_for_add: std::ptr::null_mut(),
+            u_source_control_helpers_mark_file_for_delete: std::ptr::null_mut(),
+            u_source_control_helpers_mark_file_for_add: std::ptr::null_mut(),
+            u_source_control_helpers_last_error_msg: std::ptr::null_mut(),
+            u_source_control_helpers_is_enabled: std::ptr::null_mut(),
+            u_source_control_helpers_is_available: std::ptr::null_mut(),
+            u_source_control_helpers_current_provider: std::ptr::null_mut(),
+            u_source_control_helpers_copy_file: std::ptr::null_mut(),
+            u_source_control_helpers_check_out_or_add_files: std::ptr::null_mut(),
+            u_source_control_helpers_check_out_or_add_file: std::ptr::null_mut(),
+            u_source_control_helpers_check_out_files: std::ptr::null_mut(),
+            u_source_control_helpers_check_out_file: std::ptr::null_mut(),
+            u_source_control_helpers_check_in_files: std::ptr::null_mut(),
+            u_source_control_helpers_check_in_file: std::ptr::null_mut(),
+            u_source_control_helpers_async_query_file_states: std::ptr::null_mut(),
+            u_source_control_helpers_async_query_file_state: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -70,189 +79,190 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SyncFiles"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_SYNC_FILES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_sync_files,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SyncFile"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_SYNC_FILE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_sync_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RevertUnchangedFiles"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_unchanged_files,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RevertUnchangedFile"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_unchanged_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RevertFiles"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_REVERT_FILES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_files,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RevertFile"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_REVERT_FILE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RevertAndReloadPackages"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_REVERT_AND_RELOAD_PACKAGES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_revert_and_reload_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueryFileStates"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_query_file_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueryFileStateDelegate__DelegateSignature"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_source_control_helpers_query_file_state_delegate_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueryFileState"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_query_file_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MarkFilesForDelete"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_DELETE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_files_for_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MarkFilesForAdd"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_ADD,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_files_for_add,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MarkFileForDelete"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_DELETE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_file_for_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MarkFileForAdd"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_ADD,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_mark_file_for_add,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LastErrorMsg"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_LAST_ERROR_MSG,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_last_error_msg,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_IS_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_is_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAvailable"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_IS_AVAILABLE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_is_available,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CurrentProvider"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_CURRENT_PROVIDER,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_current_provider,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyFile"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_COPY_FILE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_copy_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckOutOrAddFiles"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_or_add_files,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckOutOrAddFile"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_or_add_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckOutFiles"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_files,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckOutFile"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_out_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckInFiles"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_in_files,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckInFile"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_check_in_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsyncQueryFileStates"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATES,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_async_query_file_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsyncQueryFileState"),
-            &raw mut U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATE,
+            &raw mut __FUNCTION_PTRS.u_source_control_helpers_async_query_file_state,
         );
     }
 }
@@ -310,7 +320,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_sync_files,
                 __buffer,
             )
         };
@@ -330,7 +341,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_sync_files,
                 __buffer,
             )
         };
@@ -344,7 +356,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_sync_file,
                 __buffer,
             )
         };
@@ -364,7 +377,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_SYNC_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_sync_file,
                 __buffer,
             )
         };
@@ -378,7 +392,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_unchanged_files,
                 __buffer,
             )
         };
@@ -398,7 +413,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_unchanged_files,
                 __buffer,
             )
         };
@@ -412,7 +428,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_unchanged_file,
                 __buffer,
             )
         };
@@ -432,7 +449,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_UNCHANGED_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_unchanged_file,
                 __buffer,
             )
         };
@@ -446,7 +464,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_files,
                 __buffer,
             )
         };
@@ -466,7 +485,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_files,
                 __buffer,
             )
         };
@@ -480,7 +500,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_file,
                 __buffer,
             )
         };
@@ -500,7 +521,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_file,
                 __buffer,
             )
         };
@@ -518,7 +540,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_AND_RELOAD_PACKAGES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_and_reload_packages,
                 __buffer,
             )
         };
@@ -549,7 +572,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_REVERT_AND_RELOAD_PACKAGES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_revert_and_reload_packages,
                 __buffer,
             )
         };
@@ -566,7 +590,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_query_file_states,
                 __buffer,
             )
         };
@@ -586,7 +611,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_query_file_states,
                 __buffer,
             )
         };
@@ -600,7 +626,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_query_file_state,
                 __buffer,
             )
         };
@@ -620,7 +647,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_QUERY_FILE_STATE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_query_file_state,
                 __buffer,
             )
         };
@@ -634,7 +662,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_DELETE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_files_for_delete,
                 __buffer,
             )
         };
@@ -654,7 +683,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_DELETE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_files_for_delete,
                 __buffer,
             )
         };
@@ -668,7 +698,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_ADD,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_files_for_add,
                 __buffer,
             )
         };
@@ -688,7 +719,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILES_FOR_ADD,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_files_for_add,
                 __buffer,
             )
         };
@@ -702,7 +734,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_DELETE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_file_for_delete,
                 __buffer,
             )
         };
@@ -722,7 +755,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_DELETE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_file_for_delete,
                 __buffer,
             )
         };
@@ -736,7 +770,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_ADD,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_file_for_add,
                 __buffer,
             )
         };
@@ -756,7 +791,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_MARK_FILE_FOR_ADD,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_mark_file_for_add,
                 __buffer,
             )
         };
@@ -770,7 +806,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_LAST_ERROR_MSG,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_last_error_msg,
                 __buffer,
             )
         };
@@ -780,7 +817,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_LAST_ERROR_MSG,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_last_error_msg,
                 __buffer,
             )
         };
@@ -794,7 +832,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_ENABLED,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_is_enabled,
                 __buffer,
             )
         };
@@ -804,7 +843,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_ENABLED,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_is_enabled,
                 __buffer,
             )
         };
@@ -818,7 +858,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_AVAILABLE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_is_available,
                 __buffer,
             )
         };
@@ -828,7 +869,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_IS_AVAILABLE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_is_available,
                 __buffer,
             )
         };
@@ -842,7 +884,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CURRENT_PROVIDER,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_current_provider,
                 __buffer,
             )
         };
@@ -852,7 +895,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CURRENT_PROVIDER,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_current_provider,
                 __buffer,
             )
         };
@@ -870,7 +914,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_COPY_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_copy_file,
                 __buffer,
             )
         };
@@ -897,7 +942,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_COPY_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_copy_file,
                 __buffer,
             )
         };
@@ -911,7 +957,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_or_add_files,
                 __buffer,
             )
         };
@@ -931,7 +978,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_or_add_files,
                 __buffer,
             )
         };
@@ -945,7 +993,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_or_add_file,
                 __buffer,
             )
         };
@@ -965,7 +1014,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_OR_ADD_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_or_add_file,
                 __buffer,
             )
         };
@@ -979,7 +1029,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_files,
                 __buffer,
             )
         };
@@ -999,7 +1050,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_files,
                 __buffer,
             )
         };
@@ -1013,7 +1065,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_file,
                 __buffer,
             )
         };
@@ -1033,7 +1086,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_OUT_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_out_file,
                 __buffer,
             )
         };
@@ -1052,7 +1106,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_in_files,
                 __buffer,
             )
         };
@@ -1086,7 +1141,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_in_files,
                 __buffer,
             )
         };
@@ -1105,7 +1161,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_in_file,
                 __buffer,
             )
         };
@@ -1139,7 +1196,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_CHECK_IN_FILE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_check_in_file,
                 __buffer,
             )
         };
@@ -1157,7 +1215,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_async_query_file_states,
                 __buffer,
             )
         };
@@ -1184,7 +1243,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATES,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_async_query_file_states,
                 __buffer,
             )
         };
@@ -1201,7 +1261,8 @@ impl USourceControlHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_async_query_file_state,
                 __buffer,
             )
         };
@@ -1228,7 +1289,8 @@ impl USourceControlHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::source_control::U_SOURCE_CONTROL_HELPERS_ASYNC_QUERY_FILE_STATE,
+                crate::bindings::source_control::__FUNCTION_PTRS
+                    .u_source_control_helpers_async_query_file_state,
                 __buffer,
             )
         };

@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_STOP_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_SET_LINK_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_PLAY_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_IS_LINK_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_audio_link_blueprint_interface_stop_link: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_link_blueprint_interface_set_link_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_link_blueprint_interface_play_link: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_link_blueprint_interface_is_link_playing: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_audio_link_blueprint_interface_stop_link: std::ptr::null_mut(),
+            u_audio_link_blueprint_interface_set_link_sound: std::ptr::null_mut(),
+            u_audio_link_blueprint_interface_play_link: std::ptr::null_mut(),
+            u_audio_link_blueprint_interface_is_link_playing: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,28 +33,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopLink"),
-            &raw mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_STOP_LINK,
+            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_stop_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLinkSound"),
-            &raw mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_SET_LINK_SOUND,
+            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_set_link_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayLink"),
-            &raw mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_PLAY_LINK,
+            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_play_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLinkPlaying"),
-            &raw mut U_AUDIO_LINK_BLUEPRINT_INTERFACE_IS_LINK_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_audio_link_blueprint_interface_is_link_playing,
         );
     }
 }
@@ -78,7 +87,8 @@ impl UAudioLinkBlueprintInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_STOP_LINK,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_stop_link,
                 __buffer,
             )
         };
@@ -88,7 +98,8 @@ impl UAudioLinkBlueprintInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_STOP_LINK,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_stop_link,
                 __buffer,
             )
         };
@@ -104,7 +115,8 @@ impl UAudioLinkBlueprintInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_SET_LINK_SOUND,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_set_link_sound,
                 __buffer,
             )
         };
@@ -121,7 +133,8 @@ impl UAudioLinkBlueprintInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_SET_LINK_SOUND,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_set_link_sound,
                 __buffer,
             )
         };
@@ -134,7 +147,8 @@ impl UAudioLinkBlueprintInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_PLAY_LINK,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_play_link,
                 __buffer,
             )
         };
@@ -147,7 +161,8 @@ impl UAudioLinkBlueprintInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_PLAY_LINK,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_play_link,
                 __buffer,
             )
         };
@@ -160,7 +175,8 @@ impl UAudioLinkBlueprintInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_IS_LINK_PLAYING,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_is_link_playing,
                 __buffer,
             )
         };
@@ -170,7 +186,8 @@ impl UAudioLinkBlueprintInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_link_engine::U_AUDIO_LINK_BLUEPRINT_INTERFACE_IS_LINK_PLAYING,
+                crate::bindings::audio_link_engine::__FUNCTION_PTRS
+                    .u_audio_link_blueprint_interface_is_link_playing,
                 __buffer,
             )
         };

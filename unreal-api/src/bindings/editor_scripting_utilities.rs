@@ -1,286 +1,295 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_SYNC_BROWSER_TO_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_SET_METADATA_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_SAVE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_SAVE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_RENAME_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_RENAME_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_RENAME_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_REMOVE_METADATA_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_MAKE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_LOAD_BLUEPRINT_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_LOAD_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_LIST_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_LIST_ASSET_BY_TAG_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_GET_TAG_VALUES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_GET_PROJECT_ROOT_ASSET_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_GET_PATH_NAME_FOR_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_GET_PACKAGE_FOR_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG_VALUES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_FIND_PACKAGE_REFERENCERS_FOR_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_FIND_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DUPLICATE_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DUPLICATE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DUPLICATE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_HAVE_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DOES_ASSET_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DO_ASSETS_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DELETE_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_DELETE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_CONSOLIDATE_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_DIALOG_LIBRARY_SHOW_SUPPRESSABLE_WARNING_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECTS_DETAILS_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECT_DETAILS_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_DIALOG_LIBRARY_SHOW_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_FILTER_LIBRARY_BY_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_FILTER_LIBRARY_BY_LEVEL_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_FILTER_LIBRARY_BY_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_FILTER_LIBRARY_BY_ID_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_FILTER_LIBRARY_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_FILTER_LIBRARY_BY_ACTOR_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_FILTER_LIBRARY_BY_ACTOR_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SET_SELECTED_LEVEL_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SET_LEVEL_VIEWPORT_CAMERA_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SET_CURRENT_LEVEL_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SET_ACTOR_SELECTION_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SELECT_NOTHING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SAVE_CURRENT_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_SAVE_ALL_DIRTY_LEVELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_REPLACE_SELECTED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_PILOT_LEVEL_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL_FROM_TEMPLATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_MERGE_STATIC_MESH_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_LOAD_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_JOIN_STATIC_MESH_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_SELECTED_LEVEL_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_PIE_WORLDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_LEVEL_VIEWPORT_CAMERA_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_GAME_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_EDITOR_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_GET_ACTOR_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_EJECT_PILOT_LEVEL_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_EDITOR_SET_GAME_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_EDITOR_PLAY_SIMULATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_EDITOR_INVALIDATE_VIEWPORTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_EDITOR_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_DESTROY_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_CREATE_PROXY_MESH_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_CONVERT_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_LEVEL_LIBRARY_CLEAR_ACTOR_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_STRIP_LOD_GEOMETRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_RENAME_SOCKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REMOVE_LO_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REGENERATE_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_IMPORT_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_NUM_VERTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_CREATE_PHYSICS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_REDUCTION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_FROM_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_GENERATE_LIGHTMAP_U_VS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_ALLOW_CPU_ACCESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_LODS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IS_SECTION_COLLISION_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_INSERT_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IMPORT_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_VERTEX_COLORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_INSTANCE_VERTEX_COLORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_SIMPLE_COLLISION_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUM_UV_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_VERTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_SCREEN_SIZES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_REDUCTION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_CONVEX_COLLISION_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_COLLISION_COMPLEXITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_PLANAR_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_CYLINDRICAL_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_BOX_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_CAST_SHADOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_editor_asset_library_sync_browser_to_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_set_metadata_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_save_loaded_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_save_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_save_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_save_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_rename_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_rename_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_rename_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_remove_metadata_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_make_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_load_blueprint_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_load_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_list_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_list_asset_by_tag_value: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_get_tag_values: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_get_project_root_asset_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_get_path_name_for_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_get_package_for_object: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_get_metadata_tag_values: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_get_metadata_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_find_package_referencers_for_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_find_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_duplicate_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_duplicate_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_duplicate_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_does_directory_have_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_does_directory_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_does_asset_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_do_assets_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_delete_loaded_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_delete_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_delete_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_delete_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_consolidate_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_checkout_loaded_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_checkout_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_checkout_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_asset_library_checkout_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_dialog_library_show_suppressable_warning_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_dialog_library_show_objects_details_view: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_dialog_library_show_object_details_view: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_dialog_library_show_message: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_filter_library_by_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_filter_library_by_level_name: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_filter_library_by_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_filter_library_by_id_name: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_filter_library_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_filter_library_by_actor_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_filter_library_by_actor_label: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_spawn_actor_from_object: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_spawn_actor_from_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_set_selected_level_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_set_level_viewport_camera_info: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_set_current_level_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_set_actor_selection_state: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_select_nothing: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_save_current_level: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_save_all_dirty_levels: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_replace_selected_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_replace_mesh_components_meshes_on_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_replace_mesh_components_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_replace_mesh_components_materials_on_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_replace_mesh_components_materials: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_pilot_level_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_new_level_from_template: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_new_level: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_merge_static_mesh_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_load_level: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_join_static_mesh_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_selected_level_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_pie_worlds: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_level_viewport_camera_info: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_game_world: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_editor_world: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_all_level_actors_components: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_all_level_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_get_actor_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_eject_pilot_level_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_editor_set_game_view: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_editor_play_simulate: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_editor_invalidate_viewports: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_editor_end_play: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_destroy_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_create_proxy_mesh_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_convert_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_level_library_clear_actor_selection_set: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_strip_lod_geometry: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_set_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_rename_socket: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_remove_lo_ds: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_reimport_all_custom_lo_ds: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_regenerate_lod: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_import_lod: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_get_num_verts: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_get_lod_count: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_get_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_skeletal_mesh_library_create_physics_asset: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_lods_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_lods: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_lod_reduction_settings: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_lod_from_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_generate_lightmap_u_vs: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_set_allow_cpu_access: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_remove_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_remove_lods: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_remove_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_remove_collisions: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_reimport_all_custom_lo_ds: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_is_section_collision_enabled: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_insert_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_import_lod: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_has_vertex_colors: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_has_instance_vertex_colors: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_simple_collision_count: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_num_uv_channels: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_number_verts: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_number_materials: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_lod_screen_sizes: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_lod_reduction_settings: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_lod_count: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_convex_collision_count: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_get_collision_complexity: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_generate_planar_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_generate_cylindrical_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_generate_box_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_enable_section_collision: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_enable_section_cast_shadow: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_add_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_add_simple_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_editor_static_mesh_library_add_simple_collisions: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_editor_asset_library_sync_browser_to_objects: std::ptr::null_mut(),
+            u_editor_asset_library_set_metadata_tag: std::ptr::null_mut(),
+            u_editor_asset_library_save_loaded_assets: std::ptr::null_mut(),
+            u_editor_asset_library_save_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_library_save_directory: std::ptr::null_mut(),
+            u_editor_asset_library_save_asset: std::ptr::null_mut(),
+            u_editor_asset_library_rename_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_library_rename_directory: std::ptr::null_mut(),
+            u_editor_asset_library_rename_asset: std::ptr::null_mut(),
+            u_editor_asset_library_remove_metadata_tag: std::ptr::null_mut(),
+            u_editor_asset_library_make_directory: std::ptr::null_mut(),
+            u_editor_asset_library_load_blueprint_class: std::ptr::null_mut(),
+            u_editor_asset_library_load_asset: std::ptr::null_mut(),
+            u_editor_asset_library_list_assets: std::ptr::null_mut(),
+            u_editor_asset_library_list_asset_by_tag_value: std::ptr::null_mut(),
+            u_editor_asset_library_get_tag_values: std::ptr::null_mut(),
+            u_editor_asset_library_get_project_root_asset_directory: std::ptr::null_mut(),
+            u_editor_asset_library_get_path_name_for_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_library_get_package_for_object: std::ptr::null_mut(),
+            u_editor_asset_library_get_metadata_tag_values: std::ptr::null_mut(),
+            u_editor_asset_library_get_metadata_tag: std::ptr::null_mut(),
+            u_editor_asset_library_find_package_referencers_for_asset: std::ptr::null_mut(),
+            u_editor_asset_library_find_asset_data: std::ptr::null_mut(),
+            u_editor_asset_library_duplicate_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_library_duplicate_directory: std::ptr::null_mut(),
+            u_editor_asset_library_duplicate_asset: std::ptr::null_mut(),
+            u_editor_asset_library_does_directory_have_assets: std::ptr::null_mut(),
+            u_editor_asset_library_does_directory_exist: std::ptr::null_mut(),
+            u_editor_asset_library_does_asset_exist: std::ptr::null_mut(),
+            u_editor_asset_library_do_assets_exist: std::ptr::null_mut(),
+            u_editor_asset_library_delete_loaded_assets: std::ptr::null_mut(),
+            u_editor_asset_library_delete_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_library_delete_directory: std::ptr::null_mut(),
+            u_editor_asset_library_delete_asset: std::ptr::null_mut(),
+            u_editor_asset_library_consolidate_assets: std::ptr::null_mut(),
+            u_editor_asset_library_checkout_loaded_assets: std::ptr::null_mut(),
+            u_editor_asset_library_checkout_loaded_asset: std::ptr::null_mut(),
+            u_editor_asset_library_checkout_directory: std::ptr::null_mut(),
+            u_editor_asset_library_checkout_asset: std::ptr::null_mut(),
+            u_editor_dialog_library_show_suppressable_warning_dialog: std::ptr::null_mut(),
+            u_editor_dialog_library_show_objects_details_view: std::ptr::null_mut(),
+            u_editor_dialog_library_show_object_details_view: std::ptr::null_mut(),
+            u_editor_dialog_library_show_message: std::ptr::null_mut(),
+            u_editor_filter_library_by_selection: std::ptr::null_mut(),
+            u_editor_filter_library_by_level_name: std::ptr::null_mut(),
+            u_editor_filter_library_by_layer: std::ptr::null_mut(),
+            u_editor_filter_library_by_id_name: std::ptr::null_mut(),
+            u_editor_filter_library_by_class: std::ptr::null_mut(),
+            u_editor_filter_library_by_actor_tag: std::ptr::null_mut(),
+            u_editor_filter_library_by_actor_label: std::ptr::null_mut(),
+            u_editor_level_library_spawn_actor_from_object: std::ptr::null_mut(),
+            u_editor_level_library_spawn_actor_from_class: std::ptr::null_mut(),
+            u_editor_level_library_set_selected_level_actors: std::ptr::null_mut(),
+            u_editor_level_library_set_level_viewport_camera_info: std::ptr::null_mut(),
+            u_editor_level_library_set_current_level_by_name: std::ptr::null_mut(),
+            u_editor_level_library_set_actor_selection_state: std::ptr::null_mut(),
+            u_editor_level_library_select_nothing: std::ptr::null_mut(),
+            u_editor_level_library_save_current_level: std::ptr::null_mut(),
+            u_editor_level_library_save_all_dirty_levels: std::ptr::null_mut(),
+            u_editor_level_library_replace_selected_actors: std::ptr::null_mut(),
+            u_editor_level_library_replace_mesh_components_meshes_on_actors: std::ptr::null_mut(),
+            u_editor_level_library_replace_mesh_components_meshes: std::ptr::null_mut(),
+            u_editor_level_library_replace_mesh_components_materials_on_actors: std::ptr::null_mut(),
+            u_editor_level_library_replace_mesh_components_materials: std::ptr::null_mut(),
+            u_editor_level_library_pilot_level_actor: std::ptr::null_mut(),
+            u_editor_level_library_new_level_from_template: std::ptr::null_mut(),
+            u_editor_level_library_new_level: std::ptr::null_mut(),
+            u_editor_level_library_merge_static_mesh_actors: std::ptr::null_mut(),
+            u_editor_level_library_load_level: std::ptr::null_mut(),
+            u_editor_level_library_join_static_mesh_actors: std::ptr::null_mut(),
+            u_editor_level_library_get_selected_level_actors: std::ptr::null_mut(),
+            u_editor_level_library_get_pie_worlds: std::ptr::null_mut(),
+            u_editor_level_library_get_level_viewport_camera_info: std::ptr::null_mut(),
+            u_editor_level_library_get_game_world: std::ptr::null_mut(),
+            u_editor_level_library_get_editor_world: std::ptr::null_mut(),
+            u_editor_level_library_get_all_level_actors_components: std::ptr::null_mut(),
+            u_editor_level_library_get_all_level_actors: std::ptr::null_mut(),
+            u_editor_level_library_get_actor_reference: std::ptr::null_mut(),
+            u_editor_level_library_eject_pilot_level_actor: std::ptr::null_mut(),
+            u_editor_level_library_editor_set_game_view: std::ptr::null_mut(),
+            u_editor_level_library_editor_play_simulate: std::ptr::null_mut(),
+            u_editor_level_library_editor_invalidate_viewports: std::ptr::null_mut(),
+            u_editor_level_library_editor_end_play: std::ptr::null_mut(),
+            u_editor_level_library_destroy_actor: std::ptr::null_mut(),
+            u_editor_level_library_create_proxy_mesh_actor: std::ptr::null_mut(),
+            u_editor_level_library_convert_actors: std::ptr::null_mut(),
+            u_editor_level_library_clear_actor_selection_set: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_strip_lod_geometry: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_set_lod_build_settings: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_rename_socket: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_remove_lo_ds: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_reimport_all_custom_lo_ds: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_regenerate_lod: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_import_lod: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_get_num_verts: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_get_lod_count: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_get_lod_build_settings: std::ptr::null_mut(),
+            udeprecated_editor_skeletal_mesh_library_create_physics_asset: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_lods_with_notification: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_lods: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_lod_reduction_settings: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_lod_from_static_mesh: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_lod_build_settings: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_generate_lightmap_u_vs: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions_with_notification: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_set_allow_cpu_access: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_remove_uv_channel: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_remove_lods: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_remove_collisions_with_notification: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_remove_collisions: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_reimport_all_custom_lo_ds: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_is_section_collision_enabled: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_insert_uv_channel: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_import_lod: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_has_vertex_colors: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_has_instance_vertex_colors: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_simple_collision_count: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_num_uv_channels: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_number_verts: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_number_materials: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_lod_screen_sizes: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_lod_reduction_settings: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_lod_count: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_lod_build_settings: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_convex_collision_count: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_get_collision_complexity: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_generate_planar_uv_channel: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_generate_cylindrical_uv_channel: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_generate_box_uv_channel: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_enable_section_collision: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_enable_section_cast_shadow: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions_with_notification: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_add_uv_channel: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_add_simple_collisions_with_notification: std::ptr::null_mut(),
+            udeprecated_editor_static_mesh_library_add_simple_collisions: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -290,273 +299,276 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SyncBrowserToObjects"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_SYNC_BROWSER_TO_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_sync_browser_to_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMetadataTag"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_SET_METADATA_TAG,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_set_metadata_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveLoadedAssets"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_loaded_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveDirectory"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_SAVE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_SAVE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_save_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_RENAME_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameDirectory"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_RENAME_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_RENAME_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_rename_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMetadataTag"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_REMOVE_METADATA_TAG,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_remove_metadata_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeDirectory"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_MAKE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_make_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadBlueprintClass"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_LOAD_BLUEPRINT_CLASS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_load_blueprint_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_LOAD_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_load_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ListAssets"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_LIST_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_list_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ListAssetByTagValue"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_LIST_ASSET_BY_TAG_VALUE,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_list_asset_by_tag_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTagValues"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_GET_TAG_VALUES,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_tag_values,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetProjectRootAssetDirectory"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_GET_PROJECT_ROOT_ASSET_DIRECTORY,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_library_get_project_root_asset_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathNameForLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_GET_PATH_NAME_FOR_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_library_get_path_name_for_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPackageForObject"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_GET_PACKAGE_FOR_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_package_for_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetadataTagValues"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG_VALUES,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_metadata_tag_values,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetadataTag"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_get_metadata_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPackageReferencersForAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_asset_library_find_package_referencers_for_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindAssetData"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_FIND_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_find_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DUPLICATE_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateDirectory"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DUPLICATE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DUPLICATE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_duplicate_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesDirectoryHaveAssets"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_HAVE_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_directory_have_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesDirectoryExist"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_EXIST,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_directory_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesAssetExist"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DOES_ASSET_EXIST,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_does_asset_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoAssetsExist"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DO_ASSETS_EXIST,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_do_assets_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteLoadedAssets"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_loaded_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteDirectory"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DELETE_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_DELETE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_delete_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConsolidateAssets"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_CONSOLIDATE_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_consolidate_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutLoadedAssets"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_loaded_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutLoadedAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutDirectory"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_DIRECTORY,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckoutAsset"),
-            &raw mut U_EDITOR_ASSET_LIBRARY_CHECKOUT_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_asset_library_checkout_asset,
         );
     }
     unsafe {
@@ -567,28 +579,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowSuppressableWarningDialog"),
-            &raw mut U_EDITOR_DIALOG_LIBRARY_SHOW_SUPPRESSABLE_WARNING_DIALOG,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_dialog_library_show_suppressable_warning_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowObjectsDetailsView"),
-            &raw mut U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECTS_DETAILS_VIEW,
+            &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_objects_details_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowObjectDetailsView"),
-            &raw mut U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECT_DETAILS_VIEW,
+            &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_object_details_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowMessage"),
-            &raw mut U_EDITOR_DIALOG_LIBRARY_SHOW_MESSAGE,
+            &raw mut __FUNCTION_PTRS.u_editor_dialog_library_show_message,
         );
     }
     unsafe {
@@ -599,49 +612,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BySelection"),
-            &raw mut U_EDITOR_FILTER_LIBRARY_BY_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ByLevelName"),
-            &raw mut U_EDITOR_FILTER_LIBRARY_BY_LEVEL_NAME,
+            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_level_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ByLayer"),
-            &raw mut U_EDITOR_FILTER_LIBRARY_BY_LAYER,
+            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ByIDName"),
-            &raw mut U_EDITOR_FILTER_LIBRARY_BY_ID_NAME,
+            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_id_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ByClass"),
-            &raw mut U_EDITOR_FILTER_LIBRARY_BY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ByActorTag"),
-            &raw mut U_EDITOR_FILTER_LIBRARY_BY_ACTOR_TAG,
+            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_actor_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ByActorLabel"),
-            &raw mut U_EDITOR_FILTER_LIBRARY_BY_ACTOR_LABEL,
+            &raw mut __FUNCTION_PTRS.u_editor_filter_library_by_actor_label,
         );
     }
     unsafe {
@@ -652,259 +665,266 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnActorFromObject"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_spawn_actor_from_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnActorFromClass"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_CLASS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_spawn_actor_from_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelectedLevelActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SET_SELECTED_LEVEL_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_set_selected_level_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelViewportCameraInfo"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_library_set_level_viewport_camera_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentLevelByName"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SET_CURRENT_LEVEL_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_set_current_level_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActorSelectionState"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SET_ACTOR_SELECTION_STATE,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_set_actor_selection_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectNothing"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SELECT_NOTHING,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_select_nothing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveCurrentLevel"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SAVE_CURRENT_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_save_current_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveAllDirtyLevels"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_SAVE_ALL_DIRTY_LEVELS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_save_all_dirty_levels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceSelectedActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_REPLACE_SELECTED_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_replace_selected_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshesOnActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_library_replace_mesh_components_meshes_on_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshes"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_library_replace_mesh_components_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterialsOnActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_library_replace_mesh_components_materials_on_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterials"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_library_replace_mesh_components_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PilotLevelActor"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_PILOT_LEVEL_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_pilot_level_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NewLevelFromTemplate"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL_FROM_TEMPLATE,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_new_level_from_template,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NewLevel"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_new_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MergeStaticMeshActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_MERGE_STATIC_MESH_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_merge_static_mesh_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadLevel"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_LOAD_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_load_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("JoinStaticMeshActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_JOIN_STATIC_MESH_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_join_static_mesh_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedLevelActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_SELECTED_LEVEL_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_selected_level_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPIEWorlds"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_PIE_WORLDS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_pie_worlds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelViewportCameraInfo"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_library_get_level_viewport_camera_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGameWorld"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_GAME_WORLD,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_game_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEditorWorld"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_EDITOR_WORLD,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_editor_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllLevelActorsComponents"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_level_library_get_all_level_actors_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllLevelActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_all_level_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_GET_ACTOR_REFERENCE,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_get_actor_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EjectPilotLevelActor"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_EJECT_PILOT_LEVEL_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_eject_pilot_level_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorSetGameView"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_EDITOR_SET_GAME_VIEW,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_set_game_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorPlaySimulate"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_EDITOR_PLAY_SIMULATE,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_play_simulate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorInvalidateViewports"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_EDITOR_INVALIDATE_VIEWPORTS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_invalidate_viewports,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorEndPlay"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_EDITOR_END_PLAY,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_editor_end_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DestroyActor"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_DESTROY_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_destroy_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyMeshActor"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_CREATE_PROXY_MESH_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_create_proxy_mesh_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertActors"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_CONVERT_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_convert_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
-            &raw mut U_EDITOR_LEVEL_LIBRARY_CLEAR_ACTOR_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS.u_editor_level_library_clear_actor_selection_set,
         );
     }
     unsafe {
@@ -915,77 +935,87 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StripLODGeometry"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_STRIP_LOD_GEOMETRY,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_strip_lod_geometry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_set_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameSocket"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_RENAME_SOCKET,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_rename_socket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLODs"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REMOVE_LO_DS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_remove_lo_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_reimport_all_custom_lo_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegenerateLOD"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REGENERATE_LOD,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_regenerate_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_IMPORT_LOD,
+            &raw mut __FUNCTION_PTRS.udeprecated_editor_skeletal_mesh_library_import_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVerts"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_NUM_VERTS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_get_num_verts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLODCount"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_get_lod_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_get_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePhysicsAsset"),
-            &raw mut UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_CREATE_PHYSICS_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_skeletal_mesh_library_create_physics_asset,
         );
     }
     unsafe {
@@ -996,42 +1026,47 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodsWithNotification"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_lods_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLods"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS,
+            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_set_lods,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodReductionSettings"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_REDUCTION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_lod_reduction_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodFromStaticMesh"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_FROM_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_lod_from_static_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGenerateLightmapUVs"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_GENERATE_LIGHTMAP_U_VS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_generate_lightmap_u_vs,
         );
         (bindings
             .core_fns
@@ -1040,196 +1075,221 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "SetConvexDecompositionCollisionsWithNotification",
             ),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConvexDecompositionCollisions"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllowCPUAccess"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_ALLOW_CPU_ACCESS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_set_allow_cpu_access,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveUVChannel"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_remove_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLods"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_LODS,
+            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_remove_lods,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCollisionsWithNotification"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_remove_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCollisions"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_remove_collisions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_reimport_all_custom_lo_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSectionCollisionEnabled"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IS_SECTION_COLLISION_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_is_section_collision_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InsertUVChannel"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_INSERT_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_insert_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IMPORT_LOD,
+            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_import_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasVertexColors"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_VERTEX_COLORS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_has_vertex_colors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasInstanceVertexColors"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_INSTANCE_VERTEX_COLORS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_has_instance_vertex_colors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSimpleCollisionCount"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_SIMPLE_COLLISION_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_simple_collision_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumUVChannels"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUM_UV_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_num_uv_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberVerts"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_VERTS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_number_verts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberMaterials"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_MATERIALS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_number_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodScreenSizes"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_SCREEN_SIZES,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_lod_screen_sizes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodReductionSettings"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_REDUCTION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_lod_reduction_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodCount"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_COUNT,
+            &raw mut __FUNCTION_PTRS.udeprecated_editor_static_mesh_library_get_lod_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConvexCollisionCount"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_CONVEX_COLLISION_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_convex_collision_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollisionComplexity"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_COLLISION_COMPLEXITY,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_get_collision_complexity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GeneratePlanarUVChannel"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_PLANAR_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_generate_planar_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateCylindricalUVChannel"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_CYLINDRICAL_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_generate_cylindrical_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateBoxUVChannel"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_BOX_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_generate_box_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableSectionCollision"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_COLLISION,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_enable_section_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableSectionCastShadow"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_CAST_SHADOW,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_enable_section_cast_shadow,
         );
         (bindings
             .core_fns
@@ -1238,35 +1298,40 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "BulkSetConvexDecompositionCollisionsWithNotification",
             ),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BulkSetConvexDecompositionCollisions"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddUVChannel"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_add_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSimpleCollisionsWithNotification"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_add_simple_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSimpleCollisions"),
-            &raw mut UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_editor_static_mesh_library_add_simple_collisions,
         );
     }
 }
@@ -1345,7 +1410,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SYNC_BROWSER_TO_OBJECTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_sync_browser_to_objects,
                 __buffer,
             )
         };
@@ -1362,7 +1428,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SYNC_BROWSER_TO_OBJECTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_sync_browser_to_objects,
                 __buffer,
             )
         };
@@ -1379,7 +1446,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SET_METADATA_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_set_metadata_tag,
                 __buffer,
             )
         };
@@ -1402,7 +1470,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SET_METADATA_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_set_metadata_tag,
                 __buffer,
             )
         };
@@ -1418,7 +1487,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_loaded_assets,
                 __buffer,
             )
         };
@@ -1444,7 +1514,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_loaded_assets,
                 __buffer,
             )
         };
@@ -1461,7 +1532,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_loaded_asset,
                 __buffer,
             )
         };
@@ -1485,7 +1557,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_loaded_asset,
                 __buffer,
             )
         };
@@ -1503,7 +1576,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_directory,
                 __buffer,
             )
         };
@@ -1534,7 +1608,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_directory,
                 __buffer,
             )
         };
@@ -1548,7 +1623,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_asset,
                 __buffer,
             )
         };
@@ -1572,7 +1648,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_SAVE_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_save_asset,
                 __buffer,
             )
         };
@@ -1589,7 +1666,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_RENAME_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_rename_loaded_asset,
                 __buffer,
             )
         };
@@ -1613,7 +1691,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_RENAME_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_rename_loaded_asset,
                 __buffer,
             )
         };
@@ -1630,7 +1709,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_RENAME_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_rename_directory,
                 __buffer,
             )
         };
@@ -1654,7 +1734,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_RENAME_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_rename_directory,
                 __buffer,
             )
         };
@@ -1671,7 +1752,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_RENAME_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_rename_asset,
                 __buffer,
             )
         };
@@ -1695,7 +1777,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_RENAME_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_rename_asset,
                 __buffer,
             )
         };
@@ -1712,7 +1795,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_REMOVE_METADATA_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_remove_metadata_tag,
                 __buffer,
             )
         };
@@ -1732,7 +1816,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_REMOVE_METADATA_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_remove_metadata_tag,
                 __buffer,
             )
         };
@@ -1745,7 +1830,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_MAKE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_make_directory,
                 __buffer,
             )
         };
@@ -1762,7 +1848,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_MAKE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_make_directory,
                 __buffer,
             )
         };
@@ -1778,7 +1865,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LOAD_BLUEPRINT_CLASS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_load_blueprint_class,
                 __buffer,
             )
         };
@@ -1795,7 +1883,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LOAD_BLUEPRINT_CLASS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_load_blueprint_class,
                 __buffer,
             )
         };
@@ -1816,7 +1905,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LOAD_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_load_asset,
                 __buffer,
             )
         };
@@ -1833,7 +1923,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LOAD_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_load_asset,
                 __buffer,
             )
         };
@@ -1856,7 +1947,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LIST_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_list_assets,
                 __buffer,
             )
         };
@@ -1887,7 +1979,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LIST_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_list_assets,
                 __buffer,
             )
         };
@@ -1904,7 +1997,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LIST_ASSET_BY_TAG_VALUE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_list_asset_by_tag_value,
                 __buffer,
             )
         };
@@ -1924,7 +2018,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_LIST_ASSET_BY_TAG_VALUE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_list_asset_by_tag_value,
                 __buffer,
             )
         };
@@ -1938,7 +2033,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_TAG_VALUES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_tag_values,
                 __buffer,
             )
         };
@@ -1955,7 +2051,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_TAG_VALUES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_tag_values,
                 __buffer,
             )
         };
@@ -1969,7 +2066,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_PROJECT_ROOT_ASSET_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_project_root_asset_directory,
                 __buffer,
             )
         };
@@ -1979,7 +2077,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_PROJECT_ROOT_ASSET_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_project_root_asset_directory,
                 __buffer,
             )
         };
@@ -1995,7 +2094,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_PATH_NAME_FOR_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_path_name_for_loaded_asset,
                 __buffer,
             )
         };
@@ -2012,7 +2112,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_PATH_NAME_FOR_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_path_name_for_loaded_asset,
                 __buffer,
             )
         };
@@ -2028,7 +2129,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_PACKAGE_FOR_OBJECT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_package_for_object,
                 __buffer,
             )
         };
@@ -2045,7 +2147,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_PACKAGE_FOR_OBJECT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_package_for_object,
                 __buffer,
             )
         };
@@ -2066,7 +2169,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG_VALUES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_metadata_tag_values,
                 __buffer,
             )
         };
@@ -2083,7 +2187,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG_VALUES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_metadata_tag_values,
                 __buffer,
             )
         };
@@ -2100,7 +2205,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_metadata_tag,
                 __buffer,
             )
         };
@@ -2120,7 +2226,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_GET_METADATA_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_get_metadata_tag,
                 __buffer,
             )
         };
@@ -2137,7 +2244,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_find_package_referencers_for_asset,
                 __buffer,
             )
         };
@@ -2161,7 +2269,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_FIND_PACKAGE_REFERENCERS_FOR_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_find_package_referencers_for_asset,
                 __buffer,
             )
         };
@@ -2177,7 +2286,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_FIND_ASSET_DATA,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_find_asset_data,
                 __buffer,
             )
         };
@@ -2194,7 +2304,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_FIND_ASSET_DATA,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_find_asset_data,
                 __buffer,
             )
         };
@@ -2213,7 +2324,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DUPLICATE_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_duplicate_loaded_asset,
                 __buffer,
             )
         };
@@ -2237,7 +2349,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DUPLICATE_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_duplicate_loaded_asset,
                 __buffer,
             )
         };
@@ -2259,7 +2372,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DUPLICATE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_duplicate_directory,
                 __buffer,
             )
         };
@@ -2283,7 +2397,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DUPLICATE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_duplicate_directory,
                 __buffer,
             )
         };
@@ -2300,7 +2415,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DUPLICATE_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_duplicate_asset,
                 __buffer,
             )
         };
@@ -2324,7 +2440,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DUPLICATE_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_duplicate_asset,
                 __buffer,
             )
         };
@@ -2346,7 +2463,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_HAVE_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_does_directory_have_assets,
                 __buffer,
             )
         };
@@ -2370,7 +2488,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_HAVE_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_does_directory_have_assets,
                 __buffer,
             )
         };
@@ -2384,7 +2503,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_EXIST,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_does_directory_exist,
                 __buffer,
             )
         };
@@ -2401,7 +2521,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DOES_DIRECTORY_EXIST,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_does_directory_exist,
                 __buffer,
             )
         };
@@ -2415,7 +2536,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DOES_ASSET_EXIST,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_does_asset_exist,
                 __buffer,
             )
         };
@@ -2432,7 +2554,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DOES_ASSET_EXIST,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_does_asset_exist,
                 __buffer,
             )
         };
@@ -2446,7 +2569,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DO_ASSETS_EXIST,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_do_assets_exist,
                 __buffer,
             )
         };
@@ -2463,7 +2587,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DO_ASSETS_EXIST,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_do_assets_exist,
                 __buffer,
             )
         };
@@ -2479,7 +2604,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_loaded_assets,
                 __buffer,
             )
         };
@@ -2498,7 +2624,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_loaded_assets,
                 __buffer,
             )
         };
@@ -2514,7 +2641,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_loaded_asset,
                 __buffer,
             )
         };
@@ -2531,7 +2659,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_loaded_asset,
                 __buffer,
             )
         };
@@ -2545,7 +2674,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_directory,
                 __buffer,
             )
         };
@@ -2562,7 +2692,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_directory,
                 __buffer,
             )
         };
@@ -2576,7 +2707,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_asset,
                 __buffer,
             )
         };
@@ -2593,7 +2725,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_DELETE_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_delete_asset,
                 __buffer,
             )
         };
@@ -2610,7 +2743,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CONSOLIDATE_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_consolidate_assets,
                 __buffer,
             )
         };
@@ -2636,7 +2770,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CONSOLIDATE_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_consolidate_assets,
                 __buffer,
             )
         };
@@ -2652,7 +2787,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_loaded_assets,
                 __buffer,
             )
         };
@@ -2671,7 +2807,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSETS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_loaded_assets,
                 __buffer,
             )
         };
@@ -2687,7 +2824,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_loaded_asset,
                 __buffer,
             )
         };
@@ -2704,7 +2842,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_LOADED_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_loaded_asset,
                 __buffer,
             )
         };
@@ -2718,7 +2857,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_directory,
                 __buffer,
             )
         };
@@ -2742,7 +2882,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_DIRECTORY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_directory,
                 __buffer,
             )
         };
@@ -2756,7 +2897,8 @@ impl UEditorAssetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_asset,
                 __buffer,
             )
         };
@@ -2773,7 +2915,8 @@ impl UEditorAssetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_ASSET_LIBRARY_CHECKOUT_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_asset_library_checkout_asset,
                 __buffer,
             )
         };
@@ -2814,7 +2957,8 @@ impl UEditorDialogLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_SUPPRESSABLE_WARNING_DIALOG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_suppressable_warning_dialog,
                 __buffer,
             )
         };
@@ -2851,7 +2995,8 @@ impl UEditorDialogLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_SUPPRESSABLE_WARNING_DIALOG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_suppressable_warning_dialog,
                 __buffer,
             )
         };
@@ -2869,7 +3014,8 @@ impl UEditorDialogLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECTS_DETAILS_VIEW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_objects_details_view,
                 __buffer,
             )
         };
@@ -2898,7 +3044,8 @@ impl UEditorDialogLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECTS_DETAILS_VIEW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_objects_details_view,
                 __buffer,
             )
         };
@@ -2916,7 +3063,8 @@ impl UEditorDialogLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECT_DETAILS_VIEW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_object_details_view,
                 __buffer,
             )
         };
@@ -2943,7 +3091,8 @@ impl UEditorDialogLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_OBJECT_DETAILS_VIEW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_object_details_view,
                 __buffer,
             )
         };
@@ -2963,7 +3112,8 @@ impl UEditorDialogLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_MESSAGE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_message,
                 __buffer,
             )
         };
@@ -3004,7 +3154,8 @@ impl UEditorDialogLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_DIALOG_LIBRARY_SHOW_MESSAGE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_dialog_library_show_message,
                 __buffer,
             )
         };
@@ -3047,7 +3198,8 @@ impl UEditorFilterLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_SELECTION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_selection,
                 __buffer,
             )
         };
@@ -3071,7 +3223,8 @@ impl UEditorFilterLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_SELECTION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_selection,
                 __buffer,
             )
         };
@@ -3094,7 +3247,8 @@ impl UEditorFilterLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_LEVEL_NAME,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_level_name,
                 __buffer,
             )
         };
@@ -3125,7 +3279,8 @@ impl UEditorFilterLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_LEVEL_NAME,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_level_name,
                 __buffer,
             )
         };
@@ -3148,7 +3303,8 @@ impl UEditorFilterLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_LAYER,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_layer,
                 __buffer,
             )
         };
@@ -3179,7 +3335,8 @@ impl UEditorFilterLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_LAYER,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_layer,
                 __buffer,
             )
         };
@@ -3203,7 +3360,8 @@ impl UEditorFilterLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_ID_NAME,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_id_name,
                 __buffer,
             )
         };
@@ -3243,7 +3401,8 @@ impl UEditorFilterLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_ID_NAME,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_id_name,
                 __buffer,
             )
         };
@@ -3266,7 +3425,8 @@ impl UEditorFilterLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_CLASS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_class,
                 __buffer,
             )
         };
@@ -3301,7 +3461,8 @@ impl UEditorFilterLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_CLASS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_class,
                 __buffer,
             )
         };
@@ -3324,7 +3485,8 @@ impl UEditorFilterLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_ACTOR_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_actor_tag,
                 __buffer,
             )
         };
@@ -3351,7 +3513,8 @@ impl UEditorFilterLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_ACTOR_TAG,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_actor_tag,
                 __buffer,
             )
         };
@@ -3376,7 +3539,8 @@ impl UEditorFilterLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_ACTOR_LABEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_actor_label,
                 __buffer,
             )
         };
@@ -3421,7 +3585,8 @@ impl UEditorFilterLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_FILTER_LIBRARY_BY_ACTOR_LABEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_filter_library_by_actor_label,
                 __buffer,
             )
         };
@@ -3466,7 +3631,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_OBJECT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_spawn_actor_from_object,
                 __buffer,
             )
         };
@@ -3504,7 +3670,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_OBJECT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_spawn_actor_from_object,
                 __buffer,
             )
         };
@@ -3525,7 +3692,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_CLASS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_spawn_actor_from_class,
                 __buffer,
             )
         };
@@ -3563,7 +3731,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SPAWN_ACTOR_FROM_CLASS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_spawn_actor_from_class,
                 __buffer,
             )
         };
@@ -3581,7 +3750,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_selected_level_actors,
                 __buffer,
             )
         };
@@ -3598,7 +3768,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_selected_level_actors,
                 __buffer,
             )
         };
@@ -3614,7 +3785,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -3638,7 +3810,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -3651,7 +3824,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_CURRENT_LEVEL_BY_NAME,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_current_level_by_name,
                 __buffer,
             )
         };
@@ -3668,7 +3842,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_CURRENT_LEVEL_BY_NAME,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_current_level_by_name,
                 __buffer,
             )
         };
@@ -3685,7 +3860,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -3709,7 +3885,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -3722,7 +3899,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SELECT_NOTHING,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_select_nothing,
                 __buffer,
             )
         };
@@ -3732,7 +3910,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SELECT_NOTHING,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_select_nothing,
                 __buffer,
             )
         };
@@ -3745,7 +3924,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SAVE_CURRENT_LEVEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_save_current_level,
                 __buffer,
             )
         };
@@ -3755,7 +3935,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SAVE_CURRENT_LEVEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_save_current_level,
                 __buffer,
             )
         };
@@ -3769,7 +3950,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SAVE_ALL_DIRTY_LEVELS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_save_all_dirty_levels,
                 __buffer,
             )
         };
@@ -3779,7 +3961,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_SAVE_ALL_DIRTY_LEVELS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_save_all_dirty_levels,
                 __buffer,
             )
         };
@@ -3793,7 +3976,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_SELECTED_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_selected_actors,
                 __buffer,
             )
         };
@@ -3810,7 +3994,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_SELECTED_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_selected_actors,
                 __buffer,
             )
         };
@@ -3827,7 +4012,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_meshes_on_actors,
                 __buffer,
             )
         };
@@ -3858,7 +4044,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_meshes_on_actors,
                 __buffer,
             )
         };
@@ -3875,7 +4062,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_meshes,
                 __buffer,
             )
         };
@@ -3910,7 +4098,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MESHES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_meshes,
                 __buffer,
             )
         };
@@ -3927,7 +4116,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_materials_on_actors,
                 __buffer,
             )
         };
@@ -3962,7 +4152,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_materials_on_actors,
                 __buffer,
             )
         };
@@ -3979,7 +4170,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_materials,
                 __buffer,
             )
         };
@@ -4016,7 +4208,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_REPLACE_MESH_COMPONENTS_MATERIALS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_replace_mesh_components_materials,
                 __buffer,
             )
         };
@@ -4029,7 +4222,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_PILOT_LEVEL_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_pilot_level_actor,
                 __buffer,
             )
         };
@@ -4046,7 +4240,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_PILOT_LEVEL_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_pilot_level_actor,
                 __buffer,
             )
         };
@@ -4062,7 +4257,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL_FROM_TEMPLATE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_new_level_from_template,
                 __buffer,
             )
         };
@@ -4086,7 +4282,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL_FROM_TEMPLATE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_new_level_from_template,
                 __buffer,
             )
         };
@@ -4100,7 +4297,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_new_level,
                 __buffer,
             )
         };
@@ -4117,7 +4315,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_NEW_LEVEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_new_level,
                 __buffer,
             )
         };
@@ -4135,7 +4334,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_MERGE_STATIC_MESH_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_merge_static_mesh_actors,
                 __buffer,
             )
         };
@@ -4174,7 +4374,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_MERGE_STATIC_MESH_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_merge_static_mesh_actors,
                 __buffer,
             )
         };
@@ -4194,7 +4395,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_LOAD_LEVEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_load_level,
                 __buffer,
             )
         };
@@ -4211,7 +4413,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_LOAD_LEVEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_load_level,
                 __buffer,
             )
         };
@@ -4228,7 +4431,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_JOIN_STATIC_MESH_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_join_static_mesh_actors,
                 __buffer,
             )
         };
@@ -4258,7 +4462,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_JOIN_STATIC_MESH_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_join_static_mesh_actors,
                 __buffer,
             )
         };
@@ -4274,7 +4479,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_selected_level_actors,
                 __buffer,
             )
         };
@@ -4284,7 +4490,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_SELECTED_LEVEL_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_selected_level_actors,
                 __buffer,
             )
         };
@@ -4305,7 +4512,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_PIE_WORLDS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_pie_worlds,
                 __buffer,
             )
         };
@@ -4322,7 +4530,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_PIE_WORLDS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_pie_worlds,
                 __buffer,
             )
         };
@@ -4344,7 +4553,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -4368,7 +4578,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -4394,7 +4605,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_GAME_WORLD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_game_world,
                 __buffer,
             )
         };
@@ -4404,7 +4616,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_GAME_WORLD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_game_world,
                 __buffer,
             )
         };
@@ -4418,7 +4631,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_EDITOR_WORLD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_editor_world,
                 __buffer,
             )
         };
@@ -4428,7 +4642,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_EDITOR_WORLD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_editor_world,
                 __buffer,
             )
         };
@@ -4444,7 +4659,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_all_level_actors_components,
                 __buffer,
             )
         };
@@ -4454,7 +4670,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS_COMPONENTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_all_level_actors_components,
                 __buffer,
             )
         };
@@ -4473,7 +4690,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_all_level_actors,
                 __buffer,
             )
         };
@@ -4483,7 +4701,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_ALL_LEVEL_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_all_level_actors,
                 __buffer,
             )
         };
@@ -4504,7 +4723,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_ACTOR_REFERENCE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_actor_reference,
                 __buffer,
             )
         };
@@ -4521,7 +4741,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_GET_ACTOR_REFERENCE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_get_actor_reference,
                 __buffer,
             )
         };
@@ -4537,7 +4758,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EJECT_PILOT_LEVEL_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_eject_pilot_level_actor,
                 __buffer,
             )
         };
@@ -4547,7 +4769,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EJECT_PILOT_LEVEL_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_eject_pilot_level_actor,
                 __buffer,
             )
         };
@@ -4560,7 +4783,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_SET_GAME_VIEW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_set_game_view,
                 __buffer,
             )
         };
@@ -4577,7 +4801,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_SET_GAME_VIEW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_set_game_view,
                 __buffer,
             )
         };
@@ -4590,7 +4815,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_PLAY_SIMULATE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_play_simulate,
                 __buffer,
             )
         };
@@ -4600,7 +4826,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_PLAY_SIMULATE,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_play_simulate,
                 __buffer,
             )
         };
@@ -4613,7 +4840,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_INVALIDATE_VIEWPORTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_invalidate_viewports,
                 __buffer,
             )
         };
@@ -4623,7 +4851,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_INVALIDATE_VIEWPORTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_invalidate_viewports,
                 __buffer,
             )
         };
@@ -4636,7 +4865,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_END_PLAY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_end_play,
                 __buffer,
             )
         };
@@ -4646,7 +4876,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_EDITOR_END_PLAY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_editor_end_play,
                 __buffer,
             )
         };
@@ -4661,7 +4892,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_DESTROY_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_destroy_actor,
                 __buffer,
             )
         };
@@ -4678,7 +4910,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_DESTROY_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_destroy_actor,
                 __buffer,
             )
         };
@@ -4696,7 +4929,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_CREATE_PROXY_MESH_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_create_proxy_mesh_actor,
                 __buffer,
             )
         };
@@ -4735,7 +4969,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_CREATE_PROXY_MESH_ACTOR,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_create_proxy_mesh_actor,
                 __buffer,
             )
         };
@@ -4759,7 +4994,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_CONVERT_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_convert_actors,
                 __buffer,
             )
         };
@@ -4790,7 +5026,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_CONVERT_ACTORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_convert_actors,
                 __buffer,
             )
         };
@@ -4809,7 +5046,8 @@ impl UEditorLevelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_clear_actor_selection_set,
                 __buffer,
             )
         };
@@ -4819,7 +5057,8 @@ impl UEditorLevelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::U_EDITOR_LEVEL_LIBRARY_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .u_editor_level_library_clear_actor_selection_set,
                 __buffer,
             )
         };
@@ -4858,7 +5097,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_STRIP_LOD_GEOMETRY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_strip_lod_geometry,
                 __buffer,
             )
         };
@@ -4888,7 +5128,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_STRIP_LOD_GEOMETRY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_strip_lod_geometry,
                 __buffer,
             )
         };
@@ -4906,7 +5147,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -4935,7 +5177,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -4952,7 +5195,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_RENAME_SOCKET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_rename_socket,
                 __buffer,
             )
         };
@@ -4979,7 +5223,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_RENAME_SOCKET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_rename_socket,
                 __buffer,
             )
         };
@@ -4996,7 +5241,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REMOVE_LO_DS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_remove_lo_ds,
                 __buffer,
             )
         };
@@ -5020,7 +5266,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REMOVE_LO_DS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_remove_lo_ds,
                 __buffer,
             )
         };
@@ -5036,7 +5283,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -5053,7 +5301,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -5072,7 +5321,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REGENERATE_LOD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_regenerate_lod,
                 __buffer,
             )
         };
@@ -5110,7 +5360,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_REGENERATE_LOD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_regenerate_lod,
                 __buffer,
             )
         };
@@ -5128,7 +5379,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_IMPORT_LOD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_import_lod,
                 __buffer,
             )
         };
@@ -5155,7 +5407,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_IMPORT_LOD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_import_lod,
                 __buffer,
             )
         };
@@ -5172,7 +5425,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_NUM_VERTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_num_verts,
                 __buffer,
             )
         };
@@ -5192,7 +5446,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_NUM_VERTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_num_verts,
                 __buffer,
             )
         };
@@ -5208,7 +5463,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_lod_count,
                 __buffer,
             )
         };
@@ -5225,7 +5481,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_lod_count,
                 __buffer,
             )
         };
@@ -5243,7 +5500,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -5272,7 +5530,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -5293,7 +5552,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_CREATE_PHYSICS_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_create_physics_asset,
                 __buffer,
             )
         };
@@ -5310,7 +5570,8 @@ impl UDEPRECATED_EditorSkeletalMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_SKELETAL_MESH_LIBRARY_CREATE_PHYSICS_ASSET,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_skeletal_mesh_library_create_physics_asset,
                 __buffer,
             )
         };
@@ -5351,7 +5612,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lods_with_notification,
                 __buffer,
             )
         };
@@ -5386,7 +5648,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lods_with_notification,
                 __buffer,
             )
         };
@@ -5403,7 +5666,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lods,
                 __buffer,
             )
         };
@@ -5431,7 +5695,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LODS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lods,
                 __buffer,
             )
         };
@@ -5449,7 +5714,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -5478,7 +5744,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -5497,7 +5764,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_FROM_STATIC_MESH,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_from_static_mesh,
                 __buffer,
             )
         };
@@ -5542,7 +5810,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_FROM_STATIC_MESH,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_from_static_mesh,
                 __buffer,
             )
         };
@@ -5560,7 +5829,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -5587,7 +5857,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -5603,7 +5874,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_GENERATE_LIGHTMAP_U_VS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_generate_lightmap_u_vs,
                 __buffer,
             )
         };
@@ -5627,7 +5899,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_GENERATE_LIGHTMAP_U_VS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_generate_lightmap_u_vs,
                 __buffer,
             )
         };
@@ -5647,7 +5920,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -5688,7 +5962,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -5707,7 +5982,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -5741,7 +6017,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -5758,7 +6035,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_ALLOW_CPU_ACCESS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_allow_cpu_access,
                 __buffer,
             )
         };
@@ -5782,7 +6060,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_SET_ALLOW_CPU_ACCESS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_set_allow_cpu_access,
                 __buffer,
             )
         };
@@ -5799,7 +6078,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_uv_channel,
                 __buffer,
             )
         };
@@ -5826,7 +6106,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_uv_channel,
                 __buffer,
             )
         };
@@ -5840,7 +6121,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_LODS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_lods,
                 __buffer,
             )
         };
@@ -5857,7 +6139,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_LODS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_lods,
                 __buffer,
             )
         };
@@ -5874,7 +6157,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_collisions_with_notification,
                 __buffer,
             )
         };
@@ -5898,7 +6182,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_collisions_with_notification,
                 __buffer,
             )
         };
@@ -5914,7 +6199,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_collisions,
                 __buffer,
             )
         };
@@ -5931,7 +6217,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REMOVE_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_remove_collisions,
                 __buffer,
             )
         };
@@ -5947,7 +6234,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -5964,7 +6252,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -5982,7 +6271,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IS_SECTION_COLLISION_ENABLED,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_is_section_collision_enabled,
                 __buffer,
             )
         };
@@ -6009,7 +6299,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IS_SECTION_COLLISION_ENABLED,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_is_section_collision_enabled,
                 __buffer,
             )
         };
@@ -6027,7 +6318,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_INSERT_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_insert_uv_channel,
                 __buffer,
             )
         };
@@ -6054,7 +6346,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_INSERT_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_insert_uv_channel,
                 __buffer,
             )
         };
@@ -6072,7 +6365,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IMPORT_LOD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_import_lod,
                 __buffer,
             )
         };
@@ -6099,7 +6393,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_IMPORT_LOD,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_import_lod,
                 __buffer,
             )
         };
@@ -6115,7 +6410,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_VERTEX_COLORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_has_vertex_colors,
                 __buffer,
             )
         };
@@ -6132,7 +6428,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_VERTEX_COLORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_has_vertex_colors,
                 __buffer,
             )
         };
@@ -6148,7 +6445,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_INSTANCE_VERTEX_COLORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_has_instance_vertex_colors,
                 __buffer,
             )
         };
@@ -6167,7 +6465,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_HAS_INSTANCE_VERTEX_COLORS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_has_instance_vertex_colors,
                 __buffer,
             )
         };
@@ -6183,7 +6482,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_SIMPLE_COLLISION_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_simple_collision_count,
                 __buffer,
             )
         };
@@ -6200,7 +6500,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_SIMPLE_COLLISION_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_simple_collision_count,
                 __buffer,
             )
         };
@@ -6217,7 +6518,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUM_UV_CHANNELS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_num_uv_channels,
                 __buffer,
             )
         };
@@ -6237,7 +6539,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUM_UV_CHANNELS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_num_uv_channels,
                 __buffer,
             )
         };
@@ -6254,7 +6557,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_VERTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_number_verts,
                 __buffer,
             )
         };
@@ -6274,7 +6578,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_VERTS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_number_verts,
                 __buffer,
             )
         };
@@ -6290,7 +6595,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_MATERIALS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_number_materials,
                 __buffer,
             )
         };
@@ -6307,7 +6613,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_NUMBER_MATERIALS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_number_materials,
                 __buffer,
             )
         };
@@ -6323,7 +6630,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_SCREEN_SIZES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_screen_sizes,
                 __buffer,
             )
         };
@@ -6340,7 +6648,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_SCREEN_SIZES,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_screen_sizes,
                 __buffer,
             )
         };
@@ -6358,7 +6667,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -6387,7 +6697,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -6408,7 +6719,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_count,
                 __buffer,
             )
         };
@@ -6425,7 +6737,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_count,
                 __buffer,
             )
         };
@@ -6443,7 +6756,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -6470,7 +6784,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -6491,7 +6806,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_CONVEX_COLLISION_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_convex_collision_count,
                 __buffer,
             )
         };
@@ -6508,7 +6824,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_CONVEX_COLLISION_COUNT,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_convex_collision_count,
                 __buffer,
             )
         };
@@ -6524,7 +6841,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_COLLISION_COMPLEXITY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_collision_complexity,
                 __buffer,
             )
         };
@@ -6541,7 +6859,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GET_COLLISION_COMPLEXITY,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_get_collision_complexity,
                 __buffer,
             )
         };
@@ -6567,7 +6886,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_PLANAR_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_planar_uv_channel,
                 __buffer,
             )
         };
@@ -6615,7 +6935,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_PLANAR_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_planar_uv_channel,
                 __buffer,
             )
         };
@@ -6636,7 +6957,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_CYLINDRICAL_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_cylindrical_uv_channel,
                 __buffer,
             )
         };
@@ -6684,7 +7006,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_CYLINDRICAL_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_cylindrical_uv_channel,
                 __buffer,
             )
         };
@@ -6705,7 +7028,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_BOX_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_box_uv_channel,
                 __buffer,
             )
         };
@@ -6753,7 +7077,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_GENERATE_BOX_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_generate_box_uv_channel,
                 __buffer,
             )
         };
@@ -6772,7 +7097,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_COLLISION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_enable_section_collision,
                 __buffer,
             )
         };
@@ -6806,7 +7132,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_COLLISION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_enable_section_collision,
                 __buffer,
             )
         };
@@ -6824,7 +7151,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_CAST_SHADOW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_enable_section_cast_shadow,
                 __buffer,
             )
         };
@@ -6858,7 +7186,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ENABLE_SECTION_CAST_SHADOW,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_enable_section_cast_shadow,
                 __buffer,
             )
         };
@@ -6877,7 +7206,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -6924,7 +7254,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -6943,7 +7274,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -6983,7 +7315,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_bulk_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -7000,7 +7333,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_uv_channel,
                 __buffer,
             )
         };
@@ -7020,7 +7354,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_UV_CHANNEL,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_uv_channel,
                 __buffer,
             )
         };
@@ -7038,7 +7373,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_simple_collisions_with_notification,
                 __buffer,
             )
         };
@@ -7073,7 +7409,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_simple_collisions_with_notification,
                 __buffer,
             )
         };
@@ -7090,7 +7427,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_simple_collisions,
                 __buffer,
             )
         };
@@ -7118,7 +7456,8 @@ impl UDEPRECATED_EditorStaticMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::editor_scripting_utilities::UDEPRECATED_EDITOR_STATIC_MESH_LIBRARY_ADD_SIMPLE_COLLISIONS,
+                crate::bindings::editor_scripting_utilities::__FUNCTION_PTRS
+                    .udeprecated_editor_static_mesh_library_add_simple_collisions,
                 __buffer,
             )
         };

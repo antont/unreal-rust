@@ -1,94 +1,103 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_REMOVE_GAMEPLAY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_CONTAINER_TAG_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_ANY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_NO_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ANY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ALL_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_TAG_QUERY_EMPTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_GAMEPLAY_TAG_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_MATCHING_GAMEPLAY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_MATCHING_GAMEPLAY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_TAG_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_OWNED_GAMEPLAY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_NUM_GAMEPLAY_TAGS_IN_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_ALL_ACTORS_OF_CLASS_MATCHING_TAG_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_TAG_ASSET_INTERFACE_HAVE_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_CONTAINER_MATCH_TAG_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_CONV_OBJECT_TO_GAMEPLAY_TAG_ASSET_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_BREAK_GAMEPLAY_TAG_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_APPEND_GAMEPLAY_TAG_CONTAINERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_ADD_GAMEPLAY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_MATCHING_GAMEPLAY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ANY_MATCHING_GAMEPLAY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ALL_MATCHING_GAMEPLAY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TAG_ASSET_INTERFACE_BP_GET_OWNED_GAMEPLAY_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_blueprint_gameplay_tag_library_remove_gameplay_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_not_equal_tag_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_not_equal_tag_container_tag_container: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_not_equal_gameplay_tag_container: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_not_equal_gameplay_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_matches_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_matches_any_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_literal_gameplay_tag_container: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_literal_gameplay_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_no_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_any_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_all_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_gameplay_tag_query: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_array: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_is_tag_query_empty: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_is_gameplay_tag_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_has_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_has_any_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_has_any_matching_gameplay_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_has_all_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_has_all_matching_gameplay_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_get_tag_name: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_get_owned_gameplay_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_get_num_gameplay_tags_in_container: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag_container: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_get_all_actors_of_class_matching_tag_query: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_filter: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag_container: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_does_tag_asset_interface_have_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_does_container_match_tag_query: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_conv_object_to_gameplay_tag_asset_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_break_gameplay_tag_container: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_append_gameplay_tag_containers: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_gameplay_tag_library_add_gameplay_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_tag_asset_interface_has_matching_gameplay_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_tag_asset_interface_has_any_matching_gameplay_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_tag_asset_interface_has_all_matching_gameplay_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_tag_asset_interface_bp_get_owned_gameplay_tags: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_blueprint_gameplay_tag_library_remove_gameplay_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_not_equal_tag_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_not_equal_tag_container_tag_container: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_not_equal_gameplay_tag_container: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_not_equal_gameplay_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_matches_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_matches_any_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_literal_gameplay_tag_container: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_literal_gameplay_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_no_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_any_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_all_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_gameplay_tag_query: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_array: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_is_tag_query_empty: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_is_gameplay_tag_valid: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_has_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_has_any_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_has_any_matching_gameplay_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_has_all_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_has_all_matching_gameplay_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_get_tag_name: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_get_owned_gameplay_tags: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_get_num_gameplay_tags_in_container: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag_container: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_get_all_actors_of_class_matching_tag_query: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_filter: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag_container: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_does_tag_asset_interface_have_tag: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_does_container_match_tag_query: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_conv_object_to_gameplay_tag_asset_interface: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_break_gameplay_tag_container: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_append_gameplay_tag_containers: std::ptr::null_mut(),
+            u_blueprint_gameplay_tag_library_add_gameplay_tag: std::ptr::null_mut(),
+            u_gameplay_tag_asset_interface_has_matching_gameplay_tag: std::ptr::null_mut(),
+            u_gameplay_tag_asset_interface_has_any_matching_gameplay_tags: std::ptr::null_mut(),
+            u_gameplay_tag_asset_interface_has_all_matching_gameplay_tags: std::ptr::null_mut(),
+            u_gameplay_tag_asset_interface_bp_get_owned_gameplay_tags: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -98,259 +107,285 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveGameplayTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_REMOVE_GAMEPLAY_TAG,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_remove_gameplay_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotEqual_TagTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_TAG,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_not_equal_tag_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotEqual_TagContainerTagContainer"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_CONTAINER_TAG_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_not_equal_tag_container_tag_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotEqual_GameplayTagContainer"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotEqual_GameplayTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MatchesTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_TAG,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_matches_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MatchesAnyTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_ANY_TAGS,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_matches_any_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLiteralGameplayTagContainer"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLiteralGameplayTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchNoTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_NO_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_no_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchAnyTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ANY_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_any_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeGameplayTagQuery_MatchAllTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ALL_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_all_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeGameplayTagQuery"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_gameplay_tag_query,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeGameplayTagContainerFromTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeGameplayTagContainerFromArray"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTagQueryEmpty"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_TAG_QUERY_EMPTY,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_is_tag_query_empty,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsGameplayTagValid"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_GAMEPLAY_TAG_VALID,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_is_gameplay_tag_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_TAG,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasAnyTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_TAGS,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_any_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasAnyMatchingGameplayTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_has_any_matching_gameplay_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasAllTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_TAGS,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_has_all_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasAllMatchingGameplayTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_has_all_matching_gameplay_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTagName"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_TAG_NAME,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_get_tag_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOwnedGameplayTags"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_OWNED_GAMEPLAY_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_get_owned_gameplay_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumGameplayTagsInContainer"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_NUM_GAMEPLAY_TAGS_IN_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_get_num_gameplay_tags_in_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDebugStringFromGameplayTagContainer"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDebugStringFromGameplayTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllActorsOfClassMatchingTagQuery"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_ALL_ACTORS_OF_CLASS_MATCHING_TAG_QUERY,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_get_all_actors_of_class_matching_tag_query,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Filter"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_FILTER,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_filter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EqualEqual_GameplayTagContainer"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EqualEqual_GameplayTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesTagAssetInterfaceHaveTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_TAG_ASSET_INTERFACE_HAVE_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_does_tag_asset_interface_have_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesContainerMatchTagQuery"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_CONTAINER_MATCH_TAG_QUERY,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_does_container_match_tag_query,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_ObjectToGameplayTagAssetInterface"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_CONV_OBJECT_TO_GAMEPLAY_TAG_ASSET_INTERFACE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_conv_object_to_gameplay_tag_asset_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakGameplayTagContainer"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_BREAK_GAMEPLAY_TAG_CONTAINER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_break_gameplay_tag_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AppendGameplayTagContainers"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_APPEND_GAMEPLAY_TAG_CONTAINERS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_gameplay_tag_library_append_gameplay_tag_containers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGameplayTag"),
-            &raw mut U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_ADD_GAMEPLAY_TAG,
+            &raw mut __FUNCTION_PTRS.u_blueprint_gameplay_tag_library_add_gameplay_tag,
         );
     }
     unsafe {
@@ -361,28 +396,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasMatchingGameplayTag"),
-            &raw mut U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_MATCHING_GAMEPLAY_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_tag_asset_interface_has_matching_gameplay_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasAnyMatchingGameplayTags"),
-            &raw mut U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_tag_asset_interface_has_any_matching_gameplay_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasAllMatchingGameplayTags"),
-            &raw mut U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_tag_asset_interface_has_all_matching_gameplay_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_GetOwnedGameplayTags"),
-            &raw mut U_GAMEPLAY_TAG_ASSET_INTERFACE_BP_GET_OWNED_GAMEPLAY_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_tag_asset_interface_bp_get_owned_gameplay_tags,
         );
     }
 }
@@ -448,7 +487,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_REMOVE_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_remove_gameplay_tag,
                 __buffer,
             )
         };
@@ -472,7 +512,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_REMOVE_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_remove_gameplay_tag,
                 __buffer,
             )
         };
@@ -489,7 +530,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_tag_tag,
                 __buffer,
             )
         };
@@ -505,7 +547,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_tag_tag,
                 __buffer,
             )
         };
@@ -522,7 +565,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_CONTAINER_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_tag_container_tag_container,
                 __buffer,
             )
         };
@@ -542,7 +586,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_TAG_CONTAINER_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_tag_container_tag_container,
                 __buffer,
             )
         };
@@ -559,7 +604,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -583,7 +629,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -597,7 +644,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag,
                 __buffer,
             )
         };
@@ -617,7 +665,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_NOT_EQUAL_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_not_equal_gameplay_tag,
                 __buffer,
             )
         };
@@ -635,7 +684,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_matches_tag,
                 __buffer,
             )
         };
@@ -666,7 +716,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_matches_tag,
                 __buffer,
             )
         };
@@ -684,7 +735,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_ANY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_matches_any_tags,
                 __buffer,
             )
         };
@@ -715,7 +767,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MATCHES_ANY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_matches_any_tags,
                 __buffer,
             )
         };
@@ -731,7 +784,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -748,7 +802,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -762,7 +817,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag,
                 __buffer,
             )
         };
@@ -779,7 +835,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_LITERAL_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_literal_gameplay_tag,
                 __buffer,
             )
         };
@@ -795,7 +852,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_NO_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_no_tags,
                 __buffer,
             )
         };
@@ -812,7 +870,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_NO_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_no_tags,
                 __buffer,
             )
         };
@@ -828,7 +887,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ANY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_any_tags,
                 __buffer,
             )
         };
@@ -845,7 +905,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ANY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_any_tags,
                 __buffer,
             )
         };
@@ -861,7 +922,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ALL_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_all_tags,
                 __buffer,
             )
         };
@@ -878,7 +940,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY_MATCH_ALL_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query_match_all_tags,
                 __buffer,
             )
         };
@@ -892,7 +955,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query,
                 __buffer,
             )
         };
@@ -909,7 +973,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_QUERY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_query,
                 __buffer,
             )
         };
@@ -925,7 +990,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_tag,
                 __buffer,
             )
         };
@@ -942,7 +1008,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_tag,
                 __buffer,
             )
         };
@@ -958,7 +1025,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_ARRAY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_array,
                 __buffer,
             )
         };
@@ -975,7 +1043,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_MAKE_GAMEPLAY_TAG_CONTAINER_FROM_ARRAY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_make_gameplay_tag_container_from_array,
                 __buffer,
             )
         };
@@ -989,7 +1058,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_TAG_QUERY_EMPTY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_is_tag_query_empty,
                 __buffer,
             )
         };
@@ -1006,7 +1076,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_TAG_QUERY_EMPTY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_is_tag_query_empty,
                 __buffer,
             )
         };
@@ -1020,7 +1091,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_GAMEPLAY_TAG_VALID,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_is_gameplay_tag_valid,
                 __buffer,
             )
         };
@@ -1037,7 +1109,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_IS_GAMEPLAY_TAG_VALID,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_is_gameplay_tag_valid,
                 __buffer,
             )
         };
@@ -1055,7 +1128,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_tag,
                 __buffer,
             )
         };
@@ -1086,7 +1160,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_tag,
                 __buffer,
             )
         };
@@ -1104,7 +1179,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_any_tags,
                 __buffer,
             )
         };
@@ -1135,7 +1211,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_any_tags,
                 __buffer,
             )
         };
@@ -1152,7 +1229,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_any_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1176,7 +1254,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_any_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1194,7 +1273,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_all_tags,
                 __buffer,
             )
         };
@@ -1225,7 +1305,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_all_tags,
                 __buffer,
             )
         };
@@ -1242,7 +1323,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_all_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1266,7 +1348,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_has_all_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1280,7 +1363,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_TAG_NAME,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_tag_name,
                 __buffer,
             )
         };
@@ -1297,7 +1381,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_TAG_NAME,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_tag_name,
                 __buffer,
             )
         };
@@ -1313,7 +1398,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_OWNED_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_owned_gameplay_tags,
                 __buffer,
             )
         };
@@ -1330,7 +1416,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_OWNED_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_owned_gameplay_tags,
                 __buffer,
             )
         };
@@ -1346,7 +1433,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_NUM_GAMEPLAY_TAGS_IN_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_num_gameplay_tags_in_container,
                 __buffer,
             )
         };
@@ -1363,7 +1451,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_NUM_GAMEPLAY_TAGS_IN_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_num_gameplay_tags_in_container,
                 __buffer,
             )
         };
@@ -1379,7 +1468,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -1396,7 +1486,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -1410,7 +1501,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag,
                 __buffer,
             )
         };
@@ -1427,7 +1519,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_DEBUG_STRING_FROM_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_debug_string_from_gameplay_tag,
                 __buffer,
             )
         };
@@ -1446,7 +1539,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_ALL_ACTORS_OF_CLASS_MATCHING_TAG_QUERY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_all_actors_of_class_matching_tag_query,
                 __buffer,
             )
         };
@@ -1484,7 +1578,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_GET_ALL_ACTORS_OF_CLASS_MATCHING_TAG_QUERY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_get_all_actors_of_class_matching_tag_query,
                 __buffer,
             )
         };
@@ -1507,7 +1602,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_FILTER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_filter,
                 __buffer,
             )
         };
@@ -1538,7 +1634,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_FILTER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_filter,
                 __buffer,
             )
         };
@@ -1555,7 +1652,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -1579,7 +1677,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -1593,7 +1692,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag,
                 __buffer,
             )
         };
@@ -1613,7 +1713,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_EQUAL_EQUAL_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_equal_equal_gameplay_tag,
                 __buffer,
             )
         };
@@ -1630,7 +1731,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_TAG_ASSET_INTERFACE_HAVE_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_does_tag_asset_interface_have_tag,
                 __buffer,
             )
         };
@@ -1654,7 +1756,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_TAG_ASSET_INTERFACE_HAVE_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_does_tag_asset_interface_have_tag,
                 __buffer,
             )
         };
@@ -1671,7 +1774,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_CONTAINER_MATCH_TAG_QUERY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_does_container_match_tag_query,
                 __buffer,
             )
         };
@@ -1695,7 +1799,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_DOES_CONTAINER_MATCH_TAG_QUERY,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_does_container_match_tag_query,
                 __buffer,
             )
         };
@@ -1711,7 +1816,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_CONV_OBJECT_TO_GAMEPLAY_TAG_ASSET_INTERFACE,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_conv_object_to_gameplay_tag_asset_interface,
                 __buffer,
             )
         };
@@ -1728,7 +1834,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_CONV_OBJECT_TO_GAMEPLAY_TAG_ASSET_INTERFACE,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_conv_object_to_gameplay_tag_asset_interface,
                 __buffer,
             )
         };
@@ -1747,7 +1854,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_BREAK_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_break_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -1771,7 +1879,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_BREAK_GAMEPLAY_TAG_CONTAINER,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_break_gameplay_tag_container,
                 __buffer,
             )
         };
@@ -1790,7 +1899,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_APPEND_GAMEPLAY_TAG_CONTAINERS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_append_gameplay_tag_containers,
                 __buffer,
             )
         };
@@ -1814,7 +1924,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_APPEND_GAMEPLAY_TAG_CONTAINERS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_append_gameplay_tag_containers,
                 __buffer,
             )
         };
@@ -1833,7 +1944,8 @@ impl UBlueprintGameplayTagLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_ADD_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_add_gameplay_tag,
                 __buffer,
             )
         };
@@ -1857,7 +1969,8 @@ impl UBlueprintGameplayTagLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_BLUEPRINT_GAMEPLAY_TAG_LIBRARY_ADD_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_blueprint_gameplay_tag_library_add_gameplay_tag,
                 __buffer,
             )
         };
@@ -1895,7 +2008,8 @@ impl UGameplayTagAssetInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_MATCHING_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_matching_gameplay_tag,
                 __buffer,
             )
         };
@@ -1912,7 +2026,8 @@ impl UGameplayTagAssetInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_MATCHING_GAMEPLAY_TAG,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_matching_gameplay_tag,
                 __buffer,
             )
         };
@@ -1929,7 +2044,8 @@ impl UGameplayTagAssetInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_any_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1946,7 +2062,8 @@ impl UGameplayTagAssetInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ANY_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_any_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1963,7 +2080,8 @@ impl UGameplayTagAssetInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_all_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1980,7 +2098,8 @@ impl UGameplayTagAssetInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_HAS_ALL_MATCHING_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_has_all_matching_gameplay_tags,
                 __buffer,
             )
         };
@@ -1994,7 +2113,8 @@ impl UGameplayTagAssetInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_BP_GET_OWNED_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_bp_get_owned_gameplay_tags,
                 __buffer,
             )
         };
@@ -2004,7 +2124,8 @@ impl UGameplayTagAssetInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tags::U_GAMEPLAY_TAG_ASSET_INTERFACE_BP_GET_OWNED_GAMEPLAY_TAGS,
+                crate::bindings::gameplay_tags::__FUNCTION_PTRS
+                    .u_gameplay_tag_asset_interface_bp_get_owned_gameplay_tags,
                 __buffer,
             )
         };

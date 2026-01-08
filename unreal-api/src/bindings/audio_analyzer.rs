@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUDIO_ANALYZER_STOP_ANALYZING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_ANALYZER_START_ANALYZING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_ANALYZER_NRT_SET_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_ANALYZER_NRT_ANALYZE_AUDIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_audio_analyzer_stop_analyzing: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_analyzer_start_analyzing: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_analyzer_nrt_set_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_analyzer_nrt_analyze_audio: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_audio_analyzer_stop_analyzing: std::ptr::null_mut(),
+            u_audio_analyzer_start_analyzing: std::ptr::null_mut(),
+            u_audio_analyzer_nrt_set_sound: std::ptr::null_mut(),
+            u_audio_analyzer_nrt_analyze_audio: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,14 +33,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAnalyzing"),
-            &raw mut U_AUDIO_ANALYZER_STOP_ANALYZING,
+            &raw mut __FUNCTION_PTRS.u_audio_analyzer_stop_analyzing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartAnalyzing"),
-            &raw mut U_AUDIO_ANALYZER_START_ANALYZING,
+            &raw mut __FUNCTION_PTRS.u_audio_analyzer_start_analyzing,
         );
     }
     unsafe {
@@ -42,14 +51,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSound"),
-            &raw mut U_AUDIO_ANALYZER_NRT_SET_SOUND,
+            &raw mut __FUNCTION_PTRS.u_audio_analyzer_nrt_set_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AnalyzeAudio"),
-            &raw mut U_AUDIO_ANALYZER_NRT_ANALYZE_AUDIO,
+            &raw mut __FUNCTION_PTRS.u_audio_analyzer_nrt_analyze_audio,
         );
     }
 }
@@ -126,7 +135,8 @@ impl UAudioAnalyzer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_STOP_ANALYZING,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_stop_analyzing,
                 __buffer,
             )
         };
@@ -143,7 +153,8 @@ impl UAudioAnalyzer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_STOP_ANALYZING,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_stop_analyzing,
                 __buffer,
             )
         };
@@ -160,7 +171,8 @@ impl UAudioAnalyzer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_START_ANALYZING,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_start_analyzing,
                 __buffer,
             )
         };
@@ -184,7 +196,8 @@ impl UAudioAnalyzer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_START_ANALYZING,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_start_analyzing,
                 __buffer,
             )
         };
@@ -243,7 +256,8 @@ impl UAudioAnalyzerNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_SET_SOUND,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_nrt_set_sound,
                 __buffer,
             )
         };
@@ -260,7 +274,8 @@ impl UAudioAnalyzerNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_SET_SOUND,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_nrt_set_sound,
                 __buffer,
             )
         };
@@ -273,7 +288,8 @@ impl UAudioAnalyzerNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_ANALYZE_AUDIO,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_nrt_analyze_audio,
                 __buffer,
             )
         };
@@ -283,7 +299,8 @@ impl UAudioAnalyzerNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_analyzer::U_AUDIO_ANALYZER_NRT_ANALYZE_AUDIO,
+                crate::bindings::audio_analyzer::__FUNCTION_PTRS
+                    .u_audio_analyzer_nrt_analyze_audio,
                 __buffer,
             )
         };

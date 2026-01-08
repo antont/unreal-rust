@@ -1,282 +1,291 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_VARIABLE_FRAME_STRIPPING_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_LOCK_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_RATE_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_IS_ROOT_MOTION_LOCK_FORCED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MORPH_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_COMPRESSION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_BONE_COMPRESSION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ANIMATION_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_BASE_POSE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_ANIMATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFY_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_RENAME_CURVE_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_SELECTIVE_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_VIRTUAL_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_CURVE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_BONE_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_SYNC_MARKERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_NOTIFY_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_RAW_ANIMATION_TRACK_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIM_NOTIFY_TRACK_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIMATION_SYNC_MARKER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_LOCK_FORCED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_VECTOR_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_VARIABLE_FRAME_STRIPPING_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_UNIQUE_MARKER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_TRANSFORMATION_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_TIME_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_SEQUENCE_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ROOT_MOTION_LOCK_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_SCALE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_ROTATION_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_POSITION_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RATE_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_CURVE_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NODES_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_MONTAGE_SLOT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_FRAME_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_VALUE_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MORPH_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_COMPRESSION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_COMPRESSION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_TRIGGER_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_TRACK_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS_FOR_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_TRACK_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS_FOR_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_GRAPHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_CURVE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_BASE_POSE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_ANIMATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_FIND_BONE_PATH_TO_ROOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_FINALIZE_BONE_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_EXTRACT_ROOT_TRACK_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_SUBFRAME_ATTRIBUTE_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_ATTRIBUTES_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_BONE_TIMECODE_AND_SLATE_ATTRIBUTES_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_DOES_CURVE_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_DOES_BONE_NAME_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIM_NOTIFIES_FROM_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIMATION_CURVE_NAMES_TO_SKELETON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_CONTAINS_META_DATA_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VIRTUAL_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_NODE_ASSET_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_SYNC_MARKER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_FROM_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_SET_BONE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_SOCKET_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_SOCKET_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TO_REF_POSE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_REF_POSE_RELATIVE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_REFERENCE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_REF_BONE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_CURVE_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_CURVE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_BONE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_BONE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_POSE_EXTENSIONS_EVALUATE_ANIMATION_BLUEPRINT_WITH_INPUT_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_animation_attribute_blueprint_library_set_attribute_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_attribute_blueprint_library_set_attribute_key: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_attribute_blueprint_library_get_attribute_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_attribute_blueprint_library_get_attribute_key: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_variable_frame_stripping_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_root_motion_lock_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_root_motion_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_rate_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_is_root_motion_lock_forced: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_curve_meta_data_morph_target: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_curve_meta_data_material: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_curve_compression_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_bone_compression_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_animation_interpolation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_additive_base_pose_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_set_additive_animation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_replace_anim_notify_states: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_replace_anim_notifies: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_rename_curve_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_virtual_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_virtual_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_meta_data_of_class: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_curve_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_curve: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_bone_selective_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_bone_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_animation_sync_markers_by_track: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_animation_sync_markers_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_animation_notify_track: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_animation_notify_events_by_track: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_animation_notify_events_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_all_virtual_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_all_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_all_curve_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_all_bone_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_all_animation_sync_markers: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_remove_all_animation_notify_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_is_valid_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_is_valid_raw_animation_track_name: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_is_valid_anim_notify_track_name: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_is_valid_animation_sync_marker_name: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_is_root_motion_lock_forced: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_is_root_motion_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_vector_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_variable_frame_stripping_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_unique_marker_names: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_transformation_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_time_at_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_sequence_length: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_root_motion_lock_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_raw_track_scale_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_raw_track_rotation_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_raw_track_position_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_raw_track_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_rate_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_num_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_num_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_num_curve_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_nodes_of_class: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_montage_slot_names: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_meta_data_of_class: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_frame_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_float_value_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_float_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_curve_meta_data_names: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_curve_meta_data_morph_target: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_curve_meta_data_material: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_curve_compression_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_bone_poses_for_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_bone_poses_for_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_bone_pose_for_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_bone_pose_for_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_bone_compression_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_anim_notify_event_trigger_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_anim_notify_event_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_track_names: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_sync_markers_for_track: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_sync_markers: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_notify_track_names: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_notify_events_for_track: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_notify_events: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_notify_event_names: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_interpolation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_graphs: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_animation_curve_names: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_additive_base_pose_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_get_additive_animation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_find_bone_path_to_root: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_finalize_bone_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_extract_root_track_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_evaluate_root_bone_timecode_subframe_attribute_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_evaluate_root_bone_timecode_attributes_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_evaluate_bone_timecode_and_slate_attributes_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_does_curve_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_does_bone_name_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_copy_anim_notifies_from_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_copy_animation_curve_names_to_skeleton: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_contains_meta_data_of_class: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_virtual_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_vector_curve_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_vector_curve_key: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_transformation_curve_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_transformation_curve_key: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_node_asset_override: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_meta_data_object: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_float_curve_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_float_curve_key: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_curve_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_curve: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_animation_sync_marker: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_animation_notify_track: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_animation_notify_state_event_object: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_animation_notify_state_event: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_animation_notify_event_object: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_animation_notify_event_from_source: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_blueprint_library_add_animation_notify_event: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_set_bone_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_socket_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_socket_names: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_relative_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_relative_to_ref_pose_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_ref_pose_relative_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_reference_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_ref_bone_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_curve_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_curve_names: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_bone_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_bone_names: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_anim_pose_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_get_anim_pose_at_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_pose_extensions_evaluate_animation_blueprint_with_input_pose: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_animation_attribute_blueprint_library_set_attribute_keys: std::ptr::null_mut(),
+            u_animation_attribute_blueprint_library_set_attribute_key: std::ptr::null_mut(),
+            u_animation_attribute_blueprint_library_get_attribute_keys: std::ptr::null_mut(),
+            u_animation_attribute_blueprint_library_get_attribute_key: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_variable_frame_stripping_settings: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_root_motion_lock_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_root_motion_enabled: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_rate_scale: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_is_root_motion_lock_forced: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_curve_meta_data_morph_target: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_curve_meta_data_material: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_curve_compression_settings: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_bone_compression_settings: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_animation_interpolation_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_additive_base_pose_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_set_additive_animation_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_replace_anim_notify_states: std::ptr::null_mut(),
+            u_animation_blueprint_library_replace_anim_notifies: std::ptr::null_mut(),
+            u_animation_blueprint_library_rename_curve_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_virtual_bones: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_virtual_bone: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_meta_data_of_class: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_curve_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_curve: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_bone_selective_animation: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_bone_animation: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_animation_sync_markers_by_track: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_animation_sync_markers_by_name: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_animation_notify_track: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_animation_notify_events_by_track: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_animation_notify_events_by_name: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_all_virtual_bones: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_all_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_all_curve_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_all_bone_animation: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_all_animation_sync_markers: std::ptr::null_mut(),
+            u_animation_blueprint_library_remove_all_animation_notify_tracks: std::ptr::null_mut(),
+            u_animation_blueprint_library_is_valid_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_is_valid_raw_animation_track_name: std::ptr::null_mut(),
+            u_animation_blueprint_library_is_valid_anim_notify_track_name: std::ptr::null_mut(),
+            u_animation_blueprint_library_is_valid_animation_sync_marker_name: std::ptr::null_mut(),
+            u_animation_blueprint_library_is_root_motion_lock_forced: std::ptr::null_mut(),
+            u_animation_blueprint_library_is_root_motion_enabled: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_vector_keys: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_variable_frame_stripping_settings: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_unique_marker_names: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_transformation_keys: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_time_at_frame: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_sequence_length: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_root_motion_lock_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_raw_track_scale_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_raw_track_rotation_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_raw_track_position_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_raw_track_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_rate_scale: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_num_keys: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_num_frames: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_num_curve_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_nodes_of_class: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_montage_slot_names: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_meta_data_of_class: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_frame_at_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_float_value_at_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_float_keys: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_curve_meta_data_names: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_curve_meta_data_morph_target: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_curve_meta_data_material: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_curve_compression_settings: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_bone_poses_for_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_bone_poses_for_frame: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_bone_pose_for_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_bone_pose_for_frame: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_bone_compression_settings: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_anim_notify_event_trigger_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_anim_notify_event_duration: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_track_names: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_sync_markers_for_track: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_sync_markers: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_notify_track_names: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_notify_events_for_track: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_notify_events: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_notify_event_names: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_interpolation_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_graphs: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_animation_curve_names: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_additive_base_pose_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_get_additive_animation_type: std::ptr::null_mut(),
+            u_animation_blueprint_library_find_bone_path_to_root: std::ptr::null_mut(),
+            u_animation_blueprint_library_finalize_bone_animation: std::ptr::null_mut(),
+            u_animation_blueprint_library_extract_root_track_transform: std::ptr::null_mut(),
+            u_animation_blueprint_library_evaluate_root_bone_timecode_subframe_attribute_at_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_evaluate_root_bone_timecode_attributes_at_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_evaluate_bone_timecode_and_slate_attributes_at_time: std::ptr::null_mut(),
+            u_animation_blueprint_library_does_curve_exist: std::ptr::null_mut(),
+            u_animation_blueprint_library_does_bone_name_exist: std::ptr::null_mut(),
+            u_animation_blueprint_library_copy_anim_notifies_from_sequence: std::ptr::null_mut(),
+            u_animation_blueprint_library_copy_animation_curve_names_to_skeleton: std::ptr::null_mut(),
+            u_animation_blueprint_library_contains_meta_data_of_class: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_virtual_bone: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_vector_curve_keys: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_vector_curve_key: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_transformation_curve_keys: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_transformation_curve_key: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_node_asset_override: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_meta_data_object: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_float_curve_keys: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_float_curve_key: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_curve_meta_data: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_curve: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_animation_sync_marker: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_animation_notify_track: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_animation_notify_state_event_object: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_animation_notify_state_event: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_animation_notify_event_object: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_animation_notify_event_from_source: std::ptr::null_mut(),
+            u_animation_blueprint_library_add_animation_notify_event: std::ptr::null_mut(),
+            u_anim_pose_extensions_set_bone_pose: std::ptr::null_mut(),
+            u_anim_pose_extensions_is_valid: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_socket_pose: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_socket_names: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_relative_transform: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_relative_to_ref_pose_transform: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_ref_pose_relative_transform: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_reference_pose: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_ref_bone_pose: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_curve_weight: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_curve_names: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_bone_pose: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_bone_names: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_anim_pose_at_time: std::ptr::null_mut(),
+            u_anim_pose_extensions_get_anim_pose_at_frame: std::ptr::null_mut(),
+            u_anim_pose_extensions_evaluate_animation_blueprint_with_input_pose: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -286,28 +295,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAttributeKeys"),
-            &raw mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_attribute_blueprint_library_set_attribute_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAttributeKey"),
-            &raw mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_attribute_blueprint_library_set_attribute_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttributeKeys"),
-            &raw mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_attribute_blueprint_library_get_attribute_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttributeKey"),
-            &raw mut U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_attribute_blueprint_library_get_attribute_key,
         );
     }
     unsafe {
@@ -318,805 +331,880 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableFrameStrippingSettings"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_VARIABLE_FRAME_STRIPPING_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_variable_frame_stripping_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRootMotionLockType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_LOCK_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_root_motion_lock_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRootMotionEnabled"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_root_motion_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRateScale"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_RATE_SCALE,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_set_rate_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsRootMotionLockForced"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_IS_ROOT_MOTION_LOCK_FORCED,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_is_root_motion_lock_forced,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveMetaDataMorphTarget"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MORPH_TARGET,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_curve_meta_data_morph_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveMetaDataMaterial"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_curve_meta_data_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveCompressionSettings"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_COMPRESSION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_curve_compression_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoneCompressionSettings"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_BONE_COMPRESSION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_bone_compression_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimationInterpolationType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ANIMATION_INTERPOLATION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_animation_interpolation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAdditiveBasePoseType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_BASE_POSE_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_additive_base_pose_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAdditiveAnimationType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_ANIMATION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_set_additive_animation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceAnimNotifyStates"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFY_STATES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_replace_anim_notify_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceAnimNotifies"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFIES,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_replace_anim_notifies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameCurveMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_RENAME_CURVE_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_rename_curve_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVirtualBones"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONES,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_virtual_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVirtualBone"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONE,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_virtual_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMetaDataOfClass"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA_OF_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_meta_data_of_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCurveMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_curve_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCurve"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_curve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBoneSelectiveAnimation"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_SELECTIVE_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_bone_selective_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBoneAnimation"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_ANIMATION,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_bone_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAnimationSyncMarkersByTrack"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_animation_sync_markers_by_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAnimationSyncMarkersByName"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_animation_sync_markers_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAnimationNotifyTrack"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_animation_notify_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAnimationNotifyEventsByTrack"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_animation_notify_events_by_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAnimationNotifyEventsByName"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_animation_notify_events_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllVirtualBones"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_VIRTUAL_BONES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_all_virtual_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_all_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllCurveData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_CURVE_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_remove_all_curve_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllBoneAnimation"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_BONE_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_all_bone_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllAnimationSyncMarkers"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_SYNC_MARKERS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_all_animation_sync_markers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllAnimationNotifyTracks"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_NOTIFY_TRACKS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_remove_all_animation_notify_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_TIME,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_is_valid_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidRawAnimationTrackName"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_RAW_ANIMATION_TRACK_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_is_valid_raw_animation_track_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidAnimNotifyTrackName"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIM_NOTIFY_TRACK_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_is_valid_anim_notify_track_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidAnimationSyncMarkerName"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIMATION_SYNC_MARKER_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_is_valid_animation_sync_marker_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRootMotionLockForced"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_LOCK_FORCED,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_is_root_motion_lock_forced,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRootMotionEnabled"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_is_root_motion_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorKeys"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_VECTOR_KEYS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_vector_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableFrameStrippingSettings"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_VARIABLE_FRAME_STRIPPING_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_variable_frame_stripping_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUniqueMarkerNames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_UNIQUE_MARKER_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_unique_marker_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformationKeys"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_TRANSFORMATION_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_transformation_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimeAtFrame"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_TIME_AT_FRAME,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_time_at_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequenceLength"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_SEQUENCE_LENGTH,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_sequence_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootMotionLockType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ROOT_MOTION_LOCK_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_root_motion_lock_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRawTrackScaleData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_SCALE_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_raw_track_scale_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRawTrackRotationData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_ROTATION_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_raw_track_rotation_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRawTrackPositionData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_POSITION_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_raw_track_position_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRawTrackData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_raw_track_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRateScale"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_RATE_SCALE,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_rate_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_KEYS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_num_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumFrames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_num_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumCurveMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_CURVE_META_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_num_curve_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodesOfClass"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_NODES_OF_CLASS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_nodes_of_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMontageSlotNames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_MONTAGE_SLOT_NAMES,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_montage_slot_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaDataOfClass"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA_OF_CLASS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_meta_data_of_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameAtTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_FRAME_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_frame_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatValueAtTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_VALUE_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_float_value_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatKeys"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_KEYS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_float_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveMetaDataNames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_curve_meta_data_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveMetaDataMorphTarget"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MORPH_TARGET,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_curve_meta_data_morph_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveMetaDataMaterial"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_curve_meta_data_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveCompressionSettings"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_COMPRESSION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_curve_compression_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBonePosesForTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_bone_poses_for_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBonePosesForFrame"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_bone_poses_for_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBonePoseForTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_TIME,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_bone_pose_for_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBonePoseForFrame"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_bone_pose_for_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoneCompressionSettings"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_COMPRESSION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_bone_compression_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimNotifyEventTriggerTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_TRIGGER_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_anim_notify_event_trigger_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimNotifyEventDuration"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_DURATION,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_anim_notify_event_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationTrackNames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_TRACK_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_track_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationSyncMarkersForTrack"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS_FOR_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_sync_markers_for_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationSyncMarkers"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_sync_markers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationNotifyTrackNames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_TRACK_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_notify_track_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationNotifyEventsForTrack"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS_FOR_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_notify_events_for_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationNotifyEvents"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_notify_events,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationNotifyEventNames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENT_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_notify_event_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationInterpolationType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_INTERPOLATION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_interpolation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationGraphs"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_GRAPHS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_get_animation_graphs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationCurveNames"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_CURVE_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_animation_curve_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAdditiveBasePoseType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_BASE_POSE_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_additive_base_pose_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAdditiveAnimationType"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_ANIMATION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_get_additive_animation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBonePathToRoot"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_FIND_BONE_PATH_TO_ROOT,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_find_bone_path_to_root,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinalizeBoneAnimation"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_FINALIZE_BONE_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_finalize_bone_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExtractRootTrackTransform"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_EXTRACT_ROOT_TRACK_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_extract_root_track_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateRootBoneTimecodeSubframeAttributeAtTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_SUBFRAME_ATTRIBUTE_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_evaluate_root_bone_timecode_subframe_attribute_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateRootBoneTimecodeAttributesAtTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_ATTRIBUTES_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_evaluate_root_bone_timecode_attributes_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateBoneTimecodeAndSlateAttributesAtTime"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_BONE_TIMECODE_AND_SLATE_ATTRIBUTES_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_evaluate_bone_timecode_and_slate_attributes_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesCurveExist"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_DOES_CURVE_EXIST,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_does_curve_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesBoneNameExist"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_DOES_BONE_NAME_EXIST,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_does_bone_name_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyAnimNotifiesFromSequence"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIM_NOTIFIES_FROM_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_copy_anim_notifies_from_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyAnimationCurveNamesToSkeleton"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIMATION_CURVE_NAMES_TO_SKELETON,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_copy_animation_curve_names_to_skeleton,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ContainsMetaDataOfClass"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_CONTAINS_META_DATA_OF_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_contains_meta_data_of_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVirtualBone"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VIRTUAL_BONE,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_virtual_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVectorCurveKeys"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_vector_curve_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVectorCurveKey"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_vector_curve_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTransformationCurveKeys"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_transformation_curve_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTransformationCurveKey"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_transformation_curve_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNodeAssetOverride"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_NODE_ASSET_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_node_asset_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMetaDataObject"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_meta_data_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFloatCurveKeys"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_float_curve_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFloatCurveKey"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_float_curve_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCurveMetaData"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_curve_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCurve"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE,
+            &raw mut __FUNCTION_PTRS.u_animation_blueprint_library_add_curve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationSyncMarker"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_SYNC_MARKER,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_animation_sync_marker,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationNotifyTrack"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_animation_notify_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationNotifyStateEventObject"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_animation_notify_state_event_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationNotifyStateEvent"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_animation_notify_state_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationNotifyEventObject"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_animation_notify_event_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationNotifyEventFromSource"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_FROM_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_animation_notify_event_from_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationNotifyEvent"),
-            &raw mut U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_blueprint_library_add_animation_notify_event,
         );
     }
     unsafe {
@@ -1127,112 +1215,115 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBonePose"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_SET_BONE_POSE,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_set_bone_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSocketPose"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_SOCKET_POSE,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_socket_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSocketNames"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_SOCKET_NAMES,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_socket_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRelativeTransform"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_relative_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRelativeToRefPoseTransform"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TO_REF_POSE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_pose_extensions_get_relative_to_ref_pose_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRefPoseRelativeTransform"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_REF_POSE_RELATIVE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_pose_extensions_get_ref_pose_relative_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReferencePose"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_REFERENCE_POSE,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_reference_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRefBonePose"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_REF_BONE_POSE,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_ref_bone_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveWeight"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_CURVE_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_curve_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveNames"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_CURVE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_curve_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBonePose"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_BONE_POSE,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_bone_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoneNames"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_BONE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_bone_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimPoseAtTime"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_anim_pose_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimPoseAtFrame"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_FRAME,
+            &raw mut __FUNCTION_PTRS.u_anim_pose_extensions_get_anim_pose_at_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateAnimationBlueprintWithInputPose"),
-            &raw mut U_ANIM_POSE_EXTENSIONS_EVALUATE_ANIMATION_BLUEPRINT_WITH_INPUT_POSE,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_pose_extensions_evaluate_animation_blueprint_with_input_pose,
         );
     }
 }
@@ -1287,7 +1378,8 @@ impl UAnimationAttributeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_set_attribute_keys,
                 __buffer,
             )
         };
@@ -1333,7 +1425,8 @@ impl UAnimationAttributeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_set_attribute_keys,
                 __buffer,
             )
         };
@@ -1354,7 +1447,8 @@ impl UAnimationAttributeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_set_attribute_key,
                 __buffer,
             )
         };
@@ -1392,7 +1486,8 @@ impl UAnimationAttributeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_SET_ATTRIBUTE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_set_attribute_key,
                 __buffer,
             )
         };
@@ -1413,7 +1508,8 @@ impl UAnimationAttributeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_get_attribute_keys,
                 __buffer,
             )
         };
@@ -1457,7 +1553,8 @@ impl UAnimationAttributeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_get_attribute_keys,
                 __buffer,
             )
         };
@@ -1484,7 +1581,8 @@ impl UAnimationAttributeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_get_attribute_key,
                 __buffer,
             )
         };
@@ -1520,7 +1618,8 @@ impl UAnimationAttributeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_ATTRIBUTE_BLUEPRINT_LIBRARY_GET_ATTRIBUTE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_attribute_blueprint_library_get_attribute_key,
                 __buffer,
             )
         };
@@ -1563,7 +1662,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_VARIABLE_FRAME_STRIPPING_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_variable_frame_stripping_settings,
                 __buffer,
             )
         };
@@ -1591,7 +1691,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_VARIABLE_FRAME_STRIPPING_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_variable_frame_stripping_settings,
                 __buffer,
             )
         };
@@ -1607,7 +1708,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_LOCK_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_root_motion_lock_type,
                 __buffer,
             )
         };
@@ -1631,7 +1733,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_LOCK_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_root_motion_lock_type,
                 __buffer,
             )
         };
@@ -1647,7 +1750,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_ENABLED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_root_motion_enabled,
                 __buffer,
             )
         };
@@ -1667,7 +1771,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ROOT_MOTION_ENABLED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_root_motion_enabled,
                 __buffer,
             )
         };
@@ -1683,7 +1788,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_RATE_SCALE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_rate_scale,
                 __buffer,
             )
         };
@@ -1705,7 +1811,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_RATE_SCALE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_rate_scale,
                 __buffer,
             )
         };
@@ -1721,7 +1828,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_IS_ROOT_MOTION_LOCK_FORCED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_is_root_motion_lock_forced,
                 __buffer,
             )
         };
@@ -1741,7 +1849,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_IS_ROOT_MOTION_LOCK_FORCED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_is_root_motion_lock_forced,
                 __buffer,
             )
         };
@@ -1758,7 +1867,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MORPH_TARGET,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_meta_data_morph_target,
                 __buffer,
             )
         };
@@ -1789,7 +1899,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MORPH_TARGET,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_meta_data_morph_target,
                 __buffer,
             )
         };
@@ -1806,7 +1917,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MATERIAL,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_meta_data_material,
                 __buffer,
             )
         };
@@ -1837,7 +1949,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_META_DATA_MATERIAL,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_meta_data_material,
                 __buffer,
             )
         };
@@ -1855,7 +1968,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_compression_settings,
                 __buffer,
             )
         };
@@ -1883,7 +1997,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_CURVE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_curve_compression_settings,
                 __buffer,
             )
         };
@@ -1899,7 +2014,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_BONE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_bone_compression_settings,
                 __buffer,
             )
         };
@@ -1927,7 +2043,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_BONE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_bone_compression_settings,
                 __buffer,
             )
         };
@@ -1943,7 +2060,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ANIMATION_INTERPOLATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_animation_interpolation_type,
                 __buffer,
             )
         };
@@ -1969,7 +2087,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ANIMATION_INTERPOLATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_animation_interpolation_type,
                 __buffer,
             )
         };
@@ -1985,7 +2104,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_BASE_POSE_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_additive_base_pose_type,
                 __buffer,
             )
         };
@@ -2009,7 +2129,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_BASE_POSE_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_additive_base_pose_type,
                 __buffer,
             )
         };
@@ -2025,7 +2146,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_ANIMATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_additive_animation_type,
                 __buffer,
             )
         };
@@ -2051,7 +2173,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_SET_ADDITIVE_ANIMATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_set_additive_animation_type,
                 __buffer,
             )
         };
@@ -2069,7 +2192,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFY_STATES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_replace_anim_notify_states,
                 __buffer,
             )
         };
@@ -2115,7 +2239,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFY_STATES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_replace_anim_notify_states,
                 __buffer,
             )
         };
@@ -2133,7 +2258,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFIES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_replace_anim_notifies,
                 __buffer,
             )
         };
@@ -2177,7 +2303,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REPLACE_ANIM_NOTIFIES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_replace_anim_notifies,
                 __buffer,
             )
         };
@@ -2194,7 +2321,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_RENAME_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_rename_curve_meta_data,
                 __buffer,
             )
         };
@@ -2221,7 +2349,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_RENAME_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_rename_curve_meta_data,
                 __buffer,
             )
         };
@@ -2238,7 +2367,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_virtual_bones,
                 __buffer,
             )
         };
@@ -2262,7 +2392,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_virtual_bones,
                 __buffer,
             )
         };
@@ -2278,7 +2409,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_virtual_bone,
                 __buffer,
             )
         };
@@ -2302,7 +2434,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_VIRTUAL_BONE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_virtual_bone,
                 __buffer,
             )
         };
@@ -2318,7 +2451,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_meta_data_of_class,
                 __buffer,
             )
         };
@@ -2344,7 +2478,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_meta_data_of_class,
                 __buffer,
             )
         };
@@ -2360,7 +2495,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_meta_data,
                 __buffer,
             )
         };
@@ -2384,7 +2520,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_meta_data,
                 __buffer,
             )
         };
@@ -2400,7 +2537,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_curve_meta_data,
                 __buffer,
             )
         };
@@ -2424,7 +2562,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_curve_meta_data,
                 __buffer,
             )
         };
@@ -2442,7 +2581,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_curve,
                 __buffer,
             )
         };
@@ -2475,7 +2615,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_CURVE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_curve,
                 __buffer,
             )
         };
@@ -2495,7 +2636,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_SELECTIVE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_bone_selective_animation,
                 __buffer,
             )
         };
@@ -2547,7 +2689,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_SELECTIVE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_bone_selective_animation,
                 __buffer,
             )
         };
@@ -2565,7 +2708,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_bone_animation,
                 __buffer,
             )
         };
@@ -2603,7 +2747,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_BONE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_bone_animation,
                 __buffer,
             )
         };
@@ -2619,7 +2764,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_sync_markers_by_track,
                 __buffer,
             )
         };
@@ -2643,7 +2789,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_sync_markers_by_track,
                 __buffer,
             )
         };
@@ -2660,7 +2807,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_sync_markers_by_name,
                 __buffer,
             )
         };
@@ -2684,7 +2832,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_SYNC_MARKERS_BY_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_sync_markers_by_name,
                 __buffer,
             )
         };
@@ -2701,7 +2850,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_track,
                 __buffer,
             )
         };
@@ -2727,7 +2877,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_track,
                 __buffer,
             )
         };
@@ -2743,7 +2894,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_events_by_track,
                 __buffer,
             )
         };
@@ -2769,7 +2921,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_events_by_track,
                 __buffer,
             )
         };
@@ -2786,7 +2939,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_events_by_name,
                 __buffer,
             )
         };
@@ -2812,7 +2966,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ANIMATION_NOTIFY_EVENTS_BY_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_animation_notify_events_by_name,
                 __buffer,
             )
         };
@@ -2828,7 +2983,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_VIRTUAL_BONES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_virtual_bones,
                 __buffer,
             )
         };
@@ -2845,7 +3001,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_VIRTUAL_BONES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_virtual_bones,
                 __buffer,
             )
         };
@@ -2860,7 +3017,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_meta_data,
                 __buffer,
             )
         };
@@ -2877,7 +3035,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_meta_data,
                 __buffer,
             )
         };
@@ -2892,7 +3051,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_CURVE_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_curve_data,
                 __buffer,
             )
         };
@@ -2911,7 +3071,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_CURVE_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_curve_data,
                 __buffer,
             )
         };
@@ -2926,7 +3087,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_BONE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_bone_animation,
                 __buffer,
             )
         };
@@ -2943,7 +3105,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_BONE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_bone_animation,
                 __buffer,
             )
         };
@@ -2958,7 +3121,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_SYNC_MARKERS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_animation_sync_markers,
                 __buffer,
             )
         };
@@ -2975,7 +3139,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_SYNC_MARKERS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_animation_sync_markers,
                 __buffer,
             )
         };
@@ -2990,7 +3155,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_NOTIFY_TRACKS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_animation_notify_tracks,
                 __buffer,
             )
         };
@@ -3009,7 +3175,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_REMOVE_ALL_ANIMATION_NOTIFY_TRACKS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_remove_all_animation_notify_tracks,
                 __buffer,
             )
         };
@@ -3026,7 +3193,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_time,
                 __buffer,
             )
         };
@@ -3051,7 +3219,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_time,
                 __buffer,
             )
         };
@@ -3070,7 +3239,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_RAW_ANIMATION_TRACK_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_raw_animation_track_name,
                 __buffer,
             )
         };
@@ -3096,7 +3266,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_RAW_ANIMATION_TRACK_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_raw_animation_track_name,
                 __buffer,
             )
         };
@@ -3113,7 +3284,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIM_NOTIFY_TRACK_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_anim_notify_track_name,
                 __buffer,
             )
         };
@@ -3139,7 +3311,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIM_NOTIFY_TRACK_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_anim_notify_track_name,
                 __buffer,
             )
         };
@@ -3156,7 +3329,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIMATION_SYNC_MARKER_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_animation_sync_marker_name,
                 __buffer,
             )
         };
@@ -3180,7 +3354,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_VALID_ANIMATION_SYNC_MARKER_NAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_valid_animation_sync_marker_name,
                 __buffer,
             )
         };
@@ -3196,7 +3371,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_LOCK_FORCED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_root_motion_lock_forced,
                 __buffer,
             )
         };
@@ -3213,7 +3389,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_LOCK_FORCED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_root_motion_lock_forced,
                 __buffer,
             )
         };
@@ -3229,7 +3406,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_ENABLED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_root_motion_enabled,
                 __buffer,
             )
         };
@@ -3246,7 +3424,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_IS_ROOT_MOTION_ENABLED,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_is_root_motion_enabled,
                 __buffer,
             )
         };
@@ -3265,7 +3444,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_VECTOR_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_vector_keys,
                 __buffer,
             )
         };
@@ -3307,7 +3487,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_VECTOR_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_vector_keys,
                 __buffer,
             )
         };
@@ -3334,7 +3515,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_VARIABLE_FRAME_STRIPPING_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_variable_frame_stripping_settings,
                 __buffer,
             )
         };
@@ -3362,7 +3544,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_VARIABLE_FRAME_STRIPPING_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_variable_frame_stripping_settings,
                 __buffer,
             )
         };
@@ -3384,7 +3567,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_UNIQUE_MARKER_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_unique_marker_names,
                 __buffer,
             )
         };
@@ -3408,7 +3592,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_UNIQUE_MARKER_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_unique_marker_names,
                 __buffer,
             )
         };
@@ -3429,7 +3614,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_TRANSFORMATION_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_transformation_keys,
                 __buffer,
             )
         };
@@ -3471,7 +3657,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_TRANSFORMATION_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_transformation_keys,
                 __buffer,
             )
         };
@@ -3497,7 +3684,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_TIME_AT_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_time_at_frame,
                 __buffer,
             )
         };
@@ -3522,7 +3710,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_TIME_AT_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_time_at_frame,
                 __buffer,
             )
         };
@@ -3541,7 +3730,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_SEQUENCE_LENGTH,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_sequence_length,
                 __buffer,
             )
         };
@@ -3563,7 +3753,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_SEQUENCE_LENGTH,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_sequence_length,
                 __buffer,
             )
         };
@@ -3582,7 +3773,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ROOT_MOTION_LOCK_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_root_motion_lock_type,
                 __buffer,
             )
         };
@@ -3606,7 +3798,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ROOT_MOTION_LOCK_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_root_motion_lock_type,
                 __buffer,
             )
         };
@@ -3629,7 +3822,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_SCALE_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_scale_data,
                 __buffer,
             )
         };
@@ -3664,7 +3858,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_SCALE_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_scale_data,
                 __buffer,
             )
         };
@@ -3687,7 +3882,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_ROTATION_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_rotation_data,
                 __buffer,
             )
         };
@@ -3720,7 +3916,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_ROTATION_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_rotation_data,
                 __buffer,
             )
         };
@@ -3743,7 +3940,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_POSITION_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_position_data,
                 __buffer,
             )
         };
@@ -3778,7 +3976,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_POSITION_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_position_data,
                 __buffer,
             )
         };
@@ -3803,7 +4002,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_data,
                 __buffer,
             )
         };
@@ -3854,7 +4054,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RAW_TRACK_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_raw_track_data,
                 __buffer,
             )
         };
@@ -3888,7 +4089,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RATE_SCALE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_rate_scale,
                 __buffer,
             )
         };
@@ -3910,7 +4112,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_RATE_SCALE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_rate_scale,
                 __buffer,
             )
         };
@@ -3929,7 +4132,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_num_keys,
                 __buffer,
             )
         };
@@ -3951,7 +4155,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_num_keys,
                 __buffer,
             )
         };
@@ -3970,7 +4175,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_FRAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_num_frames,
                 __buffer,
             )
         };
@@ -3992,7 +4198,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_FRAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_num_frames,
                 __buffer,
             )
         };
@@ -4010,7 +4217,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_num_curve_meta_data,
                 __buffer,
             )
         };
@@ -4027,7 +4235,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NUM_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_num_curve_meta_data,
                 __buffer,
             )
         };
@@ -4046,7 +4255,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NODES_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_nodes_of_class,
                 __buffer,
             )
         };
@@ -4092,7 +4302,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_NODES_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_nodes_of_class,
                 __buffer,
             )
         };
@@ -4114,7 +4325,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_MONTAGE_SLOT_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_montage_slot_names,
                 __buffer,
             )
         };
@@ -4138,7 +4350,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_MONTAGE_SLOT_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_montage_slot_names,
                 __buffer,
             )
         };
@@ -4158,7 +4371,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_meta_data_of_class,
                 __buffer,
             )
         };
@@ -4193,7 +4407,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_meta_data_of_class,
                 __buffer,
             )
         };
@@ -4215,7 +4430,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_meta_data,
                 __buffer,
             )
         };
@@ -4241,7 +4457,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_meta_data,
                 __buffer,
             )
         };
@@ -4264,7 +4481,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_FRAME_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_frame_at_time,
                 __buffer,
             )
         };
@@ -4289,7 +4507,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_FRAME_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_frame_at_time,
                 __buffer,
             )
         };
@@ -4309,7 +4528,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_VALUE_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_float_value_at_time,
                 __buffer,
             )
         };
@@ -4338,7 +4558,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_VALUE_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_float_value_at_time,
                 __buffer,
             )
         };
@@ -4357,7 +4578,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_float_keys,
                 __buffer,
             )
         };
@@ -4397,7 +4619,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_FLOAT_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_float_keys,
                 __buffer,
             )
         };
@@ -4419,7 +4642,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_names,
                 __buffer,
             )
         };
@@ -4443,7 +4667,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_names,
                 __buffer,
             )
         };
@@ -4462,7 +4687,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MORPH_TARGET,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_morph_target,
                 __buffer,
             )
         };
@@ -4486,7 +4712,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MORPH_TARGET,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_morph_target,
                 __buffer,
             )
         };
@@ -4503,7 +4730,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MATERIAL,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_material,
                 __buffer,
             )
         };
@@ -4527,7 +4755,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_META_DATA_MATERIAL,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_meta_data_material,
                 __buffer,
             )
         };
@@ -4546,7 +4775,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_compression_settings,
                 __buffer,
             )
         };
@@ -4574,7 +4804,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_CURVE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_curve_compression_settings,
                 __buffer,
             )
         };
@@ -4600,7 +4831,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_poses_for_time,
                 __buffer,
             )
         };
@@ -4652,7 +4884,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_poses_for_time,
                 __buffer,
             )
         };
@@ -4678,7 +4911,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_poses_for_frame,
                 __buffer,
             )
         };
@@ -4730,7 +4964,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSES_FOR_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_poses_for_frame,
                 __buffer,
             )
         };
@@ -4755,7 +4990,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_pose_for_time,
                 __buffer,
             )
         };
@@ -4798,7 +5034,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_pose_for_time,
                 __buffer,
             )
         };
@@ -4823,7 +5060,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_pose_for_frame,
                 __buffer,
             )
         };
@@ -4866,7 +5104,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_POSE_FOR_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_pose_for_frame,
                 __buffer,
             )
         };
@@ -4890,7 +5129,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_compression_settings,
                 __buffer,
             )
         };
@@ -4918,7 +5158,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_BONE_COMPRESSION_SETTINGS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_bone_compression_settings,
                 __buffer,
             )
         };
@@ -4939,7 +5180,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_TRIGGER_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_anim_notify_event_trigger_time,
                 __buffer,
             )
         };
@@ -4956,7 +5198,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_TRIGGER_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_anim_notify_event_trigger_time,
                 __buffer,
             )
         };
@@ -4972,7 +5215,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_DURATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_anim_notify_event_duration,
                 __buffer,
             )
         };
@@ -4989,7 +5233,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIM_NOTIFY_EVENT_DURATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_anim_notify_event_duration,
                 __buffer,
             )
         };
@@ -5006,7 +5251,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_TRACK_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_track_names,
                 __buffer,
             )
         };
@@ -5032,7 +5278,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_TRACK_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_track_names,
                 __buffer,
             )
         };
@@ -5052,7 +5299,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS_FOR_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_sync_markers_for_track,
                 __buffer,
             )
         };
@@ -5085,7 +5333,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS_FOR_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_sync_markers_for_track,
                 __buffer,
             )
         };
@@ -5107,7 +5356,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_sync_markers,
                 __buffer,
             )
         };
@@ -5133,7 +5383,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_SYNC_MARKERS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_sync_markers,
                 __buffer,
             )
         };
@@ -5155,7 +5406,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_TRACK_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_track_names,
                 __buffer,
             )
         };
@@ -5181,7 +5433,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_TRACK_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_track_names,
                 __buffer,
             )
         };
@@ -5201,7 +5454,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS_FOR_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_events_for_track,
                 __buffer,
             )
         };
@@ -5236,7 +5490,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS_FOR_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_events_for_track,
                 __buffer,
             )
         };
@@ -5258,7 +5513,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_events,
                 __buffer,
             )
         };
@@ -5286,7 +5542,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENTS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_events,
                 __buffer,
             )
         };
@@ -5308,7 +5565,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENT_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_event_names,
                 __buffer,
             )
         };
@@ -5334,7 +5592,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_NOTIFY_EVENT_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_notify_event_names,
                 __buffer,
             )
         };
@@ -5353,7 +5612,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_INTERPOLATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_interpolation_type,
                 __buffer,
             )
         };
@@ -5379,7 +5639,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_INTERPOLATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_interpolation_type,
                 __buffer,
             )
         };
@@ -5401,7 +5662,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_GRAPHS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_graphs,
                 __buffer,
             )
         };
@@ -5429,7 +5691,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_GRAPHS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_graphs,
                 __buffer,
             )
         };
@@ -5452,7 +5715,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_CURVE_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_curve_names,
                 __buffer,
             )
         };
@@ -5485,7 +5749,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ANIMATION_CURVE_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_animation_curve_names,
                 __buffer,
             )
         };
@@ -5504,7 +5769,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_BASE_POSE_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_additive_base_pose_type,
                 __buffer,
             )
         };
@@ -5528,7 +5794,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_BASE_POSE_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_additive_base_pose_type,
                 __buffer,
             )
         };
@@ -5550,7 +5817,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_ANIMATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_additive_animation_type,
                 __buffer,
             )
         };
@@ -5576,7 +5844,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_GET_ADDITIVE_ANIMATION_TYPE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_get_additive_animation_type,
                 __buffer,
             )
         };
@@ -5599,7 +5868,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_FIND_BONE_PATH_TO_ROOT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_find_bone_path_to_root,
                 __buffer,
             )
         };
@@ -5632,7 +5902,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_FIND_BONE_PATH_TO_ROOT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_find_bone_path_to_root,
                 __buffer,
             )
         };
@@ -5650,7 +5921,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_FINALIZE_BONE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_finalize_bone_animation,
                 __buffer,
             )
         };
@@ -5667,7 +5939,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_FINALIZE_BONE_ANIMATION,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_finalize_bone_animation,
                 __buffer,
             )
         };
@@ -5683,7 +5956,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EXTRACT_ROOT_TRACK_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_extract_root_track_transform,
                 __buffer,
             )
         };
@@ -5705,7 +5979,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EXTRACT_ROOT_TRACK_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_extract_root_track_transform,
                 __buffer,
             )
         };
@@ -5725,7 +6000,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_SUBFRAME_ATTRIBUTE_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_root_bone_timecode_subframe_attribute_at_time,
                 __buffer,
             )
         };
@@ -5754,7 +6030,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_SUBFRAME_ATTRIBUTE_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_root_bone_timecode_subframe_attribute_at_time,
                 __buffer,
             )
         };
@@ -5775,7 +6052,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_ATTRIBUTES_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_root_bone_timecode_attributes_at_time,
                 __buffer,
             )
         };
@@ -5806,7 +6084,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_ROOT_BONE_TIMECODE_ATTRIBUTES_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_root_bone_timecode_attributes_at_time,
                 __buffer,
             )
         };
@@ -5832,7 +6111,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_BONE_TIMECODE_AND_SLATE_ATTRIBUTES_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_bone_timecode_and_slate_attributes_at_time,
                 __buffer,
             )
         };
@@ -5873,7 +6153,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_EVALUATE_BONE_TIMECODE_AND_SLATE_ATTRIBUTES_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_evaluate_bone_timecode_and_slate_attributes_at_time,
                 __buffer,
             )
         };
@@ -5900,7 +6181,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_DOES_CURVE_EXIST,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_does_curve_exist,
                 __buffer,
             )
         };
@@ -5933,7 +6215,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_DOES_CURVE_EXIST,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_does_curve_exist,
                 __buffer,
             )
         };
@@ -5951,7 +6234,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_DOES_BONE_NAME_EXIST,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_does_bone_name_exist,
                 __buffer,
             )
         };
@@ -5978,7 +6262,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_DOES_BONE_NAME_EXIST,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_does_bone_name_exist,
                 __buffer,
             )
         };
@@ -6000,7 +6285,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIM_NOTIFIES_FROM_SEQUENCE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_copy_anim_notifies_from_sequence,
                 __buffer,
             )
         };
@@ -6035,7 +6321,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIM_NOTIFIES_FROM_SEQUENCE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_copy_anim_notifies_from_sequence,
                 __buffer,
             )
         };
@@ -6053,7 +6340,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIMATION_CURVE_NAMES_TO_SKELETON,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_copy_animation_curve_names_to_skeleton,
                 __buffer,
             )
         };
@@ -6093,7 +6381,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_COPY_ANIMATION_CURVE_NAMES_TO_SKELETON,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_copy_animation_curve_names_to_skeleton,
                 __buffer,
             )
         };
@@ -6109,7 +6398,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_CONTAINS_META_DATA_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_contains_meta_data_of_class,
                 __buffer,
             )
         };
@@ -6135,7 +6425,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_CONTAINS_META_DATA_OF_CLASS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_contains_meta_data_of_class,
                 __buffer,
             )
         };
@@ -6154,7 +6445,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VIRTUAL_BONE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_virtual_bone,
                 __buffer,
             )
         };
@@ -6192,7 +6484,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VIRTUAL_BONE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_virtual_bone,
                 __buffer,
             )
         };
@@ -6213,7 +6506,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_vector_curve_keys,
                 __buffer,
             )
         };
@@ -6255,7 +6549,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_vector_curve_keys,
                 __buffer,
             )
         };
@@ -6273,7 +6568,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_vector_curve_key,
                 __buffer,
             )
         };
@@ -6309,7 +6605,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_VECTOR_CURVE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_vector_curve_key,
                 __buffer,
             )
         };
@@ -6327,7 +6624,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_transformation_curve_keys,
                 __buffer,
             )
         };
@@ -6369,7 +6667,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_transformation_curve_keys,
                 __buffer,
             )
         };
@@ -6387,7 +6686,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_transformation_curve_key,
                 __buffer,
             )
         };
@@ -6423,7 +6723,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_TRANSFORMATION_CURVE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_transformation_curve_key,
                 __buffer,
             )
         };
@@ -6441,7 +6742,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_NODE_ASSET_OVERRIDE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_node_asset_override,
                 __buffer,
             )
         };
@@ -6481,7 +6783,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_NODE_ASSET_OVERRIDE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_node_asset_override,
                 __buffer,
             )
         };
@@ -6497,7 +6800,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA_OBJECT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_meta_data_object,
                 __buffer,
             )
         };
@@ -6521,7 +6825,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA_OBJECT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_meta_data_object,
                 __buffer,
             )
         };
@@ -6538,7 +6843,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_meta_data,
                 __buffer,
             )
         };
@@ -6571,7 +6877,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_meta_data,
                 __buffer,
             )
         };
@@ -6595,7 +6902,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_float_curve_keys,
                 __buffer,
             )
         };
@@ -6635,7 +6943,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEYS,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_float_curve_keys,
                 __buffer,
             )
         };
@@ -6653,7 +6962,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_float_curve_key,
                 __buffer,
             )
         };
@@ -6685,7 +6995,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_FLOAT_CURVE_KEY,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_float_curve_key,
                 __buffer,
             )
         };
@@ -6702,7 +7013,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_curve_meta_data,
                 __buffer,
             )
         };
@@ -6733,7 +7045,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE_META_DATA,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_curve_meta_data,
                 __buffer,
             )
         };
@@ -6752,7 +7065,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_curve,
                 __buffer,
             )
         };
@@ -6792,7 +7106,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_CURVE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_curve,
                 __buffer,
             )
         };
@@ -6810,7 +7125,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_SYNC_MARKER,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_sync_marker,
                 __buffer,
             )
         };
@@ -6844,7 +7160,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_SYNC_MARKER,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_sync_marker,
                 __buffer,
             )
         };
@@ -6861,7 +7178,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_track,
                 __buffer,
             )
         };
@@ -6894,7 +7212,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_TRACK,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_track,
                 __buffer,
             )
         };
@@ -6913,7 +7232,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT_OBJECT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_state_event_object,
                 __buffer,
             )
         };
@@ -6954,7 +7274,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT_OBJECT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_state_event_object,
                 __buffer,
             )
         };
@@ -6973,7 +7294,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_state_event,
                 __buffer,
             )
         };
@@ -7018,7 +7340,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_STATE_EVENT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_state_event,
                 __buffer,
             )
         };
@@ -7042,7 +7365,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_OBJECT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event_object,
                 __buffer,
             )
         };
@@ -7078,7 +7402,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_OBJECT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event_object,
                 __buffer,
             )
         };
@@ -7096,7 +7421,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_FROM_SOURCE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event_from_source,
                 __buffer,
             )
         };
@@ -7132,7 +7458,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT_FROM_SOURCE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event_from_source,
                 __buffer,
             )
         };
@@ -7153,7 +7480,8 @@ impl UAnimationBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event,
                 __buffer,
             )
         };
@@ -7195,7 +7523,8 @@ impl UAnimationBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIMATION_BLUEPRINT_LIBRARY_ADD_ANIMATION_NOTIFY_EVENT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_animation_blueprint_library_add_animation_notify_event,
                 __buffer,
             )
         };
@@ -7237,7 +7566,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_SET_BONE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_set_bone_pose,
                 __buffer,
             )
         };
@@ -7271,7 +7601,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_SET_BONE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_set_bone_pose,
                 __buffer,
             )
         };
@@ -7287,7 +7618,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_IS_VALID,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_is_valid,
                 __buffer,
             )
         };
@@ -7300,7 +7632,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_IS_VALID,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_is_valid,
                 __buffer,
             )
         };
@@ -7318,7 +7651,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_SOCKET_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_socket_pose,
                 __buffer,
             )
         };
@@ -7345,7 +7679,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_SOCKET_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_socket_pose,
                 __buffer,
             )
         };
@@ -7361,7 +7696,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_SOCKET_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_socket_names,
                 __buffer,
             )
         };
@@ -7381,7 +7717,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_SOCKET_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_socket_names,
                 __buffer,
             )
         };
@@ -7402,7 +7739,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_relative_transform,
                 __buffer,
             )
         };
@@ -7436,7 +7774,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_relative_transform,
                 __buffer,
             )
         };
@@ -7456,7 +7795,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TO_REF_POSE_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_relative_to_ref_pose_transform,
                 __buffer,
             )
         };
@@ -7483,7 +7823,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_RELATIVE_TO_REF_POSE_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_relative_to_ref_pose_transform,
                 __buffer,
             )
         };
@@ -7504,7 +7845,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_REF_POSE_RELATIVE_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_ref_pose_relative_transform,
                 __buffer,
             )
         };
@@ -7538,7 +7880,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_REF_POSE_RELATIVE_TRANSFORM,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_ref_pose_relative_transform,
                 __buffer,
             )
         };
@@ -7557,7 +7900,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_REFERENCE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_reference_pose,
                 __buffer,
             )
         };
@@ -7581,7 +7925,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_REFERENCE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_reference_pose,
                 __buffer,
             )
         };
@@ -7601,7 +7946,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_REF_BONE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_ref_bone_pose,
                 __buffer,
             )
         };
@@ -7628,7 +7974,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_REF_BONE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_ref_bone_pose,
                 __buffer,
             )
         };
@@ -7644,7 +7991,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_CURVE_WEIGHT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_curve_weight,
                 __buffer,
             )
         };
@@ -7664,7 +8012,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_CURVE_WEIGHT,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_curve_weight,
                 __buffer,
             )
         };
@@ -7678,7 +8027,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_CURVE_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_curve_names,
                 __buffer,
             )
         };
@@ -7698,7 +8048,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_CURVE_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_curve_names,
                 __buffer,
             )
         };
@@ -7718,7 +8069,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_BONE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_bone_pose,
                 __buffer,
             )
         };
@@ -7745,7 +8097,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_BONE_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_bone_pose,
                 __buffer,
             )
         };
@@ -7761,7 +8114,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_BONE_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_bone_names,
                 __buffer,
             )
         };
@@ -7781,7 +8135,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_BONE_NAMES,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_bone_names,
                 __buffer,
             )
         };
@@ -7802,7 +8157,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_anim_pose_at_time,
                 __buffer,
             )
         };
@@ -7834,7 +8190,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_TIME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_anim_pose_at_time,
                 __buffer,
             )
         };
@@ -7855,7 +8212,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_anim_pose_at_frame,
                 __buffer,
             )
         };
@@ -7891,7 +8249,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_GET_ANIM_POSE_AT_FRAME,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_get_anim_pose_at_frame,
                 __buffer,
             )
         };
@@ -7912,7 +8271,8 @@ impl UAnimPoseExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_EVALUATE_ANIMATION_BLUEPRINT_WITH_INPUT_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_evaluate_animation_blueprint_with_input_pose,
                 __buffer,
             )
         };
@@ -7952,7 +8312,8 @@ impl UAnimPoseExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_blueprint_library::U_ANIM_POSE_EXTENSIONS_EVALUATE_ANIMATION_BLUEPRINT_WITH_INPUT_POSE,
+                crate::bindings::animation_blueprint_library::__FUNCTION_PTRS
+                    .u_anim_pose_extensions_evaluate_animation_blueprint_with_input_pose,
                 __buffer,
             )
         };

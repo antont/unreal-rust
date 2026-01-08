@@ -1,126 +1,135 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_NIAGARA_BAKER_FUNCTION_LIBRARY_CAPTURE_NIAGARA_TO_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_FUNCTION_ON_PASTED_FUNCTION_CALL_NODE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_SET_LOCAL_VALUE_AS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_INPUT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_GET_TYPE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC4_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC3_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC2_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_STRUCT_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_QUAT_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_MATRIX_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_LINKED_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_INT_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_FLOAT_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_EXPRESSION_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LINKED_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DYNAMIC_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DATA_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_COLOR_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_BOOL_LOCAL_VALUE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LOCAL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LINKED_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC3: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC2: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_LINKED_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC4_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC3_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC2_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_QUAT_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_NEW_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_LINKED_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_INT_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_FLOAT_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT_FROM_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_COLOR_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_BOOL_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_GET_OLD_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_MODULE_GET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_EMITTER_SET_PROPERTIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_EMITTER_HAS_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_EMITTER_GET_PROPERTIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_EMITTER_GET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_EMITTER_GET_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PYTHON_EMITTER_GET_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_niagara_baker_function_library_capture_niagara_to_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_function_on_pasted_function_call_node_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_try_set_local_value_as_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_try_get_input_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_get_type_name: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_vec4_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_vec3_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_vec2_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_struct_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_quat_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_matrix_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_linked_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_int_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_float_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_expression_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_enum_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_enum_linked_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_dynamic_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_data_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_color_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_clipboard_editor_scripting_utilities_create_bool_local_value_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_is_set: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_is_local_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_is_linked_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_vec4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_vec3: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_vec2: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_linked_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_script_module_input_as_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_vec4_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_vec3_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_vec2_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_quat_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_new_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_linked_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_int_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_float_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_enum_input_from_int: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_enum_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_color_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_set_bool_input: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_reset_to_default: *mut crate::ffi::UFunctionOpague,
+    pub u_upgrade_niagara_script_results_get_old_input: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_module_get_object: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_emitter_set_properties: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_emitter_has_module: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_emitter_get_properties: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_emitter_get_object: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_emitter_get_modules: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_python_emitter_get_module: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_niagara_baker_function_library_capture_niagara_to_static_mesh: std::ptr::null_mut(),
+            u_niagara_clipboard_function_on_pasted_function_call_node_delegate_signature: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_try_set_local_value_as_int: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_int: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_float: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_try_get_input_by_name: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_get_type_name: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_vec4_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_vec3_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_vec2_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_struct_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_quat_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_matrix_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_linked_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_int_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_float_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_expression_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_enum_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_enum_linked_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_dynamic_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_data_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_color_local_value_input: std::ptr::null_mut(),
+            u_niagara_clipboard_editor_scripting_utilities_create_bool_local_value_input: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_is_set: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_is_local_value: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_is_linked_value: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_vec4: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_vec3: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_vec2: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_quat: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_linked_value: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_int: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_float: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_enum: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_color: std::ptr::null_mut(),
+            u_niagara_python_script_module_input_as_bool: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_vec4_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_vec3_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_vec2_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_quat_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_new_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_linked_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_int_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_float_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_enum_input_from_int: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_enum_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_color_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_set_bool_input: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_reset_to_default: std::ptr::null_mut(),
+            u_upgrade_niagara_script_results_get_old_input: std::ptr::null_mut(),
+            u_niagara_python_module_get_object: std::ptr::null_mut(),
+            u_niagara_python_emitter_set_properties: std::ptr::null_mut(),
+            u_niagara_python_emitter_has_module: std::ptr::null_mut(),
+            u_niagara_python_emitter_get_properties: std::ptr::null_mut(),
+            u_niagara_python_emitter_get_object: std::ptr::null_mut(),
+            u_niagara_python_emitter_get_modules: std::ptr::null_mut(),
+            u_niagara_python_emitter_get_module: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -130,7 +139,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureNiagaraToStaticMesh"),
-            &raw mut U_NIAGARA_BAKER_FUNCTION_LIBRARY_CAPTURE_NIAGARA_TO_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_baker_function_library_capture_niagara_to_static_mesh,
         );
     }
     unsafe {
@@ -141,7 +151,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPastedFunctionCallNode__DelegateSignature"),
-            &raw mut U_NIAGARA_CLIPBOARD_FUNCTION_ON_PASTED_FUNCTION_CALL_NODE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_function_on_pasted_function_call_node_delegate_signature,
         );
     }
     unsafe {
@@ -152,147 +163,168 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TrySetLocalValueAsInt"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_SET_LOCAL_VALUE_AS_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_try_set_local_value_as_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryGetLocalValueAsInt"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryGetLocalValueAsFloat"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryGetInputByName"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_INPUT_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_try_get_input_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTypeName"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_GET_TYPE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_get_type_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateVec4LocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC4_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_vec4_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateVec3LocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC3_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_vec3_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateVec2LocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC2_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_vec2_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateStructLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_STRUCT_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_struct_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateQuatLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_QUAT_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_quat_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMatrixLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_MATRIX_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_matrix_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateLinkedValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_LINKED_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_linked_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateIntLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_INT_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_int_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFloatLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_FLOAT_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_float_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateExpressionValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_EXPRESSION_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_expression_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateEnumLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_enum_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateEnumLinkedValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LINKED_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_enum_linked_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateDynamicValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DYNAMIC_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_dynamic_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateDataValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DATA_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_data_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateColorLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_COLOR_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_color_local_value_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateBoolLocalValueInput"),
-            &raw mut U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_BOOL_LOCAL_VALUE_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_clipboard_editor_scripting_utilities_create_bool_local_value_input,
         );
     }
     unsafe {
@@ -303,91 +335,91 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSet"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_SET,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_is_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLocalValue"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LOCAL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_is_local_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLinkedValue"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LINKED_VALUE,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_is_linked_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsVec4"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC4,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_vec4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsVec3"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC3,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_vec3,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsVec2"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC2,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_vec2,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsQuat"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_QUAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsLinkedValue"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_LINKED_VALUE,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_linked_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsInt"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_INT,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsFloat"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsEnum"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_ENUM,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsColor"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_COLOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsBool"),
-            &raw mut U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_BOOL,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_script_module_input_as_bool,
         );
     }
     unsafe {
@@ -398,98 +430,99 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVec4Input"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC4_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_vec4_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVec3Input"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC3_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_vec3_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVec2Input"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC2_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_vec2_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuatInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_QUAT_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_quat_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNewInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_NEW_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_new_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLinkedInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_LINKED_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_linked_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIntInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_INT_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_int_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_FLOAT_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_float_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnumInputFromInt"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT_FROM_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_upgrade_niagara_script_results_set_enum_input_from_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnumInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_enum_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetColorInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_COLOR_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_color_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_BOOL_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_set_bool_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_RESET_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_reset_to_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOldInput"),
-            &raw mut U_UPGRADE_NIAGARA_SCRIPT_RESULTS_GET_OLD_INPUT,
+            &raw mut __FUNCTION_PTRS.u_upgrade_niagara_script_results_get_old_input,
         );
     }
     unsafe {
@@ -500,7 +533,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut U_NIAGARA_PYTHON_MODULE_GET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_module_get_object,
         );
     }
     unsafe {
@@ -511,42 +544,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetProperties"),
-            &raw mut U_NIAGARA_PYTHON_EMITTER_SET_PROPERTIES,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_emitter_set_properties,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasModule"),
-            &raw mut U_NIAGARA_PYTHON_EMITTER_HAS_MODULE,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_emitter_has_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetProperties"),
-            &raw mut U_NIAGARA_PYTHON_EMITTER_GET_PROPERTIES,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_emitter_get_properties,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut U_NIAGARA_PYTHON_EMITTER_GET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_emitter_get_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModules"),
-            &raw mut U_NIAGARA_PYTHON_EMITTER_GET_MODULES,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_emitter_get_modules,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModule"),
-            &raw mut U_NIAGARA_PYTHON_EMITTER_GET_MODULE,
+            &raw mut __FUNCTION_PTRS.u_niagara_python_emitter_get_module,
         );
     }
 }
@@ -1149,7 +1182,8 @@ impl UNiagaraBakerFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_BAKER_FUNCTION_LIBRARY_CAPTURE_NIAGARA_TO_STATIC_MESH,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_baker_function_library_capture_niagara_to_static_mesh,
                 __buffer,
             )
         };
@@ -1186,7 +1220,8 @@ impl UNiagaraBakerFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_BAKER_FUNCTION_LIBRARY_CAPTURE_NIAGARA_TO_STATIC_MESH,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_baker_function_library_capture_niagara_to_static_mesh,
                 __buffer,
             )
         };
@@ -1330,7 +1365,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_SET_LOCAL_VALUE_AS_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_set_local_value_as_int,
                 __buffer,
             )
         };
@@ -1364,7 +1400,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_SET_LOCAL_VALUE_AS_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_set_local_value_as_int,
                 __buffer,
             )
         };
@@ -1384,7 +1421,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_int,
                 __buffer,
             )
         };
@@ -1411,7 +1449,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_int,
                 __buffer,
             )
         };
@@ -1434,7 +1473,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_FLOAT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_float,
                 __buffer,
             )
         };
@@ -1461,7 +1501,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_LOCAL_VALUE_AS_FLOAT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_get_local_value_as_float,
                 __buffer,
             )
         };
@@ -1485,7 +1526,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_INPUT_BY_NAME,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_get_input_by_name,
                 __buffer,
             )
         };
@@ -1523,7 +1565,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_TRY_GET_INPUT_BY_NAME,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_try_get_input_by_name,
                 __buffer,
             )
         };
@@ -1545,7 +1588,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_GET_TYPE_NAME,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_get_type_name,
                 __buffer,
             )
         };
@@ -1562,7 +1606,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_GET_TYPE_NAME,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_get_type_name,
                 __buffer,
             )
         };
@@ -1582,7 +1627,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC4_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_vec4_local_value_input,
                 __buffer,
             )
         };
@@ -1627,7 +1673,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC4_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_vec4_local_value_input,
                 __buffer,
             )
         };
@@ -1647,7 +1694,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC3_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_vec3_local_value_input,
                 __buffer,
             )
         };
@@ -1692,7 +1740,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC3_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_vec3_local_value_input,
                 __buffer,
             )
         };
@@ -1712,7 +1761,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC2_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_vec2_local_value_input,
                 __buffer,
             )
         };
@@ -1757,7 +1807,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_VEC2_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_vec2_local_value_input,
                 __buffer,
             )
         };
@@ -1777,7 +1828,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_STRUCT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_struct_local_value_input,
                 __buffer,
             )
         };
@@ -1824,7 +1876,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_STRUCT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_struct_local_value_input,
                 __buffer,
             )
         };
@@ -1844,7 +1897,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_QUAT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_quat_local_value_input,
                 __buffer,
             )
         };
@@ -1889,7 +1943,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_QUAT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_quat_local_value_input,
                 __buffer,
             )
         };
@@ -1909,7 +1964,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_MATRIX_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_matrix_local_value_input,
                 __buffer,
             )
         };
@@ -1954,7 +2010,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_MATRIX_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_matrix_local_value_input,
                 __buffer,
             )
         };
@@ -1975,7 +2032,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_LINKED_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_linked_value_input,
                 __buffer,
             )
         };
@@ -2027,7 +2085,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_LINKED_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_linked_value_input,
                 __buffer,
             )
         };
@@ -2047,7 +2106,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_INT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_int_local_value_input,
                 __buffer,
             )
         };
@@ -2092,7 +2152,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_INT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_int_local_value_input,
                 __buffer,
             )
         };
@@ -2112,7 +2173,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_FLOAT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_float_local_value_input,
                 __buffer,
             )
         };
@@ -2157,7 +2219,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_FLOAT_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_float_local_value_input,
                 __buffer,
             )
         };
@@ -2178,7 +2241,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_EXPRESSION_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_expression_value_input,
                 __buffer,
             )
         };
@@ -2230,7 +2294,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_EXPRESSION_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_expression_value_input,
                 __buffer,
             )
         };
@@ -2251,7 +2316,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_enum_local_value_input,
                 __buffer,
             )
         };
@@ -2305,7 +2371,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_enum_local_value_input,
                 __buffer,
             )
         };
@@ -2326,7 +2393,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LINKED_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_enum_linked_value_input,
                 __buffer,
             )
         };
@@ -2380,7 +2448,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_ENUM_LINKED_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_enum_linked_value_input,
                 __buffer,
             )
         };
@@ -2402,7 +2471,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DYNAMIC_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_dynamic_value_input,
                 __buffer,
             )
         };
@@ -2463,7 +2533,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DYNAMIC_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_dynamic_value_input,
                 __buffer,
             )
         };
@@ -2483,7 +2554,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DATA_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_data_value_input,
                 __buffer,
             )
         };
@@ -2530,7 +2602,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_DATA_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_data_value_input,
                 __buffer,
             )
         };
@@ -2550,7 +2623,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_COLOR_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_color_local_value_input,
                 __buffer,
             )
         };
@@ -2595,7 +2669,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_COLOR_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_color_local_value_input,
                 __buffer,
             )
         };
@@ -2615,7 +2690,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_BOOL_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_bool_local_value_input,
                 __buffer,
             )
         };
@@ -2660,7 +2736,8 @@ impl UNiagaraClipboardEditorScriptingUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_CLIPBOARD_EDITOR_SCRIPTING_UTILITIES_CREATE_BOOL_LOCAL_VALUE_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_clipboard_editor_scripting_utilities_create_bool_local_value_input,
                 __buffer,
             )
         };
@@ -4480,7 +4557,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_SET,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_is_set,
                 __buffer,
             )
         };
@@ -4490,7 +4568,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_SET,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_is_set,
                 __buffer,
             )
         };
@@ -4504,7 +4583,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LOCAL_VALUE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_is_local_value,
                 __buffer,
             )
         };
@@ -4514,7 +4594,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LOCAL_VALUE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_is_local_value,
                 __buffer,
             )
         };
@@ -4528,7 +4609,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LINKED_VALUE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_is_linked_value,
                 __buffer,
             )
         };
@@ -4538,7 +4620,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_IS_LINKED_VALUE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_is_linked_value,
                 __buffer,
             )
         };
@@ -4552,7 +4635,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC4,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_vec4,
                 __buffer,
             )
         };
@@ -4562,7 +4646,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC4,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_vec4,
                 __buffer,
             )
         };
@@ -4578,7 +4663,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC3,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_vec3,
                 __buffer,
             )
         };
@@ -4588,7 +4674,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC3,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_vec3,
                 __buffer,
             )
         };
@@ -4604,7 +4691,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC2,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_vec2,
                 __buffer,
             )
         };
@@ -4614,7 +4702,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_VEC2,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_vec2,
                 __buffer,
             )
         };
@@ -4630,7 +4719,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_QUAT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_quat,
                 __buffer,
             )
         };
@@ -4640,7 +4730,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_QUAT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_quat,
                 __buffer,
             )
         };
@@ -4654,7 +4745,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_LINKED_VALUE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_linked_value,
                 __buffer,
             )
         };
@@ -4664,7 +4756,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_LINKED_VALUE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_linked_value,
                 __buffer,
             )
         };
@@ -4678,7 +4771,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_int,
                 __buffer,
             )
         };
@@ -4688,7 +4782,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_int,
                 __buffer,
             )
         };
@@ -4702,7 +4797,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_FLOAT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_float,
                 __buffer,
             )
         };
@@ -4712,7 +4808,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_FLOAT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_float,
                 __buffer,
             )
         };
@@ -4726,7 +4823,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_ENUM,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_enum,
                 __buffer,
             )
         };
@@ -4736,7 +4834,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_ENUM,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_enum,
                 __buffer,
             )
         };
@@ -4750,7 +4849,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_COLOR,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_color,
                 __buffer,
             )
         };
@@ -4760,7 +4860,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_COLOR,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_color,
                 __buffer,
             )
         };
@@ -4776,7 +4877,8 @@ impl UNiagaraPythonScriptModuleInput {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_BOOL,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_bool,
                 __buffer,
             )
         };
@@ -4786,7 +4888,8 @@ impl UNiagaraPythonScriptModuleInput {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_SCRIPT_MODULE_INPUT_AS_BOOL,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_script_module_input_as_bool,
                 __buffer,
             )
         };
@@ -4830,7 +4933,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC4_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_vec4_input,
                 __buffer,
             )
         };
@@ -4854,7 +4958,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC4_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_vec4_input,
                 __buffer,
             )
         };
@@ -4871,7 +4976,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC3_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_vec3_input,
                 __buffer,
             )
         };
@@ -4895,7 +5001,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC3_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_vec3_input,
                 __buffer,
             )
         };
@@ -4912,7 +5019,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC2_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_vec2_input,
                 __buffer,
             )
         };
@@ -4936,7 +5044,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_VEC2_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_vec2_input,
                 __buffer,
             )
         };
@@ -4953,7 +5062,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_QUAT_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_quat_input,
                 __buffer,
             )
         };
@@ -4977,7 +5087,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_QUAT_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_quat_input,
                 __buffer,
             )
         };
@@ -4994,7 +5105,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_NEW_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_new_input,
                 __buffer,
             )
         };
@@ -5018,7 +5130,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_NEW_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_new_input,
                 __buffer,
             )
         };
@@ -5031,7 +5144,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_LINKED_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_linked_input,
                 __buffer,
             )
         };
@@ -5051,7 +5165,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_LINKED_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_linked_input,
                 __buffer,
             )
         };
@@ -5064,7 +5179,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_INT_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_int_input,
                 __buffer,
             )
         };
@@ -5084,7 +5200,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_INT_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_int_input,
                 __buffer,
             )
         };
@@ -5097,7 +5214,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_FLOAT_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_float_input,
                 __buffer,
             )
         };
@@ -5117,7 +5235,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_FLOAT_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_float_input,
                 __buffer,
             )
         };
@@ -5130,7 +5249,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT_FROM_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_enum_input_from_int,
                 __buffer,
             )
         };
@@ -5150,7 +5270,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT_FROM_INT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_enum_input_from_int,
                 __buffer,
             )
         };
@@ -5163,7 +5284,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_enum_input,
                 __buffer,
             )
         };
@@ -5183,7 +5305,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_ENUM_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_enum_input,
                 __buffer,
             )
         };
@@ -5200,7 +5323,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_COLOR_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_color_input,
                 __buffer,
             )
         };
@@ -5224,7 +5348,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_COLOR_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_color_input,
                 __buffer,
             )
         };
@@ -5237,7 +5362,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_BOOL_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_bool_input,
                 __buffer,
             )
         };
@@ -5257,7 +5383,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_SET_BOOL_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_set_bool_input,
                 __buffer,
             )
         };
@@ -5270,7 +5397,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_RESET_TO_DEFAULT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_reset_to_default,
                 __buffer,
             )
         };
@@ -5287,7 +5415,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_RESET_TO_DEFAULT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_reset_to_default,
                 __buffer,
             )
         };
@@ -5303,7 +5432,8 @@ impl UUpgradeNiagaraScriptResults {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_GET_OLD_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_get_old_input,
                 __buffer,
             )
         };
@@ -5320,7 +5450,8 @@ impl UUpgradeNiagaraScriptResults {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_UPGRADE_NIAGARA_SCRIPT_RESULTS_GET_OLD_INPUT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_upgrade_niagara_script_results_get_old_input,
                 __buffer,
             )
         };
@@ -5357,7 +5488,8 @@ impl UNiagaraPythonModule {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_MODULE_GET_OBJECT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_module_get_object,
                 __buffer,
             )
         };
@@ -5367,7 +5499,8 @@ impl UNiagaraPythonModule {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_MODULE_GET_OBJECT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_module_get_object,
                 __buffer,
             )
         };
@@ -5405,7 +5538,8 @@ impl UNiagaraPythonEmitter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_SET_PROPERTIES,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_set_properties,
                 __buffer,
             )
         };
@@ -5424,7 +5558,8 @@ impl UNiagaraPythonEmitter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_SET_PROPERTIES,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_set_properties,
                 __buffer,
             )
         };
@@ -5437,7 +5572,8 @@ impl UNiagaraPythonEmitter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_HAS_MODULE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_has_module,
                 __buffer,
             )
         };
@@ -5454,7 +5590,8 @@ impl UNiagaraPythonEmitter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_HAS_MODULE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_has_module,
                 __buffer,
             )
         };
@@ -5470,7 +5607,8 @@ impl UNiagaraPythonEmitter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_PROPERTIES,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_properties,
                 __buffer,
             )
         };
@@ -5480,7 +5618,8 @@ impl UNiagaraPythonEmitter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_PROPERTIES,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_properties,
                 __buffer,
             )
         };
@@ -5499,7 +5638,8 @@ impl UNiagaraPythonEmitter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_OBJECT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_object,
                 __buffer,
             )
         };
@@ -5509,7 +5649,8 @@ impl UNiagaraPythonEmitter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_OBJECT,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_object,
                 __buffer,
             )
         };
@@ -5528,7 +5669,8 @@ impl UNiagaraPythonEmitter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULES,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_modules,
                 __buffer,
             )
         };
@@ -5538,7 +5680,8 @@ impl UNiagaraPythonEmitter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULES,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_modules,
                 __buffer,
             )
         };
@@ -5552,7 +5695,8 @@ impl UNiagaraPythonEmitter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_module,
                 __buffer,
             )
         };
@@ -5569,7 +5713,8 @@ impl UNiagaraPythonEmitter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_editor::U_NIAGARA_PYTHON_EMITTER_GET_MODULE,
+                crate::bindings::niagara_editor::__FUNCTION_PTRS
+                    .u_niagara_python_emitter_get_module,
                 __buffer,
             )
         };

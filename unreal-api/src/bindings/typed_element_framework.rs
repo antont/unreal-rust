@@ -1,72 +1,81 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_HANDLE_LIBRARY_RELEASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_HANDLE_LIBRARY_NOT_EQUAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_HANDLE_LIBRARY_IS_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_HANDLE_LIBRARY_EQUAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_SHRINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_RESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_RESERVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_REMOVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_IS_VALID_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS_OF_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLE_AT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_EMPTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_CREATE_SCRIPT_ELEMENT_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS_OF_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_CONTAINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_CLONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_APPEND_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_APPEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_LIST_LIBRARY_ADD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_REGISTRY_GET_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_REGISTRY_GET_ELEMENT_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TEST_TYPED_ELEMENT_INTERFACE_A_SET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TEST_TYPED_ELEMENT_INTERFACE_A_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TEST_TYPED_ELEMENT_INTERFACE_B_MARK_AS_TESTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TEST_TYPED_ELEMENT_INTERFACE_C_GET_IS_TESTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_typed_element_handle_library_release: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_handle_library_not_equal: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_handle_library_is_set: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_handle_library_equal: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_shrink: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_reset: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_reserve: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_remove: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_num: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_is_valid_index: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_has_elements_of_type: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_has_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_get_element_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_get_element_handles: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_get_element_handle_at: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_empty: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_create_script_element_list: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_count_elements_of_type: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_count_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_contains: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_clone: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_append_list: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_append: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_list_library_add: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_registry_get_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_registry_get_element_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_test_typed_element_interface_a_set_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_test_typed_element_interface_a_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_test_typed_element_interface_b_mark_as_tested: *mut crate::ffi::UFunctionOpague,
+    pub u_test_typed_element_interface_c_get_is_tested: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_typed_element_handle_library_release: std::ptr::null_mut(),
+            u_typed_element_handle_library_not_equal: std::ptr::null_mut(),
+            u_typed_element_handle_library_is_set: std::ptr::null_mut(),
+            u_typed_element_handle_library_equal: std::ptr::null_mut(),
+            u_typed_element_list_library_shrink: std::ptr::null_mut(),
+            u_typed_element_list_library_reset: std::ptr::null_mut(),
+            u_typed_element_list_library_reserve: std::ptr::null_mut(),
+            u_typed_element_list_library_remove: std::ptr::null_mut(),
+            u_typed_element_list_library_num: std::ptr::null_mut(),
+            u_typed_element_list_library_is_valid_index: std::ptr::null_mut(),
+            u_typed_element_list_library_has_elements_of_type: std::ptr::null_mut(),
+            u_typed_element_list_library_has_elements: std::ptr::null_mut(),
+            u_typed_element_list_library_get_element_interface: std::ptr::null_mut(),
+            u_typed_element_list_library_get_element_handles: std::ptr::null_mut(),
+            u_typed_element_list_library_get_element_handle_at: std::ptr::null_mut(),
+            u_typed_element_list_library_empty: std::ptr::null_mut(),
+            u_typed_element_list_library_create_script_element_list: std::ptr::null_mut(),
+            u_typed_element_list_library_count_elements_of_type: std::ptr::null_mut(),
+            u_typed_element_list_library_count_elements: std::ptr::null_mut(),
+            u_typed_element_list_library_contains: std::ptr::null_mut(),
+            u_typed_element_list_library_clone: std::ptr::null_mut(),
+            u_typed_element_list_library_append_list: std::ptr::null_mut(),
+            u_typed_element_list_library_append: std::ptr::null_mut(),
+            u_typed_element_list_library_add: std::ptr::null_mut(),
+            u_typed_element_registry_get_instance: std::ptr::null_mut(),
+            u_typed_element_registry_get_element_interface: std::ptr::null_mut(),
+            u_test_typed_element_interface_a_set_display_name: std::ptr::null_mut(),
+            u_test_typed_element_interface_a_get_display_name: std::ptr::null_mut(),
+            u_test_typed_element_interface_b_mark_as_tested: std::ptr::null_mut(),
+            u_test_typed_element_interface_c_get_is_tested: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -76,28 +85,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Release"),
-            &raw mut U_TYPED_ELEMENT_HANDLE_LIBRARY_RELEASE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_release,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotEqual"),
-            &raw mut U_TYPED_ELEMENT_HANDLE_LIBRARY_NOT_EQUAL,
+            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_not_equal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSet"),
-            &raw mut U_TYPED_ELEMENT_HANDLE_LIBRARY_IS_SET,
+            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_is_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Equal"),
-            &raw mut U_TYPED_ELEMENT_HANDLE_LIBRARY_EQUAL,
+            &raw mut __FUNCTION_PTRS.u_typed_element_handle_library_equal,
         );
     }
     unsafe {
@@ -108,140 +117,141 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Shrink"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_SHRINK,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_shrink,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_RESET,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_reset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reserve"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_RESERVE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_reserve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Remove"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_REMOVE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_remove,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Num"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_NUM,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_num,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidIndex"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_IS_VALID_INDEX,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_is_valid_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasElementsOfType"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS_OF_TYPE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_has_elements_of_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasElements"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_has_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetElementInterface"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_INTERFACE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_get_element_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetElementHandles"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLES,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_get_element_handles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetElementHandleAt"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLE_AT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_get_element_handle_at,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Empty"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_EMPTY,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_empty,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateScriptElementList"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_CREATE_SCRIPT_ELEMENT_LIST,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_list_library_create_script_element_list,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CountElementsOfType"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS_OF_TYPE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_count_elements_of_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CountElements"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_count_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Contains"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_CONTAINS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_contains,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Clone"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_CLONE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_clone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AppendList"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_APPEND_LIST,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_append_list,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Append"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_APPEND,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_append,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Add"),
-            &raw mut U_TYPED_ELEMENT_LIST_LIBRARY_ADD,
+            &raw mut __FUNCTION_PTRS.u_typed_element_list_library_add,
         );
     }
     unsafe {
@@ -252,14 +262,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstance"),
-            &raw mut U_TYPED_ELEMENT_REGISTRY_GET_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_registry_get_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetElementInterface"),
-            &raw mut U_TYPED_ELEMENT_REGISTRY_GET_ELEMENT_INTERFACE,
+            &raw mut __FUNCTION_PTRS.u_typed_element_registry_get_element_interface,
         );
     }
     unsafe {
@@ -270,14 +280,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut U_TEST_TYPED_ELEMENT_INTERFACE_A_SET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_a_set_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_TEST_TYPED_ELEMENT_INTERFACE_A_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_a_get_display_name,
         );
     }
     unsafe {
@@ -288,7 +298,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MarkAsTested"),
-            &raw mut U_TEST_TYPED_ELEMENT_INTERFACE_B_MARK_AS_TESTED,
+            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_b_mark_as_tested,
         );
     }
     unsafe {
@@ -299,7 +309,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsTested"),
-            &raw mut U_TEST_TYPED_ELEMENT_INTERFACE_C_GET_IS_TESTED,
+            &raw mut __FUNCTION_PTRS.u_test_typed_element_interface_c_get_is_tested,
         );
     }
 }
@@ -362,7 +372,8 @@ impl UTypedElementHandleLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_RELEASE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_release,
                 __buffer,
             )
         };
@@ -379,7 +390,8 @@ impl UTypedElementHandleLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_RELEASE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_release,
                 __buffer,
             )
         };
@@ -398,7 +410,8 @@ impl UTypedElementHandleLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_NOT_EQUAL,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_not_equal,
                 __buffer,
             )
         };
@@ -422,7 +435,8 @@ impl UTypedElementHandleLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_NOT_EQUAL,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_not_equal,
                 __buffer,
             )
         };
@@ -436,7 +450,8 @@ impl UTypedElementHandleLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_IS_SET,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_is_set,
                 __buffer,
             )
         };
@@ -453,7 +468,8 @@ impl UTypedElementHandleLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_IS_SET,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_is_set,
                 __buffer,
             )
         };
@@ -470,7 +486,8 @@ impl UTypedElementHandleLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_EQUAL,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_equal,
                 __buffer,
             )
         };
@@ -494,7 +511,8 @@ impl UTypedElementHandleLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_HANDLE_LIBRARY_EQUAL,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_handle_library_equal,
                 __buffer,
             )
         };
@@ -529,7 +547,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_SHRINK,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_shrink,
                 __buffer,
             )
         };
@@ -546,7 +565,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_SHRINK,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_shrink,
                 __buffer,
             )
         };
@@ -559,7 +579,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESET,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_reset,
                 __buffer,
             )
         };
@@ -576,7 +597,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESET,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_reset,
                 __buffer,
             )
         };
@@ -589,7 +611,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESERVE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_reserve,
                 __buffer,
             )
         };
@@ -609,7 +632,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_RESERVE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_reserve,
                 __buffer,
             )
         };
@@ -625,7 +649,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_REMOVE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_remove,
                 __buffer,
             )
         };
@@ -649,7 +674,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_REMOVE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_remove,
                 __buffer,
             )
         };
@@ -663,7 +689,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_NUM,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_num,
                 __buffer,
             )
         };
@@ -680,7 +707,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_NUM,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_num,
                 __buffer,
             )
         };
@@ -697,7 +725,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_IS_VALID_INDEX,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_is_valid_index,
                 __buffer,
             )
         };
@@ -717,7 +746,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_IS_VALID_INDEX,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_is_valid_index,
                 __buffer,
             )
         };
@@ -734,7 +764,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS_OF_TYPE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_has_elements_of_type,
                 __buffer,
             )
         };
@@ -758,7 +789,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS_OF_TYPE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_has_elements_of_type,
                 __buffer,
             )
         };
@@ -775,7 +807,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_has_elements,
                 __buffer,
             )
         };
@@ -801,7 +834,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_HAS_ELEMENTS,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_has_elements,
                 __buffer,
             )
         };
@@ -819,7 +853,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_INTERFACE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_interface,
                 __buffer,
             )
         };
@@ -852,7 +887,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_INTERFACE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_interface,
                 __buffer,
             )
         };
@@ -874,7 +910,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLES,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_handles,
                 __buffer,
             )
         };
@@ -900,7 +937,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLES,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_handles,
                 __buffer,
             )
         };
@@ -917,7 +955,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLE_AT,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_handle_at,
                 __buffer,
             )
         };
@@ -937,7 +976,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_GET_ELEMENT_HANDLE_AT,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_get_element_handle_at,
                 __buffer,
             )
         };
@@ -951,7 +991,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_EMPTY,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_empty,
                 __buffer,
             )
         };
@@ -971,7 +1012,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_EMPTY,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_empty,
                 __buffer,
             )
         };
@@ -986,7 +1028,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CREATE_SCRIPT_ELEMENT_LIST,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_create_script_element_list,
                 __buffer,
             )
         };
@@ -1003,7 +1046,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CREATE_SCRIPT_ELEMENT_LIST,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_create_script_element_list,
                 __buffer,
             )
         };
@@ -1020,7 +1064,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS_OF_TYPE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_count_elements_of_type,
                 __buffer,
             )
         };
@@ -1044,7 +1089,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS_OF_TYPE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_count_elements_of_type,
                 __buffer,
             )
         };
@@ -1061,7 +1107,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_count_elements,
                 __buffer,
             )
         };
@@ -1087,7 +1134,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_COUNT_ELEMENTS,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_count_elements,
                 __buffer,
             )
         };
@@ -1104,7 +1152,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CONTAINS,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_contains,
                 __buffer,
             )
         };
@@ -1128,7 +1177,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CONTAINS,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_contains,
                 __buffer,
             )
         };
@@ -1144,7 +1194,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CLONE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_clone,
                 __buffer,
             )
         };
@@ -1161,7 +1212,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_CLONE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_clone,
                 __buffer,
             )
         };
@@ -1178,7 +1230,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND_LIST,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_append_list,
                 __buffer,
             )
         };
@@ -1202,7 +1255,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND_LIST,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_append_list,
                 __buffer,
             )
         };
@@ -1218,7 +1272,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_append,
                 __buffer,
             )
         };
@@ -1242,7 +1297,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_APPEND,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_append,
                 __buffer,
             )
         };
@@ -1258,7 +1314,8 @@ impl UTypedElementListLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_ADD,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_add,
                 __buffer,
             )
         };
@@ -1282,7 +1339,8 @@ impl UTypedElementListLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_LIST_LIBRARY_ADD,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_list_library_add,
                 __buffer,
             )
         };
@@ -1339,7 +1397,8 @@ impl UTypedElementRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_INSTANCE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_registry_get_instance,
                 __buffer,
             )
         };
@@ -1349,7 +1408,8 @@ impl UTypedElementRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_INSTANCE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_registry_get_instance,
                 __buffer,
             )
         };
@@ -1367,7 +1427,8 @@ impl UTypedElementRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_ELEMENT_INTERFACE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_registry_get_element_interface,
                 __buffer,
             )
         };
@@ -1393,7 +1454,8 @@ impl UTypedElementRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TYPED_ELEMENT_REGISTRY_GET_ELEMENT_INTERFACE,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_typed_element_registry_get_element_interface,
                 __buffer,
             )
         };
@@ -1439,7 +1501,8 @@ impl UTestTypedElementInterfaceA {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_SET_DISPLAY_NAME,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_a_set_display_name,
                 __buffer,
             )
         };
@@ -1466,7 +1529,8 @@ impl UTestTypedElementInterfaceA {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_SET_DISPLAY_NAME,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_a_set_display_name,
                 __buffer,
             )
         };
@@ -1483,7 +1547,8 @@ impl UTestTypedElementInterfaceA {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_GET_DISPLAY_NAME,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_a_get_display_name,
                 __buffer,
             )
         };
@@ -1500,7 +1565,8 @@ impl UTestTypedElementInterfaceA {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_A_GET_DISPLAY_NAME,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_a_get_display_name,
                 __buffer,
             )
         };
@@ -1539,7 +1605,8 @@ impl UTestTypedElementInterfaceB {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_B_MARK_AS_TESTED,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_b_mark_as_tested,
                 __buffer,
             )
         };
@@ -1556,7 +1623,8 @@ impl UTestTypedElementInterfaceB {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_B_MARK_AS_TESTED,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_b_mark_as_tested,
                 __buffer,
             )
         };
@@ -1592,7 +1660,8 @@ impl UTestTypedElementInterfaceC {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_C_GET_IS_TESTED,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_c_get_is_tested,
                 __buffer,
             )
         };
@@ -1609,7 +1678,8 @@ impl UTestTypedElementInterfaceC {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_framework::U_TEST_TYPED_ELEMENT_INTERFACE_C_GET_IS_TESTED,
+                crate::bindings::typed_element_framework::__FUNCTION_PTRS
+                    .u_test_typed_element_interface_c_get_is_tested,
                 __buffer,
             )
         };

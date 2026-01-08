@@ -1,40 +1,49 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_TRACE_SCREENSHOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_TRACE_BOOKMARK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_TOGGLE_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_STOP_TRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_START_TRACE_TO_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_START_TRACE_SEND_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_RESUME_TRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_PAUSE_TRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_IS_TRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_IS_CHANNEL_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_GET_ENABLED_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRACE_UTIL_LIBRARY_GET_ALL_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_trace_util_library_trace_screenshot: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_trace_mark_region_start: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_trace_mark_region_end: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_trace_bookmark: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_toggle_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_stop_tracing: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_start_trace_to_file: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_start_trace_send_to: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_resume_tracing: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_pause_tracing: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_is_tracing: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_is_channel_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_get_enabled_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_trace_util_library_get_all_channels: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_trace_util_library_trace_screenshot: std::ptr::null_mut(),
+            u_trace_util_library_trace_mark_region_start: std::ptr::null_mut(),
+            u_trace_util_library_trace_mark_region_end: std::ptr::null_mut(),
+            u_trace_util_library_trace_bookmark: std::ptr::null_mut(),
+            u_trace_util_library_toggle_channel: std::ptr::null_mut(),
+            u_trace_util_library_stop_tracing: std::ptr::null_mut(),
+            u_trace_util_library_start_trace_to_file: std::ptr::null_mut(),
+            u_trace_util_library_start_trace_send_to: std::ptr::null_mut(),
+            u_trace_util_library_resume_tracing: std::ptr::null_mut(),
+            u_trace_util_library_pause_tracing: std::ptr::null_mut(),
+            u_trace_util_library_is_tracing: std::ptr::null_mut(),
+            u_trace_util_library_is_channel_enabled: std::ptr::null_mut(),
+            u_trace_util_library_get_enabled_channels: std::ptr::null_mut(),
+            u_trace_util_library_get_all_channels: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -44,98 +53,98 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TraceScreenshot"),
-            &raw mut U_TRACE_UTIL_LIBRARY_TRACE_SCREENSHOT,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_screenshot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TraceMarkRegionStart"),
-            &raw mut U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_START,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_mark_region_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TraceMarkRegionEnd"),
-            &raw mut U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_END,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_mark_region_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TraceBookmark"),
-            &raw mut U_TRACE_UTIL_LIBRARY_TRACE_BOOKMARK,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_trace_bookmark,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ToggleChannel"),
-            &raw mut U_TRACE_UTIL_LIBRARY_TOGGLE_CHANNEL,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_toggle_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopTracing"),
-            &raw mut U_TRACE_UTIL_LIBRARY_STOP_TRACING,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_stop_tracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartTraceToFile"),
-            &raw mut U_TRACE_UTIL_LIBRARY_START_TRACE_TO_FILE,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_start_trace_to_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartTraceSendTo"),
-            &raw mut U_TRACE_UTIL_LIBRARY_START_TRACE_SEND_TO,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_start_trace_send_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResumeTracing"),
-            &raw mut U_TRACE_UTIL_LIBRARY_RESUME_TRACING,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_resume_tracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PauseTracing"),
-            &raw mut U_TRACE_UTIL_LIBRARY_PAUSE_TRACING,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_pause_tracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTracing"),
-            &raw mut U_TRACE_UTIL_LIBRARY_IS_TRACING,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_is_tracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsChannelEnabled"),
-            &raw mut U_TRACE_UTIL_LIBRARY_IS_CHANNEL_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_is_channel_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnabledChannels"),
-            &raw mut U_TRACE_UTIL_LIBRARY_GET_ENABLED_CHANNELS,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_get_enabled_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllChannels"),
-            &raw mut U_TRACE_UTIL_LIBRARY_GET_ALL_CHANNELS,
+            &raw mut __FUNCTION_PTRS.u_trace_util_library_get_all_channels,
         );
     }
 }
@@ -167,7 +176,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_SCREENSHOT,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_screenshot,
                 __buffer,
             )
         };
@@ -187,7 +197,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_SCREENSHOT,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_screenshot,
                 __buffer,
             )
         };
@@ -200,7 +211,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_START,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_mark_region_start,
                 __buffer,
             )
         };
@@ -213,7 +225,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_START,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_mark_region_start,
                 __buffer,
             )
         };
@@ -226,7 +239,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_END,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_mark_region_end,
                 __buffer,
             )
         };
@@ -239,7 +253,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_MARK_REGION_END,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_mark_region_end,
                 __buffer,
             )
         };
@@ -252,7 +267,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_BOOKMARK,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_bookmark,
                 __buffer,
             )
         };
@@ -265,7 +281,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TRACE_BOOKMARK,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_trace_bookmark,
                 __buffer,
             )
         };
@@ -278,7 +295,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TOGGLE_CHANNEL,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_toggle_channel,
                 __buffer,
             )
         };
@@ -298,7 +316,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_TOGGLE_CHANNEL,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_toggle_channel,
                 __buffer,
             )
         };
@@ -312,7 +331,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_STOP_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_stop_tracing,
                 __buffer,
             )
         };
@@ -322,7 +342,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_STOP_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_stop_tracing,
                 __buffer,
             )
         };
@@ -336,7 +357,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_TO_FILE,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_start_trace_to_file,
                 __buffer,
             )
         };
@@ -360,7 +382,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_TO_FILE,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_start_trace_to_file,
                 __buffer,
             )
         };
@@ -374,7 +397,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_SEND_TO,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_start_trace_send_to,
                 __buffer,
             )
         };
@@ -394,7 +418,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_START_TRACE_SEND_TO,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_start_trace_send_to,
                 __buffer,
             )
         };
@@ -408,7 +433,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_RESUME_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_resume_tracing,
                 __buffer,
             )
         };
@@ -418,7 +444,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_RESUME_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_resume_tracing,
                 __buffer,
             )
         };
@@ -432,7 +459,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_PAUSE_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_pause_tracing,
                 __buffer,
             )
         };
@@ -442,7 +470,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_PAUSE_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_pause_tracing,
                 __buffer,
             )
         };
@@ -456,7 +485,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_is_tracing,
                 __buffer,
             )
         };
@@ -466,7 +496,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_TRACING,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_is_tracing,
                 __buffer,
             )
         };
@@ -480,7 +511,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_CHANNEL_ENABLED,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_is_channel_enabled,
                 __buffer,
             )
         };
@@ -497,7 +529,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_IS_CHANNEL_ENABLED,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_is_channel_enabled,
                 __buffer,
             )
         };
@@ -511,7 +544,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ENABLED_CHANNELS,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_get_enabled_channels,
                 __buffer,
             )
         };
@@ -521,7 +555,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ENABLED_CHANNELS,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_get_enabled_channels,
                 __buffer,
             )
         };
@@ -535,7 +570,8 @@ impl UTraceUtilLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ALL_CHANNELS,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_get_all_channels,
                 __buffer,
             )
         };
@@ -545,7 +581,8 @@ impl UTraceUtilLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::trace_utilities::U_TRACE_UTIL_LIBRARY_GET_ALL_CHANNELS,
+                crate::bindings::trace_utilities::__FUNCTION_PTRS
+                    .u_trace_util_library_get_all_channels,
                 __buffer,
             )
         };

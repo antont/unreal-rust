@@ -1,32 +1,41 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_WRITE_TO_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_READ_FROM_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PROPERTIES_GET_GROUP_LAYERS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULOD_MANAGER_PREVIEW_LOD_PROPERTIES_GET_LOD_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_MOVE_TO_LOD0: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULOD_MANAGER_MATERIAL_ACTIONS_CLEAN_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULOD_MANAGER_TOOL_REMOVE_UNREFERENCED_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULOD_MANAGER_TOOL_MOVE_HI_RES_TO_LOD0: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULOD_MANAGER_TOOL_DELETE_HI_RES_SOURCE_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_generate_static_mesh_lod_asset_tool_preset_properties_write_to_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_generate_static_mesh_lod_asset_tool_preset_properties_read_from_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_generate_static_mesh_lod_asset_tool_properties_get_group_layers_func: *mut crate::ffi::UFunctionOpague,
+    pub ulod_manager_preview_lod_properties_get_lod_names_func: *mut crate::ffi::UFunctionOpague,
+    pub ulod_manager_hi_res_source_model_actions_move_to_lod0: *mut crate::ffi::UFunctionOpague,
+    pub ulod_manager_hi_res_source_model_actions_delete: *mut crate::ffi::UFunctionOpague,
+    pub ulod_manager_material_actions_clean_materials: *mut crate::ffi::UFunctionOpague,
+    pub ulod_manager_tool_remove_unreferenced_materials: *mut crate::ffi::UFunctionOpague,
+    pub ulod_manager_tool_move_hi_res_to_lod0: *mut crate::ffi::UFunctionOpague,
+    pub ulod_manager_tool_delete_hi_res_source_model: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_generate_static_mesh_lod_asset_tool_preset_properties_write_to_preset: std::ptr::null_mut(),
+            u_generate_static_mesh_lod_asset_tool_preset_properties_read_from_preset: std::ptr::null_mut(),
+            u_generate_static_mesh_lod_asset_tool_properties_get_group_layers_func: std::ptr::null_mut(),
+            ulod_manager_preview_lod_properties_get_lod_names_func: std::ptr::null_mut(),
+            ulod_manager_hi_res_source_model_actions_move_to_lod0: std::ptr::null_mut(),
+            ulod_manager_hi_res_source_model_actions_delete: std::ptr::null_mut(),
+            ulod_manager_material_actions_clean_materials: std::ptr::null_mut(),
+            ulod_manager_tool_remove_unreferenced_materials: std::ptr::null_mut(),
+            ulod_manager_tool_move_hi_res_to_lod0: std::ptr::null_mut(),
+            ulod_manager_tool_delete_hi_res_source_model: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -36,14 +45,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteToPreset"),
-            &raw mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_WRITE_TO_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_generate_static_mesh_lod_asset_tool_preset_properties_write_to_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadFromPreset"),
-            &raw mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PRESET_PROPERTIES_READ_FROM_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_generate_static_mesh_lod_asset_tool_preset_properties_read_from_preset,
         );
     }
     unsafe {
@@ -54,7 +65,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGroupLayersFunc"),
-            &raw mut U_GENERATE_STATIC_MESH_LOD_ASSET_TOOL_PROPERTIES_GET_GROUP_LAYERS_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_generate_static_mesh_lod_asset_tool_properties_get_group_layers_func,
         );
     }
     unsafe {
@@ -65,7 +77,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLODNamesFunc"),
-            &raw mut ULOD_MANAGER_PREVIEW_LOD_PROPERTIES_GET_LOD_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .ulod_manager_preview_lod_properties_get_lod_names_func,
         );
     }
     unsafe {
@@ -76,14 +89,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveToLOD0"),
-            &raw mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_MOVE_TO_LOD0,
+            &raw mut __FUNCTION_PTRS
+                .ulod_manager_hi_res_source_model_actions_move_to_lod0,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut ULOD_MANAGER_HI_RES_SOURCE_MODEL_ACTIONS_DELETE,
+            &raw mut __FUNCTION_PTRS.ulod_manager_hi_res_source_model_actions_delete,
         );
     }
     unsafe {
@@ -94,7 +108,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CleanMaterials"),
-            &raw mut ULOD_MANAGER_MATERIAL_ACTIONS_CLEAN_MATERIALS,
+            &raw mut __FUNCTION_PTRS.ulod_manager_material_actions_clean_materials,
         );
     }
     unsafe {
@@ -105,21 +119,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveUnreferencedMaterials"),
-            &raw mut ULOD_MANAGER_TOOL_REMOVE_UNREFERENCED_MATERIALS,
+            &raw mut __FUNCTION_PTRS.ulod_manager_tool_remove_unreferenced_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveHiResToLOD0"),
-            &raw mut ULOD_MANAGER_TOOL_MOVE_HI_RES_TO_LOD0,
+            &raw mut __FUNCTION_PTRS.ulod_manager_tool_move_hi_res_to_lod0,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteHiResSourceModel"),
-            &raw mut ULOD_MANAGER_TOOL_DELETE_HI_RES_SOURCE_MODEL,
+            &raw mut __FUNCTION_PTRS.ulod_manager_tool_delete_hi_res_source_model,
         );
     }
 }

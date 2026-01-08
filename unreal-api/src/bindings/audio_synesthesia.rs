@@ -1,56 +1,65 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_LOUDNESS_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_INTEGRATED_LOUDNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_GATED_LOUDNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_constant_q_analyzer_get_num_center_frequencies: *mut crate::ffi::UFunctionOpague,
+    pub u_constant_q_analyzer_get_center_frequencies: *mut crate::ffi::UFunctionOpague,
+    pub u_constant_qnrt_get_normalized_channel_constant_q_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_constant_qnrt_get_channel_constant_q_at_time: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_loudness_data_for_channel_at_time: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_loudness_data_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_loudness_data_at_time: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_loudness_data: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_loudness_at_time: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_integrated_loudness_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_integrated_loudness: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_gated_loudness_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_gated_loudness: *mut crate::ffi::UFunctionOpague,
+    pub ulkfsnrt_get_channel_loudness_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_loudness_nrt_get_normalized_loudness_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_loudness_nrt_get_normalized_channel_loudness_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_loudness_nrt_get_loudness_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_loudness_nrt_get_channel_loudness_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_onset_nrt_get_normalized_channel_onsets_between_times: *mut crate::ffi::UFunctionOpague,
+    pub u_onset_nrt_get_channel_onsets_between_times: *mut crate::ffi::UFunctionOpague,
+    pub u_synesthesia_spectrum_analyzer_get_num_center_frequencies: *mut crate::ffi::UFunctionOpague,
+    pub u_synesthesia_spectrum_analyzer_get_center_frequencies: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_constant_q_analyzer_get_num_center_frequencies: std::ptr::null_mut(),
+            u_constant_q_analyzer_get_center_frequencies: std::ptr::null_mut(),
+            u_constant_qnrt_get_normalized_channel_constant_q_at_time: std::ptr::null_mut(),
+            u_constant_qnrt_get_channel_constant_q_at_time: std::ptr::null_mut(),
+            ulkfsnrt_get_loudness_data_for_channel_at_time: std::ptr::null_mut(),
+            ulkfsnrt_get_loudness_data_for_channel: std::ptr::null_mut(),
+            ulkfsnrt_get_loudness_data_at_time: std::ptr::null_mut(),
+            ulkfsnrt_get_loudness_data: std::ptr::null_mut(),
+            ulkfsnrt_get_loudness_at_time: std::ptr::null_mut(),
+            ulkfsnrt_get_integrated_loudness_for_channel: std::ptr::null_mut(),
+            ulkfsnrt_get_integrated_loudness: std::ptr::null_mut(),
+            ulkfsnrt_get_gated_loudness_for_channel: std::ptr::null_mut(),
+            ulkfsnrt_get_gated_loudness: std::ptr::null_mut(),
+            ulkfsnrt_get_channel_loudness_at_time: std::ptr::null_mut(),
+            u_loudness_nrt_get_normalized_loudness_at_time: std::ptr::null_mut(),
+            u_loudness_nrt_get_normalized_channel_loudness_at_time: std::ptr::null_mut(),
+            u_loudness_nrt_get_loudness_at_time: std::ptr::null_mut(),
+            u_loudness_nrt_get_channel_loudness_at_time: std::ptr::null_mut(),
+            u_onset_nrt_get_normalized_channel_onsets_between_times: std::ptr::null_mut(),
+            u_onset_nrt_get_channel_onsets_between_times: std::ptr::null_mut(),
+            u_synesthesia_spectrum_analyzer_get_num_center_frequencies: std::ptr::null_mut(),
+            u_synesthesia_spectrum_analyzer_get_center_frequencies: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -60,14 +69,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
-            &raw mut U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+            &raw mut __FUNCTION_PTRS.u_constant_q_analyzer_get_num_center_frequencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
-            &raw mut U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES,
+            &raw mut __FUNCTION_PTRS.u_constant_q_analyzer_get_center_frequencies,
         );
     }
     unsafe {
@@ -78,14 +87,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedChannelConstantQAtTime"),
-            &raw mut U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_constant_qnrt_get_normalized_channel_constant_q_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannelConstantQAtTime"),
-            &raw mut U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_constant_qnrt_get_channel_constant_q_at_time,
         );
     }
     unsafe {
@@ -96,70 +106,70 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoudnessDataForChannelAtTime"),
-            &raw mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_for_channel_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoudnessDataForChannel"),
-            &raw mut ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoudnessDataAtTime"),
-            &raw mut ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoudnessData"),
-            &raw mut ULKFSNRT_GET_LOUDNESS_DATA,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
-            &raw mut ULKFSNRT_GET_LOUDNESS_AT_TIME,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_loudness_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIntegratedLoudnessForChannel"),
-            &raw mut ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_integrated_loudness_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIntegratedLoudness"),
-            &raw mut ULKFSNRT_GET_INTEGRATED_LOUDNESS,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_integrated_loudness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGatedLoudnessForChannel"),
-            &raw mut ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_gated_loudness_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGatedLoudness"),
-            &raw mut ULKFSNRT_GET_GATED_LOUDNESS,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_gated_loudness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
-            &raw mut ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+            &raw mut __FUNCTION_PTRS.ulkfsnrt_get_channel_loudness_at_time,
         );
     }
     unsafe {
@@ -170,28 +180,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedLoudnessAtTime"),
-            &raw mut U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_normalized_loudness_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedChannelLoudnessAtTime"),
-            &raw mut U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_loudness_nrt_get_normalized_channel_loudness_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoudnessAtTime"),
-            &raw mut U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_loudness_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannelLoudnessAtTime"),
-            &raw mut U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_loudness_nrt_get_channel_loudness_at_time,
         );
     }
     unsafe {
@@ -202,14 +213,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedChannelOnsetsBetweenTimes"),
-            &raw mut U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES,
+            &raw mut __FUNCTION_PTRS
+                .u_onset_nrt_get_normalized_channel_onsets_between_times,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannelOnsetsBetweenTimes"),
-            &raw mut U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES,
+            &raw mut __FUNCTION_PTRS.u_onset_nrt_get_channel_onsets_between_times,
         );
     }
     unsafe {
@@ -220,14 +232,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumCenterFrequencies"),
-            &raw mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_synesthesia_spectrum_analyzer_get_num_center_frequencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCenterFrequencies"),
-            &raw mut U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_synesthesia_spectrum_analyzer_get_center_frequencies,
         );
     }
 }
@@ -387,7 +401,8 @@ impl UConstantQAnalyzer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_q_analyzer_get_num_center_frequencies,
                 __buffer,
             )
         };
@@ -397,7 +412,8 @@ impl UConstantQAnalyzer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_q_analyzer_get_num_center_frequencies,
                 __buffer,
             )
         };
@@ -411,7 +427,8 @@ impl UConstantQAnalyzer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_q_analyzer_get_center_frequencies,
                 __buffer,
             )
         };
@@ -428,7 +445,8 @@ impl UConstantQAnalyzer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_CONSTANT_Q_ANALYZER_GET_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_q_analyzer_get_center_frequencies,
                 __buffer,
             )
         };
@@ -505,7 +523,8 @@ impl UConstantQNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_qnrt_get_normalized_channel_constant_q_at_time,
                 __buffer,
             )
         };
@@ -528,7 +547,8 @@ impl UConstantQNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_NORMALIZED_CHANNEL_CONSTANT_Q_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_qnrt_get_normalized_channel_constant_q_at_time,
                 __buffer,
             )
         };
@@ -549,7 +569,8 @@ impl UConstantQNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_qnrt_get_channel_constant_q_at_time,
                 __buffer,
             )
         };
@@ -572,7 +593,8 @@ impl UConstantQNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_CONSTANT_QNRT_GET_CHANNEL_CONSTANT_Q_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_constant_qnrt_get_channel_constant_q_at_time,
                 __buffer,
             )
         };
@@ -687,7 +709,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data_for_channel_at_time,
                 __buffer,
             )
         };
@@ -703,7 +726,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data_for_channel_at_time,
                 __buffer,
             )
         };
@@ -725,7 +749,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data_for_channel,
                 __buffer,
             )
         };
@@ -738,7 +763,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_FOR_CHANNEL,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data_for_channel,
                 __buffer,
             )
         };
@@ -762,7 +788,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data_at_time,
                 __buffer,
             )
         };
@@ -775,7 +802,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data_at_time,
                 __buffer,
             )
         };
@@ -796,7 +824,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data,
                 __buffer,
             )
         };
@@ -806,7 +835,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_DATA,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_data,
                 __buffer,
             )
         };
@@ -827,7 +857,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_at_time,
                 __buffer,
             )
         };
@@ -847,7 +878,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_loudness_at_time,
                 __buffer,
             )
         };
@@ -863,7 +895,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_integrated_loudness_for_channel,
                 __buffer,
             )
         };
@@ -876,7 +909,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS_FOR_CHANNEL,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_integrated_loudness_for_channel,
                 __buffer,
             )
         };
@@ -890,7 +924,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_integrated_loudness,
                 __buffer,
             )
         };
@@ -900,7 +935,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_INTEGRATED_LOUDNESS,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_integrated_loudness,
                 __buffer,
             )
         };
@@ -914,7 +950,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_gated_loudness_for_channel,
                 __buffer,
             )
         };
@@ -927,7 +964,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS_FOR_CHANNEL,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_gated_loudness_for_channel,
                 __buffer,
             )
         };
@@ -941,7 +979,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_gated_loudness,
                 __buffer,
             )
         };
@@ -951,7 +990,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_GATED_LOUDNESS,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_gated_loudness,
                 __buffer,
             )
         };
@@ -970,7 +1010,8 @@ impl ULKFSNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_channel_loudness_at_time,
                 __buffer,
             )
         };
@@ -993,7 +1034,8 @@ impl ULKFSNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::ULKFSNRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .ulkfsnrt_get_channel_loudness_at_time,
                 __buffer,
             )
         };
@@ -1115,7 +1157,8 @@ impl ULoudnessNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_normalized_loudness_at_time,
                 __buffer,
             )
         };
@@ -1135,7 +1178,8 @@ impl ULoudnessNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_normalized_loudness_at_time,
                 __buffer,
             )
         };
@@ -1156,7 +1200,8 @@ impl ULoudnessNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_normalized_channel_loudness_at_time,
                 __buffer,
             )
         };
@@ -1179,7 +1224,8 @@ impl ULoudnessNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_NORMALIZED_CHANNEL_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_normalized_channel_loudness_at_time,
                 __buffer,
             )
         };
@@ -1195,7 +1241,8 @@ impl ULoudnessNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_loudness_at_time,
                 __buffer,
             )
         };
@@ -1215,7 +1262,8 @@ impl ULoudnessNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_loudness_at_time,
                 __buffer,
             )
         };
@@ -1236,7 +1284,8 @@ impl ULoudnessNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_channel_loudness_at_time,
                 __buffer,
             )
         };
@@ -1259,7 +1308,8 @@ impl ULoudnessNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_LOUDNESS_NRT_GET_CHANNEL_LOUDNESS_AT_TIME,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_loudness_nrt_get_channel_loudness_at_time,
                 __buffer,
             )
         };
@@ -1384,7 +1434,8 @@ impl UOnsetNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_onset_nrt_get_normalized_channel_onsets_between_times,
                 __buffer,
             )
         };
@@ -1425,7 +1476,8 @@ impl UOnsetNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_NORMALIZED_CHANNEL_ONSETS_BETWEEN_TIMES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_onset_nrt_get_normalized_channel_onsets_between_times,
                 __buffer,
             )
         };
@@ -1451,7 +1503,8 @@ impl UOnsetNRT {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_onset_nrt_get_channel_onsets_between_times,
                 __buffer,
             )
         };
@@ -1492,7 +1545,8 @@ impl UOnsetNRT {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_ONSET_NRT_GET_CHANNEL_ONSETS_BETWEEN_TIMES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_onset_nrt_get_channel_onsets_between_times,
                 __buffer,
             )
         };
@@ -1562,7 +1616,8 @@ impl USynesthesiaSpectrumAnalyzer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_synesthesia_spectrum_analyzer_get_num_center_frequencies,
                 __buffer,
             )
         };
@@ -1572,7 +1627,8 @@ impl USynesthesiaSpectrumAnalyzer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_NUM_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_synesthesia_spectrum_analyzer_get_num_center_frequencies,
                 __buffer,
             )
         };
@@ -1590,7 +1646,8 @@ impl USynesthesiaSpectrumAnalyzer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_synesthesia_spectrum_analyzer_get_center_frequencies,
                 __buffer,
             )
         };
@@ -1614,7 +1671,8 @@ impl USynesthesiaSpectrumAnalyzer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_synesthesia::U_SYNESTHESIA_SPECTRUM_ANALYZER_GET_CENTER_FREQUENCIES,
+                crate::bindings::audio_synesthesia::__FUNCTION_PTRS
+                    .u_synesthesia_spectrum_analyzer_get_center_frequencies,
                 __buffer,
             )
         };

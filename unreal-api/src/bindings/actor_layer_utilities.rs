@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_LAYERS_BLUEPRINT_LIBRARY_REMOVE_ACTOR_FROM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_BLUEPRINT_LIBRARY_GET_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERS_BLUEPRINT_LIBRARY_ADD_ACTOR_TO_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_layers_blueprint_library_remove_actor_from_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_blueprint_library_get_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_layers_blueprint_library_add_actor_to_layer: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_layers_blueprint_library_remove_actor_from_layer: std::ptr::null_mut(),
+            u_layers_blueprint_library_get_actors: std::ptr::null_mut(),
+            u_layers_blueprint_library_add_actor_to_layer: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,21 +31,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorFromLayer"),
-            &raw mut U_LAYERS_BLUEPRINT_LIBRARY_REMOVE_ACTOR_FROM_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_remove_actor_from_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActors"),
-            &raw mut U_LAYERS_BLUEPRINT_LIBRARY_GET_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_get_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorToLayer"),
-            &raw mut U_LAYERS_BLUEPRINT_LIBRARY_ADD_ACTOR_TO_LAYER,
+            &raw mut __FUNCTION_PTRS.u_layers_blueprint_library_add_actor_to_layer,
         );
     }
 }
@@ -76,7 +85,8 @@ impl ULayersBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::actor_layer_utilities::U_LAYERS_BLUEPRINT_LIBRARY_REMOVE_ACTOR_FROM_LAYER,
+                crate::bindings::actor_layer_utilities::__FUNCTION_PTRS
+                    .u_layers_blueprint_library_remove_actor_from_layer,
                 __buffer,
             )
         };
@@ -100,7 +110,8 @@ impl ULayersBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::actor_layer_utilities::U_LAYERS_BLUEPRINT_LIBRARY_REMOVE_ACTOR_FROM_LAYER,
+                crate::bindings::actor_layer_utilities::__FUNCTION_PTRS
+                    .u_layers_blueprint_library_remove_actor_from_layer,
                 __buffer,
             )
         };
@@ -116,7 +127,8 @@ impl ULayersBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::actor_layer_utilities::U_LAYERS_BLUEPRINT_LIBRARY_GET_ACTORS,
+                crate::bindings::actor_layer_utilities::__FUNCTION_PTRS
+                    .u_layers_blueprint_library_get_actors,
                 __buffer,
             )
         };
@@ -140,7 +152,8 @@ impl ULayersBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::actor_layer_utilities::U_LAYERS_BLUEPRINT_LIBRARY_GET_ACTORS,
+                crate::bindings::actor_layer_utilities::__FUNCTION_PTRS
+                    .u_layers_blueprint_library_get_actors,
                 __buffer,
             )
         };
@@ -162,7 +175,8 @@ impl ULayersBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::actor_layer_utilities::U_LAYERS_BLUEPRINT_LIBRARY_ADD_ACTOR_TO_LAYER,
+                crate::bindings::actor_layer_utilities::__FUNCTION_PTRS
+                    .u_layers_blueprint_library_add_actor_to_layer,
                 __buffer,
             )
         };
@@ -186,7 +200,8 @@ impl ULayersBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::actor_layer_utilities::U_LAYERS_BLUEPRINT_LIBRARY_ADD_ACTOR_TO_LAYER,
+                crate::bindings::actor_layer_utilities::__FUNCTION_PTRS
+                    .u_layers_blueprint_library_add_actor_to_layer,
                 __buffer,
             )
         };

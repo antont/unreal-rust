@@ -1,52 +1,61 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_VALUE_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_USE_VERTICAL_DRAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SLIDER_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SLIDER_HANDLE_START_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SLIDER_HANDLE_END_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SLIDER_HANDLE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SHOW_SLIDER_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_SHOW_SLIDER_HAND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_HAND_START_END_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_CUSTOM_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_SET_ANGULAR_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_GET_NORMALIZED_SLIDER_HANDLE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_SLIDER_GET_CUSTOM_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_radial_slider_set_value_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_use_vertical_drag: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_step_size: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_slider_range: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_slider_progress_color: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_slider_handle_start_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_slider_handle_end_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_slider_handle_color: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_slider_bar_color: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_show_slider_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_show_slider_hand: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_hand_start_end_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_custom_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_center_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_set_angular_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_get_normalized_slider_handle_position: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_slider_get_custom_default_value: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_radial_slider_set_value_tags: std::ptr::null_mut(),
+            u_radial_slider_set_value: std::ptr::null_mut(),
+            u_radial_slider_set_use_vertical_drag: std::ptr::null_mut(),
+            u_radial_slider_set_step_size: std::ptr::null_mut(),
+            u_radial_slider_set_slider_range: std::ptr::null_mut(),
+            u_radial_slider_set_slider_progress_color: std::ptr::null_mut(),
+            u_radial_slider_set_slider_handle_start_angle: std::ptr::null_mut(),
+            u_radial_slider_set_slider_handle_end_angle: std::ptr::null_mut(),
+            u_radial_slider_set_slider_handle_color: std::ptr::null_mut(),
+            u_radial_slider_set_slider_bar_color: std::ptr::null_mut(),
+            u_radial_slider_set_show_slider_handle: std::ptr::null_mut(),
+            u_radial_slider_set_show_slider_hand: std::ptr::null_mut(),
+            u_radial_slider_set_locked: std::ptr::null_mut(),
+            u_radial_slider_set_hand_start_end_ratio: std::ptr::null_mut(),
+            u_radial_slider_set_custom_default_value: std::ptr::null_mut(),
+            u_radial_slider_set_center_background_color: std::ptr::null_mut(),
+            u_radial_slider_set_angular_offset: std::ptr::null_mut(),
+            u_radial_slider_get_value: std::ptr::null_mut(),
+            u_radial_slider_get_normalized_slider_handle_position: std::ptr::null_mut(),
+            u_radial_slider_get_custom_default_value: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -56,140 +65,141 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueTags"),
-            &raw mut U_RADIAL_SLIDER_SET_VALUE_TAGS,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_value_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_RADIAL_SLIDER_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUseVerticalDrag"),
-            &raw mut U_RADIAL_SLIDER_SET_USE_VERTICAL_DRAG,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_use_vertical_drag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut U_RADIAL_SLIDER_SET_STEP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_step_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderRange"),
-            &raw mut U_RADIAL_SLIDER_SET_SLIDER_RANGE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderProgressColor"),
-            &raw mut U_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_progress_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderHandleStartAngle"),
-            &raw mut U_RADIAL_SLIDER_SET_SLIDER_HANDLE_START_ANGLE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_start_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderHandleEndAngle"),
-            &raw mut U_RADIAL_SLIDER_SET_SLIDER_HANDLE_END_ANGLE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_end_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
-            &raw mut U_RADIAL_SLIDER_SET_SLIDER_HANDLE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_handle_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderBarColor"),
-            &raw mut U_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_slider_bar_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShowSliderHandle"),
-            &raw mut U_RADIAL_SLIDER_SET_SHOW_SLIDER_HANDLE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_show_slider_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShowSliderHand"),
-            &raw mut U_RADIAL_SLIDER_SET_SHOW_SLIDER_HAND,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_show_slider_hand,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut U_RADIAL_SLIDER_SET_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHandStartEndRatio"),
-            &raw mut U_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_hand_start_end_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomDefaultValue"),
-            &raw mut U_RADIAL_SLIDER_SET_CUSTOM_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_custom_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCenterBackgroundColor"),
-            &raw mut U_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_center_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAngularOffset"),
-            &raw mut U_RADIAL_SLIDER_SET_ANGULAR_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_set_angular_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_RADIAL_SLIDER_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedSliderHandlePosition"),
-            &raw mut U_RADIAL_SLIDER_GET_NORMALIZED_SLIDER_HANDLE_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_radial_slider_get_normalized_slider_handle_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDefaultValue"),
-            &raw mut U_RADIAL_SLIDER_GET_CUSTOM_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_radial_slider_get_custom_default_value,
         );
     }
 }
@@ -256,7 +266,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE_TAGS,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_value_tags,
                 __buffer,
             )
         };
@@ -273,7 +284,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE_TAGS,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_value_tags,
                 __buffer,
             )
         };
@@ -286,7 +298,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_value,
                 __buffer,
             )
         };
@@ -299,7 +312,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_value,
                 __buffer,
             )
         };
@@ -312,7 +326,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_USE_VERTICAL_DRAG,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_use_vertical_drag,
                 __buffer,
             )
         };
@@ -329,7 +344,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_USE_VERTICAL_DRAG,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_use_vertical_drag,
                 __buffer,
             )
         };
@@ -342,7 +358,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_STEP_SIZE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_step_size,
                 __buffer,
             )
         };
@@ -355,7 +372,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_STEP_SIZE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_step_size,
                 __buffer,
             )
         };
@@ -371,7 +389,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_RANGE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_range,
                 __buffer,
             )
         };
@@ -388,7 +407,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_RANGE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_range,
                 __buffer,
             )
         };
@@ -404,7 +424,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_progress_color,
                 __buffer,
             )
         };
@@ -421,7 +442,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_progress_color,
                 __buffer,
             )
         };
@@ -434,7 +456,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_START_ANGLE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_handle_start_angle,
                 __buffer,
             )
         };
@@ -447,7 +470,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_START_ANGLE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_handle_start_angle,
                 __buffer,
             )
         };
@@ -460,7 +484,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_END_ANGLE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_handle_end_angle,
                 __buffer,
             )
         };
@@ -473,7 +498,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_END_ANGLE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_handle_end_angle,
                 __buffer,
             )
         };
@@ -489,7 +515,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_handle_color,
                 __buffer,
             )
         };
@@ -506,7 +533,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_handle_color,
                 __buffer,
             )
         };
@@ -522,7 +550,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_bar_color,
                 __buffer,
             )
         };
@@ -539,7 +568,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_slider_bar_color,
                 __buffer,
             )
         };
@@ -552,7 +582,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HANDLE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_show_slider_handle,
                 __buffer,
             )
         };
@@ -569,7 +600,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HANDLE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_show_slider_handle,
                 __buffer,
             )
         };
@@ -582,7 +614,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HAND,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_show_slider_hand,
                 __buffer,
             )
         };
@@ -599,7 +632,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_SHOW_SLIDER_HAND,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_show_slider_hand,
                 __buffer,
             )
         };
@@ -612,7 +646,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_LOCKED,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_locked,
                 __buffer,
             )
         };
@@ -625,7 +660,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_LOCKED,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_locked,
                 __buffer,
             )
         };
@@ -641,7 +677,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_hand_start_end_ratio,
                 __buffer,
             )
         };
@@ -658,7 +695,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_hand_start_end_ratio,
                 __buffer,
             )
         };
@@ -671,7 +709,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CUSTOM_DEFAULT_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_custom_default_value,
                 __buffer,
             )
         };
@@ -684,7 +723,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CUSTOM_DEFAULT_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_custom_default_value,
                 __buffer,
             )
         };
@@ -700,7 +740,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_center_background_color,
                 __buffer,
             )
         };
@@ -717,7 +758,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_center_background_color,
                 __buffer,
             )
         };
@@ -730,7 +772,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_ANGULAR_OFFSET,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_angular_offset,
                 __buffer,
             )
         };
@@ -743,7 +786,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_SET_ANGULAR_OFFSET,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_set_angular_offset,
                 __buffer,
             )
         };
@@ -756,7 +800,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_get_value,
                 __buffer,
             )
         };
@@ -766,7 +811,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_get_value,
                 __buffer,
             )
         };
@@ -780,7 +826,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_NORMALIZED_SLIDER_HANDLE_POSITION,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_get_normalized_slider_handle_position,
                 __buffer,
             )
         };
@@ -790,7 +837,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_NORMALIZED_SLIDER_HANDLE_POSITION,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_get_normalized_slider_handle_position,
                 __buffer,
             )
         };
@@ -804,7 +852,8 @@ impl URadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_CUSTOM_DEFAULT_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_get_custom_default_value,
                 __buffer,
             )
         };
@@ -814,7 +863,8 @@ impl URadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::advanced_widgets::U_RADIAL_SLIDER_GET_CUSTOM_DEFAULT_VALUE,
+                crate::bindings::advanced_widgets::__FUNCTION_PTRS
+                    .u_radial_slider_get_custom_default_value,
                 __buffer,
             )
         };

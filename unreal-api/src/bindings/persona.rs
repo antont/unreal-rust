@@ -1,24 +1,33 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIMATION_SEQUENCE_BROWSER_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PERSONA_TOOL_MENU_CONTEXT_GET_SKELETON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PERSONA_TOOL_MENU_CONTEXT_GET_PREVIEW_MESH_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PERSONA_TOOL_MENU_CONTEXT_GET_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIM_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIMATION_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_animation_sequence_browser_context_menu_context_get_selected_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_persona_tool_menu_context_get_skeleton: *mut crate::ffi::UFunctionOpague,
+    pub u_persona_tool_menu_context_get_preview_mesh_component: *mut crate::ffi::UFunctionOpague,
+    pub u_persona_tool_menu_context_get_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_persona_tool_menu_context_get_anim_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_persona_tool_menu_context_get_animation_asset: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_animation_sequence_browser_context_menu_context_get_selected_objects: std::ptr::null_mut(),
+            u_persona_tool_menu_context_get_skeleton: std::ptr::null_mut(),
+            u_persona_tool_menu_context_get_preview_mesh_component: std::ptr::null_mut(),
+            u_persona_tool_menu_context_get_mesh: std::ptr::null_mut(),
+            u_persona_tool_menu_context_get_anim_blueprint: std::ptr::null_mut(),
+            u_persona_tool_menu_context_get_animation_asset: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -28,7 +37,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedObjects"),
-            &raw mut U_ANIMATION_SEQUENCE_BROWSER_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_sequence_browser_context_menu_context_get_selected_objects,
         );
     }
     unsafe {
@@ -39,35 +49,36 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeleton"),
-            &raw mut U_PERSONA_TOOL_MENU_CONTEXT_GET_SKELETON,
+            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_skeleton,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviewMeshComponent"),
-            &raw mut U_PERSONA_TOOL_MENU_CONTEXT_GET_PREVIEW_MESH_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_persona_tool_menu_context_get_preview_mesh_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMesh"),
-            &raw mut U_PERSONA_TOOL_MENU_CONTEXT_GET_MESH,
+            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimBlueprint"),
-            &raw mut U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIM_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_anim_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationAsset"),
-            &raw mut U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIMATION_ASSET,
+            &raw mut __FUNCTION_PTRS.u_persona_tool_menu_context_get_animation_asset,
         );
     }
 }
@@ -122,7 +133,8 @@ impl UAnimationSequenceBrowserContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::persona::U_ANIMATION_SEQUENCE_BROWSER_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_animation_sequence_browser_context_menu_context_get_selected_objects,
                 __buffer,
             )
         };
@@ -132,7 +144,8 @@ impl UAnimationSequenceBrowserContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::persona::U_ANIMATION_SEQUENCE_BROWSER_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_animation_sequence_browser_context_menu_context_get_selected_objects,
                 __buffer,
             )
         };
@@ -869,7 +882,8 @@ impl UPersonaToolMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_SKELETON,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_skeleton,
                 __buffer,
             )
         };
@@ -879,7 +893,8 @@ impl UPersonaToolMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_SKELETON,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_skeleton,
                 __buffer,
             )
         };
@@ -897,7 +912,8 @@ impl UPersonaToolMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_PREVIEW_MESH_COMPONENT,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_preview_mesh_component,
                 __buffer,
             )
         };
@@ -907,7 +923,8 @@ impl UPersonaToolMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_PREVIEW_MESH_COMPONENT,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_preview_mesh_component,
                 __buffer,
             )
         };
@@ -926,7 +943,8 @@ impl UPersonaToolMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_MESH,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_mesh,
                 __buffer,
             )
         };
@@ -936,7 +954,8 @@ impl UPersonaToolMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_MESH,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_mesh,
                 __buffer,
             )
         };
@@ -952,7 +971,8 @@ impl UPersonaToolMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIM_BLUEPRINT,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_anim_blueprint,
                 __buffer,
             )
         };
@@ -962,7 +982,8 @@ impl UPersonaToolMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIM_BLUEPRINT,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_anim_blueprint,
                 __buffer,
             )
         };
@@ -981,7 +1002,8 @@ impl UPersonaToolMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIMATION_ASSET,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_animation_asset,
                 __buffer,
             )
         };
@@ -991,7 +1013,8 @@ impl UPersonaToolMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::persona::U_PERSONA_TOOL_MENU_CONTEXT_GET_ANIMATION_ASSET,
+                crate::bindings::persona::__FUNCTION_PTRS
+                    .u_persona_tool_menu_context_get_animation_asset,
                 __buffer,
             )
         };

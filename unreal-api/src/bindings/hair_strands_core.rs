@@ -1,156 +1,165 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_ASSET_CREATE_GROOM_DATAFLOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_GROUP_INFOS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_SET_GROOM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_GROUP_INFOS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_GET_GROOM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BINDING_ASSET_BUILD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_PHYSICS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_MESH_DEFORMER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_GROOM_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_GROOM_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_ENABLE_SIMULATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_SET_BINDING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_RESET_SIMULATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_groom_asset_set_rigged_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_interpolation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_groups_rendering: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_groups_physics: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_groups_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_groups_materials: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_groups_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_groups_interpolation: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_hair_groups_cards: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_enable_simulation_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_enable_global_interpolation: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_set_deformed_group_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_rigged_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_interpolation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_groups_rendering: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_groups_physics: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_groups_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_groups_materials: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_groups_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_groups_interpolation: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_hair_groups_cards: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_enable_simulation_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_enable_global_interpolation: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_get_deformed_group_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_asset_create_groom_dataflow: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_target_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_target_mesh_used_min_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_target_mesh_requested_min_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_target_geometry_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_target_binding_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_source_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_source_mesh_used_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_source_mesh_requested_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_source_geometry_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_num_interpolation_points: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_matching_section: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_group_infos: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_groom_binding_type: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_set_groom: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_target_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_target_mesh_used_min_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_target_mesh_requested_min_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_target_geometry_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_target_binding_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_source_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_source_mesh_used_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_source_mesh_requested_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_source_geometry_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_num_interpolation_points: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_matching_section: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_group_infos: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_groom_binding_type: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_get_groom: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_binding_asset_build: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_blueprint_library_is_hair_strands_supported_in_world: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_blueprint_library_create_new_groom_binding_asset_with_path: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_blueprint_library_create_new_groom_binding_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset_with_path: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_physics_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_mesh_deformer: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_hair_length_scale_enable: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_hair_length_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_groom_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_groom_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_enable_simulation: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_set_binding_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_reset_simulation: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_reset_collision_components: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_get_niagara_component: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_get_is_hair_length_scale_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_component_add_collision_component: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_groom_asset_set_rigged_skeletal_mesh: std::ptr::null_mut(),
+            u_groom_asset_set_hair_interpolation_type: std::ptr::null_mut(),
+            u_groom_asset_set_hair_groups_rendering: std::ptr::null_mut(),
+            u_groom_asset_set_hair_groups_physics: std::ptr::null_mut(),
+            u_groom_asset_set_hair_groups_meshes: std::ptr::null_mut(),
+            u_groom_asset_set_hair_groups_materials: std::ptr::null_mut(),
+            u_groom_asset_set_hair_groups_lod: std::ptr::null_mut(),
+            u_groom_asset_set_hair_groups_interpolation: std::ptr::null_mut(),
+            u_groom_asset_set_hair_groups_cards: std::ptr::null_mut(),
+            u_groom_asset_set_enable_simulation_cache: std::ptr::null_mut(),
+            u_groom_asset_set_enable_global_interpolation: std::ptr::null_mut(),
+            u_groom_asset_set_deformed_group_sections: std::ptr::null_mut(),
+            u_groom_asset_get_rigged_skeletal_mesh: std::ptr::null_mut(),
+            u_groom_asset_get_hair_interpolation_type: std::ptr::null_mut(),
+            u_groom_asset_get_hair_groups_rendering: std::ptr::null_mut(),
+            u_groom_asset_get_hair_groups_physics: std::ptr::null_mut(),
+            u_groom_asset_get_hair_groups_meshes: std::ptr::null_mut(),
+            u_groom_asset_get_hair_groups_materials: std::ptr::null_mut(),
+            u_groom_asset_get_hair_groups_lod: std::ptr::null_mut(),
+            u_groom_asset_get_hair_groups_interpolation: std::ptr::null_mut(),
+            u_groom_asset_get_hair_groups_cards: std::ptr::null_mut(),
+            u_groom_asset_get_enable_simulation_cache: std::ptr::null_mut(),
+            u_groom_asset_get_enable_global_interpolation: std::ptr::null_mut(),
+            u_groom_asset_get_deformed_group_sections: std::ptr::null_mut(),
+            u_groom_asset_create_groom_dataflow: std::ptr::null_mut(),
+            u_groom_binding_asset_set_target_skeletal_mesh: std::ptr::null_mut(),
+            u_groom_binding_asset_set_target_mesh_used_min_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_set_target_mesh_requested_min_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_set_target_geometry_cache: std::ptr::null_mut(),
+            u_groom_binding_asset_set_target_binding_attribute: std::ptr::null_mut(),
+            u_groom_binding_asset_set_source_skeletal_mesh: std::ptr::null_mut(),
+            u_groom_binding_asset_set_source_mesh_used_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_set_source_mesh_requested_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_set_source_geometry_cache: std::ptr::null_mut(),
+            u_groom_binding_asset_set_num_interpolation_points: std::ptr::null_mut(),
+            u_groom_binding_asset_set_matching_section: std::ptr::null_mut(),
+            u_groom_binding_asset_set_group_infos: std::ptr::null_mut(),
+            u_groom_binding_asset_set_groom_binding_type: std::ptr::null_mut(),
+            u_groom_binding_asset_set_groom: std::ptr::null_mut(),
+            u_groom_binding_asset_get_target_skeletal_mesh: std::ptr::null_mut(),
+            u_groom_binding_asset_get_target_mesh_used_min_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_get_target_mesh_requested_min_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_get_target_geometry_cache: std::ptr::null_mut(),
+            u_groom_binding_asset_get_target_binding_attribute: std::ptr::null_mut(),
+            u_groom_binding_asset_get_source_skeletal_mesh: std::ptr::null_mut(),
+            u_groom_binding_asset_get_source_mesh_used_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_get_source_mesh_requested_lod: std::ptr::null_mut(),
+            u_groom_binding_asset_get_source_geometry_cache: std::ptr::null_mut(),
+            u_groom_binding_asset_get_num_interpolation_points: std::ptr::null_mut(),
+            u_groom_binding_asset_get_matching_section: std::ptr::null_mut(),
+            u_groom_binding_asset_get_group_infos: std::ptr::null_mut(),
+            u_groom_binding_asset_get_groom_binding_type: std::ptr::null_mut(),
+            u_groom_binding_asset_get_groom: std::ptr::null_mut(),
+            u_groom_binding_asset_build: std::ptr::null_mut(),
+            u_groom_blueprint_library_is_hair_strands_supported_in_world: std::ptr::null_mut(),
+            u_groom_blueprint_library_create_new_groom_binding_asset_with_path: std::ptr::null_mut(),
+            u_groom_blueprint_library_create_new_groom_binding_asset: std::ptr::null_mut(),
+            u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset_with_path: std::ptr::null_mut(),
+            u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset: std::ptr::null_mut(),
+            u_groom_component_set_physics_asset: std::ptr::null_mut(),
+            u_groom_component_set_mesh_deformer: std::ptr::null_mut(),
+            u_groom_component_set_hair_length_scale_enable: std::ptr::null_mut(),
+            u_groom_component_set_hair_length_scale: std::ptr::null_mut(),
+            u_groom_component_set_groom_cache: std::ptr::null_mut(),
+            u_groom_component_set_groom_asset: std::ptr::null_mut(),
+            u_groom_component_set_enable_simulation: std::ptr::null_mut(),
+            u_groom_component_set_binding_asset: std::ptr::null_mut(),
+            u_groom_component_reset_simulation: std::ptr::null_mut(),
+            u_groom_component_reset_collision_components: std::ptr::null_mut(),
+            u_groom_component_get_niagara_component: std::ptr::null_mut(),
+            u_groom_component_get_is_hair_length_scale_enabled: std::ptr::null_mut(),
+            u_groom_component_add_collision_component: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -160,175 +169,175 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRiggedSkeletalMesh"),
-            &raw mut U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_rigged_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairInterpolationType"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_interpolation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairGroupsRendering"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_rendering,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairGroupsPhysics"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_physics,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairGroupsMeshes"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairGroupsMaterials"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairGroupsLOD"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairGroupsInterpolation"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_interpolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairGroupsCards"),
-            &raw mut U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_hair_groups_cards,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableSimulationCache"),
-            &raw mut U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_enable_simulation_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableGlobalInterpolation"),
-            &raw mut U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_enable_global_interpolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDeformedGroupSections"),
-            &raw mut U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_set_deformed_group_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRiggedSkeletalMesh"),
-            &raw mut U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_rigged_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairInterpolationType"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_interpolation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairGroupsRendering"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_rendering,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairGroupsPhysics"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_physics,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairGroupsMeshes"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairGroupsMaterials"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairGroupsLOD"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairGroupsInterpolation"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_interpolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHairGroupsCards"),
-            &raw mut U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_hair_groups_cards,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnableSimulationCache"),
-            &raw mut U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_enable_simulation_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnableGlobalInterpolation"),
-            &raw mut U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_enable_global_interpolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDeformedGroupSections"),
-            &raw mut U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_get_deformed_group_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateGroomDataflow"),
-            &raw mut U_GROOM_ASSET_CREATE_GROOM_DATAFLOW,
+            &raw mut __FUNCTION_PTRS.u_groom_asset_create_groom_dataflow,
         );
     }
     unsafe {
@@ -339,203 +348,205 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetSkeletalMesh"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetMeshUsedMinLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_mesh_used_min_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetMeshRequestedMinLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD,
+            &raw mut __FUNCTION_PTRS
+                .u_groom_binding_asset_set_target_mesh_requested_min_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetGeometryCache"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_geometry_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetBindingAttribute"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_target_binding_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceSkeletalMesh"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceMeshUsedLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_mesh_used_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceMeshRequestedLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_mesh_requested_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceGeometryCache"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_source_geometry_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNumInterpolationPoints"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_num_interpolation_points,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMatchingSection"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_matching_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGroupInfos"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_GROUP_INFOS,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_group_infos,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGroomBindingType"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_groom_binding_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGroom"),
-            &raw mut U_GROOM_BINDING_ASSET_SET_GROOM,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_set_groom,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetSkeletalMesh"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetMeshUsedMinLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_mesh_used_min_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetMeshRequestedMinLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD,
+            &raw mut __FUNCTION_PTRS
+                .u_groom_binding_asset_get_target_mesh_requested_min_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetGeometryCache"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_geometry_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetBindingAttribute"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_target_binding_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceSkeletalMesh"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceMeshUsedLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_mesh_used_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceMeshRequestedLOD"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_mesh_requested_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceGeometryCache"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_source_geometry_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumInterpolationPoints"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_num_interpolation_points,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMatchingSection"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_matching_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGroupInfos"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_GROUP_INFOS,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_group_infos,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGroomBindingType"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_groom_binding_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGroom"),
-            &raw mut U_GROOM_BINDING_ASSET_GET_GROOM,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_get_groom,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Build"),
-            &raw mut U_GROOM_BINDING_ASSET_BUILD,
+            &raw mut __FUNCTION_PTRS.u_groom_binding_asset_build,
         );
     }
     unsafe {
@@ -546,35 +557,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsHairStrandsSupportedInWorld"),
-            &raw mut U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD,
+            &raw mut __FUNCTION_PTRS
+                .u_groom_blueprint_library_is_hair_strands_supported_in_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewGroomBindingAssetWithPath"),
-            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_groom_blueprint_library_create_new_groom_binding_asset_with_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewGroomBindingAsset"),
-            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_groom_blueprint_library_create_new_groom_binding_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewGeometryCacheGroomBindingAssetWithPath"),
-            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset_with_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewGeometryCacheGroomBindingAsset"),
-            &raw mut U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset,
         );
     }
     unsafe {
@@ -585,91 +601,91 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPhysicsAsset"),
-            &raw mut U_GROOM_COMPONENT_SET_PHYSICS_ASSET,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_physics_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeshDeformer"),
-            &raw mut U_GROOM_COMPONENT_SET_MESH_DEFORMER,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_mesh_deformer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairLengthScaleEnable"),
-            &raw mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_hair_length_scale_enable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHairLengthScale"),
-            &raw mut U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_hair_length_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGroomCache"),
-            &raw mut U_GROOM_COMPONENT_SET_GROOM_CACHE,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_groom_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGroomAsset"),
-            &raw mut U_GROOM_COMPONENT_SET_GROOM_ASSET,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_groom_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableSimulation"),
-            &raw mut U_GROOM_COMPONENT_SET_ENABLE_SIMULATION,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_enable_simulation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBindingAsset"),
-            &raw mut U_GROOM_COMPONENT_SET_BINDING_ASSET,
+            &raw mut __FUNCTION_PTRS.u_groom_component_set_binding_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetSimulation"),
-            &raw mut U_GROOM_COMPONENT_RESET_SIMULATION,
+            &raw mut __FUNCTION_PTRS.u_groom_component_reset_simulation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetCollisionComponents"),
-            &raw mut U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS,
+            &raw mut __FUNCTION_PTRS.u_groom_component_reset_collision_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraComponent"),
-            &raw mut U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_groom_component_get_niagara_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsHairLengthScaleEnabled"),
-            &raw mut U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_groom_component_get_is_hair_length_scale_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCollisionComponent"),
-            &raw mut U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_groom_component_add_collision_component,
         );
     }
 }
@@ -1052,7 +1068,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_rigged_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1069,7 +1086,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_RIGGED_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_rigged_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1082,7 +1100,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_interpolation_type,
                 __buffer,
             )
         };
@@ -1099,7 +1118,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_INTERPOLATION_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_interpolation_type,
                 __buffer,
             )
         };
@@ -1112,7 +1132,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_rendering,
                 __buffer,
             )
         };
@@ -1129,7 +1150,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_RENDERING,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_rendering,
                 __buffer,
             )
         };
@@ -1142,7 +1164,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_physics,
                 __buffer,
             )
         };
@@ -1159,7 +1182,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_PHYSICS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_physics,
                 __buffer,
             )
         };
@@ -1175,7 +1199,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_meshes,
                 __buffer,
             )
         };
@@ -1192,7 +1217,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MESHES,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_meshes,
                 __buffer,
             )
         };
@@ -1205,7 +1231,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_materials,
                 __buffer,
             )
         };
@@ -1222,7 +1249,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_MATERIALS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_materials,
                 __buffer,
             )
         };
@@ -1235,7 +1263,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_lod,
                 __buffer,
             )
         };
@@ -1252,7 +1281,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_lod,
                 __buffer,
             )
         };
@@ -1268,7 +1298,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_interpolation,
                 __buffer,
             )
         };
@@ -1285,7 +1316,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_interpolation,
                 __buffer,
             )
         };
@@ -1301,7 +1333,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_cards,
                 __buffer,
             )
         };
@@ -1318,7 +1351,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_HAIR_GROUPS_CARDS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_hair_groups_cards,
                 __buffer,
             )
         };
@@ -1331,7 +1365,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_enable_simulation_cache,
                 __buffer,
             )
         };
@@ -1344,7 +1379,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_SIMULATION_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_enable_simulation_cache,
                 __buffer,
             )
         };
@@ -1357,7 +1393,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_enable_global_interpolation,
                 __buffer,
             )
         };
@@ -1370,7 +1407,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_ENABLE_GLOBAL_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_enable_global_interpolation,
                 __buffer,
             )
         };
@@ -1383,7 +1421,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_deformed_group_sections,
                 __buffer,
             )
         };
@@ -1396,7 +1435,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_SET_DEFORMED_GROUP_SECTIONS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_set_deformed_group_sections,
                 __buffer,
             )
         };
@@ -1411,7 +1451,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_rigged_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1421,7 +1462,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_RIGGED_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_rigged_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1437,7 +1479,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_interpolation_type,
                 __buffer,
             )
         };
@@ -1447,7 +1490,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_INTERPOLATION_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_interpolation_type,
                 __buffer,
             )
         };
@@ -1461,7 +1505,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_rendering,
                 __buffer,
             )
         };
@@ -1471,7 +1516,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_RENDERING,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_rendering,
                 __buffer,
             )
         };
@@ -1485,7 +1531,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_physics,
                 __buffer,
             )
         };
@@ -1495,7 +1542,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_PHYSICS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_physics,
                 __buffer,
             )
         };
@@ -1511,7 +1559,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_meshes,
                 __buffer,
             )
         };
@@ -1521,7 +1570,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MESHES,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_meshes,
                 __buffer,
             )
         };
@@ -1537,7 +1587,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_materials,
                 __buffer,
             )
         };
@@ -1547,7 +1598,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_MATERIALS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_materials,
                 __buffer,
             )
         };
@@ -1561,7 +1613,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_lod,
                 __buffer,
             )
         };
@@ -1571,7 +1624,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_lod,
                 __buffer,
             )
         };
@@ -1585,7 +1639,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_interpolation,
                 __buffer,
             )
         };
@@ -1595,7 +1650,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_interpolation,
                 __buffer,
             )
         };
@@ -1611,7 +1667,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_cards,
                 __buffer,
             )
         };
@@ -1621,7 +1678,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_HAIR_GROUPS_CARDS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_hair_groups_cards,
                 __buffer,
             )
         };
@@ -1637,7 +1695,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_enable_simulation_cache,
                 __buffer,
             )
         };
@@ -1647,7 +1706,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_SIMULATION_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_enable_simulation_cache,
                 __buffer,
             )
         };
@@ -1661,7 +1721,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_enable_global_interpolation,
                 __buffer,
             )
         };
@@ -1671,7 +1732,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_ENABLE_GLOBAL_INTERPOLATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_enable_global_interpolation,
                 __buffer,
             )
         };
@@ -1685,7 +1747,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_deformed_group_sections,
                 __buffer,
             )
         };
@@ -1695,7 +1758,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_GET_DEFORMED_GROUP_SECTIONS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_get_deformed_group_sections,
                 __buffer,
             )
         };
@@ -1709,7 +1773,8 @@ impl UGroomAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_CREATE_GROOM_DATAFLOW,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_create_groom_dataflow,
                 __buffer,
             )
         };
@@ -1719,7 +1784,8 @@ impl UGroomAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_ASSET_CREATE_GROOM_DATAFLOW,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_asset_create_groom_dataflow,
                 __buffer,
             )
         };
@@ -1835,7 +1901,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1852,7 +1919,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1865,7 +1933,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_mesh_used_min_lod,
                 __buffer,
             )
         };
@@ -1882,7 +1951,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_USED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_mesh_used_min_lod,
                 __buffer,
             )
         };
@@ -1898,7 +1968,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_mesh_requested_min_lod,
                 __buffer,
             )
         };
@@ -1915,7 +1986,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_MESH_REQUESTED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_mesh_requested_min_lod,
                 __buffer,
             )
         };
@@ -1931,7 +2003,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_geometry_cache,
                 __buffer,
             )
         };
@@ -1950,7 +2023,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_geometry_cache,
                 __buffer,
             )
         };
@@ -1963,7 +2037,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_binding_attribute,
                 __buffer,
             )
         };
@@ -1980,7 +2055,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_TARGET_BINDING_ATTRIBUTE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_target_binding_attribute,
                 __buffer,
             )
         };
@@ -1996,7 +2072,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_skeletal_mesh,
                 __buffer,
             )
         };
@@ -2013,7 +2090,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_skeletal_mesh,
                 __buffer,
             )
         };
@@ -2026,7 +2104,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_mesh_used_lod,
                 __buffer,
             )
         };
@@ -2043,7 +2122,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_USED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_mesh_used_lod,
                 __buffer,
             )
         };
@@ -2056,7 +2136,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_mesh_requested_lod,
                 __buffer,
             )
         };
@@ -2073,7 +2154,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_MESH_REQUESTED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_mesh_requested_lod,
                 __buffer,
             )
         };
@@ -2089,7 +2171,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_geometry_cache,
                 __buffer,
             )
         };
@@ -2108,7 +2191,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_SOURCE_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_source_geometry_cache,
                 __buffer,
             )
         };
@@ -2121,7 +2205,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_num_interpolation_points,
                 __buffer,
             )
         };
@@ -2138,7 +2223,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_NUM_INTERPOLATION_POINTS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_num_interpolation_points,
                 __buffer,
             )
         };
@@ -2151,7 +2237,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_matching_section,
                 __buffer,
             )
         };
@@ -2168,7 +2255,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_MATCHING_SECTION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_matching_section,
                 __buffer,
             )
         };
@@ -2181,7 +2269,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROUP_INFOS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_group_infos,
                 __buffer,
             )
         };
@@ -2198,7 +2287,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROUP_INFOS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_group_infos,
                 __buffer,
             )
         };
@@ -2214,7 +2304,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_groom_binding_type,
                 __buffer,
             )
         };
@@ -2231,7 +2322,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM_BINDING_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_groom_binding_type,
                 __buffer,
             )
         };
@@ -2244,7 +2336,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_groom,
                 __buffer,
             )
         };
@@ -2261,7 +2354,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_SET_GROOM,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_set_groom,
                 __buffer,
             )
         };
@@ -2276,7 +2370,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_skeletal_mesh,
                 __buffer,
             )
         };
@@ -2286,7 +2381,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_skeletal_mesh,
                 __buffer,
             )
         };
@@ -2302,7 +2398,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_mesh_used_min_lod,
                 __buffer,
             )
         };
@@ -2312,7 +2409,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_USED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_mesh_used_min_lod,
                 __buffer,
             )
         };
@@ -2326,7 +2424,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_mesh_requested_min_lod,
                 __buffer,
             )
         };
@@ -2336,7 +2435,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_MESH_REQUESTED_MIN_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_mesh_requested_min_lod,
                 __buffer,
             )
         };
@@ -2352,7 +2452,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_geometry_cache,
                 __buffer,
             )
         };
@@ -2362,7 +2463,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_geometry_cache,
                 __buffer,
             )
         };
@@ -2381,7 +2483,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_binding_attribute,
                 __buffer,
             )
         };
@@ -2391,7 +2494,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_TARGET_BINDING_ATTRIBUTE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_target_binding_attribute,
                 __buffer,
             )
         };
@@ -2407,7 +2511,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_skeletal_mesh,
                 __buffer,
             )
         };
@@ -2417,7 +2522,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_SKELETAL_MESH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_skeletal_mesh,
                 __buffer,
             )
         };
@@ -2433,7 +2539,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_mesh_used_lod,
                 __buffer,
             )
         };
@@ -2443,7 +2550,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_USED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_mesh_used_lod,
                 __buffer,
             )
         };
@@ -2457,7 +2565,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_mesh_requested_lod,
                 __buffer,
             )
         };
@@ -2467,7 +2576,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_MESH_REQUESTED_LOD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_mesh_requested_lod,
                 __buffer,
             )
         };
@@ -2483,7 +2593,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_geometry_cache,
                 __buffer,
             )
         };
@@ -2493,7 +2604,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_SOURCE_GEOMETRY_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_source_geometry_cache,
                 __buffer,
             )
         };
@@ -2512,7 +2624,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_num_interpolation_points,
                 __buffer,
             )
         };
@@ -2522,7 +2635,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_NUM_INTERPOLATION_POINTS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_num_interpolation_points,
                 __buffer,
             )
         };
@@ -2536,7 +2650,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_matching_section,
                 __buffer,
             )
         };
@@ -2546,7 +2661,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_MATCHING_SECTION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_matching_section,
                 __buffer,
             )
         };
@@ -2560,7 +2676,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROUP_INFOS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_group_infos,
                 __buffer,
             )
         };
@@ -2570,7 +2687,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROUP_INFOS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_group_infos,
                 __buffer,
             )
         };
@@ -2584,7 +2702,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_groom_binding_type,
                 __buffer,
             )
         };
@@ -2594,7 +2713,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM_BINDING_TYPE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_groom_binding_type,
                 __buffer,
             )
         };
@@ -2608,7 +2728,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_groom,
                 __buffer,
             )
         };
@@ -2618,7 +2739,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_GET_GROOM,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_get_groom,
                 __buffer,
             )
         };
@@ -2632,7 +2754,8 @@ impl UGroomBindingAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_BUILD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_build,
                 __buffer,
             )
         };
@@ -2649,7 +2772,8 @@ impl UGroomBindingAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BINDING_ASSET_BUILD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_binding_asset_build,
                 __buffer,
             )
         };
@@ -2706,7 +2830,8 @@ impl UGroomBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_is_hair_strands_supported_in_world,
                 __buffer,
             )
         };
@@ -2723,7 +2848,8 @@ impl UGroomBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_IS_HAIR_STRANDS_SUPPORTED_IN_WORLD,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_is_hair_strands_supported_in_world,
                 __buffer,
             )
         };
@@ -2746,7 +2872,8 @@ impl UGroomBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_groom_binding_asset_with_path,
                 __buffer,
             )
         };
@@ -2798,7 +2925,8 @@ impl UGroomBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET_WITH_PATH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_groom_binding_asset_with_path,
                 __buffer,
             )
         };
@@ -2820,7 +2948,8 @@ impl UGroomBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_groom_binding_asset,
                 __buffer,
             )
         };
@@ -2865,7 +2994,8 @@ impl UGroomBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GROOM_BINDING_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_groom_binding_asset,
                 __buffer,
             )
         };
@@ -2888,7 +3018,8 @@ impl UGroomBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset_with_path,
                 __buffer,
             )
         };
@@ -2944,7 +3075,8 @@ impl UGroomBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET_WITH_PATH,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset_with_path,
                 __buffer,
             )
         };
@@ -2966,7 +3098,8 @@ impl UGroomBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset,
                 __buffer,
             )
         };
@@ -3015,7 +3148,8 @@ impl UGroomBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_BLUEPRINT_LIBRARY_CREATE_NEW_GEOMETRY_CACHE_GROOM_BINDING_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_blueprint_library_create_new_geometry_cache_groom_binding_asset,
                 __buffer,
             )
         };
@@ -3097,7 +3231,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_PHYSICS_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_physics_asset,
                 __buffer,
             )
         };
@@ -3114,7 +3249,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_PHYSICS_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_physics_asset,
                 __buffer,
             )
         };
@@ -3130,7 +3266,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_MESH_DEFORMER,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_mesh_deformer,
                 __buffer,
             )
         };
@@ -3147,7 +3284,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_MESH_DEFORMER,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_mesh_deformer,
                 __buffer,
             )
         };
@@ -3160,7 +3298,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_hair_length_scale_enable,
                 __buffer,
             )
         };
@@ -3173,7 +3312,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE_ENABLE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_hair_length_scale_enable,
                 __buffer,
             )
         };
@@ -3186,7 +3326,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_hair_length_scale,
                 __buffer,
             )
         };
@@ -3199,7 +3340,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_HAIR_LENGTH_SCALE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_hair_length_scale,
                 __buffer,
             )
         };
@@ -3212,7 +3354,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_groom_cache,
                 __buffer,
             )
         };
@@ -3229,7 +3372,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_CACHE,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_groom_cache,
                 __buffer,
             )
         };
@@ -3242,7 +3386,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_groom_asset,
                 __buffer,
             )
         };
@@ -3259,7 +3404,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_GROOM_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_groom_asset,
                 __buffer,
             )
         };
@@ -3272,7 +3418,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_ENABLE_SIMULATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_enable_simulation,
                 __buffer,
             )
         };
@@ -3289,7 +3436,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_ENABLE_SIMULATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_enable_simulation,
                 __buffer,
             )
         };
@@ -3302,7 +3450,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_BINDING_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_binding_asset,
                 __buffer,
             )
         };
@@ -3319,7 +3468,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_SET_BINDING_ASSET,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_set_binding_asset,
                 __buffer,
             )
         };
@@ -3332,7 +3482,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_SIMULATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_reset_simulation,
                 __buffer,
             )
         };
@@ -3342,7 +3493,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_SIMULATION,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_reset_simulation,
                 __buffer,
             )
         };
@@ -3355,7 +3507,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_reset_collision_components,
                 __buffer,
             )
         };
@@ -3365,7 +3518,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_RESET_COLLISION_COMPONENTS,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_reset_collision_components,
                 __buffer,
             )
         };
@@ -3381,7 +3535,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_get_niagara_component,
                 __buffer,
             )
         };
@@ -3398,7 +3553,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_NIAGARA_COMPONENT,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_get_niagara_component,
                 __buffer,
             )
         };
@@ -3417,7 +3573,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_get_is_hair_length_scale_enabled,
                 __buffer,
             )
         };
@@ -3427,7 +3584,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_GET_IS_HAIR_LENGTH_SCALE_ENABLED,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_get_is_hair_length_scale_enabled,
                 __buffer,
             )
         };
@@ -3444,7 +3602,8 @@ impl UGroomComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_add_collision_component,
                 __buffer,
             )
         };
@@ -3463,7 +3622,8 @@ impl UGroomComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_core::U_GROOM_COMPONENT_ADD_COLLISION_COMPONENT,
+                crate::bindings::hair_strands_core::__FUNCTION_PTRS
+                    .u_groom_component_add_collision_component,
                 __buffer,
             )
         };

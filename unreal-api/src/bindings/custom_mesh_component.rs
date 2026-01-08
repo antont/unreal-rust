@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CUSTOM_MESH_COMPONENT_SET_CUSTOM_MESH_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUSTOM_MESH_COMPONENT_CLEAR_CUSTOM_MESH_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUSTOM_MESH_COMPONENT_ADD_CUSTOM_MESH_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_custom_mesh_component_set_custom_mesh_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_custom_mesh_component_clear_custom_mesh_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_custom_mesh_component_add_custom_mesh_triangles: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_custom_mesh_component_set_custom_mesh_triangles: std::ptr::null_mut(),
+            u_custom_mesh_component_clear_custom_mesh_triangles: std::ptr::null_mut(),
+            u_custom_mesh_component_add_custom_mesh_triangles: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,21 +31,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomMeshTriangles"),
-            &raw mut U_CUSTOM_MESH_COMPONENT_SET_CUSTOM_MESH_TRIANGLES,
+            &raw mut __FUNCTION_PTRS.u_custom_mesh_component_set_custom_mesh_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearCustomMeshTriangles"),
-            &raw mut U_CUSTOM_MESH_COMPONENT_CLEAR_CUSTOM_MESH_TRIANGLES,
+            &raw mut __FUNCTION_PTRS.u_custom_mesh_component_clear_custom_mesh_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCustomMeshTriangles"),
-            &raw mut U_CUSTOM_MESH_COMPONENT_ADD_CUSTOM_MESH_TRIANGLES,
+            &raw mut __FUNCTION_PTRS.u_custom_mesh_component_add_custom_mesh_triangles,
         );
     }
 }
@@ -78,7 +87,8 @@ impl UCustomMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_SET_CUSTOM_MESH_TRIANGLES,
+                crate::bindings::custom_mesh_component::__FUNCTION_PTRS
+                    .u_custom_mesh_component_set_custom_mesh_triangles,
                 __buffer,
             )
         };
@@ -95,7 +105,8 @@ impl UCustomMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_SET_CUSTOM_MESH_TRIANGLES,
+                crate::bindings::custom_mesh_component::__FUNCTION_PTRS
+                    .u_custom_mesh_component_set_custom_mesh_triangles,
                 __buffer,
             )
         };
@@ -109,7 +120,8 @@ impl UCustomMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_CLEAR_CUSTOM_MESH_TRIANGLES,
+                crate::bindings::custom_mesh_component::__FUNCTION_PTRS
+                    .u_custom_mesh_component_clear_custom_mesh_triangles,
                 __buffer,
             )
         };
@@ -119,7 +131,8 @@ impl UCustomMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_CLEAR_CUSTOM_MESH_TRIANGLES,
+                crate::bindings::custom_mesh_component::__FUNCTION_PTRS
+                    .u_custom_mesh_component_clear_custom_mesh_triangles,
                 __buffer,
             )
         };
@@ -135,7 +148,8 @@ impl UCustomMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_ADD_CUSTOM_MESH_TRIANGLES,
+                crate::bindings::custom_mesh_component::__FUNCTION_PTRS
+                    .u_custom_mesh_component_add_custom_mesh_triangles,
                 __buffer,
             )
         };
@@ -152,7 +166,8 @@ impl UCustomMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::custom_mesh_component::U_CUSTOM_MESH_COMPONENT_ADD_CUSTOM_MESH_TRIANGLES,
+                crate::bindings::custom_mesh_component::__FUNCTION_PTRS
+                    .u_custom_mesh_component_add_custom_mesh_triangles,
                 __buffer,
             )
         };

@@ -1,80 +1,89 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_MEDIA_PLATE_SET_HOLDOUT_COMPOSITE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_MEDIA_PLATE_IS_HOLDOUT_COMPOSITE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SET_PLAY_ONLY_WHEN_VISIBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SET_MESH_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SET_LOOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SET_LETTERBOX_ASPECT_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SET_IS_ASPECT_RATIO_AUTO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SET_ENABLE_AUDIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_SOURCE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_PLAYLIST_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SELECT_EXTERNAL_MEDIA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_SEEK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_REWIND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_PREVIOUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_PAUSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_OPEN_LATENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_OPEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_SUSPENDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_RESUMED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_OPENED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_NEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_IS_MEDIA_PLATE_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_IS_EVENT_STATE_CHANGE_ALLOWED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_SELECTED_MEDIA_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_MESH_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_MEDIA_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYLIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_LOOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_LETTERBOX_ASPECT_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_GET_IS_ASPECT_RATIO_AUTO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLATE_COMPONENT_CLOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_media_plate_set_holdout_composite_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_media_plate_is_holdout_composite_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_set_play_only_when_visible: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_set_mesh_range: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_set_loop: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_set_letterbox_aspect_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_set_is_aspect_ratio_auto: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_set_enable_audio: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_select_media_source_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_select_media_playlist_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_select_external_media: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_seek: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_rewind: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_previous: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_play: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_pause: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_open_latent: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_open: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_on_media_suspended: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_on_media_resumed: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_on_media_opened: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_on_media_end: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_next: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_is_media_plate_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_is_event_state_change_allowed: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_selected_media_source: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_mesh_range: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_media_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_media_playlist: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_media_player: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_loop: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_letterbox_aspect_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_get_is_aspect_ratio_auto: *mut crate::ffi::UFunctionOpague,
+    pub u_media_plate_component_close: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_media_plate_set_holdout_composite_enabled: std::ptr::null_mut(),
+            a_media_plate_is_holdout_composite_enabled: std::ptr::null_mut(),
+            u_media_plate_component_set_play_only_when_visible: std::ptr::null_mut(),
+            u_media_plate_component_set_mesh_range: std::ptr::null_mut(),
+            u_media_plate_component_set_loop: std::ptr::null_mut(),
+            u_media_plate_component_set_letterbox_aspect_ratio: std::ptr::null_mut(),
+            u_media_plate_component_set_is_aspect_ratio_auto: std::ptr::null_mut(),
+            u_media_plate_component_set_enable_audio: std::ptr::null_mut(),
+            u_media_plate_component_select_media_source_asset: std::ptr::null_mut(),
+            u_media_plate_component_select_media_playlist_asset: std::ptr::null_mut(),
+            u_media_plate_component_select_external_media: std::ptr::null_mut(),
+            u_media_plate_component_seek: std::ptr::null_mut(),
+            u_media_plate_component_rewind: std::ptr::null_mut(),
+            u_media_plate_component_previous: std::ptr::null_mut(),
+            u_media_plate_component_play: std::ptr::null_mut(),
+            u_media_plate_component_pause: std::ptr::null_mut(),
+            u_media_plate_component_open_latent: std::ptr::null_mut(),
+            u_media_plate_component_open: std::ptr::null_mut(),
+            u_media_plate_component_on_media_suspended: std::ptr::null_mut(),
+            u_media_plate_component_on_media_resumed: std::ptr::null_mut(),
+            u_media_plate_component_on_media_opened: std::ptr::null_mut(),
+            u_media_plate_component_on_media_end: std::ptr::null_mut(),
+            u_media_plate_component_next: std::ptr::null_mut(),
+            u_media_plate_component_is_media_plate_playing: std::ptr::null_mut(),
+            u_media_plate_component_is_event_state_change_allowed: std::ptr::null_mut(),
+            u_media_plate_component_get_selected_media_source: std::ptr::null_mut(),
+            u_media_plate_component_get_mesh_range: std::ptr::null_mut(),
+            u_media_plate_component_get_media_texture: std::ptr::null_mut(),
+            u_media_plate_component_get_media_playlist: std::ptr::null_mut(),
+            u_media_plate_component_get_media_player: std::ptr::null_mut(),
+            u_media_plate_component_get_loop: std::ptr::null_mut(),
+            u_media_plate_component_get_letterbox_aspect_ratio: std::ptr::null_mut(),
+            u_media_plate_component_get_is_aspect_ratio_auto: std::ptr::null_mut(),
+            u_media_plate_component_close: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -84,14 +93,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHoldoutCompositeEnabled"),
-            &raw mut A_MEDIA_PLATE_SET_HOLDOUT_COMPOSITE_ENABLED,
+            &raw mut __FUNCTION_PTRS.a_media_plate_set_holdout_composite_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsHoldoutCompositeEnabled"),
-            &raw mut A_MEDIA_PLATE_IS_HOLDOUT_COMPOSITE_ENABLED,
+            &raw mut __FUNCTION_PTRS.a_media_plate_is_holdout_composite_enabled,
         );
     }
     unsafe {
@@ -102,224 +111,225 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlayOnlyWhenVisible"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SET_PLAY_ONLY_WHEN_VISIBLE,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_play_only_when_visible,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeshRange"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SET_MESH_RANGE,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_mesh_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLoop"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SET_LOOP,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_loop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLetterboxAspectRatio"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SET_LETTERBOX_ASPECT_RATIO,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_letterbox_aspect_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsAspectRatioAuto"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SET_IS_ASPECT_RATIO_AUTO,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_is_aspect_ratio_auto,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableAudio"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SET_ENABLE_AUDIO,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_set_enable_audio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectMediaSourceAsset"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_SOURCE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_select_media_source_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectMediaPlaylistAsset"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_PLAYLIST_ASSET,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_select_media_playlist_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectExternalMedia"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SELECT_EXTERNAL_MEDIA,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_select_external_media,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Seek"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_SEEK,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_seek,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Rewind"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_REWIND,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_rewind,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Previous"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_PREVIOUS,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_previous,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Play"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_PLAY,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_PAUSE,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_pause,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenLatent"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_OPEN_LATENT,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_open_latent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Open"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_OPEN,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_open,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMediaSuspended"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_SUSPENDED,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_suspended,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMediaResumed"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_RESUMED,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_resumed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMediaOpened"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_OPENED,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_opened,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMediaEnd"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_ON_MEDIA_END,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_on_media_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Next"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_NEXT,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_next,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsMediaPlatePlaying"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_IS_MEDIA_PLATE_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_is_media_plate_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEventStateChangeAllowed"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_IS_EVENT_STATE_CHANGE_ALLOWED,
+            &raw mut __FUNCTION_PTRS
+                .u_media_plate_component_is_event_state_change_allowed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedMediaSource"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_SELECTED_MEDIA_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_selected_media_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeshRange"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_MESH_RANGE,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_mesh_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaTexture"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_MEDIA_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaPlaylist"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYLIST,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_playlist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_media_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoop"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_LOOP,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_loop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLetterboxAspectRatio"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_LETTERBOX_ASPECT_RATIO,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_letterbox_aspect_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsAspectRatioAuto"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_GET_IS_ASPECT_RATIO_AUTO,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_get_is_aspect_ratio_auto,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Close"),
-            &raw mut U_MEDIA_PLATE_COMPONENT_CLOSE,
+            &raw mut __FUNCTION_PTRS.u_media_plate_component_close,
         );
     }
 }
@@ -361,7 +371,8 @@ impl AMediaPlate {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::A_MEDIA_PLATE_SET_HOLDOUT_COMPOSITE_ENABLED,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .a_media_plate_set_holdout_composite_enabled,
                 __buffer,
             )
         };
@@ -378,7 +389,8 @@ impl AMediaPlate {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::A_MEDIA_PLATE_SET_HOLDOUT_COMPOSITE_ENABLED,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .a_media_plate_set_holdout_composite_enabled,
                 __buffer,
             )
         };
@@ -391,7 +403,8 @@ impl AMediaPlate {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::A_MEDIA_PLATE_IS_HOLDOUT_COMPOSITE_ENABLED,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .a_media_plate_is_holdout_composite_enabled,
                 __buffer,
             )
         };
@@ -401,7 +414,8 @@ impl AMediaPlate {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::A_MEDIA_PLATE_IS_HOLDOUT_COMPOSITE_ENABLED,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .a_media_plate_is_holdout_composite_enabled,
                 __buffer,
             )
         };
@@ -475,7 +489,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_PLAY_ONLY_WHEN_VISIBLE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_play_only_when_visible,
                 __buffer,
             )
         };
@@ -492,7 +507,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_PLAY_ONLY_WHEN_VISIBLE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_play_only_when_visible,
                 __buffer,
             )
         };
@@ -508,7 +524,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_MESH_RANGE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_mesh_range,
                 __buffer,
             )
         };
@@ -525,7 +542,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_MESH_RANGE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_mesh_range,
                 __buffer,
             )
         };
@@ -538,7 +556,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LOOP,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_loop,
                 __buffer,
             )
         };
@@ -551,7 +570,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LOOP,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_loop,
                 __buffer,
             )
         };
@@ -564,7 +584,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LETTERBOX_ASPECT_RATIO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_letterbox_aspect_ratio,
                 __buffer,
             )
         };
@@ -581,7 +602,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_LETTERBOX_ASPECT_RATIO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_letterbox_aspect_ratio,
                 __buffer,
             )
         };
@@ -594,7 +616,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_IS_ASPECT_RATIO_AUTO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_is_aspect_ratio_auto,
                 __buffer,
             )
         };
@@ -611,7 +634,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_IS_ASPECT_RATIO_AUTO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_is_aspect_ratio_auto,
                 __buffer,
             )
         };
@@ -624,7 +648,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_ENABLE_AUDIO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_enable_audio,
                 __buffer,
             )
         };
@@ -641,7 +666,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SET_ENABLE_AUDIO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_set_enable_audio,
                 __buffer,
             )
         };
@@ -657,7 +683,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_SOURCE_ASSET,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_select_media_source_asset,
                 __buffer,
             )
         };
@@ -676,7 +703,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_SOURCE_ASSET,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_select_media_source_asset,
                 __buffer,
             )
         };
@@ -692,7 +720,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_PLAYLIST_ASSET,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_select_media_playlist_asset,
                 __buffer,
             )
         };
@@ -711,7 +740,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_MEDIA_PLAYLIST_ASSET,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_select_media_playlist_asset,
                 __buffer,
             )
         };
@@ -724,7 +754,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_EXTERNAL_MEDIA,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_select_external_media,
                 __buffer,
             )
         };
@@ -741,7 +772,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SELECT_EXTERNAL_MEDIA,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_select_external_media,
                 __buffer,
             )
         };
@@ -754,7 +786,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SEEK,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_seek,
                 __buffer,
             )
         };
@@ -771,7 +804,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_SEEK,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_seek,
                 __buffer,
             )
         };
@@ -785,7 +819,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_REWIND,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_rewind,
                 __buffer,
             )
         };
@@ -795,7 +830,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_REWIND,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_rewind,
                 __buffer,
             )
         };
@@ -809,7 +845,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PREVIOUS,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_previous,
                 __buffer,
             )
         };
@@ -819,7 +856,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PREVIOUS,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_previous,
                 __buffer,
             )
         };
@@ -833,7 +871,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PLAY,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_play,
                 __buffer,
             )
         };
@@ -843,7 +882,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PLAY,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_play,
                 __buffer,
             )
         };
@@ -856,7 +896,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PAUSE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_pause,
                 __buffer,
             )
         };
@@ -866,7 +907,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_PAUSE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_pause,
                 __buffer,
             )
         };
@@ -886,7 +928,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN_LATENT,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_open_latent,
                 __buffer,
             )
         };
@@ -931,7 +974,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN_LATENT,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_open_latent,
                 __buffer,
             )
         };
@@ -947,7 +991,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_open,
                 __buffer,
             )
         };
@@ -957,7 +1002,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_OPEN,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_open,
                 __buffer,
             )
         };
@@ -970,7 +1016,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_NEXT,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_next,
                 __buffer,
             )
         };
@@ -980,7 +1027,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_NEXT,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_next,
                 __buffer,
             )
         };
@@ -994,7 +1042,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_MEDIA_PLATE_PLAYING,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_is_media_plate_playing,
                 __buffer,
             )
         };
@@ -1004,7 +1053,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_MEDIA_PLATE_PLAYING,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_is_media_plate_playing,
                 __buffer,
             )
         };
@@ -1021,7 +1071,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_EVENT_STATE_CHANGE_ALLOWED,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_is_event_state_change_allowed,
                 __buffer,
             )
         };
@@ -1038,7 +1089,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_IS_EVENT_STATE_CHANGE_ALLOWED,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_is_event_state_change_allowed,
                 __buffer,
             )
         };
@@ -1054,7 +1106,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_SELECTED_MEDIA_SOURCE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_selected_media_source,
                 __buffer,
             )
         };
@@ -1064,7 +1117,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_SELECTED_MEDIA_SOURCE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_selected_media_source,
                 __buffer,
             )
         };
@@ -1083,7 +1137,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MESH_RANGE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_mesh_range,
                 __buffer,
             )
         };
@@ -1093,7 +1148,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MESH_RANGE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_mesh_range,
                 __buffer,
             )
         };
@@ -1112,7 +1168,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_TEXTURE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_media_texture,
                 __buffer,
             )
         };
@@ -1125,7 +1182,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_TEXTURE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_media_texture,
                 __buffer,
             )
         };
@@ -1146,7 +1204,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYLIST,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_media_playlist,
                 __buffer,
             )
         };
@@ -1156,7 +1215,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYLIST,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_media_playlist,
                 __buffer,
             )
         };
@@ -1177,7 +1237,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYER,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_media_player,
                 __buffer,
             )
         };
@@ -1187,7 +1248,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_MEDIA_PLAYER,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_media_player,
                 __buffer,
             )
         };
@@ -1206,7 +1268,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LOOP,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_loop,
                 __buffer,
             )
         };
@@ -1216,7 +1279,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LOOP,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_loop,
                 __buffer,
             )
         };
@@ -1230,7 +1294,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LETTERBOX_ASPECT_RATIO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_letterbox_aspect_ratio,
                 __buffer,
             )
         };
@@ -1240,7 +1305,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_LETTERBOX_ASPECT_RATIO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_letterbox_aspect_ratio,
                 __buffer,
             )
         };
@@ -1254,7 +1320,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_IS_ASPECT_RATIO_AUTO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_is_aspect_ratio_auto,
                 __buffer,
             )
         };
@@ -1264,7 +1331,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_GET_IS_ASPECT_RATIO_AUTO,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_get_is_aspect_ratio_auto,
                 __buffer,
             )
         };
@@ -1278,7 +1346,8 @@ impl UMediaPlateComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_CLOSE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_close,
                 __buffer,
             )
         };
@@ -1288,7 +1357,8 @@ impl UMediaPlateComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_plate::U_MEDIA_PLATE_COMPONENT_CLOSE,
+                crate::bindings::media_plate::__FUNCTION_PTRS
+                    .u_media_plate_component_close,
                 __buffer,
             )
         };

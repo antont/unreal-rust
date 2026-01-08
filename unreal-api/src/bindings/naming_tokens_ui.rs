@@ -1,40 +1,49 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_WIDGET_ARGUMENT_STYLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_TOKEN_ICON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_ERROR_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_BORDER_IMAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_CONTEXTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_CAN_DISPLAY_RESOLVED_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_ON_PRE_EVALUATE_NAMING_TOKENS_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_TOKENIZED_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_RESOLVED_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_TOKEN_ICON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_ERROR_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_BORDER_IMAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_CAN_DISPLAY_RESOLVED_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_naming_tokens_editable_text_set_widget_argument_style: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_set_display_token_icon: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_set_display_error_message: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_set_display_border_image: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_set_contexts: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_set_can_display_resolved_text: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_set_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_on_pre_evaluate_naming_tokens_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_get_tokenized_text: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_get_resolved_text: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_get_display_token_icon: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_get_display_error_message: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_get_display_border_image: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_editable_text_get_can_display_resolved_text: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_naming_tokens_editable_text_set_widget_argument_style: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_set_display_token_icon: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_set_display_error_message: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_set_display_border_image: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_set_contexts: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_set_can_display_resolved_text: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_set_background_color: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_on_pre_evaluate_naming_tokens_delegate_signature: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_get_tokenized_text: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_get_resolved_text: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_get_display_token_icon: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_get_display_error_message: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_get_display_border_image: std::ptr::null_mut(),
+            u_naming_tokens_editable_text_get_can_display_resolved_text: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -44,98 +53,106 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWidgetArgumentStyle"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_WIDGET_ARGUMENT_STYLE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_set_widget_argument_style,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayTokenIcon"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_TOKEN_ICON,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_set_display_token_icon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayErrorMessage"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_ERROR_MESSAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_set_display_error_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayBorderImage"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_BORDER_IMAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_set_display_border_image,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetContexts"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_CONTEXTS,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_set_contexts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCanDisplayResolvedText"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_CAN_DISPLAY_RESOLVED_TEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_set_can_display_resolved_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBackgroundColor"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_SET_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_set_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPreEvaluateNamingTokens__DelegateSignature"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_ON_PRE_EVALUATE_NAMING_TOKENS_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_on_pre_evaluate_naming_tokens_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTokenizedText"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_TOKENIZED_TEXT,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_tokenized_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetResolvedText"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_RESOLVED_TEXT,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_resolved_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayTokenIcon"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_TOKEN_ICON,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_editable_text_get_display_token_icon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayErrorMessage"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_ERROR_MESSAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_get_display_error_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayBorderImage"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_BORDER_IMAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_get_display_border_image,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCanDisplayResolvedText"),
-            &raw mut U_NAMING_TOKENS_EDITABLE_TEXT_GET_CAN_DISPLAY_RESOLVED_TEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_editable_text_get_can_display_resolved_text,
         );
     }
 }
@@ -184,7 +201,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_WIDGET_ARGUMENT_STYLE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_widget_argument_style,
                 __buffer,
             )
         };
@@ -201,7 +219,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_WIDGET_ARGUMENT_STYLE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_widget_argument_style,
                 __buffer,
             )
         };
@@ -214,7 +233,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_TOKEN_ICON,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_token_icon,
                 __buffer,
             )
         };
@@ -227,7 +247,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_TOKEN_ICON,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_token_icon,
                 __buffer,
             )
         };
@@ -240,7 +261,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_ERROR_MESSAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_error_message,
                 __buffer,
             )
         };
@@ -253,7 +275,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_ERROR_MESSAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_error_message,
                 __buffer,
             )
         };
@@ -266,7 +289,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_BORDER_IMAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_border_image,
                 __buffer,
             )
         };
@@ -279,7 +303,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_DISPLAY_BORDER_IMAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_display_border_image,
                 __buffer,
             )
         };
@@ -295,7 +320,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CONTEXTS,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_contexts,
                 __buffer,
             )
         };
@@ -314,7 +340,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CONTEXTS,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_contexts,
                 __buffer,
             )
         };
@@ -327,7 +354,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CAN_DISPLAY_RESOLVED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_can_display_resolved_text,
                 __buffer,
             )
         };
@@ -340,7 +368,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_CAN_DISPLAY_RESOLVED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_can_display_resolved_text,
                 __buffer,
             )
         };
@@ -356,7 +385,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_BACKGROUND_COLOR,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_background_color,
                 __buffer,
             )
         };
@@ -373,7 +403,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_SET_BACKGROUND_COLOR,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_set_background_color,
                 __buffer,
             )
         };
@@ -386,7 +417,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_TOKENIZED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_tokenized_text,
                 __buffer,
             )
         };
@@ -396,7 +428,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_TOKENIZED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_tokenized_text,
                 __buffer,
             )
         };
@@ -410,7 +443,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_RESOLVED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_resolved_text,
                 __buffer,
             )
         };
@@ -420,7 +454,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_RESOLVED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_resolved_text,
                 __buffer,
             )
         };
@@ -434,7 +469,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_TOKEN_ICON,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_token_icon,
                 __buffer,
             )
         };
@@ -444,7 +480,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_TOKEN_ICON,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_token_icon,
                 __buffer,
             )
         };
@@ -458,7 +495,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_ERROR_MESSAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_error_message,
                 __buffer,
             )
         };
@@ -468,7 +506,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_ERROR_MESSAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_error_message,
                 __buffer,
             )
         };
@@ -482,7 +521,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_BORDER_IMAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_border_image,
                 __buffer,
             )
         };
@@ -492,7 +532,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_DISPLAY_BORDER_IMAGE,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_display_border_image,
                 __buffer,
             )
         };
@@ -506,7 +547,8 @@ impl UNamingTokensEditableText {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_CAN_DISPLAY_RESOLVED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_can_display_resolved_text,
                 __buffer,
             )
         };
@@ -516,7 +558,8 @@ impl UNamingTokensEditableText {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens_ui::U_NAMING_TOKENS_EDITABLE_TEXT_GET_CAN_DISPLAY_RESOLVED_TEXT,
+                crate::bindings::naming_tokens_ui::__FUNCTION_PTRS
+                    .u_naming_tokens_editable_text_get_can_display_resolved_text,
                 __buffer,
             )
         };

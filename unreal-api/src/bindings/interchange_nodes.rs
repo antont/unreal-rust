@@ -1,704 +1,713 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_HEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_FOCAL_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_ENABLE_DEPTH_OF_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_HEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_FOCAL_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_ENABLE_DEPTH_OF_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_PROJECTION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_NEAR_CLIP_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FAR_CLIP_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_ASPECT_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_PROJECTION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_NEAR_CLIP_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FAR_CLIP_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_ASPECT_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_NODE_SET_CUSTOM_SHADER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_NODE_GET_CUSTOM_SHADER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_NODE_ADD_STRING_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_NODE_ADD_LINEAR_COLOR_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_NODE_ADD_FLOAT_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_SORT_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_MATERIAL_PATH_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_SORT_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_MATERIAL_PATH_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_SET_PAY_LOAD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_SRGB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_COLOR_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOMB_FLIP_GREEN_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_SRGB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_COLOR_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOMB_FLIP_GREEN_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_SET_CUSTOM_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_REMOVE_CUSTOM_ANIMATION_TRACK_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_ADD_CUSTOM_ANIMATION_TRACK_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_SET_CUSTOM_COMPLETION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_GET_CUSTOM_COMPLETION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TRACK_SET_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TIME_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TRACK_SET_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TIME_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_PROPERTY_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_FRAME_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_PAYLOAD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ACTOR_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_PROPERTY_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_FRAME_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_PAYLOAD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ACTOR_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_SET_CUSTOM_USED_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_GET_CUSTOM_USED_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SKELETON_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_STOP_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_START_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_SAMPLE_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_SCENE_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_MORPH_TARGET_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_IS_NODE_ANIMATED_WITH_BAKED_CURVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_SCENE_NODE_ANIMATION_PAYLOAD_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_MORPH_TARGET_NODE_ANIMATION_PAYLOAD_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SKELETON_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_STOP_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_START_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_SAMPLE_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_SET_PAYLOAD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_NUM_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_GROOM_CACHE_ATTRIBUTES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_NUM_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_GROOM_CACHE_ATTRIBUTES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_USE_TEMPERATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_TEMPERATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_LIGHT_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_INTENSITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_USE_TEMPERATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_TEMPERATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_LIGHT_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_INTENSITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_USE_IES_BRIGHTNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_INTENSITY_UNITS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_BRIGHTNESS_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ATTENUATION_RADIUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_USE_IES_BRIGHTNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_INTENSITY_UNITS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_BRIGHTNESS_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ATTENUATION_RADIUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_LIGHT_FALLOFF_EXPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_LIGHT_FALLOFF_EXPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_OUTER_CONE_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_INNER_CONE_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_OUTER_CONE_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_INNER_CONE_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_HEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_HEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_SOURCE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_CUBEMAP_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_SOURCE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_CUBEMAP_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_BLEND_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_VECTOR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_STATIC_SWITCH_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_SCALAR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_BLEND_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_VECTOR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_STATIC_SWITCH_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_SCALAR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_REFERENCE_NODE_SET_CUSTOM_CONTENT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MATERIAL_REFERENCE_NODE_GET_CUSTOM_CONTENT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_RESET_MESH_LOD_NODE_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_REMOVE_MESH_LOD_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_GET_MESH_LOD_NODE_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_ADD_MESH_LOD_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_SKINNED_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_SKELETON_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_SCENE_INSTANCE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_PAY_LOAD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_VERTEX_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_UV_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_POLYGON_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_NORMAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_BINORMAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_SMOOTH_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_COLLISION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_BOUNDING_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_REMOVE_SKELETON_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_REMOVE_SCENE_INSTANCE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_REMOVE_MORPH_TARGET_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_REMOVE_ASSEMBLY_PART_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_IS_SKINNED_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_IS_MORPH_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDECIES_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDECIES_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_VERTEX_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_UV_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_POLYGON_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_NORMAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_BINORMAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_SMOOTH_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_COLLISION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_BOUNDING_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_MESH_NODE_ADD_ASSEMBLY_PART_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_HAS_CONSTANT_TOPOLOGY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_HAS_CONSTANT_TOPOLOGY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_COMPONENT_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_PARENT_SCENE_NODE_AND_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_COMPONENT_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_COMPONENT_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_COMPONENT_NODE_ADD_COMPONENT_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_SET_CUSTOM_INSTANCED_ASSET_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_INSTANCE_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_CUSTOM_INSTANCED_ASSET_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_MORPH_TARGET_CURVE_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UI_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_PIVOT_NODE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_IS_SCENE_ROOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_HAS_BIND_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GEOMETRIC_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_COMPONENT_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ASSET_INSTANCE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ACTOR_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_SET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_REMOVE_SPECIALIZED_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_IS_SPECIALIZED_TYPE_CONTAINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_MORPH_TARGET_CURVE_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_PIVOT_NODE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_IS_SCENE_ROOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_HAS_BIND_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GEOMETRIC_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_COMPONENT_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ASSET_INSTANCE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ACTOR_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_COMPONENT_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_GET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_ADD_SPECIALIZED_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_NODE_ADD_COMPONENT_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_VALUE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_CONNECTION_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_IS_A_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_IS_AN_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_HAS_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_HAS_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_GET_INPUT_CONNECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_GATHER_INPUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT_FROM_OUTPUT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_PORTS_API_CONNECT_DEFAULT_OUPUT_TO_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_SET_CUSTOM_MATERIAL_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_GET_CUSTOM_MATERIAL_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED_TRANSMISSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_SCREEN_SPACE_REFLECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_OPACITY_MASK_CLIP_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_IS_A_SHADER_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_DISPLACEMENT_CENTER_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_BLEND_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED_TRANSMISSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_SCREEN_SPACE_REFLECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_OPACITY_MASK_CLIP_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_IS_A_SHADER_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_DISPLACEMENT_CENTER_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_BLEND_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_FORMAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_FORMAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE2_D_NODE_SET_FORCE_LONG_LAT_CUBEMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_V: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_U: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_SOURCE_BLOCKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_FORCE_LONG_LAT_CUBEMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_V: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_U: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_VARIANTS_PAYLOAD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_DISPLAY_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_REMOVE_CUSTOM_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_VARIANTS_PAYLOAD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DISPLAY_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VARIANT_SET_NODE_ADD_CUSTOM_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_REMOVE_CUSTOM_VARIANT_SET_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_ADD_CUSTOM_VARIANT_SET_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_FILE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_ANIMATION_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_GRID_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_FRAME_INDEX_IN_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDICES_IN_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDEX_IN_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FILE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_ANIMATION_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_GRID_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_FRAME_INDEX_IN_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_NUM_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_DIMENSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_ELEMENT_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_NUM_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_DIMENSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MAX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_ELEMENT_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_interchange_physical_camera_node_set_custom_sensor_width: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_physical_camera_node_set_custom_sensor_height: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_physical_camera_node_set_custom_focal_length: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_physical_camera_node_set_custom_enable_depth_of_field: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_physical_camera_node_get_custom_sensor_width: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_physical_camera_node_get_custom_sensor_height: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_physical_camera_node_get_custom_focal_length: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_physical_camera_node_get_custom_enable_depth_of_field: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_set_custom_width: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_set_custom_projection_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_set_custom_near_clip_plane: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_set_custom_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_set_custom_far_clip_plane: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_set_custom_aspect_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_get_custom_width: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_get_custom_projection_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_get_custom_near_clip_plane: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_get_custom_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_get_custom_far_clip_plane: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_standard_camera_node_get_custom_aspect_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_node_set_custom_shader_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_node_get_custom_shader_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_node_add_string_input: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_node_add_linear_color_input: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_node_add_float_input: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_decal_node_set_custom_sort_order: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_decal_node_set_custom_decal_size: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_decal_node_set_custom_decal_material_path_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_decal_node_get_custom_sort_order: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_decal_node_get_custom_decal_size: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_decal_node_get_custom_decal_material_path_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_set_pay_load_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_set_custom_srgb: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_set_custom_filter: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_set_custom_color_space: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_set_customb_flip_green_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_get_custom_srgb: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_get_custom_filter: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_get_custom_color_space: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture_node_get_customb_flip_green_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_node_set_custom_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_node_remove_custom_animation_track_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_node_get_custom_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_node_get_custom_animation_track_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_node_get_custom_animation_track_uid_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_node_get_custom_animation_track_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_node_add_custom_animation_track_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_base_node_set_custom_completion_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_base_node_get_custom_completion_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_set_custom_track_set_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_set_custom_time_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_set_custom_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_set_custom_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_get_custom_track_set_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_get_custom_time_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_get_custom_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_set_instance_node_get_custom_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_set_custom_property_track: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_set_custom_frame_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_set_custom_animation_payload_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_set_custom_actor_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_get_custom_property_track: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_get_custom_frame_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_get_custom_animation_payload_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_animation_track_node_get_custom_actor_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_transform_animation_track_node_set_custom_used_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_transform_animation_track_node_get_custom_used_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_stop_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_start_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_custom_skeleton_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_custom_animation_stop_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_custom_animation_start_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_custom_animation_sample_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_scene_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_morph_target_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_is_node_animated_with_baked_curve: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_scene_node_animation_payload_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_morph_target_node_animation_payload_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_stop_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_start_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_custom_skeleton_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_custom_animation_stop_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_custom_animation_start_time: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_skeletal_animation_track_node_get_custom_animation_sample_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_set_payload_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_set_custom_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_set_custom_num_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_set_custom_groom_cache_attributes: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_set_custom_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_set_custom_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_get_custom_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_get_custom_num_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_get_custom_groom_cache_attributes: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_get_custom_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_groom_node_get_custom_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_set_custom_use_temperature: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_set_custom_temperature: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_set_custom_light_color: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_set_custom_intensity: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_get_custom_use_temperature: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_get_custom_temperature: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_get_custom_light_color: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_light_node_get_custom_intensity: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_set_custom_use_ies_brightness: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_set_custom_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_set_custom_intensity_units: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_set_custom_ies_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_set_custom_ies_brightness_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_set_custom_attenuation_radius: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_get_custom_use_ies_brightness: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_get_custom_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_get_custom_intensity_units: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_get_custom_ies_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_get_custom_ies_brightness_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_light_node_get_custom_attenuation_radius: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_point_light_node_set_custom_use_inverse_squared_falloff: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_point_light_node_set_custom_light_falloff_exponent: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_point_light_node_get_custom_use_inverse_squared_falloff: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_point_light_node_get_custom_light_falloff_exponent: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_spot_light_node_set_custom_outer_cone_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_spot_light_node_set_custom_inner_cone_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_spot_light_node_get_custom_outer_cone_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_spot_light_node_get_custom_inner_cone_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_rect_light_node_set_custom_source_width: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_rect_light_node_set_custom_source_height: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_rect_light_node_get_custom_source_width: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_rect_light_node_get_custom_source_height: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_sky_light_node_set_custom_source_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_sky_light_node_set_custom_cubemap_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_sky_light_node_get_custom_source_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_sky_light_node_get_custom_cubemap_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_set_custom_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_set_custom_blend_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_get_vector_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_get_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_get_static_switch_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_get_scalar_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_get_custom_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_get_custom_blend_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_add_vector_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_add_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_add_static_switch_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_instance_node_add_scalar_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_reference_node_set_custom_content_path: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_material_reference_node_get_custom_content_path: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_lod_container_node_reset_mesh_lod_node_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_lod_container_node_remove_mesh_lod_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_lod_container_node_get_mesh_lod_node_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_lod_container_node_add_mesh_lod_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_slot_material_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_skinned_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_skeleton_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_scene_instance_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_pay_load_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_morph_target_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_morph_target_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_morph_target: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_vertex_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_uv_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_polygon_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_has_vertex_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_has_vertex_normal: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_has_vertex_color: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_has_vertex_binormal: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_has_smooth_group: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_collision_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_set_custom_bounding_box: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_remove_slot_material_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_remove_skeleton_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_remove_scene_instance_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_remove_morph_target_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_remove_assembly_part_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_is_skinned_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_is_morph_target: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_slot_material_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_slot_material_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_skeleton_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_skeleton_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_skeleton_dependecies_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_scene_instance_uids_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_scene_instance_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_scene_instance_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_morph_target_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_morph_target_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_morph_target_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_morph_target_dependecies_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_vertex_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_uv_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_polygon_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_has_vertex_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_has_vertex_normal: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_has_vertex_color: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_has_vertex_binormal: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_has_smooth_group: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_collision_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_custom_bounding_box: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_assembly_part_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_assembly_part_dependencies_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_get_assembly_part_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_mesh_node_add_assembly_part_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_set_custom_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_set_custom_has_constant_topology: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_set_custom_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_set_custom_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_get_custom_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_get_custom_has_constant_topology: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_get_custom_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_geometry_cache_node_get_custom_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_component_node_set_custom_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_component_node_set_custom_component_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_component_node_get_parent_scene_node_and_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_component_node_get_custom_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_component_node_get_custom_component_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_component_node_get_component_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_component_node_add_component_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_static_mesh_component_node_set_custom_instanced_asset_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_static_mesh_component_node_get_instance_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_static_mesh_component_node_get_custom_instanced_asset_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_static_mesh_component_node_add_instance_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_static_mesh_component_node_add_instance_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_slot_material_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_morph_target_curve_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_global_bind_pose_reference_for_mesh_ui_ds: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_time_zero_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_pivot_node_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_is_scene_root: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_has_bind_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_global_matrix_for_t0_rebinding: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_geometric_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_component_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_bind_pose_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_asset_instance_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_animation_asset_uid_to_play: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_custom_actor_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_set_animation_curve_type_for_curve_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_remove_specialized_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_remove_slot_material_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_is_specialized_type_contains: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_specialized_types: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_specialized_type_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_specialized_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_slot_material_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_slot_material_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_morph_target_curve_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_global_bind_pose_reference_for_mesh_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_time_zero_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_time_zero_global_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_pivot_node_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_is_scene_root: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_has_bind_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_global_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_global_matrix_for_t0_rebinding: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_geometric_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_component_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_bind_pose_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_bind_pose_global_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_asset_instance_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_animation_asset_uid_to_play: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_custom_actor_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_component_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_get_animation_curve_type_for_curve_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_add_specialized_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_node_add_component_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_make_input_value_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_make_input_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_make_input_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_make_input_connection_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_is_a_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_is_an_input: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_has_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_has_input: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_get_input_connection: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_gather_inputs: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_disconnect_input_from_output_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_disconnect_input: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_connect_ouput_to_input_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_connect_ouput_to_input_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_ports_api_connect_default_ouput_to_input: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_function_call_shader_node_set_custom_material_function: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_function_call_shader_node_get_custom_material_function: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_set_custom_two_sided_transmission: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_set_custom_two_sided: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_set_custom_screen_space_reflections: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_set_custom_opacity_mask_clip_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_set_custom_is_a_shader_function: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_set_custom_displacement_center_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_set_custom_blend_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_get_custom_two_sided_transmission: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_get_custom_two_sided: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_get_custom_screen_space_reflections: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_get_custom_opacity_mask_clip_value: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_get_custom_is_a_shader_function: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_get_custom_displacement_center_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_shader_graph_node_get_custom_blend_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_specular_profile_node_set_custom_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_specular_profile_node_set_custom_format: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_specular_profile_node_get_custom_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_specular_profile_node_get_custom_format: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture2_d_node_set_force_long_lat_cubemap: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture2_d_node_set_custom_wrap_v: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture2_d_node_set_custom_wrap_u: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture2_d_node_get_source_blocks: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture2_d_node_get_force_long_lat_cubemap: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture2_d_node_get_custom_wrap_v: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_texture2_d_node_get_custom_wrap_u: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_set_custom_variants_payload_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_set_custom_display_text: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_remove_custom_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_get_custom_variants_payload_key: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_get_custom_display_text: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_get_custom_dependency_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_get_custom_dependency_uid_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_get_custom_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_variant_set_node_add_custom_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_variant_sets_node_remove_custom_variant_set_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_variant_sets_node_get_custom_variant_set_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_variant_sets_node_get_custom_variant_set_uid_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_variant_sets_node_get_custom_variant_set_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_scene_variant_sets_node_add_custom_variant_set_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_set_custom_file_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_set_custom_animation_id: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_remove_custom_grid_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_remove_custom_frame_index_in_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_get_custom_grid_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_get_custom_grid_dependecies_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_get_custom_grid_dependecies: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_get_custom_frame_indices_in_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_get_custom_frame_index_in_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_get_custom_file_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_get_custom_animation_id: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_add_custom_grid_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_node_add_custom_frame_index_in_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_set_custom_num_components: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_set_custom_grid_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_set_custom_grid_active_dimensions: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_set_custom_grid_active_aabb_min: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_set_custom_grid_active_aabb_max: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_set_custom_element_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_get_custom_num_components: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_get_custom_grid_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_get_custom_grid_active_dimensions: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_get_custom_grid_active_aabb_min: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_get_custom_grid_active_aabb_max: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_volume_grid_node_get_custom_element_type: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_interchange_physical_camera_node_set_custom_sensor_width: std::ptr::null_mut(),
+            u_interchange_physical_camera_node_set_custom_sensor_height: std::ptr::null_mut(),
+            u_interchange_physical_camera_node_set_custom_focal_length: std::ptr::null_mut(),
+            u_interchange_physical_camera_node_set_custom_enable_depth_of_field: std::ptr::null_mut(),
+            u_interchange_physical_camera_node_get_custom_sensor_width: std::ptr::null_mut(),
+            u_interchange_physical_camera_node_get_custom_sensor_height: std::ptr::null_mut(),
+            u_interchange_physical_camera_node_get_custom_focal_length: std::ptr::null_mut(),
+            u_interchange_physical_camera_node_get_custom_enable_depth_of_field: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_set_custom_width: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_set_custom_projection_mode: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_set_custom_near_clip_plane: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_set_custom_field_of_view: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_set_custom_far_clip_plane: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_set_custom_aspect_ratio: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_get_custom_width: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_get_custom_projection_mode: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_get_custom_near_clip_plane: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_get_custom_field_of_view: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_get_custom_far_clip_plane: std::ptr::null_mut(),
+            u_interchange_standard_camera_node_get_custom_aspect_ratio: std::ptr::null_mut(),
+            u_interchange_shader_node_set_custom_shader_type: std::ptr::null_mut(),
+            u_interchange_shader_node_get_custom_shader_type: std::ptr::null_mut(),
+            u_interchange_shader_node_add_string_input: std::ptr::null_mut(),
+            u_interchange_shader_node_add_linear_color_input: std::ptr::null_mut(),
+            u_interchange_shader_node_add_float_input: std::ptr::null_mut(),
+            u_interchange_decal_node_set_custom_sort_order: std::ptr::null_mut(),
+            u_interchange_decal_node_set_custom_decal_size: std::ptr::null_mut(),
+            u_interchange_decal_node_set_custom_decal_material_path_name: std::ptr::null_mut(),
+            u_interchange_decal_node_get_custom_sort_order: std::ptr::null_mut(),
+            u_interchange_decal_node_get_custom_decal_size: std::ptr::null_mut(),
+            u_interchange_decal_node_get_custom_decal_material_path_name: std::ptr::null_mut(),
+            u_interchange_texture_node_set_pay_load_key: std::ptr::null_mut(),
+            u_interchange_texture_node_set_custom_srgb: std::ptr::null_mut(),
+            u_interchange_texture_node_set_custom_filter: std::ptr::null_mut(),
+            u_interchange_texture_node_set_custom_color_space: std::ptr::null_mut(),
+            u_interchange_texture_node_set_customb_flip_green_channel: std::ptr::null_mut(),
+            u_interchange_texture_node_get_custom_srgb: std::ptr::null_mut(),
+            u_interchange_texture_node_get_custom_filter: std::ptr::null_mut(),
+            u_interchange_texture_node_get_custom_color_space: std::ptr::null_mut(),
+            u_interchange_texture_node_get_customb_flip_green_channel: std::ptr::null_mut(),
+            u_interchange_animation_track_set_node_set_custom_frame_rate: std::ptr::null_mut(),
+            u_interchange_animation_track_set_node_remove_custom_animation_track_uid: std::ptr::null_mut(),
+            u_interchange_animation_track_set_node_get_custom_frame_rate: std::ptr::null_mut(),
+            u_interchange_animation_track_set_node_get_custom_animation_track_uids: std::ptr::null_mut(),
+            u_interchange_animation_track_set_node_get_custom_animation_track_uid_count: std::ptr::null_mut(),
+            u_interchange_animation_track_set_node_get_custom_animation_track_uid: std::ptr::null_mut(),
+            u_interchange_animation_track_set_node_add_custom_animation_track_uid: std::ptr::null_mut(),
+            u_interchange_animation_track_base_node_set_custom_completion_mode: std::ptr::null_mut(),
+            u_interchange_animation_track_base_node_get_custom_completion_mode: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_set_custom_track_set_dependency_uid: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_set_custom_time_scale: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_set_custom_start_frame: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_set_custom_duration: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_get_custom_track_set_dependency_uid: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_get_custom_time_scale: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_get_custom_start_frame: std::ptr::null_mut(),
+            u_interchange_animation_track_set_instance_node_get_custom_duration: std::ptr::null_mut(),
+            u_interchange_animation_track_node_set_custom_property_track: std::ptr::null_mut(),
+            u_interchange_animation_track_node_set_custom_frame_count: std::ptr::null_mut(),
+            u_interchange_animation_track_node_set_custom_animation_payload_key: std::ptr::null_mut(),
+            u_interchange_animation_track_node_set_custom_actor_dependency_uid: std::ptr::null_mut(),
+            u_interchange_animation_track_node_get_custom_property_track: std::ptr::null_mut(),
+            u_interchange_animation_track_node_get_custom_frame_count: std::ptr::null_mut(),
+            u_interchange_animation_track_node_get_custom_animation_payload_key: std::ptr::null_mut(),
+            u_interchange_animation_track_node_get_custom_actor_dependency_uid: std::ptr::null_mut(),
+            u_interchange_transform_animation_track_node_set_custom_used_channels: std::ptr::null_mut(),
+            u_interchange_transform_animation_track_node_get_custom_used_channels: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_stop_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_start_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_custom_skeleton_node_uid: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_custom_animation_stop_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_custom_animation_start_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_custom_animation_sample_rate: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_scene_node_uid: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_morph_target_node_uid: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_is_node_animated_with_baked_curve: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_scene_node_animation_payload_keys: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_morph_target_node_animation_payload_keys: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_stop_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_start_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_custom_skeleton_node_uid: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_custom_animation_stop_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_custom_animation_start_time: std::ptr::null_mut(),
+            u_interchange_skeletal_animation_track_node_get_custom_animation_sample_rate: std::ptr::null_mut(),
+            u_interchange_groom_node_set_payload_key: std::ptr::null_mut(),
+            u_interchange_groom_node_set_custom_start_frame: std::ptr::null_mut(),
+            u_interchange_groom_node_set_custom_num_frames: std::ptr::null_mut(),
+            u_interchange_groom_node_set_custom_groom_cache_attributes: std::ptr::null_mut(),
+            u_interchange_groom_node_set_custom_frame_rate: std::ptr::null_mut(),
+            u_interchange_groom_node_set_custom_end_frame: std::ptr::null_mut(),
+            u_interchange_groom_node_get_custom_start_frame: std::ptr::null_mut(),
+            u_interchange_groom_node_get_custom_num_frames: std::ptr::null_mut(),
+            u_interchange_groom_node_get_custom_groom_cache_attributes: std::ptr::null_mut(),
+            u_interchange_groom_node_get_custom_frame_rate: std::ptr::null_mut(),
+            u_interchange_groom_node_get_custom_end_frame: std::ptr::null_mut(),
+            u_interchange_base_light_node_set_custom_use_temperature: std::ptr::null_mut(),
+            u_interchange_base_light_node_set_custom_temperature: std::ptr::null_mut(),
+            u_interchange_base_light_node_set_custom_light_color: std::ptr::null_mut(),
+            u_interchange_base_light_node_set_custom_intensity: std::ptr::null_mut(),
+            u_interchange_base_light_node_get_custom_use_temperature: std::ptr::null_mut(),
+            u_interchange_base_light_node_get_custom_temperature: std::ptr::null_mut(),
+            u_interchange_base_light_node_get_custom_light_color: std::ptr::null_mut(),
+            u_interchange_base_light_node_get_custom_intensity: std::ptr::null_mut(),
+            u_interchange_light_node_set_custom_use_ies_brightness: std::ptr::null_mut(),
+            u_interchange_light_node_set_custom_rotation: std::ptr::null_mut(),
+            u_interchange_light_node_set_custom_intensity_units: std::ptr::null_mut(),
+            u_interchange_light_node_set_custom_ies_texture: std::ptr::null_mut(),
+            u_interchange_light_node_set_custom_ies_brightness_scale: std::ptr::null_mut(),
+            u_interchange_light_node_set_custom_attenuation_radius: std::ptr::null_mut(),
+            u_interchange_light_node_get_custom_use_ies_brightness: std::ptr::null_mut(),
+            u_interchange_light_node_get_custom_rotation: std::ptr::null_mut(),
+            u_interchange_light_node_get_custom_intensity_units: std::ptr::null_mut(),
+            u_interchange_light_node_get_custom_ies_texture: std::ptr::null_mut(),
+            u_interchange_light_node_get_custom_ies_brightness_scale: std::ptr::null_mut(),
+            u_interchange_light_node_get_custom_attenuation_radius: std::ptr::null_mut(),
+            u_interchange_point_light_node_set_custom_use_inverse_squared_falloff: std::ptr::null_mut(),
+            u_interchange_point_light_node_set_custom_light_falloff_exponent: std::ptr::null_mut(),
+            u_interchange_point_light_node_get_custom_use_inverse_squared_falloff: std::ptr::null_mut(),
+            u_interchange_point_light_node_get_custom_light_falloff_exponent: std::ptr::null_mut(),
+            u_interchange_spot_light_node_set_custom_outer_cone_angle: std::ptr::null_mut(),
+            u_interchange_spot_light_node_set_custom_inner_cone_angle: std::ptr::null_mut(),
+            u_interchange_spot_light_node_get_custom_outer_cone_angle: std::ptr::null_mut(),
+            u_interchange_spot_light_node_get_custom_inner_cone_angle: std::ptr::null_mut(),
+            u_interchange_rect_light_node_set_custom_source_width: std::ptr::null_mut(),
+            u_interchange_rect_light_node_set_custom_source_height: std::ptr::null_mut(),
+            u_interchange_rect_light_node_get_custom_source_width: std::ptr::null_mut(),
+            u_interchange_rect_light_node_get_custom_source_height: std::ptr::null_mut(),
+            u_interchange_sky_light_node_set_custom_source_type: std::ptr::null_mut(),
+            u_interchange_sky_light_node_set_custom_cubemap_dependency: std::ptr::null_mut(),
+            u_interchange_sky_light_node_get_custom_source_type: std::ptr::null_mut(),
+            u_interchange_sky_light_node_get_custom_cubemap_dependency: std::ptr::null_mut(),
+            u_interchange_material_instance_node_set_custom_parent: std::ptr::null_mut(),
+            u_interchange_material_instance_node_set_custom_blend_mode: std::ptr::null_mut(),
+            u_interchange_material_instance_node_get_vector_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_instance_node_get_texture_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_instance_node_get_static_switch_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_instance_node_get_scalar_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_instance_node_get_custom_parent: std::ptr::null_mut(),
+            u_interchange_material_instance_node_get_custom_blend_mode: std::ptr::null_mut(),
+            u_interchange_material_instance_node_add_vector_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_instance_node_add_texture_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_instance_node_add_static_switch_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_instance_node_add_scalar_parameter_value: std::ptr::null_mut(),
+            u_interchange_material_reference_node_set_custom_content_path: std::ptr::null_mut(),
+            u_interchange_material_reference_node_get_custom_content_path: std::ptr::null_mut(),
+            u_interchange_mesh_lod_container_node_reset_mesh_lod_node_uids: std::ptr::null_mut(),
+            u_interchange_mesh_lod_container_node_remove_mesh_lod_node_uid: std::ptr::null_mut(),
+            u_interchange_mesh_lod_container_node_get_mesh_lod_node_uids: std::ptr::null_mut(),
+            u_interchange_mesh_lod_container_node_add_mesh_lod_node_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_slot_material_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_skinned_mesh: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_skeleton_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_scene_instance_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_pay_load_key: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_morph_target_name: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_morph_target_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_morph_target: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_vertex_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_uv_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_polygon_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_has_vertex_tangent: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_has_vertex_normal: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_has_vertex_color: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_has_vertex_binormal: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_has_smooth_group: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_collision_type: std::ptr::null_mut(),
+            u_interchange_mesh_node_set_custom_bounding_box: std::ptr::null_mut(),
+            u_interchange_mesh_node_remove_slot_material_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_remove_skeleton_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_remove_scene_instance_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_remove_morph_target_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_remove_assembly_part_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_is_skinned_mesh: std::ptr::null_mut(),
+            u_interchange_mesh_node_is_morph_target: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_slot_material_dependency_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_slot_material_dependencies: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_skeleton_dependency: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_skeleton_dependencies: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_skeleton_dependecies_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_scene_instance_uids_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_scene_instance_uids: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_scene_instance_uid: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_morph_target_name: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_morph_target_dependency: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_morph_target_dependencies: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_morph_target_dependecies_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_vertex_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_uv_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_polygon_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_has_vertex_tangent: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_has_vertex_normal: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_has_vertex_color: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_has_vertex_binormal: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_has_smooth_group: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_collision_type: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_custom_bounding_box: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_assembly_part_dependency: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_assembly_part_dependencies_count: std::ptr::null_mut(),
+            u_interchange_mesh_node_get_assembly_part_dependencies: std::ptr::null_mut(),
+            u_interchange_mesh_node_add_assembly_part_dependency_uid: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_set_custom_start_frame: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_set_custom_has_constant_topology: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_set_custom_frame_rate: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_set_custom_end_frame: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_get_custom_start_frame: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_get_custom_has_constant_topology: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_get_custom_frame_rate: std::ptr::null_mut(),
+            u_interchange_geometry_cache_node_get_custom_end_frame: std::ptr::null_mut(),
+            u_interchange_scene_component_node_set_custom_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_component_node_set_custom_component_visibility: std::ptr::null_mut(),
+            u_interchange_scene_component_node_get_parent_scene_node_and_transform: std::ptr::null_mut(),
+            u_interchange_scene_component_node_get_custom_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_component_node_get_custom_component_visibility: std::ptr::null_mut(),
+            u_interchange_scene_component_node_get_component_uids: std::ptr::null_mut(),
+            u_interchange_scene_component_node_add_component_uid: std::ptr::null_mut(),
+            u_interchange_instanced_static_mesh_component_node_set_custom_instanced_asset_uid: std::ptr::null_mut(),
+            u_interchange_instanced_static_mesh_component_node_get_instance_transforms: std::ptr::null_mut(),
+            u_interchange_instanced_static_mesh_component_node_get_custom_instanced_asset_uid: std::ptr::null_mut(),
+            u_interchange_instanced_static_mesh_component_node_add_instance_transforms: std::ptr::null_mut(),
+            u_interchange_instanced_static_mesh_component_node_add_instance_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_set_slot_material_dependency_uid: std::ptr::null_mut(),
+            u_interchange_scene_node_set_morph_target_curve_weight: std::ptr::null_mut(),
+            u_interchange_scene_node_set_global_bind_pose_reference_for_mesh_ui_ds: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_time_zero_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_pivot_node_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_is_scene_root: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_has_bind_pose: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_global_matrix_for_t0_rebinding: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_geometric_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_component_visibility: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_bind_pose_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_asset_instance_uid: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_animation_asset_uid_to_play: std::ptr::null_mut(),
+            u_interchange_scene_node_set_custom_actor_visibility: std::ptr::null_mut(),
+            u_interchange_scene_node_set_animation_curve_type_for_curve_name: std::ptr::null_mut(),
+            u_interchange_scene_node_remove_specialized_type: std::ptr::null_mut(),
+            u_interchange_scene_node_remove_slot_material_dependency_uid: std::ptr::null_mut(),
+            u_interchange_scene_node_is_specialized_type_contains: std::ptr::null_mut(),
+            u_interchange_scene_node_get_specialized_types: std::ptr::null_mut(),
+            u_interchange_scene_node_get_specialized_type_count: std::ptr::null_mut(),
+            u_interchange_scene_node_get_specialized_type: std::ptr::null_mut(),
+            u_interchange_scene_node_get_slot_material_dependency_uid: std::ptr::null_mut(),
+            u_interchange_scene_node_get_slot_material_dependencies: std::ptr::null_mut(),
+            u_interchange_scene_node_get_morph_target_curve_weights: std::ptr::null_mut(),
+            u_interchange_scene_node_get_global_bind_pose_reference_for_mesh_uid: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_time_zero_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_time_zero_global_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_pivot_node_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_is_scene_root: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_has_bind_pose: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_global_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_global_matrix_for_t0_rebinding: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_geometric_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_component_visibility: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_bind_pose_local_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_bind_pose_global_transform: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_asset_instance_uid: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_animation_asset_uid_to_play: std::ptr::null_mut(),
+            u_interchange_scene_node_get_custom_actor_visibility: std::ptr::null_mut(),
+            u_interchange_scene_node_get_component_uids: std::ptr::null_mut(),
+            u_interchange_scene_node_get_animation_curve_type_for_curve_name: std::ptr::null_mut(),
+            u_interchange_scene_node_add_specialized_type: std::ptr::null_mut(),
+            u_interchange_scene_node_add_component_uid: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_make_input_value_key: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_make_input_parameter_key: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_make_input_name: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_make_input_connection_key: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_is_a_parameter: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_is_an_input: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_has_parameter: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_has_input: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_get_input_connection: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_gather_inputs: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_disconnect_input_from_output_node: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_disconnect_input: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_connect_ouput_to_input_by_name: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_connect_ouput_to_input_by_index: std::ptr::null_mut(),
+            u_interchange_shader_ports_api_connect_default_ouput_to_input: std::ptr::null_mut(),
+            u_interchange_function_call_shader_node_set_custom_material_function: std::ptr::null_mut(),
+            u_interchange_function_call_shader_node_get_custom_material_function: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_set_custom_two_sided_transmission: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_set_custom_two_sided: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_set_custom_screen_space_reflections: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_set_custom_opacity_mask_clip_value: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_set_custom_is_a_shader_function: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_set_custom_displacement_center_mode: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_set_custom_blend_mode: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_get_custom_two_sided_transmission: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_get_custom_two_sided: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_get_custom_screen_space_reflections: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_get_custom_opacity_mask_clip_value: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_get_custom_is_a_shader_function: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_get_custom_displacement_center_mode: std::ptr::null_mut(),
+            u_interchange_shader_graph_node_get_custom_blend_mode: std::ptr::null_mut(),
+            u_interchange_specular_profile_node_set_custom_texture: std::ptr::null_mut(),
+            u_interchange_specular_profile_node_set_custom_format: std::ptr::null_mut(),
+            u_interchange_specular_profile_node_get_custom_texture: std::ptr::null_mut(),
+            u_interchange_specular_profile_node_get_custom_format: std::ptr::null_mut(),
+            u_interchange_texture2_d_node_set_force_long_lat_cubemap: std::ptr::null_mut(),
+            u_interchange_texture2_d_node_set_custom_wrap_v: std::ptr::null_mut(),
+            u_interchange_texture2_d_node_set_custom_wrap_u: std::ptr::null_mut(),
+            u_interchange_texture2_d_node_get_source_blocks: std::ptr::null_mut(),
+            u_interchange_texture2_d_node_get_force_long_lat_cubemap: std::ptr::null_mut(),
+            u_interchange_texture2_d_node_get_custom_wrap_v: std::ptr::null_mut(),
+            u_interchange_texture2_d_node_get_custom_wrap_u: std::ptr::null_mut(),
+            u_interchange_variant_set_node_set_custom_variants_payload_key: std::ptr::null_mut(),
+            u_interchange_variant_set_node_set_custom_display_text: std::ptr::null_mut(),
+            u_interchange_variant_set_node_remove_custom_dependency_uid: std::ptr::null_mut(),
+            u_interchange_variant_set_node_get_custom_variants_payload_key: std::ptr::null_mut(),
+            u_interchange_variant_set_node_get_custom_display_text: std::ptr::null_mut(),
+            u_interchange_variant_set_node_get_custom_dependency_uids: std::ptr::null_mut(),
+            u_interchange_variant_set_node_get_custom_dependency_uid_count: std::ptr::null_mut(),
+            u_interchange_variant_set_node_get_custom_dependency_uid: std::ptr::null_mut(),
+            u_interchange_variant_set_node_add_custom_dependency_uid: std::ptr::null_mut(),
+            u_interchange_scene_variant_sets_node_remove_custom_variant_set_uid: std::ptr::null_mut(),
+            u_interchange_scene_variant_sets_node_get_custom_variant_set_uids: std::ptr::null_mut(),
+            u_interchange_scene_variant_sets_node_get_custom_variant_set_uid_count: std::ptr::null_mut(),
+            u_interchange_scene_variant_sets_node_get_custom_variant_set_uid: std::ptr::null_mut(),
+            u_interchange_scene_variant_sets_node_add_custom_variant_set_uid: std::ptr::null_mut(),
+            u_interchange_volume_node_set_custom_file_name: std::ptr::null_mut(),
+            u_interchange_volume_node_set_custom_animation_id: std::ptr::null_mut(),
+            u_interchange_volume_node_remove_custom_grid_dependency: std::ptr::null_mut(),
+            u_interchange_volume_node_remove_custom_frame_index_in_animation: std::ptr::null_mut(),
+            u_interchange_volume_node_get_custom_grid_dependency: std::ptr::null_mut(),
+            u_interchange_volume_node_get_custom_grid_dependecies_count: std::ptr::null_mut(),
+            u_interchange_volume_node_get_custom_grid_dependecies: std::ptr::null_mut(),
+            u_interchange_volume_node_get_custom_frame_indices_in_animation: std::ptr::null_mut(),
+            u_interchange_volume_node_get_custom_frame_index_in_animation: std::ptr::null_mut(),
+            u_interchange_volume_node_get_custom_file_name: std::ptr::null_mut(),
+            u_interchange_volume_node_get_custom_animation_id: std::ptr::null_mut(),
+            u_interchange_volume_node_add_custom_grid_dependency: std::ptr::null_mut(),
+            u_interchange_volume_node_add_custom_frame_index_in_animation: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_set_custom_num_components: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_set_custom_grid_transform: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_set_custom_grid_active_dimensions: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_set_custom_grid_active_aabb_min: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_set_custom_grid_active_aabb_max: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_set_custom_element_type: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_get_custom_num_components: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_get_custom_grid_transform: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_get_custom_grid_active_dimensions: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_get_custom_grid_active_aabb_min: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_get_custom_grid_active_aabb_max: std::ptr::null_mut(),
+            u_interchange_volume_grid_node_get_custom_element_type: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -708,56 +717,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSensorWidth"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_WIDTH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_set_custom_sensor_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSensorHeight"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_HEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_set_custom_sensor_height,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFocalLength"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_FOCAL_LENGTH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_set_custom_focal_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomEnableDepthOfField"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_set_custom_enable_depth_of_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSensorWidth"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_WIDTH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_get_custom_sensor_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSensorHeight"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_HEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_get_custom_sensor_height,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFocalLength"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_FOCAL_LENGTH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_get_custom_focal_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomEnableDepthOfField"),
-            &raw mut U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_physical_camera_node_get_custom_enable_depth_of_field,
         );
     }
     unsafe {
@@ -768,84 +785,94 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomWidth"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_WIDTH,
+            &raw mut __FUNCTION_PTRS.u_interchange_standard_camera_node_set_custom_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomProjectionMode"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_PROJECTION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_set_custom_projection_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomNearClipPlane"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_NEAR_CLIP_PLANE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_set_custom_near_clip_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFieldOfView"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_set_custom_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFarClipPlane"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FAR_CLIP_PLANE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_set_custom_far_clip_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAspectRatio"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_ASPECT_RATIO,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_set_custom_aspect_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomWidth"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_WIDTH,
+            &raw mut __FUNCTION_PTRS.u_interchange_standard_camera_node_get_custom_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomProjectionMode"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_PROJECTION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_get_custom_projection_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomNearClipPlane"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_NEAR_CLIP_PLANE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_get_custom_near_clip_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFieldOfView"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_get_custom_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFarClipPlane"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FAR_CLIP_PLANE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_get_custom_far_clip_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAspectRatio"),
-            &raw mut U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_ASPECT_RATIO,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_standard_camera_node_get_custom_aspect_ratio,
         );
     }
     unsafe {
@@ -856,35 +883,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomShaderType"),
-            &raw mut U_INTERCHANGE_SHADER_NODE_SET_CUSTOM_SHADER_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_node_set_custom_shader_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomShaderType"),
-            &raw mut U_INTERCHANGE_SHADER_NODE_GET_CUSTOM_SHADER_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_node_get_custom_shader_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddStringInput"),
-            &raw mut U_INTERCHANGE_SHADER_NODE_ADD_STRING_INPUT,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_node_add_string_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLinearColorInput"),
-            &raw mut U_INTERCHANGE_SHADER_NODE_ADD_LINEAR_COLOR_INPUT,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_node_add_linear_color_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFloatInput"),
-            &raw mut U_INTERCHANGE_SHADER_NODE_ADD_FLOAT_INPUT,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_node_add_float_input,
         );
     }
     unsafe {
@@ -895,42 +922,44 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSortOrder"),
-            &raw mut U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_SORT_ORDER,
+            &raw mut __FUNCTION_PTRS.u_interchange_decal_node_set_custom_sort_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomDecalSize"),
-            &raw mut U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_SIZE,
+            &raw mut __FUNCTION_PTRS.u_interchange_decal_node_set_custom_decal_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomDecalMaterialPathName"),
-            &raw mut U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_decal_node_set_custom_decal_material_path_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSortOrder"),
-            &raw mut U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_SORT_ORDER,
+            &raw mut __FUNCTION_PTRS.u_interchange_decal_node_get_custom_sort_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDecalSize"),
-            &raw mut U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_SIZE,
+            &raw mut __FUNCTION_PTRS.u_interchange_decal_node_get_custom_decal_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDecalMaterialPathName"),
-            &raw mut U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_decal_node_get_custom_decal_material_path_name,
         );
     }
     unsafe {
@@ -941,63 +970,65 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPayLoadKey"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_SET_PAY_LOAD_KEY,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture_node_set_pay_load_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSRGB"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_SRGB,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture_node_set_custom_srgb,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFilter"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_FILTER,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture_node_set_custom_filter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomColorSpace"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_COLOR_SPACE,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture_node_set_custom_color_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustombFlipGreenChannel"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOMB_FLIP_GREEN_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_texture_node_set_customb_flip_green_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSRGB"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_SRGB,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture_node_get_custom_srgb,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFilter"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_FILTER,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture_node_get_custom_filter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomColorSpace"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_COLOR_SPACE,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture_node_get_custom_color_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustombFlipGreenChannel"),
-            &raw mut U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOMB_FLIP_GREEN_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_texture_node_get_customb_flip_green_channel,
         );
     }
     unsafe {
@@ -1008,49 +1039,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFrameRate"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_SET_CUSTOM_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_node_set_custom_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCustomAnimationTrackUid"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_REMOVE_CUSTOM_ANIMATION_TRACK_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_node_remove_custom_animation_track_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFrameRate"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_node_get_custom_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUids"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_node_get_custom_animation_track_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUidCount"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_node_get_custom_animation_track_uid_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationTrackUid"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_node_get_custom_animation_track_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCustomAnimationTrackUid"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_ADD_CUSTOM_ANIMATION_TRACK_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_node_add_custom_animation_track_uid,
         );
     }
     unsafe {
@@ -1061,14 +1099,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomCompletionMode"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_SET_CUSTOM_COMPLETION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_base_node_set_custom_completion_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomCompletionMode"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_GET_CUSTOM_COMPLETION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_base_node_get_custom_completion_mode,
         );
     }
     unsafe {
@@ -1079,56 +1119,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTrackSetDependencyUid"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_set_custom_track_set_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTimeScale"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TIME_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_set_custom_time_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomStartFrame"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_set_custom_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomDuration"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_DURATION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_set_custom_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTrackSetDependencyUid"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_get_custom_track_set_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTimeScale"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TIME_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_get_custom_time_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomStartFrame"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_get_custom_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDuration"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_DURATION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_set_instance_node_get_custom_duration,
         );
     }
     unsafe {
@@ -1139,56 +1187,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomPropertyTrack"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_PROPERTY_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_set_custom_property_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFrameCount"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_FRAME_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_set_custom_frame_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimationPayloadKey"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_set_custom_animation_payload_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomActorDependencyUid"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ACTOR_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_set_custom_actor_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomPropertyTrack"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_PROPERTY_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_get_custom_property_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFrameCount"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_FRAME_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_get_custom_frame_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationPayloadKey"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_get_custom_animation_payload_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomActorDependencyUid"),
-            &raw mut U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ACTOR_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_animation_track_node_get_custom_actor_dependency_uid,
         );
     }
     unsafe {
@@ -1199,14 +1255,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomUsedChannels"),
-            &raw mut U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_SET_CUSTOM_USED_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_transform_animation_track_node_set_custom_used_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomUsedChannels"),
-            &raw mut U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_GET_CUSTOM_USED_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_transform_animation_track_node_get_custom_used_channels,
         );
     }
     unsafe {
@@ -1217,119 +1275,136 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceTimelineAnimationStopTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_stop_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceTimelineAnimationStartTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_start_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSkeletonNodeUid"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SKELETON_NODE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_custom_skeleton_node_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimationStopTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_STOP_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_custom_animation_stop_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimationStartTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_START_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_custom_animation_start_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimationSampleRate"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_SAMPLE_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_custom_animation_sample_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimationPayloadKeyForSceneNodeUid"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_SCENE_NODE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_scene_node_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimationPayloadKeyForMorphTargetNodeUid"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_MORPH_TARGET_NODE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_morph_target_node_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNodeAnimatedWithBakedCurve"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_IS_NODE_ANIMATED_WITH_BAKED_CURVE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_is_node_animated_with_baked_curve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSceneNodeAnimationPayloadKeys"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_SCENE_NODE_ANIMATION_PAYLOAD_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_scene_node_animation_payload_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMorphTargetNodeAnimationPayloadKeys"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_MORPH_TARGET_NODE_ANIMATION_PAYLOAD_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_morph_target_node_animation_payload_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceTimelineAnimationStopTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_stop_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceTimelineAnimationStartTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_start_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSkeletonNodeUid"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SKELETON_NODE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_custom_skeleton_node_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationStopTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_STOP_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_custom_animation_stop_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationStartTime"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_START_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_custom_animation_start_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationSampleRate"),
-            &raw mut U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_SAMPLE_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_skeletal_animation_track_node_get_custom_animation_sample_rate,
         );
     }
     unsafe {
@@ -1340,77 +1415,79 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPayloadKey"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_SET_PAYLOAD_KEY,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_set_payload_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomStartFrame"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_START_FRAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_set_custom_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomNumFrames"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_NUM_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_set_custom_num_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomGroomCacheAttributes"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_groom_node_set_custom_groom_cache_attributes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFrameRate"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_set_custom_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomEndFrame"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_END_FRAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_set_custom_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomStartFrame"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_START_FRAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_get_custom_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomNumFrames"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_NUM_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_get_custom_num_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGroomCacheAttributes"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_groom_node_get_custom_groom_cache_attributes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFrameRate"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_get_custom_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomEndFrame"),
-            &raw mut U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_END_FRAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_groom_node_get_custom_end_frame,
         );
     }
     unsafe {
@@ -1421,56 +1498,58 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomUseTemperature"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_USE_TEMPERATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_light_node_set_custom_use_temperature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTemperature"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_TEMPERATURE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_light_node_set_custom_temperature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomLightColor"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_LIGHT_COLOR,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_light_node_set_custom_light_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomIntensity"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_INTENSITY,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_light_node_set_custom_intensity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomUseTemperature"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_USE_TEMPERATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_light_node_get_custom_use_temperature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTemperature"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_TEMPERATURE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_light_node_get_custom_temperature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomLightColor"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_LIGHT_COLOR,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_light_node_get_custom_light_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomIntensity"),
-            &raw mut U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_INTENSITY,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_light_node_get_custom_intensity,
         );
     }
     unsafe {
@@ -1481,84 +1560,90 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomUseIESBrightness"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_USE_IES_BRIGHTNESS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_light_node_set_custom_use_ies_brightness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomRotation"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ROTATION,
+            &raw mut __FUNCTION_PTRS.u_interchange_light_node_set_custom_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomIntensityUnits"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_INTENSITY_UNITS,
+            &raw mut __FUNCTION_PTRS.u_interchange_light_node_set_custom_intensity_units,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomIESTexture"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_interchange_light_node_set_custom_ies_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomIESBrightnessScale"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_BRIGHTNESS_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_light_node_set_custom_ies_brightness_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAttenuationRadius"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ATTENUATION_RADIUS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_light_node_set_custom_attenuation_radius,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomUseIESBrightness"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_USE_IES_BRIGHTNESS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_light_node_get_custom_use_ies_brightness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomRotation"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ROTATION,
+            &raw mut __FUNCTION_PTRS.u_interchange_light_node_get_custom_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomIntensityUnits"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_INTENSITY_UNITS,
+            &raw mut __FUNCTION_PTRS.u_interchange_light_node_get_custom_intensity_units,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomIESTexture"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_interchange_light_node_get_custom_ies_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomIESBrightnessScale"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_BRIGHTNESS_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_light_node_get_custom_ies_brightness_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAttenuationRadius"),
-            &raw mut U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ATTENUATION_RADIUS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_light_node_get_custom_attenuation_radius,
         );
     }
     unsafe {
@@ -1569,28 +1654,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomUseInverseSquaredFalloff"),
-            &raw mut U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_point_light_node_set_custom_use_inverse_squared_falloff,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomLightFalloffExponent"),
-            &raw mut U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_point_light_node_set_custom_light_falloff_exponent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomUseInverseSquaredFalloff"),
-            &raw mut U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_point_light_node_get_custom_use_inverse_squared_falloff,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomLightFalloffExponent"),
-            &raw mut U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_point_light_node_get_custom_light_falloff_exponent,
         );
     }
     unsafe {
@@ -1601,28 +1690,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomOuterConeAngle"),
-            &raw mut U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_OUTER_CONE_ANGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_spot_light_node_set_custom_outer_cone_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomInnerConeAngle"),
-            &raw mut U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_INNER_CONE_ANGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_spot_light_node_set_custom_inner_cone_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomOuterConeAngle"),
-            &raw mut U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_OUTER_CONE_ANGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_spot_light_node_get_custom_outer_cone_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomInnerConeAngle"),
-            &raw mut U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_INNER_CONE_ANGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_spot_light_node_get_custom_inner_cone_angle,
         );
     }
     unsafe {
@@ -1633,28 +1726,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceWidth"),
-            &raw mut U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_WIDTH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_rect_light_node_set_custom_source_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceHeight"),
-            &raw mut U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_HEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_rect_light_node_set_custom_source_height,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceWidth"),
-            &raw mut U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_WIDTH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_rect_light_node_get_custom_source_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceHeight"),
-            &raw mut U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_HEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_rect_light_node_get_custom_source_height,
         );
     }
     unsafe {
@@ -1665,28 +1762,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceType"),
-            &raw mut U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_SOURCE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_sky_light_node_set_custom_source_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomCubemapDependency"),
-            &raw mut U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_CUBEMAP_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_sky_light_node_set_custom_cubemap_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceType"),
-            &raw mut U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_SOURCE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_sky_light_node_get_custom_source_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomCubemapDependency"),
-            &raw mut U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_CUBEMAP_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_sky_light_node_get_custom_cubemap_dependency,
         );
     }
     unsafe {
@@ -1697,84 +1796,96 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomParent"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_PARENT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_set_custom_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomBlendMode"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_BLEND_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_set_custom_blend_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_VECTOR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_get_vector_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTextureParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_get_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStaticSwitchParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_STATIC_SWITCH_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_get_static_switch_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetScalarParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_SCALAR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_get_scalar_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomParent"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_PARENT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_get_custom_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBlendMode"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_BLEND_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_get_custom_blend_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVectorParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_VECTOR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_add_vector_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTextureParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_add_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddStaticSwitchParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_STATIC_SWITCH_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_add_static_switch_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddScalarParameterValue"),
-            &raw mut U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_SCALAR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_instance_node_add_scalar_parameter_value,
         );
     }
     unsafe {
@@ -1785,14 +1896,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomContentPath"),
-            &raw mut U_INTERCHANGE_MATERIAL_REFERENCE_NODE_SET_CUSTOM_CONTENT_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_reference_node_set_custom_content_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomContentPath"),
-            &raw mut U_INTERCHANGE_MATERIAL_REFERENCE_NODE_GET_CUSTOM_CONTENT_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_material_reference_node_get_custom_content_path,
         );
     }
     unsafe {
@@ -1803,28 +1916,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetMeshLODNodeUids"),
-            &raw mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_RESET_MESH_LOD_NODE_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_lod_container_node_reset_mesh_lod_node_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMeshLODNodeUid"),
-            &raw mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_REMOVE_MESH_LOD_NODE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_lod_container_node_remove_mesh_lod_node_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeshLODNodeUids"),
-            &raw mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_GET_MESH_LOD_NODE_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_lod_container_node_get_mesh_lod_node_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMeshLODNodeUid"),
-            &raw mut U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_ADD_MESH_LOD_NODE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_lod_container_node_add_mesh_lod_node_uid,
         );
     }
     unsafe {
@@ -1835,357 +1952,376 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSlotMaterialDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_set_slot_material_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkinnedMesh"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_SKINNED_MESH,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_skinned_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkeletonDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_SKELETON_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_skeleton_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSceneInstanceUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_SCENE_INSTANCE_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_scene_instance_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPayLoadKey"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_PAY_LOAD_KEY,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_pay_load_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMorphTargetName"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_morph_target_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMorphTargetDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_set_morph_target_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMorphTarget"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_morph_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomVertexCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_VERTEX_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_vertex_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomUVCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_UV_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_uv_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomPolygonCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_POLYGON_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_polygon_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomHasVertexTangent"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_TANGENT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_set_custom_has_vertex_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomHasVertexNormal"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_NORMAL,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_has_vertex_normal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomHasVertexColor"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_COLOR,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_has_vertex_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomHasVertexBinormal"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_BINORMAL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_set_custom_has_vertex_binormal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomHasSmoothGroup"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_SMOOTH_GROUP,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_has_smooth_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomCollisionType"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_COLLISION_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_collision_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomBoundingBox"),
-            &raw mut U_INTERCHANGE_MESH_NODE_SET_CUSTOM_BOUNDING_BOX,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_set_custom_bounding_box,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSlotMaterialDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_remove_slot_material_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSkeletonDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_REMOVE_SKELETON_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_remove_skeleton_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSceneInstanceUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_REMOVE_SCENE_INSTANCE_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_remove_scene_instance_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMorphTargetDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_REMOVE_MORPH_TARGET_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_remove_morph_target_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssemblyPartDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_REMOVE_ASSEMBLY_PART_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_remove_assembly_part_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSkinnedMesh"),
-            &raw mut U_INTERCHANGE_MESH_NODE_IS_SKINNED_MESH,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_is_skinned_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsMorphTarget"),
-            &raw mut U_INTERCHANGE_MESH_NODE_IS_MORPH_TARGET,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_is_morph_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlotMaterialDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_slot_material_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlotMaterialDependencies"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_slot_material_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletonDependency"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_skeleton_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletonDependencies"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_skeleton_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletonDependeciesCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDECIES_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_skeleton_dependecies_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSceneInstanceUidsCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_scene_instance_uids_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSceneInstanceUids"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_scene_instance_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSceneInstanceUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_scene_instance_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMorphTargetName"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_morph_target_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMorphTargetDependency"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_morph_target_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMorphTargetDependencies"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_morph_target_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMorphTargetDependeciesCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDECIES_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_morph_target_dependecies_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomVertexCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_VERTEX_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_vertex_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomUVCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_UV_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_uv_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomPolygonCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_POLYGON_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_polygon_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomHasVertexTangent"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_TANGENT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_custom_has_vertex_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomHasVertexNormal"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_NORMAL,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_has_vertex_normal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomHasVertexColor"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_COLOR,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_has_vertex_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomHasVertexBinormal"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_BINORMAL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_custom_has_vertex_binormal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomHasSmoothGroup"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_SMOOTH_GROUP,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_has_smooth_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomCollisionType"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_COLLISION_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_collision_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBoundingBox"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_CUSTOM_BOUNDING_BOX,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_custom_bounding_box,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssemblyPartDependency"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_interchange_mesh_node_get_assembly_part_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssemblyPartDependenciesCount"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_assembly_part_dependencies_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssemblyPartDependencies"),
-            &raw mut U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_get_assembly_part_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssemblyPartDependencyUid"),
-            &raw mut U_INTERCHANGE_MESH_NODE_ADD_ASSEMBLY_PART_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_mesh_node_add_assembly_part_dependency_uid,
         );
     }
     unsafe {
@@ -2196,56 +2332,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomStartFrame"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_set_custom_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomHasConstantTopology"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_set_custom_has_constant_topology,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFrameRate"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_set_custom_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomEndFrame"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_END_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_set_custom_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomStartFrame"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_get_custom_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomHasConstantTopology"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_get_custom_has_constant_topology,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFrameRate"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_get_custom_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomEndFrame"),
-            &raw mut U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_END_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_geometry_cache_node_get_custom_end_frame,
         );
     }
     unsafe {
@@ -2256,49 +2400,55 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_component_node_set_custom_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomComponentVisibility"),
-            &raw mut U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_component_node_set_custom_component_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentSceneNodeAndTransform"),
-            &raw mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_PARENT_SCENE_NODE_AND_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_component_node_get_parent_scene_node_and_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_component_node_get_custom_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomComponentVisibility"),
-            &raw mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_component_node_get_custom_component_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentUids"),
-            &raw mut U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_COMPONENT_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_component_node_get_component_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddComponentUid"),
-            &raw mut U_INTERCHANGE_SCENE_COMPONENT_NODE_ADD_COMPONENT_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_component_node_add_component_uid,
         );
     }
     unsafe {
@@ -2309,35 +2459,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomInstancedAssetUid"),
-            &raw mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_SET_CUSTOM_INSTANCED_ASSET_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_static_mesh_component_node_set_custom_instanced_asset_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstanceTransforms"),
-            &raw mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_INSTANCE_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_static_mesh_component_node_get_instance_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomInstancedAssetUid"),
-            &raw mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_CUSTOM_INSTANCED_ASSET_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_static_mesh_component_node_get_custom_instanced_asset_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInstanceTransforms"),
-            &raw mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_static_mesh_component_node_add_instance_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInstanceTransform"),
-            &raw mut U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_static_mesh_component_node_add_instance_transform,
         );
     }
     unsafe {
@@ -2348,315 +2503,344 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSlotMaterialDependencyUid"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_slot_material_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMorphTargetCurveWeight"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_MORPH_TARGET_CURVE_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_morph_target_curve_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalBindPoseReferenceForMeshUIDs"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UI_DS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_global_bind_pose_reference_for_mesh_ui_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTimeZeroLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_time_zero_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomPivotNodeTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_PIVOT_NODE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_pivot_node_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_set_custom_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomIsSceneRoot"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_IS_SCENE_ROOT,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_set_custom_is_scene_root,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomHasBindPose"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_HAS_BIND_POSE,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_set_custom_has_bind_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomGlobalMatrixForT0Rebinding"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_global_matrix_for_t0_rebinding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomGeometricTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GEOMETRIC_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_geometric_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomComponentVisibility"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_component_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomBindPoseLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_bind_pose_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAssetInstanceUid"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ASSET_INSTANCE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_asset_instance_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimationAssetUidToPlay"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_custom_animation_asset_uid_to_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomActorVisibility"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ACTOR_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_set_custom_actor_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimationCurveTypeForCurveName"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_SET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_set_animation_curve_type_for_curve_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSpecializedType"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_REMOVE_SPECIALIZED_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_remove_specialized_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSlotMaterialDependencyUid"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_remove_slot_material_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSpecializedTypeContains"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_IS_SPECIALIZED_TYPE_CONTAINS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_is_specialized_type_contains,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpecializedTypes"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPES,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_specialized_types,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpecializedTypeCount"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_specialized_type_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpecializedType"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_specialized_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlotMaterialDependencyUid"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_slot_material_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlotMaterialDependencies"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_slot_material_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMorphTargetCurveWeights"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_MORPH_TARGET_CURVE_WEIGHTS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_morph_target_curve_weights,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalBindPoseReferenceForMeshUID"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_global_bind_pose_reference_for_mesh_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTimeZeroLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_time_zero_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTimeZeroGlobalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_GLOBAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_time_zero_global_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomPivotNodeTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_PIVOT_NODE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_pivot_node_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_custom_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomIsSceneRoot"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_IS_SCENE_ROOT,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_custom_is_scene_root,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomHasBindPose"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_HAS_BIND_POSE,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_custom_has_bind_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGlobalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_custom_global_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGlobalMatrixForT0Rebinding"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_global_matrix_for_t0_rebinding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGeometricTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GEOMETRIC_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_geometric_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomComponentVisibility"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_component_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBindPoseLocalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_bind_pose_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBindPoseGlobalTransform"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_GLOBAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_bind_pose_global_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAssetInstanceUid"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ASSET_INSTANCE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_asset_instance_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationAssetUidToPlay"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_custom_animation_asset_uid_to_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomActorVisibility"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ACTOR_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_custom_actor_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentUids"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_COMPONENT_UIDS,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_get_component_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationCurveTypeForCurveName"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_GET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_node_get_animation_curve_type_for_curve_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSpecializedType"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_ADD_SPECIALIZED_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_add_specialized_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddComponentUid"),
-            &raw mut U_INTERCHANGE_SCENE_NODE_ADD_COMPONENT_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_scene_node_add_component_uid,
         );
     }
     unsafe {
@@ -2667,105 +2851,111 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeInputValueKey"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_VALUE_KEY,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_make_input_value_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeInputParameterKey"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_ports_api_make_input_parameter_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeInputName"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_make_input_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeInputConnectionKey"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_CONNECTION_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_ports_api_make_input_connection_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAParameter"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_IS_A_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_is_a_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAnInput"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_IS_AN_INPUT,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_is_an_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasParameter"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_HAS_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_has_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasInput"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_HAS_INPUT,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_has_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInputConnection"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_GET_INPUT_CONNECTION,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_get_input_connection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GatherInputs"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_GATHER_INPUTS,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_gather_inputs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectInputFromOutputNode"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT_FROM_OUTPUT_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_ports_api_disconnect_input_from_output_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectInput"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_ports_api_disconnect_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectOuputToInputByName"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_ports_api_connect_ouput_to_input_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectOuputToInputByIndex"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_ports_api_connect_ouput_to_input_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectDefaultOuputToInput"),
-            &raw mut U_INTERCHANGE_SHADER_PORTS_API_CONNECT_DEFAULT_OUPUT_TO_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_ports_api_connect_default_ouput_to_input,
         );
     }
     unsafe {
@@ -2776,14 +2966,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomMaterialFunction"),
-            &raw mut U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_SET_CUSTOM_MATERIAL_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_function_call_shader_node_set_custom_material_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomMaterialFunction"),
-            &raw mut U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_GET_CUSTOM_MATERIAL_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_function_call_shader_node_get_custom_material_function,
         );
     }
     unsafe {
@@ -2794,98 +2986,110 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTwoSidedTransmission"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED_TRANSMISSION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_set_custom_two_sided_transmission,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTwoSided"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_graph_node_set_custom_two_sided,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomScreenSpaceReflections"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_set_custom_screen_space_reflections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomOpacityMaskClipValue"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_set_custom_opacity_mask_clip_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomIsAShaderFunction"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_IS_A_SHADER_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_set_custom_is_a_shader_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomDisplacementCenterMode"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_set_custom_displacement_center_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomBlendMode"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_BLEND_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_set_custom_blend_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTwoSidedTransmission"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED_TRANSMISSION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_get_custom_two_sided_transmission,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTwoSided"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED,
+            &raw mut __FUNCTION_PTRS.u_interchange_shader_graph_node_get_custom_two_sided,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomScreenSpaceReflections"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_get_custom_screen_space_reflections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomOpacityMaskClipValue"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_get_custom_opacity_mask_clip_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomIsAShaderFunction"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_IS_A_SHADER_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_get_custom_is_a_shader_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDisplacementCenterMode"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_get_custom_displacement_center_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBlendMode"),
-            &raw mut U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_BLEND_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_shader_graph_node_get_custom_blend_mode,
         );
     }
     unsafe {
@@ -2896,28 +3100,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTexture"),
-            &raw mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_TEXTURE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_specular_profile_node_set_custom_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFormat"),
-            &raw mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_FORMAT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_specular_profile_node_set_custom_format,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTexture"),
-            &raw mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_TEXTURE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_specular_profile_node_get_custom_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFormat"),
-            &raw mut U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_FORMAT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_specular_profile_node_get_custom_format,
         );
     }
     unsafe {
@@ -2928,49 +3136,51 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetForceLongLatCubemap"),
-            &raw mut U_INTERCHANGE_TEXTURE2_D_NODE_SET_FORCE_LONG_LAT_CUBEMAP,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_texture2_d_node_set_force_long_lat_cubemap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomWrapV"),
-            &raw mut U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_V,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture2_d_node_set_custom_wrap_v,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomWrapU"),
-            &raw mut U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_U,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture2_d_node_set_custom_wrap_u,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceBlocks"),
-            &raw mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_SOURCE_BLOCKS,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture2_d_node_get_source_blocks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetForceLongLatCubemap"),
-            &raw mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_FORCE_LONG_LAT_CUBEMAP,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_texture2_d_node_get_force_long_lat_cubemap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomWrapV"),
-            &raw mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_V,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture2_d_node_get_custom_wrap_v,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomWrapU"),
-            &raw mut U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_U,
+            &raw mut __FUNCTION_PTRS.u_interchange_texture2_d_node_get_custom_wrap_u,
         );
     }
     unsafe {
@@ -2981,63 +3191,72 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomVariantsPayloadKey"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_set_custom_variants_payload_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomDisplayText"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_DISPLAY_TEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_set_custom_display_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCustomDependencyUid"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_REMOVE_CUSTOM_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_remove_custom_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomVariantsPayloadKey"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_get_custom_variants_payload_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDisplayText"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DISPLAY_TEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_get_custom_display_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDependencyUids"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_get_custom_dependency_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDependencyUidCount"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_get_custom_dependency_uid_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomDependencyUid"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_get_custom_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCustomDependencyUid"),
-            &raw mut U_INTERCHANGE_VARIANT_SET_NODE_ADD_CUSTOM_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_variant_set_node_add_custom_dependency_uid,
         );
     }
     unsafe {
@@ -3048,35 +3267,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCustomVariantSetUid"),
-            &raw mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_REMOVE_CUSTOM_VARIANT_SET_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_variant_sets_node_remove_custom_variant_set_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomVariantSetUids"),
-            &raw mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_variant_sets_node_get_custom_variant_set_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomVariantSetUidCount"),
-            &raw mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_variant_sets_node_get_custom_variant_set_uid_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomVariantSetUid"),
-            &raw mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_variant_sets_node_get_custom_variant_set_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCustomVariantSetUid"),
-            &raw mut U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_ADD_CUSTOM_VARIANT_SET_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_scene_variant_sets_node_add_custom_variant_set_uid,
         );
     }
     unsafe {
@@ -3087,91 +3311,98 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomFileName"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_FILE_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_volume_node_set_custom_file_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimationID"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_ANIMATION_ID,
+            &raw mut __FUNCTION_PTRS.u_interchange_volume_node_set_custom_animation_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCustomGridDependency"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_GRID_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_node_remove_custom_grid_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCustomFrameIndexInAnimation"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_node_remove_custom_frame_index_in_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGridDependency"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_interchange_volume_node_get_custom_grid_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGridDependeciesCount"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_node_get_custom_grid_dependecies_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGridDependecies"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_node_get_custom_grid_dependecies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFrameIndicesInAnimation"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDICES_IN_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_node_get_custom_frame_indices_in_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFrameIndexInAnimation"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_node_get_custom_frame_index_in_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomFileName"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FILE_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_volume_node_get_custom_file_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimationID"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_ANIMATION_ID,
+            &raw mut __FUNCTION_PTRS.u_interchange_volume_node_get_custom_animation_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCustomGridDependency"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_GRID_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_interchange_volume_node_add_custom_grid_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCustomFrameIndexInAnimation"),
-            &raw mut U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_node_add_custom_frame_index_in_animation,
         );
     }
     unsafe {
@@ -3182,84 +3413,96 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomNumComponents"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_NUM_COMPONENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_set_custom_num_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomGridTransform"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_set_custom_grid_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomGridActiveDimensions"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_set_custom_grid_active_dimensions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomGridActiveAABBMin"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_set_custom_grid_active_aabb_min,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomGridActiveAABBMax"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_set_custom_grid_active_aabb_max,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomElementType"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_ELEMENT_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_set_custom_element_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomNumComponents"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_NUM_COMPONENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_get_custom_num_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGridTransform"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_get_custom_grid_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGridActiveDimensions"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_get_custom_grid_active_dimensions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGridActiveAABBMin"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_get_custom_grid_active_aabb_min,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomGridActiveAABBMax"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_get_custom_grid_active_aabb_max,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomElementType"),
-            &raw mut U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_ELEMENT_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_volume_grid_node_get_custom_element_type,
         );
     }
 }
@@ -3311,7 +3554,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_sensor_width,
                 __buffer,
             )
         };
@@ -3328,7 +3572,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_sensor_width,
                 __buffer,
             )
         };
@@ -3342,7 +3587,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_sensor_height,
                 __buffer,
             )
         };
@@ -3359,7 +3605,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_SENSOR_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_sensor_height,
                 __buffer,
             )
         };
@@ -3373,7 +3620,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_FOCAL_LENGTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_focal_length,
                 __buffer,
             )
         };
@@ -3390,7 +3638,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_FOCAL_LENGTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_focal_length,
                 __buffer,
             )
         };
@@ -3404,7 +3653,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_enable_depth_of_field,
                 __buffer,
             )
         };
@@ -3421,7 +3671,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_SET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_set_custom_enable_depth_of_field,
                 __buffer,
             )
         };
@@ -3435,7 +3686,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_sensor_width,
                 __buffer,
             )
         };
@@ -3452,7 +3704,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_sensor_width,
                 __buffer,
             )
         };
@@ -3469,7 +3722,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_sensor_height,
                 __buffer,
             )
         };
@@ -3486,7 +3740,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_SENSOR_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_sensor_height,
                 __buffer,
             )
         };
@@ -3503,7 +3758,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_FOCAL_LENGTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_focal_length,
                 __buffer,
             )
         };
@@ -3520,7 +3776,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_FOCAL_LENGTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_focal_length,
                 __buffer,
             )
         };
@@ -3537,7 +3794,8 @@ impl UInterchangePhysicalCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_enable_depth_of_field,
                 __buffer,
             )
         };
@@ -3554,7 +3812,8 @@ impl UInterchangePhysicalCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_PHYSICAL_CAMERA_NODE_GET_CUSTOM_ENABLE_DEPTH_OF_FIELD,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_physical_camera_node_get_custom_enable_depth_of_field,
                 __buffer,
             )
         };
@@ -3592,7 +3851,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_width,
                 __buffer,
             )
         };
@@ -3609,7 +3869,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_width,
                 __buffer,
             )
         };
@@ -3626,7 +3887,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_PROJECTION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_projection_mode,
                 __buffer,
             )
         };
@@ -3643,7 +3905,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_PROJECTION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_projection_mode,
                 __buffer,
             )
         };
@@ -3657,7 +3920,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_NEAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_near_clip_plane,
                 __buffer,
             )
         };
@@ -3674,7 +3938,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_NEAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_near_clip_plane,
                 __buffer,
             )
         };
@@ -3688,7 +3953,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FIELD_OF_VIEW,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_field_of_view,
                 __buffer,
             )
         };
@@ -3705,7 +3971,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FIELD_OF_VIEW,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_field_of_view,
                 __buffer,
             )
         };
@@ -3719,7 +3986,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_far_clip_plane,
                 __buffer,
             )
         };
@@ -3736,7 +4004,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_FAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_far_clip_plane,
                 __buffer,
             )
         };
@@ -3750,7 +4019,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_ASPECT_RATIO,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_aspect_ratio,
                 __buffer,
             )
         };
@@ -3767,7 +4037,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_SET_CUSTOM_ASPECT_RATIO,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_set_custom_aspect_ratio,
                 __buffer,
             )
         };
@@ -3781,7 +4052,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_width,
                 __buffer,
             )
         };
@@ -3798,7 +4070,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_width,
                 __buffer,
             )
         };
@@ -3818,7 +4091,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_PROJECTION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_projection_mode,
                 __buffer,
             )
         };
@@ -3835,7 +4109,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_PROJECTION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_projection_mode,
                 __buffer,
             )
         };
@@ -3855,7 +4130,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_NEAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_near_clip_plane,
                 __buffer,
             )
         };
@@ -3872,7 +4148,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_NEAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_near_clip_plane,
                 __buffer,
             )
         };
@@ -3889,7 +4166,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FIELD_OF_VIEW,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_field_of_view,
                 __buffer,
             )
         };
@@ -3906,7 +4184,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FIELD_OF_VIEW,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_field_of_view,
                 __buffer,
             )
         };
@@ -3923,7 +4202,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_far_clip_plane,
                 __buffer,
             )
         };
@@ -3940,7 +4220,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_FAR_CLIP_PLANE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_far_clip_plane,
                 __buffer,
             )
         };
@@ -3957,7 +4238,8 @@ impl UInterchangeStandardCameraNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_ASPECT_RATIO,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_aspect_ratio,
                 __buffer,
             )
         };
@@ -3974,7 +4256,8 @@ impl UInterchangeStandardCameraNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_STANDARD_CAMERA_NODE_GET_CUSTOM_ASPECT_RATIO,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_standard_camera_node_get_custom_aspect_ratio,
                 __buffer,
             )
         };
@@ -4012,7 +4295,8 @@ impl UInterchangeShaderNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_SET_CUSTOM_SHADER_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_set_custom_shader_type,
                 __buffer,
             )
         };
@@ -4029,7 +4313,8 @@ impl UInterchangeShaderNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_SET_CUSTOM_SHADER_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_set_custom_shader_type,
                 __buffer,
             )
         };
@@ -4043,7 +4328,8 @@ impl UInterchangeShaderNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_GET_CUSTOM_SHADER_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_get_custom_shader_type,
                 __buffer,
             )
         };
@@ -4060,7 +4346,8 @@ impl UInterchangeShaderNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_GET_CUSTOM_SHADER_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_get_custom_shader_type,
                 __buffer,
             )
         };
@@ -4082,7 +4369,8 @@ impl UInterchangeShaderNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_STRING_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_add_string_input,
                 __buffer,
             )
         };
@@ -4113,7 +4401,8 @@ impl UInterchangeShaderNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_STRING_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_add_string_input,
                 __buffer,
             )
         };
@@ -4132,7 +4421,8 @@ impl UInterchangeShaderNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_LINEAR_COLOR_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_add_linear_color_input,
                 __buffer,
             )
         };
@@ -4163,7 +4453,8 @@ impl UInterchangeShaderNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_LINEAR_COLOR_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_add_linear_color_input,
                 __buffer,
             )
         };
@@ -4182,7 +4473,8 @@ impl UInterchangeShaderNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_FLOAT_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_add_float_input,
                 __buffer,
             )
         };
@@ -4213,7 +4505,8 @@ impl UInterchangeShaderNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_NODE_ADD_FLOAT_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_node_add_float_input,
                 __buffer,
             )
         };
@@ -4269,7 +4562,8 @@ impl UInterchangeDecalNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_SORT_ORDER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_set_custom_sort_order,
                 __buffer,
             )
         };
@@ -4286,7 +4580,8 @@ impl UInterchangeDecalNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_SORT_ORDER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_set_custom_sort_order,
                 __buffer,
             )
         };
@@ -4303,7 +4598,8 @@ impl UInterchangeDecalNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_SIZE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_set_custom_decal_size,
                 __buffer,
             )
         };
@@ -4320,7 +4616,8 @@ impl UInterchangeDecalNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_SIZE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_set_custom_decal_size,
                 __buffer,
             )
         };
@@ -4337,7 +4634,8 @@ impl UInterchangeDecalNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_set_custom_decal_material_path_name,
                 __buffer,
             )
         };
@@ -4354,7 +4652,8 @@ impl UInterchangeDecalNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_SET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_set_custom_decal_material_path_name,
                 __buffer,
             )
         };
@@ -4368,7 +4667,8 @@ impl UInterchangeDecalNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_SORT_ORDER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_get_custom_sort_order,
                 __buffer,
             )
         };
@@ -4385,7 +4685,8 @@ impl UInterchangeDecalNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_SORT_ORDER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_get_custom_sort_order,
                 __buffer,
             )
         };
@@ -4405,7 +4706,8 @@ impl UInterchangeDecalNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_SIZE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_get_custom_decal_size,
                 __buffer,
             )
         };
@@ -4422,7 +4724,8 @@ impl UInterchangeDecalNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_SIZE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_get_custom_decal_size,
                 __buffer,
             )
         };
@@ -4445,7 +4748,8 @@ impl UInterchangeDecalNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_get_custom_decal_material_path_name,
                 __buffer,
             )
         };
@@ -4462,7 +4766,8 @@ impl UInterchangeDecalNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_DECAL_NODE_GET_CUSTOM_DECAL_MATERIAL_PATH_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_decal_node_get_custom_decal_material_path_name,
                 __buffer,
             )
         };
@@ -4500,7 +4805,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_PAY_LOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_pay_load_key,
                 __buffer,
             )
         };
@@ -4517,7 +4823,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_PAY_LOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_pay_load_key,
                 __buffer,
             )
         };
@@ -4530,7 +4837,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_SRGB,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_custom_srgb,
                 __buffer,
             )
         };
@@ -4547,7 +4855,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_SRGB,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_custom_srgb,
                 __buffer,
             )
         };
@@ -4564,7 +4873,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_FILTER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_custom_filter,
                 __buffer,
             )
         };
@@ -4581,7 +4891,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_FILTER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_custom_filter,
                 __buffer,
             )
         };
@@ -4598,7 +4909,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_COLOR_SPACE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_custom_color_space,
                 __buffer,
             )
         };
@@ -4615,7 +4927,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOM_COLOR_SPACE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_custom_color_space,
                 __buffer,
             )
         };
@@ -4629,7 +4942,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_customb_flip_green_channel,
                 __buffer,
             )
         };
@@ -4646,7 +4960,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_SET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_set_customb_flip_green_channel,
                 __buffer,
             )
         };
@@ -4660,7 +4975,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_SRGB,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_custom_srgb,
                 __buffer,
             )
         };
@@ -4677,7 +4993,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_SRGB,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_custom_srgb,
                 __buffer,
             )
         };
@@ -4697,7 +5014,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_FILTER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_custom_filter,
                 __buffer,
             )
         };
@@ -4714,7 +5032,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_FILTER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_custom_filter,
                 __buffer,
             )
         };
@@ -4737,7 +5056,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_COLOR_SPACE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_custom_color_space,
                 __buffer,
             )
         };
@@ -4754,7 +5074,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOM_COLOR_SPACE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_custom_color_space,
                 __buffer,
             )
         };
@@ -4774,7 +5095,8 @@ impl UInterchangeTextureNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_customb_flip_green_channel,
                 __buffer,
             )
         };
@@ -4791,7 +5113,8 @@ impl UInterchangeTextureNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE_NODE_GET_CUSTOMB_FLIP_GREEN_CHANNEL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture_node_get_customb_flip_green_channel,
                 __buffer,
             )
         };
@@ -4934,7 +5257,8 @@ impl UInterchangeAnimationTrackSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_SET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_set_custom_frame_rate,
                 __buffer,
             )
         };
@@ -4951,7 +5275,8 @@ impl UInterchangeAnimationTrackSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_SET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_set_custom_frame_rate,
                 __buffer,
             )
         };
@@ -4968,7 +5293,8 @@ impl UInterchangeAnimationTrackSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_REMOVE_CUSTOM_ANIMATION_TRACK_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_remove_custom_animation_track_uid,
                 __buffer,
             )
         };
@@ -4985,7 +5311,8 @@ impl UInterchangeAnimationTrackSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_REMOVE_CUSTOM_ANIMATION_TRACK_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_remove_custom_animation_track_uid,
                 __buffer,
             )
         };
@@ -4999,7 +5326,8 @@ impl UInterchangeAnimationTrackSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_frame_rate,
                 __buffer,
             )
         };
@@ -5016,7 +5344,8 @@ impl UInterchangeAnimationTrackSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_frame_rate,
                 __buffer,
             )
         };
@@ -5036,7 +5365,8 @@ impl UInterchangeAnimationTrackSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_animation_track_uids,
                 __buffer,
             )
         };
@@ -5053,7 +5383,8 @@ impl UInterchangeAnimationTrackSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_animation_track_uids,
                 __buffer,
             )
         };
@@ -5069,7 +5400,8 @@ impl UInterchangeAnimationTrackSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_animation_track_uid_count,
                 __buffer,
             )
         };
@@ -5079,7 +5411,8 @@ impl UInterchangeAnimationTrackSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_animation_track_uid_count,
                 __buffer,
             )
         };
@@ -5097,7 +5430,8 @@ impl UInterchangeAnimationTrackSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_animation_track_uid,
                 __buffer,
             )
         };
@@ -5117,7 +5451,8 @@ impl UInterchangeAnimationTrackSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_GET_CUSTOM_ANIMATION_TRACK_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_get_custom_animation_track_uid,
                 __buffer,
             )
         };
@@ -5136,7 +5471,8 @@ impl UInterchangeAnimationTrackSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_ADD_CUSTOM_ANIMATION_TRACK_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_add_custom_animation_track_uid,
                 __buffer,
             )
         };
@@ -5153,7 +5489,8 @@ impl UInterchangeAnimationTrackSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_NODE_ADD_CUSTOM_ANIMATION_TRACK_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_node_add_custom_animation_track_uid,
                 __buffer,
             )
         };
@@ -5188,7 +5525,8 @@ impl UInterchangeAnimationTrackBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_SET_CUSTOM_COMPLETION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_base_node_set_custom_completion_mode,
                 __buffer,
             )
         };
@@ -5205,7 +5543,8 @@ impl UInterchangeAnimationTrackBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_SET_CUSTOM_COMPLETION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_base_node_set_custom_completion_mode,
                 __buffer,
             )
         };
@@ -5219,7 +5558,8 @@ impl UInterchangeAnimationTrackBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_GET_CUSTOM_COMPLETION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_base_node_get_custom_completion_mode,
                 __buffer,
             )
         };
@@ -5236,7 +5576,8 @@ impl UInterchangeAnimationTrackBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_BASE_NODE_GET_CUSTOM_COMPLETION_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_base_node_get_custom_completion_mode,
                 __buffer,
             )
         };
@@ -5277,7 +5618,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_track_set_dependency_uid,
                 __buffer,
             )
         };
@@ -5294,7 +5636,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_track_set_dependency_uid,
                 __buffer,
             )
         };
@@ -5308,7 +5651,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TIME_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_time_scale,
                 __buffer,
             )
         };
@@ -5325,7 +5669,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_TIME_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_time_scale,
                 __buffer,
             )
         };
@@ -5339,7 +5684,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_start_frame,
                 __buffer,
             )
         };
@@ -5356,7 +5702,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_start_frame,
                 __buffer,
             )
         };
@@ -5370,7 +5717,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_DURATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_duration,
                 __buffer,
             )
         };
@@ -5387,7 +5735,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_SET_CUSTOM_DURATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_set_custom_duration,
                 __buffer,
             )
         };
@@ -5404,7 +5753,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_track_set_dependency_uid,
                 __buffer,
             )
         };
@@ -5421,7 +5771,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TRACK_SET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_track_set_dependency_uid,
                 __buffer,
             )
         };
@@ -5438,7 +5789,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TIME_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_time_scale,
                 __buffer,
             )
         };
@@ -5455,7 +5807,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_TIME_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_time_scale,
                 __buffer,
             )
         };
@@ -5472,7 +5825,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_start_frame,
                 __buffer,
             )
         };
@@ -5489,7 +5843,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_start_frame,
                 __buffer,
             )
         };
@@ -5506,7 +5861,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_DURATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_duration,
                 __buffer,
             )
         };
@@ -5523,7 +5879,8 @@ impl UInterchangeAnimationTrackSetInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_SET_INSTANCE_NODE_GET_CUSTOM_DURATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_set_instance_node_get_custom_duration,
                 __buffer,
             )
         };
@@ -5564,7 +5921,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_PROPERTY_TRACK,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_property_track,
                 __buffer,
             )
         };
@@ -5581,7 +5939,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_PROPERTY_TRACK,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_property_track,
                 __buffer,
             )
         };
@@ -5595,7 +5954,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_FRAME_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_frame_count,
                 __buffer,
             )
         };
@@ -5612,7 +5972,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_FRAME_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_frame_count,
                 __buffer,
             )
         };
@@ -5630,7 +5991,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_animation_payload_key,
                 __buffer,
             )
         };
@@ -5654,7 +6016,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_animation_payload_key,
                 __buffer,
             )
         };
@@ -5668,7 +6031,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_actor_dependency_uid,
                 __buffer,
             )
         };
@@ -5685,7 +6049,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_SET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_set_custom_actor_dependency_uid,
                 __buffer,
             )
         };
@@ -5702,7 +6067,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_PROPERTY_TRACK,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_property_track,
                 __buffer,
             )
         };
@@ -5719,7 +6085,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_PROPERTY_TRACK,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_property_track,
                 __buffer,
             )
         };
@@ -5736,7 +6103,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_FRAME_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_frame_count,
                 __buffer,
             )
         };
@@ -5753,7 +6121,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_FRAME_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_frame_count,
                 __buffer,
             )
         };
@@ -5773,7 +6142,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_animation_payload_key,
                 __buffer,
             )
         };
@@ -5790,7 +6160,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_animation_payload_key,
                 __buffer,
             )
         };
@@ -5810,7 +6181,8 @@ impl UInterchangeAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_actor_dependency_uid,
                 __buffer,
             )
         };
@@ -5827,7 +6199,8 @@ impl UInterchangeAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_ANIMATION_TRACK_NODE_GET_CUSTOM_ACTOR_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_animation_track_node_get_custom_actor_dependency_uid,
                 __buffer,
             )
         };
@@ -5865,7 +6238,8 @@ impl UInterchangeTransformAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_SET_CUSTOM_USED_CHANNELS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_transform_animation_track_node_set_custom_used_channels,
                 __buffer,
             )
         };
@@ -5882,7 +6256,8 @@ impl UInterchangeTransformAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_SET_CUSTOM_USED_CHANNELS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_transform_animation_track_node_set_custom_used_channels,
                 __buffer,
             )
         };
@@ -5896,7 +6271,8 @@ impl UInterchangeTransformAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_GET_CUSTOM_USED_CHANNELS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_transform_animation_track_node_get_custom_used_channels,
                 __buffer,
             )
         };
@@ -5913,7 +6289,8 @@ impl UInterchangeTransformAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TRANSFORM_ANIMATION_TRACK_NODE_GET_CUSTOM_USED_CHANNELS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_transform_animation_track_node_get_custom_used_channels,
                 __buffer,
             )
         };
@@ -5954,7 +6331,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_stop_time,
                 __buffer,
             )
         };
@@ -5967,7 +6345,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_stop_time,
                 __buffer,
             )
         };
@@ -5984,7 +6363,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_start_time,
                 __buffer,
             )
         };
@@ -5997,7 +6377,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_source_timeline_animation_start_time,
                 __buffer,
             )
         };
@@ -6011,7 +6392,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SKELETON_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_skeleton_node_uid,
                 __buffer,
             )
         };
@@ -6028,7 +6410,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_SKELETON_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_skeleton_node_uid,
                 __buffer,
             )
         };
@@ -6042,7 +6425,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_animation_stop_time,
                 __buffer,
             )
         };
@@ -6055,7 +6439,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_animation_stop_time,
                 __buffer,
             )
         };
@@ -6069,7 +6454,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_animation_start_time,
                 __buffer,
             )
         };
@@ -6082,7 +6468,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_animation_start_time,
                 __buffer,
             )
         };
@@ -6096,7 +6483,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_animation_sample_rate,
                 __buffer,
             )
         };
@@ -6109,7 +6497,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_custom_animation_sample_rate,
                 __buffer,
             )
         };
@@ -6128,7 +6517,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_SCENE_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_scene_node_uid,
                 __buffer,
             )
         };
@@ -6159,7 +6549,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_SCENE_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_scene_node_uid,
                 __buffer,
             )
         };
@@ -6178,7 +6569,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_MORPH_TARGET_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_morph_target_node_uid,
                 __buffer,
             )
         };
@@ -6209,7 +6601,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_SET_ANIMATION_PAYLOAD_KEY_FOR_MORPH_TARGET_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_set_animation_payload_key_for_morph_target_node_uid,
                 __buffer,
             )
         };
@@ -6223,7 +6616,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_IS_NODE_ANIMATED_WITH_BAKED_CURVE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_is_node_animated_with_baked_curve,
                 __buffer,
             )
         };
@@ -6240,7 +6634,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_IS_NODE_ANIMATED_WITH_BAKED_CURVE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_is_node_animated_with_baked_curve,
                 __buffer,
             )
         };
@@ -6258,7 +6653,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_SCENE_NODE_ANIMATION_PAYLOAD_KEYS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_scene_node_animation_payload_keys,
                 __buffer,
             )
         };
@@ -6282,7 +6678,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_SCENE_NODE_ANIMATION_PAYLOAD_KEYS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_scene_node_animation_payload_keys,
                 __buffer,
             )
         };
@@ -6311,7 +6708,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_MORPH_TARGET_NODE_ANIMATION_PAYLOAD_KEYS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_morph_target_node_animation_payload_keys,
                 __buffer,
             )
         };
@@ -6335,7 +6733,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_MORPH_TARGET_NODE_ANIMATION_PAYLOAD_KEYS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_morph_target_node_animation_payload_keys,
                 __buffer,
             )
         };
@@ -6363,7 +6762,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_stop_time,
                 __buffer,
             )
         };
@@ -6376,7 +6776,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_stop_time,
                 __buffer,
             )
         };
@@ -6396,7 +6797,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_start_time,
                 __buffer,
             )
         };
@@ -6409,7 +6811,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SOURCE_TIMELINE_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_source_timeline_animation_start_time,
                 __buffer,
             )
         };
@@ -6426,7 +6829,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SKELETON_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_skeleton_node_uid,
                 __buffer,
             )
         };
@@ -6443,7 +6847,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_SKELETON_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_skeleton_node_uid,
                 __buffer,
             )
         };
@@ -6460,7 +6865,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_animation_stop_time,
                 __buffer,
             )
         };
@@ -6473,7 +6879,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_STOP_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_animation_stop_time,
                 __buffer,
             )
         };
@@ -6490,7 +6897,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_animation_start_time,
                 __buffer,
             )
         };
@@ -6503,7 +6911,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_START_TIME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_animation_start_time,
                 __buffer,
             )
         };
@@ -6520,7 +6929,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_animation_sample_rate,
                 __buffer,
             )
         };
@@ -6533,7 +6943,8 @@ impl UInterchangeSkeletalAnimationTrackNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKELETAL_ANIMATION_TRACK_NODE_GET_CUSTOM_ANIMATION_SAMPLE_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_skeletal_animation_track_node_get_custom_animation_sample_rate,
                 __buffer,
             )
         };
@@ -6596,7 +7007,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_payload_key,
                 __buffer,
             )
         };
@@ -6620,7 +7032,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_payload_key,
                 __buffer,
             )
         };
@@ -6633,7 +7046,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_start_frame,
                 __buffer,
             )
         };
@@ -6650,7 +7064,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_start_frame,
                 __buffer,
             )
         };
@@ -6664,7 +7079,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_NUM_FRAMES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_num_frames,
                 __buffer,
             )
         };
@@ -6681,7 +7097,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_NUM_FRAMES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_num_frames,
                 __buffer,
             )
         };
@@ -6698,7 +7115,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_groom_cache_attributes,
                 __buffer,
             )
         };
@@ -6715,7 +7133,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_groom_cache_attributes,
                 __buffer,
             )
         };
@@ -6729,7 +7148,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_frame_rate,
                 __buffer,
             )
         };
@@ -6746,7 +7166,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_frame_rate,
                 __buffer,
             )
         };
@@ -6760,7 +7181,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_end_frame,
                 __buffer,
             )
         };
@@ -6777,7 +7199,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_SET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_set_custom_end_frame,
                 __buffer,
             )
         };
@@ -6791,7 +7214,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_start_frame,
                 __buffer,
             )
         };
@@ -6808,7 +7232,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_start_frame,
                 __buffer,
             )
         };
@@ -6825,7 +7250,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_NUM_FRAMES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_num_frames,
                 __buffer,
             )
         };
@@ -6842,7 +7268,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_NUM_FRAMES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_num_frames,
                 __buffer,
             )
         };
@@ -6862,7 +7289,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_groom_cache_attributes,
                 __buffer,
             )
         };
@@ -6879,7 +7307,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_GROOM_CACHE_ATTRIBUTES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_groom_cache_attributes,
                 __buffer,
             )
         };
@@ -6899,7 +7328,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_frame_rate,
                 __buffer,
             )
         };
@@ -6916,7 +7346,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_frame_rate,
                 __buffer,
             )
         };
@@ -6933,7 +7364,8 @@ impl UInterchangeGroomNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_end_frame,
                 __buffer,
             )
         };
@@ -6950,7 +7382,8 @@ impl UInterchangeGroomNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GROOM_NODE_GET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_groom_node_get_custom_end_frame,
                 __buffer,
             )
         };
@@ -6988,7 +7421,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_USE_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_use_temperature,
                 __buffer,
             )
         };
@@ -7005,7 +7439,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_USE_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_use_temperature,
                 __buffer,
             )
         };
@@ -7019,7 +7454,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_temperature,
                 __buffer,
             )
         };
@@ -7036,7 +7472,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_temperature,
                 __buffer,
             )
         };
@@ -7053,7 +7490,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_LIGHT_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_light_color,
                 __buffer,
             )
         };
@@ -7070,7 +7508,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_LIGHT_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_light_color,
                 __buffer,
             )
         };
@@ -7084,7 +7523,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_INTENSITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_intensity,
                 __buffer,
             )
         };
@@ -7101,7 +7541,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_SET_CUSTOM_INTENSITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_set_custom_intensity,
                 __buffer,
             )
         };
@@ -7115,7 +7556,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_USE_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_use_temperature,
                 __buffer,
             )
         };
@@ -7132,7 +7574,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_USE_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_use_temperature,
                 __buffer,
             )
         };
@@ -7149,7 +7592,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_temperature,
                 __buffer,
             )
         };
@@ -7166,7 +7610,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_TEMPERATURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_temperature,
                 __buffer,
             )
         };
@@ -7186,7 +7631,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_LIGHT_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_light_color,
                 __buffer,
             )
         };
@@ -7203,7 +7649,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_LIGHT_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_light_color,
                 __buffer,
             )
         };
@@ -7223,7 +7670,8 @@ impl UInterchangeBaseLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_INTENSITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_intensity,
                 __buffer,
             )
         };
@@ -7240,7 +7688,8 @@ impl UInterchangeBaseLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_BASE_LIGHT_NODE_GET_CUSTOM_INTENSITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_base_light_node_get_custom_intensity,
                 __buffer,
             )
         };
@@ -7282,7 +7731,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_USE_IES_BRIGHTNESS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_use_ies_brightness,
                 __buffer,
             )
         };
@@ -7306,7 +7756,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_USE_IES_BRIGHTNESS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_use_ies_brightness,
                 __buffer,
             )
         };
@@ -7324,7 +7775,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ROTATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_rotation,
                 __buffer,
             )
         };
@@ -7348,7 +7800,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ROTATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_rotation,
                 __buffer,
             )
         };
@@ -7365,7 +7818,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_INTENSITY_UNITS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_intensity_units,
                 __buffer,
             )
         };
@@ -7382,7 +7836,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_INTENSITY_UNITS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_intensity_units,
                 __buffer,
             )
         };
@@ -7396,7 +7851,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_ies_texture,
                 __buffer,
             )
         };
@@ -7413,7 +7869,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_ies_texture,
                 __buffer,
             )
         };
@@ -7431,7 +7888,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_ies_brightness_scale,
                 __buffer,
             )
         };
@@ -7455,7 +7913,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_ies_brightness_scale,
                 __buffer,
             )
         };
@@ -7469,7 +7928,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ATTENUATION_RADIUS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_attenuation_radius,
                 __buffer,
             )
         };
@@ -7486,7 +7946,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_SET_CUSTOM_ATTENUATION_RADIUS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_set_custom_attenuation_radius,
                 __buffer,
             )
         };
@@ -7500,7 +7961,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_USE_IES_BRIGHTNESS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_use_ies_brightness,
                 __buffer,
             )
         };
@@ -7517,7 +7979,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_USE_IES_BRIGHTNESS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_use_ies_brightness,
                 __buffer,
             )
         };
@@ -7537,7 +8000,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ROTATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_rotation,
                 __buffer,
             )
         };
@@ -7554,7 +8018,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ROTATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_rotation,
                 __buffer,
             )
         };
@@ -7577,7 +8042,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_INTENSITY_UNITS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_intensity_units,
                 __buffer,
             )
         };
@@ -7594,7 +8060,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_INTENSITY_UNITS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_intensity_units,
                 __buffer,
             )
         };
@@ -7611,7 +8078,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_ies_texture,
                 __buffer,
             )
         };
@@ -7628,7 +8096,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_ies_texture,
                 __buffer,
             )
         };
@@ -7645,7 +8114,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_ies_brightness_scale,
                 __buffer,
             )
         };
@@ -7662,7 +8132,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_IES_BRIGHTNESS_SCALE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_ies_brightness_scale,
                 __buffer,
             )
         };
@@ -7679,7 +8150,8 @@ impl UInterchangeLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ATTENUATION_RADIUS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_attenuation_radius,
                 __buffer,
             )
         };
@@ -7696,7 +8168,8 @@ impl UInterchangeLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_LIGHT_NODE_GET_CUSTOM_ATTENUATION_RADIUS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_light_node_get_custom_attenuation_radius,
                 __buffer,
             )
         };
@@ -7737,7 +8210,8 @@ impl UInterchangePointLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_set_custom_use_inverse_squared_falloff,
                 __buffer,
             )
         };
@@ -7754,7 +8228,8 @@ impl UInterchangePointLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_set_custom_use_inverse_squared_falloff,
                 __buffer,
             )
         };
@@ -7768,7 +8243,8 @@ impl UInterchangePointLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_set_custom_light_falloff_exponent,
                 __buffer,
             )
         };
@@ -7785,7 +8261,8 @@ impl UInterchangePointLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_SET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_set_custom_light_falloff_exponent,
                 __buffer,
             )
         };
@@ -7802,7 +8279,8 @@ impl UInterchangePointLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_get_custom_use_inverse_squared_falloff,
                 __buffer,
             )
         };
@@ -7819,7 +8297,8 @@ impl UInterchangePointLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_USE_INVERSE_SQUARED_FALLOFF,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_get_custom_use_inverse_squared_falloff,
                 __buffer,
             )
         };
@@ -7836,7 +8315,8 @@ impl UInterchangePointLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_get_custom_light_falloff_exponent,
                 __buffer,
             )
         };
@@ -7853,7 +8333,8 @@ impl UInterchangePointLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_POINT_LIGHT_NODE_GET_CUSTOM_LIGHT_FALLOFF_EXPONENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_point_light_node_get_custom_light_falloff_exponent,
                 __buffer,
             )
         };
@@ -7891,7 +8372,8 @@ impl UInterchangeSpotLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_OUTER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_set_custom_outer_cone_angle,
                 __buffer,
             )
         };
@@ -7908,7 +8390,8 @@ impl UInterchangeSpotLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_OUTER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_set_custom_outer_cone_angle,
                 __buffer,
             )
         };
@@ -7922,7 +8405,8 @@ impl UInterchangeSpotLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_INNER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_set_custom_inner_cone_angle,
                 __buffer,
             )
         };
@@ -7939,7 +8423,8 @@ impl UInterchangeSpotLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_SET_CUSTOM_INNER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_set_custom_inner_cone_angle,
                 __buffer,
             )
         };
@@ -7953,7 +8438,8 @@ impl UInterchangeSpotLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_OUTER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_get_custom_outer_cone_angle,
                 __buffer,
             )
         };
@@ -7970,7 +8456,8 @@ impl UInterchangeSpotLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_OUTER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_get_custom_outer_cone_angle,
                 __buffer,
             )
         };
@@ -7987,7 +8474,8 @@ impl UInterchangeSpotLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_INNER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_get_custom_inner_cone_angle,
                 __buffer,
             )
         };
@@ -8004,7 +8492,8 @@ impl UInterchangeSpotLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPOT_LIGHT_NODE_GET_CUSTOM_INNER_CONE_ANGLE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_spot_light_node_get_custom_inner_cone_angle,
                 __buffer,
             )
         };
@@ -8042,7 +8531,8 @@ impl UInterchangeRectLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_set_custom_source_width,
                 __buffer,
             )
         };
@@ -8059,7 +8549,8 @@ impl UInterchangeRectLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_set_custom_source_width,
                 __buffer,
             )
         };
@@ -8073,7 +8564,8 @@ impl UInterchangeRectLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_set_custom_source_height,
                 __buffer,
             )
         };
@@ -8090,7 +8582,8 @@ impl UInterchangeRectLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_SET_CUSTOM_SOURCE_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_set_custom_source_height,
                 __buffer,
             )
         };
@@ -8104,7 +8597,8 @@ impl UInterchangeRectLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_get_custom_source_width,
                 __buffer,
             )
         };
@@ -8121,7 +8615,8 @@ impl UInterchangeRectLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_WIDTH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_get_custom_source_width,
                 __buffer,
             )
         };
@@ -8138,7 +8633,8 @@ impl UInterchangeRectLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_get_custom_source_height,
                 __buffer,
             )
         };
@@ -8155,7 +8651,8 @@ impl UInterchangeRectLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_RECT_LIGHT_NODE_GET_CUSTOM_SOURCE_HEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_rect_light_node_get_custom_source_height,
                 __buffer,
             )
         };
@@ -8217,7 +8714,8 @@ impl UInterchangeSkyLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_SOURCE_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_set_custom_source_type,
                 __buffer,
             )
         };
@@ -8234,7 +8732,8 @@ impl UInterchangeSkyLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_SOURCE_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_set_custom_source_type,
                 __buffer,
             )
         };
@@ -8251,7 +8750,8 @@ impl UInterchangeSkyLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_CUBEMAP_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_set_custom_cubemap_dependency,
                 __buffer,
             )
         };
@@ -8268,7 +8768,8 @@ impl UInterchangeSkyLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_SET_CUSTOM_CUBEMAP_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_set_custom_cubemap_dependency,
                 __buffer,
             )
         };
@@ -8285,7 +8786,8 @@ impl UInterchangeSkyLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_SOURCE_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_get_custom_source_type,
                 __buffer,
             )
         };
@@ -8302,7 +8804,8 @@ impl UInterchangeSkyLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_SOURCE_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_get_custom_source_type,
                 __buffer,
             )
         };
@@ -8322,7 +8825,8 @@ impl UInterchangeSkyLightNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_CUBEMAP_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_get_custom_cubemap_dependency,
                 __buffer,
             )
         };
@@ -8339,7 +8843,8 @@ impl UInterchangeSkyLightNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SKY_LIGHT_NODE_GET_CUSTOM_CUBEMAP_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_sky_light_node_get_custom_cubemap_dependency,
                 __buffer,
             )
         };
@@ -8377,7 +8882,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_PARENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_set_custom_parent,
                 __buffer,
             )
         };
@@ -8394,7 +8900,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_PARENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_set_custom_parent,
                 __buffer,
             )
         };
@@ -8408,7 +8915,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_set_custom_blend_mode,
                 __buffer,
             )
         };
@@ -8425,7 +8933,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_SET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_set_custom_blend_mode,
                 __buffer,
             )
         };
@@ -8443,7 +8952,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_VECTOR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_vector_parameter_value,
                 __buffer,
             )
         };
@@ -8467,7 +8977,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_VECTOR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_vector_parameter_value,
                 __buffer,
             )
         };
@@ -8491,7 +9002,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_texture_parameter_value,
                 __buffer,
             )
         };
@@ -8515,7 +9027,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_texture_parameter_value,
                 __buffer,
             )
         };
@@ -8536,7 +9049,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -8560,7 +9074,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -8581,7 +9096,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_SCALAR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -8605,7 +9121,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_SCALAR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -8622,7 +9139,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_PARENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_custom_parent,
                 __buffer,
             )
         };
@@ -8639,7 +9157,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_PARENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_custom_parent,
                 __buffer,
             )
         };
@@ -8656,7 +9175,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_custom_blend_mode,
                 __buffer,
             )
         };
@@ -8673,7 +9193,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_GET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_get_custom_blend_mode,
                 __buffer,
             )
         };
@@ -8694,7 +9215,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_VECTOR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_vector_parameter_value,
                 __buffer,
             )
         };
@@ -8718,7 +9240,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_VECTOR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_vector_parameter_value,
                 __buffer,
             )
         };
@@ -8736,7 +9259,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_texture_parameter_value,
                 __buffer,
             )
         };
@@ -8760,7 +9284,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_texture_parameter_value,
                 __buffer,
             )
         };
@@ -8778,7 +9303,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -8802,7 +9328,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -8820,7 +9347,8 @@ impl UInterchangeMaterialInstanceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_SCALAR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -8844,7 +9372,8 @@ impl UInterchangeMaterialInstanceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_INSTANCE_NODE_ADD_SCALAR_PARAMETER_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_instance_node_add_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -8879,7 +9408,8 @@ impl UInterchangeMaterialReferenceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_SET_CUSTOM_CONTENT_PATH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_reference_node_set_custom_content_path,
                 __buffer,
             )
         };
@@ -8896,7 +9426,8 @@ impl UInterchangeMaterialReferenceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_SET_CUSTOM_CONTENT_PATH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_reference_node_set_custom_content_path,
                 __buffer,
             )
         };
@@ -8910,7 +9441,8 @@ impl UInterchangeMaterialReferenceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_GET_CUSTOM_CONTENT_PATH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_reference_node_get_custom_content_path,
                 __buffer,
             )
         };
@@ -8927,7 +9459,8 @@ impl UInterchangeMaterialReferenceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MATERIAL_REFERENCE_NODE_GET_CUSTOM_CONTENT_PATH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_material_reference_node_get_custom_content_path,
                 __buffer,
             )
         };
@@ -8965,7 +9498,8 @@ impl UInterchangeMeshLODContainerNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_RESET_MESH_LOD_NODE_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_reset_mesh_lod_node_uids,
                 __buffer,
             )
         };
@@ -8975,7 +9509,8 @@ impl UInterchangeMeshLODContainerNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_RESET_MESH_LOD_NODE_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_reset_mesh_lod_node_uids,
                 __buffer,
             )
         };
@@ -8989,7 +9524,8 @@ impl UInterchangeMeshLODContainerNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_REMOVE_MESH_LOD_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_remove_mesh_lod_node_uid,
                 __buffer,
             )
         };
@@ -9006,7 +9542,8 @@ impl UInterchangeMeshLODContainerNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_REMOVE_MESH_LOD_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_remove_mesh_lod_node_uid,
                 __buffer,
             )
         };
@@ -9020,7 +9557,8 @@ impl UInterchangeMeshLODContainerNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_GET_MESH_LOD_NODE_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_get_mesh_lod_node_uids,
                 __buffer,
             )
         };
@@ -9037,7 +9575,8 @@ impl UInterchangeMeshLODContainerNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_GET_MESH_LOD_NODE_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_get_mesh_lod_node_uids,
                 __buffer,
             )
         };
@@ -9053,7 +9592,8 @@ impl UInterchangeMeshLODContainerNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_ADD_MESH_LOD_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_add_mesh_lod_node_uid,
                 __buffer,
             )
         };
@@ -9070,7 +9610,8 @@ impl UInterchangeMeshLODContainerNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_LOD_CONTAINER_NODE_ADD_MESH_LOD_NODE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_lod_container_node_add_mesh_lod_node_uid,
                 __buffer,
             )
         };
@@ -9109,7 +9650,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -9133,7 +9675,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -9147,7 +9690,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKINNED_MESH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_skinned_mesh,
                 __buffer,
             )
         };
@@ -9164,7 +9708,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKINNED_MESH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_skinned_mesh,
                 __buffer,
             )
         };
@@ -9178,7 +9723,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKELETON_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_skeleton_dependency_uid,
                 __buffer,
             )
         };
@@ -9195,7 +9741,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SKELETON_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_skeleton_dependency_uid,
                 __buffer,
             )
         };
@@ -9209,7 +9756,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SCENE_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_scene_instance_uid,
                 __buffer,
             )
         };
@@ -9226,7 +9774,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_SCENE_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_scene_instance_uid,
                 __buffer,
             )
         };
@@ -9244,7 +9793,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_PAY_LOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_pay_load_key,
                 __buffer,
             )
         };
@@ -9268,7 +9818,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_PAY_LOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_pay_load_key,
                 __buffer,
             )
         };
@@ -9281,7 +9832,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_morph_target_name,
                 __buffer,
             )
         };
@@ -9298,7 +9850,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_morph_target_name,
                 __buffer,
             )
         };
@@ -9312,7 +9865,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_morph_target_dependency_uid,
                 __buffer,
             )
         };
@@ -9329,7 +9883,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_morph_target_dependency_uid,
                 __buffer,
             )
         };
@@ -9343,7 +9898,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_morph_target,
                 __buffer,
             )
         };
@@ -9360,7 +9916,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_MORPH_TARGET,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_morph_target,
                 __buffer,
             )
         };
@@ -9374,7 +9931,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_VERTEX_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_vertex_count,
                 __buffer,
             )
         };
@@ -9391,7 +9949,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_VERTEX_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_vertex_count,
                 __buffer,
             )
         };
@@ -9405,7 +9964,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_UV_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_uv_count,
                 __buffer,
             )
         };
@@ -9422,7 +9982,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_UV_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_uv_count,
                 __buffer,
             )
         };
@@ -9436,7 +9997,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_POLYGON_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_polygon_count,
                 __buffer,
             )
         };
@@ -9453,7 +10015,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_POLYGON_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_polygon_count,
                 __buffer,
             )
         };
@@ -9467,7 +10030,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_TANGENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_tangent,
                 __buffer,
             )
         };
@@ -9484,7 +10048,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_TANGENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_tangent,
                 __buffer,
             )
         };
@@ -9498,7 +10063,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_NORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_normal,
                 __buffer,
             )
         };
@@ -9515,7 +10081,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_NORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_normal,
                 __buffer,
             )
         };
@@ -9529,7 +10096,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_color,
                 __buffer,
             )
         };
@@ -9546,7 +10114,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_color,
                 __buffer,
             )
         };
@@ -9560,7 +10129,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_BINORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_binormal,
                 __buffer,
             )
         };
@@ -9577,7 +10147,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_VERTEX_BINORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_vertex_binormal,
                 __buffer,
             )
         };
@@ -9591,7 +10162,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_SMOOTH_GROUP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_smooth_group,
                 __buffer,
             )
         };
@@ -9608,7 +10180,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_HAS_SMOOTH_GROUP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_has_smooth_group,
                 __buffer,
             )
         };
@@ -9625,7 +10198,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_COLLISION_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_collision_type,
                 __buffer,
             )
         };
@@ -9642,7 +10216,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_COLLISION_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_collision_type,
                 __buffer,
             )
         };
@@ -9659,7 +10234,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_BOUNDING_BOX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_bounding_box,
                 __buffer,
             )
         };
@@ -9676,7 +10252,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_SET_CUSTOM_BOUNDING_BOX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_set_custom_bounding_box,
                 __buffer,
             )
         };
@@ -9690,7 +10267,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -9707,7 +10285,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -9721,7 +10300,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SKELETON_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_skeleton_dependency_uid,
                 __buffer,
             )
         };
@@ -9738,7 +10318,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SKELETON_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_skeleton_dependency_uid,
                 __buffer,
             )
         };
@@ -9752,7 +10333,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SCENE_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_scene_instance_uid,
                 __buffer,
             )
         };
@@ -9769,7 +10351,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_SCENE_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_scene_instance_uid,
                 __buffer,
             )
         };
@@ -9786,7 +10369,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_MORPH_TARGET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_morph_target_dependency_uid,
                 __buffer,
             )
         };
@@ -9803,7 +10387,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_MORPH_TARGET_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_morph_target_dependency_uid,
                 __buffer,
             )
         };
@@ -9820,7 +10405,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_ASSEMBLY_PART_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_assembly_part_dependency_uid,
                 __buffer,
             )
         };
@@ -9837,7 +10423,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_REMOVE_ASSEMBLY_PART_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_remove_assembly_part_dependency_uid,
                 __buffer,
             )
         };
@@ -9851,7 +10438,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_SKINNED_MESH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_is_skinned_mesh,
                 __buffer,
             )
         };
@@ -9861,7 +10449,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_SKINNED_MESH,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_is_skinned_mesh,
                 __buffer,
             )
         };
@@ -9875,7 +10464,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_MORPH_TARGET,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_is_morph_target,
                 __buffer,
             )
         };
@@ -9885,7 +10475,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_IS_MORPH_TARGET,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_is_morph_target,
                 __buffer,
             )
         };
@@ -9903,7 +10494,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -9927,7 +10519,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -9947,7 +10540,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_slot_material_dependencies,
                 __buffer,
             )
         };
@@ -9964,7 +10558,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_slot_material_dependencies,
                 __buffer,
             )
         };
@@ -9983,7 +10578,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_skeleton_dependency,
                 __buffer,
             )
         };
@@ -10003,7 +10599,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_skeleton_dependency,
                 __buffer,
             )
         };
@@ -10019,7 +10616,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_skeleton_dependencies,
                 __buffer,
             )
         };
@@ -10036,7 +10634,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_skeleton_dependencies,
                 __buffer,
             )
         };
@@ -10052,7 +10651,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDECIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_skeleton_dependecies_count,
                 __buffer,
             )
         };
@@ -10062,7 +10662,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SKELETON_DEPENDECIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_skeleton_dependecies_count,
                 __buffer,
             )
         };
@@ -10076,7 +10677,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_scene_instance_uids_count,
                 __buffer,
             )
         };
@@ -10086,7 +10688,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_scene_instance_uids_count,
                 __buffer,
             )
         };
@@ -10100,7 +10703,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_scene_instance_uids,
                 __buffer,
             )
         };
@@ -10117,7 +10721,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_scene_instance_uids,
                 __buffer,
             )
         };
@@ -10133,7 +10738,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_scene_instance_uid,
                 __buffer,
             )
         };
@@ -10153,7 +10759,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_SCENE_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_scene_instance_uid,
                 __buffer,
             )
         };
@@ -10169,7 +10776,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_name,
                 __buffer,
             )
         };
@@ -10186,7 +10794,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_name,
                 __buffer,
             )
         };
@@ -10203,7 +10812,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_dependency,
                 __buffer,
             )
         };
@@ -10223,7 +10833,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_dependency,
                 __buffer,
             )
         };
@@ -10239,7 +10850,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_dependencies,
                 __buffer,
             )
         };
@@ -10256,7 +10868,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_dependencies,
                 __buffer,
             )
         };
@@ -10272,7 +10885,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDECIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_dependecies_count,
                 __buffer,
             )
         };
@@ -10282,7 +10896,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_MORPH_TARGET_DEPENDECIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_morph_target_dependecies_count,
                 __buffer,
             )
         };
@@ -10296,7 +10911,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_VERTEX_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_vertex_count,
                 __buffer,
             )
         };
@@ -10313,7 +10929,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_VERTEX_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_vertex_count,
                 __buffer,
             )
         };
@@ -10330,7 +10947,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_UV_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_uv_count,
                 __buffer,
             )
         };
@@ -10347,7 +10965,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_UV_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_uv_count,
                 __buffer,
             )
         };
@@ -10364,7 +10983,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_POLYGON_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_polygon_count,
                 __buffer,
             )
         };
@@ -10381,7 +11001,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_POLYGON_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_polygon_count,
                 __buffer,
             )
         };
@@ -10398,7 +11019,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_TANGENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_tangent,
                 __buffer,
             )
         };
@@ -10415,7 +11037,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_TANGENT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_tangent,
                 __buffer,
             )
         };
@@ -10432,7 +11055,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_NORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_normal,
                 __buffer,
             )
         };
@@ -10449,7 +11073,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_NORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_normal,
                 __buffer,
             )
         };
@@ -10466,7 +11091,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_color,
                 __buffer,
             )
         };
@@ -10483,7 +11109,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_COLOR,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_color,
                 __buffer,
             )
         };
@@ -10500,7 +11127,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_BINORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_binormal,
                 __buffer,
             )
         };
@@ -10517,7 +11145,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_VERTEX_BINORMAL,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_vertex_binormal,
                 __buffer,
             )
         };
@@ -10534,7 +11163,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_SMOOTH_GROUP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_smooth_group,
                 __buffer,
             )
         };
@@ -10551,7 +11181,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_HAS_SMOOTH_GROUP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_has_smooth_group,
                 __buffer,
             )
         };
@@ -10571,7 +11202,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_COLLISION_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_collision_type,
                 __buffer,
             )
         };
@@ -10588,7 +11220,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_COLLISION_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_collision_type,
                 __buffer,
             )
         };
@@ -10608,7 +11241,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_BOUNDING_BOX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_bounding_box,
                 __buffer,
             )
         };
@@ -10625,7 +11259,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_CUSTOM_BOUNDING_BOX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_custom_bounding_box,
                 __buffer,
             )
         };
@@ -10649,7 +11284,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_assembly_part_dependency,
                 __buffer,
             )
         };
@@ -10669,7 +11305,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_assembly_part_dependency,
                 __buffer,
             )
         };
@@ -10685,7 +11322,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_assembly_part_dependencies_count,
                 __buffer,
             )
         };
@@ -10695,7 +11333,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_assembly_part_dependencies_count,
                 __buffer,
             )
         };
@@ -10712,7 +11351,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_assembly_part_dependencies,
                 __buffer,
             )
         };
@@ -10729,7 +11369,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_GET_ASSEMBLY_PART_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_get_assembly_part_dependencies,
                 __buffer,
             )
         };
@@ -10745,7 +11386,8 @@ impl UInterchangeMeshNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_ADD_ASSEMBLY_PART_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_add_assembly_part_dependency_uid,
                 __buffer,
             )
         };
@@ -10762,7 +11404,8 @@ impl UInterchangeMeshNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_MESH_NODE_ADD_ASSEMBLY_PART_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_mesh_node_add_assembly_part_dependency_uid,
                 __buffer,
             )
         };
@@ -10797,7 +11440,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_start_frame,
                 __buffer,
             )
         };
@@ -10814,7 +11458,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_start_frame,
                 __buffer,
             )
         };
@@ -10828,7 +11473,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_has_constant_topology,
                 __buffer,
             )
         };
@@ -10845,7 +11491,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_has_constant_topology,
                 __buffer,
             )
         };
@@ -10859,7 +11506,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_frame_rate,
                 __buffer,
             )
         };
@@ -10876,7 +11524,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_frame_rate,
                 __buffer,
             )
         };
@@ -10890,7 +11539,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_end_frame,
                 __buffer,
             )
         };
@@ -10907,7 +11557,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_SET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_set_custom_end_frame,
                 __buffer,
             )
         };
@@ -10921,7 +11572,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_start_frame,
                 __buffer,
             )
         };
@@ -10938,7 +11590,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_START_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_start_frame,
                 __buffer,
             )
         };
@@ -10955,7 +11608,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_has_constant_topology,
                 __buffer,
             )
         };
@@ -10972,7 +11626,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_HAS_CONSTANT_TOPOLOGY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_has_constant_topology,
                 __buffer,
             )
         };
@@ -10989,7 +11644,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_frame_rate,
                 __buffer,
             )
         };
@@ -11006,7 +11662,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_FRAME_RATE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_frame_rate,
                 __buffer,
             )
         };
@@ -11023,7 +11680,8 @@ impl UInterchangeGeometryCacheNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_end_frame,
                 __buffer,
             )
         };
@@ -11040,7 +11698,8 @@ impl UInterchangeGeometryCacheNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_GEOMETRY_CACHE_NODE_GET_CUSTOM_END_FRAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_geometry_cache_node_get_custom_end_frame,
                 __buffer,
             )
         };
@@ -11081,7 +11740,8 @@ impl UInterchangeSceneComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_set_custom_local_transform,
                 __buffer,
             )
         };
@@ -11098,7 +11758,8 @@ impl UInterchangeSceneComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_set_custom_local_transform,
                 __buffer,
             )
         };
@@ -11112,7 +11773,8 @@ impl UInterchangeSceneComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_set_custom_component_visibility,
                 __buffer,
             )
         };
@@ -11129,7 +11791,8 @@ impl UInterchangeSceneComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_set_custom_component_visibility,
                 __buffer,
             )
         };
@@ -11150,7 +11813,8 @@ impl UInterchangeSceneComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_PARENT_SCENE_NODE_AND_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_parent_scene_node_and_transform,
                 __buffer,
             )
         };
@@ -11187,7 +11851,8 @@ impl UInterchangeSceneComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_PARENT_SCENE_NODE_AND_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_parent_scene_node_and_transform,
                 __buffer,
             )
         };
@@ -11210,7 +11875,8 @@ impl UInterchangeSceneComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_custom_local_transform,
                 __buffer,
             )
         };
@@ -11227,7 +11893,8 @@ impl UInterchangeSceneComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_custom_local_transform,
                 __buffer,
             )
         };
@@ -11247,7 +11914,8 @@ impl UInterchangeSceneComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_custom_component_visibility,
                 __buffer,
             )
         };
@@ -11264,7 +11932,8 @@ impl UInterchangeSceneComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_custom_component_visibility,
                 __buffer,
             )
         };
@@ -11281,7 +11950,8 @@ impl UInterchangeSceneComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_COMPONENT_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_component_uids,
                 __buffer,
             )
         };
@@ -11298,7 +11968,8 @@ impl UInterchangeSceneComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_GET_COMPONENT_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_get_component_uids,
                 __buffer,
             )
         };
@@ -11314,7 +11985,8 @@ impl UInterchangeSceneComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_ADD_COMPONENT_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_add_component_uid,
                 __buffer,
             )
         };
@@ -11331,7 +12003,8 @@ impl UInterchangeSceneComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_COMPONENT_NODE_ADD_COMPONENT_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_component_node_add_component_uid,
                 __buffer,
             )
         };
@@ -11366,7 +12039,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_SET_CUSTOM_INSTANCED_ASSET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_set_custom_instanced_asset_uid,
                 __buffer,
             )
         };
@@ -11383,7 +12057,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_SET_CUSTOM_INSTANCED_ASSET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_set_custom_instanced_asset_uid,
                 __buffer,
             )
         };
@@ -11400,7 +12075,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_INSTANCE_TRANSFORMS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_get_instance_transforms,
                 __buffer,
             )
         };
@@ -11419,7 +12095,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_INSTANCE_TRANSFORMS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_get_instance_transforms,
                 __buffer,
             )
         };
@@ -11438,7 +12115,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_CUSTOM_INSTANCED_ASSET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_get_custom_instanced_asset_uid,
                 __buffer,
             )
         };
@@ -11455,7 +12133,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_GET_CUSTOM_INSTANCED_ASSET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_get_custom_instanced_asset_uid,
                 __buffer,
             )
         };
@@ -11475,7 +12154,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORMS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_add_instance_transforms,
                 __buffer,
             )
         };
@@ -11494,7 +12174,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORMS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_add_instance_transforms,
                 __buffer,
             )
         };
@@ -11510,7 +12191,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_add_instance_transform,
                 __buffer,
             )
         };
@@ -11527,7 +12209,8 @@ impl UInterchangeInstancedStaticMeshComponentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_INSTANCED_STATIC_MESH_COMPONENT_NODE_ADD_INSTANCE_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_instanced_static_mesh_component_node_add_instance_transform,
                 __buffer,
             )
         };
@@ -11565,7 +12248,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -11589,7 +12273,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -11607,7 +12292,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_MORPH_TARGET_CURVE_WEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_morph_target_curve_weight,
                 __buffer,
             )
         };
@@ -11627,7 +12313,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_MORPH_TARGET_CURVE_WEIGHT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_morph_target_curve_weight,
                 __buffer,
             )
         };
@@ -11647,7 +12334,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UI_DS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_global_bind_pose_reference_for_mesh_ui_ds,
                 __buffer,
             )
         };
@@ -11666,7 +12354,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UI_DS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_global_bind_pose_reference_for_mesh_ui_ds,
                 __buffer,
             )
         };
@@ -11686,7 +12375,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_time_zero_local_transform,
                 __buffer,
             )
         };
@@ -11723,7 +12413,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_time_zero_local_transform,
                 __buffer,
             )
         };
@@ -11740,7 +12431,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_pivot_node_transform,
                 __buffer,
             )
         };
@@ -11757,7 +12449,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_pivot_node_transform,
                 __buffer,
             )
         };
@@ -11778,7 +12471,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_local_transform,
                 __buffer,
             )
         };
@@ -11815,7 +12509,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_local_transform,
                 __buffer,
             )
         };
@@ -11829,7 +12524,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_IS_SCENE_ROOT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_is_scene_root,
                 __buffer,
             )
         };
@@ -11846,7 +12542,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_IS_SCENE_ROOT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_is_scene_root,
                 __buffer,
             )
         };
@@ -11860,7 +12557,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_HAS_BIND_POSE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_has_bind_pose,
                 __buffer,
             )
         };
@@ -11877,7 +12575,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_HAS_BIND_POSE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_has_bind_pose,
                 __buffer,
             )
         };
@@ -11894,7 +12593,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_global_matrix_for_t0_rebinding,
                 __buffer,
             )
         };
@@ -11911,7 +12611,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_global_matrix_for_t0_rebinding,
                 __buffer,
             )
         };
@@ -11928,7 +12629,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GEOMETRIC_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_geometric_transform,
                 __buffer,
             )
         };
@@ -11945,7 +12647,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_GEOMETRIC_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_geometric_transform,
                 __buffer,
             )
         };
@@ -11959,7 +12662,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_component_visibility,
                 __buffer,
             )
         };
@@ -11976,7 +12680,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_component_visibility,
                 __buffer,
             )
         };
@@ -11997,7 +12702,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_bind_pose_local_transform,
                 __buffer,
             )
         };
@@ -12034,7 +12740,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_bind_pose_local_transform,
                 __buffer,
             )
         };
@@ -12048,7 +12755,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ASSET_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_asset_instance_uid,
                 __buffer,
             )
         };
@@ -12065,7 +12773,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ASSET_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_asset_instance_uid,
                 __buffer,
             )
         };
@@ -12082,7 +12791,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_animation_asset_uid_to_play,
                 __buffer,
             )
         };
@@ -12099,7 +12809,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_animation_asset_uid_to_play,
                 __buffer,
             )
         };
@@ -12113,7 +12824,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ACTOR_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_actor_visibility,
                 __buffer,
             )
         };
@@ -12130,7 +12842,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_CUSTOM_ACTOR_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_custom_actor_visibility,
                 __buffer,
             )
         };
@@ -12148,7 +12861,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_animation_curve_type_for_curve_name,
                 __buffer,
             )
         };
@@ -12172,7 +12886,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_SET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_set_animation_curve_type_for_curve_name,
                 __buffer,
             )
         };
@@ -12186,7 +12901,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SPECIALIZED_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_remove_specialized_type,
                 __buffer,
             )
         };
@@ -12203,7 +12919,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SPECIALIZED_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_remove_specialized_type,
                 __buffer,
             )
         };
@@ -12217,7 +12934,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_remove_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -12234,7 +12952,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_REMOVE_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_remove_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -12248,7 +12967,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_IS_SPECIALIZED_TYPE_CONTAINS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_is_specialized_type_contains,
                 __buffer,
             )
         };
@@ -12265,7 +12985,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_IS_SPECIALIZED_TYPE_CONTAINS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_is_specialized_type_contains,
                 __buffer,
             )
         };
@@ -12279,7 +13000,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_specialized_types,
                 __buffer,
             )
         };
@@ -12296,7 +13018,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_specialized_types,
                 __buffer,
             )
         };
@@ -12312,7 +13035,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_specialized_type_count,
                 __buffer,
             )
         };
@@ -12322,7 +13046,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_specialized_type_count,
                 __buffer,
             )
         };
@@ -12336,7 +13061,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_specialized_type,
                 __buffer,
             )
         };
@@ -12356,7 +13082,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SPECIALIZED_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_specialized_type,
                 __buffer,
             )
         };
@@ -12376,7 +13103,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -12400,7 +13128,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_slot_material_dependency_uid,
                 __buffer,
             )
         };
@@ -12420,7 +13149,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_slot_material_dependencies,
                 __buffer,
             )
         };
@@ -12437,7 +13167,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_SLOT_MATERIAL_DEPENDENCIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_slot_material_dependencies,
                 __buffer,
             )
         };
@@ -12459,7 +13190,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_MORPH_TARGET_CURVE_WEIGHTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_morph_target_curve_weights,
                 __buffer,
             )
         };
@@ -12476,7 +13208,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_MORPH_TARGET_CURVE_WEIGHTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_morph_target_curve_weights,
                 __buffer,
             )
         };
@@ -12499,7 +13232,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_global_bind_pose_reference_for_mesh_uid,
                 __buffer,
             )
         };
@@ -12523,7 +13257,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_GLOBAL_BIND_POSE_REFERENCE_FOR_MESH_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_global_bind_pose_reference_for_mesh_uid,
                 __buffer,
             )
         };
@@ -12546,7 +13281,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_time_zero_local_transform,
                 __buffer,
             )
         };
@@ -12563,7 +13299,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_time_zero_local_transform,
                 __buffer,
             )
         };
@@ -12591,7 +13328,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_GLOBAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_time_zero_global_transform,
                 __buffer,
             )
         };
@@ -12635,7 +13373,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_TIME_ZERO_GLOBAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_time_zero_global_transform,
                 __buffer,
             )
         };
@@ -12658,7 +13397,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_pivot_node_transform,
                 __buffer,
             )
         };
@@ -12675,7 +13415,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_PIVOT_NODE_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_pivot_node_transform,
                 __buffer,
             )
         };
@@ -12698,7 +13439,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_local_transform,
                 __buffer,
             )
         };
@@ -12715,7 +13457,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_local_transform,
                 __buffer,
             )
         };
@@ -12735,7 +13478,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_IS_SCENE_ROOT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_is_scene_root,
                 __buffer,
             )
         };
@@ -12752,7 +13496,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_IS_SCENE_ROOT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_is_scene_root,
                 __buffer,
             )
         };
@@ -12769,7 +13514,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_HAS_BIND_POSE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_has_bind_pose,
                 __buffer,
             )
         };
@@ -12786,7 +13532,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_HAS_BIND_POSE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_has_bind_pose,
                 __buffer,
             )
         };
@@ -12811,7 +13558,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_global_transform,
                 __buffer,
             )
         };
@@ -12855,7 +13603,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_global_transform,
                 __buffer,
             )
         };
@@ -12878,7 +13627,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_global_matrix_for_t0_rebinding,
                 __buffer,
             )
         };
@@ -12895,7 +13645,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GLOBAL_MATRIX_FOR_T0_REBINDING,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_global_matrix_for_t0_rebinding,
                 __buffer,
             )
         };
@@ -12918,7 +13669,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GEOMETRIC_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_geometric_transform,
                 __buffer,
             )
         };
@@ -12935,7 +13687,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_GEOMETRIC_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_geometric_transform,
                 __buffer,
             )
         };
@@ -12955,7 +13708,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_component_visibility,
                 __buffer,
             )
         };
@@ -12972,7 +13726,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_COMPONENT_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_component_visibility,
                 __buffer,
             )
         };
@@ -12992,7 +13747,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_bind_pose_local_transform,
                 __buffer,
             )
         };
@@ -13009,7 +13765,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_LOCAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_bind_pose_local_transform,
                 __buffer,
             )
         };
@@ -13037,7 +13794,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_GLOBAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_bind_pose_global_transform,
                 __buffer,
             )
         };
@@ -13081,7 +13839,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_BIND_POSE_GLOBAL_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_bind_pose_global_transform,
                 __buffer,
             )
         };
@@ -13101,7 +13860,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ASSET_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_asset_instance_uid,
                 __buffer,
             )
         };
@@ -13118,7 +13878,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ASSET_INSTANCE_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_asset_instance_uid,
                 __buffer,
             )
         };
@@ -13138,7 +13899,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_animation_asset_uid_to_play,
                 __buffer,
             )
         };
@@ -13155,7 +13917,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ANIMATION_ASSET_UID_TO_PLAY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_animation_asset_uid_to_play,
                 __buffer,
             )
         };
@@ -13172,7 +13935,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ACTOR_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_actor_visibility,
                 __buffer,
             )
         };
@@ -13189,7 +13953,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_CUSTOM_ACTOR_VISIBILITY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_custom_actor_visibility,
                 __buffer,
             )
         };
@@ -13206,7 +13971,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_COMPONENT_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_component_uids,
                 __buffer,
             )
         };
@@ -13223,7 +13989,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_COMPONENT_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_component_uids,
                 __buffer,
             )
         };
@@ -13243,7 +14010,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_animation_curve_type_for_curve_name,
                 __buffer,
             )
         };
@@ -13267,7 +14035,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_GET_ANIMATION_CURVE_TYPE_FOR_CURVE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_get_animation_curve_type_for_curve_name,
                 __buffer,
             )
         };
@@ -13287,7 +14056,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_SPECIALIZED_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_add_specialized_type,
                 __buffer,
             )
         };
@@ -13304,7 +14074,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_SPECIALIZED_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_add_specialized_type,
                 __buffer,
             )
         };
@@ -13318,7 +14089,8 @@ impl UInterchangeSceneNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_COMPONENT_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_add_component_uid,
                 __buffer,
             )
         };
@@ -13335,7 +14107,8 @@ impl UInterchangeSceneNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_NODE_ADD_COMPONENT_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_node_add_component_uid,
                 __buffer,
             )
         };
@@ -13370,7 +14143,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_VALUE_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_value_key,
                 __buffer,
             )
         };
@@ -13387,7 +14161,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_VALUE_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_value_key,
                 __buffer,
             )
         };
@@ -13401,7 +14176,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_PARAMETER_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_parameter_key,
                 __buffer,
             )
         };
@@ -13418,7 +14194,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_PARAMETER_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_parameter_key,
                 __buffer,
             )
         };
@@ -13432,7 +14209,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_name,
                 __buffer,
             )
         };
@@ -13449,7 +14227,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_name,
                 __buffer,
             )
         };
@@ -13463,7 +14242,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_CONNECTION_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_connection_key,
                 __buffer,
             )
         };
@@ -13480,7 +14260,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_MAKE_INPUT_CONNECTION_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_make_input_connection_key,
                 __buffer,
             )
         };
@@ -13494,7 +14275,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_A_PARAMETER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_is_a_parameter,
                 __buffer,
             )
         };
@@ -13511,7 +14293,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_A_PARAMETER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_is_a_parameter,
                 __buffer,
             )
         };
@@ -13525,7 +14308,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_AN_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_is_an_input,
                 __buffer,
             )
         };
@@ -13542,7 +14326,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_IS_AN_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_is_an_input,
                 __buffer,
             )
         };
@@ -13559,7 +14344,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_PARAMETER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_has_parameter,
                 __buffer,
             )
         };
@@ -13587,7 +14373,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_PARAMETER,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_has_parameter,
                 __buffer,
             )
         };
@@ -13604,7 +14391,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_has_input,
                 __buffer,
             )
         };
@@ -13632,7 +14420,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_HAS_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_has_input,
                 __buffer,
             )
         };
@@ -13651,7 +14440,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GET_INPUT_CONNECTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_get_input_connection,
                 __buffer,
             )
         };
@@ -13693,7 +14483,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GET_INPUT_CONNECTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_get_input_connection,
                 __buffer,
             )
         };
@@ -13716,7 +14507,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GATHER_INPUTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_gather_inputs,
                 __buffer,
             )
         };
@@ -13744,7 +14536,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_GATHER_INPUTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_gather_inputs,
                 __buffer,
             )
         };
@@ -13765,7 +14558,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT_FROM_OUTPUT_NODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_disconnect_input_from_output_node,
                 __buffer,
             )
         };
@@ -13807,7 +14601,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT_FROM_OUTPUT_NODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_disconnect_input_from_output_node,
                 __buffer,
             )
         };
@@ -13830,7 +14625,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_disconnect_input,
                 __buffer,
             )
         };
@@ -13858,7 +14654,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_DISCONNECT_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_disconnect_input,
                 __buffer,
             )
         };
@@ -13877,7 +14674,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_connect_ouput_to_input_by_name,
                 __buffer,
             )
         };
@@ -13919,7 +14717,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_connect_ouput_to_input_by_name,
                 __buffer,
             )
         };
@@ -13938,7 +14737,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_INDEX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_connect_ouput_to_input_by_index,
                 __buffer,
             )
         };
@@ -13980,7 +14780,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_OUPUT_TO_INPUT_BY_INDEX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_connect_ouput_to_input_by_index,
                 __buffer,
             )
         };
@@ -13998,7 +14799,8 @@ impl UInterchangeShaderPortsAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_DEFAULT_OUPUT_TO_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_connect_default_ouput_to_input,
                 __buffer,
             )
         };
@@ -14033,7 +14835,8 @@ impl UInterchangeShaderPortsAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_PORTS_API_CONNECT_DEFAULT_OUPUT_TO_INPUT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_ports_api_connect_default_ouput_to_input,
                 __buffer,
             )
         };
@@ -14068,7 +14871,8 @@ impl UInterchangeFunctionCallShaderNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_SET_CUSTOM_MATERIAL_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_function_call_shader_node_set_custom_material_function,
                 __buffer,
             )
         };
@@ -14085,7 +14889,8 @@ impl UInterchangeFunctionCallShaderNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_SET_CUSTOM_MATERIAL_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_function_call_shader_node_set_custom_material_function,
                 __buffer,
             )
         };
@@ -14099,7 +14904,8 @@ impl UInterchangeFunctionCallShaderNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_GET_CUSTOM_MATERIAL_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_function_call_shader_node_get_custom_material_function,
                 __buffer,
             )
         };
@@ -14116,7 +14922,8 @@ impl UInterchangeFunctionCallShaderNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_FUNCTION_CALL_SHADER_NODE_GET_CUSTOM_MATERIAL_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_function_call_shader_node_get_custom_material_function,
                 __buffer,
             )
         };
@@ -14154,7 +14961,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_two_sided_transmission,
                 __buffer,
             )
         };
@@ -14171,7 +14979,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_two_sided_transmission,
                 __buffer,
             )
         };
@@ -14185,7 +14994,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_two_sided,
                 __buffer,
             )
         };
@@ -14202,7 +15012,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_TWO_SIDED,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_two_sided,
                 __buffer,
             )
         };
@@ -14219,7 +15030,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_screen_space_reflections,
                 __buffer,
             )
         };
@@ -14236,7 +15048,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_screen_space_reflections,
                 __buffer,
             )
         };
@@ -14254,7 +15067,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_opacity_mask_clip_value,
                 __buffer,
             )
         };
@@ -14278,7 +15092,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_opacity_mask_clip_value,
                 __buffer,
             )
         };
@@ -14292,7 +15107,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_IS_A_SHADER_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_is_a_shader_function,
                 __buffer,
             )
         };
@@ -14309,7 +15125,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_IS_A_SHADER_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_is_a_shader_function,
                 __buffer,
             )
         };
@@ -14323,7 +15140,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_displacement_center_mode,
                 __buffer,
             )
         };
@@ -14340,7 +15158,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_displacement_center_mode,
                 __buffer,
             )
         };
@@ -14354,7 +15173,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_blend_mode,
                 __buffer,
             )
         };
@@ -14371,7 +15191,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_SET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_set_custom_blend_mode,
                 __buffer,
             )
         };
@@ -14385,7 +15206,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_two_sided_transmission,
                 __buffer,
             )
         };
@@ -14402,7 +15224,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED_TRANSMISSION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_two_sided_transmission,
                 __buffer,
             )
         };
@@ -14419,7 +15242,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_two_sided,
                 __buffer,
             )
         };
@@ -14436,7 +15260,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_TWO_SIDED,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_two_sided,
                 __buffer,
             )
         };
@@ -14456,7 +15281,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_screen_space_reflections,
                 __buffer,
             )
         };
@@ -14473,7 +15299,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_SCREEN_SPACE_REFLECTIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_screen_space_reflections,
                 __buffer,
             )
         };
@@ -14490,7 +15317,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_opacity_mask_clip_value,
                 __buffer,
             )
         };
@@ -14507,7 +15335,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_OPACITY_MASK_CLIP_VALUE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_opacity_mask_clip_value,
                 __buffer,
             )
         };
@@ -14524,7 +15353,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_IS_A_SHADER_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_is_a_shader_function,
                 __buffer,
             )
         };
@@ -14541,7 +15371,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_IS_A_SHADER_FUNCTION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_is_a_shader_function,
                 __buffer,
             )
         };
@@ -14561,7 +15392,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_displacement_center_mode,
                 __buffer,
             )
         };
@@ -14578,7 +15410,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_DISPLACEMENT_CENTER_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_displacement_center_mode,
                 __buffer,
             )
         };
@@ -14595,7 +15428,8 @@ impl UInterchangeShaderGraphNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_blend_mode,
                 __buffer,
             )
         };
@@ -14612,7 +15446,8 @@ impl UInterchangeShaderGraphNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SHADER_GRAPH_NODE_GET_CUSTOM_BLEND_MODE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_shader_graph_node_get_custom_blend_mode,
                 __buffer,
             )
         };
@@ -14650,7 +15485,8 @@ impl UInterchangeSpecularProfileNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_set_custom_texture,
                 __buffer,
             )
         };
@@ -14667,7 +15503,8 @@ impl UInterchangeSpecularProfileNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_set_custom_texture,
                 __buffer,
             )
         };
@@ -14681,7 +15518,8 @@ impl UInterchangeSpecularProfileNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_FORMAT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_set_custom_format,
                 __buffer,
             )
         };
@@ -14694,7 +15532,8 @@ impl UInterchangeSpecularProfileNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_SET_CUSTOM_FORMAT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_set_custom_format,
                 __buffer,
             )
         };
@@ -14708,7 +15547,8 @@ impl UInterchangeSpecularProfileNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_get_custom_texture,
                 __buffer,
             )
         };
@@ -14725,7 +15565,8 @@ impl UInterchangeSpecularProfileNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_TEXTURE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_get_custom_texture,
                 __buffer,
             )
         };
@@ -14742,7 +15583,8 @@ impl UInterchangeSpecularProfileNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_FORMAT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_get_custom_format,
                 __buffer,
             )
         };
@@ -14755,7 +15597,8 @@ impl UInterchangeSpecularProfileNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SPECULAR_PROFILE_NODE_GET_CUSTOM_FORMAT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_specular_profile_node_get_custom_format,
                 __buffer,
             )
         };
@@ -14793,7 +15636,8 @@ impl UInterchangeTexture2DNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_FORCE_LONG_LAT_CUBEMAP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_set_force_long_lat_cubemap,
                 __buffer,
             )
         };
@@ -14810,7 +15654,8 @@ impl UInterchangeTexture2DNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_FORCE_LONG_LAT_CUBEMAP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_set_force_long_lat_cubemap,
                 __buffer,
             )
         };
@@ -14827,7 +15672,8 @@ impl UInterchangeTexture2DNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_V,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_set_custom_wrap_v,
                 __buffer,
             )
         };
@@ -14844,7 +15690,8 @@ impl UInterchangeTexture2DNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_V,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_set_custom_wrap_v,
                 __buffer,
             )
         };
@@ -14861,7 +15708,8 @@ impl UInterchangeTexture2DNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_U,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_set_custom_wrap_u,
                 __buffer,
             )
         };
@@ -14878,7 +15726,8 @@ impl UInterchangeTexture2DNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_SET_CUSTOM_WRAP_U,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_set_custom_wrap_u,
                 __buffer,
             )
         };
@@ -14892,7 +15741,8 @@ impl UInterchangeTexture2DNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_SOURCE_BLOCKS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_source_blocks,
                 __buffer,
             )
         };
@@ -14902,7 +15752,8 @@ impl UInterchangeTexture2DNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_SOURCE_BLOCKS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_source_blocks,
                 __buffer,
             )
         };
@@ -14916,7 +15767,8 @@ impl UInterchangeTexture2DNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_FORCE_LONG_LAT_CUBEMAP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_force_long_lat_cubemap,
                 __buffer,
             )
         };
@@ -14933,7 +15785,8 @@ impl UInterchangeTexture2DNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_FORCE_LONG_LAT_CUBEMAP,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_force_long_lat_cubemap,
                 __buffer,
             )
         };
@@ -14953,7 +15806,8 @@ impl UInterchangeTexture2DNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_V,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_custom_wrap_v,
                 __buffer,
             )
         };
@@ -14970,7 +15824,8 @@ impl UInterchangeTexture2DNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_V,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_custom_wrap_v,
                 __buffer,
             )
         };
@@ -14990,7 +15845,8 @@ impl UInterchangeTexture2DNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_U,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_custom_wrap_u,
                 __buffer,
             )
         };
@@ -15007,7 +15863,8 @@ impl UInterchangeTexture2DNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_TEXTURE2_D_NODE_GET_CUSTOM_WRAP_U,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_texture2_d_node_get_custom_wrap_u,
                 __buffer,
             )
         };
@@ -15066,7 +15923,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_set_custom_variants_payload_key,
                 __buffer,
             )
         };
@@ -15083,7 +15941,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_set_custom_variants_payload_key,
                 __buffer,
             )
         };
@@ -15097,7 +15956,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_DISPLAY_TEXT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_set_custom_display_text,
                 __buffer,
             )
         };
@@ -15114,7 +15974,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_SET_CUSTOM_DISPLAY_TEXT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_set_custom_display_text,
                 __buffer,
             )
         };
@@ -15128,7 +15989,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_REMOVE_CUSTOM_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_remove_custom_dependency_uid,
                 __buffer,
             )
         };
@@ -15145,7 +16007,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_REMOVE_CUSTOM_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_remove_custom_dependency_uid,
                 __buffer,
             )
         };
@@ -15159,7 +16022,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_variants_payload_key,
                 __buffer,
             )
         };
@@ -15176,7 +16040,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_VARIANTS_PAYLOAD_KEY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_variants_payload_key,
                 __buffer,
             )
         };
@@ -15193,7 +16058,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DISPLAY_TEXT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_display_text,
                 __buffer,
             )
         };
@@ -15210,7 +16076,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DISPLAY_TEXT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_display_text,
                 __buffer,
             )
         };
@@ -15227,7 +16094,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_dependency_uids,
                 __buffer,
             )
         };
@@ -15244,7 +16112,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_dependency_uids,
                 __buffer,
             )
         };
@@ -15260,7 +16129,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_dependency_uid_count,
                 __buffer,
             )
         };
@@ -15270,7 +16140,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_dependency_uid_count,
                 __buffer,
             )
         };
@@ -15288,7 +16159,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_dependency_uid,
                 __buffer,
             )
         };
@@ -15308,7 +16180,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_GET_CUSTOM_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_get_custom_dependency_uid,
                 __buffer,
             )
         };
@@ -15324,7 +16197,8 @@ impl UInterchangeVariantSetNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_ADD_CUSTOM_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_add_custom_dependency_uid,
                 __buffer,
             )
         };
@@ -15341,7 +16215,8 @@ impl UInterchangeVariantSetNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VARIANT_SET_NODE_ADD_CUSTOM_DEPENDENCY_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_variant_set_node_add_custom_dependency_uid,
                 __buffer,
             )
         };
@@ -15376,7 +16251,8 @@ impl UInterchangeSceneVariantSetsNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_REMOVE_CUSTOM_VARIANT_SET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_remove_custom_variant_set_uid,
                 __buffer,
             )
         };
@@ -15393,7 +16269,8 @@ impl UInterchangeSceneVariantSetsNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_REMOVE_CUSTOM_VARIANT_SET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_remove_custom_variant_set_uid,
                 __buffer,
             )
         };
@@ -15407,7 +16284,8 @@ impl UInterchangeSceneVariantSetsNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_get_custom_variant_set_uids,
                 __buffer,
             )
         };
@@ -15424,7 +16302,8 @@ impl UInterchangeSceneVariantSetsNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UIDS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_get_custom_variant_set_uids,
                 __buffer,
             )
         };
@@ -15440,7 +16319,8 @@ impl UInterchangeSceneVariantSetsNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_get_custom_variant_set_uid_count,
                 __buffer,
             )
         };
@@ -15450,7 +16330,8 @@ impl UInterchangeSceneVariantSetsNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_get_custom_variant_set_uid_count,
                 __buffer,
             )
         };
@@ -15464,7 +16345,8 @@ impl UInterchangeSceneVariantSetsNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_get_custom_variant_set_uid,
                 __buffer,
             )
         };
@@ -15484,7 +16366,8 @@ impl UInterchangeSceneVariantSetsNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_GET_CUSTOM_VARIANT_SET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_get_custom_variant_set_uid,
                 __buffer,
             )
         };
@@ -15500,7 +16383,8 @@ impl UInterchangeSceneVariantSetsNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_ADD_CUSTOM_VARIANT_SET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_add_custom_variant_set_uid,
                 __buffer,
             )
         };
@@ -15517,7 +16401,8 @@ impl UInterchangeSceneVariantSetsNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_SCENE_VARIANT_SETS_NODE_ADD_CUSTOM_VARIANT_SET_UID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_scene_variant_sets_node_add_custom_variant_set_uid,
                 __buffer,
             )
         };
@@ -15552,7 +16437,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_FILE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_set_custom_file_name,
                 __buffer,
             )
         };
@@ -15569,7 +16455,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_FILE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_set_custom_file_name,
                 __buffer,
             )
         };
@@ -15583,7 +16470,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_ANIMATION_ID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_set_custom_animation_id,
                 __buffer,
             )
         };
@@ -15600,7 +16488,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_SET_CUSTOM_ANIMATION_ID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_set_custom_animation_id,
                 __buffer,
             )
         };
@@ -15614,7 +16503,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_GRID_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_remove_custom_grid_dependency,
                 __buffer,
             )
         };
@@ -15631,7 +16521,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_GRID_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_remove_custom_grid_dependency,
                 __buffer,
             )
         };
@@ -15645,7 +16536,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_remove_custom_frame_index_in_animation,
                 __buffer,
             )
         };
@@ -15658,7 +16550,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_REMOVE_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_remove_custom_frame_index_in_animation,
                 __buffer,
             )
         };
@@ -15672,7 +16565,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_grid_dependency,
                 __buffer,
             )
         };
@@ -15692,7 +16586,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_grid_dependency,
                 __buffer,
             )
         };
@@ -15708,7 +16603,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_grid_dependecies_count,
                 __buffer,
             )
         };
@@ -15718,7 +16614,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES_COUNT,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_grid_dependecies_count,
                 __buffer,
             )
         };
@@ -15732,7 +16629,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_grid_dependecies,
                 __buffer,
             )
         };
@@ -15749,7 +16647,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_GRID_DEPENDECIES,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_grid_dependecies,
                 __buffer,
             )
         };
@@ -15768,7 +16667,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDICES_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_frame_indices_in_animation,
                 __buffer,
             )
         };
@@ -15785,7 +16685,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDICES_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_frame_indices_in_animation,
                 __buffer,
             )
         };
@@ -15805,7 +16706,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_frame_index_in_animation,
                 __buffer,
             )
         };
@@ -15825,7 +16727,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_frame_index_in_animation,
                 __buffer,
             )
         };
@@ -15841,7 +16744,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FILE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_file_name,
                 __buffer,
             )
         };
@@ -15858,7 +16762,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_FILE_NAME,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_file_name,
                 __buffer,
             )
         };
@@ -15875,7 +16780,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_ANIMATION_ID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_animation_id,
                 __buffer,
             )
         };
@@ -15892,7 +16798,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_GET_CUSTOM_ANIMATION_ID,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_get_custom_animation_id,
                 __buffer,
             )
         };
@@ -15909,7 +16816,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_GRID_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_add_custom_grid_dependency,
                 __buffer,
             )
         };
@@ -15926,7 +16834,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_GRID_DEPENDENCY,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_add_custom_grid_dependency,
                 __buffer,
             )
         };
@@ -15940,7 +16849,8 @@ impl UInterchangeVolumeNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_add_custom_frame_index_in_animation,
                 __buffer,
             )
         };
@@ -15953,7 +16863,8 @@ impl UInterchangeVolumeNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_NODE_ADD_CUSTOM_FRAME_INDEX_IN_ANIMATION,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_node_add_custom_frame_index_in_animation,
                 __buffer,
             )
         };
@@ -15988,7 +16899,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_NUM_COMPONENTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_num_components,
                 __buffer,
             )
         };
@@ -16005,7 +16917,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_NUM_COMPONENTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_num_components,
                 __buffer,
             )
         };
@@ -16022,7 +16935,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_transform,
                 __buffer,
             )
         };
@@ -16039,7 +16953,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_transform,
                 __buffer,
             )
         };
@@ -16056,7 +16971,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_active_dimensions,
                 __buffer,
             )
         };
@@ -16073,7 +16989,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_active_dimensions,
                 __buffer,
             )
         };
@@ -16090,7 +17007,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_active_aabb_min,
                 __buffer,
             )
         };
@@ -16107,7 +17025,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_active_aabb_min,
                 __buffer,
             )
         };
@@ -16124,7 +17043,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_active_aabb_max,
                 __buffer,
             )
         };
@@ -16141,7 +17061,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_grid_active_aabb_max,
                 __buffer,
             )
         };
@@ -16158,7 +17079,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_ELEMENT_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_element_type,
                 __buffer,
             )
         };
@@ -16175,7 +17097,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_SET_CUSTOM_ELEMENT_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_set_custom_element_type,
                 __buffer,
             )
         };
@@ -16189,7 +17112,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_NUM_COMPONENTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_num_components,
                 __buffer,
             )
         };
@@ -16206,7 +17130,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_NUM_COMPONENTS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_num_components,
                 __buffer,
             )
         };
@@ -16226,7 +17151,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_transform,
                 __buffer,
             )
         };
@@ -16243,7 +17169,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_TRANSFORM,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_transform,
                 __buffer,
             )
         };
@@ -16266,7 +17193,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_active_dimensions,
                 __buffer,
             )
         };
@@ -16283,7 +17211,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_DIMENSIONS,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_active_dimensions,
                 __buffer,
             )
         };
@@ -16306,7 +17235,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_active_aabb_min,
                 __buffer,
             )
         };
@@ -16323,7 +17253,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MIN,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_active_aabb_min,
                 __buffer,
             )
         };
@@ -16346,7 +17277,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_active_aabb_max,
                 __buffer,
             )
         };
@@ -16363,7 +17295,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_GRID_ACTIVE_AABB_MAX,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_grid_active_aabb_max,
                 __buffer,
             )
         };
@@ -16386,7 +17319,8 @@ impl UInterchangeVolumeGridNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_ELEMENT_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_element_type,
                 __buffer,
             )
         };
@@ -16403,7 +17337,8 @@ impl UInterchangeVolumeGridNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_nodes::U_INTERCHANGE_VOLUME_GRID_NODE_GET_CUSTOM_ELEMENT_TYPE,
+                crate::bindings::interchange_nodes::__FUNCTION_PTRS
+                    .u_interchange_volume_grid_node_get_custom_element_type,
                 __buffer,
             )
         };

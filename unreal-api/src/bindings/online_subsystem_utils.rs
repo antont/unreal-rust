@@ -1,124 +1,133 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_END_MATCH_CALLBACK_PROXY_END_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_END_TURN_CALLBACK_PROXY_END_TURN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOGOUT_CALLBACK_PROXY_LOGOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_ONLINE_BEACON_CLIENT_CLIENT_ON_CONNECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_SERVER_UPDATE_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_SERVER_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_SERVER_REMOVE_MEMBER_FROM_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_SERVER_ADD_OR_UPDATE_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_PARTY_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SPECTATOR_BEACON_CLIENT_SERVER_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SPECTATOR_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SPECTATOR_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_TEST_BEACON_CLIENT_SERVER_PONG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_TEST_BEACON_CLIENT_CLIENT_PING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_achievement_blueprint_library_get_cached_achievement_progress: *mut crate::ffi::UFunctionOpague,
+    pub u_achievement_blueprint_library_get_cached_achievement_description: *mut crate::ffi::UFunctionOpague,
+    pub u_achievement_query_callback_proxy_cache_achievements: *mut crate::ffi::UFunctionOpague,
+    pub u_achievement_query_callback_proxy_cache_achievement_descriptions: *mut crate::ffi::UFunctionOpague,
+    pub u_achievement_write_callback_proxy_write_progress: *mut crate::ffi::UFunctionOpague,
+    pub u_connection_callback_proxy_connect_to_service: *mut crate::ffi::UFunctionOpague,
+    pub u_create_session_callback_proxy_create_session: *mut crate::ffi::UFunctionOpague,
+    pub u_destroy_session_callback_proxy_destroy_session: *mut crate::ffi::UFunctionOpague,
+    pub u_end_match_callback_proxy_end_match: *mut crate::ffi::UFunctionOpague,
+    pub u_end_turn_callback_proxy_end_turn: *mut crate::ffi::UFunctionOpague,
+    pub u_find_sessions_callback_proxy_get_server_name: *mut crate::ffi::UFunctionOpague,
+    pub u_find_sessions_callback_proxy_get_ping_in_ms: *mut crate::ffi::UFunctionOpague,
+    pub u_find_sessions_callback_proxy_get_max_players: *mut crate::ffi::UFunctionOpague,
+    pub u_find_sessions_callback_proxy_get_current_players: *mut crate::ffi::UFunctionOpague,
+    pub u_find_sessions_callback_proxy_find_sessions: *mut crate::ffi::UFunctionOpague,
+    pub u_find_turn_based_match_callback_proxy_find_turn_based_match: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_unprocessed_purchases: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_query_owned: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_checkout_callback_proxy_create_proxy_object_for_in_app_purchase_checkout: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_finalize_proxy_create_proxy_object_for_in_app_purchase_finalize: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_query_callback_proxy2_create_proxy_object_for_in_app_purchase_query: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_restore_owned_products: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_query_owned_products: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_get_known_receipts: *mut crate::ffi::UFunctionOpague,
+    pub u_in_app_purchase_restore_callback_proxy2_create_proxy_object_for_in_app_purchase_restore: *mut crate::ffi::UFunctionOpague,
+    pub u_join_session_callback_proxy_join_session: *mut crate::ffi::UFunctionOpague,
+    pub u_leaderboard_blueprint_library_write_leaderboard_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_leaderboard_flush_callback_proxy_create_proxy_object_for_flush: *mut crate::ffi::UFunctionOpague,
+    pub u_leaderboard_query_callback_proxy_create_proxy_object_for_int_query: *mut crate::ffi::UFunctionOpague,
+    pub u_logout_callback_proxy_logout: *mut crate::ffi::UFunctionOpague,
+    pub a_online_beacon_client_client_on_connected: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_server_update_reservation_request: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_server_reservation_request: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_server_remove_member_from_reservation_request: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_server_cancel_reservation_request: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_server_add_or_update_reservation_request: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_client_send_reservation_updates: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_client_send_reservation_full: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_client_reservation_response: *mut crate::ffi::UFunctionOpague,
+    pub a_party_beacon_client_client_cancel_reservation_response: *mut crate::ffi::UFunctionOpague,
+    pub u_quit_match_callback_proxy_quit_match: *mut crate::ffi::UFunctionOpague,
+    pub u_show_login_ui_callback_proxy_show_external_login_ui: *mut crate::ffi::UFunctionOpague,
+    pub a_spectator_beacon_client_server_reservation_request: *mut crate::ffi::UFunctionOpague,
+    pub a_spectator_beacon_client_server_cancel_reservation_request: *mut crate::ffi::UFunctionOpague,
+    pub a_spectator_beacon_client_client_send_reservation_updates: *mut crate::ffi::UFunctionOpague,
+    pub a_spectator_beacon_client_client_send_reservation_full: *mut crate::ffi::UFunctionOpague,
+    pub a_spectator_beacon_client_client_reservation_response: *mut crate::ffi::UFunctionOpague,
+    pub a_spectator_beacon_client_client_cancel_reservation_response: *mut crate::ffi::UFunctionOpague,
+    pub a_test_beacon_client_server_pong: *mut crate::ffi::UFunctionOpague,
+    pub a_test_beacon_client_client_ping: *mut crate::ffi::UFunctionOpague,
+    pub u_turn_based_blueprint_library_register_turn_based_match_interface_object: *mut crate::ffi::UFunctionOpague,
+    pub u_turn_based_blueprint_library_get_player_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_turn_based_blueprint_library_get_my_player_index: *mut crate::ffi::UFunctionOpague,
+    pub u_turn_based_blueprint_library_get_is_my_turn: *mut crate::ffi::UFunctionOpague,
+    pub u_voip_listener_synth_component_is_idling: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_achievement_blueprint_library_get_cached_achievement_progress: std::ptr::null_mut(),
+            u_achievement_blueprint_library_get_cached_achievement_description: std::ptr::null_mut(),
+            u_achievement_query_callback_proxy_cache_achievements: std::ptr::null_mut(),
+            u_achievement_query_callback_proxy_cache_achievement_descriptions: std::ptr::null_mut(),
+            u_achievement_write_callback_proxy_write_progress: std::ptr::null_mut(),
+            u_connection_callback_proxy_connect_to_service: std::ptr::null_mut(),
+            u_create_session_callback_proxy_create_session: std::ptr::null_mut(),
+            u_destroy_session_callback_proxy_destroy_session: std::ptr::null_mut(),
+            u_end_match_callback_proxy_end_match: std::ptr::null_mut(),
+            u_end_turn_callback_proxy_end_turn: std::ptr::null_mut(),
+            u_find_sessions_callback_proxy_get_server_name: std::ptr::null_mut(),
+            u_find_sessions_callback_proxy_get_ping_in_ms: std::ptr::null_mut(),
+            u_find_sessions_callback_proxy_get_max_players: std::ptr::null_mut(),
+            u_find_sessions_callback_proxy_get_current_players: std::ptr::null_mut(),
+            u_find_sessions_callback_proxy_find_sessions: std::ptr::null_mut(),
+            u_find_turn_based_match_callback_proxy_find_turn_based_match: std::ptr::null_mut(),
+            u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_unprocessed_purchases: std::ptr::null_mut(),
+            u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_query_owned: std::ptr::null_mut(),
+            u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase: std::ptr::null_mut(),
+            u_in_app_purchase_checkout_callback_proxy_create_proxy_object_for_in_app_purchase_checkout: std::ptr::null_mut(),
+            u_in_app_purchase_finalize_proxy_create_proxy_object_for_in_app_purchase_finalize: std::ptr::null_mut(),
+            u_in_app_purchase_query_callback_proxy2_create_proxy_object_for_in_app_purchase_query: std::ptr::null_mut(),
+            u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_restore_owned_products: std::ptr::null_mut(),
+            u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_query_owned_products: std::ptr::null_mut(),
+            u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_get_known_receipts: std::ptr::null_mut(),
+            u_in_app_purchase_restore_callback_proxy2_create_proxy_object_for_in_app_purchase_restore: std::ptr::null_mut(),
+            u_join_session_callback_proxy_join_session: std::ptr::null_mut(),
+            u_leaderboard_blueprint_library_write_leaderboard_integer: std::ptr::null_mut(),
+            u_leaderboard_flush_callback_proxy_create_proxy_object_for_flush: std::ptr::null_mut(),
+            u_leaderboard_query_callback_proxy_create_proxy_object_for_int_query: std::ptr::null_mut(),
+            u_logout_callback_proxy_logout: std::ptr::null_mut(),
+            a_online_beacon_client_client_on_connected: std::ptr::null_mut(),
+            a_party_beacon_client_server_update_reservation_request: std::ptr::null_mut(),
+            a_party_beacon_client_server_reservation_request: std::ptr::null_mut(),
+            a_party_beacon_client_server_remove_member_from_reservation_request: std::ptr::null_mut(),
+            a_party_beacon_client_server_cancel_reservation_request: std::ptr::null_mut(),
+            a_party_beacon_client_server_add_or_update_reservation_request: std::ptr::null_mut(),
+            a_party_beacon_client_client_send_reservation_updates: std::ptr::null_mut(),
+            a_party_beacon_client_client_send_reservation_full: std::ptr::null_mut(),
+            a_party_beacon_client_client_reservation_response: std::ptr::null_mut(),
+            a_party_beacon_client_client_cancel_reservation_response: std::ptr::null_mut(),
+            u_quit_match_callback_proxy_quit_match: std::ptr::null_mut(),
+            u_show_login_ui_callback_proxy_show_external_login_ui: std::ptr::null_mut(),
+            a_spectator_beacon_client_server_reservation_request: std::ptr::null_mut(),
+            a_spectator_beacon_client_server_cancel_reservation_request: std::ptr::null_mut(),
+            a_spectator_beacon_client_client_send_reservation_updates: std::ptr::null_mut(),
+            a_spectator_beacon_client_client_send_reservation_full: std::ptr::null_mut(),
+            a_spectator_beacon_client_client_reservation_response: std::ptr::null_mut(),
+            a_spectator_beacon_client_client_cancel_reservation_response: std::ptr::null_mut(),
+            a_test_beacon_client_server_pong: std::ptr::null_mut(),
+            a_test_beacon_client_client_ping: std::ptr::null_mut(),
+            u_turn_based_blueprint_library_register_turn_based_match_interface_object: std::ptr::null_mut(),
+            u_turn_based_blueprint_library_get_player_display_name: std::ptr::null_mut(),
+            u_turn_based_blueprint_library_get_my_player_index: std::ptr::null_mut(),
+            u_turn_based_blueprint_library_get_is_my_turn: std::ptr::null_mut(),
+            u_voip_listener_synth_component_is_idling: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -128,14 +137,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCachedAchievementProgress"),
-            &raw mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS,
+            &raw mut __FUNCTION_PTRS
+                .u_achievement_blueprint_library_get_cached_achievement_progress,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCachedAchievementDescription"),
-            &raw mut U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS
+                .u_achievement_blueprint_library_get_cached_achievement_description,
         );
     }
     unsafe {
@@ -146,14 +157,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CacheAchievements"),
-            &raw mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_achievement_query_callback_proxy_cache_achievements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CacheAchievementDescriptions"),
-            &raw mut U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_achievement_query_callback_proxy_cache_achievement_descriptions,
         );
     }
     unsafe {
@@ -164,7 +177,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteProgress"),
-            &raw mut U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS,
+            &raw mut __FUNCTION_PTRS.u_achievement_write_callback_proxy_write_progress,
         );
     }
     unsafe {
@@ -175,7 +188,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectToService"),
-            &raw mut U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE,
+            &raw mut __FUNCTION_PTRS.u_connection_callback_proxy_connect_to_service,
         );
     }
     unsafe {
@@ -186,7 +199,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateSession"),
-            &raw mut U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION,
+            &raw mut __FUNCTION_PTRS.u_create_session_callback_proxy_create_session,
         );
     }
     unsafe {
@@ -197,7 +210,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DestroySession"),
-            &raw mut U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION,
+            &raw mut __FUNCTION_PTRS.u_destroy_session_callback_proxy_destroy_session,
         );
     }
     unsafe {
@@ -208,7 +221,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndMatch"),
-            &raw mut U_END_MATCH_CALLBACK_PROXY_END_MATCH,
+            &raw mut __FUNCTION_PTRS.u_end_match_callback_proxy_end_match,
         );
     }
     unsafe {
@@ -219,7 +232,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndTurn"),
-            &raw mut U_END_TURN_CALLBACK_PROXY_END_TURN,
+            &raw mut __FUNCTION_PTRS.u_end_turn_callback_proxy_end_turn,
         );
     }
     unsafe {
@@ -230,35 +243,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetServerName"),
-            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME,
+            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_server_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPingInMs"),
-            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS,
+            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_ping_in_ms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaxPlayers"),
-            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS,
+            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_max_players,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPlayers"),
-            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS,
+            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_get_current_players,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindSessions"),
-            &raw mut U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS,
+            &raw mut __FUNCTION_PTRS.u_find_sessions_callback_proxy_find_sessions,
         );
     }
     unsafe {
@@ -269,7 +282,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindTurnBasedMatch"),
-            &raw mut U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH,
+            &raw mut __FUNCTION_PTRS
+                .u_find_turn_based_match_callback_proxy_find_turn_based_match,
         );
     }
     unsafe {
@@ -282,21 +296,24 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "CreateProxyObjectForInAppPurchaseUnprocessedPurchases",
             ),
-            &raw mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_unprocessed_purchases,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQueryOwned"),
-            &raw mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_query_owned,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchase"),
-            &raw mut U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase,
         );
     }
     unsafe {
@@ -307,7 +324,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseCheckout"),
-            &raw mut U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_checkout_callback_proxy_create_proxy_object_for_in_app_purchase_checkout,
         );
     }
     unsafe {
@@ -318,7 +336,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseFinalize"),
-            &raw mut U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_finalize_proxy_create_proxy_object_for_in_app_purchase_finalize,
         );
     }
     unsafe {
@@ -329,7 +348,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseQuery"),
-            &raw mut U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_query_callback_proxy2_create_proxy_object_for_in_app_purchase_query,
         );
     }
     unsafe {
@@ -342,7 +362,8 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "CreateProxyObjectForInAppPurchaseRestoreOwnedProducts",
             ),
-            &raw mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_restore_owned_products,
         );
         (bindings
             .core_fns
@@ -351,7 +372,8 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "CreateProxyObjectForInAppPurchaseQueryOwnedProducts",
             ),
-            &raw mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_query_owned_products,
         );
         (bindings
             .core_fns
@@ -360,7 +382,8 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "CreateProxyObjectForInAppPurchaseGetKnownReceipts",
             ),
-            &raw mut U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_get_known_receipts,
         );
     }
     unsafe {
@@ -371,7 +394,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForInAppPurchaseRestore"),
-            &raw mut U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE,
+            &raw mut __FUNCTION_PTRS
+                .u_in_app_purchase_restore_callback_proxy2_create_proxy_object_for_in_app_purchase_restore,
         );
     }
     unsafe {
@@ -382,7 +406,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("JoinSession"),
-            &raw mut U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION,
+            &raw mut __FUNCTION_PTRS.u_join_session_callback_proxy_join_session,
         );
     }
     unsafe {
@@ -393,7 +417,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteLeaderboardInteger"),
-            &raw mut U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_leaderboard_blueprint_library_write_leaderboard_integer,
         );
     }
     unsafe {
@@ -404,7 +429,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForFlush"),
-            &raw mut U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH,
+            &raw mut __FUNCTION_PTRS
+                .u_leaderboard_flush_callback_proxy_create_proxy_object_for_flush,
         );
     }
     unsafe {
@@ -415,7 +441,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForIntQuery"),
-            &raw mut U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY,
+            &raw mut __FUNCTION_PTRS
+                .u_leaderboard_query_callback_proxy_create_proxy_object_for_int_query,
         );
     }
     unsafe {
@@ -426,7 +453,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Logout"),
-            &raw mut U_LOGOUT_CALLBACK_PROXY_LOGOUT,
+            &raw mut __FUNCTION_PTRS.u_logout_callback_proxy_logout,
         );
     }
     unsafe {
@@ -437,7 +464,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientOnConnected"),
-            &raw mut A_ONLINE_BEACON_CLIENT_CLIENT_ON_CONNECTED,
+            &raw mut __FUNCTION_PTRS.a_online_beacon_client_client_on_connected,
         );
     }
     unsafe {
@@ -448,63 +475,69 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerUpdateReservationRequest"),
-            &raw mut A_PARTY_BEACON_CLIENT_SERVER_UPDATE_RESERVATION_REQUEST,
+            &raw mut __FUNCTION_PTRS
+                .a_party_beacon_client_server_update_reservation_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerReservationRequest"),
-            &raw mut A_PARTY_BEACON_CLIENT_SERVER_RESERVATION_REQUEST,
+            &raw mut __FUNCTION_PTRS.a_party_beacon_client_server_reservation_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerRemoveMemberFromReservationRequest"),
-            &raw mut A_PARTY_BEACON_CLIENT_SERVER_REMOVE_MEMBER_FROM_RESERVATION_REQUEST,
+            &raw mut __FUNCTION_PTRS
+                .a_party_beacon_client_server_remove_member_from_reservation_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
-            &raw mut A_PARTY_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST,
+            &raw mut __FUNCTION_PTRS
+                .a_party_beacon_client_server_cancel_reservation_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerAddOrUpdateReservationRequest"),
-            &raw mut A_PARTY_BEACON_CLIENT_SERVER_ADD_OR_UPDATE_RESERVATION_REQUEST,
+            &raw mut __FUNCTION_PTRS
+                .a_party_beacon_client_server_add_or_update_reservation_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
-            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES,
+            &raw mut __FUNCTION_PTRS
+                .a_party_beacon_client_client_send_reservation_updates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
-            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL,
+            &raw mut __FUNCTION_PTRS.a_party_beacon_client_client_send_reservation_full,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientReservationResponse"),
-            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE,
+            &raw mut __FUNCTION_PTRS.a_party_beacon_client_client_reservation_response,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
-            &raw mut A_PARTY_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE,
+            &raw mut __FUNCTION_PTRS
+                .a_party_beacon_client_client_cancel_reservation_response,
         );
     }
     unsafe {
@@ -515,7 +548,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QuitMatch"),
-            &raw mut U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH,
+            &raw mut __FUNCTION_PTRS.u_quit_match_callback_proxy_quit_match,
         );
     }
     unsafe {
@@ -526,7 +559,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowExternalLoginUI"),
-            &raw mut U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI,
+            &raw mut __FUNCTION_PTRS
+                .u_show_login_ui_callback_proxy_show_external_login_ui,
         );
     }
     unsafe {
@@ -537,42 +571,47 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerReservationRequest"),
-            &raw mut A_SPECTATOR_BEACON_CLIENT_SERVER_RESERVATION_REQUEST,
+            &raw mut __FUNCTION_PTRS.a_spectator_beacon_client_server_reservation_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerCancelReservationRequest"),
-            &raw mut A_SPECTATOR_BEACON_CLIENT_SERVER_CANCEL_RESERVATION_REQUEST,
+            &raw mut __FUNCTION_PTRS
+                .a_spectator_beacon_client_server_cancel_reservation_request,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientSendReservationUpdates"),
-            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_UPDATES,
+            &raw mut __FUNCTION_PTRS
+                .a_spectator_beacon_client_client_send_reservation_updates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientSendReservationFull"),
-            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_SEND_RESERVATION_FULL,
+            &raw mut __FUNCTION_PTRS
+                .a_spectator_beacon_client_client_send_reservation_full,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientReservationResponse"),
-            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_RESERVATION_RESPONSE,
+            &raw mut __FUNCTION_PTRS
+                .a_spectator_beacon_client_client_reservation_response,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientCancelReservationResponse"),
-            &raw mut A_SPECTATOR_BEACON_CLIENT_CLIENT_CANCEL_RESERVATION_RESPONSE,
+            &raw mut __FUNCTION_PTRS
+                .a_spectator_beacon_client_client_cancel_reservation_response,
         );
     }
     unsafe {
@@ -583,14 +622,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerPong"),
-            &raw mut A_TEST_BEACON_CLIENT_SERVER_PONG,
+            &raw mut __FUNCTION_PTRS.a_test_beacon_client_server_pong,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientPing"),
-            &raw mut A_TEST_BEACON_CLIENT_CLIENT_PING,
+            &raw mut __FUNCTION_PTRS.a_test_beacon_client_client_ping,
         );
     }
     unsafe {
@@ -601,28 +640,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterTurnBasedMatchInterfaceObject"),
-            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_turn_based_blueprint_library_register_turn_based_match_interface_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayerDisplayName"),
-            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_turn_based_blueprint_library_get_player_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMyPlayerIndex"),
-            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX,
+            &raw mut __FUNCTION_PTRS.u_turn_based_blueprint_library_get_my_player_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsMyTurn"),
-            &raw mut U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN,
+            &raw mut __FUNCTION_PTRS.u_turn_based_blueprint_library_get_is_my_turn,
         );
     }
     unsafe {
@@ -633,7 +674,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsIdling"),
-            &raw mut U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING,
+            &raw mut __FUNCTION_PTRS.u_voip_listener_synth_component_is_idling,
         );
     }
 }
@@ -730,7 +771,8 @@ impl UAchievementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_blueprint_library_get_cached_achievement_progress,
                 __buffer,
             )
         };
@@ -773,7 +815,8 @@ impl UAchievementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_PROGRESS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_blueprint_library_get_cached_achievement_progress,
                 __buffer,
             )
         };
@@ -801,7 +844,8 @@ impl UAchievementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_blueprint_library_get_cached_achievement_description,
                 __buffer,
             )
         };
@@ -861,7 +905,8 @@ impl UAchievementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_BLUEPRINT_LIBRARY_GET_CACHED_ACHIEVEMENT_DESCRIPTION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_blueprint_library_get_cached_achievement_description,
                 __buffer,
             )
         };
@@ -913,7 +958,8 @@ impl UAchievementQueryCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_query_callback_proxy_cache_achievements,
                 __buffer,
             )
         };
@@ -939,7 +985,8 @@ impl UAchievementQueryCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_query_callback_proxy_cache_achievements,
                 __buffer,
             )
         };
@@ -956,7 +1003,8 @@ impl UAchievementQueryCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_query_callback_proxy_cache_achievement_descriptions,
                 __buffer,
             )
         };
@@ -982,7 +1030,8 @@ impl UAchievementQueryCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_QUERY_CALLBACK_PROXY_CACHE_ACHIEVEMENT_DESCRIPTIONS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_query_callback_proxy_cache_achievement_descriptions,
                 __buffer,
             )
         };
@@ -1023,7 +1072,8 @@ impl UAchievementWriteCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_write_callback_proxy_write_progress,
                 __buffer,
             )
         };
@@ -1062,7 +1112,8 @@ impl UAchievementWriteCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_ACHIEVEMENT_WRITE_CALLBACK_PROXY_WRITE_PROGRESS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_achievement_write_callback_proxy_write_progress,
                 __buffer,
             )
         };
@@ -1100,7 +1151,8 @@ impl UConnectionCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_connection_callback_proxy_connect_to_service,
                 __buffer,
             )
         };
@@ -1126,7 +1178,8 @@ impl UConnectionCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_CONNECTION_CALLBACK_PROXY_CONNECT_TO_SERVICE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_connection_callback_proxy_connect_to_service,
                 __buffer,
             )
         };
@@ -1167,7 +1220,8 @@ impl UCreateSessionCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_create_session_callback_proxy_create_session,
                 __buffer,
             )
         };
@@ -1214,7 +1268,8 @@ impl UCreateSessionCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_CREATE_SESSION_CALLBACK_PROXY_CREATE_SESSION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_create_session_callback_proxy_create_session,
                 __buffer,
             )
         };
@@ -1252,7 +1307,8 @@ impl UDestroySessionCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_destroy_session_callback_proxy_destroy_session,
                 __buffer,
             )
         };
@@ -1278,7 +1334,8 @@ impl UDestroySessionCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_DESTROY_SESSION_CALLBACK_PROXY_DESTROY_SESSION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_destroy_session_callback_proxy_destroy_session,
                 __buffer,
             )
         };
@@ -1322,7 +1379,8 @@ impl UEndMatchCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_END_MATCH_CALLBACK_PROXY_END_MATCH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_end_match_callback_proxy_end_match,
                 __buffer,
             )
         };
@@ -1386,7 +1444,8 @@ impl UEndMatchCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_END_MATCH_CALLBACK_PROXY_END_MATCH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_end_match_callback_proxy_end_match,
                 __buffer,
             )
         };
@@ -1428,7 +1487,8 @@ impl UEndTurnCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_END_TURN_CALLBACK_PROXY_END_TURN,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_end_turn_callback_proxy_end_turn,
                 __buffer,
             )
         };
@@ -1474,7 +1534,8 @@ impl UEndTurnCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_END_TURN_CALLBACK_PROXY_END_TURN,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_end_turn_callback_proxy_end_turn,
                 __buffer,
             )
         };
@@ -1509,7 +1570,8 @@ impl UFindSessionsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_server_name,
                 __buffer,
             )
         };
@@ -1526,7 +1588,8 @@ impl UFindSessionsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_SERVER_NAME,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_server_name,
                 __buffer,
             )
         };
@@ -1540,7 +1603,8 @@ impl UFindSessionsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_ping_in_ms,
                 __buffer,
             )
         };
@@ -1557,7 +1621,8 @@ impl UFindSessionsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_PING_IN_MS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_ping_in_ms,
                 __buffer,
             )
         };
@@ -1571,7 +1636,8 @@ impl UFindSessionsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_max_players,
                 __buffer,
             )
         };
@@ -1588,7 +1654,8 @@ impl UFindSessionsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_MAX_PLAYERS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_max_players,
                 __buffer,
             )
         };
@@ -1602,7 +1669,8 @@ impl UFindSessionsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_current_players,
                 __buffer,
             )
         };
@@ -1619,7 +1687,8 @@ impl UFindSessionsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_GET_CURRENT_PLAYERS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_get_current_players,
                 __buffer,
             )
         };
@@ -1639,7 +1708,8 @@ impl UFindSessionsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_find_sessions,
                 __buffer,
             )
         };
@@ -1686,7 +1756,8 @@ impl UFindSessionsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_FIND_SESSIONS_CALLBACK_PROXY_FIND_SESSIONS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_sessions_callback_proxy_find_sessions,
                 __buffer,
             )
         };
@@ -1731,7 +1802,8 @@ impl UFindTurnBasedMatchCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_turn_based_match_callback_proxy_find_turn_based_match,
                 __buffer,
             )
         };
@@ -1798,7 +1870,8 @@ impl UFindTurnBasedMatchCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_FIND_TURN_BASED_MATCH_CALLBACK_PROXY_FIND_TURN_BASED_MATCH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_find_turn_based_match_callback_proxy_find_turn_based_match,
                 __buffer,
             )
         };
@@ -1837,7 +1910,8 @@ impl UInAppPurchaseCallbackProxy2 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_unprocessed_purchases,
                 __buffer,
             )
         };
@@ -1856,7 +1930,8 @@ impl UInAppPurchaseCallbackProxy2 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_UNPROCESSED_PURCHASES,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_unprocessed_purchases,
                 __buffer,
             )
         };
@@ -1872,7 +1947,8 @@ impl UInAppPurchaseCallbackProxy2 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_query_owned,
                 __buffer,
             )
         };
@@ -1891,7 +1967,8 @@ impl UInAppPurchaseCallbackProxy2 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase_query_owned,
                 __buffer,
             )
         };
@@ -1908,7 +1985,8 @@ impl UInAppPurchaseCallbackProxy2 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase,
                 __buffer,
             )
         };
@@ -1934,7 +2012,8 @@ impl UInAppPurchaseCallbackProxy2 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_callback_proxy2_create_proxy_object_for_in_app_purchase,
                 __buffer,
             )
         };
@@ -1972,7 +2051,8 @@ impl UInAppPurchaseCheckoutCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_checkout_callback_proxy_create_proxy_object_for_in_app_purchase_checkout,
                 __buffer,
             )
         };
@@ -1998,7 +2078,8 @@ impl UInAppPurchaseCheckoutCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_CHECKOUT_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_CHECKOUT,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_checkout_callback_proxy_create_proxy_object_for_in_app_purchase_checkout,
                 __buffer,
             )
         };
@@ -2038,7 +2119,8 @@ impl UInAppPurchaseFinalizeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_finalize_proxy_create_proxy_object_for_in_app_purchase_finalize,
                 __buffer,
             )
         };
@@ -2064,7 +2146,8 @@ impl UInAppPurchaseFinalizeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_FINALIZE_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_FINALIZE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_finalize_proxy_create_proxy_object_for_in_app_purchase_finalize,
                 __buffer,
             )
         };
@@ -2102,7 +2185,8 @@ impl UInAppPurchaseQueryCallbackProxy2 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_query_callback_proxy2_create_proxy_object_for_in_app_purchase_query,
                 __buffer,
             )
         };
@@ -2128,7 +2212,8 @@ impl UInAppPurchaseQueryCallbackProxy2 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_QUERY_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_query_callback_proxy2_create_proxy_object_for_in_app_purchase_query,
                 __buffer,
             )
         };
@@ -2167,7 +2252,8 @@ impl UInAppPurchaseReceiptsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_restore_owned_products,
                 __buffer,
             )
         };
@@ -2186,7 +2272,8 @@ impl UInAppPurchaseReceiptsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE_OWNED_PRODUCTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_restore_owned_products,
                 __buffer,
             )
         };
@@ -2204,7 +2291,8 @@ impl UInAppPurchaseReceiptsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_query_owned_products,
                 __buffer,
             )
         };
@@ -2223,7 +2311,8 @@ impl UInAppPurchaseReceiptsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_QUERY_OWNED_PRODUCTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_query_owned_products,
                 __buffer,
             )
         };
@@ -2241,7 +2330,8 @@ impl UInAppPurchaseReceiptsCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_get_known_receipts,
                 __buffer,
             )
         };
@@ -2260,7 +2350,8 @@ impl UInAppPurchaseReceiptsCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RECEIPTS_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_GET_KNOWN_RECEIPTS,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_receipts_callback_proxy_create_proxy_object_for_in_app_purchase_get_known_receipts,
                 __buffer,
             )
         };
@@ -2300,7 +2391,8 @@ impl UInAppPurchaseRestoreCallbackProxy2 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_restore_callback_proxy2_create_proxy_object_for_in_app_purchase_restore,
                 __buffer,
             )
         };
@@ -2326,7 +2418,8 @@ impl UInAppPurchaseRestoreCallbackProxy2 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_IN_APP_PURCHASE_RESTORE_CALLBACK_PROXY2_CREATE_PROXY_OBJECT_FOR_IN_APP_PURCHASE_RESTORE,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_in_app_purchase_restore_callback_proxy2_create_proxy_object_for_in_app_purchase_restore,
                 __buffer,
             )
         };
@@ -2409,7 +2502,8 @@ impl UJoinSessionCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_join_session_callback_proxy_join_session,
                 __buffer,
             )
         };
@@ -2442,7 +2536,8 @@ impl UJoinSessionCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_JOIN_SESSION_CALLBACK_PROXY_JOIN_SESSION,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_join_session_callback_proxy_join_session,
                 __buffer,
             )
         };
@@ -2481,7 +2576,8 @@ impl ULeaderboardBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_leaderboard_blueprint_library_write_leaderboard_integer,
                 __buffer,
             )
         };
@@ -2514,7 +2610,8 @@ impl ULeaderboardBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_LEADERBOARD_BLUEPRINT_LIBRARY_WRITE_LEADERBOARD_INTEGER,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_leaderboard_blueprint_library_write_leaderboard_integer,
                 __buffer,
             )
         };
@@ -2552,7 +2649,8 @@ impl ULeaderboardFlushCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_leaderboard_flush_callback_proxy_create_proxy_object_for_flush,
                 __buffer,
             )
         };
@@ -2578,7 +2676,8 @@ impl ULeaderboardFlushCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_LEADERBOARD_FLUSH_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_FLUSH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_leaderboard_flush_callback_proxy_create_proxy_object_for_flush,
                 __buffer,
             )
         };
@@ -2616,7 +2715,8 @@ impl ULeaderboardQueryCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_leaderboard_query_callback_proxy_create_proxy_object_for_int_query,
                 __buffer,
             )
         };
@@ -2642,7 +2742,8 @@ impl ULeaderboardQueryCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_LEADERBOARD_QUERY_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_INT_QUERY,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_leaderboard_query_callback_proxy_create_proxy_object_for_int_query,
                 __buffer,
             )
         };
@@ -2680,7 +2781,8 @@ impl ULogoutCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_LOGOUT_CALLBACK_PROXY_LOGOUT,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_logout_callback_proxy_logout,
                 __buffer,
             )
         };
@@ -2706,7 +2808,8 @@ impl ULogoutCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_LOGOUT_CALLBACK_PROXY_LOGOUT,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_logout_callback_proxy_logout,
                 __buffer,
             )
         };
@@ -2999,7 +3102,8 @@ impl UQuitMatchCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_quit_match_callback_proxy_quit_match,
                 __buffer,
             )
         };
@@ -3048,7 +3152,8 @@ impl UQuitMatchCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_QUIT_MATCH_CALLBACK_PROXY_QUIT_MATCH,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_quit_match_callback_proxy_quit_match,
                 __buffer,
             )
         };
@@ -3086,7 +3191,8 @@ impl UShowLoginUICallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_show_login_ui_callback_proxy_show_external_login_ui,
                 __buffer,
             )
         };
@@ -3112,7 +3218,8 @@ impl UShowLoginUICallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_SHOW_LOGIN_UI_CALLBACK_PROXY_SHOW_EXTERNAL_LOGIN_UI,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_show_login_ui_callback_proxy_show_external_login_ui,
                 __buffer,
             )
         };
@@ -3361,7 +3468,8 @@ impl UTurnBasedBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_register_turn_based_match_interface_object,
                 __buffer,
             )
         };
@@ -3394,7 +3502,8 @@ impl UTurnBasedBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_REGISTER_TURN_BASED_MATCH_INTERFACE_OBJECT,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_register_turn_based_match_interface_object,
                 __buffer,
             )
         };
@@ -3413,7 +3522,8 @@ impl UTurnBasedBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_player_display_name,
                 __buffer,
             )
         };
@@ -3460,7 +3570,8 @@ impl UTurnBasedBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_PLAYER_DISPLAY_NAME,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_player_display_name,
                 __buffer,
             )
         };
@@ -3481,7 +3592,8 @@ impl UTurnBasedBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_my_player_index,
                 __buffer,
             )
         };
@@ -3521,7 +3633,8 @@ impl UTurnBasedBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_MY_PLAYER_INDEX,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_my_player_index,
                 __buffer,
             )
         };
@@ -3542,7 +3655,8 @@ impl UTurnBasedBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_is_my_turn,
                 __buffer,
             )
         };
@@ -3582,7 +3696,8 @@ impl UTurnBasedBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_TURN_BASED_BLUEPRINT_LIBRARY_GET_IS_MY_TURN,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_turn_based_blueprint_library_get_is_my_turn,
                 __buffer,
             )
         };
@@ -3619,7 +3734,8 @@ impl UVoipListenerSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::online_subsystem_utils::U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_voip_listener_synth_component_is_idling,
                 __buffer,
             )
         };
@@ -3629,7 +3745,8 @@ impl UVoipListenerSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::online_subsystem_utils::U_VOIP_LISTENER_SYNTH_COMPONENT_IS_IDLING,
+                crate::bindings::online_subsystem_utils::__FUNCTION_PTRS
+                    .u_voip_listener_synth_component_is_idling,
                 __buffer,
             )
         };

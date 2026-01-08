@@ -1,142 +1,151 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_PROCESSOR_BLUEPRINT_PROCESS_DYNAMIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_VIEW_MODE_OVERRIDES_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_VERTEX_COLOR_SPACE_TRANSFORM_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_SHADOWS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_BUFFERS_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_WIREFRAME_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_MESH_DRAW_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_WIREFRAME_RENDER_PASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_RAYTRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_FLAT_SHADING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_DISTANCE_FIELD_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_CONSTANT_OVERRIDE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_COLOR_OVERRIDE_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_HAS_OVERRIDE_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_VIEW_MODE_OVERRIDES_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_VERTEX_COLOR_SPACE_TRANSFORM_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_SHADOWS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_BUFFERS_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_WIREFRAME_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_MESH_DRAW_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_FLAT_SHADING_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_WIREFRAME_RENDER_PASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_RAYTRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_DYNAMIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_DISTANCE_FIELD_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_CONSTANT_OVERRIDE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_COLOR_OVERRIDE_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_SECONDARY_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_WIREFRAME_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_RENDER_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_VALIDATE_MATERIAL_SLOTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_UPDATE_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_SET_TANGENTS_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_SET_DEFERRED_COLLISION_UPDATES_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_SET_COMPLEX_AS_SIMPLE_COLLISION_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_SET_ALLOWS_GEOMETRY_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_VERTEX_ATTRIBUTES_MODIFIED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_MODIFIED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_ENABLE_COMPLEX_AS_SIMPLE_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_CONFIGURE_MATERIAL_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_COMPONENT_ALLOWS_GEOMETRY_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_DYNAMIC_MESH_ACTOR_RELEASE_COMPUTE_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_DYNAMIC_MESH_ACTOR_RELEASE_ALL_COMPUTE_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_DYNAMIC_MESH_ACTOR_GET_DYNAMIC_MESH_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_DYNAMIC_MESH_ACTOR_GET_COMPUTE_MESH_POOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_DYNAMIC_MESH_ACTOR_FREE_ALL_COMPUTE_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_DYNAMIC_MESH_ACTOR_ALLOCATE_COMPUTE_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_RESET_TO_CUBE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_RESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_IS_EMPTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_GET_TRIANGLE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_POOL_RETURN_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_POOL_RETURN_ALL_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_POOL_REQUEST_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_MESH_POOL_FREE_ALL_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_dynamic_mesh_processor_blueprint_process_dynamic_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_view_mode_overrides_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_vertex_color_space_transform_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_shadows_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_secondary_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_secondary_buffers_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_override_wireframe_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_override_secondary_wireframe_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_override_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_mesh_draw_path: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_enable_wireframe_render_pass: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_enable_raytracing: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_enable_flat_shading: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_distance_field_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_constant_override_color: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_set_color_override_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_has_override_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_view_mode_overrides_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_vertex_color_space_transform_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_shadows_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_secondary_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_secondary_buffers_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_override_wireframe_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_override_secondary_wireframe_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_override_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_mesh_draw_path: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_flat_shading_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_enable_wireframe_render_pass: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_enable_raytracing: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_dynamic_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_distance_field_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_constant_override_color: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_get_color_override_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_clear_secondary_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_clear_override_wireframe_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_clear_override_secondary_wireframe_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_base_dynamic_mesh_component_clear_override_render_material: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_validate_material_slots: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_update_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_set_tangents_type: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_set_dynamic_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_set_deferred_collision_updates_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_set_complex_as_simple_collision_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_set_allows_geometry_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_notify_mesh_vertex_attributes_modified: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_notify_mesh_modified: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_get_tangents_type_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_get_tangents_type: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_enable_complex_as_simple_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_configure_material_set: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_component_allows_geometry_selection: *mut crate::ffi::UFunctionOpague,
+    pub a_dynamic_mesh_actor_release_compute_mesh: *mut crate::ffi::UFunctionOpague,
+    pub a_dynamic_mesh_actor_release_all_compute_meshes: *mut crate::ffi::UFunctionOpague,
+    pub a_dynamic_mesh_actor_get_dynamic_mesh_component: *mut crate::ffi::UFunctionOpague,
+    pub a_dynamic_mesh_actor_get_compute_mesh_pool: *mut crate::ffi::UFunctionOpague,
+    pub a_dynamic_mesh_actor_free_all_compute_meshes: *mut crate::ffi::UFunctionOpague,
+    pub a_dynamic_mesh_actor_allocate_compute_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_reset_to_cube: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_reset: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_is_empty: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_get_triangle_count: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_pool_return_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_pool_return_all_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_pool_request_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_mesh_pool_free_all_meshes: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_dynamic_mesh_processor_blueprint_process_dynamic_mesh: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_view_mode_overrides_enabled: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_vertex_color_space_transform_mode: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_shadows_enabled: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_secondary_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_secondary_buffers_visibility: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_override_wireframe_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_override_secondary_wireframe_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_override_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_mesh_draw_path: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_enable_wireframe_render_pass: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_enable_raytracing: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_enable_flat_shading: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_distance_field_mode: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_constant_override_color: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_set_color_override_mode: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_has_override_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_view_mode_overrides_enabled: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_vertex_color_space_transform_mode: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_shadows_enabled: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_secondary_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_secondary_buffers_visibility: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_override_wireframe_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_override_secondary_wireframe_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_override_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_mesh_draw_path: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_flat_shading_enabled: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_enable_wireframe_render_pass: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_enable_raytracing: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_dynamic_mesh: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_distance_field_mode: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_constant_override_color: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_get_color_override_mode: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_clear_secondary_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_clear_override_wireframe_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_clear_override_secondary_wireframe_render_material: std::ptr::null_mut(),
+            u_base_dynamic_mesh_component_clear_override_render_material: std::ptr::null_mut(),
+            u_dynamic_mesh_component_validate_material_slots: std::ptr::null_mut(),
+            u_dynamic_mesh_component_update_collision: std::ptr::null_mut(),
+            u_dynamic_mesh_component_set_tangents_type: std::ptr::null_mut(),
+            u_dynamic_mesh_component_set_dynamic_mesh: std::ptr::null_mut(),
+            u_dynamic_mesh_component_set_deferred_collision_updates_enabled: std::ptr::null_mut(),
+            u_dynamic_mesh_component_set_complex_as_simple_collision_enabled: std::ptr::null_mut(),
+            u_dynamic_mesh_component_set_allows_geometry_selection: std::ptr::null_mut(),
+            u_dynamic_mesh_component_notify_mesh_vertex_attributes_modified: std::ptr::null_mut(),
+            u_dynamic_mesh_component_notify_mesh_modified: std::ptr::null_mut(),
+            u_dynamic_mesh_component_get_tangents_type_pure: std::ptr::null_mut(),
+            u_dynamic_mesh_component_get_tangents_type: std::ptr::null_mut(),
+            u_dynamic_mesh_component_enable_complex_as_simple_collision: std::ptr::null_mut(),
+            u_dynamic_mesh_component_configure_material_set: std::ptr::null_mut(),
+            u_dynamic_mesh_component_allows_geometry_selection: std::ptr::null_mut(),
+            a_dynamic_mesh_actor_release_compute_mesh: std::ptr::null_mut(),
+            a_dynamic_mesh_actor_release_all_compute_meshes: std::ptr::null_mut(),
+            a_dynamic_mesh_actor_get_dynamic_mesh_component: std::ptr::null_mut(),
+            a_dynamic_mesh_actor_get_compute_mesh_pool: std::ptr::null_mut(),
+            a_dynamic_mesh_actor_free_all_compute_meshes: std::ptr::null_mut(),
+            a_dynamic_mesh_actor_allocate_compute_mesh: std::ptr::null_mut(),
+            u_dynamic_mesh_reset_to_cube: std::ptr::null_mut(),
+            u_dynamic_mesh_reset: std::ptr::null_mut(),
+            u_dynamic_mesh_is_empty: std::ptr::null_mut(),
+            u_dynamic_mesh_get_triangle_count: std::ptr::null_mut(),
+            u_dynamic_mesh_pool_return_mesh: std::ptr::null_mut(),
+            u_dynamic_mesh_pool_return_all_meshes: std::ptr::null_mut(),
+            u_dynamic_mesh_pool_request_mesh: std::ptr::null_mut(),
+            u_dynamic_mesh_pool_free_all_meshes: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -146,7 +155,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProcessDynamicMesh"),
-            &raw mut U_DYNAMIC_MESH_PROCESSOR_BLUEPRINT_PROCESS_DYNAMIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_dynamic_mesh_processor_blueprint_process_dynamic_mesh,
         );
     }
     unsafe {
@@ -157,252 +167,281 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetViewModeOverridesEnabled"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_VIEW_MODE_OVERRIDES_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_view_mode_overrides_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVertexColorSpaceTransformMode"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_vertex_color_space_transform_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShadowsEnabled"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_SHADOWS_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_set_shadows_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSecondaryRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_secondary_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSecondaryBuffersVisibility"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_BUFFERS_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_secondary_buffers_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOverrideWireframeRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_override_wireframe_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOverrideSecondaryWireframeRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_override_secondary_wireframe_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOverrideRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_override_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeshDrawPath"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_MESH_DRAW_PATH,
+            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_set_mesh_draw_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableWireframeRenderPass"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_WIREFRAME_RENDER_PASS,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_enable_wireframe_render_pass,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableRaytracing"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_RAYTRACING,
+            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_set_enable_raytracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableFlatShading"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_FLAT_SHADING,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_enable_flat_shading,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDistanceFieldMode"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_DISTANCE_FIELD_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_distance_field_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConstantOverrideColor"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_CONSTANT_OVERRIDE_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_constant_override_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetColorOverrideMode"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_SET_COLOR_OVERRIDE_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_set_color_override_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasOverrideRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_HAS_OVERRIDE_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_has_override_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetViewModeOverridesEnabled"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_VIEW_MODE_OVERRIDES_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_view_mode_overrides_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexColorSpaceTransformMode"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_vertex_color_space_transform_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetShadowsEnabled"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_SHADOWS_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_shadows_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSecondaryRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_secondary_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSecondaryBuffersVisibility"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_BUFFERS_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_secondary_buffers_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOverrideWireframeRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_override_wireframe_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOverrideSecondaryWireframeRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_override_secondary_wireframe_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOverrideRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_override_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeshDrawPath"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_MESH_DRAW_PATH,
+            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_mesh_draw_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFlatShadingEnabled"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_FLAT_SHADING_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_flat_shading_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnableWireframeRenderPass"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_WIREFRAME_RENDER_PASS,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_enable_wireframe_render_pass,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnableRaytracing"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_RAYTRACING,
+            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_enable_raytracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDynamicMesh"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_DYNAMIC_MESH,
+            &raw mut __FUNCTION_PTRS.u_base_dynamic_mesh_component_get_dynamic_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDistanceFieldMode"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_DISTANCE_FIELD_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_distance_field_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConstantOverrideColor"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_CONSTANT_OVERRIDE_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_constant_override_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetColorOverrideMode"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_GET_COLOR_OVERRIDE_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_get_color_override_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSecondaryRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_SECONDARY_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_clear_secondary_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearOverrideWireframeRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_clear_override_wireframe_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearOverrideSecondaryWireframeRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_clear_override_secondary_wireframe_render_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearOverrideRenderMaterial"),
-            &raw mut U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_RENDER_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_base_dynamic_mesh_component_clear_override_render_material,
         );
     }
     unsafe {
@@ -413,98 +452,103 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ValidateMaterialSlots"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_VALIDATE_MATERIAL_SLOTS,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_validate_material_slots,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateCollision"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_UPDATE_COLLISION,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_update_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTangentsType"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_SET_TANGENTS_TYPE,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_set_tangents_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDynamicMesh"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_set_dynamic_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDeferredCollisionUpdatesEnabled"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_SET_DEFERRED_COLLISION_UPDATES_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_dynamic_mesh_component_set_deferred_collision_updates_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetComplexAsSimpleCollisionEnabled"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_SET_COMPLEX_AS_SIMPLE_COLLISION_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_dynamic_mesh_component_set_complex_as_simple_collision_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllowsGeometrySelection"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_SET_ALLOWS_GEOMETRY_SELECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_dynamic_mesh_component_set_allows_geometry_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotifyMeshVertexAttributesModified"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_VERTEX_ATTRIBUTES_MODIFIED,
+            &raw mut __FUNCTION_PTRS
+                .u_dynamic_mesh_component_notify_mesh_vertex_attributes_modified,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotifyMeshModified"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_MODIFIED,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_notify_mesh_modified,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTangentsTypePure"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE_PURE,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_get_tangents_type_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTangentsType"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_get_tangents_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableComplexAsSimpleCollision"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_ENABLE_COMPLEX_AS_SIMPLE_COLLISION,
+            &raw mut __FUNCTION_PTRS
+                .u_dynamic_mesh_component_enable_complex_as_simple_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConfigureMaterialSet"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_CONFIGURE_MATERIAL_SET,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_configure_material_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AllowsGeometrySelection"),
-            &raw mut U_DYNAMIC_MESH_COMPONENT_ALLOWS_GEOMETRY_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_component_allows_geometry_selection,
         );
     }
     unsafe {
@@ -515,42 +559,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReleaseComputeMesh"),
-            &raw mut A_DYNAMIC_MESH_ACTOR_RELEASE_COMPUTE_MESH,
+            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_release_compute_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReleaseAllComputeMeshes"),
-            &raw mut A_DYNAMIC_MESH_ACTOR_RELEASE_ALL_COMPUTE_MESHES,
+            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_release_all_compute_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDynamicMeshComponent"),
-            &raw mut A_DYNAMIC_MESH_ACTOR_GET_DYNAMIC_MESH_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_get_dynamic_mesh_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComputeMeshPool"),
-            &raw mut A_DYNAMIC_MESH_ACTOR_GET_COMPUTE_MESH_POOL,
+            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_get_compute_mesh_pool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FreeAllComputeMeshes"),
-            &raw mut A_DYNAMIC_MESH_ACTOR_FREE_ALL_COMPUTE_MESHES,
+            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_free_all_compute_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AllocateComputeMesh"),
-            &raw mut A_DYNAMIC_MESH_ACTOR_ALLOCATE_COMPUTE_MESH,
+            &raw mut __FUNCTION_PTRS.a_dynamic_mesh_actor_allocate_compute_mesh,
         );
     }
     unsafe {
@@ -561,28 +605,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToCube"),
-            &raw mut U_DYNAMIC_MESH_RESET_TO_CUBE,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_reset_to_cube,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut U_DYNAMIC_MESH_RESET,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_reset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEmpty"),
-            &raw mut U_DYNAMIC_MESH_IS_EMPTY,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_is_empty,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriangleCount"),
-            &raw mut U_DYNAMIC_MESH_GET_TRIANGLE_COUNT,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_get_triangle_count,
         );
     }
     unsafe {
@@ -593,28 +637,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReturnMesh"),
-            &raw mut U_DYNAMIC_MESH_POOL_RETURN_MESH,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_return_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReturnAllMeshes"),
-            &raw mut U_DYNAMIC_MESH_POOL_RETURN_ALL_MESHES,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_return_all_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestMesh"),
-            &raw mut U_DYNAMIC_MESH_POOL_REQUEST_MESH,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_request_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FreeAllMeshes"),
-            &raw mut U_DYNAMIC_MESH_POOL_FREE_ALL_MESHES,
+            &raw mut __FUNCTION_PTRS.u_dynamic_mesh_pool_free_all_meshes,
         );
     }
 }
@@ -658,7 +702,8 @@ impl UDynamicMeshProcessorBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_PROCESSOR_BLUEPRINT_PROCESS_DYNAMIC_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_processor_blueprint_process_dynamic_mesh,
                 __buffer,
             )
         };
@@ -678,7 +723,8 @@ impl UDynamicMeshProcessorBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_PROCESSOR_BLUEPRINT_PROCESS_DYNAMIC_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_processor_blueprint_process_dynamic_mesh,
                 __buffer,
             )
         };
@@ -796,7 +842,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VIEW_MODE_OVERRIDES_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_view_mode_overrides_enabled,
                 __buffer,
             )
         };
@@ -809,7 +856,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VIEW_MODE_OVERRIDES_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_view_mode_overrides_enabled,
                 __buffer,
             )
         };
@@ -825,7 +873,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_vertex_color_space_transform_mode,
                 __buffer,
             )
         };
@@ -842,7 +891,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_vertex_color_space_transform_mode,
                 __buffer,
             )
         };
@@ -855,7 +905,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SHADOWS_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_shadows_enabled,
                 __buffer,
             )
         };
@@ -868,7 +919,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SHADOWS_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_shadows_enabled,
                 __buffer,
             )
         };
@@ -884,7 +936,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_secondary_render_material,
                 __buffer,
             )
         };
@@ -903,7 +956,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_secondary_render_material,
                 __buffer,
             )
         };
@@ -916,7 +970,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_BUFFERS_VISIBILITY,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_secondary_buffers_visibility,
                 __buffer,
             )
         };
@@ -933,7 +988,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_SECONDARY_BUFFERS_VISIBILITY,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_secondary_buffers_visibility,
                 __buffer,
             )
         };
@@ -949,7 +1005,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_wireframe_render_material,
                 __buffer,
             )
         };
@@ -968,7 +1025,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_wireframe_render_material,
                 __buffer,
             )
         };
@@ -984,7 +1042,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_secondary_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1003,7 +1062,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_secondary_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1019,7 +1079,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_render_material,
                 __buffer,
             )
         };
@@ -1038,7 +1099,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_override_render_material,
                 __buffer,
             )
         };
@@ -1051,7 +1113,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_MESH_DRAW_PATH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_mesh_draw_path,
                 __buffer,
             )
         };
@@ -1068,7 +1131,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_MESH_DRAW_PATH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_mesh_draw_path,
                 __buffer,
             )
         };
@@ -1081,7 +1145,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_WIREFRAME_RENDER_PASS,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_wireframe_render_pass,
                 __buffer,
             )
         };
@@ -1094,7 +1159,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_WIREFRAME_RENDER_PASS,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_wireframe_render_pass,
                 __buffer,
             )
         };
@@ -1107,7 +1173,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_RAYTRACING,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_raytracing,
                 __buffer,
             )
         };
@@ -1124,7 +1191,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_RAYTRACING,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_raytracing,
                 __buffer,
             )
         };
@@ -1137,7 +1205,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_FLAT_SHADING,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_flat_shading,
                 __buffer,
             )
         };
@@ -1150,7 +1219,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_ENABLE_FLAT_SHADING,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_enable_flat_shading,
                 __buffer,
             )
         };
@@ -1166,7 +1236,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_CONSTANT_OVERRIDE_COLOR,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_constant_override_color,
                 __buffer,
             )
         };
@@ -1183,7 +1254,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_CONSTANT_OVERRIDE_COLOR,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_constant_override_color,
                 __buffer,
             )
         };
@@ -1199,7 +1271,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_COLOR_OVERRIDE_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_color_override_mode,
                 __buffer,
             )
         };
@@ -1216,7 +1289,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_SET_COLOR_OVERRIDE_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_set_color_override_mode,
                 __buffer,
             )
         };
@@ -1229,7 +1303,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_HAS_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_has_override_render_material,
                 __buffer,
             )
         };
@@ -1242,7 +1317,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_HAS_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_has_override_render_material,
                 __buffer,
             )
         };
@@ -1256,7 +1332,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VIEW_MODE_OVERRIDES_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_view_mode_overrides_enabled,
                 __buffer,
             )
         };
@@ -1266,7 +1343,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VIEW_MODE_OVERRIDES_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_view_mode_overrides_enabled,
                 __buffer,
             )
         };
@@ -1282,7 +1360,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_vertex_color_space_transform_mode,
                 __buffer,
             )
         };
@@ -1292,7 +1371,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_VERTEX_COLOR_SPACE_TRANSFORM_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_vertex_color_space_transform_mode,
                 __buffer,
             )
         };
@@ -1306,7 +1386,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SHADOWS_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_shadows_enabled,
                 __buffer,
             )
         };
@@ -1316,7 +1397,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SHADOWS_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_shadows_enabled,
                 __buffer,
             )
         };
@@ -1332,7 +1414,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_secondary_render_material,
                 __buffer,
             )
         };
@@ -1342,7 +1425,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_secondary_render_material,
                 __buffer,
             )
         };
@@ -1361,7 +1445,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_BUFFERS_VISIBILITY,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_secondary_buffers_visibility,
                 __buffer,
             )
         };
@@ -1371,7 +1456,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_SECONDARY_BUFFERS_VISIBILITY,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_secondary_buffers_visibility,
                 __buffer,
             )
         };
@@ -1387,7 +1473,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1397,7 +1484,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1418,7 +1506,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_secondary_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1428,7 +1517,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_secondary_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1450,7 +1540,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_render_material,
                 __buffer,
             )
         };
@@ -1467,7 +1558,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_override_render_material,
                 __buffer,
             )
         };
@@ -1486,7 +1578,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_MESH_DRAW_PATH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_mesh_draw_path,
                 __buffer,
             )
         };
@@ -1496,7 +1589,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_MESH_DRAW_PATH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_mesh_draw_path,
                 __buffer,
             )
         };
@@ -1510,7 +1604,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_FLAT_SHADING_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_flat_shading_enabled,
                 __buffer,
             )
         };
@@ -1520,7 +1615,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_FLAT_SHADING_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_flat_shading_enabled,
                 __buffer,
             )
         };
@@ -1534,7 +1630,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_WIREFRAME_RENDER_PASS,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_enable_wireframe_render_pass,
                 __buffer,
             )
         };
@@ -1544,7 +1641,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_WIREFRAME_RENDER_PASS,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_enable_wireframe_render_pass,
                 __buffer,
             )
         };
@@ -1558,7 +1656,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_RAYTRACING,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_enable_raytracing,
                 __buffer,
             )
         };
@@ -1568,7 +1667,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_ENABLE_RAYTRACING,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_enable_raytracing,
                 __buffer,
             )
         };
@@ -1582,7 +1682,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_DYNAMIC_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_dynamic_mesh,
                 __buffer,
             )
         };
@@ -1592,7 +1693,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_DYNAMIC_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_dynamic_mesh,
                 __buffer,
             )
         };
@@ -1606,7 +1708,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_CONSTANT_OVERRIDE_COLOR,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_constant_override_color,
                 __buffer,
             )
         };
@@ -1616,7 +1719,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_CONSTANT_OVERRIDE_COLOR,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_constant_override_color,
                 __buffer,
             )
         };
@@ -1632,7 +1736,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_COLOR_OVERRIDE_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_color_override_mode,
                 __buffer,
             )
         };
@@ -1642,7 +1747,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_GET_COLOR_OVERRIDE_MODE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_get_color_override_mode,
                 __buffer,
             )
         };
@@ -1658,7 +1764,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_SECONDARY_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_secondary_render_material,
                 __buffer,
             )
         };
@@ -1668,7 +1775,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_SECONDARY_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_secondary_render_material,
                 __buffer,
             )
         };
@@ -1681,7 +1789,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1691,7 +1800,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1704,7 +1814,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_secondary_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1714,7 +1825,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_SECONDARY_WIREFRAME_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_secondary_wireframe_render_material,
                 __buffer,
             )
         };
@@ -1727,7 +1839,8 @@ impl UBaseDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_render_material,
                 __buffer,
             )
         };
@@ -1737,7 +1850,8 @@ impl UBaseDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_BASE_DYNAMIC_MESH_COMPONENT_CLEAR_OVERRIDE_RENDER_MATERIAL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_base_dynamic_mesh_component_clear_override_render_material,
                 __buffer,
             )
         };
@@ -1785,7 +1899,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_VALIDATE_MATERIAL_SLOTS,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_validate_material_slots,
                 __buffer,
             )
         };
@@ -1809,7 +1924,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_VALIDATE_MATERIAL_SLOTS,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_validate_material_slots,
                 __buffer,
             )
         };
@@ -1823,7 +1939,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_UPDATE_COLLISION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_update_collision,
                 __buffer,
             )
         };
@@ -1840,7 +1957,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_UPDATE_COLLISION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_update_collision,
                 __buffer,
             )
         };
@@ -1856,7 +1974,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_TANGENTS_TYPE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_tangents_type,
                 __buffer,
             )
         };
@@ -1873,7 +1992,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_TANGENTS_TYPE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_tangents_type,
                 __buffer,
             )
         };
@@ -1886,7 +2006,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_dynamic_mesh,
                 __buffer,
             )
         };
@@ -1903,7 +2024,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_dynamic_mesh,
                 __buffer,
             )
         };
@@ -1920,7 +2042,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DEFERRED_COLLISION_UPDATES_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_deferred_collision_updates_enabled,
                 __buffer,
             )
         };
@@ -1940,7 +2063,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_DEFERRED_COLLISION_UPDATES_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_deferred_collision_updates_enabled,
                 __buffer,
             )
         };
@@ -1957,7 +2081,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_COMPLEX_AS_SIMPLE_COLLISION_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_complex_as_simple_collision_enabled,
                 __buffer,
             )
         };
@@ -1977,7 +2102,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_COMPLEX_AS_SIMPLE_COLLISION_ENABLED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_complex_as_simple_collision_enabled,
                 __buffer,
             )
         };
@@ -1993,7 +2119,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_ALLOWS_GEOMETRY_SELECTION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_allows_geometry_selection,
                 __buffer,
             )
         };
@@ -2010,7 +2137,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_SET_ALLOWS_GEOMETRY_SELECTION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_set_allows_geometry_selection,
                 __buffer,
             )
         };
@@ -2029,7 +2157,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_VERTEX_ATTRIBUTES_MODIFIED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_notify_mesh_vertex_attributes_modified,
                 __buffer,
             )
         };
@@ -2055,7 +2184,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_VERTEX_ATTRIBUTES_MODIFIED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_notify_mesh_vertex_attributes_modified,
                 __buffer,
             )
         };
@@ -2068,7 +2198,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_MODIFIED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_notify_mesh_modified,
                 __buffer,
             )
         };
@@ -2078,7 +2209,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_NOTIFY_MESH_MODIFIED,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_notify_mesh_modified,
                 __buffer,
             )
         };
@@ -2091,7 +2223,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE_PURE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_get_tangents_type_pure,
                 __buffer,
             )
         };
@@ -2101,7 +2234,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE_PURE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_get_tangents_type_pure,
                 __buffer,
             )
         };
@@ -2115,7 +2249,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_get_tangents_type,
                 __buffer,
             )
         };
@@ -2125,7 +2260,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_GET_TANGENTS_TYPE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_get_tangents_type,
                 __buffer,
             )
         };
@@ -2139,7 +2275,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ENABLE_COMPLEX_AS_SIMPLE_COLLISION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_enable_complex_as_simple_collision,
                 __buffer,
             )
         };
@@ -2149,7 +2286,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ENABLE_COMPLEX_AS_SIMPLE_COLLISION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_enable_complex_as_simple_collision,
                 __buffer,
             )
         };
@@ -2166,7 +2304,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_CONFIGURE_MATERIAL_SET,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_configure_material_set,
                 __buffer,
             )
         };
@@ -2192,7 +2331,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_CONFIGURE_MATERIAL_SET,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_configure_material_set,
                 __buffer,
             )
         };
@@ -2205,7 +2345,8 @@ impl UDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ALLOWS_GEOMETRY_SELECTION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_allows_geometry_selection,
                 __buffer,
             )
         };
@@ -2215,7 +2356,8 @@ impl UDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_COMPONENT_ALLOWS_GEOMETRY_SELECTION,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_component_allows_geometry_selection,
                 __buffer,
             )
         };
@@ -2254,7 +2396,8 @@ impl ADynamicMeshActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_COMPUTE_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_release_compute_mesh,
                 __buffer,
             )
         };
@@ -2271,7 +2414,8 @@ impl ADynamicMeshActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_COMPUTE_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_release_compute_mesh,
                 __buffer,
             )
         };
@@ -2285,7 +2429,8 @@ impl ADynamicMeshActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_ALL_COMPUTE_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_release_all_compute_meshes,
                 __buffer,
             )
         };
@@ -2295,7 +2440,8 @@ impl ADynamicMeshActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_RELEASE_ALL_COMPUTE_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_release_all_compute_meshes,
                 __buffer,
             )
         };
@@ -2308,7 +2454,8 @@ impl ADynamicMeshActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_DYNAMIC_MESH_COMPONENT,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_get_dynamic_mesh_component,
                 __buffer,
             )
         };
@@ -2318,7 +2465,8 @@ impl ADynamicMeshActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_DYNAMIC_MESH_COMPONENT,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_get_dynamic_mesh_component,
                 __buffer,
             )
         };
@@ -2332,7 +2480,8 @@ impl ADynamicMeshActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_COMPUTE_MESH_POOL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_get_compute_mesh_pool,
                 __buffer,
             )
         };
@@ -2342,7 +2491,8 @@ impl ADynamicMeshActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_GET_COMPUTE_MESH_POOL,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_get_compute_mesh_pool,
                 __buffer,
             )
         };
@@ -2356,7 +2506,8 @@ impl ADynamicMeshActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_FREE_ALL_COMPUTE_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_free_all_compute_meshes,
                 __buffer,
             )
         };
@@ -2366,7 +2517,8 @@ impl ADynamicMeshActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_FREE_ALL_COMPUTE_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_free_all_compute_meshes,
                 __buffer,
             )
         };
@@ -2379,7 +2531,8 @@ impl ADynamicMeshActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_ALLOCATE_COMPUTE_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_allocate_compute_mesh,
                 __buffer,
             )
         };
@@ -2389,7 +2542,8 @@ impl ADynamicMeshActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::A_DYNAMIC_MESH_ACTOR_ALLOCATE_COMPUTE_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .a_dynamic_mesh_actor_allocate_compute_mesh,
                 __buffer,
             )
         };
@@ -2445,7 +2599,8 @@ impl UDynamicMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET_TO_CUBE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_reset_to_cube,
                 __buffer,
             )
         };
@@ -2455,7 +2610,8 @@ impl UDynamicMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET_TO_CUBE,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_reset_to_cube,
                 __buffer,
             )
         };
@@ -2469,7 +2625,8 @@ impl UDynamicMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_reset,
                 __buffer,
             )
         };
@@ -2479,7 +2636,8 @@ impl UDynamicMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_RESET,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_reset,
                 __buffer,
             )
         };
@@ -2493,7 +2651,8 @@ impl UDynamicMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_IS_EMPTY,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_is_empty,
                 __buffer,
             )
         };
@@ -2503,7 +2662,8 @@ impl UDynamicMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_IS_EMPTY,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_is_empty,
                 __buffer,
             )
         };
@@ -2517,7 +2677,8 @@ impl UDynamicMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_GET_TRIANGLE_COUNT,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_get_triangle_count,
                 __buffer,
             )
         };
@@ -2527,7 +2688,8 @@ impl UDynamicMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_GET_TRIANGLE_COUNT,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_get_triangle_count,
                 __buffer,
             )
         };
@@ -2562,7 +2724,8 @@ impl UDynamicMeshPool {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_return_mesh,
                 __buffer,
             )
         };
@@ -2579,7 +2742,8 @@ impl UDynamicMeshPool {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_return_mesh,
                 __buffer,
             )
         };
@@ -2592,7 +2756,8 @@ impl UDynamicMeshPool {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_ALL_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_return_all_meshes,
                 __buffer,
             )
         };
@@ -2602,7 +2767,8 @@ impl UDynamicMeshPool {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_RETURN_ALL_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_return_all_meshes,
                 __buffer,
             )
         };
@@ -2615,7 +2781,8 @@ impl UDynamicMeshPool {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_REQUEST_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_request_mesh,
                 __buffer,
             )
         };
@@ -2625,7 +2792,8 @@ impl UDynamicMeshPool {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_REQUEST_MESH,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_request_mesh,
                 __buffer,
             )
         };
@@ -2639,7 +2807,8 @@ impl UDynamicMeshPool {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_FREE_ALL_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_free_all_meshes,
                 __buffer,
             )
         };
@@ -2649,7 +2818,8 @@ impl UDynamicMeshPool {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_framework::U_DYNAMIC_MESH_POOL_FREE_ALL_MESHES,
+                crate::bindings::geometry_framework::__FUNCTION_PTRS
+                    .u_dynamic_mesh_pool_free_all_meshes,
                 __buffer,
             )
         };

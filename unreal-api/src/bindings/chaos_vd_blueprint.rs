@@ -1,22 +1,31 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_SET_TRACE_RELEVANCY_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_SPHERE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_LINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_chaos_vd_runtime_blueprint_library_set_trace_relevancy_volume: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_vd_runtime_blueprint_library_record_debug_draw_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_vd_runtime_blueprint_library_record_debug_draw_sphere: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_vd_runtime_blueprint_library_record_debug_draw_line: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_vd_runtime_blueprint_library_record_debug_draw_box: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_chaos_vd_runtime_blueprint_library_set_trace_relevancy_volume: std::ptr::null_mut(),
+            u_chaos_vd_runtime_blueprint_library_record_debug_draw_vector: std::ptr::null_mut(),
+            u_chaos_vd_runtime_blueprint_library_record_debug_draw_sphere: std::ptr::null_mut(),
+            u_chaos_vd_runtime_blueprint_library_record_debug_draw_line: std::ptr::null_mut(),
+            u_chaos_vd_runtime_blueprint_library_record_debug_draw_box: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -26,35 +35,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTraceRelevancyVolume"),
-            &raw mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_SET_TRACE_RELEVANCY_VOLUME,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_vd_runtime_blueprint_library_set_trace_relevancy_volume,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecordDebugDrawVector"),
-            &raw mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_VECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecordDebugDrawSphere"),
-            &raw mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_SPHERE,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_sphere,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecordDebugDrawLine"),
-            &raw mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_LINE,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_line,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecordDebugDrawBox"),
-            &raw mut U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_BOX,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_vd_runtime_blueprint_library_record_debug_draw_box,
         );
     }
 }
@@ -89,7 +103,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_SET_TRACE_RELEVANCY_VOLUME,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_set_trace_relevancy_volume,
                 __buffer,
             )
         };
@@ -113,7 +128,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_SET_TRACE_RELEVANCY_VOLUME,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_set_trace_relevancy_volume,
                 __buffer,
             )
         };
@@ -132,7 +148,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_VECTOR,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_vector,
                 __buffer,
             )
         };
@@ -173,7 +190,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_VECTOR,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_vector,
                 __buffer,
             )
         };
@@ -192,7 +210,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_SPHERE,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_sphere,
                 __buffer,
             )
         };
@@ -229,7 +248,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_SPHERE,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_sphere,
                 __buffer,
             )
         };
@@ -248,7 +268,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_LINE,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_line,
                 __buffer,
             )
         };
@@ -289,7 +310,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_LINE,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_line,
                 __buffer,
             )
         };
@@ -307,7 +329,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_BOX,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_box,
                 __buffer,
             )
         };
@@ -341,7 +364,8 @@ impl UChaosVDRuntimeBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_vd_blueprint::U_CHAOS_VD_RUNTIME_BLUEPRINT_LIBRARY_RECORD_DEBUG_DRAW_BOX,
+                crate::bindings::chaos_vd_blueprint::__FUNCTION_PTRS
+                    .u_chaos_vd_runtime_blueprint_library_record_debug_draw_box,
                 __buffer,
             )
         };

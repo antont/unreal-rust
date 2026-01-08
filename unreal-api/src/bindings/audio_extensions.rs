@@ -1,40 +1,49 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUDIO_PROPERTIES_SHEET_ASSET_BASE_COPY_TO_OBJECT_PROPERTIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_TRIGGER_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_ARRAY_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_PARAMETERS_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_ARRAY_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_ARRAY_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_ARRAY_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_ARRAY_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_RESET_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_audio_properties_sheet_asset_base_copy_to_object_properties: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_trigger_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_string_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_string_array_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_parameters_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_object_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_object_array_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_int_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_int_array_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_float_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_float_array_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_bool_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_set_bool_array_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_parameter_controller_interface_reset_parameters: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_audio_properties_sheet_asset_base_copy_to_object_properties: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_trigger_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_string_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_string_array_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_parameters_blueprint: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_object_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_object_array_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_int_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_int_array_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_float_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_float_array_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_bool_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_set_bool_array_parameter: std::ptr::null_mut(),
+            u_audio_parameter_controller_interface_reset_parameters: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -44,7 +53,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyToObjectProperties"),
-            &raw mut U_AUDIO_PROPERTIES_SHEET_ASSET_BASE_COPY_TO_OBJECT_PROPERTIES,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_properties_sheet_asset_base_copy_to_object_properties,
         );
     }
     unsafe {
@@ -55,91 +65,104 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTriggerParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_TRIGGER_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_trigger_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStringParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_string_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStringArrayParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_ARRAY_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_string_array_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetParameters_Blueprint"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_PARAMETERS_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_parameters_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetObjectParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_object_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetObjectArrayParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_ARRAY_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_object_array_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIntParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_int_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIntArrayParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_ARRAY_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_int_array_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_float_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatArrayParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_ARRAY_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_float_array_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_bool_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolArrayParameter"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_ARRAY_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_set_bool_array_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetParameters"),
-            &raw mut U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_RESET_PARAMETERS,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_parameter_controller_interface_reset_parameters,
         );
     }
 }
@@ -227,7 +250,8 @@ impl UAudioPropertiesSheetAssetBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PROPERTIES_SHEET_ASSET_BASE_COPY_TO_OBJECT_PROPERTIES,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_properties_sheet_asset_base_copy_to_object_properties,
                 __buffer,
             )
         };
@@ -244,7 +268,8 @@ impl UAudioPropertiesSheetAssetBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PROPERTIES_SHEET_ASSET_BASE_COPY_TO_OBJECT_PROPERTIES,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_properties_sheet_asset_base_copy_to_object_properties,
                 __buffer,
             )
         };
@@ -364,7 +389,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_TRIGGER_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_trigger_parameter,
                 __buffer,
             )
         };
@@ -377,7 +403,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_TRIGGER_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_trigger_parameter,
                 __buffer,
             )
         };
@@ -390,7 +417,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_string_parameter,
                 __buffer,
             )
         };
@@ -410,7 +438,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_string_parameter,
                 __buffer,
             )
         };
@@ -427,7 +456,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_string_array_parameter,
                 __buffer,
             )
         };
@@ -447,7 +477,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_STRING_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_string_array_parameter,
                 __buffer,
             )
         };
@@ -460,7 +491,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_PARAMETERS_BLUEPRINT,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_parameters_blueprint,
                 __buffer,
             )
         };
@@ -477,7 +509,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_PARAMETERS_BLUEPRINT,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_parameters_blueprint,
                 __buffer,
             )
         };
@@ -494,7 +527,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_object_parameter,
                 __buffer,
             )
         };
@@ -514,7 +548,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_object_parameter,
                 __buffer,
             )
         };
@@ -531,7 +566,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_object_array_parameter,
                 __buffer,
             )
         };
@@ -553,7 +589,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_OBJECT_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_object_array_parameter,
                 __buffer,
             )
         };
@@ -566,7 +603,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_int_parameter,
                 __buffer,
             )
         };
@@ -582,7 +620,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_int_parameter,
                 __buffer,
             )
         };
@@ -595,7 +634,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_int_array_parameter,
                 __buffer,
             )
         };
@@ -615,7 +655,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_INT_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_int_array_parameter,
                 __buffer,
             )
         };
@@ -628,7 +669,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_float_parameter,
                 __buffer,
             )
         };
@@ -644,7 +686,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_float_parameter,
                 __buffer,
             )
         };
@@ -657,7 +700,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_float_array_parameter,
                 __buffer,
             )
         };
@@ -677,7 +721,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_FLOAT_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_float_array_parameter,
                 __buffer,
             )
         };
@@ -690,7 +735,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_bool_parameter,
                 __buffer,
             )
         };
@@ -706,7 +752,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_bool_parameter,
                 __buffer,
             )
         };
@@ -719,7 +766,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_bool_array_parameter,
                 __buffer,
             )
         };
@@ -739,7 +787,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_SET_BOOL_ARRAY_PARAMETER,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_set_bool_array_parameter,
                 __buffer,
             )
         };
@@ -752,7 +801,8 @@ impl UAudioParameterControllerInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_RESET_PARAMETERS,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_reset_parameters,
                 __buffer,
             )
         };
@@ -762,7 +812,8 @@ impl UAudioParameterControllerInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_extensions::U_AUDIO_PARAMETER_CONTROLLER_INTERFACE_RESET_PARAMETERS,
+                crate::bindings::audio_extensions::__FUNCTION_PTRS
+                    .u_audio_parameter_controller_interface_reset_parameters,
                 __buffer,
             )
         };

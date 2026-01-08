@@ -1,44 +1,53 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_SET_TRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_SET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_SET_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_SET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_SET_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_HAS_TRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_HAS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_HAS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_HAS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_HAS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_GET_TRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_GET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_GET_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_GET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_PARAMETER_PACK_GET_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_metasound_parameter_pack_set_trigger: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_set_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_set_int: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_set_float: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_set_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_make_metasound_parameter_pack: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_has_trigger: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_has_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_has_int: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_has_float: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_has_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_get_trigger: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_get_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_get_int: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_get_float: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_parameter_pack_get_bool: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_metasound_parameter_pack_set_trigger: std::ptr::null_mut(),
+            u_metasound_parameter_pack_set_string: std::ptr::null_mut(),
+            u_metasound_parameter_pack_set_int: std::ptr::null_mut(),
+            u_metasound_parameter_pack_set_float: std::ptr::null_mut(),
+            u_metasound_parameter_pack_set_bool: std::ptr::null_mut(),
+            u_metasound_parameter_pack_make_metasound_parameter_pack: std::ptr::null_mut(),
+            u_metasound_parameter_pack_has_trigger: std::ptr::null_mut(),
+            u_metasound_parameter_pack_has_string: std::ptr::null_mut(),
+            u_metasound_parameter_pack_has_int: std::ptr::null_mut(),
+            u_metasound_parameter_pack_has_float: std::ptr::null_mut(),
+            u_metasound_parameter_pack_has_bool: std::ptr::null_mut(),
+            u_metasound_parameter_pack_get_trigger: std::ptr::null_mut(),
+            u_metasound_parameter_pack_get_string: std::ptr::null_mut(),
+            u_metasound_parameter_pack_get_int: std::ptr::null_mut(),
+            u_metasound_parameter_pack_get_float: std::ptr::null_mut(),
+            u_metasound_parameter_pack_get_bool: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -48,112 +57,113 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrigger"),
-            &raw mut U_METASOUND_PARAMETER_PACK_SET_TRIGGER,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_trigger,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetString"),
-            &raw mut U_METASOUND_PARAMETER_PACK_SET_STRING,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt"),
-            &raw mut U_METASOUND_PARAMETER_PACK_SET_INT,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloat"),
-            &raw mut U_METASOUND_PARAMETER_PACK_SET_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBool"),
-            &raw mut U_METASOUND_PARAMETER_PACK_SET_BOOL,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_set_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeMetasoundParameterPack"),
-            &raw mut U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_parameter_pack_make_metasound_parameter_pack,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasTrigger"),
-            &raw mut U_METASOUND_PARAMETER_PACK_HAS_TRIGGER,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_trigger,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasString"),
-            &raw mut U_METASOUND_PARAMETER_PACK_HAS_STRING,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasInt"),
-            &raw mut U_METASOUND_PARAMETER_PACK_HAS_INT,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasFloat"),
-            &raw mut U_METASOUND_PARAMETER_PACK_HAS_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasBool"),
-            &raw mut U_METASOUND_PARAMETER_PACK_HAS_BOOL,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_has_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrigger"),
-            &raw mut U_METASOUND_PARAMETER_PACK_GET_TRIGGER,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_trigger,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetString"),
-            &raw mut U_METASOUND_PARAMETER_PACK_GET_STRING,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInt"),
-            &raw mut U_METASOUND_PARAMETER_PACK_GET_INT,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut U_METASOUND_PARAMETER_PACK_GET_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBool"),
-            &raw mut U_METASOUND_PARAMETER_PACK_GET_BOOL,
+            &raw mut __FUNCTION_PTRS.u_metasound_parameter_pack_get_bool,
         );
     }
 }
@@ -331,7 +341,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_TRIGGER,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_trigger,
                 __buffer,
             )
         };
@@ -355,7 +366,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_TRIGGER,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_trigger,
                 __buffer,
             )
         };
@@ -374,7 +386,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_STRING,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_string,
                 __buffer,
             )
         };
@@ -405,7 +418,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_STRING,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_string,
                 __buffer,
             )
         };
@@ -424,7 +438,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_INT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_int,
                 __buffer,
             )
         };
@@ -451,7 +466,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_INT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_int,
                 __buffer,
             )
         };
@@ -470,7 +486,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_FLOAT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_float,
                 __buffer,
             )
         };
@@ -497,7 +514,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_FLOAT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_float,
                 __buffer,
             )
         };
@@ -516,7 +534,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_BOOL,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_bool,
                 __buffer,
             )
         };
@@ -543,7 +562,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_SET_BOOL,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_set_bool,
                 __buffer,
             )
         };
@@ -557,7 +577,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_make_metasound_parameter_pack,
                 __buffer,
             )
         };
@@ -567,7 +588,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_MAKE_METASOUND_PARAMETER_PACK,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_make_metasound_parameter_pack,
                 __buffer,
             )
         };
@@ -581,7 +603,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_TRIGGER,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_trigger,
                 __buffer,
             )
         };
@@ -598,7 +621,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_TRIGGER,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_trigger,
                 __buffer,
             )
         };
@@ -612,7 +636,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_STRING,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_string,
                 __buffer,
             )
         };
@@ -629,7 +654,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_STRING,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_string,
                 __buffer,
             )
         };
@@ -643,7 +669,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_INT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_int,
                 __buffer,
             )
         };
@@ -660,7 +687,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_INT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_int,
                 __buffer,
             )
         };
@@ -674,7 +702,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_FLOAT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_float,
                 __buffer,
             )
         };
@@ -691,7 +720,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_FLOAT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_float,
                 __buffer,
             )
         };
@@ -705,7 +735,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_BOOL,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_bool,
                 __buffer,
             )
         };
@@ -722,7 +753,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_HAS_BOOL,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_has_bool,
                 __buffer,
             )
         };
@@ -740,7 +772,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_TRIGGER,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_trigger,
                 __buffer,
             )
         };
@@ -764,7 +797,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_TRIGGER,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_trigger,
                 __buffer,
             )
         };
@@ -785,7 +819,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_STRING,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_string,
                 __buffer,
             )
         };
@@ -809,7 +844,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_STRING,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_string,
                 __buffer,
             )
         };
@@ -826,7 +862,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_INT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_int,
                 __buffer,
             )
         };
@@ -850,7 +887,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_INT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_int,
                 __buffer,
             )
         };
@@ -867,7 +905,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_FLOAT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_float,
                 __buffer,
             )
         };
@@ -891,7 +930,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_FLOAT,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_float,
                 __buffer,
             )
         };
@@ -908,7 +948,8 @@ impl UMetasoundParameterPack {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_BOOL,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_bool,
                 __buffer,
             )
         };
@@ -932,7 +973,8 @@ impl UMetasoundParameterPack {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_frontend::U_METASOUND_PARAMETER_PACK_GET_BOOL,
+                crate::bindings::metasound_frontend::__FUNCTION_PTRS
+                    .u_metasound_parameter_pack_get_bool,
                 __buffer,
             )
         };

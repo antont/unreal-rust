@@ -1,38 +1,47 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_CUSTOMIZATION_INTERFACE_GET_TITLE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_animation_graph_get_graph_nodes_of_class: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_customization_interface_get_title_color: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_set_source_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_set_rbf_parameters: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_set_pose_driver_source: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_set_pose_driver_output: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_set_driving_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_get_source_bone_names: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_get_rbf_parameters: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_get_pose_driver_source: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_get_pose_driver_output: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_get_driving_bone_names: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_graph_node_pose_driver_copy_targets_from_pose_asset: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_animation_graph_get_graph_nodes_of_class: std::ptr::null_mut(),
+            u_anim_graph_node_customization_interface_get_title_color: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_set_source_bones: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_set_rbf_parameters: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_set_pose_driver_source: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_set_pose_driver_output: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_set_driving_bones: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_get_source_bone_names: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_get_rbf_parameters: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_get_pose_driver_source: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_get_pose_driver_output: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_get_driving_bone_names: std::ptr::null_mut(),
+            u_anim_graph_node_pose_driver_copy_targets_from_pose_asset: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -42,7 +51,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphNodesOfClass"),
-            &raw mut U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS,
+            &raw mut __FUNCTION_PTRS.u_animation_graph_get_graph_nodes_of_class,
         );
     }
     unsafe {
@@ -53,7 +62,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTitleColor"),
-            &raw mut U_ANIM_GRAPH_NODE_CUSTOMIZATION_INTERFACE_GET_TITLE_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_graph_node_customization_interface_get_title_color,
         );
     }
     unsafe {
@@ -64,77 +74,78 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceBones"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_set_source_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRBFParameters"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_set_rbf_parameters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPoseDriverSource"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_set_pose_driver_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPoseDriverOutput"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_set_pose_driver_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDrivingBones"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_set_driving_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceBoneNames"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_get_source_bone_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRBFParameters"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_get_rbf_parameters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPoseDriverSource"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_get_pose_driver_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPoseDriverOutput"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_get_pose_driver_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDrivingBoneNames"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_anim_graph_node_pose_driver_get_driving_bone_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyTargetsFromPoseAsset"),
-            &raw mut U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_graph_node_pose_driver_copy_targets_from_pose_asset,
         );
     }
 }
@@ -171,7 +182,8 @@ impl UAnimationGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_animation_graph_get_graph_nodes_of_class,
                 __buffer,
             )
         };
@@ -202,7 +214,8 @@ impl UAnimationGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIMATION_GRAPH_GET_GRAPH_NODES_OF_CLASS,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_animation_graph_get_graph_nodes_of_class,
                 __buffer,
             )
         };
@@ -338,6 +351,34 @@ impl UAnimGraphNodeCustomizationInterface {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn get_title_color(&self) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_customization_interface_get_title_color,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_customization_interface_get_title_color,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<crate::bindings::core_u_object::FLinearColor>().read()
         }
     }
 }
@@ -2053,7 +2094,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_source_bones,
                 __buffer,
             )
         };
@@ -2070,7 +2112,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_SOURCE_BONES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_source_bones,
                 __buffer,
             )
         };
@@ -2086,7 +2129,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_rbf_parameters,
                 __buffer,
             )
         };
@@ -2105,7 +2149,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_RBF_PARAMETERS,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_rbf_parameters,
                 __buffer,
             )
         };
@@ -2121,7 +2166,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_pose_driver_source,
                 __buffer,
             )
         };
@@ -2140,7 +2186,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_SOURCE,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_pose_driver_source,
                 __buffer,
             )
         };
@@ -2156,7 +2203,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_pose_driver_output,
                 __buffer,
             )
         };
@@ -2175,7 +2223,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_POSE_DRIVER_OUTPUT,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_pose_driver_output,
                 __buffer,
             )
         };
@@ -2188,7 +2237,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_driving_bones,
                 __buffer,
             )
         };
@@ -2205,7 +2255,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_SET_DRIVING_BONES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_set_driving_bones,
                 __buffer,
             )
         };
@@ -2218,7 +2269,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_source_bone_names,
                 __buffer,
             )
         };
@@ -2235,7 +2287,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_SOURCE_BONE_NAMES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_source_bone_names,
                 __buffer,
             )
         };
@@ -2253,7 +2306,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_rbf_parameters,
                 __buffer,
             )
         };
@@ -2263,7 +2317,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_RBF_PARAMETERS,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_rbf_parameters,
                 __buffer,
             )
         };
@@ -2284,7 +2339,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_pose_driver_source,
                 __buffer,
             )
         };
@@ -2294,7 +2350,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_SOURCE,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_pose_driver_source,
                 __buffer,
             )
         };
@@ -2315,7 +2372,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_pose_driver_output,
                 __buffer,
             )
         };
@@ -2325,7 +2383,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_POSE_DRIVER_OUTPUT,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_pose_driver_output,
                 __buffer,
             )
         };
@@ -2344,7 +2403,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_driving_bone_names,
                 __buffer,
             )
         };
@@ -2361,7 +2421,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_GET_DRIVING_BONE_NAMES,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_get_driving_bone_names,
                 __buffer,
             )
         };
@@ -2377,7 +2438,8 @@ impl UAnimGraphNode_PoseDriver {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_copy_targets_from_pose_asset,
                 __buffer,
             )
         };
@@ -2387,7 +2449,8 @@ impl UAnimGraphNode_PoseDriver {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph::U_ANIM_GRAPH_NODE_POSE_DRIVER_COPY_TARGETS_FROM_POSE_ASSET,
+                crate::bindings::anim_graph::__FUNCTION_PTRS
+                    .u_anim_graph_node_pose_driver_copy_targets_from_pose_asset,
                 __buffer,
             )
         };

@@ -1,56 +1,65 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_SET_VERBOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_SET_SUBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_SET_SILENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_ADD_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_ADD_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_REPORT_ADD_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_VERIFICATION_RULE_BASE_VERIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_meta_human_asset_report_set_warnings_as_errors: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_set_verbose: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_set_subject: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_set_silent: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_has_warnings: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_get_report_result: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_generate_rich_text_report: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_generate_raw_report: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_generate_json_report: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_generate_html_report: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_add_warning: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_add_verbose: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_add_info: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_report_add_error: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_manager_update_asset_details: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_manager_update_asset_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_manager_is_asset_of_type: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_manager_find_assets_for_packaging: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_asset_manager_create_archive: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_verification_rule_base_verify: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_verification_rule_collection_apply_all_rules: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_human_verification_rule_collection_add_verification_rule: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_meta_human_asset_report_set_warnings_as_errors: std::ptr::null_mut(),
+            u_meta_human_asset_report_set_verbose: std::ptr::null_mut(),
+            u_meta_human_asset_report_set_subject: std::ptr::null_mut(),
+            u_meta_human_asset_report_set_silent: std::ptr::null_mut(),
+            u_meta_human_asset_report_has_warnings: std::ptr::null_mut(),
+            u_meta_human_asset_report_get_report_result: std::ptr::null_mut(),
+            u_meta_human_asset_report_generate_rich_text_report: std::ptr::null_mut(),
+            u_meta_human_asset_report_generate_raw_report: std::ptr::null_mut(),
+            u_meta_human_asset_report_generate_json_report: std::ptr::null_mut(),
+            u_meta_human_asset_report_generate_html_report: std::ptr::null_mut(),
+            u_meta_human_asset_report_add_warning: std::ptr::null_mut(),
+            u_meta_human_asset_report_add_verbose: std::ptr::null_mut(),
+            u_meta_human_asset_report_add_info: std::ptr::null_mut(),
+            u_meta_human_asset_report_add_error: std::ptr::null_mut(),
+            u_meta_human_asset_manager_update_asset_details: std::ptr::null_mut(),
+            u_meta_human_asset_manager_update_asset_dependencies: std::ptr::null_mut(),
+            u_meta_human_asset_manager_is_asset_of_type: std::ptr::null_mut(),
+            u_meta_human_asset_manager_find_assets_for_packaging: std::ptr::null_mut(),
+            u_meta_human_asset_manager_create_archive: std::ptr::null_mut(),
+            u_meta_human_verification_rule_base_verify: std::ptr::null_mut(),
+            u_meta_human_verification_rule_collection_apply_all_rules: std::ptr::null_mut(),
+            u_meta_human_verification_rule_collection_add_verification_rule: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -60,98 +69,98 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWarningsAsErrors"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_set_warnings_as_errors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVerbose"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_SET_VERBOSE,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_set_verbose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSubject"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_SET_SUBJECT,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_set_subject,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSilent"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_SET_SILENT,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_set_silent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasWarnings"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_has_warnings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReportResult"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_get_report_result,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateRichTextReport"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_generate_rich_text_report,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateRawReport"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_generate_raw_report,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateJsonReport"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_generate_json_report,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateHtmlReport"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_generate_html_report,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddWarning"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_WARNING,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_add_warning,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVerbose"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_add_verbose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInfo"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_INFO,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_add_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddError"),
-            &raw mut U_META_HUMAN_ASSET_REPORT_ADD_ERROR,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_report_add_error,
         );
     }
     unsafe {
@@ -162,35 +171,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateAssetDetails"),
-            &raw mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_manager_update_asset_details,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateAssetDependencies"),
-            &raw mut U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_manager_update_asset_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAssetOfType"),
-            &raw mut U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_manager_is_asset_of_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindAssetsForPackaging"),
-            &raw mut U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_manager_find_assets_for_packaging,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateArchive"),
-            &raw mut U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE,
+            &raw mut __FUNCTION_PTRS.u_meta_human_asset_manager_create_archive,
         );
     }
     unsafe {
@@ -201,7 +210,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Verify"),
-            &raw mut U_META_HUMAN_VERIFICATION_RULE_BASE_VERIFY,
+            &raw mut __FUNCTION_PTRS.u_meta_human_verification_rule_base_verify,
         );
     }
     unsafe {
@@ -212,14 +221,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyAllRules"),
-            &raw mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_human_verification_rule_collection_apply_all_rules,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVerificationRule"),
-            &raw mut U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_human_verification_rule_collection_add_verification_rule,
         );
     }
 }
@@ -350,7 +361,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_warnings_as_errors,
                 __buffer,
             )
         };
@@ -363,7 +375,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_WARNINGS_AS_ERRORS,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_warnings_as_errors,
                 __buffer,
             )
         };
@@ -376,7 +389,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_VERBOSE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_verbose,
                 __buffer,
             )
         };
@@ -389,7 +403,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_VERBOSE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_verbose,
                 __buffer,
             )
         };
@@ -402,7 +417,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SUBJECT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_subject,
                 __buffer,
             )
         };
@@ -419,7 +435,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SUBJECT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_subject,
                 __buffer,
             )
         };
@@ -432,7 +449,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SILENT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_silent,
                 __buffer,
             )
         };
@@ -445,7 +463,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_SET_SILENT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_set_silent,
                 __buffer,
             )
         };
@@ -458,7 +477,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_has_warnings,
                 __buffer,
             )
         };
@@ -468,7 +488,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_HAS_WARNINGS,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_has_warnings,
                 __buffer,
             )
         };
@@ -482,7 +503,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_get_report_result,
                 __buffer,
             )
         };
@@ -492,7 +514,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GET_REPORT_RESULT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_get_report_result,
                 __buffer,
             )
         };
@@ -506,7 +529,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_rich_text_report,
                 __buffer,
             )
         };
@@ -516,7 +540,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RICH_TEXT_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_rich_text_report,
                 __buffer,
             )
         };
@@ -530,7 +555,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_raw_report,
                 __buffer,
             )
         };
@@ -540,7 +566,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_RAW_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_raw_report,
                 __buffer,
             )
         };
@@ -554,7 +581,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_json_report,
                 __buffer,
             )
         };
@@ -564,7 +592,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_JSON_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_json_report,
                 __buffer,
             )
         };
@@ -578,7 +607,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_html_report,
                 __buffer,
             )
         };
@@ -588,7 +618,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_GENERATE_HTML_REPORT,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_generate_html_report,
                 __buffer,
             )
         };
@@ -602,7 +633,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_WARNING,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_warning,
                 __buffer,
             )
         };
@@ -619,7 +651,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_WARNING,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_warning,
                 __buffer,
             )
         };
@@ -632,7 +665,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_verbose,
                 __buffer,
             )
         };
@@ -649,7 +683,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_VERBOSE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_verbose,
                 __buffer,
             )
         };
@@ -662,7 +697,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_INFO,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_info,
                 __buffer,
             )
         };
@@ -679,7 +715,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_INFO,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_info,
                 __buffer,
             )
         };
@@ -692,7 +729,8 @@ impl UMetaHumanAssetReport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_ERROR,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_error,
                 __buffer,
             )
         };
@@ -709,7 +747,8 @@ impl UMetaHumanAssetReport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_REPORT_ADD_ERROR,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_report_add_error,
                 __buffer,
             )
         };
@@ -745,7 +784,8 @@ impl UMetaHumanAssetManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_update_asset_details,
                 __buffer,
             )
         };
@@ -762,7 +802,8 @@ impl UMetaHumanAssetManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DETAILS,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_update_asset_details,
                 __buffer,
             )
         };
@@ -781,7 +822,8 @@ impl UMetaHumanAssetManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_update_asset_dependencies,
                 __buffer,
             )
         };
@@ -798,7 +840,8 @@ impl UMetaHumanAssetManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_UPDATE_ASSET_DEPENDENCIES,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_update_asset_dependencies,
                 __buffer,
             )
         };
@@ -818,7 +861,8 @@ impl UMetaHumanAssetManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_is_asset_of_type,
                 __buffer,
             )
         };
@@ -842,7 +886,8 @@ impl UMetaHumanAssetManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_IS_ASSET_OF_TYPE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_is_asset_of_type,
                 __buffer,
             )
         };
@@ -858,7 +903,8 @@ impl UMetaHumanAssetManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_find_assets_for_packaging,
                 __buffer,
             )
         };
@@ -875,7 +921,8 @@ impl UMetaHumanAssetManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_FIND_ASSETS_FOR_PACKAGING,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_find_assets_for_packaging,
                 __buffer,
             )
         };
@@ -892,7 +939,8 @@ impl UMetaHumanAssetManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_create_archive,
                 __buffer,
             )
         };
@@ -916,7 +964,8 @@ impl UMetaHumanAssetManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_ASSET_MANAGER_CREATE_ARCHIVE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_asset_manager_create_archive,
                 __buffer,
             )
         };
@@ -942,6 +991,57 @@ impl UMetaHumanVerificationRuleBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn verify(
+        &mut self,
+        to_verify: UPtr<crate::bindings::core_u_object::UObject>,
+        report: UPtr<UMetaHumanAssetReport>,
+        options: &FMetaHumanVerificationOptions,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_verification_rule_base_verify,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &to_verify,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &report,
+                __buffer.add(8).cast::<UPtr<UMetaHumanAssetReport>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                options,
+                __buffer.add(16).cast::<FMetaHumanVerificationOptions>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_verification_rule_base_verify,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -977,7 +1077,8 @@ impl UMetaHumanVerificationRuleCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_verification_rule_collection_apply_all_rules,
                 __buffer,
             )
         };
@@ -1008,7 +1109,8 @@ impl UMetaHumanVerificationRuleCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_APPLY_ALL_RULES,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_verification_rule_collection_apply_all_rules,
                 __buffer,
             )
         };
@@ -1022,7 +1124,8 @@ impl UMetaHumanVerificationRuleCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_verification_rule_collection_add_verification_rule,
                 __buffer,
             )
         };
@@ -1039,7 +1142,8 @@ impl UMetaHumanVerificationRuleCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::meta_human_sdk_editor::U_META_HUMAN_VERIFICATION_RULE_COLLECTION_ADD_VERIFICATION_RULE,
+                crate::bindings::meta_human_sdk_editor::__FUNCTION_PTRS
+                    .u_meta_human_verification_rule_collection_add_verification_rule,
                 __buffer,
             )
         };

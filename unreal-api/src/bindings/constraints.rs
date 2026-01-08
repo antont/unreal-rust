@@ -1,34 +1,43 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CONSTRAINTS_MANAGER_ON_CONSTRAINT_REMOVED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_MANAGER_ON_CONSTRAINT_ADDED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_THIS_CONSTRAINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_CONSTRAINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_SCRIPTING_LIBRARY_GET_CONSTRAINTS_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_COMPONENT_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_FROM_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINTS_SCRIPTING_LIBRARY_ADD_CONSTRAINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINT_SUBSYSTEM_ON_CONSTRAINT_REMOVED_FROM_SYSTEM_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONSTRAINT_SUBSYSTEM_ON_CONSTRAINT_ADDED_TO_SYSTEM_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_constraints_manager_on_constraint_removed_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_manager_on_constraint_added_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_scripting_library_remove_this_constraint: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_scripting_library_remove_constraint: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_scripting_library_get_constraints_array: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_scripting_library_create_transformable_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_scripting_library_create_transformable_component_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_scripting_library_create_from_type: *mut crate::ffi::UFunctionOpague,
+    pub u_constraints_scripting_library_add_constraint: *mut crate::ffi::UFunctionOpague,
+    pub u_constraint_subsystem_on_constraint_removed_from_system_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_constraint_subsystem_on_constraint_added_to_system_delegate_signature: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_constraints_manager_on_constraint_removed_delegate_signature: std::ptr::null_mut(),
+            u_constraints_manager_on_constraint_added_delegate_signature: std::ptr::null_mut(),
+            u_constraints_scripting_library_remove_this_constraint: std::ptr::null_mut(),
+            u_constraints_scripting_library_remove_constraint: std::ptr::null_mut(),
+            u_constraints_scripting_library_get_constraints_array: std::ptr::null_mut(),
+            u_constraints_scripting_library_create_transformable_handle: std::ptr::null_mut(),
+            u_constraints_scripting_library_create_transformable_component_handle: std::ptr::null_mut(),
+            u_constraints_scripting_library_create_from_type: std::ptr::null_mut(),
+            u_constraints_scripting_library_add_constraint: std::ptr::null_mut(),
+            u_constraint_subsystem_on_constraint_removed_from_system_delegate_signature: std::ptr::null_mut(),
+            u_constraint_subsystem_on_constraint_added_to_system_delegate_signature: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -38,14 +47,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnConstraintRemoved__DelegateSignature"),
-            &raw mut U_CONSTRAINTS_MANAGER_ON_CONSTRAINT_REMOVED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_constraints_manager_on_constraint_removed_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnConstraintAdded__DelegateSignature"),
-            &raw mut U_CONSTRAINTS_MANAGER_ON_CONSTRAINT_ADDED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_constraints_manager_on_constraint_added_delegate_signature,
         );
     }
     unsafe {
@@ -56,49 +67,53 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveThisConstraint"),
-            &raw mut U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_THIS_CONSTRAINT,
+            &raw mut __FUNCTION_PTRS
+                .u_constraints_scripting_library_remove_this_constraint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveConstraint"),
-            &raw mut U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_CONSTRAINT,
+            &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_remove_constraint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConstraintsArray"),
-            &raw mut U_CONSTRAINTS_SCRIPTING_LIBRARY_GET_CONSTRAINTS_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_constraints_scripting_library_get_constraints_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateTransformableHandle"),
-            &raw mut U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_HANDLE,
+            &raw mut __FUNCTION_PTRS
+                .u_constraints_scripting_library_create_transformable_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateTransformableComponentHandle"),
-            &raw mut U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_COMPONENT_HANDLE,
+            &raw mut __FUNCTION_PTRS
+                .u_constraints_scripting_library_create_transformable_component_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFromType"),
-            &raw mut U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_FROM_TYPE,
+            &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_create_from_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddConstraint"),
-            &raw mut U_CONSTRAINTS_SCRIPTING_LIBRARY_ADD_CONSTRAINT,
+            &raw mut __FUNCTION_PTRS.u_constraints_scripting_library_add_constraint,
         );
     }
     unsafe {
@@ -111,14 +126,16 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "OnConstraintRemovedFromSystem__DelegateSignature",
             ),
-            &raw mut U_CONSTRAINT_SUBSYSTEM_ON_CONSTRAINT_REMOVED_FROM_SYSTEM_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_constraint_subsystem_on_constraint_removed_from_system_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnConstraintAddedToSystem__DelegateSignature"),
-            &raw mut U_CONSTRAINT_SUBSYSTEM_ON_CONSTRAINT_ADDED_TO_SYSTEM_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_constraint_subsystem_on_constraint_added_to_system_delegate_signature,
         );
     }
 }
@@ -219,7 +236,8 @@ impl UConstraintsScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_THIS_CONSTRAINT,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_remove_this_constraint,
                 __buffer,
             )
         };
@@ -243,7 +261,8 @@ impl UConstraintsScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_THIS_CONSTRAINT,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_remove_this_constraint,
                 __buffer,
             )
         };
@@ -260,7 +279,8 @@ impl UConstraintsScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_CONSTRAINT,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_remove_constraint,
                 __buffer,
             )
         };
@@ -280,7 +300,8 @@ impl UConstraintsScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_REMOVE_CONSTRAINT,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_remove_constraint,
                 __buffer,
             )
         };
@@ -296,7 +317,8 @@ impl UConstraintsScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_GET_CONSTRAINTS_ARRAY,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_get_constraints_array,
                 __buffer,
             )
         };
@@ -313,7 +335,8 @@ impl UConstraintsScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_GET_CONSTRAINTS_ARRAY,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_get_constraints_array,
                 __buffer,
             )
         };
@@ -331,7 +354,8 @@ impl UConstraintsScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_HANDLE,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_transformable_handle,
                 __buffer,
             )
         };
@@ -362,7 +386,8 @@ impl UConstraintsScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_HANDLE,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_transformable_handle,
                 __buffer,
             )
         };
@@ -380,7 +405,8 @@ impl UConstraintsScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_COMPONENT_HANDLE,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_transformable_component_handle,
                 __buffer,
             )
         };
@@ -411,7 +437,8 @@ impl UConstraintsScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_TRANSFORMABLE_COMPONENT_HANDLE,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_transformable_component_handle,
                 __buffer,
             )
         };
@@ -428,7 +455,8 @@ impl UConstraintsScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_FROM_TYPE,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_from_type,
                 __buffer,
             )
         };
@@ -454,7 +482,8 @@ impl UConstraintsScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_CREATE_FROM_TYPE,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_create_from_type,
                 __buffer,
             )
         };
@@ -474,7 +503,8 @@ impl UConstraintsScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_ADD_CONSTRAINT,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_add_constraint,
                 __buffer,
             )
         };
@@ -519,7 +549,8 @@ impl UConstraintsScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::constraints::U_CONSTRAINTS_SCRIPTING_LIBRARY_ADD_CONSTRAINT,
+                crate::bindings::constraints::__FUNCTION_PTRS
+                    .u_constraints_scripting_library_add_constraint,
                 __buffer,
             )
         };

@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SLATE_FX_SUBSYSTEM_GET_SLATE_POST_PROCESSOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SLATE_FONT_BLUEPRINT_LIBRARY_MAKE_SLATE_FONT_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SLATE_RHI_RENDERER_SETTINGS_GET_SLATE_POST_SETTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SLATE_RHI_RENDERER_SETTINGS_GET_MUTABLE_SLATE_POST_SETTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_slate_fx_subsystem_get_slate_post_processor: *mut crate::ffi::UFunctionOpague,
+    pub u_slate_font_blueprint_library_make_slate_font_info: *mut crate::ffi::UFunctionOpague,
+    pub u_slate_rhi_renderer_settings_get_slate_post_setting: *mut crate::ffi::UFunctionOpague,
+    pub u_slate_rhi_renderer_settings_get_mutable_slate_post_setting: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_slate_fx_subsystem_get_slate_post_processor: std::ptr::null_mut(),
+            u_slate_font_blueprint_library_make_slate_font_info: std::ptr::null_mut(),
+            u_slate_rhi_renderer_settings_get_slate_post_setting: std::ptr::null_mut(),
+            u_slate_rhi_renderer_settings_get_mutable_slate_post_setting: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,7 +33,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlatePostProcessor"),
-            &raw mut U_SLATE_FX_SUBSYSTEM_GET_SLATE_POST_PROCESSOR,
+            &raw mut __FUNCTION_PTRS.u_slate_fx_subsystem_get_slate_post_processor,
         );
     }
     unsafe {
@@ -35,7 +44,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeSlateFontInfo"),
-            &raw mut U_SLATE_FONT_BLUEPRINT_LIBRARY_MAKE_SLATE_FONT_INFO,
+            &raw mut __FUNCTION_PTRS.u_slate_font_blueprint_library_make_slate_font_info,
         );
     }
     unsafe {
@@ -46,14 +55,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlatePostSetting"),
-            &raw mut U_SLATE_RHI_RENDERER_SETTINGS_GET_SLATE_POST_SETTING,
+            &raw mut __FUNCTION_PTRS.u_slate_rhi_renderer_settings_get_slate_post_setting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMutableSlatePostSetting"),
-            &raw mut U_SLATE_RHI_RENDERER_SETTINGS_GET_MUTABLE_SLATE_POST_SETTING,
+            &raw mut __FUNCTION_PTRS
+                .u_slate_rhi_renderer_settings_get_mutable_slate_post_setting,
         );
     }
 }
@@ -96,7 +106,8 @@ impl USlateFXSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::slate_rhi_renderer::U_SLATE_FX_SUBSYSTEM_GET_SLATE_POST_PROCESSOR,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_fx_subsystem_get_slate_post_processor,
                 __buffer,
             )
         };
@@ -113,7 +124,8 @@ impl USlateFXSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::slate_rhi_renderer::U_SLATE_FX_SUBSYSTEM_GET_SLATE_POST_PROCESSOR,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_fx_subsystem_get_slate_post_processor,
                 __buffer,
             )
         };
@@ -204,7 +216,8 @@ impl USlateFontBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::slate_rhi_renderer::U_SLATE_FONT_BLUEPRINT_LIBRARY_MAKE_SLATE_FONT_INFO,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_font_blueprint_library_make_slate_font_info,
                 __buffer,
             )
         };
@@ -282,7 +295,8 @@ impl USlateFontBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::slate_rhi_renderer::U_SLATE_FONT_BLUEPRINT_LIBRARY_MAKE_SLATE_FONT_INFO,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_font_blueprint_library_make_slate_font_info,
                 __buffer,
             )
         };
@@ -322,7 +336,8 @@ impl USlateRHIRendererSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_SLATE_POST_SETTING,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_rhi_renderer_settings_get_slate_post_setting,
                 __buffer,
             )
         };
@@ -339,7 +354,8 @@ impl USlateRHIRendererSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_SLATE_POST_SETTING,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_rhi_renderer_settings_get_slate_post_setting,
                 __buffer,
             )
         };
@@ -356,7 +372,8 @@ impl USlateRHIRendererSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_MUTABLE_SLATE_POST_SETTING,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_rhi_renderer_settings_get_mutable_slate_post_setting,
                 __buffer,
             )
         };
@@ -373,7 +390,8 @@ impl USlateRHIRendererSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::slate_rhi_renderer::U_SLATE_RHI_RENDERER_SETTINGS_GET_MUTABLE_SLATE_POST_SETTING,
+                crate::bindings::slate_rhi_renderer::__FUNCTION_PTRS
+                    .u_slate_rhi_renderer_settings_get_mutable_slate_post_setting,
                 __buffer,
             )
         };

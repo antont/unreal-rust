@@ -1,46 +1,55 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_google_pad_function_library_show_confirmation_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_show_cellular_data_confirmation: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_request_removal: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_request_info: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_request_download: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_release_download_state: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_release_asset_pack_location: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_total_bytes_to_download: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_storage_method: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_show_confirmation_dialog_status: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_show_cellular_data_confirmation_status: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_download_status: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_download_state: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_bytes_downloaded: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_assets_path: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_get_asset_pack_location: *mut crate::ffi::UFunctionOpague,
+    pub u_google_pad_function_library_cancel_download: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_google_pad_function_library_show_confirmation_dialog: std::ptr::null_mut(),
+            u_google_pad_function_library_show_cellular_data_confirmation: std::ptr::null_mut(),
+            u_google_pad_function_library_request_removal: std::ptr::null_mut(),
+            u_google_pad_function_library_request_info: std::ptr::null_mut(),
+            u_google_pad_function_library_request_download: std::ptr::null_mut(),
+            u_google_pad_function_library_release_download_state: std::ptr::null_mut(),
+            u_google_pad_function_library_release_asset_pack_location: std::ptr::null_mut(),
+            u_google_pad_function_library_get_total_bytes_to_download: std::ptr::null_mut(),
+            u_google_pad_function_library_get_storage_method: std::ptr::null_mut(),
+            u_google_pad_function_library_get_show_confirmation_dialog_status: std::ptr::null_mut(),
+            u_google_pad_function_library_get_show_cellular_data_confirmation_status: std::ptr::null_mut(),
+            u_google_pad_function_library_get_download_status: std::ptr::null_mut(),
+            u_google_pad_function_library_get_download_state: std::ptr::null_mut(),
+            u_google_pad_function_library_get_bytes_downloaded: std::ptr::null_mut(),
+            u_google_pad_function_library_get_assets_path: std::ptr::null_mut(),
+            u_google_pad_function_library_get_asset_pack_location: std::ptr::null_mut(),
+            u_google_pad_function_library_cancel_download: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -50,119 +59,126 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowConfirmationDialog"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG,
+            &raw mut __FUNCTION_PTRS
+                .u_google_pad_function_library_show_confirmation_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowCellularDataConfirmation"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_google_pad_function_library_show_cellular_data_confirmation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestRemoval"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_removal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestInfo"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestDownload"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_request_download,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReleaseDownloadState"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_release_download_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReleaseAssetPackLocation"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_google_pad_function_library_release_asset_pack_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTotalBytesToDownload"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD,
+            &raw mut __FUNCTION_PTRS
+                .u_google_pad_function_library_get_total_bytes_to_download,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStorageMethod"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_storage_method,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetShowConfirmationDialogStatus"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS,
+            &raw mut __FUNCTION_PTRS
+                .u_google_pad_function_library_get_show_confirmation_dialog_status,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetShowCellularDataConfirmationStatus"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS,
+            &raw mut __FUNCTION_PTRS
+                .u_google_pad_function_library_get_show_cellular_data_confirmation_status,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDownloadStatus"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_download_status,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDownloadState"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_download_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBytesDownloaded"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_bytes_downloaded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsPath"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_get_assets_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetPackLocation"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_google_pad_function_library_get_asset_pack_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CancelDownload"),
-            &raw mut U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD,
+            &raw mut __FUNCTION_PTRS.u_google_pad_function_library_cancel_download,
         );
     }
 }
@@ -194,7 +210,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_show_confirmation_dialog,
                 __buffer,
             )
         };
@@ -204,7 +221,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CONFIRMATION_DIALOG,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_show_confirmation_dialog,
                 __buffer,
             )
         };
@@ -218,7 +236,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_show_cellular_data_confirmation,
                 __buffer,
             )
         };
@@ -228,7 +247,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_SHOW_CELLULAR_DATA_CONFIRMATION,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_show_cellular_data_confirmation,
                 __buffer,
             )
         };
@@ -242,7 +262,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_request_removal,
                 __buffer,
             )
         };
@@ -255,7 +276,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_REMOVAL,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_request_removal,
                 __buffer,
             )
         };
@@ -269,7 +291,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_request_info,
                 __buffer,
             )
         };
@@ -286,7 +309,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_INFO,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_request_info,
                 __buffer,
             )
         };
@@ -300,7 +324,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_request_download,
                 __buffer,
             )
         };
@@ -317,7 +342,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_REQUEST_DOWNLOAD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_request_download,
                 __buffer,
             )
         };
@@ -331,7 +357,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_release_download_state,
                 __buffer,
             )
         };
@@ -344,7 +371,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_DOWNLOAD_STATE,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_release_download_state,
                 __buffer,
             )
         };
@@ -357,7 +385,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_release_asset_pack_location,
                 __buffer,
             )
         };
@@ -370,7 +399,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_RELEASE_ASSET_PACK_LOCATION,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_release_asset_pack_location,
                 __buffer,
             )
         };
@@ -383,7 +413,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_total_bytes_to_download,
                 __buffer,
             )
         };
@@ -396,7 +427,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_TOTAL_BYTES_TO_DOWNLOAD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_total_bytes_to_download,
                 __buffer,
             )
         };
@@ -410,7 +442,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_storage_method,
                 __buffer,
             )
         };
@@ -423,7 +456,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_STORAGE_METHOD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_storage_method,
                 __buffer,
             )
         };
@@ -439,7 +473,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_show_confirmation_dialog_status,
                 __buffer,
             )
         };
@@ -456,7 +491,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CONFIRMATION_DIALOG_STATUS,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_show_confirmation_dialog_status,
                 __buffer,
             )
         };
@@ -475,7 +511,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_show_cellular_data_confirmation_status,
                 __buffer,
             )
         };
@@ -492,7 +529,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_SHOW_CELLULAR_DATA_CONFIRMATION_STATUS,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_show_cellular_data_confirmation_status,
                 __buffer,
             )
         };
@@ -509,7 +547,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_download_status,
                 __buffer,
             )
         };
@@ -522,7 +561,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATUS,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_download_status,
                 __buffer,
             )
         };
@@ -536,7 +576,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_download_state,
                 __buffer,
             )
         };
@@ -552,7 +593,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_DOWNLOAD_STATE,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_download_state,
                 __buffer,
             )
         };
@@ -569,7 +611,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_bytes_downloaded,
                 __buffer,
             )
         };
@@ -582,7 +625,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_BYTES_DOWNLOADED,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_bytes_downloaded,
                 __buffer,
             )
         };
@@ -596,7 +640,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_assets_path,
                 __buffer,
             )
         };
@@ -609,7 +654,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSETS_PATH,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_assets_path,
                 __buffer,
             )
         };
@@ -626,7 +672,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_asset_pack_location,
                 __buffer,
             )
         };
@@ -642,7 +689,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_GET_ASSET_PACK_LOCATION,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_get_asset_pack_location,
                 __buffer,
             )
         };
@@ -659,7 +707,8 @@ impl UGooglePADFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_cancel_download,
                 __buffer,
             )
         };
@@ -676,7 +725,8 @@ impl UGooglePADFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::google_pad::U_GOOGLE_PAD_FUNCTION_LIBRARY_CANCEL_DOWNLOAD,
+                crate::bindings::google_pad::__FUNCTION_PTRS
+                    .u_google_pad_function_library_cancel_download,
                 __buffer,
             )
         };

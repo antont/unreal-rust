@@ -1,54 +1,63 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_SLICE_PROCEDURAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_PROCEDURAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_GENERATE_BOX_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_WELDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_SPLIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_COPY_PROCEDURAL_MESH_FROM_STATIC_MESH_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CONVERT_QUAD_TO_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CALCULATE_TANGENTS_FOR_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_SET_MESH_SECTION_VISIBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_IS_MESH_SECTION_VISIBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_GET_NUM_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_CLEAR_MESH_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_CLEAR_COLLISION_CONVEX_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_CLEAR_ALL_MESH_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_MESH_COMPONENT_ADD_COLLISION_CONVEX_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_kismet_procedural_mesh_library_slice_procedural_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_get_section_from_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_get_section_from_procedural_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_generate_box_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_create_grid_mesh_welded: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_create_grid_mesh_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_create_grid_mesh_split: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_copy_procedural_mesh_from_static_mesh_component: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_convert_quad_to_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_procedural_mesh_library_calculate_tangents_for_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_update_mesh_section_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_update_mesh_section: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_set_mesh_section_visible: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_is_mesh_section_visible: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_get_num_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_create_mesh_section_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_create_mesh_section: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_clear_mesh_section: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_clear_collision_convex_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_clear_all_mesh_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_mesh_component_add_collision_convex_mesh: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_kismet_procedural_mesh_library_slice_procedural_mesh: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_get_section_from_static_mesh: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_get_section_from_procedural_mesh: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_generate_box_mesh: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_create_grid_mesh_welded: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_create_grid_mesh_triangles: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_create_grid_mesh_split: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_copy_procedural_mesh_from_static_mesh_component: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_convert_quad_to_triangles: std::ptr::null_mut(),
+            u_kismet_procedural_mesh_library_calculate_tangents_for_mesh: std::ptr::null_mut(),
+            u_procedural_mesh_component_update_mesh_section_linear_color: std::ptr::null_mut(),
+            u_procedural_mesh_component_update_mesh_section: std::ptr::null_mut(),
+            u_procedural_mesh_component_set_mesh_section_visible: std::ptr::null_mut(),
+            u_procedural_mesh_component_is_mesh_section_visible: std::ptr::null_mut(),
+            u_procedural_mesh_component_get_num_sections: std::ptr::null_mut(),
+            u_procedural_mesh_component_create_mesh_section_linear_color: std::ptr::null_mut(),
+            u_procedural_mesh_component_create_mesh_section: std::ptr::null_mut(),
+            u_procedural_mesh_component_clear_mesh_section: std::ptr::null_mut(),
+            u_procedural_mesh_component_clear_collision_convex_meshes: std::ptr::null_mut(),
+            u_procedural_mesh_component_clear_all_mesh_sections: std::ptr::null_mut(),
+            u_procedural_mesh_component_add_collision_convex_mesh: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -58,70 +67,79 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SliceProceduralMesh"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_SLICE_PROCEDURAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_slice_procedural_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionFromStaticMesh"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_get_section_from_static_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionFromProceduralMesh"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_PROCEDURAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_get_section_from_procedural_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateBoxMesh"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_GENERATE_BOX_MESH,
+            &raw mut __FUNCTION_PTRS.u_kismet_procedural_mesh_library_generate_box_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateGridMeshWelded"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_WELDED,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_create_grid_mesh_welded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateGridMeshTriangles"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_create_grid_mesh_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateGridMeshSplit"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_SPLIT,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_create_grid_mesh_split,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyProceduralMeshFromStaticMeshComponent"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_COPY_PROCEDURAL_MESH_FROM_STATIC_MESH_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_copy_procedural_mesh_from_static_mesh_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertQuadToTriangles"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CONVERT_QUAD_TO_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_convert_quad_to_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CalculateTangentsForMesh"),
-            &raw mut U_KISMET_PROCEDURAL_MESH_LIBRARY_CALCULATE_TANGENTS_FOR_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_procedural_mesh_library_calculate_tangents_for_mesh,
         );
     }
     unsafe {
@@ -132,77 +150,81 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateMeshSection_LinearColor"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_procedural_mesh_component_update_mesh_section_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateMeshSection"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION,
+            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_update_mesh_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeshSectionVisible"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_SET_MESH_SECTION_VISIBLE,
+            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_set_mesh_section_visible,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsMeshSectionVisible"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_IS_MESH_SECTION_VISIBLE,
+            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_is_mesh_section_visible,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumSections"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_GET_NUM_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_get_num_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMeshSection_LinearColor"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_procedural_mesh_component_create_mesh_section_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMeshSection"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION,
+            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_create_mesh_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearMeshSection"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_CLEAR_MESH_SECTION,
+            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_clear_mesh_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearCollisionConvexMeshes"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_CLEAR_COLLISION_CONVEX_MESHES,
+            &raw mut __FUNCTION_PTRS
+                .u_procedural_mesh_component_clear_collision_convex_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAllMeshSections"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_CLEAR_ALL_MESH_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_procedural_mesh_component_clear_all_mesh_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCollisionConvexMesh"),
-            &raw mut U_PROCEDURAL_MESH_COMPONENT_ADD_COLLISION_CONVEX_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_procedural_mesh_component_add_collision_convex_mesh,
         );
     }
 }
@@ -260,7 +282,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_SLICE_PROCEDURAL_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_slice_procedural_mesh,
                 __buffer,
             )
         };
@@ -321,7 +344,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_SLICE_PROCEDURAL_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_slice_procedural_mesh,
                 __buffer,
             )
         };
@@ -349,7 +373,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_STATIC_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_get_section_from_static_mesh,
                 __buffer,
             )
         };
@@ -417,7 +442,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_STATIC_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_get_section_from_static_mesh,
                 __buffer,
             )
         };
@@ -462,7 +488,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_PROCEDURAL_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_get_section_from_procedural_mesh,
                 __buffer,
             )
         };
@@ -527,7 +554,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_GET_SECTION_FROM_PROCEDURAL_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_get_section_from_procedural_mesh,
                 __buffer,
             )
         };
@@ -571,7 +599,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_GENERATE_BOX_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_generate_box_mesh,
                 __buffer,
             )
         };
@@ -629,7 +658,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_GENERATE_BOX_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_generate_box_mesh,
                 __buffer,
             )
         };
@@ -673,7 +703,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_WELDED,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_welded,
                 __buffer,
             )
         };
@@ -721,7 +752,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_WELDED,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_welded,
                 __buffer,
             )
         };
@@ -754,7 +786,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_TRIANGLES,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_triangles,
                 __buffer,
             )
         };
@@ -780,7 +813,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_TRIANGLES,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_triangles,
                 __buffer,
             )
         };
@@ -804,7 +838,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_SPLIT,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_split,
                 __buffer,
             )
         };
@@ -861,7 +896,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CREATE_GRID_MESH_SPLIT,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_create_grid_mesh_split,
                 __buffer,
             )
         };
@@ -900,7 +936,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_COPY_PROCEDURAL_MESH_FROM_STATIC_MESH_COMPONENT,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_copy_procedural_mesh_from_static_mesh_component,
                 __buffer,
             )
         };
@@ -936,7 +973,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_COPY_PROCEDURAL_MESH_FROM_STATIC_MESH_COMPONENT,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_copy_procedural_mesh_from_static_mesh_component,
                 __buffer,
             )
         };
@@ -955,7 +993,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CONVERT_QUAD_TO_TRIANGLES,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_convert_quad_to_triangles,
                 __buffer,
             )
         };
@@ -984,7 +1023,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CONVERT_QUAD_TO_TRIANGLES,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_convert_quad_to_triangles,
                 __buffer,
             )
         };
@@ -1006,7 +1046,8 @@ impl UKismetProceduralMeshLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CALCULATE_TANGENTS_FOR_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_calculate_tangents_for_mesh,
                 __buffer,
             )
         };
@@ -1057,7 +1098,8 @@ impl UKismetProceduralMeshLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_KISMET_PROCEDURAL_MESH_LIBRARY_CALCULATE_TANGENTS_FOR_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_kismet_procedural_mesh_library_calculate_tangents_for_mesh,
                 __buffer,
             )
         };
@@ -1116,7 +1158,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION_LINEAR_COLOR,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_update_mesh_section_linear_color,
                 __buffer,
             )
         };
@@ -1210,7 +1253,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION_LINEAR_COLOR,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_update_mesh_section_linear_color,
                 __buffer,
             )
         };
@@ -1231,7 +1275,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_update_mesh_section,
                 __buffer,
             )
         };
@@ -1291,7 +1336,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_UPDATE_MESH_SECTION,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_update_mesh_section,
                 __buffer,
             )
         };
@@ -1308,7 +1354,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_SET_MESH_SECTION_VISIBLE,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_set_mesh_section_visible,
                 __buffer,
             )
         };
@@ -1332,7 +1379,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_SET_MESH_SECTION_VISIBLE,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_set_mesh_section_visible,
                 __buffer,
             )
         };
@@ -1345,7 +1393,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_IS_MESH_SECTION_VISIBLE,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_is_mesh_section_visible,
                 __buffer,
             )
         };
@@ -1362,7 +1411,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_IS_MESH_SECTION_VISIBLE,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_is_mesh_section_visible,
                 __buffer,
             )
         };
@@ -1376,7 +1426,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_GET_NUM_SECTIONS,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_get_num_sections,
                 __buffer,
             )
         };
@@ -1386,7 +1437,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_GET_NUM_SECTIONS,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_get_num_sections,
                 __buffer,
             )
         };
@@ -1414,7 +1466,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION_LINEAR_COLOR,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_create_mesh_section_linear_color,
                 __buffer,
             )
         };
@@ -1522,7 +1575,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION_LINEAR_COLOR,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_create_mesh_section_linear_color,
                 __buffer,
             )
         };
@@ -1545,7 +1599,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_create_mesh_section,
                 __buffer,
             )
         };
@@ -1619,7 +1674,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CREATE_MESH_SECTION,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_create_mesh_section,
                 __buffer,
             )
         };
@@ -1632,7 +1688,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CLEAR_MESH_SECTION,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_mesh_section,
                 __buffer,
             )
         };
@@ -1649,7 +1706,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CLEAR_MESH_SECTION,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_mesh_section,
                 __buffer,
             )
         };
@@ -1662,7 +1720,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CLEAR_COLLISION_CONVEX_MESHES,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_collision_convex_meshes,
                 __buffer,
             )
         };
@@ -1672,7 +1731,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CLEAR_COLLISION_CONVEX_MESHES,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_collision_convex_meshes,
                 __buffer,
             )
         };
@@ -1685,7 +1745,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CLEAR_ALL_MESH_SECTIONS,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_all_mesh_sections,
                 __buffer,
             )
         };
@@ -1695,7 +1756,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_CLEAR_ALL_MESH_SECTIONS,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_clear_all_mesh_sections,
                 __buffer,
             )
         };
@@ -1711,7 +1773,8 @@ impl UProceduralMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_ADD_COLLISION_CONVEX_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_add_collision_convex_mesh,
                 __buffer,
             )
         };
@@ -1730,7 +1793,8 @@ impl UProceduralMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::procedural_mesh_component::U_PROCEDURAL_MESH_COMPONENT_ADD_COLLISION_CONVEX_MESH,
+                crate::bindings::procedural_mesh_component::__FUNCTION_PTRS
+                    .u_procedural_mesh_component_add_collision_convex_mesh,
                 __buffer,
             )
         };

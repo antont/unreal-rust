@@ -1,128 +1,137 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_USAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_PARAMETER_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_FUNCTION_PARAMETER_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_RECOMPILE_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_FUNCTION_EXPRESSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_EXPRESSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_HAS_MATERIAL_USAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_USED_TEXTURES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_STATISTICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS_IN_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_NANITE_OVERRIDE_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_SELECTED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE_OUTPUT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_NODE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_TYPES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_VECTOR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_STATIC_SWITCH_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_SCALAR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_INPUTS_FOR_MATERIAL_EXPRESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_INPUT_NODE_OUTPUT_NAME_FOR_MATERIAL_EXPRESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_GET_CHILD_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_DUPLICATE_MATERIAL_EXPRESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION_IN_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS_IN_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION_IN_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_PROPERTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_EXPRESSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MATERIAL_EDITING_LIBRARY_CLEAR_ALL_MATERIAL_INSTANCE_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_material_editing_library_update_material_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_update_material_function: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_usage: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_instance_vector_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_instance_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_instance_static_switch_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_instance_sparse_volume_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_instance_scalar_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_instance_runtime_virtual_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_set_material_instance_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_rename_material_parameter_group: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_rename_material_function_parameter_group: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_recompile_material: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_layout_material_function_expressions: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_layout_material_expressions: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_has_material_usage: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_vector_parameter_source: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_vector_parameter_names: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_used_textures: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_texture_parameter_source: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_texture_parameter_names: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_statistics: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_static_switch_parameter_source: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_static_switch_parameter_names: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_scalar_parameter_source: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_scalar_parameter_names: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_num_material_expressions_in_function: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_num_material_expressions: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_nanite_override_material: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_selected_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_property_input_node_output_name: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_property_input_node: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_instance_vector_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_instance_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_instance_static_switch_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_instance_sparse_volume_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_instance_scalar_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_instance_runtime_virtual_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_expression_node_position: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_expression_input_types: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_expression_input_names: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_default_vector_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_default_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_default_static_switch_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_material_default_scalar_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_inputs_for_material_expression: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_input_node_output_name_for_material_expression: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_get_child_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_duplicate_material_expression: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_delete_material_expression_in_function: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_delete_material_expression: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_delete_all_material_expressions_in_function: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_delete_all_material_expressions: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_create_material_expression_in_function: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_create_material_expression: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_connect_material_property: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_connect_material_expressions: *mut crate::ffi::UFunctionOpague,
+    pub u_material_editing_library_clear_all_material_instance_parameters: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_material_editing_library_update_material_instance: std::ptr::null_mut(),
+            u_material_editing_library_update_material_function: std::ptr::null_mut(),
+            u_material_editing_library_set_material_usage: std::ptr::null_mut(),
+            u_material_editing_library_set_material_instance_vector_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_set_material_instance_texture_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_set_material_instance_static_switch_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_set_material_instance_sparse_volume_texture_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_set_material_instance_scalar_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_set_material_instance_runtime_virtual_texture_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_set_material_instance_parent: std::ptr::null_mut(),
+            u_material_editing_library_rename_material_parameter_group: std::ptr::null_mut(),
+            u_material_editing_library_rename_material_function_parameter_group: std::ptr::null_mut(),
+            u_material_editing_library_recompile_material: std::ptr::null_mut(),
+            u_material_editing_library_layout_material_function_expressions: std::ptr::null_mut(),
+            u_material_editing_library_layout_material_expressions: std::ptr::null_mut(),
+            u_material_editing_library_has_material_usage: std::ptr::null_mut(),
+            u_material_editing_library_get_vector_parameter_source: std::ptr::null_mut(),
+            u_material_editing_library_get_vector_parameter_names: std::ptr::null_mut(),
+            u_material_editing_library_get_used_textures: std::ptr::null_mut(),
+            u_material_editing_library_get_texture_parameter_source: std::ptr::null_mut(),
+            u_material_editing_library_get_texture_parameter_names: std::ptr::null_mut(),
+            u_material_editing_library_get_statistics: std::ptr::null_mut(),
+            u_material_editing_library_get_static_switch_parameter_source: std::ptr::null_mut(),
+            u_material_editing_library_get_static_switch_parameter_names: std::ptr::null_mut(),
+            u_material_editing_library_get_scalar_parameter_source: std::ptr::null_mut(),
+            u_material_editing_library_get_scalar_parameter_names: std::ptr::null_mut(),
+            u_material_editing_library_get_num_material_expressions_in_function: std::ptr::null_mut(),
+            u_material_editing_library_get_num_material_expressions: std::ptr::null_mut(),
+            u_material_editing_library_get_nanite_override_material: std::ptr::null_mut(),
+            u_material_editing_library_get_material_selected_nodes: std::ptr::null_mut(),
+            u_material_editing_library_get_material_property_input_node_output_name: std::ptr::null_mut(),
+            u_material_editing_library_get_material_property_input_node: std::ptr::null_mut(),
+            u_material_editing_library_get_material_instance_vector_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_instance_texture_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_instance_static_switch_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_instance_sparse_volume_texture_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_instance_scalar_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_instance_runtime_virtual_texture_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_expression_node_position: std::ptr::null_mut(),
+            u_material_editing_library_get_material_expression_input_types: std::ptr::null_mut(),
+            u_material_editing_library_get_material_expression_input_names: std::ptr::null_mut(),
+            u_material_editing_library_get_material_default_vector_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_default_texture_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_default_static_switch_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_material_default_scalar_parameter_value: std::ptr::null_mut(),
+            u_material_editing_library_get_inputs_for_material_expression: std::ptr::null_mut(),
+            u_material_editing_library_get_input_node_output_name_for_material_expression: std::ptr::null_mut(),
+            u_material_editing_library_get_child_instances: std::ptr::null_mut(),
+            u_material_editing_library_duplicate_material_expression: std::ptr::null_mut(),
+            u_material_editing_library_delete_material_expression_in_function: std::ptr::null_mut(),
+            u_material_editing_library_delete_material_expression: std::ptr::null_mut(),
+            u_material_editing_library_delete_all_material_expressions_in_function: std::ptr::null_mut(),
+            u_material_editing_library_delete_all_material_expressions: std::ptr::null_mut(),
+            u_material_editing_library_create_material_expression_in_function: std::ptr::null_mut(),
+            u_material_editing_library_create_material_expression: std::ptr::null_mut(),
+            u_material_editing_library_connect_material_property: std::ptr::null_mut(),
+            u_material_editing_library_connect_material_expressions: std::ptr::null_mut(),
+            u_material_editing_library_clear_all_material_instance_parameters: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -132,42 +141,45 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateMaterialInstance"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_update_material_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateMaterialFunction"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_update_material_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialUsage"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_USAGE,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_set_material_usage,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialInstanceVectorParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_set_material_instance_vector_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialInstanceTextureParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_set_material_instance_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialInstanceStaticSwitchParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_set_material_instance_static_switch_parameter_value,
         );
         (bindings
             .core_fns
@@ -176,14 +188,16 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "SetMaterialInstanceSparseVolumeTextureParameterValue",
             ),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_set_material_instance_sparse_volume_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialInstanceScalarParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_set_material_instance_scalar_parameter_value,
         );
         (bindings
             .core_fns
@@ -192,189 +206,212 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "SetMaterialInstanceRuntimeVirtualTextureParameterValue",
             ),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_set_material_instance_runtime_virtual_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialInstanceParent"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_PARENT,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_set_material_instance_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameMaterialParameterGroup"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_PARAMETER_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_rename_material_parameter_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameMaterialFunctionParameterGroup"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_FUNCTION_PARAMETER_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_rename_material_function_parameter_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecompileMaterial"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_RECOMPILE_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_recompile_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LayoutMaterialFunctionExpressions"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_FUNCTION_EXPRESSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_layout_material_function_expressions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LayoutMaterialExpressions"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_EXPRESSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_layout_material_expressions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasMaterialUsage"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_HAS_MATERIAL_USAGE,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_has_material_usage,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorParameterSource"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_vector_parameter_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorParameterNames"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_vector_parameter_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUsedTextures"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_USED_TEXTURES,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_get_used_textures,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTextureParameterSource"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_texture_parameter_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTextureParameterNames"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_texture_parameter_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStatistics"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_STATISTICS,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_get_statistics,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStaticSwitchParameterSource"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_static_switch_parameter_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStaticSwitchParameterNames"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_static_switch_parameter_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetScalarParameterSource"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_scalar_parameter_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetScalarParameterNames"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_scalar_parameter_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumMaterialExpressionsInFunction"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS_IN_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_num_material_expressions_in_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumMaterialExpressions"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_num_material_expressions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNaniteOverrideMaterial"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_NANITE_OVERRIDE_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_nanite_override_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialSelectedNodes"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_SELECTED_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_selected_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialPropertyInputNodeOutputName"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE_OUTPUT_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_property_input_node_output_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialPropertyInputNode"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_property_input_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialInstanceVectorParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_instance_vector_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialInstanceTextureParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_instance_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialInstanceStaticSwitchParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_instance_static_switch_parameter_value,
         );
         (bindings
             .core_fns
@@ -383,14 +420,16 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "GetMaterialInstanceSparseVolumeTextureParameterValue",
             ),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_instance_sparse_volume_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialInstanceScalarParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_instance_scalar_parameter_value,
         );
         (bindings
             .core_fns
@@ -399,147 +438,166 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "GetMaterialInstanceRuntimeVirtualTextureParameterValue",
             ),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_instance_runtime_virtual_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialExpressionNodePosition"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_NODE_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_expression_node_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialExpressionInputTypes"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_TYPES,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_expression_input_types,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialExpressionInputNames"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_expression_input_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialDefaultVectorParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_VECTOR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_default_vector_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialDefaultTextureParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_default_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialDefaultStaticSwitchParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_STATIC_SWITCH_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_default_static_switch_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialDefaultScalarParameterValue"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_SCALAR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_material_default_scalar_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInputsForMaterialExpression"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_INPUTS_FOR_MATERIAL_EXPRESSION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_inputs_for_material_expression,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInputNodeOutputNameForMaterialExpression"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_INPUT_NODE_OUTPUT_NAME_FOR_MATERIAL_EXPRESSION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_get_input_node_output_name_for_material_expression,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildInstances"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_GET_CHILD_INSTANCES,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_get_child_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateMaterialExpression"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_DUPLICATE_MATERIAL_EXPRESSION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_duplicate_material_expression,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteMaterialExpressionInFunction"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION_IN_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_delete_material_expression_in_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteMaterialExpression"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_delete_material_expression,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteAllMaterialExpressionsInFunction"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS_IN_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_delete_all_material_expressions_in_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteAllMaterialExpressions"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_delete_all_material_expressions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMaterialExpressionInFunction"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION_IN_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_create_material_expression_in_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMaterialExpression"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_create_material_expression,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectMaterialProperty"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_PROPERTY,
+            &raw mut __FUNCTION_PTRS.u_material_editing_library_connect_material_property,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectMaterialExpressions"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_EXPRESSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_connect_material_expressions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAllMaterialInstanceParameters"),
-            &raw mut U_MATERIAL_EDITING_LIBRARY_CLEAR_ALL_MATERIAL_INSTANCE_PARAMETERS,
+            &raw mut __FUNCTION_PTRS
+                .u_material_editing_library_clear_all_material_instance_parameters,
         );
     }
 }
@@ -627,7 +685,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_INSTANCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_update_material_instance,
                 __buffer,
             )
         };
@@ -646,7 +705,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_INSTANCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_update_material_instance,
                 __buffer,
             )
         };
@@ -662,7 +722,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_update_material_function,
                 __buffer,
             )
         };
@@ -688,7 +749,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_UPDATE_MATERIAL_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_update_material_function,
                 __buffer,
             )
         };
@@ -705,7 +767,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_USAGE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_usage,
                 __buffer,
             )
         };
@@ -736,7 +799,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_USAGE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_usage,
                 __buffer,
             )
         };
@@ -758,7 +822,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_vector_parameter_value,
                 __buffer,
             )
         };
@@ -800,7 +865,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_vector_parameter_value,
                 __buffer,
             )
         };
@@ -819,7 +885,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_texture_parameter_value,
                 __buffer,
             )
         };
@@ -861,7 +928,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_texture_parameter_value,
                 __buffer,
             )
         };
@@ -881,7 +949,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -926,7 +995,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -945,7 +1015,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_sparse_volume_texture_parameter_value,
                 __buffer,
             )
         };
@@ -989,7 +1060,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_sparse_volume_texture_parameter_value,
                 __buffer,
             )
         };
@@ -1008,7 +1080,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -1046,7 +1119,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -1065,7 +1139,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_runtime_virtual_texture_parameter_value,
                 __buffer,
             )
         };
@@ -1109,7 +1184,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_runtime_virtual_texture_parameter_value,
                 __buffer,
             )
         };
@@ -1126,7 +1202,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_PARENT,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_parent,
                 __buffer,
             )
         };
@@ -1154,7 +1231,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_SET_MATERIAL_INSTANCE_PARENT,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_set_material_instance_parent,
                 __buffer,
             )
         };
@@ -1171,7 +1249,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_PARAMETER_GROUP,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_rename_material_parameter_group,
                 __buffer,
             )
         };
@@ -1202,7 +1281,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_PARAMETER_GROUP,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_rename_material_parameter_group,
                 __buffer,
             )
         };
@@ -1220,7 +1300,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_FUNCTION_PARAMETER_GROUP,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_rename_material_function_parameter_group,
                 __buffer,
             )
         };
@@ -1253,7 +1334,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_RENAME_MATERIAL_FUNCTION_PARAMETER_GROUP,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_rename_material_function_parameter_group,
                 __buffer,
             )
         };
@@ -1267,7 +1349,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_RECOMPILE_MATERIAL,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_recompile_material,
                 __buffer,
             )
         };
@@ -1284,7 +1367,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_RECOMPILE_MATERIAL,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_recompile_material,
                 __buffer,
             )
         };
@@ -1299,7 +1383,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_FUNCTION_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_layout_material_function_expressions,
                 __buffer,
             )
         };
@@ -1318,7 +1403,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_FUNCTION_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_layout_material_function_expressions,
                 __buffer,
             )
         };
@@ -1333,7 +1419,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_layout_material_expressions,
                 __buffer,
             )
         };
@@ -1350,7 +1437,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_LAYOUT_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_layout_material_expressions,
                 __buffer,
             )
         };
@@ -1366,7 +1454,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_HAS_MATERIAL_USAGE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_has_material_usage,
                 __buffer,
             )
         };
@@ -1390,7 +1479,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_HAS_MATERIAL_USAGE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_has_material_usage,
                 __buffer,
             )
         };
@@ -1408,7 +1498,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_vector_parameter_source,
                 __buffer,
             )
         };
@@ -1443,7 +1534,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_vector_parameter_source,
                 __buffer,
             )
         };
@@ -1466,7 +1558,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_vector_parameter_names,
                 __buffer,
             )
         };
@@ -1492,7 +1585,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_VECTOR_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_vector_parameter_names,
                 __buffer,
             )
         };
@@ -1510,7 +1604,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_USED_TEXTURES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_used_textures,
                 __buffer,
             )
         };
@@ -1527,7 +1622,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_USED_TEXTURES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_used_textures,
                 __buffer,
             )
         };
@@ -1550,7 +1646,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_texture_parameter_source,
                 __buffer,
             )
         };
@@ -1585,7 +1682,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_texture_parameter_source,
                 __buffer,
             )
         };
@@ -1608,7 +1706,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_texture_parameter_names,
                 __buffer,
             )
         };
@@ -1634,7 +1733,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_TEXTURE_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_texture_parameter_names,
                 __buffer,
             )
         };
@@ -1652,7 +1752,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_STATISTICS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_statistics,
                 __buffer,
             )
         };
@@ -1671,7 +1772,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_STATISTICS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_statistics,
                 __buffer,
             )
         };
@@ -1689,7 +1791,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_static_switch_parameter_source,
                 __buffer,
             )
         };
@@ -1724,7 +1827,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_static_switch_parameter_source,
                 __buffer,
             )
         };
@@ -1747,7 +1851,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_static_switch_parameter_names,
                 __buffer,
             )
         };
@@ -1773,7 +1878,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_STATIC_SWITCH_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_static_switch_parameter_names,
                 __buffer,
             )
         };
@@ -1793,7 +1899,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_scalar_parameter_source,
                 __buffer,
             )
         };
@@ -1828,7 +1935,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_SOURCE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_scalar_parameter_source,
                 __buffer,
             )
         };
@@ -1851,7 +1959,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_scalar_parameter_names,
                 __buffer,
             )
         };
@@ -1877,7 +1986,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_SCALAR_PARAMETER_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_scalar_parameter_names,
                 __buffer,
             )
         };
@@ -1895,7 +2005,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_num_material_expressions_in_function,
                 __buffer,
             )
         };
@@ -1914,7 +2025,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_num_material_expressions_in_function,
                 __buffer,
             )
         };
@@ -1930,7 +2042,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_num_material_expressions,
                 __buffer,
             )
         };
@@ -1947,7 +2060,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_NUM_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_num_material_expressions,
                 __buffer,
             )
         };
@@ -1963,7 +2077,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_NANITE_OVERRIDE_MATERIAL,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_nanite_override_material,
                 __buffer,
             )
         };
@@ -1982,7 +2097,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_NANITE_OVERRIDE_MATERIAL,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_nanite_override_material,
                 __buffer,
             )
         };
@@ -2003,7 +2119,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_SELECTED_NODES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_selected_nodes,
                 __buffer,
             )
         };
@@ -2020,7 +2137,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_SELECTED_NODES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_selected_nodes,
                 __buffer,
             )
         };
@@ -2042,7 +2160,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE_OUTPUT_NAME,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_property_input_node_output_name,
                 __buffer,
             )
         };
@@ -2066,7 +2185,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE_OUTPUT_NAME,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_property_input_node_output_name,
                 __buffer,
             )
         };
@@ -2083,7 +2203,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_property_input_node,
                 __buffer,
             )
         };
@@ -2107,7 +2228,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_PROPERTY_INPUT_NODE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_property_input_node,
                 __buffer,
             )
         };
@@ -2130,7 +2252,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_vector_parameter_value,
                 __buffer,
             )
         };
@@ -2165,7 +2288,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_VECTOR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_vector_parameter_value,
                 __buffer,
             )
         };
@@ -2188,7 +2312,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2223,7 +2348,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2243,7 +2369,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -2278,7 +2405,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -2296,7 +2424,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_sparse_volume_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2331,7 +2460,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SPARSE_VOLUME_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_sparse_volume_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2354,7 +2484,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -2389,7 +2520,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_SCALAR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -2407,7 +2539,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_runtime_virtual_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2442,7 +2575,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_INSTANCE_RUNTIME_VIRTUAL_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_instance_runtime_virtual_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2465,7 +2599,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_NODE_POSITION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_node_position,
                 __buffer,
             )
         };
@@ -2490,7 +2625,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_NODE_POSITION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_node_position,
                 __buffer,
             )
         };
@@ -2511,7 +2647,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_TYPES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_input_types,
                 __buffer,
             )
         };
@@ -2530,7 +2667,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_TYPES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_input_types,
                 __buffer,
             )
         };
@@ -2546,7 +2684,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_input_names,
                 __buffer,
             )
         };
@@ -2565,7 +2704,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_EXPRESSION_INPUT_NAMES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_expression_input_names,
                 __buffer,
             )
         };
@@ -2582,7 +2722,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_VECTOR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_vector_parameter_value,
                 __buffer,
             )
         };
@@ -2606,7 +2747,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_VECTOR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_vector_parameter_value,
                 __buffer,
             )
         };
@@ -2628,7 +2770,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2652,7 +2795,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_texture_parameter_value,
                 __buffer,
             )
         };
@@ -2671,7 +2815,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -2695,7 +2840,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_STATIC_SWITCH_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_static_switch_parameter_value,
                 __buffer,
             )
         };
@@ -2712,7 +2858,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_SCALAR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -2736,7 +2883,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_MATERIAL_DEFAULT_SCALAR_PARAMETER_VALUE,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_material_default_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -2753,7 +2901,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_INPUTS_FOR_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_inputs_for_material_expression,
                 __buffer,
             )
         };
@@ -2779,7 +2928,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_INPUTS_FOR_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_inputs_for_material_expression,
                 __buffer,
             )
         };
@@ -2802,7 +2952,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_INPUT_NODE_OUTPUT_NAME_FOR_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_input_node_output_name_for_material_expression,
                 __buffer,
             )
         };
@@ -2837,7 +2988,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_INPUT_NODE_OUTPUT_NAME_FOR_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_input_node_output_name_for_material_expression,
                 __buffer,
             )
         };
@@ -2857,7 +3009,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_CHILD_INSTANCES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_child_instances,
                 __buffer,
             )
         };
@@ -2885,7 +3038,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_GET_CHILD_INSTANCES,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_get_child_instances,
                 __buffer,
             )
         };
@@ -2908,7 +3062,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DUPLICATE_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_duplicate_material_expression,
                 __buffer,
             )
         };
@@ -2943,7 +3098,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DUPLICATE_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_duplicate_material_expression,
                 __buffer,
             )
         };
@@ -2965,7 +3121,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_material_expression_in_function,
                 __buffer,
             )
         };
@@ -2993,7 +3150,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_material_expression_in_function,
                 __buffer,
             )
         };
@@ -3009,7 +3167,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_material_expression,
                 __buffer,
             )
         };
@@ -3035,7 +3194,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_material_expression,
                 __buffer,
             )
         };
@@ -3050,7 +3210,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_all_material_expressions_in_function,
                 __buffer,
             )
         };
@@ -3069,7 +3230,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_all_material_expressions_in_function,
                 __buffer,
             )
         };
@@ -3084,7 +3246,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_all_material_expressions,
                 __buffer,
             )
         };
@@ -3101,7 +3264,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_DELETE_ALL_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_delete_all_material_expressions,
                 __buffer,
             )
         };
@@ -3119,7 +3283,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_create_material_expression_in_function,
                 __buffer,
             )
         };
@@ -3161,7 +3326,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION_IN_FUNCTION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_create_material_expression_in_function,
                 __buffer,
             )
         };
@@ -3185,7 +3351,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_create_material_expression,
                 __buffer,
             )
         };
@@ -3225,7 +3392,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CREATE_MATERIAL_EXPRESSION,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_create_material_expression,
                 __buffer,
             )
         };
@@ -3248,7 +3416,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_PROPERTY,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_connect_material_property,
                 __buffer,
             )
         };
@@ -3281,7 +3450,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_PROPERTY,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_connect_material_property,
                 __buffer,
             )
         };
@@ -3300,7 +3470,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_connect_material_expressions,
                 __buffer,
             )
         };
@@ -3342,7 +3513,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CONNECT_MATERIAL_EXPRESSIONS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_connect_material_expressions,
                 __buffer,
             )
         };
@@ -3358,7 +3530,8 @@ impl UMaterialEditingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CLEAR_ALL_MATERIAL_INSTANCE_PARAMETERS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_clear_all_material_instance_parameters,
                 __buffer,
             )
         };
@@ -3377,7 +3550,8 @@ impl UMaterialEditingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::material_editor::U_MATERIAL_EDITING_LIBRARY_CLEAR_ALL_MATERIAL_INSTANCE_PARAMETERS,
+                crate::bindings::material_editor::__FUNCTION_PTRS
+                    .u_material_editing_library_clear_all_material_instance_parameters,
                 __buffer,
             )
         };

@@ -1,56 +1,65 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MUSICAL_TIME_FUNCTION_LIBRARY_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BEATS_IN_BAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BARS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MUSICAL_TIME_FUNCTION_LIBRARY_BAR_AND_BEAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_TRANSFORM_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_FRAME_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SNAP_FRAME_TIME_TO_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_SECONDS_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_FRAME_NUMBER_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_MULTIPLE_OF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_FRAMERATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_DIVIDE_FRAME_NUMBER_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_TIMECODE_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_QUALIFIED_FRAME_TIME_TO_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_INTERVAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_NUMBER_TO_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_FRAME_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_musical_time_function_library_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_musical_time_function_library_fractional_beats_in_bar: *mut crate::ffi::UFunctionOpague,
+    pub u_musical_time_function_library_fractional_bars: *mut crate::ffi::UFunctionOpague,
+    pub u_musical_time_function_library_bar_and_beat: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_transform_time: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_subtract_frame_number_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_subtract_frame_number_frame_number: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_snap_frame_time_to_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_multiply_seconds_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_multiply_frame_number_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_is_valid_multiple_of: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_is_valid_framerate: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_get_timecode_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_get_timecode: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_divide_frame_number_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_conv_timecode_to_string: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_conv_qualified_frame_time_to_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_conv_frame_rate_to_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_conv_frame_rate_to_interval: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_conv_frame_number_to_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_add_frame_number_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_time_management_blueprint_library_add_frame_number_frame_number: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_musical_time_function_library_is_valid: std::ptr::null_mut(),
+            u_musical_time_function_library_fractional_beats_in_bar: std::ptr::null_mut(),
+            u_musical_time_function_library_fractional_bars: std::ptr::null_mut(),
+            u_musical_time_function_library_bar_and_beat: std::ptr::null_mut(),
+            u_time_management_blueprint_library_transform_time: std::ptr::null_mut(),
+            u_time_management_blueprint_library_subtract_frame_number_integer: std::ptr::null_mut(),
+            u_time_management_blueprint_library_subtract_frame_number_frame_number: std::ptr::null_mut(),
+            u_time_management_blueprint_library_snap_frame_time_to_rate: std::ptr::null_mut(),
+            u_time_management_blueprint_library_multiply_seconds_frame_rate: std::ptr::null_mut(),
+            u_time_management_blueprint_library_multiply_frame_number_integer: std::ptr::null_mut(),
+            u_time_management_blueprint_library_is_valid_multiple_of: std::ptr::null_mut(),
+            u_time_management_blueprint_library_is_valid_framerate: std::ptr::null_mut(),
+            u_time_management_blueprint_library_get_timecode_frame_rate: std::ptr::null_mut(),
+            u_time_management_blueprint_library_get_timecode: std::ptr::null_mut(),
+            u_time_management_blueprint_library_divide_frame_number_integer: std::ptr::null_mut(),
+            u_time_management_blueprint_library_conv_timecode_to_string: std::ptr::null_mut(),
+            u_time_management_blueprint_library_conv_qualified_frame_time_to_seconds: std::ptr::null_mut(),
+            u_time_management_blueprint_library_conv_frame_rate_to_seconds: std::ptr::null_mut(),
+            u_time_management_blueprint_library_conv_frame_rate_to_interval: std::ptr::null_mut(),
+            u_time_management_blueprint_library_conv_frame_number_to_integer: std::ptr::null_mut(),
+            u_time_management_blueprint_library_add_frame_number_integer: std::ptr::null_mut(),
+            u_time_management_blueprint_library_add_frame_number_frame_number: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -60,28 +69,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_MUSICAL_TIME_FUNCTION_LIBRARY_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_musical_time_function_library_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FractionalBeatsInBar"),
-            &raw mut U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BEATS_IN_BAR,
+            &raw mut __FUNCTION_PTRS
+                .u_musical_time_function_library_fractional_beats_in_bar,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FractionalBars"),
-            &raw mut U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BARS,
+            &raw mut __FUNCTION_PTRS.u_musical_time_function_library_fractional_bars,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BarAndBeat"),
-            &raw mut U_MUSICAL_TIME_FUNCTION_LIBRARY_BAR_AND_BEAT,
+            &raw mut __FUNCTION_PTRS.u_musical_time_function_library_bar_and_beat,
         );
     }
     unsafe {
@@ -92,126 +102,142 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TransformTime"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_TRANSFORM_TIME,
+            &raw mut __FUNCTION_PTRS.u_time_management_blueprint_library_transform_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Subtract_FrameNumberInteger"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_subtract_frame_number_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Subtract_FrameNumberFrameNumber"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_FRAME_NUMBER,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_subtract_frame_number_frame_number,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SnapFrameTimeToRate"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SNAP_FRAME_TIME_TO_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_snap_frame_time_to_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Multiply_SecondsFrameRate"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_SECONDS_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_multiply_seconds_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Multiply_FrameNumberInteger"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_FRAME_NUMBER_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_multiply_frame_number_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid_MultipleOf"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_MULTIPLE_OF,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_is_valid_multiple_of,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid_Framerate"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_FRAMERATE,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_is_valid_framerate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimecodeFrameRate"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_get_timecode_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimecode"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE,
+            &raw mut __FUNCTION_PTRS.u_time_management_blueprint_library_get_timecode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Divide_FrameNumberInteger"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_DIVIDE_FRAME_NUMBER_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_divide_frame_number_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_TimecodeToString"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_TIMECODE_TO_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_conv_timecode_to_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_QualifiedFrameTimeToSeconds"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_QUALIFIED_FRAME_TIME_TO_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_conv_qualified_frame_time_to_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_FrameRateToSeconds"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_conv_frame_rate_to_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_FrameRateToInterval"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_INTERVAL,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_conv_frame_rate_to_interval,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_FrameNumberToInteger"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_NUMBER_TO_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_conv_frame_number_to_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Add_FrameNumberInteger"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_add_frame_number_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Add_FrameNumberFrameNumber"),
-            &raw mut U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_FRAME_NUMBER,
+            &raw mut __FUNCTION_PTRS
+                .u_time_management_blueprint_library_add_frame_number_frame_number,
         );
     }
 }
@@ -407,7 +433,8 @@ impl UMusicalTimeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_IS_VALID,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_is_valid,
                 __buffer,
             )
         };
@@ -424,7 +451,8 @@ impl UMusicalTimeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_IS_VALID,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_is_valid,
                 __buffer,
             )
         };
@@ -440,7 +468,8 @@ impl UMusicalTimeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BEATS_IN_BAR,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_fractional_beats_in_bar,
                 __buffer,
             )
         };
@@ -457,7 +486,8 @@ impl UMusicalTimeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BEATS_IN_BAR,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_fractional_beats_in_bar,
                 __buffer,
             )
         };
@@ -473,7 +503,8 @@ impl UMusicalTimeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BARS,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_fractional_bars,
                 __buffer,
             )
         };
@@ -490,7 +521,8 @@ impl UMusicalTimeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_FRACTIONAL_BARS,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_fractional_bars,
                 __buffer,
             )
         };
@@ -508,7 +540,8 @@ impl UMusicalTimeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_BAR_AND_BEAT,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_bar_and_beat,
                 __buffer,
             )
         };
@@ -531,7 +564,8 @@ impl UMusicalTimeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_MUSICAL_TIME_FUNCTION_LIBRARY_BAR_AND_BEAT,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_musical_time_function_library_bar_and_beat,
                 __buffer,
             )
         };
@@ -575,7 +609,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_TRANSFORM_TIME,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_transform_time,
                 __buffer,
             )
         };
@@ -606,7 +641,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_TRANSFORM_TIME,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_transform_time,
                 __buffer,
             )
         };
@@ -625,7 +661,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_subtract_frame_number_integer,
                 __buffer,
             )
         };
@@ -645,7 +682,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_subtract_frame_number_integer,
                 __buffer,
             )
         };
@@ -664,7 +702,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_FRAME_NUMBER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_subtract_frame_number_frame_number,
                 __buffer,
             )
         };
@@ -688,7 +727,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SUBTRACT_FRAME_NUMBER_FRAME_NUMBER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_subtract_frame_number_frame_number,
                 __buffer,
             )
         };
@@ -708,7 +748,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SNAP_FRAME_TIME_TO_RATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_snap_frame_time_to_rate,
                 __buffer,
             )
         };
@@ -739,7 +780,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_SNAP_FRAME_TIME_TO_RATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_snap_frame_time_to_rate,
                 __buffer,
             )
         };
@@ -758,7 +800,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_SECONDS_FRAME_RATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_multiply_seconds_frame_rate,
                 __buffer,
             )
         };
@@ -782,7 +825,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_SECONDS_FRAME_RATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_multiply_seconds_frame_rate,
                 __buffer,
             )
         };
@@ -801,7 +845,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_multiply_frame_number_integer,
                 __buffer,
             )
         };
@@ -821,7 +866,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_MULTIPLY_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_multiply_frame_number_integer,
                 __buffer,
             )
         };
@@ -840,7 +886,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_MULTIPLE_OF,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_is_valid_multiple_of,
                 __buffer,
             )
         };
@@ -864,7 +911,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_MULTIPLE_OF,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_is_valid_multiple_of,
                 __buffer,
             )
         };
@@ -880,7 +928,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_FRAMERATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_is_valid_framerate,
                 __buffer,
             )
         };
@@ -897,7 +946,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_IS_VALID_FRAMERATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_is_valid_framerate,
                 __buffer,
             )
         };
@@ -911,7 +961,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE_FRAME_RATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_get_timecode_frame_rate,
                 __buffer,
             )
         };
@@ -921,7 +972,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE_FRAME_RATE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_get_timecode_frame_rate,
                 __buffer,
             )
         };
@@ -937,7 +989,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_get_timecode,
                 __buffer,
             )
         };
@@ -947,7 +1000,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_GET_TIMECODE,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_get_timecode,
                 __buffer,
             )
         };
@@ -966,7 +1020,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_DIVIDE_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_divide_frame_number_integer,
                 __buffer,
             )
         };
@@ -986,7 +1041,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_DIVIDE_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_divide_frame_number_integer,
                 __buffer,
             )
         };
@@ -1005,7 +1061,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_TIMECODE_TO_STRING,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_timecode_to_string,
                 __buffer,
             )
         };
@@ -1029,7 +1086,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_TIMECODE_TO_STRING,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_timecode_to_string,
                 __buffer,
             )
         };
@@ -1045,7 +1103,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_QUALIFIED_FRAME_TIME_TO_SECONDS,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_qualified_frame_time_to_seconds,
                 __buffer,
             )
         };
@@ -1064,7 +1123,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_QUALIFIED_FRAME_TIME_TO_SECONDS,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_qualified_frame_time_to_seconds,
                 __buffer,
             )
         };
@@ -1080,7 +1140,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_SECONDS,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_rate_to_seconds,
                 __buffer,
             )
         };
@@ -1097,7 +1158,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_SECONDS,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_rate_to_seconds,
                 __buffer,
             )
         };
@@ -1113,7 +1175,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_INTERVAL,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_rate_to_interval,
                 __buffer,
             )
         };
@@ -1130,7 +1193,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_RATE_TO_INTERVAL,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_rate_to_interval,
                 __buffer,
             )
         };
@@ -1146,7 +1210,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_NUMBER_TO_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_number_to_integer,
                 __buffer,
             )
         };
@@ -1163,7 +1228,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_CONV_FRAME_NUMBER_TO_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_conv_frame_number_to_integer,
                 __buffer,
             )
         };
@@ -1180,7 +1246,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_add_frame_number_integer,
                 __buffer,
             )
         };
@@ -1200,7 +1267,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_INTEGER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_add_frame_number_integer,
                 __buffer,
             )
         };
@@ -1219,7 +1287,8 @@ impl UTimeManagementBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_FRAME_NUMBER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_add_frame_number_frame_number,
                 __buffer,
             )
         };
@@ -1243,7 +1312,8 @@ impl UTimeManagementBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::time_management::U_TIME_MANAGEMENT_BLUEPRINT_LIBRARY_ADD_FRAME_NUMBER_FRAME_NUMBER,
+                crate::bindings::time_management::__FUNCTION_PTRS
+                    .u_time_management_blueprint_library_add_frame_number_frame_number,
                 __buffer,
             )
         };

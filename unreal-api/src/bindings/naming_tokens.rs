@@ -1,44 +1,53 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_NAMING_TOKENS_PROCESS_TOKEN_TEMPLATE_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ON_PRE_EVALUATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ON_POST_EVALUATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_GET_CURRENT_DATE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_naming_tokens_process_token_template_function: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_on_pre_evaluate: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_on_post_evaluate: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_get_current_date_time: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_unregister_global_namespace: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_register_global_namespace: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_is_global_namespace_registered: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_get_naming_tokens_native: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_get_naming_tokens: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_get_multiple_naming_tokens: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_get_global_namespaces: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_get_all_namespaces: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_evaluate_token_text: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_evaluate_token_string: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_evaluate_token_list: *mut crate::ffi::UFunctionOpague,
+    pub u_naming_tokens_engine_subsystem_clear_cached_naming_tokens: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_naming_tokens_process_token_template_function: std::ptr::null_mut(),
+            u_naming_tokens_on_pre_evaluate: std::ptr::null_mut(),
+            u_naming_tokens_on_post_evaluate: std::ptr::null_mut(),
+            u_naming_tokens_get_current_date_time: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_unregister_global_namespace: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_register_global_namespace: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_is_global_namespace_registered: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_get_naming_tokens_native: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_get_naming_tokens: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_get_multiple_naming_tokens: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_get_global_namespaces: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_get_all_namespaces: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_evaluate_token_text: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_evaluate_token_string: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_evaluate_token_list: std::ptr::null_mut(),
+            u_naming_tokens_engine_subsystem_clear_cached_naming_tokens: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -48,28 +57,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProcessTokenTemplateFunction"),
-            &raw mut U_NAMING_TOKENS_PROCESS_TOKEN_TEMPLATE_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_process_token_template_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPreEvaluate"),
-            &raw mut U_NAMING_TOKENS_ON_PRE_EVALUATE,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_on_pre_evaluate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPostEvaluate"),
-            &raw mut U_NAMING_TOKENS_ON_POST_EVALUATE,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_on_post_evaluate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentDateTime"),
-            &raw mut U_NAMING_TOKENS_GET_CURRENT_DATE_TIME,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_get_current_date_time,
         );
     }
     unsafe {
@@ -80,84 +89,92 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterGlobalNamespace"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_unregister_global_namespace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterGlobalNamespace"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_register_global_namespace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsGlobalNamespaceRegistered"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_is_global_namespace_registered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNamingTokensNative"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_get_naming_tokens_native,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNamingTokens"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_get_naming_tokens,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMultipleNamingTokens"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_get_multiple_naming_tokens,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalNamespaces"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_get_global_namespaces,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllNamespaces"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_get_all_namespaces,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateTokenText"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_evaluate_token_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateTokenString"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_evaluate_token_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateTokenList"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST,
+            &raw mut __FUNCTION_PTRS.u_naming_tokens_engine_subsystem_evaluate_token_list,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearCachedNamingTokens"),
-            &raw mut U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS,
+            &raw mut __FUNCTION_PTRS
+                .u_naming_tokens_engine_subsystem_clear_cached_naming_tokens,
         );
     }
 }
@@ -222,15 +239,48 @@ impl UNamingTokens {
             cdo
         }
     }
-    pub fn get_current_date_time(&self) -> crate::bindings::core_u_object::FDateTime {
-        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+    pub fn on_pre_evaluate(&mut self, in_evaluation_data: &FNamingTokensEvaluationData) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
         unsafe {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_GET_CURRENT_DATE_TIME,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_on_pre_evaluate,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_evaluation_data,
+                __buffer.add(0).cast::<FNamingTokensEvaluationData>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_on_pre_evaluate,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_post_evaluate(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_on_post_evaluate,
                 __buffer,
             )
         };
@@ -240,7 +290,33 @@ impl UNamingTokens {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_GET_CURRENT_DATE_TIME,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_on_post_evaluate,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_current_date_time(&self) -> crate::bindings::core_u_object::FDateTime {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_get_current_date_time,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_get_current_date_time,
                 __buffer,
             )
         };
@@ -298,7 +374,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_unregister_global_namespace,
                 __buffer,
             )
         };
@@ -315,7 +392,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_UNREGISTER_GLOBAL_NAMESPACE,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_unregister_global_namespace,
                 __buffer,
             )
         };
@@ -328,7 +406,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_register_global_namespace,
                 __buffer,
             )
         };
@@ -345,7 +424,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_REGISTER_GLOBAL_NAMESPACE,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_register_global_namespace,
                 __buffer,
             )
         };
@@ -358,7 +438,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_is_global_namespace_registered,
                 __buffer,
             )
         };
@@ -375,7 +456,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_IS_GLOBAL_NAMESPACE_REGISTERED,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_is_global_namespace_registered,
                 __buffer,
             )
         };
@@ -392,7 +474,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_naming_tokens_native,
                 __buffer,
             )
         };
@@ -409,7 +492,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS_NATIVE,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_naming_tokens_native,
                 __buffer,
             )
         };
@@ -423,7 +507,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_naming_tokens,
                 __buffer,
             )
         };
@@ -440,7 +525,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_NAMING_TOKENS,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_naming_tokens,
                 __buffer,
             )
         };
@@ -457,7 +543,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_multiple_naming_tokens,
                 __buffer,
             )
         };
@@ -474,7 +561,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_MULTIPLE_NAMING_TOKENS,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_multiple_naming_tokens,
                 __buffer,
             )
         };
@@ -488,7 +576,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_global_namespaces,
                 __buffer,
             )
         };
@@ -498,7 +587,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_GLOBAL_NAMESPACES,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_global_namespaces,
                 __buffer,
             )
         };
@@ -512,7 +602,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_all_namespaces,
                 __buffer,
             )
         };
@@ -522,7 +613,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_GET_ALL_NAMESPACES,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_get_all_namespaces,
                 __buffer,
             )
         };
@@ -541,7 +633,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_text,
                 __buffer,
             )
         };
@@ -574,7 +667,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_TEXT,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_text,
                 __buffer,
             )
         };
@@ -593,7 +687,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_string,
                 __buffer,
             )
         };
@@ -626,7 +721,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_STRING,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_string,
                 __buffer,
             )
         };
@@ -645,7 +741,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_list,
                 __buffer,
             )
         };
@@ -678,7 +775,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_EVALUATE_TOKEN_LIST,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_evaluate_token_list,
                 __buffer,
             )
         };
@@ -692,7 +790,8 @@ impl UNamingTokensEngineSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_clear_cached_naming_tokens,
                 __buffer,
             )
         };
@@ -702,7 +801,8 @@ impl UNamingTokensEngineSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::naming_tokens::U_NAMING_TOKENS_ENGINE_SUBSYSTEM_CLEAR_CACHED_NAMING_TOKENS,
+                crate::bindings::naming_tokens::__FUNCTION_PTRS
+                    .u_naming_tokens_engine_subsystem_clear_cached_naming_tokens,
                 __buffer,
             )
         };

@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut UDNA_MESH_VERTEX_COLOR_DATA_ASSET_GET_COLOR_BY_MESH_AND_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub udna_mesh_vertex_color_data_asset_get_color_by_mesh_and_index: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            udna_mesh_vertex_color_data_asset_get_color_by_mesh_and_index: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetColorByMeshAndIndex"),
-            &raw mut UDNA_MESH_VERTEX_COLOR_DATA_ASSET_GET_COLOR_BY_MESH_AND_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .udna_mesh_vertex_color_data_asset_get_color_by_mesh_and_index,
         );
     }
 }
@@ -62,7 +72,8 @@ impl UDNAMeshVertexColorDataAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_dna::UDNA_MESH_VERTEX_COLOR_DATA_ASSET_GET_COLOR_BY_MESH_AND_INDEX,
+                crate::bindings::interchange_dna::__FUNCTION_PTRS
+                    .udna_mesh_vertex_color_data_asset_get_color_by_mesh_and_index,
                 __buffer,
             )
         };
@@ -86,7 +97,8 @@ impl UDNAMeshVertexColorDataAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_dna::UDNA_MESH_VERTEX_COLOR_DATA_ASSET_GET_COLOR_BY_MESH_AND_INDEX,
+                crate::bindings::interchange_dna::__FUNCTION_PTRS
+                    .udna_mesh_vertex_color_data_asset_get_color_by_mesh_and_index,
                 __buffer,
             )
         };

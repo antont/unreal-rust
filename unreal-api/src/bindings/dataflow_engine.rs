@@ -1,32 +1,41 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_REGENERATE_ASSET_FROM_DATAFLOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_BLUEPRINT_LIBRARY_EVALUATE_TERMINAL_NODE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_dataflow_blueprint_library_regenerate_asset_from_dataflow: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_object_array: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_object: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_int_array: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_int: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_float_array: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_float: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_bool_array: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_override_dataflow_variable_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_blueprint_library_evaluate_terminal_node_by_name: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_dataflow_blueprint_library_regenerate_asset_from_dataflow: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_object_array: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_object: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_int_array: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_int: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_float_array: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_float: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_bool_array: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_override_dataflow_variable_bool: std::ptr::null_mut(),
+            u_dataflow_blueprint_library_evaluate_terminal_node_by_name: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -36,70 +45,80 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegenerateAssetFromDataflow"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_REGENERATE_ASSET_FROM_DATAFLOW,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_regenerate_asset_from_dataflow,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableObjectArray"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_object_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableObject"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableIntArray"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_int_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableInt"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableFloatArray"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_float_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableFloat"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableBoolArray"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_bool_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideDataflowVariableBool"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_override_dataflow_variable_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateTerminalNodeByName"),
-            &raw mut U_DATAFLOW_BLUEPRINT_LIBRARY_EVALUATE_TERMINAL_NODE_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_blueprint_library_evaluate_terminal_node_by_name,
         );
     }
 }
@@ -140,7 +159,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_REGENERATE_ASSET_FROM_DATAFLOW,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_regenerate_asset_from_dataflow,
                 __buffer,
             )
         };
@@ -164,7 +184,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_REGENERATE_ASSET_FROM_DATAFLOW,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_regenerate_asset_from_dataflow,
                 __buffer,
             )
         };
@@ -182,7 +203,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_object_array,
                 __buffer,
             )
         };
@@ -215,7 +237,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_object_array,
                 __buffer,
             )
         };
@@ -233,7 +256,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_object,
                 __buffer,
             )
         };
@@ -264,7 +288,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_OBJECT,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_object,
                 __buffer,
             )
         };
@@ -282,7 +307,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_int_array,
                 __buffer,
             )
         };
@@ -313,7 +339,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_int_array,
                 __buffer,
             )
         };
@@ -331,7 +358,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_int,
                 __buffer,
             )
         };
@@ -362,7 +390,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_INT,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_int,
                 __buffer,
             )
         };
@@ -380,7 +409,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_float_array,
                 __buffer,
             )
         };
@@ -411,7 +441,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_float_array,
                 __buffer,
             )
         };
@@ -429,7 +460,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_float,
                 __buffer,
             )
         };
@@ -460,7 +492,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_FLOAT,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_float,
                 __buffer,
             )
         };
@@ -478,7 +511,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_bool_array,
                 __buffer,
             )
         };
@@ -509,7 +543,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL_ARRAY,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_bool_array,
                 __buffer,
             )
         };
@@ -527,7 +562,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_bool,
                 __buffer,
             )
         };
@@ -558,7 +594,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_OVERRIDE_DATAFLOW_VARIABLE_BOOL,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_override_dataflow_variable_bool,
                 __buffer,
             )
         };
@@ -576,7 +613,8 @@ impl UDataflowBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_EVALUATE_TERMINAL_NODE_BY_NAME,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_evaluate_terminal_node_by_name,
                 __buffer,
             )
         };
@@ -607,7 +645,8 @@ impl UDataflowBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_engine::U_DATAFLOW_BLUEPRINT_LIBRARY_EVALUATE_TERMINAL_NODE_BY_NAME,
+                crate::bindings::dataflow_engine::__FUNCTION_PTRS
+                    .u_dataflow_blueprint_library_evaluate_terminal_node_by_name,
                 __buffer,
             )
         };

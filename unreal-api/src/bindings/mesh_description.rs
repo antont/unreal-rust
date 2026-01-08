@@ -1,194 +1,203 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_SET_VERTEX_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_SET_POLYGON_VERTEX_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_SET_POLYGON_POLYGON_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_REVERSE_POLYGON_FACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTEX_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGON_GROUPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_EDGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_VERTEX_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_VERTEX_ORPHANED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_VERTEX_INSTANCE_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_PART_OF_NGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_POLYGON_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_POLYGON_GROUP_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_EMPTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_EDGE_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL_TO_POLYGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_VERTEX_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_PAIR_EDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_VERTEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_PAIR_EDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_TRIANGLE_VERTEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_POLYGON_VERTEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_EDGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_ADJACENT_VERTICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_EDGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_ADJACENT_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTEX_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_POLYGON_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_PERIMETER_EDGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_INTERNAL_EDGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_ADJACENT_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_VERTEX_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_EDGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_VERTICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_INTERNAL_EDGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_GROUP_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_EDGE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_TRIANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_POLYGONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_EMPTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_DELETE_VERTEX_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_DELETE_VERTEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_DELETE_TRIANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_DELETE_POLYGON_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_DELETE_POLYGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_DELETE_EDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_EDGE_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_CREATE_EDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_DESCRIPTION_BASE_COMPUTE_POLYGON_TRIANGULATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_mesh_description_base_set_vertex_position: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_set_polygon_vertex_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_set_polygon_polygon_group: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_reverse_polygon_facing: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_reserve_new_vertices: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_reserve_new_vertex_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_reserve_new_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_reserve_new_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_reserve_new_polygon_groups: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_reserve_new_edges: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_vertex_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_vertex_orphaned: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_vertex_instance_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_triangle_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_triangle_part_of_ngon: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_polygon_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_polygon_group_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_empty: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_edge_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_edge_internal_to_polygon: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_is_edge_internal: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_vertex_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_position: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_pair_edge: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_instance_vertex: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_instance_pair_edge: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_instance_for_triangle_vertex: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_instance_for_polygon_vertex: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_instance_count: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_instance_connected_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_instance_connected_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_count: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_connected_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_connected_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_connected_edges: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_vertex_adjacent_vertices: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_vertices: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_vertex_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_vertex_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_polygon_group: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_polygon: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_edges: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_count: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_triangle_adjacent_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_vertices: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_vertex_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_polygon_group: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_perimeter_edges: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_internal_edges: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_group_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_group_count: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_count: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_polygon_adjacent_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_vertex_vertex_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_vertex_instance_connected_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_vertex_instance_connected_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_vertex_connected_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_vertex_connected_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_vertex_connected_edges: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_polygon_vertices: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_polygon_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_polygon_internal_edges: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_polygon_group_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_edge_connected_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_num_edge_connected_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_edge_vertices: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_edge_vertex: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_edge_count: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_edge_connected_triangles: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_get_edge_connected_polygons: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_empty: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_delete_vertex_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_delete_vertex: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_delete_triangle: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_delete_polygon_group: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_delete_polygon: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_delete_edge: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_vertex_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_vertex_instance_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_vertex_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_vertex: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_triangle_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_triangle: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_polygon_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_polygon_group_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_polygon_group: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_polygon: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_edge_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_create_edge: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_description_base_compute_polygon_triangulation: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_mesh_description_base_set_vertex_position: std::ptr::null_mut(),
+            u_mesh_description_base_set_polygon_vertex_instances: std::ptr::null_mut(),
+            u_mesh_description_base_set_polygon_polygon_group: std::ptr::null_mut(),
+            u_mesh_description_base_reverse_polygon_facing: std::ptr::null_mut(),
+            u_mesh_description_base_reserve_new_vertices: std::ptr::null_mut(),
+            u_mesh_description_base_reserve_new_vertex_instances: std::ptr::null_mut(),
+            u_mesh_description_base_reserve_new_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_reserve_new_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_reserve_new_polygon_groups: std::ptr::null_mut(),
+            u_mesh_description_base_reserve_new_edges: std::ptr::null_mut(),
+            u_mesh_description_base_is_vertex_valid: std::ptr::null_mut(),
+            u_mesh_description_base_is_vertex_orphaned: std::ptr::null_mut(),
+            u_mesh_description_base_is_vertex_instance_valid: std::ptr::null_mut(),
+            u_mesh_description_base_is_triangle_valid: std::ptr::null_mut(),
+            u_mesh_description_base_is_triangle_part_of_ngon: std::ptr::null_mut(),
+            u_mesh_description_base_is_polygon_valid: std::ptr::null_mut(),
+            u_mesh_description_base_is_polygon_group_valid: std::ptr::null_mut(),
+            u_mesh_description_base_is_empty: std::ptr::null_mut(),
+            u_mesh_description_base_is_edge_valid: std::ptr::null_mut(),
+            u_mesh_description_base_is_edge_internal_to_polygon: std::ptr::null_mut(),
+            u_mesh_description_base_is_edge_internal: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_vertex_instances: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_position: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_pair_edge: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_instance_vertex: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_instance_pair_edge: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_instance_for_triangle_vertex: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_instance_for_polygon_vertex: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_instance_count: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_instance_connected_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_instance_connected_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_count: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_connected_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_connected_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_connected_edges: std::ptr::null_mut(),
+            u_mesh_description_base_get_vertex_adjacent_vertices: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_vertices: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_vertex_instances: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_vertex_instance: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_polygon_group: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_polygon: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_edges: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_count: std::ptr::null_mut(),
+            u_mesh_description_base_get_triangle_adjacent_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_vertices: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_vertex_instances: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_polygon_group: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_perimeter_edges: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_internal_edges: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_group_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_group_count: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_count: std::ptr::null_mut(),
+            u_mesh_description_base_get_polygon_adjacent_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_vertex_vertex_instances: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_vertex_instance_connected_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_vertex_instance_connected_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_vertex_connected_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_vertex_connected_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_vertex_connected_edges: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_polygon_vertices: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_polygon_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_polygon_internal_edges: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_polygon_group_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_edge_connected_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_num_edge_connected_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_get_edge_vertices: std::ptr::null_mut(),
+            u_mesh_description_base_get_edge_vertex: std::ptr::null_mut(),
+            u_mesh_description_base_get_edge_count: std::ptr::null_mut(),
+            u_mesh_description_base_get_edge_connected_triangles: std::ptr::null_mut(),
+            u_mesh_description_base_get_edge_connected_polygons: std::ptr::null_mut(),
+            u_mesh_description_base_empty: std::ptr::null_mut(),
+            u_mesh_description_base_delete_vertex_instance: std::ptr::null_mut(),
+            u_mesh_description_base_delete_vertex: std::ptr::null_mut(),
+            u_mesh_description_base_delete_triangle: std::ptr::null_mut(),
+            u_mesh_description_base_delete_polygon_group: std::ptr::null_mut(),
+            u_mesh_description_base_delete_polygon: std::ptr::null_mut(),
+            u_mesh_description_base_delete_edge: std::ptr::null_mut(),
+            u_mesh_description_base_create_vertex_with_id: std::ptr::null_mut(),
+            u_mesh_description_base_create_vertex_instance_with_id: std::ptr::null_mut(),
+            u_mesh_description_base_create_vertex_instance: std::ptr::null_mut(),
+            u_mesh_description_base_create_vertex: std::ptr::null_mut(),
+            u_mesh_description_base_create_triangle_with_id: std::ptr::null_mut(),
+            u_mesh_description_base_create_triangle: std::ptr::null_mut(),
+            u_mesh_description_base_create_polygon_with_id: std::ptr::null_mut(),
+            u_mesh_description_base_create_polygon_group_with_id: std::ptr::null_mut(),
+            u_mesh_description_base_create_polygon_group: std::ptr::null_mut(),
+            u_mesh_description_base_create_polygon: std::ptr::null_mut(),
+            u_mesh_description_base_create_edge_with_id: std::ptr::null_mut(),
+            u_mesh_description_base_create_edge: std::ptr::null_mut(),
+            u_mesh_description_base_compute_polygon_triangulation: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -198,637 +207,659 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVertexPosition"),
-            &raw mut U_MESH_DESCRIPTION_BASE_SET_VERTEX_POSITION,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_set_vertex_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPolygonVertexInstances"),
-            &raw mut U_MESH_DESCRIPTION_BASE_SET_POLYGON_VERTEX_INSTANCES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_set_polygon_vertex_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPolygonPolygonGroup"),
-            &raw mut U_MESH_DESCRIPTION_BASE_SET_POLYGON_POLYGON_GROUP,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_set_polygon_polygon_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReversePolygonFacing"),
-            &raw mut U_MESH_DESCRIPTION_BASE_REVERSE_POLYGON_FACING,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reverse_polygon_facing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReserveNewVertices"),
-            &raw mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTICES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_vertices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReserveNewVertexInstances"),
-            &raw mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTEX_INSTANCES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_vertex_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReserveNewTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_TRIANGLES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReserveNewPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGONS,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReserveNewPolygonGroups"),
-            &raw mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGON_GROUPS,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_polygon_groups,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReserveNewEdges"),
-            &raw mut U_MESH_DESCRIPTION_BASE_RESERVE_NEW_EDGES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_reserve_new_edges,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsVertexValid"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_VERTEX_VALID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsVertexOrphaned"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_VERTEX_ORPHANED,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_orphaned,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsVertexInstanceValid"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_VERTEX_INSTANCE_VALID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_vertex_instance_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTriangleValid"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_VALID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_triangle_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTrianglePartOfNgon"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_PART_OF_NGON,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_triangle_part_of_ngon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPolygonValid"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_POLYGON_VALID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_polygon_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPolygonGroupValid"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_POLYGON_GROUP_VALID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_polygon_group_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEmpty"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_EMPTY,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_empty,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEdgeValid"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_EDGE_VALID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEdgeInternalToPolygon"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL_TO_POLYGON,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_internal_to_polygon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEdgeInternal"),
-            &raw mut U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_is_edge_internal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexVertexInstances"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_VERTEX_INSTANCES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_vertex_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexPosition"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_POSITION,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexPairEdge"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_PAIR_EDGE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_pair_edge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexInstanceVertex"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_VERTEX,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_instance_vertex,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexInstancePairEdge"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_PAIR_EDGE,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_vertex_instance_pair_edge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexInstanceForTriangleVertex"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_TRIANGLE_VERTEX,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_vertex_instance_for_triangle_vertex,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexInstanceForPolygonVertex"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_POLYGON_VERTEX,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_vertex_instance_for_polygon_vertex,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexInstanceCount"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_COUNT,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_instance_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexInstanceConnectedTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_vertex_instance_connected_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexInstanceConnectedPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_POLYGONS,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_vertex_instance_connected_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexCount"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_COUNT,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexConnectedTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_vertex_connected_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexConnectedPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_POLYGONS,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_vertex_connected_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexConnectedEdges"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_EDGES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_connected_edges,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexAdjacentVertices"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_VERTEX_ADJACENT_VERTICES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_vertex_adjacent_vertices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriangleVertices"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTICES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_vertices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriangleVertexInstances"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_triangle_vertex_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriangleVertexInstance"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_vertex_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrianglePolygonGroup"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON_GROUP,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_polygon_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrianglePolygon"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_polygon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriangleEdges"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_EDGES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_edges,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriangleCount"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_COUNT,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_triangle_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriangleAdjacentTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_ADJACENT_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_triangle_adjacent_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonVertices"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTICES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_vertices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonVertexInstances"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTEX_INSTANCES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_vertex_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_TRIANGLES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonPolygonGroup"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_POLYGON_GROUP,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_polygon_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonPerimeterEdges"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_PERIMETER_EDGES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_perimeter_edges,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonInternalEdges"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_INTERNAL_EDGES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_internal_edges,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonGroupPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_POLYGONS,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_group_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonGroupCount"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_COUNT,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_group_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonCount"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_COUNT,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_polygon_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPolygonAdjacentPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_POLYGON_ADJACENT_POLYGONS,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_polygon_adjacent_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVertexVertexInstances"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_VERTEX_INSTANCES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_vertex_vertex_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVertexInstanceConnectedTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_vertex_instance_connected_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVertexInstanceConnectedPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_POLYGONS,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_vertex_instance_connected_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVertexConnectedTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_vertex_connected_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVertexConnectedPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_POLYGONS,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_vertex_connected_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVertexConnectedEdges"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_EDGES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_vertex_connected_edges,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumPolygonVertices"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_VERTICES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_num_polygon_vertices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumPolygonTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_TRIANGLES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_num_polygon_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumPolygonInternalEdges"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_INTERNAL_EDGES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_polygon_internal_edges,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumPolygonGroupPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_GROUP_POLYGONS,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_polygon_group_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumEdgeConnectedTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_TRIANGLES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_edge_connected_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumEdgeConnectedPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_POLYGONS,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_get_num_edge_connected_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEdgeVertices"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTICES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_vertices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEdgeVertex"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTEX,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_vertex,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEdgeCount"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_EDGE_COUNT,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEdgeConnectedTriangles"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_TRIANGLES,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_connected_triangles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEdgeConnectedPolygons"),
-            &raw mut U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_POLYGONS,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_get_edge_connected_polygons,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Empty"),
-            &raw mut U_MESH_DESCRIPTION_BASE_EMPTY,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_empty,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteVertexInstance"),
-            &raw mut U_MESH_DESCRIPTION_BASE_DELETE_VERTEX_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_vertex_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteVertex"),
-            &raw mut U_MESH_DESCRIPTION_BASE_DELETE_VERTEX,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_vertex,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteTriangle"),
-            &raw mut U_MESH_DESCRIPTION_BASE_DELETE_TRIANGLE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_triangle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeletePolygonGroup"),
-            &raw mut U_MESH_DESCRIPTION_BASE_DELETE_POLYGON_GROUP,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_polygon_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeletePolygon"),
-            &raw mut U_MESH_DESCRIPTION_BASE_DELETE_POLYGON,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_polygon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteEdge"),
-            &raw mut U_MESH_DESCRIPTION_BASE_DELETE_EDGE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_delete_edge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateVertexWithID"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_WITH_ID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateVertexInstanceWithID"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE_WITH_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_create_vertex_instance_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateVertexInstance"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateVertex"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_VERTEX,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_vertex,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateTriangleWithID"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE_WITH_ID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_triangle_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateTriangle"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_triangle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePolygonWithID"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_WITH_ID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePolygonGroupWithID"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP_WITH_ID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_group_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePolygonGroup"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePolygon"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_POLYGON,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_polygon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateEdgeWithID"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_EDGE_WITH_ID,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_edge_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateEdge"),
-            &raw mut U_MESH_DESCRIPTION_BASE_CREATE_EDGE,
+            &raw mut __FUNCTION_PTRS.u_mesh_description_base_create_edge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputePolygonTriangulation"),
-            &raw mut U_MESH_DESCRIPTION_BASE_COMPUTE_POLYGON_TRIANGULATION,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_description_base_compute_polygon_triangulation,
         );
     }
 }
@@ -904,7 +935,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_SET_VERTEX_POSITION,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_set_vertex_position,
                 __buffer,
             )
         };
@@ -928,7 +960,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_SET_VERTEX_POSITION,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_set_vertex_position,
                 __buffer,
             )
         };
@@ -945,7 +978,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_SET_POLYGON_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_set_polygon_vertex_instances,
                 __buffer,
             )
         };
@@ -969,7 +1003,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_SET_POLYGON_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_set_polygon_vertex_instances,
                 __buffer,
             )
         };
@@ -986,7 +1021,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_SET_POLYGON_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_set_polygon_polygon_group,
                 __buffer,
             )
         };
@@ -1010,7 +1046,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_SET_POLYGON_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_set_polygon_polygon_group,
                 __buffer,
             )
         };
@@ -1023,7 +1060,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_REVERSE_POLYGON_FACING,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reverse_polygon_facing,
                 __buffer,
             )
         };
@@ -1040,7 +1078,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_REVERSE_POLYGON_FACING,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reverse_polygon_facing,
                 __buffer,
             )
         };
@@ -1053,7 +1092,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_vertices,
                 __buffer,
             )
         };
@@ -1070,7 +1110,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_vertices,
                 __buffer,
             )
         };
@@ -1083,7 +1124,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_vertex_instances,
                 __buffer,
             )
         };
@@ -1100,7 +1142,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_vertex_instances,
                 __buffer,
             )
         };
@@ -1113,7 +1156,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_triangles,
                 __buffer,
             )
         };
@@ -1130,7 +1174,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_triangles,
                 __buffer,
             )
         };
@@ -1143,7 +1188,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_polygons,
                 __buffer,
             )
         };
@@ -1160,7 +1206,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_polygons,
                 __buffer,
             )
         };
@@ -1173,7 +1220,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGON_GROUPS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_polygon_groups,
                 __buffer,
             )
         };
@@ -1190,7 +1238,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_POLYGON_GROUPS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_polygon_groups,
                 __buffer,
             )
         };
@@ -1203,7 +1252,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_edges,
                 __buffer,
             )
         };
@@ -1220,7 +1270,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_RESERVE_NEW_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_reserve_new_edges,
                 __buffer,
             )
         };
@@ -1233,7 +1284,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_VERTEX_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_vertex_valid,
                 __buffer,
             )
         };
@@ -1250,7 +1302,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_VERTEX_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_vertex_valid,
                 __buffer,
             )
         };
@@ -1264,7 +1317,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_VERTEX_ORPHANED,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_vertex_orphaned,
                 __buffer,
             )
         };
@@ -1281,7 +1335,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_VERTEX_ORPHANED,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_vertex_orphaned,
                 __buffer,
             )
         };
@@ -1298,7 +1353,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_VERTEX_INSTANCE_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_vertex_instance_valid,
                 __buffer,
             )
         };
@@ -1315,7 +1371,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_VERTEX_INSTANCE_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_vertex_instance_valid,
                 __buffer,
             )
         };
@@ -1329,7 +1386,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_triangle_valid,
                 __buffer,
             )
         };
@@ -1346,7 +1404,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_triangle_valid,
                 __buffer,
             )
         };
@@ -1360,7 +1419,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_PART_OF_NGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_triangle_part_of_ngon,
                 __buffer,
             )
         };
@@ -1377,7 +1437,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_TRIANGLE_PART_OF_NGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_triangle_part_of_ngon,
                 __buffer,
             )
         };
@@ -1391,7 +1452,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_POLYGON_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_polygon_valid,
                 __buffer,
             )
         };
@@ -1408,7 +1470,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_POLYGON_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_polygon_valid,
                 __buffer,
             )
         };
@@ -1422,7 +1485,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_POLYGON_GROUP_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_polygon_group_valid,
                 __buffer,
             )
         };
@@ -1439,7 +1503,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_POLYGON_GROUP_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_polygon_group_valid,
                 __buffer,
             )
         };
@@ -1453,7 +1518,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EMPTY,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_empty,
                 __buffer,
             )
         };
@@ -1463,7 +1529,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EMPTY,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_empty,
                 __buffer,
             )
         };
@@ -1477,7 +1544,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EDGE_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_edge_valid,
                 __buffer,
             )
         };
@@ -1494,7 +1562,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EDGE_VALID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_edge_valid,
                 __buffer,
             )
         };
@@ -1512,7 +1581,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL_TO_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_edge_internal_to_polygon,
                 __buffer,
             )
         };
@@ -1536,7 +1606,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL_TO_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_edge_internal_to_polygon,
                 __buffer,
             )
         };
@@ -1550,7 +1621,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_edge_internal,
                 __buffer,
             )
         };
@@ -1567,7 +1639,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_IS_EDGE_INTERNAL,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_is_edge_internal,
                 __buffer,
             )
         };
@@ -1585,7 +1658,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_vertex_instances,
                 __buffer,
             )
         };
@@ -1609,7 +1683,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_vertex_instances,
                 __buffer,
             )
         };
@@ -1631,7 +1706,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_POSITION,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_position,
                 __buffer,
             )
         };
@@ -1648,7 +1724,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_POSITION,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_position,
                 __buffer,
             )
         };
@@ -1668,7 +1745,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_PAIR_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_pair_edge,
                 __buffer,
             )
         };
@@ -1692,7 +1770,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_PAIR_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_pair_edge,
                 __buffer,
             )
         };
@@ -1709,7 +1788,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_vertex,
                 __buffer,
             )
         };
@@ -1726,7 +1806,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_vertex,
                 __buffer,
             )
         };
@@ -1744,7 +1825,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_PAIR_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_pair_edge,
                 __buffer,
             )
         };
@@ -1768,7 +1850,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_PAIR_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_pair_edge,
                 __buffer,
             )
         };
@@ -1786,7 +1869,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_TRIANGLE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_for_triangle_vertex,
                 __buffer,
             )
         };
@@ -1810,7 +1894,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_TRIANGLE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_for_triangle_vertex,
                 __buffer,
             )
         };
@@ -1828,7 +1913,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_POLYGON_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_for_polygon_vertex,
                 __buffer,
             )
         };
@@ -1852,7 +1938,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_FOR_POLYGON_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_for_polygon_vertex,
                 __buffer,
             )
         };
@@ -1866,7 +1953,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_count,
                 __buffer,
             )
         };
@@ -1876,7 +1964,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_count,
                 __buffer,
             )
         };
@@ -1894,7 +1983,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_connected_triangles,
                 __buffer,
             )
         };
@@ -1918,7 +2008,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_connected_triangles,
                 __buffer,
             )
         };
@@ -1941,7 +2032,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_connected_polygons,
                 __buffer,
             )
         };
@@ -1965,7 +2057,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_INSTANCE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_instance_connected_polygons,
                 __buffer,
             )
         };
@@ -1984,7 +2077,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_count,
                 __buffer,
             )
         };
@@ -1994,7 +2088,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_count,
                 __buffer,
             )
         };
@@ -2012,7 +2107,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_triangles,
                 __buffer,
             )
         };
@@ -2036,7 +2132,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_triangles,
                 __buffer,
             )
         };
@@ -2059,7 +2156,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_polygons,
                 __buffer,
             )
         };
@@ -2083,7 +2181,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_polygons,
                 __buffer,
             )
         };
@@ -2106,7 +2205,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_edges,
                 __buffer,
             )
         };
@@ -2130,7 +2230,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_CONNECTED_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_connected_edges,
                 __buffer,
             )
         };
@@ -2150,7 +2251,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_ADJACENT_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_adjacent_vertices,
                 __buffer,
             )
         };
@@ -2174,7 +2276,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_VERTEX_ADJACENT_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_vertex_adjacent_vertices,
                 __buffer,
             )
         };
@@ -2194,7 +2297,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertices,
                 __buffer,
             )
         };
@@ -2218,7 +2322,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertices,
                 __buffer,
             )
         };
@@ -2238,7 +2343,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertex_instances,
                 __buffer,
             )
         };
@@ -2262,7 +2368,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertex_instances,
                 __buffer,
             )
         };
@@ -2285,7 +2392,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertex_instance,
                 __buffer,
             )
         };
@@ -2305,7 +2413,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_VERTEX_INSTANCE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_vertex_instance,
                 __buffer,
             )
         };
@@ -2322,7 +2431,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_polygon_group,
                 __buffer,
             )
         };
@@ -2339,7 +2449,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_polygon_group,
                 __buffer,
             )
         };
@@ -2353,7 +2464,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_polygon,
                 __buffer,
             )
         };
@@ -2370,7 +2482,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_polygon,
                 __buffer,
             )
         };
@@ -2388,7 +2501,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_edges,
                 __buffer,
             )
         };
@@ -2412,7 +2526,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_edges,
                 __buffer,
             )
         };
@@ -2428,7 +2543,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_count,
                 __buffer,
             )
         };
@@ -2438,7 +2554,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_count,
                 __buffer,
             )
         };
@@ -2456,7 +2573,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_ADJACENT_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_adjacent_triangles,
                 __buffer,
             )
         };
@@ -2480,7 +2598,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_TRIANGLE_ADJACENT_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_triangle_adjacent_triangles,
                 __buffer,
             )
         };
@@ -2500,7 +2619,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_vertices,
                 __buffer,
             )
         };
@@ -2524,7 +2644,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_vertices,
                 __buffer,
             )
         };
@@ -2544,7 +2665,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_vertex_instances,
                 __buffer,
             )
         };
@@ -2568,7 +2690,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_vertex_instances,
                 __buffer,
             )
         };
@@ -2591,7 +2714,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_triangles,
                 __buffer,
             )
         };
@@ -2615,7 +2739,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_triangles,
                 __buffer,
             )
         };
@@ -2631,7 +2756,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_polygon_group,
                 __buffer,
             )
         };
@@ -2648,7 +2774,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_polygon_group,
                 __buffer,
             )
         };
@@ -2666,7 +2793,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_PERIMETER_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_perimeter_edges,
                 __buffer,
             )
         };
@@ -2690,7 +2818,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_PERIMETER_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_perimeter_edges,
                 __buffer,
             )
         };
@@ -2710,7 +2839,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_INTERNAL_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_internal_edges,
                 __buffer,
             )
         };
@@ -2734,7 +2864,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_INTERNAL_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_internal_edges,
                 __buffer,
             )
         };
@@ -2754,7 +2885,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_group_polygons,
                 __buffer,
             )
         };
@@ -2778,7 +2910,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_group_polygons,
                 __buffer,
             )
         };
@@ -2794,7 +2927,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_group_count,
                 __buffer,
             )
         };
@@ -2804,7 +2938,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_GROUP_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_group_count,
                 __buffer,
             )
         };
@@ -2818,7 +2953,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_count,
                 __buffer,
             )
         };
@@ -2828,7 +2964,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_count,
                 __buffer,
             )
         };
@@ -2846,7 +2983,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_ADJACENT_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_adjacent_polygons,
                 __buffer,
             )
         };
@@ -2870,7 +3008,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_POLYGON_ADJACENT_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_polygon_adjacent_polygons,
                 __buffer,
             )
         };
@@ -2886,7 +3025,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_vertex_instances,
                 __buffer,
             )
         };
@@ -2903,7 +3043,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_VERTEX_INSTANCES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_vertex_instances,
                 __buffer,
             )
         };
@@ -2920,7 +3061,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_instance_connected_triangles,
                 __buffer,
             )
         };
@@ -2937,7 +3079,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_instance_connected_triangles,
                 __buffer,
             )
         };
@@ -2954,7 +3097,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_instance_connected_polygons,
                 __buffer,
             )
         };
@@ -2971,7 +3115,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_INSTANCE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_instance_connected_polygons,
                 __buffer,
             )
         };
@@ -2985,7 +3130,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_triangles,
                 __buffer,
             )
         };
@@ -3002,7 +3148,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_triangles,
                 __buffer,
             )
         };
@@ -3016,7 +3163,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_polygons,
                 __buffer,
             )
         };
@@ -3033,7 +3181,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_polygons,
                 __buffer,
             )
         };
@@ -3047,7 +3196,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_edges,
                 __buffer,
             )
         };
@@ -3064,7 +3214,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_VERTEX_CONNECTED_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_vertex_connected_edges,
                 __buffer,
             )
         };
@@ -3078,7 +3229,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_vertices,
                 __buffer,
             )
         };
@@ -3095,7 +3247,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_vertices,
                 __buffer,
             )
         };
@@ -3109,7 +3262,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_triangles,
                 __buffer,
             )
         };
@@ -3126,7 +3280,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_triangles,
                 __buffer,
             )
         };
@@ -3140,7 +3295,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_INTERNAL_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_internal_edges,
                 __buffer,
             )
         };
@@ -3157,7 +3313,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_INTERNAL_EDGES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_internal_edges,
                 __buffer,
             )
         };
@@ -3174,7 +3331,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_GROUP_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_group_polygons,
                 __buffer,
             )
         };
@@ -3191,7 +3349,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_POLYGON_GROUP_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_polygon_group_polygons,
                 __buffer,
             )
         };
@@ -3205,7 +3364,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_edge_connected_triangles,
                 __buffer,
             )
         };
@@ -3222,7 +3382,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_edge_connected_triangles,
                 __buffer,
             )
         };
@@ -3236,7 +3397,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_edge_connected_polygons,
                 __buffer,
             )
         };
@@ -3253,7 +3415,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_NUM_EDGE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_num_edge_connected_polygons,
                 __buffer,
             )
         };
@@ -3271,7 +3434,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_vertices,
                 __buffer,
             )
         };
@@ -3295,7 +3459,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTICES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_vertices,
                 __buffer,
             )
         };
@@ -3311,7 +3476,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_vertex,
                 __buffer,
             )
         };
@@ -3335,7 +3501,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_vertex,
                 __buffer,
             )
         };
@@ -3349,7 +3516,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_count,
                 __buffer,
             )
         };
@@ -3359,7 +3527,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_COUNT,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_count,
                 __buffer,
             )
         };
@@ -3377,7 +3546,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_connected_triangles,
                 __buffer,
             )
         };
@@ -3401,7 +3571,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_TRIANGLES,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_connected_triangles,
                 __buffer,
             )
         };
@@ -3424,7 +3595,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_connected_polygons,
                 __buffer,
             )
         };
@@ -3448,7 +3620,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_GET_EDGE_CONNECTED_POLYGONS,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_get_edge_connected_polygons,
                 __buffer,
             )
         };
@@ -3467,7 +3640,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_EMPTY,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_empty,
                 __buffer,
             )
         };
@@ -3477,7 +3651,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_EMPTY,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_empty,
                 __buffer,
             )
         };
@@ -3494,7 +3669,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_VERTEX_INSTANCE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_vertex_instance,
                 __buffer,
             )
         };
@@ -3518,7 +3694,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_VERTEX_INSTANCE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_vertex_instance,
                 __buffer,
             )
         };
@@ -3534,7 +3711,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_vertex,
                 __buffer,
             )
         };
@@ -3551,7 +3729,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_vertex,
                 __buffer,
             )
         };
@@ -3570,7 +3749,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_TRIANGLE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_triangle,
                 __buffer,
             )
         };
@@ -3608,7 +3788,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_TRIANGLE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_triangle,
                 __buffer,
             )
         };
@@ -3636,7 +3817,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_polygon_group,
                 __buffer,
             )
         };
@@ -3653,7 +3835,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_polygon_group,
                 __buffer,
             )
         };
@@ -3672,7 +3855,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_polygon,
                 __buffer,
             )
         };
@@ -3710,7 +3894,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_polygon,
                 __buffer,
             )
         };
@@ -3742,7 +3927,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_edge,
                 __buffer,
             )
         };
@@ -3766,7 +3952,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_DELETE_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_delete_edge,
                 __buffer,
             )
         };
@@ -3782,7 +3969,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex_with_id,
                 __buffer,
             )
         };
@@ -3799,7 +3987,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex_with_id,
                 __buffer,
             )
         };
@@ -3816,7 +4005,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex_instance_with_id,
                 __buffer,
             )
         };
@@ -3840,7 +4030,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex_instance_with_id,
                 __buffer,
             )
         };
@@ -3853,7 +4044,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex_instance,
                 __buffer,
             )
         };
@@ -3870,7 +4062,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX_INSTANCE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex_instance,
                 __buffer,
             )
         };
@@ -3884,7 +4077,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex,
                 __buffer,
             )
         };
@@ -3894,7 +4088,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_VERTEX,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_vertex,
                 __buffer,
             )
         };
@@ -3914,7 +4109,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_triangle_with_id,
                 __buffer,
             )
         };
@@ -3952,7 +4148,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_triangle_with_id,
                 __buffer,
             )
         };
@@ -3973,7 +4170,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_triangle,
                 __buffer,
             )
         };
@@ -4004,7 +4202,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_TRIANGLE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_triangle,
                 __buffer,
             )
         };
@@ -4027,7 +4226,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon_with_id,
                 __buffer,
             )
         };
@@ -4065,7 +4265,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon_with_id,
                 __buffer,
             )
         };
@@ -4087,7 +4288,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon_group_with_id,
                 __buffer,
             )
         };
@@ -4104,7 +4306,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon_group_with_id,
                 __buffer,
             )
         };
@@ -4117,7 +4320,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon_group,
                 __buffer,
             )
         };
@@ -4127,7 +4331,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON_GROUP,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon_group,
                 __buffer,
             )
         };
@@ -4146,7 +4351,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon,
                 __buffer,
             )
         };
@@ -4177,7 +4383,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_POLYGON,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_polygon,
                 __buffer,
             )
         };
@@ -4205,7 +4412,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_EDGE_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_edge_with_id,
                 __buffer,
             )
         };
@@ -4236,7 +4444,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_EDGE_WITH_ID,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_edge_with_id,
                 __buffer,
             )
         };
@@ -4253,7 +4462,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_edge,
                 __buffer,
             )
         };
@@ -4277,7 +4487,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_CREATE_EDGE,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_create_edge,
                 __buffer,
             )
         };
@@ -4291,7 +4502,8 @@ impl UMeshDescriptionBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_COMPUTE_POLYGON_TRIANGULATION,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_compute_polygon_triangulation,
                 __buffer,
             )
         };
@@ -4308,7 +4520,8 @@ impl UMeshDescriptionBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mesh_description::U_MESH_DESCRIPTION_BASE_COMPUTE_POLYGON_TRIANGULATION,
+                crate::bindings::mesh_description::__FUNCTION_PTRS
+                    .u_mesh_description_base_compute_polygon_triangulation,
                 __buffer,
             )
         };

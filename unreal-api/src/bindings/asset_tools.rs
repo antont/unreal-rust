@@ -1,60 +1,69 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ASSET_TOOLS_RENAME_REFERENCING_SOFT_OBJECT_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_RENAME_ASSETS_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_RENAME_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_OPEN_EDITOR_FOR_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_MIGRATE_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_IS_ASSET_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_IMPORT_ASSET_TASKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_IMPORT_ASSETS_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_IMPORT_ASSETS_AUTOMATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_FIND_SOFT_REFERENCES_TO_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_EXPORT_ASSETS_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_EXPORT_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG_AND_TITLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_DUPLICATE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_DIFF_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_DIFF_AGAINST_DEPOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_CREATE_UNIQUE_ASSET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG_ASYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_CREATE_ASSET_ASYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_CREATE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_BEGIN_ADVANCED_COPY_PACKAGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TOOLS_HELPERS_GET_ASSET_TOOLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_asset_tools_rename_referencing_soft_object_paths: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_rename_assets_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_rename_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_open_editor_for_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_migrate_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_is_asset_read_only: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_import_asset_tasks: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_import_assets_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_import_assets_automated: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_find_soft_references_to_object: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_export_assets_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_export_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_duplicate_asset_with_dialog_and_title: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_duplicate_asset_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_duplicate_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_diff_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_diff_against_depot: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_create_unique_asset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_create_asset_with_dialog_async: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_create_asset_with_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_create_asset_async: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_create_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_begin_advanced_copy_packages: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tools_helpers_get_asset_tools: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_asset_tools_rename_referencing_soft_object_paths: std::ptr::null_mut(),
+            u_asset_tools_rename_assets_with_dialog: std::ptr::null_mut(),
+            u_asset_tools_rename_assets: std::ptr::null_mut(),
+            u_asset_tools_open_editor_for_assets: std::ptr::null_mut(),
+            u_asset_tools_migrate_packages: std::ptr::null_mut(),
+            u_asset_tools_is_asset_read_only: std::ptr::null_mut(),
+            u_asset_tools_import_asset_tasks: std::ptr::null_mut(),
+            u_asset_tools_import_assets_with_dialog: std::ptr::null_mut(),
+            u_asset_tools_import_assets_automated: std::ptr::null_mut(),
+            u_asset_tools_find_soft_references_to_object: std::ptr::null_mut(),
+            u_asset_tools_export_assets_with_dialog: std::ptr::null_mut(),
+            u_asset_tools_export_assets: std::ptr::null_mut(),
+            u_asset_tools_duplicate_asset_with_dialog_and_title: std::ptr::null_mut(),
+            u_asset_tools_duplicate_asset_with_dialog: std::ptr::null_mut(),
+            u_asset_tools_duplicate_asset: std::ptr::null_mut(),
+            u_asset_tools_diff_assets: std::ptr::null_mut(),
+            u_asset_tools_diff_against_depot: std::ptr::null_mut(),
+            u_asset_tools_create_unique_asset_name: std::ptr::null_mut(),
+            u_asset_tools_create_asset_with_dialog_async: std::ptr::null_mut(),
+            u_asset_tools_create_asset_with_dialog: std::ptr::null_mut(),
+            u_asset_tools_create_asset_async: std::ptr::null_mut(),
+            u_asset_tools_create_asset: std::ptr::null_mut(),
+            u_asset_tools_begin_advanced_copy_packages: std::ptr::null_mut(),
+            u_asset_tools_helpers_get_asset_tools: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -64,161 +73,161 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameReferencingSoftObjectPaths"),
-            &raw mut U_ASSET_TOOLS_RENAME_REFERENCING_SOFT_OBJECT_PATHS,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_rename_referencing_soft_object_paths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameAssetsWithDialog"),
-            &raw mut U_ASSET_TOOLS_RENAME_ASSETS_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_rename_assets_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameAssets"),
-            &raw mut U_ASSET_TOOLS_RENAME_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_rename_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenEditorForAssets"),
-            &raw mut U_ASSET_TOOLS_OPEN_EDITOR_FOR_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_open_editor_for_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MigratePackages"),
-            &raw mut U_ASSET_TOOLS_MIGRATE_PACKAGES,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_migrate_packages,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAssetReadOnly"),
-            &raw mut U_ASSET_TOOLS_IS_ASSET_READ_ONLY,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_is_asset_read_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportAssetTasks"),
-            &raw mut U_ASSET_TOOLS_IMPORT_ASSET_TASKS,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_import_asset_tasks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportAssetsWithDialog"),
-            &raw mut U_ASSET_TOOLS_IMPORT_ASSETS_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_import_assets_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportAssetsAutomated"),
-            &raw mut U_ASSET_TOOLS_IMPORT_ASSETS_AUTOMATED,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_import_assets_automated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindSoftReferencesToObject"),
-            &raw mut U_ASSET_TOOLS_FIND_SOFT_REFERENCES_TO_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_find_soft_references_to_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportAssetsWithDialog"),
-            &raw mut U_ASSET_TOOLS_EXPORT_ASSETS_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_export_assets_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportAssets"),
-            &raw mut U_ASSET_TOOLS_EXPORT_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_export_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateAssetWithDialogAndTitle"),
-            &raw mut U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG_AND_TITLE,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset_with_dialog_and_title,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateAssetWithDialog"),
-            &raw mut U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateAsset"),
-            &raw mut U_ASSET_TOOLS_DUPLICATE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_duplicate_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DiffAssets"),
-            &raw mut U_ASSET_TOOLS_DIFF_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_diff_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DiffAgainstDepot"),
-            &raw mut U_ASSET_TOOLS_DIFF_AGAINST_DEPOT,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_diff_against_depot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateUniqueAssetName"),
-            &raw mut U_ASSET_TOOLS_CREATE_UNIQUE_ASSET_NAME,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_create_unique_asset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAssetWithDialogAsync"),
-            &raw mut U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG_ASYNC,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_with_dialog_async,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAssetWithDialog"),
-            &raw mut U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_with_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAssetAsync"),
-            &raw mut U_ASSET_TOOLS_CREATE_ASSET_ASYNC,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset_async,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAsset"),
-            &raw mut U_ASSET_TOOLS_CREATE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_create_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginAdvancedCopyPackages"),
-            &raw mut U_ASSET_TOOLS_BEGIN_ADVANCED_COPY_PACKAGES,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_begin_advanced_copy_packages,
         );
     }
     unsafe {
@@ -229,7 +238,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetTools"),
-            &raw mut U_ASSET_TOOLS_HELPERS_GET_ASSET_TOOLS,
+            &raw mut __FUNCTION_PTRS.u_asset_tools_helpers_get_asset_tools,
         );
     }
 }
@@ -306,7 +315,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_RENAME_REFERENCING_SOFT_OBJECT_PATHS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_rename_referencing_soft_object_paths,
                 __buffer,
             )
         };
@@ -339,7 +349,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_RENAME_REFERENCING_SOFT_OBJECT_PATHS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_rename_referencing_soft_object_paths,
                 __buffer,
             )
         };
@@ -356,7 +367,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_RENAME_ASSETS_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_rename_assets_with_dialog,
                 __buffer,
             )
         };
@@ -380,7 +392,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_RENAME_ASSETS_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_rename_assets_with_dialog,
                 __buffer,
             )
         };
@@ -397,7 +410,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_RENAME_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_rename_assets,
                 __buffer,
             )
         };
@@ -414,7 +428,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_RENAME_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_rename_assets,
                 __buffer,
             )
         };
@@ -431,7 +446,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_OPEN_EDITOR_FOR_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_open_editor_for_assets,
                 __buffer,
             )
         };
@@ -450,7 +466,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_OPEN_EDITOR_FOR_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_open_editor_for_assets,
                 __buffer,
             )
         };
@@ -468,7 +485,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_MIGRATE_PACKAGES,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_migrate_packages,
                 __buffer,
             )
         };
@@ -499,7 +517,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_MIGRATE_PACKAGES,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_migrate_packages,
                 __buffer,
             )
         };
@@ -515,7 +534,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IS_ASSET_READ_ONLY,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_is_asset_read_only,
                 __buffer,
             )
         };
@@ -532,7 +552,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IS_ASSET_READ_ONLY,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_is_asset_read_only,
                 __buffer,
             )
         };
@@ -549,7 +570,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IMPORT_ASSET_TASKS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_import_asset_tasks,
                 __buffer,
             )
         };
@@ -570,7 +592,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IMPORT_ASSET_TASKS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_import_asset_tasks,
                 __buffer,
             )
         };
@@ -586,7 +609,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IMPORT_ASSETS_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_import_assets_with_dialog,
                 __buffer,
             )
         };
@@ -603,7 +627,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IMPORT_ASSETS_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_import_assets_with_dialog,
                 __buffer,
             )
         };
@@ -625,7 +650,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IMPORT_ASSETS_AUTOMATED,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_import_assets_automated,
                 __buffer,
             )
         };
@@ -646,7 +672,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_IMPORT_ASSETS_AUTOMATED,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_import_assets_automated,
                 __buffer,
             )
         };
@@ -669,7 +696,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_FIND_SOFT_REFERENCES_TO_OBJECT,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_find_soft_references_to_object,
                 __buffer,
             )
         };
@@ -697,7 +725,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_FIND_SOFT_REFERENCES_TO_OBJECT,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_find_soft_references_to_object,
                 __buffer,
             )
         };
@@ -720,7 +749,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_EXPORT_ASSETS_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_export_assets_with_dialog,
                 __buffer,
             )
         };
@@ -744,7 +774,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_EXPORT_ASSETS_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_export_assets_with_dialog,
                 __buffer,
             )
         };
@@ -761,7 +792,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_EXPORT_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_export_assets,
                 __buffer,
             )
         };
@@ -785,7 +817,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_EXPORT_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_export_assets,
                 __buffer,
             )
         };
@@ -804,7 +837,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG_AND_TITLE,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_duplicate_asset_with_dialog_and_title,
                 __buffer,
             )
         };
@@ -842,7 +876,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG_AND_TITLE,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_duplicate_asset_with_dialog_and_title,
                 __buffer,
             )
         };
@@ -866,7 +901,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_duplicate_asset_with_dialog,
                 __buffer,
             )
         };
@@ -897,7 +933,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DUPLICATE_ASSET_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_duplicate_asset_with_dialog,
                 __buffer,
             )
         };
@@ -921,7 +958,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DUPLICATE_ASSET,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_duplicate_asset,
                 __buffer,
             )
         };
@@ -952,7 +990,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DUPLICATE_ASSET,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_duplicate_asset,
                 __buffer,
             )
         };
@@ -977,7 +1016,7 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DIFF_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS.u_asset_tools_diff_assets,
                 __buffer,
             )
         };
@@ -1019,7 +1058,7 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DIFF_ASSETS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS.u_asset_tools_diff_assets,
                 __buffer,
             )
         };
@@ -1037,7 +1076,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DIFF_AGAINST_DEPOT,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_diff_against_depot,
                 __buffer,
             )
         };
@@ -1068,7 +1108,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_DIFF_AGAINST_DEPOT,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_diff_against_depot,
                 __buffer,
             )
         };
@@ -1087,7 +1128,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_UNIQUE_ASSET_NAME,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_unique_asset_name,
                 __buffer,
             )
         };
@@ -1125,7 +1167,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_UNIQUE_ASSET_NAME,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_unique_asset_name,
                 __buffer,
             )
         };
@@ -1153,7 +1196,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG_ASYNC,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_asset_with_dialog_async,
                 __buffer,
             )
         };
@@ -1214,7 +1258,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG_ASYNC,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_asset_with_dialog_async,
                 __buffer,
             )
         };
@@ -1236,7 +1281,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_asset_with_dialog,
                 __buffer,
             )
         };
@@ -1290,7 +1336,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET_WITH_DIALOG,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_asset_with_dialog,
                 __buffer,
             )
         };
@@ -1318,7 +1365,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET_ASYNC,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_asset_async,
                 __buffer,
             )
         };
@@ -1379,7 +1427,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET_ASYNC,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_create_asset_async,
                 __buffer,
             )
         };
@@ -1400,7 +1449,7 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET,
+                crate::bindings::asset_tools::__FUNCTION_PTRS.u_asset_tools_create_asset,
                 __buffer,
             )
         };
@@ -1447,7 +1496,7 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_CREATE_ASSET,
+                crate::bindings::asset_tools::__FUNCTION_PTRS.u_asset_tools_create_asset,
                 __buffer,
             )
         };
@@ -1471,7 +1520,8 @@ impl UAssetTools {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_BEGIN_ADVANCED_COPY_PACKAGES,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_begin_advanced_copy_packages,
                 __buffer,
             )
         };
@@ -1502,7 +1552,8 @@ impl UAssetTools {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_BEGIN_ADVANCED_COPY_PACKAGES,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_begin_advanced_copy_packages,
                 __buffer,
             )
         };
@@ -1536,7 +1587,8 @@ impl UAssetToolsHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tools::U_ASSET_TOOLS_HELPERS_GET_ASSET_TOOLS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_helpers_get_asset_tools,
                 __buffer,
             )
         };
@@ -1546,7 +1598,8 @@ impl UAssetToolsHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tools::U_ASSET_TOOLS_HELPERS_GET_ASSET_TOOLS,
+                crate::bindings::asset_tools::__FUNCTION_PTRS
+                    .u_asset_tools_helpers_get_asset_tools,
                 __buffer,
             )
         };

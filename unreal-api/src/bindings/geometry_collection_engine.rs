@@ -1,186 +1,195 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_RECEIVE_PHYSICS_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_STATE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DYNAMIC_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_STATE_CHANGE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_LOADING_STATE_CHANGE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_ISM_POOL_SUB_SYSTEM_ON_ACTOR_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_chaos_destruction_listener_sort_trailing_events: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_sort_removal_events: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_sort_collision_events: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_sort_breaking_events: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_trailing_event_request_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_trailing_event_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_removal_event_request_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_removal_event_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_collision_event_request_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_collision_event_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_breaking_event_request_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_set_breaking_event_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_remove_geometry_collection_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_remove_chaos_solver_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_is_event_listening: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_add_geometry_collection_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_destruction_listener_add_chaos_solver_actor: *mut crate::ffi::UFunctionOpague,
+    pub a_geometry_collection_actor_raycast_single: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_blueprint_library_set_ism_pool_custom_instance_data: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_blueprint_library_set_custom_instance_data_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_blueprint_library_set_custom_instance_data_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_use_static_mesh_collision_for_traces: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_use_material_damage_modifiers: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_solver_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_root_proxy_component_space_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_rest_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_per_particle_collision_profile_name: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_per_level_collision_profile_names: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_one_way_interaction_level: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_notify_removals: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_notify_global_removals: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_notify_global_crumblings: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_notify_global_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_notify_global_breaks: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_notify_crumblings: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_notify_breaks: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_local_rest_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_gravity_group_index: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_enable_damage_from_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_density_from_physics_material: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_damage_threshold: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_damage_propagation_data: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_damage_model: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_anchored_by_transformed_box: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_anchored_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_anchored_by_box: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_set_abandoned_particle_collision_profile_name: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_reset_state: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_remove_all_anchors: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_receive_physics_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_on_rep_rep_state_data: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_on_rep_rep_dynamic_data: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_on_rep_rep_data: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_notify_geometry_collection_physics_state_change_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_notify_geometry_collection_physics_loading_state_change_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_is_root_broken: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_use_static_mesh_collision_for_traces: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_solver_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_root_initial_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_root_index: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_root_current_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_mass_and_extents: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_local_rest_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_local_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_initial_local_rest_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_initial_level: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_debug_info: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_get_damage_threshold: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_force_broken_for_custom_renderer: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_find_leaf_transform_by_line_trace: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_enable_root_proxy_for_custom_renderer: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_crumble_cluster: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_crumble_active_clusters: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_physics_field: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_linear_velocity: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_kinematic_field: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_internal_strain: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_external_strain: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_breaking_linear_velocity: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_breaking_angular_velocity: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_asset_defaults: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_component_apply_angular_velocity: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_ism_pool_sub_system_on_actor_end_play: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_set_enable_nanite: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_set_dataflow_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_set_convert_vertex_colors_to_srgb: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_collection_get_dataflow_asset: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_chaos_destruction_listener_sort_trailing_events: std::ptr::null_mut(),
+            u_chaos_destruction_listener_sort_removal_events: std::ptr::null_mut(),
+            u_chaos_destruction_listener_sort_collision_events: std::ptr::null_mut(),
+            u_chaos_destruction_listener_sort_breaking_events: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_trailing_event_request_settings: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_trailing_event_enabled: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_removal_event_request_settings: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_removal_event_enabled: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_collision_event_request_settings: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_collision_event_enabled: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_breaking_event_request_settings: std::ptr::null_mut(),
+            u_chaos_destruction_listener_set_breaking_event_enabled: std::ptr::null_mut(),
+            u_chaos_destruction_listener_remove_geometry_collection_actor: std::ptr::null_mut(),
+            u_chaos_destruction_listener_remove_chaos_solver_actor: std::ptr::null_mut(),
+            u_chaos_destruction_listener_is_event_listening: std::ptr::null_mut(),
+            u_chaos_destruction_listener_add_geometry_collection_actor: std::ptr::null_mut(),
+            u_chaos_destruction_listener_add_chaos_solver_actor: std::ptr::null_mut(),
+            a_geometry_collection_actor_raycast_single: std::ptr::null_mut(),
+            u_geometry_collection_blueprint_library_set_ism_pool_custom_instance_data: std::ptr::null_mut(),
+            u_geometry_collection_blueprint_library_set_custom_instance_data_by_name: std::ptr::null_mut(),
+            u_geometry_collection_blueprint_library_set_custom_instance_data_by_index: std::ptr::null_mut(),
+            u_geometry_collection_component_set_use_static_mesh_collision_for_traces: std::ptr::null_mut(),
+            u_geometry_collection_component_set_use_material_damage_modifiers: std::ptr::null_mut(),
+            u_geometry_collection_component_set_solver_actor: std::ptr::null_mut(),
+            u_geometry_collection_component_set_root_proxy_component_space_transform: std::ptr::null_mut(),
+            u_geometry_collection_component_set_rest_collection: std::ptr::null_mut(),
+            u_geometry_collection_component_set_per_particle_collision_profile_name: std::ptr::null_mut(),
+            u_geometry_collection_component_set_per_level_collision_profile_names: std::ptr::null_mut(),
+            u_geometry_collection_component_set_one_way_interaction_level: std::ptr::null_mut(),
+            u_geometry_collection_component_set_notify_removals: std::ptr::null_mut(),
+            u_geometry_collection_component_set_notify_global_removals: std::ptr::null_mut(),
+            u_geometry_collection_component_set_notify_global_crumblings: std::ptr::null_mut(),
+            u_geometry_collection_component_set_notify_global_collision: std::ptr::null_mut(),
+            u_geometry_collection_component_set_notify_global_breaks: std::ptr::null_mut(),
+            u_geometry_collection_component_set_notify_crumblings: std::ptr::null_mut(),
+            u_geometry_collection_component_set_notify_breaks: std::ptr::null_mut(),
+            u_geometry_collection_component_set_local_rest_transforms: std::ptr::null_mut(),
+            u_geometry_collection_component_set_gravity_group_index: std::ptr::null_mut(),
+            u_geometry_collection_component_set_enable_damage_from_collision: std::ptr::null_mut(),
+            u_geometry_collection_component_set_density_from_physics_material: std::ptr::null_mut(),
+            u_geometry_collection_component_set_damage_threshold: std::ptr::null_mut(),
+            u_geometry_collection_component_set_damage_propagation_data: std::ptr::null_mut(),
+            u_geometry_collection_component_set_damage_model: std::ptr::null_mut(),
+            u_geometry_collection_component_set_anchored_by_transformed_box: std::ptr::null_mut(),
+            u_geometry_collection_component_set_anchored_by_index: std::ptr::null_mut(),
+            u_geometry_collection_component_set_anchored_by_box: std::ptr::null_mut(),
+            u_geometry_collection_component_set_abandoned_particle_collision_profile_name: std::ptr::null_mut(),
+            u_geometry_collection_component_reset_state: std::ptr::null_mut(),
+            u_geometry_collection_component_remove_all_anchors: std::ptr::null_mut(),
+            u_geometry_collection_component_receive_physics_collision: std::ptr::null_mut(),
+            u_geometry_collection_component_on_rep_rep_state_data: std::ptr::null_mut(),
+            u_geometry_collection_component_on_rep_rep_dynamic_data: std::ptr::null_mut(),
+            u_geometry_collection_component_on_rep_rep_data: std::ptr::null_mut(),
+            u_geometry_collection_component_notify_geometry_collection_physics_state_change_delegate_signature: std::ptr::null_mut(),
+            u_geometry_collection_component_notify_geometry_collection_physics_loading_state_change_delegate_signature: std::ptr::null_mut(),
+            u_geometry_collection_component_is_root_broken: std::ptr::null_mut(),
+            u_geometry_collection_component_get_use_static_mesh_collision_for_traces: std::ptr::null_mut(),
+            u_geometry_collection_component_get_solver_actor: std::ptr::null_mut(),
+            u_geometry_collection_component_get_root_initial_transform: std::ptr::null_mut(),
+            u_geometry_collection_component_get_root_index: std::ptr::null_mut(),
+            u_geometry_collection_component_get_root_current_transform: std::ptr::null_mut(),
+            u_geometry_collection_component_get_mass_and_extents: std::ptr::null_mut(),
+            u_geometry_collection_component_get_local_rest_transforms: std::ptr::null_mut(),
+            u_geometry_collection_component_get_local_bounds: std::ptr::null_mut(),
+            u_geometry_collection_component_get_initial_local_rest_transforms: std::ptr::null_mut(),
+            u_geometry_collection_component_get_initial_level: std::ptr::null_mut(),
+            u_geometry_collection_component_get_debug_info: std::ptr::null_mut(),
+            u_geometry_collection_component_get_damage_threshold: std::ptr::null_mut(),
+            u_geometry_collection_component_force_broken_for_custom_renderer: std::ptr::null_mut(),
+            u_geometry_collection_component_find_leaf_transform_by_line_trace: std::ptr::null_mut(),
+            u_geometry_collection_component_enable_root_proxy_for_custom_renderer: std::ptr::null_mut(),
+            u_geometry_collection_component_crumble_cluster: std::ptr::null_mut(),
+            u_geometry_collection_component_crumble_active_clusters: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_physics_field: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_linear_velocity: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_kinematic_field: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_internal_strain: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_external_strain: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_breaking_linear_velocity: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_breaking_angular_velocity: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_asset_defaults: std::ptr::null_mut(),
+            u_geometry_collection_component_apply_angular_velocity: std::ptr::null_mut(),
+            u_geometry_collection_ism_pool_sub_system_on_actor_end_play: std::ptr::null_mut(),
+            u_geometry_collection_set_enable_nanite: std::ptr::null_mut(),
+            u_geometry_collection_set_dataflow_asset: std::ptr::null_mut(),
+            u_geometry_collection_set_convert_vertex_colors_to_srgb: std::ptr::null_mut(),
+            u_geometry_collection_get_dataflow_asset: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -190,119 +199,130 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortTrailingEvents"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS,
+            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_trailing_events,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortRemovalEvents"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS,
+            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_removal_events,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortCollisionEvents"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS,
+            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_collision_events,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortBreakingEvents"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS,
+            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_sort_breaking_events,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrailingEventRequestSettings"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_trailing_event_request_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrailingEventEnabled"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_trailing_event_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRemovalEventRequestSettings"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_removal_event_request_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRemovalEventEnabled"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_removal_event_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCollisionEventRequestSettings"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_collision_event_request_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCollisionEventEnabled"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_collision_event_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBreakingEventRequestSettings"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_breaking_event_request_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBreakingEventEnabled"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_set_breaking_event_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveGeometryCollectionActor"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_remove_geometry_collection_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveChaosSolverActor"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_remove_chaos_solver_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEventListening"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING,
+            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_is_event_listening,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGeometryCollectionActor"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_destruction_listener_add_geometry_collection_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddChaosSolverActor"),
-            &raw mut U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_chaos_destruction_listener_add_chaos_solver_actor,
         );
     }
     unsafe {
@@ -313,7 +333,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RaycastSingle"),
-            &raw mut A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE,
+            &raw mut __FUNCTION_PTRS.a_geometry_collection_actor_raycast_single,
         );
     }
     unsafe {
@@ -324,21 +344,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetISMPoolCustomInstanceData"),
-            &raw mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_blueprint_library_set_ism_pool_custom_instance_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomInstanceDataByName"),
-            &raw mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_blueprint_library_set_custom_instance_data_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomInstanceDataByIndex"),
-            &raw mut U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_blueprint_library_set_custom_instance_data_by_index,
         );
     }
     unsafe {
@@ -349,224 +372,246 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUseStaticMeshCollisionForTraces"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_use_static_mesh_collision_for_traces,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUseMaterialDamageModifiers"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_use_material_damage_modifiers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSolverActor"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_solver_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRootProxyComponentSpaceTransform"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_root_proxy_component_space_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRestCollection"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_rest_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPerParticleCollisionProfileName"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_per_particle_collision_profile_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPerLevelCollisionProfileNames"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_per_level_collision_profile_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOneWayInteractionLevel"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_one_way_interaction_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotifyRemovals"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_notify_removals,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotifyGlobalRemovals"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_notify_global_removals,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotifyGlobalCrumblings"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_notify_global_crumblings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotifyGlobalCollision"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_notify_global_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotifyGlobalBreaks"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_notify_global_breaks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotifyCrumblings"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_notify_crumblings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotifyBreaks"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_notify_breaks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalRestTransforms"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_local_rest_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGravityGroupIndex"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_gravity_group_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableDamageFromCollision"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_enable_damage_from_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDensityFromPhysicsMaterial"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_density_from_physics_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDamageThreshold"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_damage_threshold,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDamagePropagationData"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_damage_propagation_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDamageModel"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_damage_model,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnchoredByTransformedBox"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_anchored_by_transformed_box,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnchoredByIndex"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_anchored_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnchoredByBox"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_set_anchored_by_box,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAbandonedParticleCollisionProfileName"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_set_abandoned_particle_collision_profile_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetState"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_reset_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllAnchors"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_remove_all_anchors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceivePhysicsCollision"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_RECEIVE_PHYSICS_COLLISION,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_receive_physics_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRep_RepStateData"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_STATE_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_on_rep_rep_state_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRep_RepDynamicData"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DYNAMIC_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_on_rep_rep_dynamic_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRep_RepData"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ON_REP_REP_DATA,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_on_rep_rep_data,
         );
         (bindings
             .core_fns
@@ -575,7 +620,8 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "NotifyGeometryCollectionPhysicsStateChange__DelegateSignature",
             ),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_STATE_CHANGE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_notify_geometry_collection_physics_state_change_delegate_signature,
         );
         (bindings
             .core_fns
@@ -584,196 +630,213 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "NotifyGeometryCollectionPhysicsLoadingStateChange__DelegateSignature",
             ),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_NOTIFY_GEOMETRY_COLLECTION_PHYSICS_LOADING_STATE_CHANGE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_notify_geometry_collection_physics_loading_state_change_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRootBroken"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_is_root_broken,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUseStaticMeshCollisionForTraces"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_get_use_static_mesh_collision_for_traces,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSolverActor"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_solver_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootInitialTransform"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_get_root_initial_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootIndex"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_root_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootCurrentTransform"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_get_root_current_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMassAndExtents"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_mass_and_extents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalRestTransforms"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_get_local_rest_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalBounds"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_local_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInitialLocalRestTransforms"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_get_initial_local_rest_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInitialLevel"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_initial_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDebugInfo"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_debug_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDamageThreshold"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_get_damage_threshold,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForceBrokenForCustomRenderer"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_force_broken_for_custom_renderer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindLeafTransformByLineTrace"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_find_leaf_transform_by_line_trace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableRootProxyForCustomRenderer"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_enable_root_proxy_for_custom_renderer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CrumbleCluster"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_crumble_cluster,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CrumbleActiveClusters"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_crumble_active_clusters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyPhysicsField"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_apply_physics_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyLinearVelocity"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_apply_linear_velocity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyKinematicField"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_apply_kinematic_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyInternalStrain"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_apply_internal_strain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyExternalStrain"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_apply_external_strain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyBreakingLinearVelocity"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_apply_breaking_linear_velocity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyBreakingAngularVelocity"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_apply_breaking_angular_velocity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyAssetDefaults"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_component_apply_asset_defaults,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyAngularVelocity"),
-            &raw mut U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_component_apply_angular_velocity,
         );
     }
     unsafe {
@@ -784,7 +847,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorEndPlay"),
-            &raw mut U_GEOMETRY_COLLECTION_ISM_POOL_SUB_SYSTEM_ON_ACTOR_END_PLAY,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_ism_pool_sub_system_on_actor_end_play,
         );
     }
     unsafe {
@@ -795,28 +859,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableNanite"),
-            &raw mut U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_set_enable_nanite,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDataflowAsset"),
-            &raw mut U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_set_dataflow_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConvertVertexColorsToSRGB"),
-            &raw mut U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_collection_set_convert_vertex_colors_to_srgb,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDataflowAsset"),
-            &raw mut U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET,
+            &raw mut __FUNCTION_PTRS.u_geometry_collection_get_dataflow_asset,
         );
     }
 }
@@ -1023,7 +1088,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_trailing_events,
                 __buffer,
             )
         };
@@ -1047,7 +1113,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_TRAILING_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_trailing_events,
                 __buffer,
             )
         };
@@ -1070,7 +1137,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_removal_events,
                 __buffer,
             )
         };
@@ -1094,7 +1162,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_REMOVAL_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_removal_events,
                 __buffer,
             )
         };
@@ -1117,7 +1186,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_collision_events,
                 __buffer,
             )
         };
@@ -1141,7 +1211,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_COLLISION_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_collision_events,
                 __buffer,
             )
         };
@@ -1164,7 +1235,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_breaking_events,
                 __buffer,
             )
         };
@@ -1188,7 +1260,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SORT_BREAKING_EVENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_sort_breaking_events,
                 __buffer,
             )
         };
@@ -1210,7 +1283,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_trailing_event_request_settings,
                 __buffer,
             )
         };
@@ -1227,7 +1301,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_trailing_event_request_settings,
                 __buffer,
             )
         };
@@ -1240,7 +1315,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_trailing_event_enabled,
                 __buffer,
             )
         };
@@ -1257,7 +1333,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_TRAILING_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_trailing_event_enabled,
                 __buffer,
             )
         };
@@ -1273,7 +1350,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_removal_event_request_settings,
                 __buffer,
             )
         };
@@ -1290,7 +1368,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_removal_event_request_settings,
                 __buffer,
             )
         };
@@ -1303,7 +1382,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_removal_event_enabled,
                 __buffer,
             )
         };
@@ -1320,7 +1400,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_REMOVAL_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_removal_event_enabled,
                 __buffer,
             )
         };
@@ -1336,7 +1417,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_collision_event_request_settings,
                 __buffer,
             )
         };
@@ -1353,7 +1435,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_collision_event_request_settings,
                 __buffer,
             )
         };
@@ -1366,7 +1449,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_collision_event_enabled,
                 __buffer,
             )
         };
@@ -1383,7 +1467,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_COLLISION_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_collision_event_enabled,
                 __buffer,
             )
         };
@@ -1399,7 +1484,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_breaking_event_request_settings,
                 __buffer,
             )
         };
@@ -1416,7 +1502,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_REQUEST_SETTINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_breaking_event_request_settings,
                 __buffer,
             )
         };
@@ -1429,7 +1516,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_breaking_event_enabled,
                 __buffer,
             )
         };
@@ -1446,7 +1534,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_SET_BREAKING_EVENT_ENABLED,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_set_breaking_event_enabled,
                 __buffer,
             )
         };
@@ -1462,7 +1551,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_remove_geometry_collection_actor,
                 __buffer,
             )
         };
@@ -1479,7 +1569,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_GEOMETRY_COLLECTION_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_remove_geometry_collection_actor,
                 __buffer,
             )
         };
@@ -1495,7 +1586,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_remove_chaos_solver_actor,
                 __buffer,
             )
         };
@@ -1516,7 +1608,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_REMOVE_CHAOS_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_remove_chaos_solver_actor,
                 __buffer,
             )
         };
@@ -1529,7 +1622,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_is_event_listening,
                 __buffer,
             )
         };
@@ -1539,7 +1633,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_IS_EVENT_LISTENING,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_is_event_listening,
                 __buffer,
             )
         };
@@ -1556,7 +1651,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_add_geometry_collection_actor,
                 __buffer,
             )
         };
@@ -1573,7 +1669,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_GEOMETRY_COLLECTION_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_add_geometry_collection_actor,
                 __buffer,
             )
         };
@@ -1589,7 +1686,8 @@ impl UChaosDestructionListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_add_chaos_solver_actor,
                 __buffer,
             )
         };
@@ -1610,7 +1708,8 @@ impl UChaosDestructionListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_CHAOS_DESTRUCTION_LISTENER_ADD_CHAOS_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_chaos_destruction_listener_add_chaos_solver_actor,
                 __buffer,
             )
         };
@@ -1652,7 +1751,8 @@ impl AGeometryCollectionActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .a_geometry_collection_actor_raycast_single,
                 __buffer,
             )
         };
@@ -1683,7 +1783,8 @@ impl AGeometryCollectionActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::A_GEOMETRY_COLLECTION_ACTOR_RAYCAST_SINGLE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .a_geometry_collection_actor_raycast_single,
                 __buffer,
             )
         };
@@ -1725,7 +1826,8 @@ impl UGeometryCollectionBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_ism_pool_custom_instance_data,
                 __buffer,
             )
         };
@@ -1756,7 +1858,8 @@ impl UGeometryCollectionBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_ISM_POOL_CUSTOM_INSTANCE_DATA,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_ism_pool_custom_instance_data,
                 __buffer,
             )
         };
@@ -1773,7 +1876,8 @@ impl UGeometryCollectionBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_custom_instance_data_by_name,
                 __buffer,
             )
         };
@@ -1804,7 +1908,8 @@ impl UGeometryCollectionBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_NAME,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_custom_instance_data_by_name,
                 __buffer,
             )
         };
@@ -1821,7 +1926,8 @@ impl UGeometryCollectionBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_custom_instance_data_by_index,
                 __buffer,
             )
         };
@@ -1852,7 +1958,8 @@ impl UGeometryCollectionBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_BLUEPRINT_LIBRARY_SET_CUSTOM_INSTANCE_DATA_BY_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_blueprint_library_set_custom_instance_data_by_index,
                 __buffer,
             )
         };
@@ -1992,7 +2099,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_use_static_mesh_collision_for_traces,
                 __buffer,
             )
         };
@@ -2009,7 +2117,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_use_static_mesh_collision_for_traces,
                 __buffer,
             )
         };
@@ -2025,7 +2134,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_use_material_damage_modifiers,
                 __buffer,
             )
         };
@@ -2042,7 +2152,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_USE_MATERIAL_DAMAGE_MODIFIERS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_use_material_damage_modifiers,
                 __buffer,
             )
         };
@@ -2058,7 +2169,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_solver_actor,
                 __buffer,
             )
         };
@@ -2079,7 +2191,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_solver_actor,
                 __buffer,
             )
         };
@@ -2096,7 +2209,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_root_proxy_component_space_transform,
                 __buffer,
             )
         };
@@ -2116,7 +2230,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ROOT_PROXY_COMPONENT_SPACE_TRANSFORM,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_root_proxy_component_space_transform,
                 __buffer,
             )
         };
@@ -2133,7 +2248,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_rest_collection,
                 __buffer,
             )
         };
@@ -2157,7 +2273,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_REST_COLLECTION,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_rest_collection,
                 __buffer,
             )
         };
@@ -2174,7 +2291,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_per_particle_collision_profile_name,
                 __buffer,
             )
         };
@@ -2198,7 +2316,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_PARTICLE_COLLISION_PROFILE_NAME,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_per_particle_collision_profile_name,
                 __buffer,
             )
         };
@@ -2214,7 +2333,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_per_level_collision_profile_names,
                 __buffer,
             )
         };
@@ -2231,7 +2351,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_PER_LEVEL_COLLISION_PROFILE_NAMES,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_per_level_collision_profile_names,
                 __buffer,
             )
         };
@@ -2244,7 +2365,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_one_way_interaction_level,
                 __buffer,
             )
         };
@@ -2261,7 +2383,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ONE_WAY_INTERACTION_LEVEL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_one_way_interaction_level,
                 __buffer,
             )
         };
@@ -2274,7 +2397,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_removals,
                 __buffer,
             )
         };
@@ -2291,7 +2415,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_REMOVALS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_removals,
                 __buffer,
             )
         };
@@ -2304,7 +2429,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_removals,
                 __buffer,
             )
         };
@@ -2321,7 +2447,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_REMOVALS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_removals,
                 __buffer,
             )
         };
@@ -2338,7 +2465,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_crumblings,
                 __buffer,
             )
         };
@@ -2362,7 +2490,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_CRUMBLINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_crumblings,
                 __buffer,
             )
         };
@@ -2375,7 +2504,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_collision,
                 __buffer,
             )
         };
@@ -2392,7 +2522,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_COLLISION,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_collision,
                 __buffer,
             )
         };
@@ -2405,7 +2536,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_breaks,
                 __buffer,
             )
         };
@@ -2422,7 +2554,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_GLOBAL_BREAKS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_global_breaks,
                 __buffer,
             )
         };
@@ -2439,7 +2572,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_crumblings,
                 __buffer,
             )
         };
@@ -2463,7 +2597,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_CRUMBLINGS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_crumblings,
                 __buffer,
             )
         };
@@ -2476,7 +2611,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_breaks,
                 __buffer,
             )
         };
@@ -2493,7 +2629,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_NOTIFY_BREAKS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_notify_breaks,
                 __buffer,
             )
         };
@@ -2510,7 +2647,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_local_rest_transforms,
                 __buffer,
             )
         };
@@ -2536,7 +2674,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_LOCAL_REST_TRANSFORMS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_local_rest_transforms,
                 __buffer,
             )
         };
@@ -2549,7 +2688,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_gravity_group_index,
                 __buffer,
             )
         };
@@ -2566,7 +2706,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_GRAVITY_GROUP_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_gravity_group_index,
                 __buffer,
             )
         };
@@ -2579,7 +2720,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_enable_damage_from_collision,
                 __buffer,
             )
         };
@@ -2592,7 +2734,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ENABLE_DAMAGE_FROM_COLLISION,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_enable_damage_from_collision,
                 __buffer,
             )
         };
@@ -2608,7 +2751,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_density_from_physics_material,
                 __buffer,
             )
         };
@@ -2625,7 +2769,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DENSITY_FROM_PHYSICS_MATERIAL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_density_from_physics_material,
                 __buffer,
             )
         };
@@ -2638,7 +2783,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_threshold,
                 __buffer,
             )
         };
@@ -2655,7 +2801,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_THRESHOLD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_threshold,
                 __buffer,
             )
         };
@@ -2671,7 +2818,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_propagation_data,
                 __buffer,
             )
         };
@@ -2688,7 +2836,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_PROPAGATION_DATA,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_propagation_data,
                 __buffer,
             )
         };
@@ -2704,7 +2853,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_model,
                 __buffer,
             )
         };
@@ -2721,7 +2871,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_DAMAGE_MODEL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_damage_model,
                 __buffer,
             )
         };
@@ -2740,7 +2891,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_transformed_box,
                 __buffer,
             )
         };
@@ -2778,7 +2930,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_TRANSFORMED_BOX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_transformed_box,
                 __buffer,
             )
         };
@@ -2791,7 +2944,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_index,
                 __buffer,
             )
         };
@@ -2811,7 +2965,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_index,
                 __buffer,
             )
         };
@@ -2829,7 +2984,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_box,
                 __buffer,
             )
         };
@@ -2856,7 +3012,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ANCHORED_BY_BOX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_anchored_by_box,
                 __buffer,
             )
         };
@@ -2872,7 +3029,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_abandoned_particle_collision_profile_name,
                 __buffer,
             )
         };
@@ -2889,7 +3047,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_SET_ABANDONED_PARTICLE_COLLISION_PROFILE_NAME,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_set_abandoned_particle_collision_profile_name,
                 __buffer,
             )
         };
@@ -2902,7 +3061,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_reset_state,
                 __buffer,
             )
         };
@@ -2912,7 +3072,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_RESET_STATE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_reset_state,
                 __buffer,
             )
         };
@@ -2925,7 +3086,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_remove_all_anchors,
                 __buffer,
             )
         };
@@ -2935,7 +3097,47 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_REMOVE_ALL_ANCHORS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_remove_all_anchors,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_physics_collision(
+        &mut self,
+        collision_info: &crate::bindings::chaos_solver_engine::FChaosPhysicsCollisionInfo,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<192>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_receive_physics_collision,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                collision_info,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::chaos_solver_engine::FChaosPhysicsCollisionInfo,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_receive_physics_collision,
                 __buffer,
             )
         };
@@ -2948,7 +3150,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_is_root_broken,
                 __buffer,
             )
         };
@@ -2958,7 +3161,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_IS_ROOT_BROKEN,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_is_root_broken,
                 __buffer,
             )
         };
@@ -2972,7 +3176,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_use_static_mesh_collision_for_traces,
                 __buffer,
             )
         };
@@ -2982,7 +3187,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_USE_STATIC_MESH_COLLISION_FOR_TRACES,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_use_static_mesh_collision_for_traces,
                 __buffer,
             )
         };
@@ -2998,7 +3204,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_solver_actor,
                 __buffer,
             )
         };
@@ -3008,7 +3215,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_SOLVER_ACTOR,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_solver_actor,
                 __buffer,
             )
         };
@@ -3029,7 +3237,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_initial_transform,
                 __buffer,
             )
         };
@@ -3039,7 +3248,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INITIAL_TRANSFORM,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_initial_transform,
                 __buffer,
             )
         };
@@ -3055,7 +3265,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_index,
                 __buffer,
             )
         };
@@ -3065,7 +3276,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_INDEX,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_index,
                 __buffer,
             )
         };
@@ -3081,7 +3293,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_current_transform,
                 __buffer,
             )
         };
@@ -3091,7 +3304,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_ROOT_CURRENT_TRANSFORM,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_root_current_transform,
                 __buffer,
             )
         };
@@ -3112,7 +3326,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_mass_and_extents,
                 __buffer,
             )
         };
@@ -3135,7 +3350,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_MASS_AND_EXTENTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_mass_and_extents,
                 __buffer,
             )
         };
@@ -3160,7 +3376,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_local_rest_transforms,
                 __buffer,
             )
         };
@@ -3177,7 +3394,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_REST_TRANSFORMS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_local_rest_transforms,
                 __buffer,
             )
         };
@@ -3196,7 +3414,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_local_bounds,
                 __buffer,
             )
         };
@@ -3206,7 +3425,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_LOCAL_BOUNDS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_local_bounds,
                 __buffer,
             )
         };
@@ -3222,7 +3442,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_initial_local_rest_transforms,
                 __buffer,
             )
         };
@@ -3232,7 +3453,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LOCAL_REST_TRANSFORMS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_initial_local_rest_transforms,
                 __buffer,
             )
         };
@@ -3251,7 +3473,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_initial_level,
                 __buffer,
             )
         };
@@ -3264,7 +3487,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_INITIAL_LEVEL,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_initial_level,
                 __buffer,
             )
         };
@@ -3278,7 +3502,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_debug_info,
                 __buffer,
             )
         };
@@ -3288,7 +3513,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DEBUG_INFO,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_debug_info,
                 __buffer,
             )
         };
@@ -3302,7 +3528,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_damage_threshold,
                 __buffer,
             )
         };
@@ -3312,7 +3539,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_GET_DAMAGE_THRESHOLD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_get_damage_threshold,
                 __buffer,
             )
         };
@@ -3326,7 +3554,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_force_broken_for_custom_renderer,
                 __buffer,
             )
         };
@@ -3343,7 +3572,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FORCE_BROKEN_FOR_CUSTOM_RENDERER,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_force_broken_for_custom_renderer,
                 __buffer,
             )
         };
@@ -3362,7 +3592,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_find_leaf_transform_by_line_trace,
                 __buffer,
             )
         };
@@ -3400,7 +3631,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_FIND_LEAF_TRANSFORM_BY_LINE_TRACE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_find_leaf_transform_by_line_trace,
                 __buffer,
             )
         };
@@ -3420,7 +3652,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_enable_root_proxy_for_custom_renderer,
                 __buffer,
             )
         };
@@ -3433,7 +3666,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_ENABLE_ROOT_PROXY_FOR_CUSTOM_RENDERER,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_enable_root_proxy_for_custom_renderer,
                 __buffer,
             )
         };
@@ -3446,7 +3680,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_crumble_cluster,
                 __buffer,
             )
         };
@@ -3459,7 +3694,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_CLUSTER,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_crumble_cluster,
                 __buffer,
             )
         };
@@ -3472,7 +3708,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_crumble_active_clusters,
                 __buffer,
             )
         };
@@ -3482,7 +3719,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_CRUMBLE_ACTIVE_CLUSTERS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_crumble_active_clusters,
                 __buffer,
             )
         };
@@ -3501,7 +3739,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_physics_field,
                 __buffer,
             )
         };
@@ -3547,7 +3786,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_PHYSICS_FIELD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_physics_field,
                 __buffer,
             )
         };
@@ -3564,7 +3804,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_linear_velocity,
                 __buffer,
             )
         };
@@ -3584,7 +3825,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_LINEAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_linear_velocity,
                 __buffer,
             )
         };
@@ -3601,7 +3843,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_kinematic_field,
                 __buffer,
             )
         };
@@ -3621,7 +3864,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_KINEMATIC_FIELD,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_kinematic_field,
                 __buffer,
             )
         };
@@ -3642,7 +3886,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_internal_strain,
                 __buffer,
             )
         };
@@ -3682,7 +3927,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_INTERNAL_STRAIN,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_internal_strain,
                 __buffer,
             )
         };
@@ -3703,7 +3949,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_external_strain,
                 __buffer,
             )
         };
@@ -3743,7 +3990,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_EXTERNAL_STRAIN,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_external_strain,
                 __buffer,
             )
         };
@@ -3760,7 +4008,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_breaking_linear_velocity,
                 __buffer,
             )
         };
@@ -3780,7 +4029,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_LINEAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_breaking_linear_velocity,
                 __buffer,
             )
         };
@@ -3797,7 +4047,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_breaking_angular_velocity,
                 __buffer,
             )
         };
@@ -3817,7 +4068,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_BREAKING_ANGULAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_breaking_angular_velocity,
                 __buffer,
             )
         };
@@ -3830,7 +4082,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_asset_defaults,
                 __buffer,
             )
         };
@@ -3840,7 +4093,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ASSET_DEFAULTS,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_asset_defaults,
                 __buffer,
             )
         };
@@ -3857,7 +4111,8 @@ impl UGeometryCollectionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_angular_velocity,
                 __buffer,
             )
         };
@@ -3877,7 +4132,8 @@ impl UGeometryCollectionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_COMPONENT_APPLY_ANGULAR_VELOCITY,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_component_apply_angular_velocity,
                 __buffer,
             )
         };
@@ -4090,7 +4346,8 @@ impl UGeometryCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_set_enable_nanite,
                 __buffer,
             )
         };
@@ -4103,7 +4360,8 @@ impl UGeometryCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_ENABLE_NANITE,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_set_enable_nanite,
                 __buffer,
             )
         };
@@ -4119,7 +4377,8 @@ impl UGeometryCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_set_dataflow_asset,
                 __buffer,
             )
         };
@@ -4138,7 +4397,8 @@ impl UGeometryCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_DATAFLOW_ASSET,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_set_dataflow_asset,
                 __buffer,
             )
         };
@@ -4151,7 +4411,8 @@ impl UGeometryCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_set_convert_vertex_colors_to_srgb,
                 __buffer,
             )
         };
@@ -4164,7 +4425,8 @@ impl UGeometryCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_SET_CONVERT_VERTEX_COLORS_TO_SRGB,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_set_convert_vertex_colors_to_srgb,
                 __buffer,
             )
         };
@@ -4179,7 +4441,8 @@ impl UGeometryCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_get_dataflow_asset,
                 __buffer,
             )
         };
@@ -4189,7 +4452,8 @@ impl UGeometryCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_collection_engine::U_GEOMETRY_COLLECTION_GET_DATAFLOW_ASSET,
+                crate::bindings::geometry_collection_engine::__FUNCTION_PTRS
+                    .u_geometry_collection_get_dataflow_asset,
                 __buffer,
             )
         };

@@ -1,46 +1,55 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_WIND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_CLAMPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_PRESSURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_LINEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_BUCKLING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT_LINEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_GRAVITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_DAMPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_BACKSTOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE_LINEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_SET_AERODYNAMICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CHAOS_CLOTHING_INTERACTOR_RESET_AND_TELEPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_chaos_clothing_interactor_set_wind: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_velocity_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_velocity_clamps: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_pressure: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_material_linear: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_material_buckling: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_material: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_long_range_attachment_linear: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_long_range_attachment: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_gravity: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_damping: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_backstop: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_anim_drive_linear: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_anim_drive: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_set_aerodynamics: *mut crate::ffi::UFunctionOpague,
+    pub u_chaos_clothing_interactor_reset_and_teleport: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_chaos_clothing_interactor_set_wind: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_velocity_scale: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_velocity_clamps: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_pressure: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_material_linear: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_material_buckling: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_material: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_long_range_attachment_linear: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_long_range_attachment: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_gravity: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_damping: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_collision: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_backstop: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_anim_drive_linear: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_anim_drive: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_set_aerodynamics: std::ptr::null_mut(),
+            u_chaos_clothing_interactor_reset_and_teleport: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -50,119 +59,121 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWind"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_WIND,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_wind,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVelocityScale"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_SCALE,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_velocity_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVelocityClamps"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_CLAMPS,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_velocity_clamps,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPressure"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_PRESSURE,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_pressure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialLinear"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_LINEAR,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material_linear,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialBuckling"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_BUCKLING,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material_buckling,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterial"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLongRangeAttachmentLinear"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT_LINEAR,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_clothing_interactor_set_long_range_attachment_linear,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLongRangeAttachment"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_clothing_interactor_set_long_range_attachment,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGravity"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_GRAVITY,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_gravity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDamping"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_DAMPING,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_damping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCollision"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_COLLISION,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBackstop"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_BACKSTOP,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_backstop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimDriveLinear"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE_LINEAR,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_anim_drive_linear,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimDrive"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_anim_drive,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAerodynamics"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_SET_AERODYNAMICS,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_set_aerodynamics,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetAndTeleport"),
-            &raw mut U_CHAOS_CLOTHING_INTERACTOR_RESET_AND_TELEPORT,
+            &raw mut __FUNCTION_PTRS.u_chaos_clothing_interactor_reset_and_teleport,
         );
     }
 }
@@ -265,7 +276,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_WIND,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_wind,
                 __buffer,
             )
         };
@@ -317,7 +329,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_WIND,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_wind,
                 __buffer,
             )
         };
@@ -335,7 +348,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_SCALE,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_velocity_scale,
                 __buffer,
             )
         };
@@ -366,7 +380,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_SCALE,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_velocity_scale,
                 __buffer,
             )
         };
@@ -389,7 +404,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_CLAMPS,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_velocity_clamps,
                 __buffer,
             )
         };
@@ -455,7 +471,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_VELOCITY_CLAMPS,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_velocity_clamps,
                 __buffer,
             )
         };
@@ -468,7 +485,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_PRESSURE,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_pressure,
                 __buffer,
             )
         };
@@ -485,7 +503,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_PRESSURE,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_pressure,
                 __buffer,
             )
         };
@@ -503,7 +522,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_LINEAR,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_material_linear,
                 __buffer,
             )
         };
@@ -534,7 +554,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_LINEAR,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_material_linear,
                 __buffer,
             )
         };
@@ -551,7 +572,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_BUCKLING,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_material_buckling,
                 __buffer,
             )
         };
@@ -575,7 +597,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL_BUCKLING,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_material_buckling,
                 __buffer,
             )
         };
@@ -593,7 +616,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_material,
                 __buffer,
             )
         };
@@ -624,7 +648,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_MATERIAL,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_material,
                 __buffer,
             )
         };
@@ -641,7 +666,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT_LINEAR,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_long_range_attachment_linear,
                 __buffer,
             )
         };
@@ -665,7 +691,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT_LINEAR,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_long_range_attachment_linear,
                 __buffer,
             )
         };
@@ -682,7 +709,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_long_range_attachment,
                 __buffer,
             )
         };
@@ -706,7 +734,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_LONG_RANGE_ATTACHMENT,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_long_range_attachment,
                 __buffer,
             )
         };
@@ -724,7 +753,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_GRAVITY,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_gravity,
                 __buffer,
             )
         };
@@ -755,7 +785,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_GRAVITY,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_gravity,
                 __buffer,
             )
         };
@@ -772,7 +803,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_DAMPING,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_damping,
                 __buffer,
             )
         };
@@ -796,7 +828,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_DAMPING,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_damping,
                 __buffer,
             )
         };
@@ -815,7 +848,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_COLLISION,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_collision,
                 __buffer,
             )
         };
@@ -849,7 +883,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_COLLISION,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_collision,
                 __buffer,
             )
         };
@@ -862,7 +897,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_BACKSTOP,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_backstop,
                 __buffer,
             )
         };
@@ -875,7 +911,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_BACKSTOP,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_backstop,
                 __buffer,
             )
         };
@@ -888,7 +925,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE_LINEAR,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_anim_drive_linear,
                 __buffer,
             )
         };
@@ -905,7 +943,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE_LINEAR,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_anim_drive_linear,
                 __buffer,
             )
         };
@@ -922,7 +961,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_anim_drive,
                 __buffer,
             )
         };
@@ -946,7 +986,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_ANIM_DRIVE,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_anim_drive,
                 __buffer,
             )
         };
@@ -964,7 +1005,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_AERODYNAMICS,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_aerodynamics,
                 __buffer,
             )
         };
@@ -995,7 +1037,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_SET_AERODYNAMICS,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_set_aerodynamics,
                 __buffer,
             )
         };
@@ -1008,7 +1051,8 @@ impl UChaosClothingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_RESET_AND_TELEPORT,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_reset_and_teleport,
                 __buffer,
             )
         };
@@ -1028,7 +1072,8 @@ impl UChaosClothingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_cloth::U_CHAOS_CLOTHING_INTERACTOR_RESET_AND_TELEPORT,
+                crate::bindings::chaos_cloth::__FUNCTION_PTRS
+                    .u_chaos_clothing_interactor_reset_and_teleport,
                 __buffer,
             )
         };

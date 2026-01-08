@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_IMAGE_WRITE_BLUEPRINT_LIBRARY_EXPORT_TO_DISK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_image_write_blueprint_library_export_to_disk: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_image_write_blueprint_library_export_to_disk: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportToDisk"),
-            &raw mut U_IMAGE_WRITE_BLUEPRINT_LIBRARY_EXPORT_TO_DISK,
+            &raw mut __FUNCTION_PTRS.u_image_write_blueprint_library_export_to_disk,
         );
     }
 }
@@ -64,7 +73,8 @@ impl UImageWriteBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::image_write_queue::U_IMAGE_WRITE_BLUEPRINT_LIBRARY_EXPORT_TO_DISK,
+                crate::bindings::image_write_queue::__FUNCTION_PTRS
+                    .u_image_write_blueprint_library_export_to_disk,
                 __buffer,
             )
         };
@@ -95,7 +105,8 @@ impl UImageWriteBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::image_write_queue::U_IMAGE_WRITE_BLUEPRINT_LIBRARY_EXPORT_TO_DISK,
+                crate::bindings::image_write_queue::__FUNCTION_PTRS
+                    .u_image_write_blueprint_library_export_to_disk,
                 __buffer,
             )
         };

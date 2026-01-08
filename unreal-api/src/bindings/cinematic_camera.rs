@@ -1,86 +1,95 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_CAMERA_RIG_RAIL_GET_RAIL_SPLINE_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CINE_CAMERA_ACTOR_GET_CINE_CAMERA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_LENS_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_LENS_PRESET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_FOCUS_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_FILMBACK_PRESET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_FILMBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_CUSTOM_NEAR_CLIPPING_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_CURRENT_FOCAL_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_CURRENT_APERTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_CROP_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_SET_CROP_PRESET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_VERTICAL_PROJECTION_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_VERTICAL_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_LENS_PRESETS_COPY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_LENS_PRESET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_PROJECTION_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESETS_COPY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_DEFAULT_FILMBACK_PRESET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_COMPONENT_GET_CROP_PRESET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_LENS_PRESETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_FILMBACK_PRESETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_PRESET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_F_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_FOCAL_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_FILMBACK_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_CROP_PRESET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_SET_CROP_PRESETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CINE_CAMERA_SETTINGS_GET_CINE_CAMERA_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_camera_rig_rail_get_rail_spline_component: *mut crate::ffi::UFunctionOpague,
+    pub a_cine_camera_actor_get_cine_camera_component: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_lens_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_lens_preset_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_focus_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_filmback_preset_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_filmback: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_custom_near_clipping_plane: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_current_focal_length: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_current_aperture: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_crop_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_set_crop_preset_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_vertical_projection_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_vertical_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_lens_presets_copy: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_lens_preset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_horizontal_projection_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_horizontal_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_filmback_presets_copy: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_filmback_preset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_default_filmback_preset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_component_get_crop_preset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_lens_presets: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_filmback_presets: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_default_lens_preset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_default_lens_f_stop: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_default_lens_focal_length: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_default_filmback_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_default_crop_preset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_set_crop_presets: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_get_lens_preset_names: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_get_lens_preset_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_get_filmback_preset_names: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_get_filmback_preset_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_get_crop_preset_names: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_get_crop_preset_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_cine_camera_settings_get_cine_camera_settings: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_camera_rig_rail_get_rail_spline_component: std::ptr::null_mut(),
+            a_cine_camera_actor_get_cine_camera_component: std::ptr::null_mut(),
+            u_cine_camera_component_set_lens_settings: std::ptr::null_mut(),
+            u_cine_camera_component_set_lens_preset_by_name: std::ptr::null_mut(),
+            u_cine_camera_component_set_focus_settings: std::ptr::null_mut(),
+            u_cine_camera_component_set_filmback_preset_by_name: std::ptr::null_mut(),
+            u_cine_camera_component_set_filmback: std::ptr::null_mut(),
+            u_cine_camera_component_set_custom_near_clipping_plane: std::ptr::null_mut(),
+            u_cine_camera_component_set_current_focal_length: std::ptr::null_mut(),
+            u_cine_camera_component_set_current_aperture: std::ptr::null_mut(),
+            u_cine_camera_component_set_crop_settings: std::ptr::null_mut(),
+            u_cine_camera_component_set_crop_preset_by_name: std::ptr::null_mut(),
+            u_cine_camera_component_get_vertical_projection_offset: std::ptr::null_mut(),
+            u_cine_camera_component_get_vertical_field_of_view: std::ptr::null_mut(),
+            u_cine_camera_component_get_lens_presets_copy: std::ptr::null_mut(),
+            u_cine_camera_component_get_lens_preset_name: std::ptr::null_mut(),
+            u_cine_camera_component_get_horizontal_projection_offset: std::ptr::null_mut(),
+            u_cine_camera_component_get_horizontal_field_of_view: std::ptr::null_mut(),
+            u_cine_camera_component_get_filmback_presets_copy: std::ptr::null_mut(),
+            u_cine_camera_component_get_filmback_preset_name: std::ptr::null_mut(),
+            u_cine_camera_component_get_default_filmback_preset_name: std::ptr::null_mut(),
+            u_cine_camera_component_get_crop_preset_name: std::ptr::null_mut(),
+            u_cine_camera_settings_set_lens_presets: std::ptr::null_mut(),
+            u_cine_camera_settings_set_filmback_presets: std::ptr::null_mut(),
+            u_cine_camera_settings_set_default_lens_preset_name: std::ptr::null_mut(),
+            u_cine_camera_settings_set_default_lens_f_stop: std::ptr::null_mut(),
+            u_cine_camera_settings_set_default_lens_focal_length: std::ptr::null_mut(),
+            u_cine_camera_settings_set_default_filmback_preset: std::ptr::null_mut(),
+            u_cine_camera_settings_set_default_crop_preset_name: std::ptr::null_mut(),
+            u_cine_camera_settings_set_crop_presets: std::ptr::null_mut(),
+            u_cine_camera_settings_get_lens_preset_names: std::ptr::null_mut(),
+            u_cine_camera_settings_get_lens_preset_by_name: std::ptr::null_mut(),
+            u_cine_camera_settings_get_filmback_preset_names: std::ptr::null_mut(),
+            u_cine_camera_settings_get_filmback_preset_by_name: std::ptr::null_mut(),
+            u_cine_camera_settings_get_crop_preset_names: std::ptr::null_mut(),
+            u_cine_camera_settings_get_crop_preset_by_name: std::ptr::null_mut(),
+            u_cine_camera_settings_get_cine_camera_settings: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -90,7 +99,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRailSplineComponent"),
-            &raw mut A_CAMERA_RIG_RAIL_GET_RAIL_SPLINE_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_camera_rig_rail_get_rail_spline_component,
         );
     }
     unsafe {
@@ -101,7 +110,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCineCameraComponent"),
-            &raw mut A_CINE_CAMERA_ACTOR_GET_CINE_CAMERA_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_cine_camera_actor_get_cine_camera_component,
         );
     }
     unsafe {
@@ -112,140 +121,144 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLensSettings"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_LENS_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_lens_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLensPresetByName"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_LENS_PRESET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_lens_preset_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFocusSettings"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_FOCUS_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_focus_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilmbackPresetByName"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_FILMBACK_PRESET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_filmback_preset_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilmback"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_FILMBACK,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_filmback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomNearClippingPlane"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_CUSTOM_NEAR_CLIPPING_PLANE,
+            &raw mut __FUNCTION_PTRS
+                .u_cine_camera_component_set_custom_near_clipping_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentFocalLength"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_CURRENT_FOCAL_LENGTH,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_current_focal_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentAperture"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_CURRENT_APERTURE,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_current_aperture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCropSettings"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_CROP_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_crop_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCropPresetByName"),
-            &raw mut U_CINE_CAMERA_COMPONENT_SET_CROP_PRESET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_set_crop_preset_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVerticalProjectionOffset"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_VERTICAL_PROJECTION_OFFSET,
+            &raw mut __FUNCTION_PTRS
+                .u_cine_camera_component_get_vertical_projection_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVerticalFieldOfView"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_VERTICAL_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_vertical_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLensPresetsCopy"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_LENS_PRESETS_COPY,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_lens_presets_copy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLensPresetName"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_LENS_PRESET_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_lens_preset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHorizontalProjectionOffset"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_PROJECTION_OFFSET,
+            &raw mut __FUNCTION_PTRS
+                .u_cine_camera_component_get_horizontal_projection_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHorizontalFieldOfView"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_horizontal_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFilmbackPresetsCopy"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESETS_COPY,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_filmback_presets_copy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFilmbackPresetName"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESET_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_filmback_preset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultFilmbackPresetName"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_DEFAULT_FILMBACK_PRESET_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_cine_camera_component_get_default_filmback_preset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCropPresetName"),
-            &raw mut U_CINE_CAMERA_COMPONENT_GET_CROP_PRESET_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_component_get_crop_preset_name,
         );
     }
     unsafe {
@@ -256,105 +269,105 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLensPresets"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_LENS_PRESETS,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_lens_presets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilmbackPresets"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_FILMBACK_PRESETS,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_filmback_presets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultLensPresetName"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_PRESET_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_lens_preset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultLensFStop"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_F_STOP,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_lens_f_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultLensFocalLength"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_FOCAL_LENGTH,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_lens_focal_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultFilmbackPreset"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_FILMBACK_PRESET,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_filmback_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultCropPresetName"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_DEFAULT_CROP_PRESET_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_default_crop_preset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCropPresets"),
-            &raw mut U_CINE_CAMERA_SETTINGS_SET_CROP_PRESETS,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_set_crop_presets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLensPresetNames"),
-            &raw mut U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_NAMES,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_lens_preset_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLensPresetByName"),
-            &raw mut U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_lens_preset_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFilmbackPresetNames"),
-            &raw mut U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_NAMES,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_filmback_preset_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFilmbackPresetByName"),
-            &raw mut U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_filmback_preset_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCropPresetNames"),
-            &raw mut U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_NAMES,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_crop_preset_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCropPresetByName"),
-            &raw mut U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_crop_preset_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCineCameraSettings"),
-            &raw mut U_CINE_CAMERA_SETTINGS_GET_CINE_CAMERA_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_cine_camera_settings_get_cine_camera_settings,
         );
     }
 }
@@ -494,7 +507,8 @@ impl ACameraRig_Rail {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::A_CAMERA_RIG_RAIL_GET_RAIL_SPLINE_COMPONENT,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .a_camera_rig_rail_get_rail_spline_component,
                 __buffer,
             )
         };
@@ -504,7 +518,8 @@ impl ACameraRig_Rail {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::A_CAMERA_RIG_RAIL_GET_RAIL_SPLINE_COMPONENT,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .a_camera_rig_rail_get_rail_spline_component,
                 __buffer,
             )
         };
@@ -547,7 +562,8 @@ impl ACineCameraActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::A_CINE_CAMERA_ACTOR_GET_CINE_CAMERA_COMPONENT,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .a_cine_camera_actor_get_cine_camera_component,
                 __buffer,
             )
         };
@@ -557,7 +573,8 @@ impl ACineCameraActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::A_CINE_CAMERA_ACTOR_GET_CINE_CAMERA_COMPONENT,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .a_cine_camera_actor_get_cine_camera_component,
                 __buffer,
             )
         };
@@ -606,7 +623,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_lens_settings,
                 __buffer,
             )
         };
@@ -623,7 +641,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_lens_settings,
                 __buffer,
             )
         };
@@ -636,7 +655,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_lens_preset_by_name,
                 __buffer,
             )
         };
@@ -653,7 +673,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_LENS_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_lens_preset_by_name,
                 __buffer,
             )
         };
@@ -666,7 +687,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FOCUS_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_focus_settings,
                 __buffer,
             )
         };
@@ -683,7 +705,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FOCUS_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_focus_settings,
                 __buffer,
             )
         };
@@ -696,7 +719,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_filmback_preset_by_name,
                 __buffer,
             )
         };
@@ -713,7 +737,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_filmback_preset_by_name,
                 __buffer,
             )
         };
@@ -726,7 +751,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_filmback,
                 __buffer,
             )
         };
@@ -743,7 +769,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_FILMBACK,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_filmback,
                 __buffer,
             )
         };
@@ -759,7 +786,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CUSTOM_NEAR_CLIPPING_PLANE,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_custom_near_clipping_plane,
                 __buffer,
             )
         };
@@ -776,7 +804,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CUSTOM_NEAR_CLIPPING_PLANE,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_custom_near_clipping_plane,
                 __buffer,
             )
         };
@@ -789,7 +818,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_FOCAL_LENGTH,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_current_focal_length,
                 __buffer,
             )
         };
@@ -806,7 +836,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_FOCAL_LENGTH,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_current_focal_length,
                 __buffer,
             )
         };
@@ -819,7 +850,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_APERTURE,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_current_aperture,
                 __buffer,
             )
         };
@@ -836,7 +868,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CURRENT_APERTURE,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_current_aperture,
                 __buffer,
             )
         };
@@ -849,7 +882,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_crop_settings,
                 __buffer,
             )
         };
@@ -866,7 +900,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_crop_settings,
                 __buffer,
             )
         };
@@ -879,7 +914,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_crop_preset_by_name,
                 __buffer,
             )
         };
@@ -896,7 +932,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_SET_CROP_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_set_crop_preset_by_name,
                 __buffer,
             )
         };
@@ -909,7 +946,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_PROJECTION_OFFSET,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_vertical_projection_offset,
                 __buffer,
             )
         };
@@ -919,7 +957,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_PROJECTION_OFFSET,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_vertical_projection_offset,
                 __buffer,
             )
         };
@@ -933,7 +972,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_FIELD_OF_VIEW,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_vertical_field_of_view,
                 __buffer,
             )
         };
@@ -943,7 +983,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_VERTICAL_FIELD_OF_VIEW,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_vertical_field_of_view,
                 __buffer,
             )
         };
@@ -957,7 +998,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESETS_COPY,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_lens_presets_copy,
                 __buffer,
             )
         };
@@ -967,7 +1009,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESETS_COPY,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_lens_presets_copy,
                 __buffer,
             )
         };
@@ -981,7 +1024,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_lens_preset_name,
                 __buffer,
             )
         };
@@ -991,7 +1035,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_LENS_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_lens_preset_name,
                 __buffer,
             )
         };
@@ -1005,7 +1050,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_PROJECTION_OFFSET,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_horizontal_projection_offset,
                 __buffer,
             )
         };
@@ -1015,7 +1061,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_PROJECTION_OFFSET,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_horizontal_projection_offset,
                 __buffer,
             )
         };
@@ -1029,7 +1076,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_FIELD_OF_VIEW,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_horizontal_field_of_view,
                 __buffer,
             )
         };
@@ -1039,7 +1087,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_HORIZONTAL_FIELD_OF_VIEW,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_horizontal_field_of_view,
                 __buffer,
             )
         };
@@ -1053,7 +1102,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESETS_COPY,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_filmback_presets_copy,
                 __buffer,
             )
         };
@@ -1063,7 +1113,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESETS_COPY,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_filmback_presets_copy,
                 __buffer,
             )
         };
@@ -1077,7 +1128,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_filmback_preset_name,
                 __buffer,
             )
         };
@@ -1087,7 +1139,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_FILMBACK_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_filmback_preset_name,
                 __buffer,
             )
         };
@@ -1101,7 +1154,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_DEFAULT_FILMBACK_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_default_filmback_preset_name,
                 __buffer,
             )
         };
@@ -1111,7 +1165,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_DEFAULT_FILMBACK_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_default_filmback_preset_name,
                 __buffer,
             )
         };
@@ -1125,7 +1180,8 @@ impl UCineCameraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_CROP_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_crop_preset_name,
                 __buffer,
             )
         };
@@ -1135,7 +1191,8 @@ impl UCineCameraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_COMPONENT_GET_CROP_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_component_get_crop_preset_name,
                 __buffer,
             )
         };
@@ -1180,7 +1237,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_LENS_PRESETS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_lens_presets,
                 __buffer,
             )
         };
@@ -1197,7 +1255,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_LENS_PRESETS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_lens_presets,
                 __buffer,
             )
         };
@@ -1213,7 +1272,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_FILMBACK_PRESETS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_filmback_presets,
                 __buffer,
             )
         };
@@ -1230,7 +1290,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_FILMBACK_PRESETS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_filmback_presets,
                 __buffer,
             )
         };
@@ -1246,7 +1307,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_preset_name,
                 __buffer,
             )
         };
@@ -1263,7 +1325,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_preset_name,
                 __buffer,
             )
         };
@@ -1276,7 +1339,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_F_STOP,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_f_stop,
                 __buffer,
             )
         };
@@ -1293,7 +1357,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_F_STOP,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_f_stop,
                 __buffer,
             )
         };
@@ -1306,7 +1371,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_FOCAL_LENGTH,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_focal_length,
                 __buffer,
             )
         };
@@ -1323,7 +1389,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_LENS_FOCAL_LENGTH,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_lens_focal_length,
                 __buffer,
             )
         };
@@ -1336,7 +1403,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_FILMBACK_PRESET,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_filmback_preset,
                 __buffer,
             )
         };
@@ -1353,7 +1421,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_FILMBACK_PRESET,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_filmback_preset,
                 __buffer,
             )
         };
@@ -1369,7 +1438,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_CROP_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_crop_preset_name,
                 __buffer,
             )
         };
@@ -1386,7 +1456,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_DEFAULT_CROP_PRESET_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_default_crop_preset_name,
                 __buffer,
             )
         };
@@ -1399,7 +1470,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_CROP_PRESETS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_crop_presets,
                 __buffer,
             )
         };
@@ -1416,7 +1488,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_SET_CROP_PRESETS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_set_crop_presets,
                 __buffer,
             )
         };
@@ -1433,7 +1506,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_lens_preset_by_name,
                 __buffer,
             )
         };
@@ -1457,7 +1531,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_LENS_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_lens_preset_by_name,
                 __buffer,
             )
         };
@@ -1478,7 +1553,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_filmback_preset_by_name,
                 __buffer,
             )
         };
@@ -1502,7 +1578,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_FILMBACK_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_filmback_preset_by_name,
                 __buffer,
             )
         };
@@ -1523,7 +1600,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_crop_preset_by_name,
                 __buffer,
             )
         };
@@ -1547,7 +1625,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CROP_PRESET_BY_NAME,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_crop_preset_by_name,
                 __buffer,
             )
         };
@@ -1564,7 +1643,8 @@ impl UCineCameraSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CINE_CAMERA_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_cine_camera_settings,
                 __buffer,
             )
         };
@@ -1574,7 +1654,8 @@ impl UCineCameraSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cinematic_camera::U_CINE_CAMERA_SETTINGS_GET_CINE_CAMERA_SETTINGS,
+                crate::bindings::cinematic_camera::__FUNCTION_PTRS
+                    .u_cine_camera_settings_get_cine_camera_settings,
                 __buffer,
             )
         };

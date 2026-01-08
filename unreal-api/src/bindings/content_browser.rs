@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS_IF_NEEDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_content_browser_asset_context_menu_context_load_selected_objects_if_needed: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_asset_context_menu_context_load_selected_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_content_browser_asset_context_menu_context_get_selected_objects: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_content_browser_asset_context_menu_context_load_selected_objects_if_needed: std::ptr::null_mut(),
+            u_content_browser_asset_context_menu_context_load_selected_objects: std::ptr::null_mut(),
+            u_content_browser_asset_context_menu_context_get_selected_objects: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,21 +31,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadSelectedObjectsIfNeeded"),
-            &raw mut U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS_IF_NEEDED,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_asset_context_menu_context_load_selected_objects_if_needed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadSelectedObjects"),
-            &raw mut U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_asset_context_menu_context_load_selected_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedObjects"),
-            &raw mut U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_content_browser_asset_context_menu_context_get_selected_objects,
         );
     }
 }
@@ -222,7 +234,8 @@ impl UContentBrowserAssetContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS_IF_NEEDED,
+                crate::bindings::content_browser::__FUNCTION_PTRS
+                    .u_content_browser_asset_context_menu_context_load_selected_objects_if_needed,
                 __buffer,
             )
         };
@@ -232,7 +245,8 @@ impl UContentBrowserAssetContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS_IF_NEEDED,
+                crate::bindings::content_browser::__FUNCTION_PTRS
+                    .u_content_browser_asset_context_menu_context_load_selected_objects_if_needed,
                 __buffer,
             )
         };
@@ -254,7 +268,8 @@ impl UContentBrowserAssetContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS,
+                crate::bindings::content_browser::__FUNCTION_PTRS
+                    .u_content_browser_asset_context_menu_context_load_selected_objects,
                 __buffer,
             )
         };
@@ -271,7 +286,8 @@ impl UContentBrowserAssetContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_LOAD_SELECTED_OBJECTS,
+                crate::bindings::content_browser::__FUNCTION_PTRS
+                    .u_content_browser_asset_context_menu_context_load_selected_objects,
                 __buffer,
             )
         };
@@ -292,7 +308,8 @@ impl UContentBrowserAssetContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                crate::bindings::content_browser::__FUNCTION_PTRS
+                    .u_content_browser_asset_context_menu_context_get_selected_objects,
                 __buffer,
             )
         };
@@ -302,7 +319,8 @@ impl UContentBrowserAssetContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::content_browser::U_CONTENT_BROWSER_ASSET_CONTEXT_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                crate::bindings::content_browser::__FUNCTION_PTRS
+                    .u_content_browser_asset_context_menu_context_get_selected_objects,
                 __buffer,
             )
         };

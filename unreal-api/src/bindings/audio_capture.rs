@@ -1,26 +1,35 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUDIO_CAPTURE_STOP_CAPTURING_AUDIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_CAPTURE_START_CAPTURING_AUDIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_CAPTURE_IS_CAPTURING_AUDIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_CAPTURE_GET_AUDIO_CAPTURE_DEVICE_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_CAPTURE_FUNCTION_LIBRARY_CREATE_AUDIO_CAPTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_INPUT_DEVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_CONV_AUDIO_INPUT_DEVICE_INFO_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_audio_capture_stop_capturing_audio: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_capture_start_capturing_audio: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_capture_is_capturing_audio: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_capture_get_audio_capture_device_info: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_capture_function_library_create_audio_capture: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_capture_blueprint_library_get_available_audio_input_devices: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_capture_blueprint_library_conv_audio_input_device_info_to_string: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_audio_capture_stop_capturing_audio: std::ptr::null_mut(),
+            u_audio_capture_start_capturing_audio: std::ptr::null_mut(),
+            u_audio_capture_is_capturing_audio: std::ptr::null_mut(),
+            u_audio_capture_get_audio_capture_device_info: std::ptr::null_mut(),
+            u_audio_capture_function_library_create_audio_capture: std::ptr::null_mut(),
+            u_audio_capture_blueprint_library_get_available_audio_input_devices: std::ptr::null_mut(),
+            u_audio_capture_blueprint_library_conv_audio_input_device_info_to_string: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -30,28 +39,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCapturingAudio"),
-            &raw mut U_AUDIO_CAPTURE_STOP_CAPTURING_AUDIO,
+            &raw mut __FUNCTION_PTRS.u_audio_capture_stop_capturing_audio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartCapturingAudio"),
-            &raw mut U_AUDIO_CAPTURE_START_CAPTURING_AUDIO,
+            &raw mut __FUNCTION_PTRS.u_audio_capture_start_capturing_audio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCapturingAudio"),
-            &raw mut U_AUDIO_CAPTURE_IS_CAPTURING_AUDIO,
+            &raw mut __FUNCTION_PTRS.u_audio_capture_is_capturing_audio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioCaptureDeviceInfo"),
-            &raw mut U_AUDIO_CAPTURE_GET_AUDIO_CAPTURE_DEVICE_INFO,
+            &raw mut __FUNCTION_PTRS.u_audio_capture_get_audio_capture_device_info,
         );
     }
     unsafe {
@@ -62,7 +71,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAudioCapture"),
-            &raw mut U_AUDIO_CAPTURE_FUNCTION_LIBRARY_CREATE_AUDIO_CAPTURE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_capture_function_library_create_audio_capture,
         );
     }
     unsafe {
@@ -73,14 +83,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAvailableAudioInputDevices"),
-            &raw mut U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_INPUT_DEVICES,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_capture_blueprint_library_get_available_audio_input_devices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_AudioInputDeviceInfoToString"),
-            &raw mut U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_CONV_AUDIO_INPUT_DEVICE_INFO_TO_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_capture_blueprint_library_conv_audio_input_device_info_to_string,
         );
     }
 }
@@ -128,7 +140,8 @@ impl UAudioCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_STOP_CAPTURING_AUDIO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_stop_capturing_audio,
                 __buffer,
             )
         };
@@ -138,7 +151,8 @@ impl UAudioCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_STOP_CAPTURING_AUDIO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_stop_capturing_audio,
                 __buffer,
             )
         };
@@ -151,7 +165,8 @@ impl UAudioCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_START_CAPTURING_AUDIO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_start_capturing_audio,
                 __buffer,
             )
         };
@@ -161,7 +176,8 @@ impl UAudioCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_START_CAPTURING_AUDIO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_start_capturing_audio,
                 __buffer,
             )
         };
@@ -174,7 +190,8 @@ impl UAudioCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_IS_CAPTURING_AUDIO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_is_capturing_audio,
                 __buffer,
             )
         };
@@ -184,7 +201,8 @@ impl UAudioCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_IS_CAPTURING_AUDIO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_is_capturing_audio,
                 __buffer,
             )
         };
@@ -201,7 +219,8 @@ impl UAudioCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_GET_AUDIO_CAPTURE_DEVICE_INFO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_get_audio_capture_device_info,
                 __buffer,
             )
         };
@@ -218,7 +237,8 @@ impl UAudioCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_GET_AUDIO_CAPTURE_DEVICE_INFO,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_get_audio_capture_device_info,
                 __buffer,
             )
         };
@@ -256,7 +276,8 @@ impl UAudioCaptureFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_FUNCTION_LIBRARY_CREATE_AUDIO_CAPTURE,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_function_library_create_audio_capture,
                 __buffer,
             )
         };
@@ -266,7 +287,8 @@ impl UAudioCaptureFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_FUNCTION_LIBRARY_CREATE_AUDIO_CAPTURE,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_function_library_create_audio_capture,
                 __buffer,
             )
         };
@@ -304,7 +326,8 @@ impl UAudioCaptureBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_INPUT_DEVICES,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_blueprint_library_get_available_audio_input_devices,
                 __buffer,
             )
         };
@@ -330,7 +353,8 @@ impl UAudioCaptureBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_INPUT_DEVICES,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_blueprint_library_get_available_audio_input_devices,
                 __buffer,
             )
         };
@@ -345,7 +369,8 @@ impl UAudioCaptureBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_CONV_AUDIO_INPUT_DEVICE_INFO_TO_STRING,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_blueprint_library_conv_audio_input_device_info_to_string,
                 __buffer,
             )
         };
@@ -362,7 +387,8 @@ impl UAudioCaptureBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_capture::U_AUDIO_CAPTURE_BLUEPRINT_LIBRARY_CONV_AUDIO_INPUT_DEVICE_INFO_TO_STRING,
+                crate::bindings::audio_capture::__FUNCTION_PTRS
+                    .u_audio_capture_blueprint_library_conv_audio_input_device_info_to_string,
                 __buffer,
             )
         };

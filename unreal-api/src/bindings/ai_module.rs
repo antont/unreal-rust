@@ -1,456 +1,465 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut UAI_ASYNC_TASK_BLUEPRINT_PROXY_ON_MOVE_COMPLETED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_USE_BLACKBOARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_UNCLAIM_TASK_RESOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_SET_PATH_FOLLOWING_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_SET_MOVE_BLOCK_DETECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_RUN_BEHAVIOR_TREE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_ON_USING_BLACK_BOARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_ON_GAMEPLAY_TASK_RESOURCES_CLAIMED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_MOVE_TO_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_MOVE_TO_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_K2_SET_FOCUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_K2_SET_FOCAL_POINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_K2_CLEAR_FOCUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_HAS_PARTIAL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_GET_PATH_FOLLOWING_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_GET_MOVE_STATUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_GET_IMMEDIATE_MOVE_DESTINATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_GET_FOCUS_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_GET_FOCAL_POINT_ON_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_GET_FOCAL_POINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_GET_AI_PERCEPTION_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AAI_CONTROLLER_CLAIM_TASK_RESOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SYSTEM_AI_LOGGING_VERBOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SYSTEM_AI_IGNORE_PLAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BRAIN_COMPONENT_STOP_LOGIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BRAIN_COMPONENT_START_LOGIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BRAIN_COMPONENT_RESTART_LOGIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BRAIN_COMPONENT_IS_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BRAIN_COMPONENT_IS_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BEHAVIOR_TREE_COMPONENT_SET_DYNAMIC_SUBTREE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BEHAVIOR_TREE_COMPONENT_GET_TAG_COOLDOWN_END_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BEHAVIOR_TREE_COMPONENT_ADD_COOLDOWN_TAG_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_ASSET_PROVIDER_GET_BLACKBOARD_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_IS_VECTOR_VALUE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_ROTATION_FROM_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_GET_LOCATION_FROM_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLACKBOARD_COMPONENT_CLEAR_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_STOP_USING_EXTERNAL_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_START_USING_EXTERNAL_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_OWNERS_BLACKBOARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_OWNER_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE_AS_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_TICK_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_DEACTIVATED_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_DEACTIVATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_ACTIVATED_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_ACTIVATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_START_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_FINISH_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_FINISH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_PERFORM_CONDITION_CHECK_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_PERFORM_CONDITION_CHECK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_OBSERVER_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_EXECUTION_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_TICK_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_SEARCH_START_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_SEARCH_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_DEACTIVATION_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_DEACTIVATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_ACTIVATION_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_ACTIVATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_SERVICE_BLUEPRINT_BASE_IS_SERVICE_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_TICK_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_EXECUTE_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_ABORT_AI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_ABORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_IS_TASK_EXECUTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_IS_TASK_ABORTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_FINISH_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UBT_TASK_BLUEPRINT_BASE_FINISH_ABORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_UNLOCK_AI_RESOURCES_WITH_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_SPAWN_AI_FROM_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_SEND_AI_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_LOCK_AI_RESOURCES_WITH_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_NEXT_NAV_LINK_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_POINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_BLACKBOARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_AI_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_BLUEPRINT_HELPER_LIBRARY_CREATE_MOVE_TO_PROXY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_SINGLE_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_SINGLE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_LOCATIONS_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_ACTORS_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_SET_NAMED_PARAM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_LOCATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_LOCATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_ITEM_SCORE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_EQS_QUERY_DONE_SIGNATURE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_MANAGER_RUN_EQS_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_GET_QUERIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_DO_ITEM_GENERATION_FROM_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_DO_ITEM_GENERATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PATH_FOLLOWING_COMPONENT_ON_NAV_DATA_REGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PATH_FOLLOWING_COMPONENT_ON_ACTOR_BUMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PATH_FOLLOWING_COMPONENT_GET_PATH_DESTINATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PATH_FOLLOWING_COMPONENT_GET_PATH_ACTION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CROWD_FOLLOWING_COMPONENT_SUSPEND_CROWD_STEERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GENERATED_NAV_LINKS_PROXY_RECEIVE_SMART_LINK_REACHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_LINK_PROXY_SET_SMART_LINK_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_LINK_PROXY_RESUME_PATH_FOLLOWING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_LINK_PROXY_RECEIVE_SMART_LINK_REACHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_LINK_PROXY_IS_SMART_LINK_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_LINK_PROXY_HAS_MOVING_AGENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_LINK_PROXY_COPY_END_POINTS_FROM_SIMPLE_LINK_TO_SMART_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_LOCAL_GRID_MANAGER_SET_LOCAL_NAVIGATION_GRID_DENSITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_LOCAL_GRID_MANAGER_REMOVE_LOCAL_NAVIGATION_GRID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_LOCAL_GRID_MANAGER_FIND_LOCAL_NAVIGATION_GRID_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_CAPSULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_SET_SENSE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_REQUEST_STIMULI_LISTENER_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_ON_OWNER_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_IS_SENSE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS_BY_SENSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_GET_KNOWN_PERCEIVED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_GET_CURRENTLY_PERCEIVED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_GET_ACTORS_PERCEPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_COMPONENT_FORGET_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_SENSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_PERCEPTION_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_WITH_PERCEPTION_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_FOR_SENSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_SYSTEM_REPORT_PERCEPTION_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_SYSTEM_REPORT_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_SYSTEM_REGISTER_PERCEPTION_STIMULI_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_SYSTEM_ON_PERCEPTION_STIMULI_SOURCE_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_PERCEPTION_SYSTEM_GET_SENSE_CLASS_FOR_STIMULUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_BLUEPRINT_ON_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_BLUEPRINT_ON_LISTENER_UPDATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_BLUEPRINT_ON_LISTENER_UNREGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_BLUEPRINT_ON_LISTENER_REGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_BLUEPRINT_K2_ON_NEW_PAWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_DAMAGE_REPORT_DAMAGE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_HEARING_REPORT_NOISE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_PREDICTION_REQUEST_PAWN_PREDICTION_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_PREDICTION_REQUEST_CONTROLLER_PREDICTION_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_SENSE_TOUCH_REPORT_TOUCH_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAWN_SENSING_COMPONENT_SET_SENSING_UPDATES_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAWN_SENSING_COMPONENT_SET_SENSING_INTERVAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAWN_SENSING_COMPONENT_SET_PERIPHERAL_VISION_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAWN_SENSING_COMPONENT_SEE_PAWN_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAWN_SENSING_COMPONENT_HEAR_NOISE_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_COSINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_TASK_MOVE_TO_AI_MOVE_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAI_TASK_RUN_EQS_RUN_EQS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub uai_async_task_blueprint_proxy_on_move_completed: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_use_blackboard: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_unclaim_task_resource: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_set_path_following_component: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_set_move_block_detection: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_run_behavior_tree: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_on_using_black_board: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_on_gameplay_task_resources_claimed: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_move_to_location: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_move_to_actor: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_k2_set_focus: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_k2_set_focal_point: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_k2_clear_focus: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_has_partial_path: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_get_path_following_component: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_get_move_status: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_get_immediate_move_destination: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_get_focus_actor: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_get_focal_point_on_actor: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_get_focal_point: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_get_ai_perception_component: *mut crate::ffi::UFunctionOpague,
+    pub aai_controller_claim_task_resource: *mut crate::ffi::UFunctionOpague,
+    pub uai_system_ai_logging_verbose: *mut crate::ffi::UFunctionOpague,
+    pub uai_system_ai_ignore_players: *mut crate::ffi::UFunctionOpague,
+    pub u_brain_component_stop_logic: *mut crate::ffi::UFunctionOpague,
+    pub u_brain_component_start_logic: *mut crate::ffi::UFunctionOpague,
+    pub u_brain_component_restart_logic: *mut crate::ffi::UFunctionOpague,
+    pub u_brain_component_is_running: *mut crate::ffi::UFunctionOpague,
+    pub u_brain_component_is_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_behavior_tree_component_set_dynamic_subtree: *mut crate::ffi::UFunctionOpague,
+    pub u_behavior_tree_component_get_tag_cooldown_end_time: *mut crate::ffi::UFunctionOpague,
+    pub u_behavior_tree_component_add_cooldown_tag_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_asset_provider_get_blackboard_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_string: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_object: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_name: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_int: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_float: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_class: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_set_value_as_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_is_vector_value_set: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_string: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_object: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_name: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_int: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_float: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_class: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_value_as_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_rotation_from_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_get_location_from_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_blackboard_component_clear_value: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_stop_using_external_event: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_start_using_external_event: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_vector: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_string: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_rotator: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_object: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_name: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_int: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_float: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_enum: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_class: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_set_blackboard_value_as_bool: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_owners_blackboard: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_owner_component: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_vector: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_string: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_rotator: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_object: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_name: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_int: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_float: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_enum: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_class: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_bool: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_get_blackboard_value_as_actor: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_clear_blackboard_value_as_vector: *mut crate::ffi::UFunctionOpague,
+    pub ubt_function_library_clear_blackboard_value: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_tick_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_tick: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_observer_deactivated_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_observer_deactivated: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_observer_activated_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_observer_activated: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_execution_start_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_execution_start: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_execution_finish_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_receive_execution_finish: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_perform_condition_check_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_perform_condition_check: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_is_decorator_observer_active: *mut crate::ffi::UFunctionOpague,
+    pub ubt_decorator_blueprint_base_is_decorator_execution_active: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_tick_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_tick: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_search_start_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_search_start: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_deactivation_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_deactivation: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_activation_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_receive_activation: *mut crate::ffi::UFunctionOpague,
+    pub ubt_service_blueprint_base_is_service_active: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_set_finish_on_message_with_id: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_set_finish_on_message: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_receive_tick_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_receive_tick: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_receive_execute_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_receive_execute: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_receive_abort_ai: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_receive_abort: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_is_task_executing: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_is_task_aborting: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_finish_execute: *mut crate::ffi::UFunctionOpague,
+    pub ubt_task_blueprint_base_finish_abort: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_string: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_object: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_name: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_float: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_class: *mut crate::ffi::UFunctionOpague,
+    pub u_value_or_bb_key_blueprint_utility_get_bool: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_unlock_ai_resources_with_animation: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_spawn_ai_from_class: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_simple_move_to_location: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_simple_move_to_actor: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_send_ai_message: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_lock_ai_resources_with_animation: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_is_valid_ai_rotation: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_is_valid_ai_location: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_is_valid_ai_direction: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_get_next_nav_link_index: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_get_current_path_points: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_get_current_path_index: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_get_current_path: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_get_blackboard: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_get_ai_controller: *mut crate::ffi::UFunctionOpague,
+    pub uai_blueprint_helper_library_create_move_to_proxy_object: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_context_blueprint_base_provide_single_location: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_context_blueprint_base_provide_single_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_context_blueprint_base_provide_locations_set: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_context_blueprint_base_provide_actors_set: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_instance_blueprint_wrapper_set_named_param: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_instance_blueprint_wrapper_get_results_as_locations: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_instance_blueprint_wrapper_get_results_as_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_instance_blueprint_wrapper_get_query_results_as_locations: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_instance_blueprint_wrapper_get_query_results_as_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_instance_blueprint_wrapper_get_item_score: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_instance_blueprint_wrapper_eqs_query_done_signature_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_manager_run_eqs_query: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_generator_blueprint_base_get_querier: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_generator_blueprint_base_do_item_generation_from_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_generator_blueprint_base_do_item_generation: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_generator_blueprint_base_add_generated_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_env_query_generator_blueprint_base_add_generated_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_path_following_component_on_nav_data_registered: *mut crate::ffi::UFunctionOpague,
+    pub u_path_following_component_on_actor_bump: *mut crate::ffi::UFunctionOpague,
+    pub u_path_following_component_get_path_destination: *mut crate::ffi::UFunctionOpague,
+    pub u_path_following_component_get_path_action_type: *mut crate::ffi::UFunctionOpague,
+    pub u_crowd_following_component_suspend_crowd_steering: *mut crate::ffi::UFunctionOpague,
+    pub u_generated_nav_links_proxy_receive_smart_link_reached: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_link_proxy_set_smart_link_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_link_proxy_resume_path_following: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_link_proxy_receive_smart_link_reached: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_link_proxy_is_smart_link_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_link_proxy_has_moving_agents: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_link_proxy_copy_end_points_from_simple_link_to_smart_link: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_local_grid_manager_set_local_navigation_grid_density: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_local_grid_manager_remove_local_navigation_grid: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_local_grid_manager_find_local_navigation_grid_path: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_local_grid_manager_add_local_navigation_grid_for_points: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_local_grid_manager_add_local_navigation_grid_for_point: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_local_grid_manager_add_local_navigation_grid_for_capsule: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_local_grid_manager_add_local_navigation_grid_for_box: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_set_sense_enabled: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_request_stimuli_listener_update: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_on_owner_end_play: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_is_sense_enabled: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_get_perceived_hostile_actors_by_sense: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_get_perceived_hostile_actors: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_get_known_perceived_actors: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_get_currently_perceived_actors: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_get_actors_perception: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_component_forget_all: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_stimuli_source_component_unregister_from_sense: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_stimuli_source_component_unregister_from_perception_system: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_stimuli_source_component_register_with_perception_system: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_stimuli_source_component_register_for_sense: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_system_report_perception_event: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_system_report_event: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_system_register_perception_stimuli_source: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_system_on_perception_stimuli_source_end_play: *mut crate::ffi::UFunctionOpague,
+    pub uai_perception_system_get_sense_class_for_stimulus: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_blueprint_on_update: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_blueprint_on_listener_updated: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_blueprint_on_listener_unregistered: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_blueprint_on_listener_registered: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_blueprint_k2_on_new_pawn: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_blueprint_get_all_listener_components: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_blueprint_get_all_listener_actors: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_damage_report_damage_event: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_hearing_report_noise_event: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_prediction_request_pawn_prediction_event: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_prediction_request_controller_prediction_event: *mut crate::ffi::UFunctionOpague,
+    pub uai_sense_touch_report_touch_event: *mut crate::ffi::UFunctionOpague,
+    pub u_pawn_sensing_component_set_sensing_updates_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_pawn_sensing_component_set_sensing_interval: *mut crate::ffi::UFunctionOpague,
+    pub u_pawn_sensing_component_set_peripheral_vision_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_pawn_sensing_component_see_pawn_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_pawn_sensing_component_hear_noise_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_pawn_sensing_component_get_peripheral_vision_cosine: *mut crate::ffi::UFunctionOpague,
+    pub u_pawn_sensing_component_get_peripheral_vision_angle: *mut crate::ffi::UFunctionOpague,
+    pub uai_task_move_to_ai_move_to: *mut crate::ffi::UFunctionOpague,
+    pub uai_task_run_eqs_run_eqs: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            uai_async_task_blueprint_proxy_on_move_completed: std::ptr::null_mut(),
+            aai_controller_use_blackboard: std::ptr::null_mut(),
+            aai_controller_unclaim_task_resource: std::ptr::null_mut(),
+            aai_controller_set_path_following_component: std::ptr::null_mut(),
+            aai_controller_set_move_block_detection: std::ptr::null_mut(),
+            aai_controller_run_behavior_tree: std::ptr::null_mut(),
+            aai_controller_on_using_black_board: std::ptr::null_mut(),
+            aai_controller_on_gameplay_task_resources_claimed: std::ptr::null_mut(),
+            aai_controller_move_to_location: std::ptr::null_mut(),
+            aai_controller_move_to_actor: std::ptr::null_mut(),
+            aai_controller_k2_set_focus: std::ptr::null_mut(),
+            aai_controller_k2_set_focal_point: std::ptr::null_mut(),
+            aai_controller_k2_clear_focus: std::ptr::null_mut(),
+            aai_controller_has_partial_path: std::ptr::null_mut(),
+            aai_controller_get_path_following_component: std::ptr::null_mut(),
+            aai_controller_get_move_status: std::ptr::null_mut(),
+            aai_controller_get_immediate_move_destination: std::ptr::null_mut(),
+            aai_controller_get_focus_actor: std::ptr::null_mut(),
+            aai_controller_get_focal_point_on_actor: std::ptr::null_mut(),
+            aai_controller_get_focal_point: std::ptr::null_mut(),
+            aai_controller_get_ai_perception_component: std::ptr::null_mut(),
+            aai_controller_claim_task_resource: std::ptr::null_mut(),
+            uai_system_ai_logging_verbose: std::ptr::null_mut(),
+            uai_system_ai_ignore_players: std::ptr::null_mut(),
+            u_brain_component_stop_logic: std::ptr::null_mut(),
+            u_brain_component_start_logic: std::ptr::null_mut(),
+            u_brain_component_restart_logic: std::ptr::null_mut(),
+            u_brain_component_is_running: std::ptr::null_mut(),
+            u_brain_component_is_paused: std::ptr::null_mut(),
+            u_behavior_tree_component_set_dynamic_subtree: std::ptr::null_mut(),
+            u_behavior_tree_component_get_tag_cooldown_end_time: std::ptr::null_mut(),
+            u_behavior_tree_component_add_cooldown_tag_duration: std::ptr::null_mut(),
+            u_blackboard_asset_provider_get_blackboard_asset: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_vector: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_string: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_rotator: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_object: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_name: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_int: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_float: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_enum: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_class: std::ptr::null_mut(),
+            u_blackboard_component_set_value_as_bool: std::ptr::null_mut(),
+            u_blackboard_component_is_vector_value_set: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_vector: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_string: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_rotator: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_object: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_name: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_int: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_float: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_enum: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_class: std::ptr::null_mut(),
+            u_blackboard_component_get_value_as_bool: std::ptr::null_mut(),
+            u_blackboard_component_get_rotation_from_entry: std::ptr::null_mut(),
+            u_blackboard_component_get_location_from_entry: std::ptr::null_mut(),
+            u_blackboard_component_clear_value: std::ptr::null_mut(),
+            ubt_function_library_stop_using_external_event: std::ptr::null_mut(),
+            ubt_function_library_start_using_external_event: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_vector: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_string: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_rotator: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_object: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_name: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_int: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_float: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_enum: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_class: std::ptr::null_mut(),
+            ubt_function_library_set_blackboard_value_as_bool: std::ptr::null_mut(),
+            ubt_function_library_get_owners_blackboard: std::ptr::null_mut(),
+            ubt_function_library_get_owner_component: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_vector: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_string: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_rotator: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_object: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_name: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_int: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_float: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_enum: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_class: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_bool: std::ptr::null_mut(),
+            ubt_function_library_get_blackboard_value_as_actor: std::ptr::null_mut(),
+            ubt_function_library_clear_blackboard_value_as_vector: std::ptr::null_mut(),
+            ubt_function_library_clear_blackboard_value: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_tick_ai: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_tick: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_observer_deactivated_ai: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_observer_deactivated: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_observer_activated_ai: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_observer_activated: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_execution_start_ai: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_execution_start: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_execution_finish_ai: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_receive_execution_finish: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_perform_condition_check_ai: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_perform_condition_check: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_is_decorator_observer_active: std::ptr::null_mut(),
+            ubt_decorator_blueprint_base_is_decorator_execution_active: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_tick_ai: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_tick: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_search_start_ai: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_search_start: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_deactivation_ai: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_deactivation: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_activation_ai: std::ptr::null_mut(),
+            ubt_service_blueprint_base_receive_activation: std::ptr::null_mut(),
+            ubt_service_blueprint_base_is_service_active: std::ptr::null_mut(),
+            ubt_task_blueprint_base_set_finish_on_message_with_id: std::ptr::null_mut(),
+            ubt_task_blueprint_base_set_finish_on_message: std::ptr::null_mut(),
+            ubt_task_blueprint_base_receive_tick_ai: std::ptr::null_mut(),
+            ubt_task_blueprint_base_receive_tick: std::ptr::null_mut(),
+            ubt_task_blueprint_base_receive_execute_ai: std::ptr::null_mut(),
+            ubt_task_blueprint_base_receive_execute: std::ptr::null_mut(),
+            ubt_task_blueprint_base_receive_abort_ai: std::ptr::null_mut(),
+            ubt_task_blueprint_base_receive_abort: std::ptr::null_mut(),
+            ubt_task_blueprint_base_is_task_executing: std::ptr::null_mut(),
+            ubt_task_blueprint_base_is_task_aborting: std::ptr::null_mut(),
+            ubt_task_blueprint_base_finish_execute: std::ptr::null_mut(),
+            ubt_task_blueprint_base_finish_abort: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_vector: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_struct: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_string: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_rotator: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_object: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_name: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_int32: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_float: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_enum: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_class: std::ptr::null_mut(),
+            u_value_or_bb_key_blueprint_utility_get_bool: std::ptr::null_mut(),
+            uai_blueprint_helper_library_unlock_ai_resources_with_animation: std::ptr::null_mut(),
+            uai_blueprint_helper_library_spawn_ai_from_class: std::ptr::null_mut(),
+            uai_blueprint_helper_library_simple_move_to_location: std::ptr::null_mut(),
+            uai_blueprint_helper_library_simple_move_to_actor: std::ptr::null_mut(),
+            uai_blueprint_helper_library_send_ai_message: std::ptr::null_mut(),
+            uai_blueprint_helper_library_lock_ai_resources_with_animation: std::ptr::null_mut(),
+            uai_blueprint_helper_library_is_valid_ai_rotation: std::ptr::null_mut(),
+            uai_blueprint_helper_library_is_valid_ai_location: std::ptr::null_mut(),
+            uai_blueprint_helper_library_is_valid_ai_direction: std::ptr::null_mut(),
+            uai_blueprint_helper_library_get_next_nav_link_index: std::ptr::null_mut(),
+            uai_blueprint_helper_library_get_current_path_points: std::ptr::null_mut(),
+            uai_blueprint_helper_library_get_current_path_index: std::ptr::null_mut(),
+            uai_blueprint_helper_library_get_current_path: std::ptr::null_mut(),
+            uai_blueprint_helper_library_get_blackboard: std::ptr::null_mut(),
+            uai_blueprint_helper_library_get_ai_controller: std::ptr::null_mut(),
+            uai_blueprint_helper_library_create_move_to_proxy_object: std::ptr::null_mut(),
+            u_env_query_context_blueprint_base_provide_single_location: std::ptr::null_mut(),
+            u_env_query_context_blueprint_base_provide_single_actor: std::ptr::null_mut(),
+            u_env_query_context_blueprint_base_provide_locations_set: std::ptr::null_mut(),
+            u_env_query_context_blueprint_base_provide_actors_set: std::ptr::null_mut(),
+            u_env_query_instance_blueprint_wrapper_set_named_param: std::ptr::null_mut(),
+            u_env_query_instance_blueprint_wrapper_get_results_as_locations: std::ptr::null_mut(),
+            u_env_query_instance_blueprint_wrapper_get_results_as_actors: std::ptr::null_mut(),
+            u_env_query_instance_blueprint_wrapper_get_query_results_as_locations: std::ptr::null_mut(),
+            u_env_query_instance_blueprint_wrapper_get_query_results_as_actors: std::ptr::null_mut(),
+            u_env_query_instance_blueprint_wrapper_get_item_score: std::ptr::null_mut(),
+            u_env_query_instance_blueprint_wrapper_eqs_query_done_signature_delegate_signature: std::ptr::null_mut(),
+            u_env_query_manager_run_eqs_query: std::ptr::null_mut(),
+            u_env_query_generator_blueprint_base_get_querier: std::ptr::null_mut(),
+            u_env_query_generator_blueprint_base_do_item_generation_from_actors: std::ptr::null_mut(),
+            u_env_query_generator_blueprint_base_do_item_generation: std::ptr::null_mut(),
+            u_env_query_generator_blueprint_base_add_generated_vector: std::ptr::null_mut(),
+            u_env_query_generator_blueprint_base_add_generated_actor: std::ptr::null_mut(),
+            u_path_following_component_on_nav_data_registered: std::ptr::null_mut(),
+            u_path_following_component_on_actor_bump: std::ptr::null_mut(),
+            u_path_following_component_get_path_destination: std::ptr::null_mut(),
+            u_path_following_component_get_path_action_type: std::ptr::null_mut(),
+            u_crowd_following_component_suspend_crowd_steering: std::ptr::null_mut(),
+            u_generated_nav_links_proxy_receive_smart_link_reached: std::ptr::null_mut(),
+            a_nav_link_proxy_set_smart_link_enabled: std::ptr::null_mut(),
+            a_nav_link_proxy_resume_path_following: std::ptr::null_mut(),
+            a_nav_link_proxy_receive_smart_link_reached: std::ptr::null_mut(),
+            a_nav_link_proxy_is_smart_link_enabled: std::ptr::null_mut(),
+            a_nav_link_proxy_has_moving_agents: std::ptr::null_mut(),
+            a_nav_link_proxy_copy_end_points_from_simple_link_to_smart_link: std::ptr::null_mut(),
+            u_nav_local_grid_manager_set_local_navigation_grid_density: std::ptr::null_mut(),
+            u_nav_local_grid_manager_remove_local_navigation_grid: std::ptr::null_mut(),
+            u_nav_local_grid_manager_find_local_navigation_grid_path: std::ptr::null_mut(),
+            u_nav_local_grid_manager_add_local_navigation_grid_for_points: std::ptr::null_mut(),
+            u_nav_local_grid_manager_add_local_navigation_grid_for_point: std::ptr::null_mut(),
+            u_nav_local_grid_manager_add_local_navigation_grid_for_capsule: std::ptr::null_mut(),
+            u_nav_local_grid_manager_add_local_navigation_grid_for_box: std::ptr::null_mut(),
+            uai_perception_component_set_sense_enabled: std::ptr::null_mut(),
+            uai_perception_component_request_stimuli_listener_update: std::ptr::null_mut(),
+            uai_perception_component_on_owner_end_play: std::ptr::null_mut(),
+            uai_perception_component_is_sense_enabled: std::ptr::null_mut(),
+            uai_perception_component_get_perceived_hostile_actors_by_sense: std::ptr::null_mut(),
+            uai_perception_component_get_perceived_hostile_actors: std::ptr::null_mut(),
+            uai_perception_component_get_known_perceived_actors: std::ptr::null_mut(),
+            uai_perception_component_get_currently_perceived_actors: std::ptr::null_mut(),
+            uai_perception_component_get_actors_perception: std::ptr::null_mut(),
+            uai_perception_component_forget_all: std::ptr::null_mut(),
+            uai_perception_stimuli_source_component_unregister_from_sense: std::ptr::null_mut(),
+            uai_perception_stimuli_source_component_unregister_from_perception_system: std::ptr::null_mut(),
+            uai_perception_stimuli_source_component_register_with_perception_system: std::ptr::null_mut(),
+            uai_perception_stimuli_source_component_register_for_sense: std::ptr::null_mut(),
+            uai_perception_system_report_perception_event: std::ptr::null_mut(),
+            uai_perception_system_report_event: std::ptr::null_mut(),
+            uai_perception_system_register_perception_stimuli_source: std::ptr::null_mut(),
+            uai_perception_system_on_perception_stimuli_source_end_play: std::ptr::null_mut(),
+            uai_perception_system_get_sense_class_for_stimulus: std::ptr::null_mut(),
+            uai_sense_blueprint_on_update: std::ptr::null_mut(),
+            uai_sense_blueprint_on_listener_updated: std::ptr::null_mut(),
+            uai_sense_blueprint_on_listener_unregistered: std::ptr::null_mut(),
+            uai_sense_blueprint_on_listener_registered: std::ptr::null_mut(),
+            uai_sense_blueprint_k2_on_new_pawn: std::ptr::null_mut(),
+            uai_sense_blueprint_get_all_listener_components: std::ptr::null_mut(),
+            uai_sense_blueprint_get_all_listener_actors: std::ptr::null_mut(),
+            uai_sense_damage_report_damage_event: std::ptr::null_mut(),
+            uai_sense_hearing_report_noise_event: std::ptr::null_mut(),
+            uai_sense_prediction_request_pawn_prediction_event: std::ptr::null_mut(),
+            uai_sense_prediction_request_controller_prediction_event: std::ptr::null_mut(),
+            uai_sense_touch_report_touch_event: std::ptr::null_mut(),
+            u_pawn_sensing_component_set_sensing_updates_enabled: std::ptr::null_mut(),
+            u_pawn_sensing_component_set_sensing_interval: std::ptr::null_mut(),
+            u_pawn_sensing_component_set_peripheral_vision_angle: std::ptr::null_mut(),
+            u_pawn_sensing_component_see_pawn_delegate_delegate_signature: std::ptr::null_mut(),
+            u_pawn_sensing_component_hear_noise_delegate_delegate_signature: std::ptr::null_mut(),
+            u_pawn_sensing_component_get_peripheral_vision_cosine: std::ptr::null_mut(),
+            u_pawn_sensing_component_get_peripheral_vision_angle: std::ptr::null_mut(),
+            uai_task_move_to_ai_move_to: std::ptr::null_mut(),
+            uai_task_run_eqs_run_eqs: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -460,7 +469,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMoveCompleted"),
-            &raw mut UAI_ASYNC_TASK_BLUEPRINT_PROXY_ON_MOVE_COMPLETED,
+            &raw mut __FUNCTION_PTRS.uai_async_task_blueprint_proxy_on_move_completed,
         );
     }
     unsafe {
@@ -471,147 +480,147 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UseBlackboard"),
-            &raw mut AAI_CONTROLLER_USE_BLACKBOARD,
+            &raw mut __FUNCTION_PTRS.aai_controller_use_blackboard,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnclaimTaskResource"),
-            &raw mut AAI_CONTROLLER_UNCLAIM_TASK_RESOURCE,
+            &raw mut __FUNCTION_PTRS.aai_controller_unclaim_task_resource,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPathFollowingComponent"),
-            &raw mut AAI_CONTROLLER_SET_PATH_FOLLOWING_COMPONENT,
+            &raw mut __FUNCTION_PTRS.aai_controller_set_path_following_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMoveBlockDetection"),
-            &raw mut AAI_CONTROLLER_SET_MOVE_BLOCK_DETECTION,
+            &raw mut __FUNCTION_PTRS.aai_controller_set_move_block_detection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RunBehaviorTree"),
-            &raw mut AAI_CONTROLLER_RUN_BEHAVIOR_TREE,
+            &raw mut __FUNCTION_PTRS.aai_controller_run_behavior_tree,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnUsingBlackBoard"),
-            &raw mut AAI_CONTROLLER_ON_USING_BLACK_BOARD,
+            &raw mut __FUNCTION_PTRS.aai_controller_on_using_black_board,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnGameplayTaskResourcesClaimed"),
-            &raw mut AAI_CONTROLLER_ON_GAMEPLAY_TASK_RESOURCES_CLAIMED,
+            &raw mut __FUNCTION_PTRS.aai_controller_on_gameplay_task_resources_claimed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveToLocation"),
-            &raw mut AAI_CONTROLLER_MOVE_TO_LOCATION,
+            &raw mut __FUNCTION_PTRS.aai_controller_move_to_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveToActor"),
-            &raw mut AAI_CONTROLLER_MOVE_TO_ACTOR,
+            &raw mut __FUNCTION_PTRS.aai_controller_move_to_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_SetFocus"),
-            &raw mut AAI_CONTROLLER_K2_SET_FOCUS,
+            &raw mut __FUNCTION_PTRS.aai_controller_k2_set_focus,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_SetFocalPoint"),
-            &raw mut AAI_CONTROLLER_K2_SET_FOCAL_POINT,
+            &raw mut __FUNCTION_PTRS.aai_controller_k2_set_focal_point,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_ClearFocus"),
-            &raw mut AAI_CONTROLLER_K2_CLEAR_FOCUS,
+            &raw mut __FUNCTION_PTRS.aai_controller_k2_clear_focus,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasPartialPath"),
-            &raw mut AAI_CONTROLLER_HAS_PARTIAL_PATH,
+            &raw mut __FUNCTION_PTRS.aai_controller_has_partial_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathFollowingComponent"),
-            &raw mut AAI_CONTROLLER_GET_PATH_FOLLOWING_COMPONENT,
+            &raw mut __FUNCTION_PTRS.aai_controller_get_path_following_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMoveStatus"),
-            &raw mut AAI_CONTROLLER_GET_MOVE_STATUS,
+            &raw mut __FUNCTION_PTRS.aai_controller_get_move_status,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetImmediateMoveDestination"),
-            &raw mut AAI_CONTROLLER_GET_IMMEDIATE_MOVE_DESTINATION,
+            &raw mut __FUNCTION_PTRS.aai_controller_get_immediate_move_destination,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFocusActor"),
-            &raw mut AAI_CONTROLLER_GET_FOCUS_ACTOR,
+            &raw mut __FUNCTION_PTRS.aai_controller_get_focus_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFocalPointOnActor"),
-            &raw mut AAI_CONTROLLER_GET_FOCAL_POINT_ON_ACTOR,
+            &raw mut __FUNCTION_PTRS.aai_controller_get_focal_point_on_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFocalPoint"),
-            &raw mut AAI_CONTROLLER_GET_FOCAL_POINT,
+            &raw mut __FUNCTION_PTRS.aai_controller_get_focal_point,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAIPerceptionComponent"),
-            &raw mut AAI_CONTROLLER_GET_AI_PERCEPTION_COMPONENT,
+            &raw mut __FUNCTION_PTRS.aai_controller_get_ai_perception_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClaimTaskResource"),
-            &raw mut AAI_CONTROLLER_CLAIM_TASK_RESOURCE,
+            &raw mut __FUNCTION_PTRS.aai_controller_claim_task_resource,
         );
     }
     unsafe {
@@ -622,14 +631,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AILoggingVerbose"),
-            &raw mut UAI_SYSTEM_AI_LOGGING_VERBOSE,
+            &raw mut __FUNCTION_PTRS.uai_system_ai_logging_verbose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AIIgnorePlayers"),
-            &raw mut UAI_SYSTEM_AI_IGNORE_PLAYERS,
+            &raw mut __FUNCTION_PTRS.uai_system_ai_ignore_players,
         );
     }
     unsafe {
@@ -640,35 +649,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopLogic"),
-            &raw mut U_BRAIN_COMPONENT_STOP_LOGIC,
+            &raw mut __FUNCTION_PTRS.u_brain_component_stop_logic,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartLogic"),
-            &raw mut U_BRAIN_COMPONENT_START_LOGIC,
+            &raw mut __FUNCTION_PTRS.u_brain_component_start_logic,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RestartLogic"),
-            &raw mut U_BRAIN_COMPONENT_RESTART_LOGIC,
+            &raw mut __FUNCTION_PTRS.u_brain_component_restart_logic,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRunning"),
-            &raw mut U_BRAIN_COMPONENT_IS_RUNNING,
+            &raw mut __FUNCTION_PTRS.u_brain_component_is_running,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut U_BRAIN_COMPONENT_IS_PAUSED,
+            &raw mut __FUNCTION_PTRS.u_brain_component_is_paused,
         );
     }
     unsafe {
@@ -679,21 +688,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDynamicSubtree"),
-            &raw mut U_BEHAVIOR_TREE_COMPONENT_SET_DYNAMIC_SUBTREE,
+            &raw mut __FUNCTION_PTRS.u_behavior_tree_component_set_dynamic_subtree,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTagCooldownEndTime"),
-            &raw mut U_BEHAVIOR_TREE_COMPONENT_GET_TAG_COOLDOWN_END_TIME,
+            &raw mut __FUNCTION_PTRS.u_behavior_tree_component_get_tag_cooldown_end_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCooldownTagDuration"),
-            &raw mut U_BEHAVIOR_TREE_COMPONENT_ADD_COOLDOWN_TAG_DURATION,
+            &raw mut __FUNCTION_PTRS.u_behavior_tree_component_add_cooldown_tag_duration,
         );
     }
     unsafe {
@@ -704,7 +713,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardAsset"),
-            &raw mut U_BLACKBOARD_ASSET_PROVIDER_GET_BLACKBOARD_ASSET,
+            &raw mut __FUNCTION_PTRS.u_blackboard_asset_provider_get_blackboard_asset,
         );
     }
     unsafe {
@@ -715,168 +724,168 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsVector"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsString"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_STRING,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsRotator"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsObject"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsName"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_NAME,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsInt"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_INT,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsFloat"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsEnum"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ENUM,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsClass"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_CLASS,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueAsBool"),
-            &raw mut U_BLACKBOARD_COMPONENT_SET_VALUE_AS_BOOL,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_set_value_as_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsVectorValueSet"),
-            &raw mut U_BLACKBOARD_COMPONENT_IS_VECTOR_VALUE_SET,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_is_vector_value_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsVector"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsString"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_STRING,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsRotator"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsObject"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsName"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_NAME,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsInt"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_INT,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsFloat"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsEnum"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ENUM,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsClass"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_CLASS,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueAsBool"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_VALUE_AS_BOOL,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_value_as_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRotationFromEntry"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_ROTATION_FROM_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_rotation_from_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocationFromEntry"),
-            &raw mut U_BLACKBOARD_COMPONENT_GET_LOCATION_FROM_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_get_location_from_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearValue"),
-            &raw mut U_BLACKBOARD_COMPONENT_CLEAR_VALUE,
+            &raw mut __FUNCTION_PTRS.u_blackboard_component_clear_value,
         );
     }
     unsafe {
@@ -887,189 +896,190 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopUsingExternalEvent"),
-            &raw mut UBT_FUNCTION_LIBRARY_STOP_USING_EXTERNAL_EVENT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_stop_using_external_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartUsingExternalEvent"),
-            &raw mut UBT_FUNCTION_LIBRARY_START_USING_EXTERNAL_EVENT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_start_using_external_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsVector"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_VECTOR,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsString"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_STRING,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsRotator"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ROTATOR,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsObject"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_OBJECT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsName"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_NAME,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsInt"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_INT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsFloat"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_FLOAT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsEnum"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ENUM,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsClass"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_CLASS,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlackboardValueAsBool"),
-            &raw mut UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_BOOL,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_set_blackboard_value_as_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOwnersBlackboard"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_OWNERS_BLACKBOARD,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_owners_blackboard,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOwnerComponent"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_OWNER_COMPONENT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_owner_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsVector"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_VECTOR,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsString"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_STRING,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsRotator"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ROTATOR,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsObject"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_OBJECT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsName"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_NAME,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsInt"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_INT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsFloat"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_FLOAT,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsEnum"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ENUM,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsClass"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_CLASS,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsBool"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_BOOL,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboardValueAsActor"),
-            &raw mut UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ACTOR,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_get_blackboard_value_as_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearBlackboardValueAsVector"),
-            &raw mut UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE_AS_VECTOR,
+            &raw mut __FUNCTION_PTRS
+                .ubt_function_library_clear_blackboard_value_as_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearBlackboardValue"),
-            &raw mut UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE,
+            &raw mut __FUNCTION_PTRS.ubt_function_library_clear_blackboard_value,
         );
     }
     unsafe {
@@ -1080,98 +1090,108 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTickAI"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_TICK_AI,
+            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_tick_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_TICK,
+            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveObserverDeactivatedAI"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_DEACTIVATED_AI,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_receive_observer_deactivated_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveObserverDeactivated"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_DEACTIVATED,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_receive_observer_deactivated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveObserverActivatedAI"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_ACTIVATED_AI,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_receive_observer_activated_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveObserverActivated"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_OBSERVER_ACTIVATED,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_receive_observer_activated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveExecutionStartAI"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_START_AI,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_receive_execution_start_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveExecutionStart"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_START,
+            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_receive_execution_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveExecutionFinishAI"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_FINISH_AI,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_receive_execution_finish_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveExecutionFinish"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_RECEIVE_EXECUTION_FINISH,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_receive_execution_finish,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PerformConditionCheckAI"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_PERFORM_CONDITION_CHECK_AI,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_perform_condition_check_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PerformConditionCheck"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_PERFORM_CONDITION_CHECK,
+            &raw mut __FUNCTION_PTRS.ubt_decorator_blueprint_base_perform_condition_check,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDecoratorObserverActive"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_OBSERVER_ACTIVE,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_is_decorator_observer_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDecoratorExecutionActive"),
-            &raw mut UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_EXECUTION_ACTIVE,
+            &raw mut __FUNCTION_PTRS
+                .ubt_decorator_blueprint_base_is_decorator_execution_active,
         );
     }
     unsafe {
@@ -1182,63 +1202,63 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTickAI"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_TICK_AI,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_tick_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_TICK,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveSearchStartAI"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_SEARCH_START_AI,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_search_start_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveSearchStart"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_SEARCH_START,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_search_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveDeactivationAI"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_DEACTIVATION_AI,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_deactivation_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveDeactivation"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_DEACTIVATION,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_deactivation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveActivationAI"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_ACTIVATION_AI,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_activation_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveActivation"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_RECEIVE_ACTIVATION,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_receive_activation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsServiceActive"),
-            &raw mut UBT_SERVICE_BLUEPRINT_BASE_IS_SERVICE_ACTIVE,
+            &raw mut __FUNCTION_PTRS.ubt_service_blueprint_base_is_service_active,
         );
     }
     unsafe {
@@ -1249,84 +1269,85 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFinishOnMessageWithId"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE_WITH_ID,
+            &raw mut __FUNCTION_PTRS
+                .ubt_task_blueprint_base_set_finish_on_message_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFinishOnMessage"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_set_finish_on_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTickAI"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_TICK_AI,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_tick_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_TICK,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveExecuteAI"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_EXECUTE_AI,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_execute_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveExecute"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_EXECUTE,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_execute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveAbortAI"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_ABORT_AI,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_abort_ai,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveAbort"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_RECEIVE_ABORT,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_receive_abort,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTaskExecuting"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_IS_TASK_EXECUTING,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_is_task_executing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTaskAborting"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_IS_TASK_ABORTING,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_is_task_aborting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinishExecute"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_FINISH_EXECUTE,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_finish_execute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinishAbort"),
-            &raw mut UBT_TASK_BLUEPRINT_BASE_FINISH_ABORT,
+            &raw mut __FUNCTION_PTRS.ubt_task_blueprint_base_finish_abort,
         );
     }
     unsafe {
@@ -1337,77 +1358,77 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStruct"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetString"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRING,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRotator"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetName"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_NAME,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInt32"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_INT32,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_int32,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnum"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ENUM,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetClass"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_CLASS,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBool"),
-            &raw mut U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_BOOL,
+            &raw mut __FUNCTION_PTRS.u_value_or_bb_key_blueprint_utility_get_bool,
         );
     }
     unsafe {
@@ -1418,112 +1439,115 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnlockAIResourcesWithAnimation"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_UNLOCK_AI_RESOURCES_WITH_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .uai_blueprint_helper_library_unlock_ai_resources_with_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnAIFromClass"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_SPAWN_AI_FROM_CLASS,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_spawn_ai_from_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SimpleMoveToLocation"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_LOCATION,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_simple_move_to_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SimpleMoveToActor"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_ACTOR,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_simple_move_to_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SendAIMessage"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_SEND_AI_MESSAGE,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_send_ai_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LockAIResourcesWithAnimation"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_LOCK_AI_RESOURCES_WITH_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .uai_blueprint_helper_library_lock_ai_resources_with_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidAIRotation"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_ROTATION,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_is_valid_ai_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidAILocation"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_LOCATION,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_is_valid_ai_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidAIDirection"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_DIRECTION,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_is_valid_ai_direction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNextNavLinkIndex"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_NEXT_NAV_LINK_INDEX,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_next_nav_link_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPathPoints"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_POINTS,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_current_path_points,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPathIndex"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_INDEX,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_current_path_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPath"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_current_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlackboard"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_BLACKBOARD,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_blackboard,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAIController"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_GET_AI_CONTROLLER,
+            &raw mut __FUNCTION_PTRS.uai_blueprint_helper_library_get_ai_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMoveToProxyObject"),
-            &raw mut UAI_BLUEPRINT_HELPER_LIBRARY_CREATE_MOVE_TO_PROXY_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .uai_blueprint_helper_library_create_move_to_proxy_object,
         );
     }
     unsafe {
@@ -1534,28 +1558,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProvideSingleLocation"),
-            &raw mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_SINGLE_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_context_blueprint_base_provide_single_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProvideSingleActor"),
-            &raw mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_SINGLE_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_context_blueprint_base_provide_single_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProvideLocationsSet"),
-            &raw mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_LOCATIONS_SET,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_context_blueprint_base_provide_locations_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProvideActorsSet"),
-            &raw mut U_ENV_QUERY_CONTEXT_BLUEPRINT_BASE_PROVIDE_ACTORS_SET,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_context_blueprint_base_provide_actors_set,
         );
     }
     unsafe {
@@ -1566,49 +1594,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNamedParam"),
-            &raw mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_SET_NAMED_PARAM,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_instance_blueprint_wrapper_set_named_param,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetResultsAsLocations"),
-            &raw mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_LOCATIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_instance_blueprint_wrapper_get_results_as_locations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetResultsAsActors"),
-            &raw mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_instance_blueprint_wrapper_get_results_as_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQueryResultsAsLocations"),
-            &raw mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_LOCATIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_instance_blueprint_wrapper_get_query_results_as_locations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQueryResultsAsActors"),
-            &raw mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_instance_blueprint_wrapper_get_query_results_as_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemScore"),
-            &raw mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_ITEM_SCORE,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_instance_blueprint_wrapper_get_item_score,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EQSQueryDoneSignature__DelegateSignature"),
-            &raw mut U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_EQS_QUERY_DONE_SIGNATURE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_instance_blueprint_wrapper_eqs_query_done_signature_delegate_signature,
         );
     }
     unsafe {
@@ -1619,7 +1654,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RunEQSQuery"),
-            &raw mut U_ENV_QUERY_MANAGER_RUN_EQS_QUERY,
+            &raw mut __FUNCTION_PTRS.u_env_query_manager_run_eqs_query,
         );
     }
     unsafe {
@@ -1630,35 +1665,39 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQuerier"),
-            &raw mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_GET_QUERIER,
+            &raw mut __FUNCTION_PTRS.u_env_query_generator_blueprint_base_get_querier,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoItemGenerationFromActors"),
-            &raw mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_DO_ITEM_GENERATION_FROM_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_generator_blueprint_base_do_item_generation_from_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoItemGeneration"),
-            &raw mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_DO_ITEM_GENERATION,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_generator_blueprint_base_do_item_generation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGeneratedVector"),
-            &raw mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_VECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_generator_blueprint_base_add_generated_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGeneratedActor"),
-            &raw mut U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_env_query_generator_blueprint_base_add_generated_actor,
         );
     }
     unsafe {
@@ -1669,28 +1708,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnNavDataRegistered"),
-            &raw mut U_PATH_FOLLOWING_COMPONENT_ON_NAV_DATA_REGISTERED,
+            &raw mut __FUNCTION_PTRS.u_path_following_component_on_nav_data_registered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorBump"),
-            &raw mut U_PATH_FOLLOWING_COMPONENT_ON_ACTOR_BUMP,
+            &raw mut __FUNCTION_PTRS.u_path_following_component_on_actor_bump,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathDestination"),
-            &raw mut U_PATH_FOLLOWING_COMPONENT_GET_PATH_DESTINATION,
+            &raw mut __FUNCTION_PTRS.u_path_following_component_get_path_destination,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathActionType"),
-            &raw mut U_PATH_FOLLOWING_COMPONENT_GET_PATH_ACTION_TYPE,
+            &raw mut __FUNCTION_PTRS.u_path_following_component_get_path_action_type,
         );
     }
     unsafe {
@@ -1701,7 +1740,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SuspendCrowdSteering"),
-            &raw mut U_CROWD_FOLLOWING_COMPONENT_SUSPEND_CROWD_STEERING,
+            &raw mut __FUNCTION_PTRS.u_crowd_following_component_suspend_crowd_steering,
         );
     }
     unsafe {
@@ -1712,7 +1751,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveSmartLinkReached"),
-            &raw mut U_GENERATED_NAV_LINKS_PROXY_RECEIVE_SMART_LINK_REACHED,
+            &raw mut __FUNCTION_PTRS
+                .u_generated_nav_links_proxy_receive_smart_link_reached,
         );
     }
     unsafe {
@@ -1723,42 +1763,43 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSmartLinkEnabled"),
-            &raw mut A_NAV_LINK_PROXY_SET_SMART_LINK_ENABLED,
+            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_set_smart_link_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResumePathFollowing"),
-            &raw mut A_NAV_LINK_PROXY_RESUME_PATH_FOLLOWING,
+            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_resume_path_following,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveSmartLinkReached"),
-            &raw mut A_NAV_LINK_PROXY_RECEIVE_SMART_LINK_REACHED,
+            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_receive_smart_link_reached,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSmartLinkEnabled"),
-            &raw mut A_NAV_LINK_PROXY_IS_SMART_LINK_ENABLED,
+            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_is_smart_link_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasMovingAgents"),
-            &raw mut A_NAV_LINK_PROXY_HAS_MOVING_AGENTS,
+            &raw mut __FUNCTION_PTRS.a_nav_link_proxy_has_moving_agents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyEndPointsFromSimpleLinkToSmartLink"),
-            &raw mut A_NAV_LINK_PROXY_COPY_END_POINTS_FROM_SIMPLE_LINK_TO_SMART_LINK,
+            &raw mut __FUNCTION_PTRS
+                .a_nav_link_proxy_copy_end_points_from_simple_link_to_smart_link,
         );
     }
     unsafe {
@@ -1769,49 +1810,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalNavigationGridDensity"),
-            &raw mut U_NAV_LOCAL_GRID_MANAGER_SET_LOCAL_NAVIGATION_GRID_DENSITY,
+            &raw mut __FUNCTION_PTRS
+                .u_nav_local_grid_manager_set_local_navigation_grid_density,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLocalNavigationGrid"),
-            &raw mut U_NAV_LOCAL_GRID_MANAGER_REMOVE_LOCAL_NAVIGATION_GRID,
+            &raw mut __FUNCTION_PTRS
+                .u_nav_local_grid_manager_remove_local_navigation_grid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindLocalNavigationGridPath"),
-            &raw mut U_NAV_LOCAL_GRID_MANAGER_FIND_LOCAL_NAVIGATION_GRID_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_nav_local_grid_manager_find_local_navigation_grid_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLocalNavigationGridForPoints"),
-            &raw mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINTS,
+            &raw mut __FUNCTION_PTRS
+                .u_nav_local_grid_manager_add_local_navigation_grid_for_points,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLocalNavigationGridForPoint"),
-            &raw mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINT,
+            &raw mut __FUNCTION_PTRS
+                .u_nav_local_grid_manager_add_local_navigation_grid_for_point,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLocalNavigationGridForCapsule"),
-            &raw mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_CAPSULE,
+            &raw mut __FUNCTION_PTRS
+                .u_nav_local_grid_manager_add_local_navigation_grid_for_capsule,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLocalNavigationGridForBox"),
-            &raw mut U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_BOX,
+            &raw mut __FUNCTION_PTRS
+                .u_nav_local_grid_manager_add_local_navigation_grid_for_box,
         );
     }
     unsafe {
@@ -1822,70 +1870,74 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSenseEnabled"),
-            &raw mut UAI_PERCEPTION_COMPONENT_SET_SENSE_ENABLED,
+            &raw mut __FUNCTION_PTRS.uai_perception_component_set_sense_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestStimuliListenerUpdate"),
-            &raw mut UAI_PERCEPTION_COMPONENT_REQUEST_STIMULI_LISTENER_UPDATE,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_component_request_stimuli_listener_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnOwnerEndPlay"),
-            &raw mut UAI_PERCEPTION_COMPONENT_ON_OWNER_END_PLAY,
+            &raw mut __FUNCTION_PTRS.uai_perception_component_on_owner_end_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSenseEnabled"),
-            &raw mut UAI_PERCEPTION_COMPONENT_IS_SENSE_ENABLED,
+            &raw mut __FUNCTION_PTRS.uai_perception_component_is_sense_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPerceivedHostileActorsBySense"),
-            &raw mut UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS_BY_SENSE,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_component_get_perceived_hostile_actors_by_sense,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPerceivedHostileActors"),
-            &raw mut UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_component_get_perceived_hostile_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKnownPerceivedActors"),
-            &raw mut UAI_PERCEPTION_COMPONENT_GET_KNOWN_PERCEIVED_ACTORS,
+            &raw mut __FUNCTION_PTRS.uai_perception_component_get_known_perceived_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentlyPerceivedActors"),
-            &raw mut UAI_PERCEPTION_COMPONENT_GET_CURRENTLY_PERCEIVED_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_component_get_currently_perceived_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorsPerception"),
-            &raw mut UAI_PERCEPTION_COMPONENT_GET_ACTORS_PERCEPTION,
+            &raw mut __FUNCTION_PTRS.uai_perception_component_get_actors_perception,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForgetAll"),
-            &raw mut UAI_PERCEPTION_COMPONENT_FORGET_ALL,
+            &raw mut __FUNCTION_PTRS.uai_perception_component_forget_all,
         );
     }
     unsafe {
@@ -1896,28 +1948,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterFromSense"),
-            &raw mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_SENSE,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_stimuli_source_component_unregister_from_sense,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterFromPerceptionSystem"),
-            &raw mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_PERCEPTION_SYSTEM,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_stimuli_source_component_unregister_from_perception_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterWithPerceptionSystem"),
-            &raw mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_WITH_PERCEPTION_SYSTEM,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_stimuli_source_component_register_with_perception_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterForSense"),
-            &raw mut UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_FOR_SENSE,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_stimuli_source_component_register_for_sense,
         );
     }
     unsafe {
@@ -1928,35 +1984,37 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReportPerceptionEvent"),
-            &raw mut UAI_PERCEPTION_SYSTEM_REPORT_PERCEPTION_EVENT,
+            &raw mut __FUNCTION_PTRS.uai_perception_system_report_perception_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReportEvent"),
-            &raw mut UAI_PERCEPTION_SYSTEM_REPORT_EVENT,
+            &raw mut __FUNCTION_PTRS.uai_perception_system_report_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterPerceptionStimuliSource"),
-            &raw mut UAI_PERCEPTION_SYSTEM_REGISTER_PERCEPTION_STIMULI_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_system_register_perception_stimuli_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPerceptionStimuliSourceEndPlay"),
-            &raw mut UAI_PERCEPTION_SYSTEM_ON_PERCEPTION_STIMULI_SOURCE_END_PLAY,
+            &raw mut __FUNCTION_PTRS
+                .uai_perception_system_on_perception_stimuli_source_end_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSenseClassForStimulus"),
-            &raw mut UAI_PERCEPTION_SYSTEM_GET_SENSE_CLASS_FOR_STIMULUS,
+            &raw mut __FUNCTION_PTRS.uai_perception_system_get_sense_class_for_stimulus,
         );
     }
     unsafe {
@@ -1967,49 +2025,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnUpdate"),
-            &raw mut UAI_SENSE_BLUEPRINT_ON_UPDATE,
+            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnListenerUpdated"),
-            &raw mut UAI_SENSE_BLUEPRINT_ON_LISTENER_UPDATED,
+            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_updated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnListenerUnregistered"),
-            &raw mut UAI_SENSE_BLUEPRINT_ON_LISTENER_UNREGISTERED,
+            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_unregistered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnListenerRegistered"),
-            &raw mut UAI_SENSE_BLUEPRINT_ON_LISTENER_REGISTERED,
+            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_on_listener_registered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_OnNewPawn"),
-            &raw mut UAI_SENSE_BLUEPRINT_K2_ON_NEW_PAWN,
+            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_k2_on_new_pawn,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllListenerComponents"),
-            &raw mut UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_COMPONENTS,
+            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_get_all_listener_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllListenerActors"),
-            &raw mut UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_ACTORS,
+            &raw mut __FUNCTION_PTRS.uai_sense_blueprint_get_all_listener_actors,
         );
     }
     unsafe {
@@ -2020,7 +2078,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReportDamageEvent"),
-            &raw mut UAI_SENSE_DAMAGE_REPORT_DAMAGE_EVENT,
+            &raw mut __FUNCTION_PTRS.uai_sense_damage_report_damage_event,
         );
     }
     unsafe {
@@ -2031,7 +2089,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReportNoiseEvent"),
-            &raw mut UAI_SENSE_HEARING_REPORT_NOISE_EVENT,
+            &raw mut __FUNCTION_PTRS.uai_sense_hearing_report_noise_event,
         );
     }
     unsafe {
@@ -2042,14 +2100,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestPawnPredictionEvent"),
-            &raw mut UAI_SENSE_PREDICTION_REQUEST_PAWN_PREDICTION_EVENT,
+            &raw mut __FUNCTION_PTRS.uai_sense_prediction_request_pawn_prediction_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestControllerPredictionEvent"),
-            &raw mut UAI_SENSE_PREDICTION_REQUEST_CONTROLLER_PREDICTION_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .uai_sense_prediction_request_controller_prediction_event,
         );
     }
     unsafe {
@@ -2060,7 +2119,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReportTouchEvent"),
-            &raw mut UAI_SENSE_TOUCH_REPORT_TOUCH_EVENT,
+            &raw mut __FUNCTION_PTRS.uai_sense_touch_report_touch_event,
         );
     }
     unsafe {
@@ -2071,49 +2130,52 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSensingUpdatesEnabled"),
-            &raw mut U_PAWN_SENSING_COMPONENT_SET_SENSING_UPDATES_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_set_sensing_updates_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSensingInterval"),
-            &raw mut U_PAWN_SENSING_COMPONENT_SET_SENSING_INTERVAL,
+            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_set_sensing_interval,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPeripheralVisionAngle"),
-            &raw mut U_PAWN_SENSING_COMPONENT_SET_PERIPHERAL_VISION_ANGLE,
+            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_set_peripheral_vision_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SeePawnDelegate__DelegateSignature"),
-            &raw mut U_PAWN_SENSING_COMPONENT_SEE_PAWN_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_pawn_sensing_component_see_pawn_delegate_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HearNoiseDelegate__DelegateSignature"),
-            &raw mut U_PAWN_SENSING_COMPONENT_HEAR_NOISE_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_pawn_sensing_component_hear_noise_delegate_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPeripheralVisionCosine"),
-            &raw mut U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_COSINE,
+            &raw mut __FUNCTION_PTRS
+                .u_pawn_sensing_component_get_peripheral_vision_cosine,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPeripheralVisionAngle"),
-            &raw mut U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_ANGLE,
+            &raw mut __FUNCTION_PTRS.u_pawn_sensing_component_get_peripheral_vision_angle,
         );
     }
     unsafe {
@@ -2124,7 +2186,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AIMoveTo"),
-            &raw mut UAI_TASK_MOVE_TO_AI_MOVE_TO,
+            &raw mut __FUNCTION_PTRS.uai_task_move_to_ai_move_to,
         );
     }
     unsafe {
@@ -2135,7 +2197,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RunEQS"),
-            &raw mut UAI_TASK_RUN_EQS_RUN_EQS,
+            &raw mut __FUNCTION_PTRS.uai_task_run_eqs_run_eqs,
         );
     }
 }
@@ -2721,7 +2783,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_USE_BLACKBOARD,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_use_blackboard,
                 __buffer,
             )
         };
@@ -2745,7 +2808,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_USE_BLACKBOARD,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_use_blackboard,
                 __buffer,
             )
         };
@@ -2770,7 +2834,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_UNCLAIM_TASK_RESOURCE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_unclaim_task_resource,
                 __buffer,
             )
         };
@@ -2793,7 +2858,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_UNCLAIM_TASK_RESOURCE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_unclaim_task_resource,
                 __buffer,
             )
         };
@@ -2809,7 +2875,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_SET_PATH_FOLLOWING_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_set_path_following_component,
                 __buffer,
             )
         };
@@ -2826,7 +2893,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_SET_PATH_FOLLOWING_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_set_path_following_component,
                 __buffer,
             )
         };
@@ -2839,7 +2907,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_SET_MOVE_BLOCK_DETECTION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_set_move_block_detection,
                 __buffer,
             )
         };
@@ -2852,7 +2921,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_SET_MOVE_BLOCK_DETECTION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_set_move_block_detection,
                 __buffer,
             )
         };
@@ -2865,7 +2935,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_RUN_BEHAVIOR_TREE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_run_behavior_tree,
                 __buffer,
             )
         };
@@ -2882,11 +2953,55 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_RUN_BEHAVIOR_TREE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_run_behavior_tree,
                 __buffer,
             )
         };
         unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn on_using_black_board(
+        &mut self,
+        blackboard_comp: UPtr<UBlackboardComponent>,
+        blackboard_asset: UPtr<UBlackboardData>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_on_using_black_board,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blackboard_comp,
+                __buffer.add(0).cast::<UPtr<UBlackboardComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &blackboard_asset,
+                __buffer.add(8).cast::<UPtr<UBlackboardData>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_on_using_black_board,
+                __buffer,
+            )
+        };
     }
     pub fn move_to_location(
         &mut self,
@@ -2908,7 +3023,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_LOCATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_move_to_location,
                 __buffer,
             )
         };
@@ -2980,7 +3096,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_LOCATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_move_to_location,
                 __buffer,
             )
         };
@@ -3005,7 +3122,7 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS.aai_controller_move_to_actor,
                 __buffer,
             )
         };
@@ -3070,7 +3187,7 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_MOVE_TO_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS.aai_controller_move_to_actor,
                 __buffer,
             )
         };
@@ -3084,7 +3201,7 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS.aai_controller_k2_set_focus,
                 __buffer,
             )
         };
@@ -3101,7 +3218,7 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS.aai_controller_k2_set_focus,
                 __buffer,
             )
         };
@@ -3114,7 +3231,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCAL_POINT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_k2_set_focal_point,
                 __buffer,
             )
         };
@@ -3131,7 +3249,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_K2_SET_FOCAL_POINT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_k2_set_focal_point,
                 __buffer,
             )
         };
@@ -3144,7 +3263,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_K2_CLEAR_FOCUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_k2_clear_focus,
                 __buffer,
             )
         };
@@ -3154,7 +3274,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_K2_CLEAR_FOCUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_k2_clear_focus,
                 __buffer,
             )
         };
@@ -3167,7 +3288,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_HAS_PARTIAL_PATH,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_has_partial_path,
                 __buffer,
             )
         };
@@ -3177,7 +3299,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_HAS_PARTIAL_PATH,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_has_partial_path,
                 __buffer,
             )
         };
@@ -3191,7 +3314,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_PATH_FOLLOWING_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_path_following_component,
                 __buffer,
             )
         };
@@ -3201,7 +3325,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_PATH_FOLLOWING_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_path_following_component,
                 __buffer,
             )
         };
@@ -3215,7 +3340,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_MOVE_STATUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_move_status,
                 __buffer,
             )
         };
@@ -3225,7 +3351,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_MOVE_STATUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_move_status,
                 __buffer,
             )
         };
@@ -3241,7 +3368,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_IMMEDIATE_MOVE_DESTINATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_immediate_move_destination,
                 __buffer,
             )
         };
@@ -3251,7 +3379,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_IMMEDIATE_MOVE_DESTINATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_immediate_move_destination,
                 __buffer,
             )
         };
@@ -3267,7 +3396,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCUS_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_focus_actor,
                 __buffer,
             )
         };
@@ -3277,7 +3407,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCUS_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_focus_actor,
                 __buffer,
             )
         };
@@ -3294,7 +3425,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT_ON_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_focal_point_on_actor,
                 __buffer,
             )
         };
@@ -3311,7 +3443,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT_ON_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_focal_point_on_actor,
                 __buffer,
             )
         };
@@ -3327,7 +3460,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_focal_point,
                 __buffer,
             )
         };
@@ -3337,7 +3471,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_FOCAL_POINT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_focal_point,
                 __buffer,
             )
         };
@@ -3353,7 +3488,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_AI_PERCEPTION_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_ai_perception_component,
                 __buffer,
             )
         };
@@ -3363,7 +3499,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_GET_AI_PERCEPTION_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_get_ai_perception_component,
                 __buffer,
             )
         };
@@ -3382,7 +3519,8 @@ impl AAIController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::AAI_CONTROLLER_CLAIM_TASK_RESOURCE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_claim_task_resource,
                 __buffer,
             )
         };
@@ -3405,7 +3543,8 @@ impl AAIController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::AAI_CONTROLLER_CLAIM_TASK_RESOURCE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .aai_controller_claim_task_resource,
                 __buffer,
             )
         };
@@ -3544,7 +3683,7 @@ impl UBrainComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_STOP_LOGIC,
+                crate::bindings::ai_module::__FUNCTION_PTRS.u_brain_component_stop_logic,
                 __buffer,
             )
         };
@@ -3557,7 +3696,7 @@ impl UBrainComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_STOP_LOGIC,
+                crate::bindings::ai_module::__FUNCTION_PTRS.u_brain_component_stop_logic,
                 __buffer,
             )
         };
@@ -3570,7 +3709,8 @@ impl UBrainComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_START_LOGIC,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_brain_component_start_logic,
                 __buffer,
             )
         };
@@ -3580,7 +3720,8 @@ impl UBrainComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_START_LOGIC,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_brain_component_start_logic,
                 __buffer,
             )
         };
@@ -3593,7 +3734,8 @@ impl UBrainComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_RESTART_LOGIC,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_brain_component_restart_logic,
                 __buffer,
             )
         };
@@ -3603,7 +3745,8 @@ impl UBrainComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_RESTART_LOGIC,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_brain_component_restart_logic,
                 __buffer,
             )
         };
@@ -3616,7 +3759,7 @@ impl UBrainComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_RUNNING,
+                crate::bindings::ai_module::__FUNCTION_PTRS.u_brain_component_is_running,
                 __buffer,
             )
         };
@@ -3626,7 +3769,7 @@ impl UBrainComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_RUNNING,
+                crate::bindings::ai_module::__FUNCTION_PTRS.u_brain_component_is_running,
                 __buffer,
             )
         };
@@ -3640,7 +3783,7 @@ impl UBrainComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_PAUSED,
+                crate::bindings::ai_module::__FUNCTION_PTRS.u_brain_component_is_paused,
                 __buffer,
             )
         };
@@ -3650,7 +3793,7 @@ impl UBrainComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BRAIN_COMPONENT_IS_PAUSED,
+                crate::bindings::ai_module::__FUNCTION_PTRS.u_brain_component_is_paused,
                 __buffer,
             )
         };
@@ -3692,7 +3835,8 @@ impl UBehaviorTreeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_SET_DYNAMIC_SUBTREE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_behavior_tree_component_set_dynamic_subtree,
                 __buffer,
             )
         };
@@ -3716,7 +3860,8 @@ impl UBehaviorTreeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_SET_DYNAMIC_SUBTREE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_behavior_tree_component_set_dynamic_subtree,
                 __buffer,
             )
         };
@@ -3732,7 +3877,8 @@ impl UBehaviorTreeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_GET_TAG_COOLDOWN_END_TIME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_behavior_tree_component_get_tag_cooldown_end_time,
                 __buffer,
             )
         };
@@ -3749,7 +3895,8 @@ impl UBehaviorTreeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_GET_TAG_COOLDOWN_END_TIME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_behavior_tree_component_get_tag_cooldown_end_time,
                 __buffer,
             )
         };
@@ -3768,7 +3915,8 @@ impl UBehaviorTreeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_ADD_COOLDOWN_TAG_DURATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_behavior_tree_component_add_cooldown_tag_duration,
                 __buffer,
             )
         };
@@ -3799,7 +3947,8 @@ impl UBehaviorTreeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BEHAVIOR_TREE_COMPONENT_ADD_COOLDOWN_TAG_DURATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_behavior_tree_component_add_cooldown_tag_duration,
                 __buffer,
             )
         };
@@ -3876,7 +4025,8 @@ impl UBlackboardAssetProvider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_ASSET_PROVIDER_GET_BLACKBOARD_ASSET,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_asset_provider_get_blackboard_asset,
                 __buffer,
             )
         };
@@ -3886,7 +4036,8 @@ impl UBlackboardAssetProvider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_ASSET_PROVIDER_GET_BLACKBOARD_ASSET,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_asset_provider_get_blackboard_asset,
                 __buffer,
             )
         };
@@ -3925,7 +4076,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_vector,
                 __buffer,
             )
         };
@@ -3945,7 +4097,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_vector,
                 __buffer,
             )
         };
@@ -3958,7 +4111,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_string,
                 __buffer,
             )
         };
@@ -3978,7 +4132,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_string,
                 __buffer,
             )
         };
@@ -3995,7 +4150,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_rotator,
                 __buffer,
             )
         };
@@ -4015,7 +4171,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_rotator,
                 __buffer,
             )
         };
@@ -4032,7 +4189,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_object,
                 __buffer,
             )
         };
@@ -4052,7 +4210,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_object,
                 __buffer,
             )
         };
@@ -4065,7 +4224,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_name,
                 __buffer,
             )
         };
@@ -4085,7 +4245,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_name,
                 __buffer,
             )
         };
@@ -4098,7 +4259,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_int,
                 __buffer,
             )
         };
@@ -4114,7 +4276,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_int,
                 __buffer,
             )
         };
@@ -4127,7 +4290,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_float,
                 __buffer,
             )
         };
@@ -4147,7 +4311,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_float,
                 __buffer,
             )
         };
@@ -4160,7 +4325,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_enum,
                 __buffer,
             )
         };
@@ -4176,7 +4342,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_enum,
                 __buffer,
             )
         };
@@ -4193,7 +4360,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_class,
                 __buffer,
             )
         };
@@ -4215,7 +4383,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_class,
                 __buffer,
             )
         };
@@ -4228,7 +4397,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_bool,
                 __buffer,
             )
         };
@@ -4248,7 +4418,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_SET_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_set_value_as_bool,
                 __buffer,
             )
         };
@@ -4261,7 +4432,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_IS_VECTOR_VALUE_SET,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_is_vector_value_set,
                 __buffer,
             )
         };
@@ -4274,7 +4446,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_IS_VECTOR_VALUE_SET,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_is_vector_value_set,
                 __buffer,
             )
         };
@@ -4291,7 +4464,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_vector,
                 __buffer,
             )
         };
@@ -4304,7 +4478,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_vector,
                 __buffer,
             )
         };
@@ -4320,7 +4495,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_string,
                 __buffer,
             )
         };
@@ -4333,7 +4509,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_string,
                 __buffer,
             )
         };
@@ -4350,7 +4527,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_rotator,
                 __buffer,
             )
         };
@@ -4363,7 +4541,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_rotator,
                 __buffer,
             )
         };
@@ -4382,7 +4561,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_object,
                 __buffer,
             )
         };
@@ -4395,7 +4575,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_object,
                 __buffer,
             )
         };
@@ -4414,7 +4595,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_name,
                 __buffer,
             )
         };
@@ -4427,7 +4609,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_name,
                 __buffer,
             )
         };
@@ -4441,7 +4624,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_int,
                 __buffer,
             )
         };
@@ -4454,7 +4638,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_int,
                 __buffer,
             )
         };
@@ -4468,7 +4653,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_float,
                 __buffer,
             )
         };
@@ -4481,7 +4667,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_float,
                 __buffer,
             )
         };
@@ -4495,7 +4682,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_enum,
                 __buffer,
             )
         };
@@ -4508,7 +4696,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_enum,
                 __buffer,
             )
         };
@@ -4525,7 +4714,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_class,
                 __buffer,
             )
         };
@@ -4538,7 +4728,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_class,
                 __buffer,
             )
         };
@@ -4557,7 +4748,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_bool,
                 __buffer,
             )
         };
@@ -4570,7 +4762,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_value_as_bool,
                 __buffer,
             )
         };
@@ -4588,7 +4781,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_ROTATION_FROM_ENTRY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_rotation_from_entry,
                 __buffer,
             )
         };
@@ -4608,7 +4802,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_ROTATION_FROM_ENTRY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_rotation_from_entry,
                 __buffer,
             )
         };
@@ -4632,7 +4827,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_LOCATION_FROM_ENTRY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_location_from_entry,
                 __buffer,
             )
         };
@@ -4652,7 +4848,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_GET_LOCATION_FROM_ENTRY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_get_location_from_entry,
                 __buffer,
             )
         };
@@ -4672,7 +4869,8 @@ impl UBlackboardComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_CLEAR_VALUE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_clear_value,
                 __buffer,
             )
         };
@@ -4685,7 +4883,8 @@ impl UBlackboardComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_BLACKBOARD_COMPONENT_CLEAR_VALUE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_blackboard_component_clear_value,
                 __buffer,
             )
         };
@@ -5093,7 +5292,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_STOP_USING_EXTERNAL_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_stop_using_external_event,
                 __buffer,
             )
         };
@@ -5110,7 +5310,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_STOP_USING_EXTERNAL_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_stop_using_external_event,
                 __buffer,
             )
         };
@@ -5126,7 +5327,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_START_USING_EXTERNAL_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_start_using_external_event,
                 __buffer,
             )
         };
@@ -5150,7 +5352,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_START_USING_EXTERNAL_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_start_using_external_event,
                 __buffer,
             )
         };
@@ -5167,7 +5370,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_vector,
                 __buffer,
             )
         };
@@ -5198,7 +5402,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_vector,
                 __buffer,
             )
         };
@@ -5215,7 +5420,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_string,
                 __buffer,
             )
         };
@@ -5242,7 +5448,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_string,
                 __buffer,
             )
         };
@@ -5259,7 +5466,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_rotator,
                 __buffer,
             )
         };
@@ -5290,7 +5498,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_rotator,
                 __buffer,
             )
         };
@@ -5307,7 +5516,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_object,
                 __buffer,
             )
         };
@@ -5338,7 +5548,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_object,
                 __buffer,
             )
         };
@@ -5355,7 +5566,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_name,
                 __buffer,
             )
         };
@@ -5382,7 +5594,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_name,
                 __buffer,
             )
         };
@@ -5399,7 +5612,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_int,
                 __buffer,
             )
         };
@@ -5426,7 +5640,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_int,
                 __buffer,
             )
         };
@@ -5443,7 +5658,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_float,
                 __buffer,
             )
         };
@@ -5470,7 +5686,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_float,
                 __buffer,
             )
         };
@@ -5487,7 +5704,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_enum,
                 __buffer,
             )
         };
@@ -5514,7 +5732,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_enum,
                 __buffer,
             )
         };
@@ -5531,7 +5750,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_class,
                 __buffer,
             )
         };
@@ -5564,7 +5784,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_class,
                 __buffer,
             )
         };
@@ -5581,7 +5802,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_bool,
                 __buffer,
             )
         };
@@ -5608,7 +5830,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_SET_BLACKBOARD_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_set_blackboard_value_as_bool,
                 __buffer,
             )
         };
@@ -5623,7 +5846,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNERS_BLACKBOARD,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_owners_blackboard,
                 __buffer,
             )
         };
@@ -5640,7 +5864,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNERS_BLACKBOARD,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_owners_blackboard,
                 __buffer,
             )
         };
@@ -5656,7 +5881,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNER_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_owner_component,
                 __buffer,
             )
         };
@@ -5673,7 +5899,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_OWNER_COMPONENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_owner_component,
                 __buffer,
             )
         };
@@ -5690,7 +5917,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_vector,
                 __buffer,
             )
         };
@@ -5714,7 +5942,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_vector,
                 __buffer,
             )
         };
@@ -5733,7 +5962,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_string,
                 __buffer,
             )
         };
@@ -5757,7 +5987,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_string,
                 __buffer,
             )
         };
@@ -5774,7 +6005,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_rotator,
                 __buffer,
             )
         };
@@ -5798,7 +6030,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_rotator,
                 __buffer,
             )
         };
@@ -5817,7 +6050,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_object,
                 __buffer,
             )
         };
@@ -5841,7 +6075,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_object,
                 __buffer,
             )
         };
@@ -5863,7 +6098,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_name,
                 __buffer,
             )
         };
@@ -5887,7 +6123,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_name,
                 __buffer,
             )
         };
@@ -5904,7 +6141,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_int,
                 __buffer,
             )
         };
@@ -5928,7 +6166,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_INT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_int,
                 __buffer,
             )
         };
@@ -5945,7 +6184,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_float,
                 __buffer,
             )
         };
@@ -5969,7 +6209,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_float,
                 __buffer,
             )
         };
@@ -5986,7 +6227,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_enum,
                 __buffer,
             )
         };
@@ -6010,7 +6252,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_enum,
                 __buffer,
             )
         };
@@ -6027,7 +6270,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_class,
                 __buffer,
             )
         };
@@ -6051,7 +6295,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_class,
                 __buffer,
             )
         };
@@ -6073,7 +6318,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_bool,
                 __buffer,
             )
         };
@@ -6097,7 +6343,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_bool,
                 __buffer,
             )
         };
@@ -6114,7 +6361,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_actor,
                 __buffer,
             )
         };
@@ -6138,7 +6386,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_GET_BLACKBOARD_VALUE_AS_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_get_blackboard_value_as_actor,
                 __buffer,
             )
         };
@@ -6157,7 +6406,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_clear_blackboard_value_as_vector,
                 __buffer,
             )
         };
@@ -6181,7 +6431,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE_AS_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_clear_blackboard_value_as_vector,
                 __buffer,
             )
         };
@@ -6197,7 +6448,8 @@ impl UBTFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_clear_blackboard_value,
                 __buffer,
             )
         };
@@ -6221,7 +6473,8 @@ impl UBTFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_FUNCTION_LIBRARY_CLEAR_BLACKBOARD_VALUE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_function_library_clear_blackboard_value,
                 __buffer,
             )
         };
@@ -6397,6 +6650,508 @@ impl UBTDecorator_BlueprintBase {
             cdo
         }
     }
+    pub fn receive_tick_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+        delta_seconds: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_tick_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_tick_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_tick(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+        delta_seconds: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_observer_deactivated_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_deactivated_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_deactivated_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_observer_deactivated(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_deactivated,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_deactivated,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_observer_activated_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_activated_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_activated_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_observer_activated(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_activated,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_observer_activated,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_execution_start_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_start_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_start_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_execution_start(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_start,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_start,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_execution_finish_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+        node_result: EBTNodeResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_finish_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_result,
+                __buffer.add(16).cast::<EBTNodeResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_finish_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_execution_finish(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+        node_result: EBTNodeResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_finish,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &node_result,
+                __buffer.add(8).cast::<EBTNodeResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_receive_execution_finish,
+                __buffer,
+            )
+        };
+    }
+    pub fn perform_condition_check_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<17>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_perform_condition_check_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_perform_condition_check_ai,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<bool>().read() }
+    }
+    pub fn perform_condition_check(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_perform_condition_check,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_perform_condition_check,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
     pub fn is_decorator_observer_active(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
         let __buffer = __stack.buffer_mut();
@@ -6405,7 +7160,8 @@ impl UBTDecorator_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_OBSERVER_ACTIVE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_is_decorator_observer_active,
                 __buffer,
             )
         };
@@ -6415,7 +7171,8 @@ impl UBTDecorator_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_OBSERVER_ACTIVE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_is_decorator_observer_active,
                 __buffer,
             )
         };
@@ -6429,7 +7186,8 @@ impl UBTDecorator_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_EXECUTION_ACTIVE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_is_decorator_execution_active,
                 __buffer,
             )
         };
@@ -6439,7 +7197,8 @@ impl UBTDecorator_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_DECORATOR_BLUEPRINT_BASE_IS_DECORATOR_EXECUTION_ACTIVE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_decorator_blueprint_base_is_decorator_execution_active,
                 __buffer,
             )
         };
@@ -6826,6 +7585,334 @@ impl UBTService_BlueprintBase {
             cdo
         }
     }
+    pub fn receive_tick_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+        delta_seconds: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_tick_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_tick_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_tick(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+        delta_seconds: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_search_start_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_search_start_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_search_start_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_search_start(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_search_start,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_search_start,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_deactivation_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_deactivation_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_deactivation_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_deactivation(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_deactivation,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_deactivation,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_activation_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_activation_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_activation_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_activation(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_activation,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_receive_activation,
+                __buffer,
+            )
+        };
+    }
     pub fn is_service_active(&self) -> bool {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
         let __buffer = __stack.buffer_mut();
@@ -6834,7 +7921,8 @@ impl UBTService_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_SERVICE_BLUEPRINT_BASE_IS_SERVICE_ACTIVE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_is_service_active,
                 __buffer,
             )
         };
@@ -6844,7 +7932,8 @@ impl UBTService_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_SERVICE_BLUEPRINT_BASE_IS_SERVICE_ACTIVE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_service_blueprint_base_is_service_active,
                 __buffer,
             )
         };
@@ -6949,7 +8038,8 @@ impl UBTTask_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE_WITH_ID,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_set_finish_on_message_with_id,
                 __buffer,
             )
         };
@@ -6973,7 +8063,8 @@ impl UBTTask_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE_WITH_ID,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_set_finish_on_message_with_id,
                 __buffer,
             )
         };
@@ -6986,7 +8077,8 @@ impl UBTTask_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_set_finish_on_message,
                 __buffer,
             )
         };
@@ -7003,7 +8095,255 @@ impl UBTTask_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_SET_FINISH_ON_MESSAGE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_set_finish_on_message,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_tick_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+        delta_seconds: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_tick_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(16).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_tick_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_tick(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+        delta_seconds: f32,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<12>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_seconds,
+                __buffer.add(8).cast::<f32>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_execute_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_execute_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_execute_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_execute(
+        &mut self,
+        owner_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_execute,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_execute,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_abort_ai(
+        &mut self,
+        owner_controller: UPtr<AAIController>,
+        controlled_pawn: UPtr<crate::bindings::engine::APawn>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_abort_ai,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_controller,
+                __buffer.add(0).cast::<UPtr<AAIController>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &controlled_pawn,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_abort_ai,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_abort(&mut self, owner_actor: UPtr<crate::bindings::engine::AActor>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_abort,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_receive_abort,
                 __buffer,
             )
         };
@@ -7016,7 +8356,8 @@ impl UBTTask_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_EXECUTING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_is_task_executing,
                 __buffer,
             )
         };
@@ -7026,7 +8367,8 @@ impl UBTTask_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_EXECUTING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_is_task_executing,
                 __buffer,
             )
         };
@@ -7040,7 +8382,8 @@ impl UBTTask_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_ABORTING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_is_task_aborting,
                 __buffer,
             )
         };
@@ -7050,7 +8393,8 @@ impl UBTTask_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_IS_TASK_ABORTING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_is_task_aborting,
                 __buffer,
             )
         };
@@ -7064,7 +8408,8 @@ impl UBTTask_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_EXECUTE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_finish_execute,
                 __buffer,
             )
         };
@@ -7077,7 +8422,8 @@ impl UBTTask_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_EXECUTE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_finish_execute,
                 __buffer,
             )
         };
@@ -7090,7 +8436,8 @@ impl UBTTask_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_ABORT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_finish_abort,
                 __buffer,
             )
         };
@@ -7100,7 +8447,8 @@ impl UBTTask_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UBT_TASK_BLUEPRINT_BASE_FINISH_ABORT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .ubt_task_blueprint_base_finish_abort,
                 __buffer,
             )
         };
@@ -7662,7 +9010,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_vector,
                 __buffer,
             )
         };
@@ -7686,7 +9035,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_vector,
                 __buffer,
             )
         };
@@ -7705,7 +9055,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRUCT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_struct,
                 __buffer,
             )
         };
@@ -7729,7 +9080,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRUCT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_struct,
                 __buffer,
             )
         };
@@ -7751,7 +9103,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_string,
                 __buffer,
             )
         };
@@ -7775,7 +9128,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_STRING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_string,
                 __buffer,
             )
         };
@@ -7792,7 +9146,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_rotator,
                 __buffer,
             )
         };
@@ -7816,7 +9171,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ROTATOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_rotator,
                 __buffer,
             )
         };
@@ -7835,7 +9191,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_object,
                 __buffer,
             )
         };
@@ -7859,7 +9216,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_object,
                 __buffer,
             )
         };
@@ -7881,7 +9239,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_name,
                 __buffer,
             )
         };
@@ -7905,7 +9264,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_NAME,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_name,
                 __buffer,
             )
         };
@@ -7922,7 +9282,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_INT32,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_int32,
                 __buffer,
             )
         };
@@ -7946,7 +9307,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_INT32,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_int32,
                 __buffer,
             )
         };
@@ -7963,7 +9325,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_float,
                 __buffer,
             )
         };
@@ -7987,7 +9350,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_FLOAT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_float,
                 __buffer,
             )
         };
@@ -8004,7 +9368,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_enum,
                 __buffer,
             )
         };
@@ -8028,7 +9393,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_ENUM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_enum,
                 __buffer,
             )
         };
@@ -8045,7 +9411,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_class,
                 __buffer,
             )
         };
@@ -8069,7 +9436,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_class,
                 __buffer,
             )
         };
@@ -8091,7 +9459,8 @@ impl UValueOrBBKeyBlueprintUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_bool,
                 __buffer,
             )
         };
@@ -8115,7 +9484,8 @@ impl UValueOrBBKeyBlueprintUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_VALUE_OR_BB_KEY_BLUEPRINT_UTILITY_GET_BOOL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_value_or_bb_key_blueprint_utility_get_bool,
                 __buffer,
             )
         };
@@ -8154,7 +9524,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_UNLOCK_AI_RESOURCES_WITH_ANIMATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_unlock_ai_resources_with_animation,
                 __buffer,
             )
         };
@@ -8185,7 +9556,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_UNLOCK_AI_RESOURCES_WITH_ANIMATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_unlock_ai_resources_with_animation,
                 __buffer,
             )
         };
@@ -8206,7 +9578,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SPAWN_AI_FROM_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_spawn_ai_from_class,
                 __buffer,
             )
         };
@@ -8265,7 +9638,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SPAWN_AI_FROM_CLASS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_spawn_ai_from_class,
                 __buffer,
             )
         };
@@ -8282,7 +9656,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_LOCATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_simple_move_to_location,
                 __buffer,
             )
         };
@@ -8306,7 +9681,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_LOCATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_simple_move_to_location,
                 __buffer,
             )
         };
@@ -8322,7 +9698,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_simple_move_to_actor,
                 __buffer,
             )
         };
@@ -8346,7 +9723,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SIMPLE_MOVE_TO_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_simple_move_to_actor,
                 __buffer,
             )
         };
@@ -8364,7 +9742,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SEND_AI_MESSAGE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_send_ai_message,
                 __buffer,
             )
         };
@@ -8398,7 +9777,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_SEND_AI_MESSAGE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_send_ai_message,
                 __buffer,
             )
         };
@@ -8415,7 +9795,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_LOCK_AI_RESOURCES_WITH_ANIMATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_lock_ai_resources_with_animation,
                 __buffer,
             )
         };
@@ -8446,7 +9827,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_LOCK_AI_RESOURCES_WITH_ANIMATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_lock_ai_resources_with_animation,
                 __buffer,
             )
         };
@@ -8461,7 +9843,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_ROTATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_rotation,
                 __buffer,
             )
         };
@@ -8478,7 +9861,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_ROTATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_rotation,
                 __buffer,
             )
         };
@@ -8494,7 +9878,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_LOCATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_location,
                 __buffer,
             )
         };
@@ -8511,7 +9896,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_LOCATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_location,
                 __buffer,
             )
         };
@@ -8527,7 +9913,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_DIRECTION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_direction,
                 __buffer,
             )
         };
@@ -8544,7 +9931,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_IS_VALID_AI_DIRECTION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_is_valid_ai_direction,
                 __buffer,
             )
         };
@@ -8560,7 +9948,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_NEXT_NAV_LINK_INDEX,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_next_nav_link_index,
                 __buffer,
             )
         };
@@ -8577,7 +9966,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_NEXT_NAV_LINK_INDEX,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_next_nav_link_index,
                 __buffer,
             )
         };
@@ -8593,7 +9983,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_POINTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path_points,
                 __buffer,
             )
         };
@@ -8610,7 +10001,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_POINTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path_points,
                 __buffer,
             )
         };
@@ -8631,7 +10023,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_INDEX,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path_index,
                 __buffer,
             )
         };
@@ -8648,7 +10041,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH_INDEX,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path_index,
                 __buffer,
             )
         };
@@ -8664,7 +10058,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path,
                 __buffer,
             )
         };
@@ -8681,7 +10076,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_CURRENT_PATH,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_current_path,
                 __buffer,
             )
         };
@@ -8702,7 +10098,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_BLACKBOARD,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_blackboard,
                 __buffer,
             )
         };
@@ -8719,7 +10116,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_BLACKBOARD,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_blackboard,
                 __buffer,
             )
         };
@@ -8735,7 +10133,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_AI_CONTROLLER,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_ai_controller,
                 __buffer,
             )
         };
@@ -8752,7 +10151,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_GET_AI_CONTROLLER,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_get_ai_controller,
                 __buffer,
             )
         };
@@ -8773,7 +10173,8 @@ impl UAIBlueprintHelperLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_CREATE_MOVE_TO_PROXY_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_create_move_to_proxy_object,
                 __buffer,
             )
         };
@@ -8825,7 +10226,8 @@ impl UAIBlueprintHelperLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_BLUEPRINT_HELPER_LIBRARY_CREATE_MOVE_TO_PROXY_OBJECT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_blueprint_helper_library_create_move_to_proxy_object,
                 __buffer,
             )
         };
@@ -8955,6 +10357,236 @@ impl UEnvQueryContext_BlueprintBase {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn provide_single_location(
+        &self,
+        querier_object: UPtr<crate::bindings::core_u_object::UObject>,
+        querier_actor: UPtr<crate::bindings::engine::AActor>,
+        resulting_location: &mut crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_single_location,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                resulting_location,
+                __buffer.add(16).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_single_location,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<crate::bindings::core_u_object::FVector>()
+                .swap(resulting_location);
+        }
+    }
+    pub fn provide_single_actor(
+        &self,
+        querier_object: UPtr<crate::bindings::core_u_object::UObject>,
+        querier_actor: UPtr<crate::bindings::engine::AActor>,
+        resulting_actor: &mut UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_single_actor,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                resulting_actor,
+                __buffer.add(16).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_single_actor,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<UPtr<crate::bindings::engine::AActor>>()
+                .swap(resulting_actor);
+        }
+    }
+    pub fn provide_locations_set(
+        &self,
+        querier_object: UPtr<crate::bindings::core_u_object::UObject>,
+        querier_actor: UPtr<crate::bindings::engine::AActor>,
+        resulting_location_set: &mut TArray<crate::bindings::core_u_object::FVector>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_locations_set,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                resulting_location_set,
+                __buffer
+                    .add(16)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_locations_set,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<crate::bindings::core_u_object::FVector>>()
+                .swap(resulting_location_set);
+        }
+    }
+    pub fn provide_actors_set(
+        &self,
+        querier_object: UPtr<crate::bindings::core_u_object::UObject>,
+        querier_actor: UPtr<crate::bindings::engine::AActor>,
+        resulting_actors_set: &mut TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_actors_set,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &querier_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                resulting_actors_set,
+                __buffer.add(16).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_context_blueprint_base_provide_actors_set,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(16)
+                .cast::<TArray<UPtr<crate::bindings::engine::AActor>>>()
+                .swap(resulting_actors_set);
         }
     }
 }
@@ -9140,7 +10772,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_SET_NAMED_PARAM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_set_named_param,
                 __buffer,
             )
         };
@@ -9160,7 +10793,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_SET_NAMED_PARAM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_set_named_param,
                 __buffer,
             )
         };
@@ -9175,7 +10809,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_LOCATIONS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_results_as_locations,
                 __buffer,
             )
         };
@@ -9185,7 +10820,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_LOCATIONS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_results_as_locations,
                 __buffer,
             )
         };
@@ -9206,7 +10842,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_results_as_actors,
                 __buffer,
             )
         };
@@ -9216,7 +10853,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_RESULTS_AS_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_results_as_actors,
                 __buffer,
             )
         };
@@ -9238,7 +10876,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_LOCATIONS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_query_results_as_locations,
                 __buffer,
             )
         };
@@ -9257,7 +10896,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_LOCATIONS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_query_results_as_locations,
                 __buffer,
             )
         };
@@ -9280,7 +10920,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_query_results_as_actors,
                 __buffer,
             )
         };
@@ -9297,7 +10938,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_QUERY_RESULTS_AS_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_query_results_as_actors,
                 __buffer,
             )
         };
@@ -9317,7 +10959,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_ITEM_SCORE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_item_score,
                 __buffer,
             )
         };
@@ -9330,7 +10973,8 @@ impl UEnvQueryInstanceBlueprintWrapper {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_INSTANCE_BLUEPRINT_WRAPPER_GET_ITEM_SCORE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_instance_blueprint_wrapper_get_item_score,
                 __buffer,
             )
         };
@@ -9371,7 +11015,8 @@ impl UEnvQueryManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_MANAGER_RUN_EQS_QUERY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_manager_run_eqs_query,
                 __buffer,
             )
         };
@@ -9418,7 +11063,8 @@ impl UEnvQueryManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_MANAGER_RUN_EQS_QUERY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_manager_run_eqs_query,
                 __buffer,
             )
         };
@@ -9581,7 +11227,8 @@ impl UEnvQueryGenerator_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_GET_QUERIER,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_get_querier,
                 __buffer,
             )
         };
@@ -9591,7 +11238,8 @@ impl UEnvQueryGenerator_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_GET_QUERIER,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_get_querier,
                 __buffer,
             )
         };
@@ -9601,6 +11249,78 @@ impl UEnvQueryGenerator_BlueprintBase {
                 .cast::<UPtr<crate::bindings::core_u_object::UObject>>()
                 .read()
         }
+    }
+    pub fn do_item_generation_from_actors(
+        &self,
+        context_actors: &TArray<UPtr<crate::bindings::engine::AActor>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_do_item_generation_from_actors,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context_actors,
+                __buffer.add(0).cast::<TArray<UPtr<crate::bindings::engine::AActor>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_do_item_generation_from_actors,
+                __buffer,
+            )
+        };
+    }
+    pub fn do_item_generation(
+        &self,
+        context_locations: &TArray<crate::bindings::core_u_object::FVector>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_do_item_generation,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context_locations,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<crate::bindings::core_u_object::FVector>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_do_item_generation,
+                __buffer,
+            )
+        };
     }
     pub fn add_generated_vector(
         &self,
@@ -9613,7 +11333,8 @@ impl UEnvQueryGenerator_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_add_generated_vector,
                 __buffer,
             )
         };
@@ -9630,7 +11351,8 @@ impl UEnvQueryGenerator_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_VECTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_add_generated_vector,
                 __buffer,
             )
         };
@@ -9646,7 +11368,8 @@ impl UEnvQueryGenerator_BlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_add_generated_actor,
                 __buffer,
             )
         };
@@ -9663,7 +11386,8 @@ impl UEnvQueryGenerator_BlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_ENV_QUERY_GENERATOR_BLUEPRINT_BASE_ADD_GENERATED_ACTOR,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_env_query_generator_blueprint_base_add_generated_actor,
                 __buffer,
             )
         };
@@ -10264,7 +11988,8 @@ impl UPathFollowingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_DESTINATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_path_following_component_get_path_destination,
                 __buffer,
             )
         };
@@ -10274,7 +11999,8 @@ impl UPathFollowingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_DESTINATION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_path_following_component_get_path_destination,
                 __buffer,
             )
         };
@@ -10290,7 +12016,8 @@ impl UPathFollowingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_ACTION_TYPE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_path_following_component_get_path_action_type,
                 __buffer,
             )
         };
@@ -10300,7 +12027,8 @@ impl UPathFollowingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_PATH_FOLLOWING_COMPONENT_GET_PATH_ACTION_TYPE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_path_following_component_get_path_action_type,
                 __buffer,
             )
         };
@@ -10335,7 +12063,8 @@ impl UCrowdFollowingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_CROWD_FOLLOWING_COMPONENT_SUSPEND_CROWD_STEERING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_crowd_following_component_suspend_crowd_steering,
                 __buffer,
             )
         };
@@ -10348,7 +12077,8 @@ impl UCrowdFollowingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_CROWD_FOLLOWING_COMPONENT_SUSPEND_CROWD_STEERING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_crowd_following_component_suspend_crowd_steering,
                 __buffer,
             )
         };
@@ -10394,6 +12124,49 @@ impl UGeneratedNavLinksProxy {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn receive_smart_link_reached(
+        &mut self,
+        agent: UPtr<crate::bindings::engine::AActor>,
+        destination: crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_generated_nav_links_proxy_receive_smart_link_reached,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &agent,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &destination,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_generated_nav_links_proxy_receive_smart_link_reached,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -10469,7 +12242,8 @@ impl ANavLinkProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_SET_SMART_LINK_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_set_smart_link_enabled,
                 __buffer,
             )
         };
@@ -10482,7 +12256,8 @@ impl ANavLinkProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_SET_SMART_LINK_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_set_smart_link_enabled,
                 __buffer,
             )
         };
@@ -10498,7 +12273,8 @@ impl ANavLinkProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_RESUME_PATH_FOLLOWING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_resume_path_following,
                 __buffer,
             )
         };
@@ -10515,7 +12291,51 @@ impl ANavLinkProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_RESUME_PATH_FOLLOWING,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_resume_path_following,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_smart_link_reached(
+        &mut self,
+        agent: UPtr<crate::bindings::engine::AActor>,
+        destination: &crate::bindings::core_u_object::FVector,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_receive_smart_link_reached,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &agent,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                destination,
+                __buffer.add(8).cast::<crate::bindings::core_u_object::FVector>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_receive_smart_link_reached,
                 __buffer,
             )
         };
@@ -10528,7 +12348,8 @@ impl ANavLinkProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_IS_SMART_LINK_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_is_smart_link_enabled,
                 __buffer,
             )
         };
@@ -10538,7 +12359,8 @@ impl ANavLinkProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_IS_SMART_LINK_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_is_smart_link_enabled,
                 __buffer,
             )
         };
@@ -10552,7 +12374,8 @@ impl ANavLinkProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_HAS_MOVING_AGENTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_has_moving_agents,
                 __buffer,
             )
         };
@@ -10562,7 +12385,8 @@ impl ANavLinkProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::A_NAV_LINK_PROXY_HAS_MOVING_AGENTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .a_nav_link_proxy_has_moving_agents,
                 __buffer,
             )
         };
@@ -10600,7 +12424,8 @@ impl UNavLocalGridManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_SET_LOCAL_NAVIGATION_GRID_DENSITY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_set_local_navigation_grid_density,
                 __buffer,
             )
         };
@@ -10620,7 +12445,8 @@ impl UNavLocalGridManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_SET_LOCAL_NAVIGATION_GRID_DENSITY,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_set_local_navigation_grid_density,
                 __buffer,
             )
         };
@@ -10638,7 +12464,8 @@ impl UNavLocalGridManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_REMOVE_LOCAL_NAVIGATION_GRID,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_remove_local_navigation_grid,
                 __buffer,
             )
         };
@@ -10665,7 +12492,8 @@ impl UNavLocalGridManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_REMOVE_LOCAL_NAVIGATION_GRID,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_remove_local_navigation_grid,
                 __buffer,
             )
         };
@@ -10683,7 +12511,8 @@ impl UNavLocalGridManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_FIND_LOCAL_NAVIGATION_GRID_PATH,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_find_local_navigation_grid_path,
                 __buffer,
             )
         };
@@ -10723,7 +12552,8 @@ impl UNavLocalGridManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_FIND_LOCAL_NAVIGATION_GRID_PATH,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_find_local_navigation_grid_path,
                 __buffer,
             )
         };
@@ -10749,7 +12579,8 @@ impl UNavLocalGridManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_points,
                 __buffer,
             )
         };
@@ -10788,7 +12619,8 @@ impl UNavLocalGridManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_points,
                 __buffer,
             )
         };
@@ -10808,7 +12640,8 @@ impl UNavLocalGridManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_point,
                 __buffer,
             )
         };
@@ -10845,7 +12678,8 @@ impl UNavLocalGridManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_POINT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_point,
                 __buffer,
             )
         };
@@ -10867,7 +12701,8 @@ impl UNavLocalGridManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_CAPSULE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_capsule,
                 __buffer,
             )
         };
@@ -10918,7 +12753,8 @@ impl UNavLocalGridManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_CAPSULE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_capsule,
                 __buffer,
             )
         };
@@ -10940,7 +12776,8 @@ impl UNavLocalGridManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_BOX,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_box,
                 __buffer,
             )
         };
@@ -10991,7 +12828,8 @@ impl UNavLocalGridManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_NAV_LOCAL_GRID_MANAGER_ADD_LOCAL_NAVIGATION_GRID_FOR_BOX,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_nav_local_grid_manager_add_local_navigation_grid_for_box,
                 __buffer,
             )
         };
@@ -11051,7 +12889,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_SET_SENSE_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_set_sense_enabled,
                 __buffer,
             )
         };
@@ -11071,7 +12910,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_SET_SENSE_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_set_sense_enabled,
                 __buffer,
             )
         };
@@ -11084,7 +12924,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_REQUEST_STIMULI_LISTENER_UPDATE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_request_stimuli_listener_update,
                 __buffer,
             )
         };
@@ -11094,7 +12935,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_REQUEST_STIMULI_LISTENER_UPDATE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_request_stimuli_listener_update,
                 __buffer,
             )
         };
@@ -11107,7 +12949,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_IS_SENSE_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_is_sense_enabled,
                 __buffer,
             )
         };
@@ -11124,7 +12967,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_IS_SENSE_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_is_sense_enabled,
                 __buffer,
             )
         };
@@ -11142,7 +12986,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS_BY_SENSE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_perceived_hostile_actors_by_sense,
                 __buffer,
             )
         };
@@ -11166,7 +13011,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS_BY_SENSE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_perceived_hostile_actors_by_sense,
                 __buffer,
             )
         };
@@ -11188,7 +13034,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_perceived_hostile_actors,
                 __buffer,
             )
         };
@@ -11205,7 +13052,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_PERCEIVED_HOSTILE_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_perceived_hostile_actors,
                 __buffer,
             )
         };
@@ -11228,7 +13076,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_KNOWN_PERCEIVED_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_known_perceived_actors,
                 __buffer,
             )
         };
@@ -11252,7 +13101,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_KNOWN_PERCEIVED_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_known_perceived_actors,
                 __buffer,
             )
         };
@@ -11275,7 +13125,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_CURRENTLY_PERCEIVED_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_currently_perceived_actors,
                 __buffer,
             )
         };
@@ -11299,7 +13150,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_CURRENTLY_PERCEIVED_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_currently_perceived_actors,
                 __buffer,
             )
         };
@@ -11322,7 +13174,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_ACTORS_PERCEPTION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_actors_perception,
                 __buffer,
             )
         };
@@ -11346,7 +13199,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_GET_ACTORS_PERCEPTION,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_get_actors_perception,
                 __buffer,
             )
         };
@@ -11363,7 +13217,8 @@ impl UAIPerceptionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_FORGET_ALL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_forget_all,
                 __buffer,
             )
         };
@@ -11373,7 +13228,8 @@ impl UAIPerceptionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_COMPONENT_FORGET_ALL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_component_forget_all,
                 __buffer,
             )
         };
@@ -11432,7 +13288,8 @@ impl UAIPerceptionStimuliSourceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_SENSE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_unregister_from_sense,
                 __buffer,
             )
         };
@@ -11449,7 +13306,8 @@ impl UAIPerceptionStimuliSourceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_SENSE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_unregister_from_sense,
                 __buffer,
             )
         };
@@ -11462,7 +13320,8 @@ impl UAIPerceptionStimuliSourceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_PERCEPTION_SYSTEM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_unregister_from_perception_system,
                 __buffer,
             )
         };
@@ -11472,7 +13331,8 @@ impl UAIPerceptionStimuliSourceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_UNREGISTER_FROM_PERCEPTION_SYSTEM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_unregister_from_perception_system,
                 __buffer,
             )
         };
@@ -11485,7 +13345,8 @@ impl UAIPerceptionStimuliSourceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_WITH_PERCEPTION_SYSTEM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_register_with_perception_system,
                 __buffer,
             )
         };
@@ -11495,7 +13356,8 @@ impl UAIPerceptionStimuliSourceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_WITH_PERCEPTION_SYSTEM,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_register_with_perception_system,
                 __buffer,
             )
         };
@@ -11508,7 +13370,8 @@ impl UAIPerceptionStimuliSourceComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_FOR_SENSE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_register_for_sense,
                 __buffer,
             )
         };
@@ -11525,7 +13388,8 @@ impl UAIPerceptionStimuliSourceComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_STIMULI_SOURCE_COMPONENT_REGISTER_FOR_SENSE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_stimuli_source_component_register_for_sense,
                 __buffer,
             )
         };
@@ -11562,7 +13426,8 @@ impl UAIPerceptionSystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_PERCEPTION_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_report_perception_event,
                 __buffer,
             )
         };
@@ -11586,7 +13451,8 @@ impl UAIPerceptionSystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_PERCEPTION_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_report_perception_event,
                 __buffer,
             )
         };
@@ -11599,7 +13465,8 @@ impl UAIPerceptionSystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_report_event,
                 __buffer,
             )
         };
@@ -11616,7 +13483,8 @@ impl UAIPerceptionSystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REPORT_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_report_event,
                 __buffer,
             )
         };
@@ -11633,7 +13501,8 @@ impl UAIPerceptionSystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REGISTER_PERCEPTION_STIMULI_SOURCE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_register_perception_stimuli_source,
                 __buffer,
             )
         };
@@ -11664,7 +13533,8 @@ impl UAIPerceptionSystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_REGISTER_PERCEPTION_STIMULI_SOURCE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_register_perception_stimuli_source,
                 __buffer,
             )
         };
@@ -11681,7 +13551,8 @@ impl UAIPerceptionSystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_GET_SENSE_CLASS_FOR_STIMULUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_get_sense_class_for_stimulus,
                 __buffer,
             )
         };
@@ -11705,7 +13576,8 @@ impl UAIPerceptionSystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_PERCEPTION_SYSTEM_GET_SENSE_CLASS_FOR_STIMULUS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_perception_system_get_sense_class_for_stimulus,
                 __buffer,
             )
         };
@@ -11784,6 +13656,200 @@ impl UAISense_Blueprint {
             cdo
         }
     }
+    pub fn on_update(&mut self, events_to_process: &TArray<UPtr<UAISenseEvent>>) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<20>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_update,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                events_to_process,
+                __buffer.add(0).cast::<TArray<UPtr<UAISenseEvent>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_update,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(16).cast::<f32>().read() }
+    }
+    pub fn on_listener_updated(
+        &mut self,
+        actor_listener: UPtr<crate::bindings::engine::AActor>,
+        perception_component: UPtr<UAIPerceptionComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_listener_updated,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_listener,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &perception_component,
+                __buffer.add(8).cast::<UPtr<UAIPerceptionComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_listener_updated,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_listener_unregistered(
+        &mut self,
+        actor_listener: UPtr<crate::bindings::engine::AActor>,
+        perception_component: UPtr<UAIPerceptionComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_listener_unregistered,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_listener,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &perception_component,
+                __buffer.add(8).cast::<UPtr<UAIPerceptionComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_listener_unregistered,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_listener_registered(
+        &mut self,
+        actor_listener: UPtr<crate::bindings::engine::AActor>,
+        perception_component: UPtr<UAIPerceptionComponent>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_listener_registered,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &actor_listener,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &perception_component,
+                __buffer.add(8).cast::<UPtr<UAIPerceptionComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_on_listener_registered,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_new_pawn(&mut self, new_pawn: UPtr<crate::bindings::engine::APawn>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_k2_on_new_pawn,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &new_pawn,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::APawn>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_k2_on_new_pawn,
+                __buffer,
+            )
+        };
+    }
     pub fn get_all_listener_components(
         &self,
         listener_components: &mut TArray<UPtr<UAIPerceptionComponent>>,
@@ -11795,7 +13861,8 @@ impl UAISense_Blueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_COMPONENTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_get_all_listener_components,
                 __buffer,
             )
         };
@@ -11812,7 +13879,8 @@ impl UAISense_Blueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_COMPONENTS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_get_all_listener_components,
                 __buffer,
             )
         };
@@ -11834,7 +13902,8 @@ impl UAISense_Blueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_get_all_listener_actors,
                 __buffer,
             )
         };
@@ -11851,7 +13920,8 @@ impl UAISense_Blueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_SENSE_BLUEPRINT_GET_ALL_LISTENER_ACTORS,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_blueprint_get_all_listener_actors,
                 __buffer,
             )
         };
@@ -11899,7 +13969,8 @@ impl UAISense_Damage {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_SENSE_DAMAGE_REPORT_DAMAGE_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_damage_report_damage_event,
                 __buffer,
             )
         };
@@ -11954,7 +14025,8 @@ impl UAISense_Damage {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_SENSE_DAMAGE_REPORT_DAMAGE_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_damage_report_damage_event,
                 __buffer,
             )
         };
@@ -11995,7 +14067,8 @@ impl UAISense_Hearing {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_SENSE_HEARING_REPORT_NOISE_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_hearing_report_noise_event,
                 __buffer,
             )
         };
@@ -12035,7 +14108,8 @@ impl UAISense_Hearing {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_SENSE_HEARING_REPORT_NOISE_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_hearing_report_noise_event,
                 __buffer,
             )
         };
@@ -12073,7 +14147,8 @@ impl UAISense_Prediction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_PAWN_PREDICTION_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_prediction_request_pawn_prediction_event,
                 __buffer,
             )
         };
@@ -12104,7 +14179,8 @@ impl UAISense_Prediction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_PAWN_PREDICTION_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_prediction_request_pawn_prediction_event,
                 __buffer,
             )
         };
@@ -12121,7 +14197,8 @@ impl UAISense_Prediction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_CONTROLLER_PREDICTION_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_prediction_request_controller_prediction_event,
                 __buffer,
             )
         };
@@ -12152,7 +14229,8 @@ impl UAISense_Prediction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_SENSE_PREDICTION_REQUEST_CONTROLLER_PREDICTION_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_prediction_request_controller_prediction_event,
                 __buffer,
             )
         };
@@ -12233,7 +14311,8 @@ impl UAISense_Touch {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_SENSE_TOUCH_REPORT_TOUCH_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_touch_report_touch_event,
                 __buffer,
             )
         };
@@ -12271,7 +14350,8 @@ impl UAISense_Touch {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_SENSE_TOUCH_REPORT_TOUCH_EVENT,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .uai_sense_touch_report_touch_event,
                 __buffer,
             )
         };
@@ -12337,7 +14417,8 @@ impl UPawnSensingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_UPDATES_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_sensing_updates_enabled,
                 __buffer,
             )
         };
@@ -12350,7 +14431,8 @@ impl UPawnSensingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_UPDATES_ENABLED,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_sensing_updates_enabled,
                 __buffer,
             )
         };
@@ -12363,7 +14445,8 @@ impl UPawnSensingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_INTERVAL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_sensing_interval,
                 __buffer,
             )
         };
@@ -12380,7 +14463,8 @@ impl UPawnSensingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_SENSING_INTERVAL,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_sensing_interval,
                 __buffer,
             )
         };
@@ -12393,7 +14477,8 @@ impl UPawnSensingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_PERIPHERAL_VISION_ANGLE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_peripheral_vision_angle,
                 __buffer,
             )
         };
@@ -12410,7 +14495,8 @@ impl UPawnSensingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_SET_PERIPHERAL_VISION_ANGLE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_set_peripheral_vision_angle,
                 __buffer,
             )
         };
@@ -12423,7 +14509,8 @@ impl UPawnSensingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_COSINE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_get_peripheral_vision_cosine,
                 __buffer,
             )
         };
@@ -12433,7 +14520,8 @@ impl UPawnSensingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_COSINE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_get_peripheral_vision_cosine,
                 __buffer,
             )
         };
@@ -12447,7 +14535,8 @@ impl UPawnSensingComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_ANGLE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_get_peripheral_vision_angle,
                 __buffer,
             )
         };
@@ -12457,7 +14546,8 @@ impl UPawnSensingComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::U_PAWN_SENSING_COMPONENT_GET_PERIPHERAL_VISION_ANGLE,
+                crate::bindings::ai_module::__FUNCTION_PTRS
+                    .u_pawn_sensing_component_get_peripheral_vision_angle,
                 __buffer,
             )
         };
@@ -12544,7 +14634,7 @@ impl UAITask_MoveTo {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_TASK_MOVE_TO_AI_MOVE_TO,
+                crate::bindings::ai_module::__FUNCTION_PTRS.uai_task_move_to_ai_move_to,
                 __buffer,
             )
         };
@@ -12631,7 +14721,7 @@ impl UAITask_MoveTo {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_TASK_MOVE_TO_AI_MOVE_TO,
+                crate::bindings::ai_module::__FUNCTION_PTRS.uai_task_move_to_ai_move_to,
                 __buffer,
             )
         };
@@ -12669,7 +14759,7 @@ impl UAITask_RunEQS {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ai_module::UAI_TASK_RUN_EQS_RUN_EQS,
+                crate::bindings::ai_module::__FUNCTION_PTRS.uai_task_run_eqs_run_eqs,
                 __buffer,
             )
         };
@@ -12693,7 +14783,7 @@ impl UAITask_RunEQS {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ai_module::UAI_TASK_RUN_EQS_RUN_EQS,
+                crate::bindings::ai_module::__FUNCTION_PTRS.uai_task_run_eqs_run_eqs,
                 __buffer,
             )
         };

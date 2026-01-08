@@ -1,202 +1,211 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut UIK_GOAL_CREATOR_INTERFACE_ADD_IK_GOALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_POSITION_AND_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_COMPONENT_SET_IK_RIG_GOAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_COMPONENT_CLEAR_ALL_GOALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_SET_ROOT_SETTINGS_IN_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_SET_GLOBAL_SETTINGS_IN_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_SET_CHAIN_SPEED_PLANT_SETTINGS_IN_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_SET_CHAIN_SETTINGS_IN_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_SET_CHAIN_IK_SETTINGS_IN_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_SET_CHAIN_FK_SETTINGS_IN_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_HAS_TARGET_IK_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_HAS_SOURCE_IK_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_GET_CHAIN_USING_GOAL_FROM_RETARGET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RETARGET_PROFILE_LIBRARY_GET_OP_CONTROLLER_FROM_RETARGET_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RETARGET_PROFILE_LIBRARY_COPY_RETARGET_PROFILE_FROM_RETARGET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_COPY_FROM_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_RESET_BONES_TO_EXCLUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_COPY_FROM_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_BONES_TO_EXCLUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_ADD_BONE_TO_EXCLUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_CURVE_REMAP_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_CURVE_REMAP_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FILTER_BONE_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_ALL_BONES_TO_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FILTER_BONE_CONTROLLER_CLEAR_BONES_TO_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FILTER_BONE_CONTROLLER_ADD_BONE_TO_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FK_CHAINS_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FK_CHAINS_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FLOOR_GOALS_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_FLOOR_GOALS_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_IK_CHAINS_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_IK_CHAINS_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SOURCE_PELVIS_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SOURCE_PELVIS_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PIN_BONE_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PIN_BONE_CONTROLLER_SET_BONE_PAIR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PIN_BONE_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PIN_BONE_CONTROLLER_GET_ALL_BONE_PAIRS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_PIN_BONE_CONTROLLER_CLEAR_ALL_BONE_PAIRS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SOURCE_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SOURCE_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_RUN_IK_RIG_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_RUN_IK_RIG_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_SCALE_SOURCE_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_SCALE_SOURCE_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_SPEED_PLANTING_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_SPEED_PLANTING_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_STRIDE_WARPING_CONTROLLER_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RETARGET_STRIDE_WARPING_CONTROLLER_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_SOLVER_CONTROLLER_BASE_SET_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_SOLVER_CONTROLLER_BASE_GET_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_BODY_MOVER_CONTROLLER_SET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_BODY_MOVER_CONTROLLER_SET_GOAL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_BODY_MOVER_CONTROLLER_GET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_BODY_MOVER_CONTROLLER_GET_GOAL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_CONTROLLER_SET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_CONTROLLER_SET_GOAL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_CONTROLLER_SET_BONE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_CONTROLLER_GET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_CONTROLLER_GET_GOAL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_CONTROLLER_GET_BONE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_SOLVER_GET_EFFECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_FBIK_SOLVER_GET_BONE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_LIMB_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_LIMB_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_POLE_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_POLE_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_SET_TRANSFORM_CONTROLLER_SET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UIK_RIG_SET_TRANSFORM_CONTROLLER_GET_SOLVER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub uik_goal_creator_interface_add_ik_goals: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_component_set_ik_rig_goal_transform: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_component_set_ik_rig_goal_position_and_rotation: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_component_set_ik_rig_goal: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_component_clear_all_goals: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_set_root_settings_in_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_set_global_settings_in_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_set_chain_speed_plant_settings_in_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_set_chain_settings_in_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_set_chain_ik_settings_in_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_set_chain_fk_settings_in_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_has_target_ik_rig: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_has_source_ik_rig: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_get_root_settings_from_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_get_root_settings_from_retarget_asset: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_get_global_settings_from_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_get_global_settings_from_retarget_asset: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_get_chain_using_goal_from_retarget_asset: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_get_chain_settings_from_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub uik_retargeter_get_chain_settings_from_retarget_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_retarget_profile_library_get_op_controller_from_retarget_profile: *mut crate::ffi::UFunctionOpague,
+    pub u_retarget_profile_library_copy_retarget_profile_from_retarget_asset: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_align_pole_vector_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_align_pole_vector_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_copy_base_pose_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_copy_base_pose_controller_set_copy_from_start: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_copy_base_pose_controller_reset_bones_to_exclude: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_copy_base_pose_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_copy_base_pose_controller_get_copy_from_start: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_copy_base_pose_controller_get_bones_to_exclude: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_copy_base_pose_controller_add_bone_to_exclude: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_curve_remap_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_curve_remap_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_filter_bone_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_filter_bone_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_filter_bone_controller_get_all_bones_to_filter: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_filter_bone_controller_clear_bones_to_filter: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_filter_bone_controller_add_bone_to_filter: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_fk_chains_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_fk_chains_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_floor_goals_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_floor_goals_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_ik_chains_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_ik_chains_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pelvis_motion_controller_set_target_pelvis_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pelvis_motion_controller_set_source_pelvis_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pelvis_motion_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pelvis_motion_controller_get_target_pelvis_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pelvis_motion_controller_get_source_pelvis_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pelvis_motion_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pin_bone_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pin_bone_controller_set_bone_pair: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pin_bone_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pin_bone_controller_get_all_bone_pairs: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_pin_bone_controller_clear_all_bone_pairs: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_additive_pose_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_additive_pose_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_set_target_root_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_set_target_pelvis_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_set_source_root_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_get_target_root_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_get_target_pelvis_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_get_source_root_bone: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_root_motion_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_run_ik_rig_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_run_ik_rig_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_scale_source_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_scale_source_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_speed_planting_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_speed_planting_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_stretch_chain_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_stretch_chain_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_stride_warping_controller_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_retarget_stride_warping_controller_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_solver_controller_base_set_enabled: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_solver_controller_base_get_enabled: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_body_mover_controller_set_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_body_mover_controller_set_goal_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_body_mover_controller_get_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_body_mover_controller_get_goal_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_controller_set_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_controller_set_goal_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_controller_set_bone_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_controller_get_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_controller_get_goal_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_controller_get_bone_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_solver_get_effectors: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_fbik_solver_get_bone_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_limb_solver_controller_set_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_limb_solver_controller_get_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_pole_solver_controller_set_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_pole_solver_controller_get_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_set_transform_controller_set_solver_settings: *mut crate::ffi::UFunctionOpague,
+    pub uik_rig_set_transform_controller_get_solver_settings: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            uik_goal_creator_interface_add_ik_goals: std::ptr::null_mut(),
+            uik_rig_component_set_ik_rig_goal_transform: std::ptr::null_mut(),
+            uik_rig_component_set_ik_rig_goal_position_and_rotation: std::ptr::null_mut(),
+            uik_rig_component_set_ik_rig_goal: std::ptr::null_mut(),
+            uik_rig_component_clear_all_goals: std::ptr::null_mut(),
+            uik_retargeter_set_root_settings_in_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_set_global_settings_in_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_set_chain_speed_plant_settings_in_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_set_chain_settings_in_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_set_chain_ik_settings_in_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_set_chain_fk_settings_in_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_has_target_ik_rig: std::ptr::null_mut(),
+            uik_retargeter_has_source_ik_rig: std::ptr::null_mut(),
+            uik_retargeter_get_root_settings_from_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_get_root_settings_from_retarget_asset: std::ptr::null_mut(),
+            uik_retargeter_get_global_settings_from_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_get_global_settings_from_retarget_asset: std::ptr::null_mut(),
+            uik_retargeter_get_chain_using_goal_from_retarget_asset: std::ptr::null_mut(),
+            uik_retargeter_get_chain_settings_from_retarget_profile: std::ptr::null_mut(),
+            uik_retargeter_get_chain_settings_from_retarget_asset: std::ptr::null_mut(),
+            u_retarget_profile_library_get_op_controller_from_retarget_profile: std::ptr::null_mut(),
+            u_retarget_profile_library_copy_retarget_profile_from_retarget_asset: std::ptr::null_mut(),
+            uik_retarget_align_pole_vector_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_align_pole_vector_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_copy_base_pose_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_copy_base_pose_controller_set_copy_from_start: std::ptr::null_mut(),
+            uik_retarget_copy_base_pose_controller_reset_bones_to_exclude: std::ptr::null_mut(),
+            uik_retarget_copy_base_pose_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_copy_base_pose_controller_get_copy_from_start: std::ptr::null_mut(),
+            uik_retarget_copy_base_pose_controller_get_bones_to_exclude: std::ptr::null_mut(),
+            uik_retarget_copy_base_pose_controller_add_bone_to_exclude: std::ptr::null_mut(),
+            uik_retarget_curve_remap_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_curve_remap_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_filter_bone_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_filter_bone_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_filter_bone_controller_get_all_bones_to_filter: std::ptr::null_mut(),
+            uik_retarget_filter_bone_controller_clear_bones_to_filter: std::ptr::null_mut(),
+            uik_retarget_filter_bone_controller_add_bone_to_filter: std::ptr::null_mut(),
+            uik_retarget_fk_chains_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_fk_chains_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_floor_goals_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_floor_goals_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_ik_chains_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_ik_chains_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_pelvis_motion_controller_set_target_pelvis_bone: std::ptr::null_mut(),
+            uik_retarget_pelvis_motion_controller_set_source_pelvis_bone: std::ptr::null_mut(),
+            uik_retarget_pelvis_motion_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_pelvis_motion_controller_get_target_pelvis_bone: std::ptr::null_mut(),
+            uik_retarget_pelvis_motion_controller_get_source_pelvis_bone: std::ptr::null_mut(),
+            uik_retarget_pelvis_motion_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_pin_bone_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_pin_bone_controller_set_bone_pair: std::ptr::null_mut(),
+            uik_retarget_pin_bone_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_pin_bone_controller_get_all_bone_pairs: std::ptr::null_mut(),
+            uik_retarget_pin_bone_controller_clear_all_bone_pairs: std::ptr::null_mut(),
+            uik_retarget_additive_pose_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_additive_pose_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_set_target_root_bone: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_set_target_pelvis_bone: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_set_source_root_bone: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_get_target_root_bone: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_get_target_pelvis_bone: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_get_source_root_bone: std::ptr::null_mut(),
+            uik_retarget_root_motion_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_run_ik_rig_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_run_ik_rig_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_scale_source_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_scale_source_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_speed_planting_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_speed_planting_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_stretch_chain_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_stretch_chain_controller_get_settings: std::ptr::null_mut(),
+            uik_retarget_stride_warping_controller_set_settings: std::ptr::null_mut(),
+            uik_retarget_stride_warping_controller_get_settings: std::ptr::null_mut(),
+            uik_rig_solver_controller_base_set_enabled: std::ptr::null_mut(),
+            uik_rig_solver_controller_base_get_enabled: std::ptr::null_mut(),
+            uik_rig_body_mover_controller_set_solver_settings: std::ptr::null_mut(),
+            uik_rig_body_mover_controller_set_goal_settings: std::ptr::null_mut(),
+            uik_rig_body_mover_controller_get_solver_settings: std::ptr::null_mut(),
+            uik_rig_body_mover_controller_get_goal_settings: std::ptr::null_mut(),
+            uik_rig_fbik_controller_set_solver_settings: std::ptr::null_mut(),
+            uik_rig_fbik_controller_set_goal_settings: std::ptr::null_mut(),
+            uik_rig_fbik_controller_set_bone_settings: std::ptr::null_mut(),
+            uik_rig_fbik_controller_get_solver_settings: std::ptr::null_mut(),
+            uik_rig_fbik_controller_get_goal_settings: std::ptr::null_mut(),
+            uik_rig_fbik_controller_get_bone_settings: std::ptr::null_mut(),
+            uik_rig_fbik_solver_get_effectors: std::ptr::null_mut(),
+            uik_rig_fbik_solver_get_bone_settings: std::ptr::null_mut(),
+            uik_rig_limb_solver_controller_set_solver_settings: std::ptr::null_mut(),
+            uik_rig_limb_solver_controller_get_solver_settings: std::ptr::null_mut(),
+            uik_rig_pole_solver_controller_set_solver_settings: std::ptr::null_mut(),
+            uik_rig_pole_solver_controller_get_solver_settings: std::ptr::null_mut(),
+            uik_rig_set_transform_controller_set_solver_settings: std::ptr::null_mut(),
+            uik_rig_set_transform_controller_get_solver_settings: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -206,7 +215,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddIKGoals"),
-            &raw mut UIK_GOAL_CREATOR_INTERFACE_ADD_IK_GOALS,
+            &raw mut __FUNCTION_PTRS.uik_goal_creator_interface_add_ik_goals,
         );
     }
     unsafe {
@@ -217,28 +226,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIKRigGoalTransform"),
-            &raw mut UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.uik_rig_component_set_ik_rig_goal_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIKRigGoalPositionAndRotation"),
-            &raw mut UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_POSITION_AND_ROTATION,
+            &raw mut __FUNCTION_PTRS
+                .uik_rig_component_set_ik_rig_goal_position_and_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIKRigGoal"),
-            &raw mut UIK_RIG_COMPONENT_SET_IK_RIG_GOAL,
+            &raw mut __FUNCTION_PTRS.uik_rig_component_set_ik_rig_goal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAllGoals"),
-            &raw mut UIK_RIG_COMPONENT_CLEAR_ALL_GOALS,
+            &raw mut __FUNCTION_PTRS.uik_rig_component_clear_all_goals,
         );
     }
     unsafe {
@@ -249,105 +259,116 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRootSettingsInRetargetProfile"),
-            &raw mut UIK_RETARGETER_SET_ROOT_SETTINGS_IN_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS.uik_retargeter_set_root_settings_in_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalSettingsInRetargetProfile"),
-            &raw mut UIK_RETARGETER_SET_GLOBAL_SETTINGS_IN_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_set_global_settings_in_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChainSpeedPlantSettingsInRetargetProfile"),
-            &raw mut UIK_RETARGETER_SET_CHAIN_SPEED_PLANT_SETTINGS_IN_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_set_chain_speed_plant_settings_in_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChainSettingsInRetargetProfile"),
-            &raw mut UIK_RETARGETER_SET_CHAIN_SETTINGS_IN_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_set_chain_settings_in_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChainIKSettingsInRetargetProfile"),
-            &raw mut UIK_RETARGETER_SET_CHAIN_IK_SETTINGS_IN_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_set_chain_ik_settings_in_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChainFKSettingsInRetargetProfile"),
-            &raw mut UIK_RETARGETER_SET_CHAIN_FK_SETTINGS_IN_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_set_chain_fk_settings_in_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasTargetIKRig"),
-            &raw mut UIK_RETARGETER_HAS_TARGET_IK_RIG,
+            &raw mut __FUNCTION_PTRS.uik_retargeter_has_target_ik_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasSourceIKRig"),
-            &raw mut UIK_RETARGETER_HAS_SOURCE_IK_RIG,
+            &raw mut __FUNCTION_PTRS.uik_retargeter_has_source_ik_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootSettingsFromRetargetProfile"),
-            &raw mut UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_get_root_settings_from_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootSettingsFromRetargetAsset"),
-            &raw mut UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_ASSET,
+            &raw mut __FUNCTION_PTRS.uik_retargeter_get_root_settings_from_retarget_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalSettingsFromRetargetProfile"),
-            &raw mut UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_get_global_settings_from_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalSettingsFromRetargetAsset"),
-            &raw mut UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_get_global_settings_from_retarget_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChainUsingGoalFromRetargetAsset"),
-            &raw mut UIK_RETARGETER_GET_CHAIN_USING_GOAL_FROM_RETARGET_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_get_chain_using_goal_from_retarget_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChainSettingsFromRetargetProfile"),
-            &raw mut UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_get_chain_settings_from_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChainSettingsFromRetargetAsset"),
-            &raw mut UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .uik_retargeter_get_chain_settings_from_retarget_asset,
         );
     }
     unsafe {
@@ -358,14 +379,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOpControllerFromRetargetProfile"),
-            &raw mut U_RETARGET_PROFILE_LIBRARY_GET_OP_CONTROLLER_FROM_RETARGET_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .u_retarget_profile_library_get_op_controller_from_retarget_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyRetargetProfileFromRetargetAsset"),
-            &raw mut U_RETARGET_PROFILE_LIBRARY_COPY_RETARGET_PROFILE_FROM_RETARGET_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_retarget_profile_library_copy_retarget_profile_from_retarget_asset,
         );
     }
     unsafe {
@@ -376,14 +399,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_align_pole_vector_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_align_pole_vector_controller_get_settings,
         );
     }
     unsafe {
@@ -394,49 +419,54 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_copy_base_pose_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCopyFromStart"),
-            &raw mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_COPY_FROM_START,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_copy_base_pose_controller_set_copy_from_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetBonesToExclude"),
-            &raw mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_RESET_BONES_TO_EXCLUDE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_copy_base_pose_controller_reset_bones_to_exclude,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_copy_base_pose_controller_get_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCopyFromStart"),
-            &raw mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_COPY_FROM_START,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_copy_base_pose_controller_get_copy_from_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBonesToExclude"),
-            &raw mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_BONES_TO_EXCLUDE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_copy_base_pose_controller_get_bones_to_exclude,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBoneToExclude"),
-            &raw mut UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_ADD_BONE_TO_EXCLUDE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_copy_base_pose_controller_add_bone_to_exclude,
         );
     }
     unsafe {
@@ -447,14 +477,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_CURVE_REMAP_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_curve_remap_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_CURVE_REMAP_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_curve_remap_controller_get_settings,
         );
     }
     unsafe {
@@ -465,35 +495,38 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_FILTER_BONE_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_filter_bone_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_filter_bone_controller_get_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllBonesToFilter"),
-            &raw mut UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_ALL_BONES_TO_FILTER,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_filter_bone_controller_get_all_bones_to_filter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearBonesToFilter"),
-            &raw mut UIK_RETARGET_FILTER_BONE_CONTROLLER_CLEAR_BONES_TO_FILTER,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_filter_bone_controller_clear_bones_to_filter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBoneToFilter"),
-            &raw mut UIK_RETARGET_FILTER_BONE_CONTROLLER_ADD_BONE_TO_FILTER,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_filter_bone_controller_add_bone_to_filter,
         );
     }
     unsafe {
@@ -504,14 +537,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_FK_CHAINS_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_fk_chains_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_FK_CHAINS_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_fk_chains_controller_get_settings,
         );
     }
     unsafe {
@@ -522,14 +555,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_FLOOR_GOALS_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_floor_goals_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_FLOOR_GOALS_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_floor_goals_controller_get_settings,
         );
     }
     unsafe {
@@ -540,14 +573,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_IK_CHAINS_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_ik_chains_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_IK_CHAINS_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_ik_chains_controller_get_settings,
         );
     }
     unsafe {
@@ -558,42 +591,46 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetPelvisBone"),
-            &raw mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_pelvis_motion_controller_set_target_pelvis_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourcePelvisBone"),
-            &raw mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SOURCE_PELVIS_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_pelvis_motion_controller_set_source_pelvis_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_pelvis_motion_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetPelvisBone"),
-            &raw mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_pelvis_motion_controller_get_target_pelvis_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourcePelvisBone"),
-            &raw mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SOURCE_PELVIS_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_pelvis_motion_controller_get_source_pelvis_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_pelvis_motion_controller_get_settings,
         );
     }
     unsafe {
@@ -604,35 +641,36 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_PIN_BONE_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBonePair"),
-            &raw mut UIK_RETARGET_PIN_BONE_CONTROLLER_SET_BONE_PAIR,
+            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_set_bone_pair,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_PIN_BONE_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_get_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllBonePairs"),
-            &raw mut UIK_RETARGET_PIN_BONE_CONTROLLER_GET_ALL_BONE_PAIRS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_pin_bone_controller_get_all_bone_pairs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAllBonePairs"),
-            &raw mut UIK_RETARGET_PIN_BONE_CONTROLLER_CLEAR_ALL_BONE_PAIRS,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_pin_bone_controller_clear_all_bone_pairs,
         );
     }
     unsafe {
@@ -643,14 +681,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_additive_pose_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_additive_pose_controller_get_settings,
         );
     }
     unsafe {
@@ -661,56 +699,62 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetRootBone"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_ROOT_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_root_motion_controller_set_target_root_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetPelvisBone"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_root_motion_controller_set_target_pelvis_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceRootBone"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SOURCE_ROOT_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_root_motion_controller_set_source_root_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_root_motion_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetRootBone"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_ROOT_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_root_motion_controller_get_target_root_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetPelvisBone"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_root_motion_controller_get_target_pelvis_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceRootBone"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SOURCE_ROOT_BONE,
+            &raw mut __FUNCTION_PTRS
+                .uik_retarget_root_motion_controller_get_source_root_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_root_motion_controller_get_settings,
         );
     }
     unsafe {
@@ -721,14 +765,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_RUN_IK_RIG_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_run_ik_rig_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_RUN_IK_RIG_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_run_ik_rig_controller_get_settings,
         );
     }
     unsafe {
@@ -739,14 +783,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_SCALE_SOURCE_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_scale_source_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_SCALE_SOURCE_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_scale_source_controller_get_settings,
         );
     }
     unsafe {
@@ -757,14 +801,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_SPEED_PLANTING_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_speed_planting_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_SPEED_PLANTING_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_speed_planting_controller_get_settings,
         );
     }
     unsafe {
@@ -775,14 +819,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_stretch_chain_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_stretch_chain_controller_get_settings,
         );
     }
     unsafe {
@@ -793,14 +837,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut UIK_RETARGET_STRIDE_WARPING_CONTROLLER_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_stride_warping_controller_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut UIK_RETARGET_STRIDE_WARPING_CONTROLLER_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_retarget_stride_warping_controller_get_settings,
         );
     }
     unsafe {
@@ -811,14 +855,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnabled"),
-            &raw mut UIK_RIG_SOLVER_CONTROLLER_BASE_SET_ENABLED,
+            &raw mut __FUNCTION_PTRS.uik_rig_solver_controller_base_set_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnabled"),
-            &raw mut UIK_RIG_SOLVER_CONTROLLER_BASE_GET_ENABLED,
+            &raw mut __FUNCTION_PTRS.uik_rig_solver_controller_base_get_enabled,
         );
     }
     unsafe {
@@ -829,28 +873,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut UIK_RIG_BODY_MOVER_CONTROLLER_SET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_set_solver_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGoalSettings"),
-            &raw mut UIK_RIG_BODY_MOVER_CONTROLLER_SET_GOAL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_set_goal_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut UIK_RIG_BODY_MOVER_CONTROLLER_GET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_get_solver_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGoalSettings"),
-            &raw mut UIK_RIG_BODY_MOVER_CONTROLLER_GET_GOAL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_body_mover_controller_get_goal_settings,
         );
     }
     unsafe {
@@ -861,42 +905,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut UIK_RIG_FBIK_CONTROLLER_SET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_solver_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGoalSettings"),
-            &raw mut UIK_RIG_FBIK_CONTROLLER_SET_GOAL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_goal_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoneSettings"),
-            &raw mut UIK_RIG_FBIK_CONTROLLER_SET_BONE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_set_bone_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut UIK_RIG_FBIK_CONTROLLER_GET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_solver_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGoalSettings"),
-            &raw mut UIK_RIG_FBIK_CONTROLLER_GET_GOAL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_goal_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoneSettings"),
-            &raw mut UIK_RIG_FBIK_CONTROLLER_GET_BONE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_controller_get_bone_settings,
         );
     }
     unsafe {
@@ -907,14 +951,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEffectors"),
-            &raw mut UIK_RIG_FBIK_SOLVER_GET_EFFECTORS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_solver_get_effectors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoneSettings"),
-            &raw mut UIK_RIG_FBIK_SOLVER_GET_BONE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_fbik_solver_get_bone_settings,
         );
     }
     unsafe {
@@ -925,14 +969,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut UIK_RIG_LIMB_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_limb_solver_controller_set_solver_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut UIK_RIG_LIMB_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_limb_solver_controller_get_solver_settings,
         );
     }
     unsafe {
@@ -943,14 +987,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut UIK_RIG_POLE_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_pole_solver_controller_set_solver_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut UIK_RIG_POLE_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_pole_solver_controller_get_solver_settings,
         );
     }
     unsafe {
@@ -961,14 +1005,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSolverSettings"),
-            &raw mut UIK_RIG_SET_TRANSFORM_CONTROLLER_SET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_set_transform_controller_set_solver_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSolverSettings"),
-            &raw mut UIK_RIG_SET_TRANSFORM_CONTROLLER_GET_SOLVER_SETTINGS,
+            &raw mut __FUNCTION_PTRS.uik_rig_set_transform_controller_get_solver_settings,
         );
     }
 }
@@ -1719,7 +1763,8 @@ impl UIKGoalCreatorInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_GOAL_CREATOR_INTERFACE_ADD_IK_GOALS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_goal_creator_interface_add_ik_goals,
                 __buffer,
             )
         };
@@ -1736,7 +1781,8 @@ impl UIKGoalCreatorInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_GOAL_CREATOR_INTERFACE_ADD_IK_GOALS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_goal_creator_interface_add_ik_goals,
                 __buffer,
             )
         };
@@ -1779,7 +1825,8 @@ impl UIKRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_TRANSFORM,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_set_ik_rig_goal_transform,
                 __buffer,
             )
         };
@@ -1817,7 +1864,8 @@ impl UIKRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_TRANSFORM,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_set_ik_rig_goal_transform,
                 __buffer,
             )
         };
@@ -1837,7 +1885,8 @@ impl UIKRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_POSITION_AND_ROTATION,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_set_ik_rig_goal_position_and_rotation,
                 __buffer,
             )
         };
@@ -1882,7 +1931,8 @@ impl UIKRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL_POSITION_AND_ROTATION,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_set_ik_rig_goal_position_and_rotation,
                 __buffer,
             )
         };
@@ -1895,7 +1945,8 @@ impl UIKRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_set_ik_rig_goal,
                 __buffer,
             )
         };
@@ -1908,7 +1959,8 @@ impl UIKRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_SET_IK_RIG_GOAL,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_set_ik_rig_goal,
                 __buffer,
             )
         };
@@ -1921,7 +1973,8 @@ impl UIKRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_CLEAR_ALL_GOALS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_clear_all_goals,
                 __buffer,
             )
         };
@@ -1931,7 +1984,8 @@ impl UIKRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_COMPONENT_CLEAR_ALL_GOALS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_component_clear_all_goals,
                 __buffer,
             )
         };
@@ -2041,7 +2095,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_ROOT_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_root_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2065,7 +2120,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_ROOT_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_root_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2084,7 +2140,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_GLOBAL_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_global_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2108,7 +2165,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_GLOBAL_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_global_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2128,7 +2186,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SPEED_PLANT_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_speed_plant_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2159,7 +2218,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SPEED_PLANT_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_speed_plant_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2179,7 +2239,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2210,7 +2271,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2230,7 +2292,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_IK_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_ik_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2261,7 +2324,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_IK_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_ik_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2281,7 +2345,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_FK_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_fk_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2312,7 +2377,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_SET_CHAIN_FK_SETTINGS_IN_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_set_chain_fk_settings_in_retarget_profile,
                 __buffer,
             )
         };
@@ -2328,7 +2394,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_HAS_TARGET_IK_RIG,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_has_target_ik_rig,
                 __buffer,
             )
         };
@@ -2338,7 +2405,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_HAS_TARGET_IK_RIG,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_has_target_ik_rig,
                 __buffer,
             )
         };
@@ -2352,7 +2420,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_HAS_SOURCE_IK_RIG,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_has_source_ik_rig,
                 __buffer,
             )
         };
@@ -2362,7 +2431,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_HAS_SOURCE_IK_RIG,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_has_source_ik_rig,
                 __buffer,
             )
         };
@@ -2378,7 +2448,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_root_settings_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2395,7 +2466,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_root_settings_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2416,7 +2488,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_root_settings_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2447,7 +2520,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_ROOT_SETTINGS_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_root_settings_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2465,7 +2539,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_global_settings_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2482,7 +2557,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_global_settings_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2503,7 +2579,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_global_settings_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2534,7 +2611,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_GLOBAL_SETTINGS_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_global_settings_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2553,7 +2631,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_USING_GOAL_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_chain_using_goal_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2577,7 +2656,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_USING_GOAL_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_chain_using_goal_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2594,7 +2674,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_chain_settings_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2618,7 +2699,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_chain_settings_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2639,7 +2721,8 @@ impl UIKRetargeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_chain_settings_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2670,7 +2753,8 @@ impl UIKRetargeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGETER_GET_CHAIN_SETTINGS_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retargeter_get_chain_settings_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2792,7 +2876,8 @@ impl URetargetProfileLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_GET_OP_CONTROLLER_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .u_retarget_profile_library_get_op_controller_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2816,7 +2901,8 @@ impl URetargetProfileLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_GET_OP_CONTROLLER_FROM_RETARGET_PROFILE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .u_retarget_profile_library_get_op_controller_from_retarget_profile,
                 __buffer,
             )
         };
@@ -2835,7 +2921,8 @@ impl URetargetProfileLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_COPY_RETARGET_PROFILE_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .u_retarget_profile_library_copy_retarget_profile_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2852,7 +2939,8 @@ impl URetargetProfileLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::U_RETARGET_PROFILE_LIBRARY_COPY_RETARGET_PROFILE_FROM_RETARGET_ASSET,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .u_retarget_profile_library_copy_retarget_profile_from_retarget_asset,
                 __buffer,
             )
         };
@@ -2887,7 +2975,8 @@ impl UIKRetargetAlignPoleVectorController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_align_pole_vector_controller_set_settings,
                 __buffer,
             )
         };
@@ -2904,7 +2993,8 @@ impl UIKRetargetAlignPoleVectorController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_align_pole_vector_controller_set_settings,
                 __buffer,
             )
         };
@@ -2917,7 +3007,8 @@ impl UIKRetargetAlignPoleVectorController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_align_pole_vector_controller_get_settings,
                 __buffer,
             )
         };
@@ -2927,7 +3018,8 @@ impl UIKRetargetAlignPoleVectorController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ALIGN_POLE_VECTOR_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_align_pole_vector_controller_get_settings,
                 __buffer,
             )
         };
@@ -2962,7 +3054,8 @@ impl UIKRetargetCopyBasePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_set_settings,
                 __buffer,
             )
         };
@@ -2979,7 +3072,8 @@ impl UIKRetargetCopyBasePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_set_settings,
                 __buffer,
             )
         };
@@ -2992,7 +3086,8 @@ impl UIKRetargetCopyBasePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_COPY_FROM_START,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_set_copy_from_start,
                 __buffer,
             )
         };
@@ -3009,7 +3104,8 @@ impl UIKRetargetCopyBasePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_SET_COPY_FROM_START,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_set_copy_from_start,
                 __buffer,
             )
         };
@@ -3022,7 +3118,8 @@ impl UIKRetargetCopyBasePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_RESET_BONES_TO_EXCLUDE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_reset_bones_to_exclude,
                 __buffer,
             )
         };
@@ -3032,7 +3129,8 @@ impl UIKRetargetCopyBasePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_RESET_BONES_TO_EXCLUDE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_reset_bones_to_exclude,
                 __buffer,
             )
         };
@@ -3045,7 +3143,8 @@ impl UIKRetargetCopyBasePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_settings,
                 __buffer,
             )
         };
@@ -3055,7 +3154,8 @@ impl UIKRetargetCopyBasePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_settings,
                 __buffer,
             )
         };
@@ -3069,7 +3169,8 @@ impl UIKRetargetCopyBasePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_COPY_FROM_START,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_copy_from_start,
                 __buffer,
             )
         };
@@ -3079,7 +3180,8 @@ impl UIKRetargetCopyBasePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_COPY_FROM_START,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_copy_from_start,
                 __buffer,
             )
         };
@@ -3093,7 +3195,8 @@ impl UIKRetargetCopyBasePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_BONES_TO_EXCLUDE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_bones_to_exclude,
                 __buffer,
             )
         };
@@ -3103,7 +3206,8 @@ impl UIKRetargetCopyBasePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_GET_BONES_TO_EXCLUDE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_get_bones_to_exclude,
                 __buffer,
             )
         };
@@ -3117,7 +3221,8 @@ impl UIKRetargetCopyBasePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_ADD_BONE_TO_EXCLUDE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_add_bone_to_exclude,
                 __buffer,
             )
         };
@@ -3134,7 +3239,8 @@ impl UIKRetargetCopyBasePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_COPY_BASE_POSE_CONTROLLER_ADD_BONE_TO_EXCLUDE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_copy_base_pose_controller_add_bone_to_exclude,
                 __buffer,
             )
         };
@@ -3168,7 +3274,8 @@ impl UIKRetargetCurveRemapController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_curve_remap_controller_set_settings,
                 __buffer,
             )
         };
@@ -3185,7 +3292,8 @@ impl UIKRetargetCurveRemapController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_curve_remap_controller_set_settings,
                 __buffer,
             )
         };
@@ -3198,7 +3306,8 @@ impl UIKRetargetCurveRemapController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_curve_remap_controller_get_settings,
                 __buffer,
             )
         };
@@ -3208,7 +3317,8 @@ impl UIKRetargetCurveRemapController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_CURVE_REMAP_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_curve_remap_controller_get_settings,
                 __buffer,
             )
         };
@@ -3264,7 +3374,8 @@ impl UIKRetargetFilterBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_set_settings,
                 __buffer,
             )
         };
@@ -3281,7 +3392,8 @@ impl UIKRetargetFilterBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_set_settings,
                 __buffer,
             )
         };
@@ -3294,7 +3406,8 @@ impl UIKRetargetFilterBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_get_settings,
                 __buffer,
             )
         };
@@ -3304,7 +3417,8 @@ impl UIKRetargetFilterBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_get_settings,
                 __buffer,
             )
         };
@@ -3318,7 +3432,8 @@ impl UIKRetargetFilterBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_ALL_BONES_TO_FILTER,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_get_all_bones_to_filter,
                 __buffer,
             )
         };
@@ -3328,7 +3443,8 @@ impl UIKRetargetFilterBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_GET_ALL_BONES_TO_FILTER,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_get_all_bones_to_filter,
                 __buffer,
             )
         };
@@ -3342,7 +3458,8 @@ impl UIKRetargetFilterBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_CLEAR_BONES_TO_FILTER,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_clear_bones_to_filter,
                 __buffer,
             )
         };
@@ -3352,7 +3469,8 @@ impl UIKRetargetFilterBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_CLEAR_BONES_TO_FILTER,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_clear_bones_to_filter,
                 __buffer,
             )
         };
@@ -3365,7 +3483,8 @@ impl UIKRetargetFilterBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_ADD_BONE_TO_FILTER,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_add_bone_to_filter,
                 __buffer,
             )
         };
@@ -3382,7 +3501,8 @@ impl UIKRetargetFilterBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FILTER_BONE_CONTROLLER_ADD_BONE_TO_FILTER,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_filter_bone_controller_add_bone_to_filter,
                 __buffer,
             )
         };
@@ -3416,7 +3536,8 @@ impl UIKRetargetFKChainsController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_fk_chains_controller_set_settings,
                 __buffer,
             )
         };
@@ -3433,7 +3554,8 @@ impl UIKRetargetFKChainsController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_fk_chains_controller_set_settings,
                 __buffer,
             )
         };
@@ -3446,7 +3568,8 @@ impl UIKRetargetFKChainsController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_fk_chains_controller_get_settings,
                 __buffer,
             )
         };
@@ -3456,7 +3579,8 @@ impl UIKRetargetFKChainsController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FK_CHAINS_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_fk_chains_controller_get_settings,
                 __buffer,
             )
         };
@@ -3491,7 +3615,8 @@ impl UIKRetargetFloorGoalsController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_floor_goals_controller_set_settings,
                 __buffer,
             )
         };
@@ -3508,7 +3633,8 @@ impl UIKRetargetFloorGoalsController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_floor_goals_controller_set_settings,
                 __buffer,
             )
         };
@@ -3521,7 +3647,8 @@ impl UIKRetargetFloorGoalsController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_floor_goals_controller_get_settings,
                 __buffer,
             )
         };
@@ -3531,7 +3658,8 @@ impl UIKRetargetFloorGoalsController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_FLOOR_GOALS_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_floor_goals_controller_get_settings,
                 __buffer,
             )
         };
@@ -3566,7 +3694,8 @@ impl UIKRetargetIKChainsController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_ik_chains_controller_set_settings,
                 __buffer,
             )
         };
@@ -3583,7 +3712,8 @@ impl UIKRetargetIKChainsController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_ik_chains_controller_set_settings,
                 __buffer,
             )
         };
@@ -3596,7 +3726,8 @@ impl UIKRetargetIKChainsController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_ik_chains_controller_get_settings,
                 __buffer,
             )
         };
@@ -3606,7 +3737,8 @@ impl UIKRetargetIKChainsController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_IK_CHAINS_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_ik_chains_controller_get_settings,
                 __buffer,
             )
         };
@@ -3641,7 +3773,8 @@ impl UIKRetargetPelvisMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -3658,7 +3791,8 @@ impl UIKRetargetPelvisMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -3671,7 +3805,8 @@ impl UIKRetargetPelvisMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SOURCE_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_source_pelvis_bone,
                 __buffer,
             )
         };
@@ -3688,7 +3823,8 @@ impl UIKRetargetPelvisMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SOURCE_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_source_pelvis_bone,
                 __buffer,
             )
         };
@@ -3701,7 +3837,8 @@ impl UIKRetargetPelvisMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_settings,
                 __buffer,
             )
         };
@@ -3718,7 +3855,8 @@ impl UIKRetargetPelvisMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_set_settings,
                 __buffer,
             )
         };
@@ -3731,7 +3869,8 @@ impl UIKRetargetPelvisMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -3741,7 +3880,8 @@ impl UIKRetargetPelvisMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -3755,7 +3895,8 @@ impl UIKRetargetPelvisMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SOURCE_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_source_pelvis_bone,
                 __buffer,
             )
         };
@@ -3765,7 +3906,8 @@ impl UIKRetargetPelvisMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SOURCE_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_source_pelvis_bone,
                 __buffer,
             )
         };
@@ -3779,7 +3921,8 @@ impl UIKRetargetPelvisMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_settings,
                 __buffer,
             )
         };
@@ -3789,7 +3932,8 @@ impl UIKRetargetPelvisMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PELVIS_MOTION_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pelvis_motion_controller_get_settings,
                 __buffer,
             )
         };
@@ -3824,7 +3968,8 @@ impl UIKRetargetPinBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_set_settings,
                 __buffer,
             )
         };
@@ -3841,7 +3986,8 @@ impl UIKRetargetPinBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_set_settings,
                 __buffer,
             )
         };
@@ -3858,7 +4004,8 @@ impl UIKRetargetPinBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_BONE_PAIR,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_set_bone_pair,
                 __buffer,
             )
         };
@@ -3882,7 +4029,8 @@ impl UIKRetargetPinBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_SET_BONE_PAIR,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_set_bone_pair,
                 __buffer,
             )
         };
@@ -3895,7 +4043,8 @@ impl UIKRetargetPinBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_get_settings,
                 __buffer,
             )
         };
@@ -3905,7 +4054,8 @@ impl UIKRetargetPinBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_get_settings,
                 __buffer,
             )
         };
@@ -3919,7 +4069,8 @@ impl UIKRetargetPinBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_ALL_BONE_PAIRS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_get_all_bone_pairs,
                 __buffer,
             )
         };
@@ -3929,7 +4080,8 @@ impl UIKRetargetPinBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_GET_ALL_BONE_PAIRS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_get_all_bone_pairs,
                 __buffer,
             )
         };
@@ -3943,7 +4095,8 @@ impl UIKRetargetPinBoneController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_CLEAR_ALL_BONE_PAIRS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_clear_all_bone_pairs,
                 __buffer,
             )
         };
@@ -3953,7 +4106,8 @@ impl UIKRetargetPinBoneController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_PIN_BONE_CONTROLLER_CLEAR_ALL_BONE_PAIRS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_pin_bone_controller_clear_all_bone_pairs,
                 __buffer,
             )
         };
@@ -4008,7 +4162,8 @@ impl UIKRetargetAdditivePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_additive_pose_controller_set_settings,
                 __buffer,
             )
         };
@@ -4025,7 +4180,8 @@ impl UIKRetargetAdditivePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_additive_pose_controller_set_settings,
                 __buffer,
             )
         };
@@ -4038,7 +4194,8 @@ impl UIKRetargetAdditivePoseController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_additive_pose_controller_get_settings,
                 __buffer,
             )
         };
@@ -4048,7 +4205,8 @@ impl UIKRetargetAdditivePoseController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ADDITIVE_POSE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_additive_pose_controller_get_settings,
                 __buffer,
             )
         };
@@ -4083,7 +4241,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_target_root_bone,
                 __buffer,
             )
         };
@@ -4100,7 +4259,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_target_root_bone,
                 __buffer,
             )
         };
@@ -4113,7 +4273,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -4130,7 +4291,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -4143,7 +4305,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SOURCE_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_source_root_bone,
                 __buffer,
             )
         };
@@ -4160,7 +4323,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SOURCE_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_source_root_bone,
                 __buffer,
             )
         };
@@ -4173,7 +4337,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_settings,
                 __buffer,
             )
         };
@@ -4190,7 +4355,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_set_settings,
                 __buffer,
             )
         };
@@ -4203,7 +4369,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_target_root_bone,
                 __buffer,
             )
         };
@@ -4213,7 +4380,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_target_root_bone,
                 __buffer,
             )
         };
@@ -4227,7 +4395,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -4237,7 +4406,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_TARGET_PELVIS_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_target_pelvis_bone,
                 __buffer,
             )
         };
@@ -4251,7 +4421,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SOURCE_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_source_root_bone,
                 __buffer,
             )
         };
@@ -4261,7 +4432,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SOURCE_ROOT_BONE,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_source_root_bone,
                 __buffer,
             )
         };
@@ -4275,7 +4447,8 @@ impl UIKRetargetRootMotionController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_settings,
                 __buffer,
             )
         };
@@ -4285,7 +4458,8 @@ impl UIKRetargetRootMotionController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_ROOT_MOTION_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_root_motion_controller_get_settings,
                 __buffer,
             )
         };
@@ -4341,7 +4515,8 @@ impl UIKRetargetRunIKRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_run_ik_rig_controller_set_settings,
                 __buffer,
             )
         };
@@ -4358,7 +4533,8 @@ impl UIKRetargetRunIKRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_run_ik_rig_controller_set_settings,
                 __buffer,
             )
         };
@@ -4371,7 +4547,8 @@ impl UIKRetargetRunIKRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_run_ik_rig_controller_get_settings,
                 __buffer,
             )
         };
@@ -4381,7 +4558,8 @@ impl UIKRetargetRunIKRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_RUN_IK_RIG_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_run_ik_rig_controller_get_settings,
                 __buffer,
             )
         };
@@ -4416,7 +4594,8 @@ impl UIKRetargetScaleSourceController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_scale_source_controller_set_settings,
                 __buffer,
             )
         };
@@ -4433,7 +4612,8 @@ impl UIKRetargetScaleSourceController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_scale_source_controller_set_settings,
                 __buffer,
             )
         };
@@ -4446,7 +4626,8 @@ impl UIKRetargetScaleSourceController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_scale_source_controller_get_settings,
                 __buffer,
             )
         };
@@ -4456,7 +4637,8 @@ impl UIKRetargetScaleSourceController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_SCALE_SOURCE_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_scale_source_controller_get_settings,
                 __buffer,
             )
         };
@@ -4491,7 +4673,8 @@ impl UIKRetargetSpeedPlantingController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_speed_planting_controller_set_settings,
                 __buffer,
             )
         };
@@ -4508,7 +4691,8 @@ impl UIKRetargetSpeedPlantingController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_speed_planting_controller_set_settings,
                 __buffer,
             )
         };
@@ -4521,7 +4705,8 @@ impl UIKRetargetSpeedPlantingController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_speed_planting_controller_get_settings,
                 __buffer,
             )
         };
@@ -4531,7 +4716,8 @@ impl UIKRetargetSpeedPlantingController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_SPEED_PLANTING_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_speed_planting_controller_get_settings,
                 __buffer,
             )
         };
@@ -4566,7 +4752,8 @@ impl UIKRetargetStretchChainController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stretch_chain_controller_set_settings,
                 __buffer,
             )
         };
@@ -4583,7 +4770,8 @@ impl UIKRetargetStretchChainController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stretch_chain_controller_set_settings,
                 __buffer,
             )
         };
@@ -4596,7 +4784,8 @@ impl UIKRetargetStretchChainController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stretch_chain_controller_get_settings,
                 __buffer,
             )
         };
@@ -4606,7 +4795,8 @@ impl UIKRetargetStretchChainController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_STRETCH_CHAIN_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stretch_chain_controller_get_settings,
                 __buffer,
             )
         };
@@ -4641,7 +4831,8 @@ impl UIKRetargetStrideWarpingController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stride_warping_controller_set_settings,
                 __buffer,
             )
         };
@@ -4658,7 +4849,8 @@ impl UIKRetargetStrideWarpingController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_SET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stride_warping_controller_set_settings,
                 __buffer,
             )
         };
@@ -4671,7 +4863,8 @@ impl UIKRetargetStrideWarpingController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stride_warping_controller_get_settings,
                 __buffer,
             )
         };
@@ -4681,7 +4874,8 @@ impl UIKRetargetStrideWarpingController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RETARGET_STRIDE_WARPING_CONTROLLER_GET_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_retarget_stride_warping_controller_get_settings,
                 __buffer,
             )
         };
@@ -4791,7 +4985,8 @@ impl UIKRigSolverControllerBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_SET_ENABLED,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_solver_controller_base_set_enabled,
                 __buffer,
             )
         };
@@ -4808,7 +5003,8 @@ impl UIKRigSolverControllerBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_SET_ENABLED,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_solver_controller_base_set_enabled,
                 __buffer,
             )
         };
@@ -4821,7 +5017,8 @@ impl UIKRigSolverControllerBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_GET_ENABLED,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_solver_controller_base_get_enabled,
                 __buffer,
             )
         };
@@ -4831,7 +5028,8 @@ impl UIKRigSolverControllerBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_SOLVER_CONTROLLER_BASE_GET_ENABLED,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_solver_controller_base_get_enabled,
                 __buffer,
             )
         };
@@ -4866,7 +5064,8 @@ impl UIKRigBodyMoverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -4883,7 +5082,8 @@ impl UIKRigBodyMoverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -4900,7 +5100,8 @@ impl UIKRigBodyMoverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_set_goal_settings,
                 __buffer,
             )
         };
@@ -4924,7 +5125,8 @@ impl UIKRigBodyMoverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_SET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_set_goal_settings,
                 __buffer,
             )
         };
@@ -4937,7 +5139,8 @@ impl UIKRigBodyMoverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -4947,7 +5150,8 @@ impl UIKRigBodyMoverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -4964,7 +5168,8 @@ impl UIKRigBodyMoverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_get_goal_settings,
                 __buffer,
             )
         };
@@ -4981,7 +5186,8 @@ impl UIKRigBodyMoverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_BODY_MOVER_CONTROLLER_GET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_body_mover_controller_get_goal_settings,
                 __buffer,
             )
         };
@@ -5079,7 +5285,8 @@ impl UIKRigFBIKController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5096,7 +5303,8 @@ impl UIKRigFBIKController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5113,7 +5321,8 @@ impl UIKRigFBIKController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_set_goal_settings,
                 __buffer,
             )
         };
@@ -5137,7 +5346,8 @@ impl UIKRigFBIKController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_set_goal_settings,
                 __buffer,
             )
         };
@@ -5154,7 +5364,8 @@ impl UIKRigFBIKController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_BONE_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_set_bone_settings,
                 __buffer,
             )
         };
@@ -5178,7 +5389,8 @@ impl UIKRigFBIKController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_SET_BONE_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_set_bone_settings,
                 __buffer,
             )
         };
@@ -5191,7 +5403,8 @@ impl UIKRigFBIKController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -5201,7 +5414,8 @@ impl UIKRigFBIKController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -5215,7 +5429,8 @@ impl UIKRigFBIKController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_get_goal_settings,
                 __buffer,
             )
         };
@@ -5232,7 +5447,8 @@ impl UIKRigFBIKController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_GOAL_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_get_goal_settings,
                 __buffer,
             )
         };
@@ -5246,7 +5462,8 @@ impl UIKRigFBIKController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_BONE_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_get_bone_settings,
                 __buffer,
             )
         };
@@ -5263,7 +5480,8 @@ impl UIKRigFBIKController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_FBIK_CONTROLLER_GET_BONE_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_fbik_controller_get_bone_settings,
                 __buffer,
             )
         };
@@ -5361,7 +5579,8 @@ impl UIKRigLimbSolverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_limb_solver_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5378,7 +5597,8 @@ impl UIKRigLimbSolverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_limb_solver_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5391,7 +5611,8 @@ impl UIKRigLimbSolverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_limb_solver_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -5401,7 +5622,8 @@ impl UIKRigLimbSolverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_LIMB_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_limb_solver_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -5478,7 +5700,8 @@ impl UIKRigPoleSolverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_pole_solver_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5495,7 +5718,8 @@ impl UIKRigPoleSolverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_pole_solver_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5508,7 +5732,8 @@ impl UIKRigPoleSolverController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_pole_solver_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -5518,7 +5743,8 @@ impl UIKRigPoleSolverController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_POLE_SOLVER_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_pole_solver_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -5595,7 +5821,8 @@ impl UIKRigSetTransformController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_set_transform_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5612,7 +5839,8 @@ impl UIKRigSetTransformController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_SET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_set_transform_controller_set_solver_settings,
                 __buffer,
             )
         };
@@ -5625,7 +5853,8 @@ impl UIKRigSetTransformController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_set_transform_controller_get_solver_settings,
                 __buffer,
             )
         };
@@ -5635,7 +5864,8 @@ impl UIKRigSetTransformController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::ik_rig::UIK_RIG_SET_TRANSFORM_CONTROLLER_GET_SOLVER_SETTINGS,
+                crate::bindings::ik_rig::__FUNCTION_PTRS
+                    .uik_rig_set_transform_controller_get_solver_settings,
                 __buffer,
             )
         };

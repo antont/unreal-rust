@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CHAOS_SOLVER_ENGINE_BLUEPRINT_LIBRARY_CONVERT_PHYSICS_COLLISION_TO_HIT_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_SOLVER_ACTOR_SET_SOLVER_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_SOLVER_ACTOR_SET_AS_CURRENT_WORLD_SOLVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_chaos_solver_engine_blueprint_library_convert_physics_collision_to_hit_result: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_solver_actor_set_solver_active: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_solver_actor_set_as_current_world_solver: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_chaos_solver_engine_blueprint_library_convert_physics_collision_to_hit_result: std::ptr::null_mut(),
+            a_chaos_solver_actor_set_solver_active: std::ptr::null_mut(),
+            a_chaos_solver_actor_set_as_current_world_solver: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,7 +31,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertPhysicsCollisionToHitResult"),
-            &raw mut U_CHAOS_SOLVER_ENGINE_BLUEPRINT_LIBRARY_CONVERT_PHYSICS_COLLISION_TO_HIT_RESULT,
+            &raw mut __FUNCTION_PTRS
+                .u_chaos_solver_engine_blueprint_library_convert_physics_collision_to_hit_result,
         );
     }
     unsafe {
@@ -33,14 +43,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSolverActive"),
-            &raw mut A_CHAOS_SOLVER_ACTOR_SET_SOLVER_ACTIVE,
+            &raw mut __FUNCTION_PTRS.a_chaos_solver_actor_set_solver_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAsCurrentWorldSolver"),
-            &raw mut A_CHAOS_SOLVER_ACTOR_SET_AS_CURRENT_WORLD_SOLVER,
+            &raw mut __FUNCTION_PTRS.a_chaos_solver_actor_set_as_current_world_solver,
         );
     }
 }
@@ -200,7 +210,8 @@ impl UChaosSolverEngineBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_solver_engine::U_CHAOS_SOLVER_ENGINE_BLUEPRINT_LIBRARY_CONVERT_PHYSICS_COLLISION_TO_HIT_RESULT,
+                crate::bindings::chaos_solver_engine::__FUNCTION_PTRS
+                    .u_chaos_solver_engine_blueprint_library_convert_physics_collision_to_hit_result,
                 __buffer,
             )
         };
@@ -217,7 +228,8 @@ impl UChaosSolverEngineBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_solver_engine::U_CHAOS_SOLVER_ENGINE_BLUEPRINT_LIBRARY_CONVERT_PHYSICS_COLLISION_TO_HIT_RESULT,
+                crate::bindings::chaos_solver_engine::__FUNCTION_PTRS
+                    .u_chaos_solver_engine_blueprint_library_convert_physics_collision_to_hit_result,
                 __buffer,
             )
         };
@@ -273,7 +285,8 @@ impl AChaosSolverActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_SOLVER_ACTIVE,
+                crate::bindings::chaos_solver_engine::__FUNCTION_PTRS
+                    .a_chaos_solver_actor_set_solver_active,
                 __buffer,
             )
         };
@@ -286,7 +299,8 @@ impl AChaosSolverActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_SOLVER_ACTIVE,
+                crate::bindings::chaos_solver_engine::__FUNCTION_PTRS
+                    .a_chaos_solver_actor_set_solver_active,
                 __buffer,
             )
         };
@@ -299,7 +313,8 @@ impl AChaosSolverActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_AS_CURRENT_WORLD_SOLVER,
+                crate::bindings::chaos_solver_engine::__FUNCTION_PTRS
+                    .a_chaos_solver_actor_set_as_current_world_solver,
                 __buffer,
             )
         };
@@ -309,7 +324,8 @@ impl AChaosSolverActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_solver_engine::A_CHAOS_SOLVER_ACTOR_SET_AS_CURRENT_WORLD_SOLVER,
+                crate::bindings::chaos_solver_engine::__FUNCTION_PTRS
+                    .a_chaos_solver_actor_set_as_current_world_solver,
                 __buffer,
             )
         };

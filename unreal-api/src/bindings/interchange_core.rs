@@ -1,324 +1,333 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_SET_SOURCE_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_GET_SOURCE_FILENAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_ASSET_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SUPPORT_REIMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_SET_REIMPORT_SOURCE_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_GET_PIPELINE_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_IMPORT_PIPELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_FACTORY_PIPELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_BROADCAST_PIPELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_PIPELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_EXPORT_PIPELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_IS_REIMPORT_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_GET_SUPPORT_ASSET_CLASSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_FIND_OR_ADD_PROPERTY_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_BASE_DOES_PROPERTY_STATES_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_DATA_SET_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_DATA_SET_CONTEXT_OBJECT_BY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_DATA_REMOVE_ALL_CONTEXT_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_DATA_GET_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_DATA_GET_CONTEXT_OBJECT_BY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_DATA_GET_ALL_CONTEXT_OBJECT_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_SETTINGS_SAVE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_SETTINGS_LOAD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_BASE_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_BASE_GET_TRANSLATOR_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_FORMATS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_ASSET_TYPES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SOURCE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_TRANSLATOR_BASE_CAN_IMPORT_SOURCE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_SET_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_SET_DISPLAY_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_SET_ASSET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_REMOVE_TARGET_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_REMOVE_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_INITIALIZE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_VECTOR2_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_UNIQUE_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_TYPE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_STRING_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_PARENT_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_NODE_CONTAINER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_NAMESPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_LINEAR_COLOR_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_INT32_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_ICON_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_GUID_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_FLOAT_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_DOUBLE_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_DISPLAY_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_DESIRED_CHILD_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_BOOLEAN_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_GET_ASSET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_VECTOR2_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_TARGET_NODE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_STRING_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_LINEAR_COLOR_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_INT32_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_GUID_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_FLOAT_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_DOUBLE_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_ADD_BOOLEAN_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_PARENT_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_DESIRED_CHILD_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NAMESPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_SAVE_TO_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_RESET_CHILDREN_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_RESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_REPLACE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_REMOVE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_LOAD_FROM_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_IS_NODE_UID_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_ROOTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_IS_ANCESTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_FACTORY_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_COMPUTE_CHILDREN_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_CLEAR_NODE_PARENT_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_BASE_NODE_CONTAINER_ADD_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_SKIP_NODE_IMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_FORCE_NODE_REIMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_SKIP_NODE_IMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_FORCE_NODE_REIMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_SKIP_NODE_IMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_REIMPORT_STRATEGY_FLAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_FORCE_NODE_REIMPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_SUB_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_REFERENCE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_LEVEL_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_REMOVE_FACTORY_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_IS_RUNTIME_IMPORT_ALLOWED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_REIMPORT_STRATEGY_FLAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_OBJECT_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_SUB_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_REFERENCE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_LEVEL_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_FACTORY_BASE_NODE_ADD_FACTORY_DEPENDENCY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_EXTRA_INFORMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SUB_PATH_PREFIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SKELETAL_MESH_FRONT_AXIS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_REIMPORT_STRATEGY_FLAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_NANITE_TRIANGLE_THRESHOLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_IMPORT_UNUSED_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_REMOVE_EXTRA_INFORMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_INITIALIZE_SOURCE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_UNIQUE_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_EXTRA_INFORMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SUB_PATH_PREFIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SKELETAL_MESH_FRONT_AXIS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_REIMPORT_STRATEGY_FLAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_NANITE_TRIANGLE_THRESHOLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_IMPORT_UNUSED_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_REMOVE_USER_DEFINED_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INFOS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_F_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_BOOLEAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_DUPLICATE_ALL_USER_DEFINED_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_F_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_DOUBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_BOOLEAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_interchange_factory_base_set_source_filename: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_get_source_filenames: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_get_factory_class: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_get_factory_asset_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_support_reimport: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_scripted_set_reimport_source_index: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_scripted_get_pipeline_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_scripted_execute_post_import_pipeline: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_scripted_execute_post_factory_pipeline: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_scripted_execute_post_broadcast_pipeline: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_scripted_execute_pipeline: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_scripted_execute_export_pipeline: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_is_reimport_context: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_get_support_asset_classes: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_find_or_add_property_states: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_base_does_property_states_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_data_set_filename: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_data_set_context_object_by_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_data_remove_all_context_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_data_get_filename: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_data_get_context_object_by_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_data_get_all_context_object_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_settings_save_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_settings_load_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_base_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_base_get_translator_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_base_get_supported_formats: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_base_get_supported_asset_types: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_base_get_source_data: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_base_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_translator_base_can_import_source_data: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_set_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_set_display_label: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_set_asset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_remove_target_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_remove_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_is_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_initialize_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_vector2_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_unique_id: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_type_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_target_node_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_target_node_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_string_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_parent_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_node_container_type: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_namespace: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_linear_color_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_int32_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_icon_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_guid_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_float_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_double_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_display_label: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_desired_child_index: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_boolean_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_get_asset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_vector2_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_target_node_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_string_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_linear_color_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_int32_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_guid_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_float_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_double_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_add_boolean_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_set_node_parent_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_set_node_desired_child_index: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_set_namespace: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_save_to_file: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_reset_children_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_reset: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_replace_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_remove_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_load_from_file: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_is_node_uid_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_roots: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_node_children_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_node_children_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_node_children: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_is_ancestor: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_get_factory_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_compute_children_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_clear_node_parent_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_base_node_container_add_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_unset_skip_node_import: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_unset_force_node_reimport: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_should_skip_node_import: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_should_force_node_reimport: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_set_skip_node_import: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_set_reimport_strategy_flags: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_set_force_node_reimport: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_set_custom_sub_path: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_set_custom_reference_object: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_set_custom_level_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_remove_factory_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_is_runtime_import_allowed: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_reimport_strategy_flags: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_object_class: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_factory_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_factory_dependencies_count: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_factory_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_custom_sub_path: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_custom_reference_object: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_get_custom_level_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_factory_base_node_add_factory_dependency_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_extra_information: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_use_legacy_skeletal_mesh_bake_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_use_asset_type_sub_path_suffix: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_sub_path_prefix: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_source_timeline_start: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_source_timeline_end: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_source_frame_rate_numerator: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_source_frame_rate_denominator: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_skeletal_mesh_front_axis: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_reimport_strategy_flags: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_nanite_triangle_threshold: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_import_unused_material: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_axis_conversion_inverse_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_animated_time_start: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_animated_time_end: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_set_custom_allow_scene_root_as_joint: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_remove_extra_information: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_initialize_source_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_unique_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_extra_information: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_use_legacy_skeletal_mesh_bake_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_use_asset_type_sub_path_suffix: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_sub_path_prefix: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_source_timeline_start: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_source_timeline_end: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_source_frame_rate_numerator: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_source_frame_rate_denominator: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_skeletal_mesh_front_axis: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_reimport_strategy_flags: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_nanite_triangle_threshold: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_import_unused_material: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_axis_conversion_inverse_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_animated_time_start: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_animated_time_end: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_source_node_get_custom_allow_scene_root_as_joint: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_remove_user_defined_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_get_user_defined_attribute_infos: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_get_user_defined_attribute_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_get_user_defined_attribute_f_string: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_get_user_defined_attribute_float: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_get_user_defined_attribute_double: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_get_user_defined_attribute_boolean: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_duplicate_all_user_defined_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_create_user_defined_attribute_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_create_user_defined_attribute_f_string: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_create_user_defined_attribute_float: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_create_user_defined_attribute_double: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_user_defined_attributes_api_create_user_defined_attribute_boolean: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_interchange_factory_base_set_source_filename: std::ptr::null_mut(),
+            u_interchange_factory_base_get_source_filenames: std::ptr::null_mut(),
+            u_interchange_factory_base_get_factory_class: std::ptr::null_mut(),
+            u_interchange_factory_base_get_factory_asset_type: std::ptr::null_mut(),
+            u_interchange_pipeline_base_support_reimport: std::ptr::null_mut(),
+            u_interchange_pipeline_base_scripted_set_reimport_source_index: std::ptr::null_mut(),
+            u_interchange_pipeline_base_scripted_get_pipeline_display_name: std::ptr::null_mut(),
+            u_interchange_pipeline_base_scripted_execute_post_import_pipeline: std::ptr::null_mut(),
+            u_interchange_pipeline_base_scripted_execute_post_factory_pipeline: std::ptr::null_mut(),
+            u_interchange_pipeline_base_scripted_execute_post_broadcast_pipeline: std::ptr::null_mut(),
+            u_interchange_pipeline_base_scripted_execute_pipeline: std::ptr::null_mut(),
+            u_interchange_pipeline_base_scripted_execute_export_pipeline: std::ptr::null_mut(),
+            u_interchange_pipeline_base_is_reimport_context: std::ptr::null_mut(),
+            u_interchange_pipeline_base_get_support_asset_classes: std::ptr::null_mut(),
+            u_interchange_pipeline_base_find_or_add_property_states: std::ptr::null_mut(),
+            u_interchange_pipeline_base_does_property_states_exist: std::ptr::null_mut(),
+            u_interchange_source_data_set_filename: std::ptr::null_mut(),
+            u_interchange_source_data_set_context_object_by_tag: std::ptr::null_mut(),
+            u_interchange_source_data_remove_all_context_objects: std::ptr::null_mut(),
+            u_interchange_source_data_get_filename: std::ptr::null_mut(),
+            u_interchange_source_data_get_context_object_by_tag: std::ptr::null_mut(),
+            u_interchange_source_data_get_all_context_object_tags: std::ptr::null_mut(),
+            u_interchange_translator_settings_save_settings: std::ptr::null_mut(),
+            u_interchange_translator_settings_load_settings: std::ptr::null_mut(),
+            u_interchange_translator_base_set_settings: std::ptr::null_mut(),
+            u_interchange_translator_base_get_translator_type: std::ptr::null_mut(),
+            u_interchange_translator_base_get_supported_formats: std::ptr::null_mut(),
+            u_interchange_translator_base_get_supported_asset_types: std::ptr::null_mut(),
+            u_interchange_translator_base_get_source_data: std::ptr::null_mut(),
+            u_interchange_translator_base_get_settings: std::ptr::null_mut(),
+            u_interchange_translator_base_can_import_source_data: std::ptr::null_mut(),
+            u_interchange_base_node_set_enabled: std::ptr::null_mut(),
+            u_interchange_base_node_set_display_label: std::ptr::null_mut(),
+            u_interchange_base_node_set_asset_name: std::ptr::null_mut(),
+            u_interchange_base_node_remove_target_node_uid: std::ptr::null_mut(),
+            u_interchange_base_node_remove_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_is_enabled: std::ptr::null_mut(),
+            u_interchange_base_node_initialize_node: std::ptr::null_mut(),
+            u_interchange_base_node_get_vector2_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_unique_id: std::ptr::null_mut(),
+            u_interchange_base_node_get_type_name: std::ptr::null_mut(),
+            u_interchange_base_node_get_target_node_uids: std::ptr::null_mut(),
+            u_interchange_base_node_get_target_node_count: std::ptr::null_mut(),
+            u_interchange_base_node_get_string_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_parent_uid: std::ptr::null_mut(),
+            u_interchange_base_node_get_node_container_type: std::ptr::null_mut(),
+            u_interchange_base_node_get_namespace: std::ptr::null_mut(),
+            u_interchange_base_node_get_linear_color_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_int32_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_icon_name: std::ptr::null_mut(),
+            u_interchange_base_node_get_guid_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_float_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_double_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_display_label: std::ptr::null_mut(),
+            u_interchange_base_node_get_desired_child_index: std::ptr::null_mut(),
+            u_interchange_base_node_get_boolean_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_get_asset_name: std::ptr::null_mut(),
+            u_interchange_base_node_add_vector2_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_add_target_node_uid: std::ptr::null_mut(),
+            u_interchange_base_node_add_string_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_add_linear_color_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_add_int32_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_add_guid_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_add_float_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_add_double_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_add_boolean_attribute: std::ptr::null_mut(),
+            u_interchange_base_node_container_set_node_parent_uid: std::ptr::null_mut(),
+            u_interchange_base_node_container_set_node_desired_child_index: std::ptr::null_mut(),
+            u_interchange_base_node_container_set_namespace: std::ptr::null_mut(),
+            u_interchange_base_node_container_save_to_file: std::ptr::null_mut(),
+            u_interchange_base_node_container_reset_children_cache: std::ptr::null_mut(),
+            u_interchange_base_node_container_reset: std::ptr::null_mut(),
+            u_interchange_base_node_container_replace_node: std::ptr::null_mut(),
+            u_interchange_base_node_container_remove_node: std::ptr::null_mut(),
+            u_interchange_base_node_container_load_from_file: std::ptr::null_mut(),
+            u_interchange_base_node_container_is_node_uid_valid: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_roots: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_nodes: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_node_children_uids: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_node_children_count: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_node_children: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_node: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_is_ancestor: std::ptr::null_mut(),
+            u_interchange_base_node_container_get_factory_node: std::ptr::null_mut(),
+            u_interchange_base_node_container_compute_children_cache: std::ptr::null_mut(),
+            u_interchange_base_node_container_clear_node_parent_uid: std::ptr::null_mut(),
+            u_interchange_base_node_container_add_node: std::ptr::null_mut(),
+            u_interchange_factory_base_node_unset_skip_node_import: std::ptr::null_mut(),
+            u_interchange_factory_base_node_unset_force_node_reimport: std::ptr::null_mut(),
+            u_interchange_factory_base_node_should_skip_node_import: std::ptr::null_mut(),
+            u_interchange_factory_base_node_should_force_node_reimport: std::ptr::null_mut(),
+            u_interchange_factory_base_node_set_skip_node_import: std::ptr::null_mut(),
+            u_interchange_factory_base_node_set_reimport_strategy_flags: std::ptr::null_mut(),
+            u_interchange_factory_base_node_set_force_node_reimport: std::ptr::null_mut(),
+            u_interchange_factory_base_node_set_custom_sub_path: std::ptr::null_mut(),
+            u_interchange_factory_base_node_set_custom_reference_object: std::ptr::null_mut(),
+            u_interchange_factory_base_node_set_custom_level_uid: std::ptr::null_mut(),
+            u_interchange_factory_base_node_remove_factory_dependency_uid: std::ptr::null_mut(),
+            u_interchange_factory_base_node_is_runtime_import_allowed: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_reimport_strategy_flags: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_object_class: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_factory_dependency: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_factory_dependencies_count: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_factory_dependencies: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_custom_sub_path: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_custom_reference_object: std::ptr::null_mut(),
+            u_interchange_factory_base_node_get_custom_level_uid: std::ptr::null_mut(),
+            u_interchange_factory_base_node_add_factory_dependency_uid: std::ptr::null_mut(),
+            u_interchange_source_node_set_extra_information: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_use_legacy_skeletal_mesh_bake_transform: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_use_asset_type_sub_path_suffix: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_sub_path_prefix: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_source_timeline_start: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_source_timeline_end: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_source_frame_rate_numerator: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_source_frame_rate_denominator: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_skeletal_mesh_front_axis: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_reimport_strategy_flags: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_nanite_triangle_threshold: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_import_unused_material: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_axis_conversion_inverse_transform: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_animated_time_start: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_animated_time_end: std::ptr::null_mut(),
+            u_interchange_source_node_set_custom_allow_scene_root_as_joint: std::ptr::null_mut(),
+            u_interchange_source_node_remove_extra_information: std::ptr::null_mut(),
+            u_interchange_source_node_initialize_source_node: std::ptr::null_mut(),
+            u_interchange_source_node_get_unique_instance: std::ptr::null_mut(),
+            u_interchange_source_node_get_extra_information: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_use_legacy_skeletal_mesh_bake_transform: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_use_asset_type_sub_path_suffix: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_sub_path_prefix: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_source_timeline_start: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_source_timeline_end: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_source_frame_rate_numerator: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_source_frame_rate_denominator: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_skeletal_mesh_front_axis: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_reimport_strategy_flags: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_nanite_triangle_threshold: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_import_unused_material: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_axis_conversion_inverse_transform: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_animated_time_start: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_animated_time_end: std::ptr::null_mut(),
+            u_interchange_source_node_get_custom_allow_scene_root_as_joint: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_remove_user_defined_attribute: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_get_user_defined_attribute_infos: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_get_user_defined_attribute_int32: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_get_user_defined_attribute_f_string: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_get_user_defined_attribute_float: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_get_user_defined_attribute_double: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_get_user_defined_attribute_boolean: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_duplicate_all_user_defined_attribute: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_create_user_defined_attribute_int32: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_create_user_defined_attribute_f_string: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_create_user_defined_attribute_float: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_create_user_defined_attribute_double: std::ptr::null_mut(),
+            u_interchange_user_defined_attributes_api_create_user_defined_attribute_boolean: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -328,28 +337,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceFilename"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_SET_SOURCE_FILENAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_set_source_filename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceFilenames"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_GET_SOURCE_FILENAMES,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_get_source_filenames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFactoryClass"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_get_factory_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFactoryAssetType"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_ASSET_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_get_factory_asset_type,
         );
     }
     unsafe {
@@ -360,84 +369,94 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SupportReimport"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SUPPORT_REIMPORT,
+            &raw mut __FUNCTION_PTRS.u_interchange_pipeline_base_support_reimport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptedSetReimportSourceIndex"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_SET_REIMPORT_SOURCE_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_scripted_set_reimport_source_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptedGetPipelineDisplayName"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_GET_PIPELINE_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_scripted_get_pipeline_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptedExecutePostImportPipeline"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_IMPORT_PIPELINE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_scripted_execute_post_import_pipeline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptedExecutePostFactoryPipeline"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_FACTORY_PIPELINE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_scripted_execute_post_factory_pipeline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptedExecutePostBroadcastPipeline"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_BROADCAST_PIPELINE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_scripted_execute_post_broadcast_pipeline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptedExecutePipeline"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_PIPELINE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_scripted_execute_pipeline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScriptedExecuteExportPipeline"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_EXPORT_PIPELINE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_scripted_execute_export_pipeline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReimportContext"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_IS_REIMPORT_CONTEXT,
+            &raw mut __FUNCTION_PTRS.u_interchange_pipeline_base_is_reimport_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportAssetClasses"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_GET_SUPPORT_ASSET_CLASSES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_get_support_asset_classes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindOrAddPropertyStates"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_FIND_OR_ADD_PROPERTY_STATES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_find_or_add_property_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesPropertyStatesExist"),
-            &raw mut U_INTERCHANGE_PIPELINE_BASE_DOES_PROPERTY_STATES_EXIST,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_base_does_property_states_exist,
         );
     }
     unsafe {
@@ -448,42 +467,43 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilename"),
-            &raw mut U_INTERCHANGE_SOURCE_DATA_SET_FILENAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_data_set_filename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetContextObjectByTag"),
-            &raw mut U_INTERCHANGE_SOURCE_DATA_SET_CONTEXT_OBJECT_BY_TAG,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_data_set_context_object_by_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllContextObjects"),
-            &raw mut U_INTERCHANGE_SOURCE_DATA_REMOVE_ALL_CONTEXT_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_data_remove_all_context_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFilename"),
-            &raw mut U_INTERCHANGE_SOURCE_DATA_GET_FILENAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_data_get_filename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetContextObjectByTag"),
-            &raw mut U_INTERCHANGE_SOURCE_DATA_GET_CONTEXT_OBJECT_BY_TAG,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_data_get_context_object_by_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllContextObjectTags"),
-            &raw mut U_INTERCHANGE_SOURCE_DATA_GET_ALL_CONTEXT_OBJECT_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_data_get_all_context_object_tags,
         );
     }
     unsafe {
@@ -494,14 +514,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveSettings"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_SETTINGS_SAVE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_settings_save_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadSettings"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_SETTINGS_LOAD_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_settings_load_settings,
         );
     }
     unsafe {
@@ -512,49 +532,50 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_BASE_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_base_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTranslatorType"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_BASE_GET_TRANSLATOR_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_base_get_translator_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedFormats"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_FORMATS,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_base_get_supported_formats,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedAssetTypes"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_ASSET_TYPES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_translator_base_get_supported_asset_types,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceData"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SOURCE_DATA,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_base_get_source_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_BASE_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_base_get_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanImportSourceData"),
-            &raw mut U_INTERCHANGE_TRANSLATOR_BASE_CAN_IMPORT_SOURCE_DATA,
+            &raw mut __FUNCTION_PTRS.u_interchange_translator_base_can_import_source_data,
         );
     }
     unsafe {
@@ -565,245 +586,245 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnabled"),
-            &raw mut U_INTERCHANGE_BASE_NODE_SET_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_set_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayLabel"),
-            &raw mut U_INTERCHANGE_BASE_NODE_SET_DISPLAY_LABEL,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_set_display_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAssetName"),
-            &raw mut U_INTERCHANGE_BASE_NODE_SET_ASSET_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_set_asset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTargetNodeUid"),
-            &raw mut U_INTERCHANGE_BASE_NODE_REMOVE_TARGET_NODE_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_remove_target_node_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_REMOVE_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_remove_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut U_INTERCHANGE_BASE_NODE_IS_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_is_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitializeNode"),
-            &raw mut U_INTERCHANGE_BASE_NODE_INITIALIZE_NODE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_initialize_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector2Attribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_VECTOR2_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_vector2_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUniqueID"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_UNIQUE_ID,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_unique_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTypeName"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_TYPE_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_type_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetNodeUids"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_UIDS,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_target_node_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetNodeCount"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_COUNT,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_target_node_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStringAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_STRING_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_string_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentUid"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_PARENT_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_parent_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeContainerType"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_NODE_CONTAINER_TYPE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_node_container_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNamespace"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_NAMESPACE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_namespace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinearColorAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_LINEAR_COLOR_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_linear_color_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInt32Attribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_INT32_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_int32_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIconName"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_ICON_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_icon_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGuidAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_GUID_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_guid_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_FLOAT_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_float_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDoubleAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_DOUBLE_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_double_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayLabel"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_DISPLAY_LABEL,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_display_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDesiredChildIndex"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_DESIRED_CHILD_INDEX,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_desired_child_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBooleanAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_BOOLEAN_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_boolean_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetName"),
-            &raw mut U_INTERCHANGE_BASE_NODE_GET_ASSET_NAME,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_get_asset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVector2Attribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_VECTOR2_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_vector2_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTargetNodeUid"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_TARGET_NODE_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_target_node_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddStringAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_STRING_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_string_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLinearColorAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_LINEAR_COLOR_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_linear_color_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInt32Attribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_INT32_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_int32_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGuidAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_GUID_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_guid_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFloatAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_FLOAT_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_float_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDoubleAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_DOUBLE_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_double_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBooleanAttribute"),
-            &raw mut U_INTERCHANGE_BASE_NODE_ADD_BOOLEAN_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_add_boolean_attribute,
         );
     }
     unsafe {
@@ -814,147 +835,154 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeParentUid"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_PARENT_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_node_container_set_node_parent_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeDesiredChildIndex"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_DESIRED_CHILD_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_node_container_set_node_desired_child_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNamespace"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NAMESPACE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_set_namespace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveToFile"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_SAVE_TO_FILE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_save_to_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetChildrenCache"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_RESET_CHILDREN_CACHE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_node_container_reset_children_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_RESET,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_reset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceNode"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_REPLACE_NODE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_replace_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNode"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_REMOVE_NODE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_remove_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadFromFile"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_LOAD_FROM_FILE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_load_from_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNodeUidValid"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_IS_NODE_UID_VALID,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_is_node_uid_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRoots"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_ROOTS,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_get_roots,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodes"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODES,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_get_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeChildrenUids"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_node_container_get_node_children_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeChildrenCount"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_node_container_get_node_children_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeChildren"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_get_node_children,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNode"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_get_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsAncestor"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_IS_ANCESTOR,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_get_is_ancestor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFactoryNode"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_GET_FACTORY_NODE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_get_factory_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputeChildrenCache"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_COMPUTE_CHILDREN_CACHE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_node_container_compute_children_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearNodeParentUid"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_CLEAR_NODE_PARENT_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_base_node_container_clear_node_parent_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNode"),
-            &raw mut U_INTERCHANGE_BASE_NODE_CONTAINER_ADD_NODE,
+            &raw mut __FUNCTION_PTRS.u_interchange_base_node_container_add_node,
         );
     }
     unsafe {
@@ -965,147 +993,162 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsetSkipNodeImport"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_SKIP_NODE_IMPORT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_unset_skip_node_import,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsetForceNodeReimport"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_FORCE_NODE_REIMPORT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_unset_force_node_reimport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldSkipNodeImport"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_SKIP_NODE_IMPORT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_should_skip_node_import,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldForceNodeReimport"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_FORCE_NODE_REIMPORT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_should_force_node_reimport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkipNodeImport"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_SKIP_NODE_IMPORT,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_node_set_skip_node_import,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReimportStrategyFlags"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_REIMPORT_STRATEGY_FLAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_set_reimport_strategy_flags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetForceNodeReimport"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_FORCE_NODE_REIMPORT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_set_force_node_reimport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSubPath"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_SUB_PATH,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_node_set_custom_sub_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomReferenceObject"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_REFERENCE_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_set_custom_reference_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomLevelUid"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_LEVEL_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_node_set_custom_level_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveFactoryDependencyUid"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_REMOVE_FACTORY_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_remove_factory_dependency_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRuntimeImportAllowed"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_IS_RUNTIME_IMPORT_ALLOWED,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_is_runtime_import_allowed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReimportStrategyFlags"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_REIMPORT_STRATEGY_FLAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_get_reimport_strategy_flags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectClass"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_OBJECT_CLASS,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_node_get_object_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFactoryDependency"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_get_factory_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFactoryDependenciesCount"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_get_factory_dependencies_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFactoryDependencies"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_get_factory_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSubPath"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_SUB_PATH,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_node_get_custom_sub_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomReferenceObject"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_REFERENCE_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_get_custom_reference_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomLevelUid"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_LEVEL_UID,
+            &raw mut __FUNCTION_PTRS.u_interchange_factory_base_node_get_custom_level_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFactoryDependencyUid"),
-            &raw mut U_INTERCHANGE_FACTORY_BASE_NODE_ADD_FACTORY_DEPENDENCY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_factory_base_node_add_factory_dependency_uid,
         );
     }
     unsafe {
@@ -1116,245 +1159,273 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExtraInformation"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_EXTRA_INFORMATION,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_node_set_extra_information,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomUseLegacySkeletalMeshBakeTransform"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_use_legacy_skeletal_mesh_bake_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomUseAssetTypeSubPathSuffix"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_use_asset_type_sub_path_suffix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSubPathPrefix"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SUB_PATH_PREFIX,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_node_set_custom_sub_path_prefix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceTimelineStart"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_source_timeline_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceTimelineEnd"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_END,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_source_timeline_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceFrameRateNumerator"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_source_frame_rate_numerator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSourceFrameRateDenominator"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_source_frame_rate_denominator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomSkeletalMeshFrontAxis"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SKELETAL_MESH_FRONT_AXIS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_skeletal_mesh_front_axis,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomReimportStrategyFlags"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_REIMPORT_STRATEGY_FLAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_reimport_strategy_flags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomNaniteTriangleThreshold"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_NANITE_TRIANGLE_THRESHOLD,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_nanite_triangle_threshold,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomImportUnusedMaterial"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_IMPORT_UNUSED_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_import_unused_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAxisConversionInverseTransform"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_axis_conversion_inverse_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimatedTimeStart"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_START,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_animated_time_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAnimatedTimeEnd"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_END,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_animated_time_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAllowSceneRootAsJoint"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_set_custom_allow_scene_root_as_joint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveExtraInformation"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_REMOVE_EXTRA_INFORMATION,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_node_remove_extra_information,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitializeSourceNode"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_INITIALIZE_SOURCE_NODE,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_node_initialize_source_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUniqueInstance"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_UNIQUE_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_node_get_unique_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetExtraInformation"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_EXTRA_INFORMATION,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_node_get_extra_information,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomUseLegacySkeletalMeshBakeTransform"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_use_legacy_skeletal_mesh_bake_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomUseAssetTypeSubPathSuffix"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_use_asset_type_sub_path_suffix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSubPathPrefix"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SUB_PATH_PREFIX,
+            &raw mut __FUNCTION_PTRS.u_interchange_source_node_get_custom_sub_path_prefix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceTimelineStart"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_source_timeline_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceTimelineEnd"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_END,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_source_timeline_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceFrameRateNumerator"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_source_frame_rate_numerator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSourceFrameRateDenominator"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_source_frame_rate_denominator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomSkeletalMeshFrontAxis"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SKELETAL_MESH_FRONT_AXIS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_skeletal_mesh_front_axis,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomReimportStrategyFlags"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_REIMPORT_STRATEGY_FLAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_reimport_strategy_flags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomNaniteTriangleThreshold"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_NANITE_TRIANGLE_THRESHOLD,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_nanite_triangle_threshold,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomImportUnusedMaterial"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_IMPORT_UNUSED_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_import_unused_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAxisConversionInverseTransform"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_axis_conversion_inverse_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimatedTimeStart"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_START,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_animated_time_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAnimatedTimeEnd"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_END,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_animated_time_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAllowSceneRootAsJoint"),
-            &raw mut U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_source_node_get_custom_allow_scene_root_as_joint,
         );
     }
     unsafe {
@@ -1365,91 +1436,104 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveUserDefinedAttribute"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_REMOVE_USER_DEFINED_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_remove_user_defined_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUserDefinedAttributeInfos"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INFOS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_get_user_defined_attribute_infos,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUserDefinedAttribute_Int32"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INT32,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_get_user_defined_attribute_int32,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUserDefinedAttribute_FString"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_F_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_get_user_defined_attribute_f_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUserDefinedAttribute_Float"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_get_user_defined_attribute_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUserDefinedAttribute_Double"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_DOUBLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_get_user_defined_attribute_double,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUserDefinedAttribute_Boolean"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_BOOLEAN,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_get_user_defined_attribute_boolean,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateAllUserDefinedAttribute"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_DUPLICATE_ALL_USER_DEFINED_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_duplicate_all_user_defined_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateUserDefinedAttribute_Int32"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_INT32,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_create_user_defined_attribute_int32,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateUserDefinedAttribute_FString"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_F_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_create_user_defined_attribute_f_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateUserDefinedAttribute_Float"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_create_user_defined_attribute_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateUserDefinedAttribute_Double"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_DOUBLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_create_user_defined_attribute_double,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateUserDefinedAttribute_Boolean"),
-            &raw mut U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_BOOLEAN,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_user_defined_attributes_api_create_user_defined_attribute_boolean,
         );
     }
 }
@@ -1506,7 +1590,8 @@ impl UInterchangeFactoryBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_SET_SOURCE_FILENAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_set_source_filename,
                 __buffer,
             )
         };
@@ -1537,7 +1622,8 @@ impl UInterchangeFactoryBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_SET_SOURCE_FILENAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_set_source_filename,
                 __buffer,
             )
         };
@@ -1555,7 +1641,8 @@ impl UInterchangeFactoryBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_GET_SOURCE_FILENAMES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_get_source_filenames,
                 __buffer,
             )
         };
@@ -1579,7 +1666,8 @@ impl UInterchangeFactoryBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_GET_SOURCE_FILENAMES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_get_source_filenames,
                 __buffer,
             )
         };
@@ -1598,7 +1686,8 @@ impl UInterchangeFactoryBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_CLASS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_get_factory_class,
                 __buffer,
             )
         };
@@ -1608,7 +1697,8 @@ impl UInterchangeFactoryBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_CLASS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_get_factory_class,
                 __buffer,
             )
         };
@@ -1627,7 +1717,8 @@ impl UInterchangeFactoryBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_ASSET_TYPE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_get_factory_asset_type,
                 __buffer,
             )
         };
@@ -1637,7 +1728,8 @@ impl UInterchangeFactoryBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_GET_FACTORY_ASSET_TYPE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_get_factory_asset_type,
                 __buffer,
             )
         };
@@ -1693,7 +1785,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SUPPORT_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_support_reimport,
                 __buffer,
             )
         };
@@ -1703,7 +1796,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SUPPORT_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_support_reimport,
                 __buffer,
             )
         };
@@ -1721,7 +1815,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_SET_REIMPORT_SOURCE_INDEX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_set_reimport_source_index,
                 __buffer,
             )
         };
@@ -1747,7 +1842,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_SET_REIMPORT_SOURCE_INDEX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_set_reimport_source_index,
                 __buffer,
             )
         };
@@ -1760,7 +1856,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_GET_PIPELINE_DISPLAY_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_get_pipeline_display_name,
                 __buffer,
             )
         };
@@ -1770,7 +1867,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_GET_PIPELINE_DISPLAY_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_get_pipeline_display_name,
                 __buffer,
             )
         };
@@ -1790,7 +1888,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_IMPORT_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_post_import_pipeline,
                 __buffer,
             )
         };
@@ -1828,7 +1927,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_IMPORT_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_post_import_pipeline,
                 __buffer,
             )
         };
@@ -1847,7 +1947,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_FACTORY_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_post_factory_pipeline,
                 __buffer,
             )
         };
@@ -1885,7 +1986,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_FACTORY_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_post_factory_pipeline,
                 __buffer,
             )
         };
@@ -1904,7 +2006,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_BROADCAST_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_post_broadcast_pipeline,
                 __buffer,
             )
         };
@@ -1942,7 +2045,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_POST_BROADCAST_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_post_broadcast_pipeline,
                 __buffer,
             )
         };
@@ -1960,7 +2064,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_pipeline,
                 __buffer,
             )
         };
@@ -1991,7 +2096,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_pipeline,
                 __buffer,
             )
         };
@@ -2007,7 +2113,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_EXPORT_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_export_pipeline,
                 __buffer,
             )
         };
@@ -2024,7 +2131,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_SCRIPTED_EXECUTE_EXPORT_PIPELINE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_scripted_execute_export_pipeline,
                 __buffer,
             )
         };
@@ -2037,7 +2145,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_IS_REIMPORT_CONTEXT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_is_reimport_context,
                 __buffer,
             )
         };
@@ -2047,7 +2156,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_IS_REIMPORT_CONTEXT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_is_reimport_context,
                 __buffer,
             )
         };
@@ -2066,7 +2176,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_GET_SUPPORT_ASSET_CLASSES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_get_support_asset_classes,
                 __buffer,
             )
         };
@@ -2087,7 +2198,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_GET_SUPPORT_ASSET_CLASSES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_get_support_asset_classes,
                 __buffer,
             )
         };
@@ -2109,7 +2221,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_FIND_OR_ADD_PROPERTY_STATES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_find_or_add_property_states,
                 __buffer,
             )
         };
@@ -2126,7 +2239,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_FIND_OR_ADD_PROPERTY_STATES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_find_or_add_property_states,
                 __buffer,
             )
         };
@@ -2140,7 +2254,8 @@ impl UInterchangePipelineBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_DOES_PROPERTY_STATES_EXIST,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_does_property_states_exist,
                 __buffer,
             )
         };
@@ -2157,7 +2272,8 @@ impl UInterchangePipelineBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_PIPELINE_BASE_DOES_PROPERTY_STATES_EXIST,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_pipeline_base_does_property_states_exist,
                 __buffer,
             )
         };
@@ -2381,7 +2497,8 @@ impl UInterchangeSourceData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_SET_FILENAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_set_filename,
                 __buffer,
             )
         };
@@ -2398,7 +2515,8 @@ impl UInterchangeSourceData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_SET_FILENAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_set_filename,
                 __buffer,
             )
         };
@@ -2416,7 +2534,8 @@ impl UInterchangeSourceData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_SET_CONTEXT_OBJECT_BY_TAG,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_set_context_object_by_tag,
                 __buffer,
             )
         };
@@ -2436,7 +2555,8 @@ impl UInterchangeSourceData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_SET_CONTEXT_OBJECT_BY_TAG,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_set_context_object_by_tag,
                 __buffer,
             )
         };
@@ -2449,7 +2569,8 @@ impl UInterchangeSourceData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_REMOVE_ALL_CONTEXT_OBJECTS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_remove_all_context_objects,
                 __buffer,
             )
         };
@@ -2459,7 +2580,8 @@ impl UInterchangeSourceData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_REMOVE_ALL_CONTEXT_OBJECTS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_remove_all_context_objects,
                 __buffer,
             )
         };
@@ -2472,7 +2594,8 @@ impl UInterchangeSourceData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_GET_FILENAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_get_filename,
                 __buffer,
             )
         };
@@ -2482,7 +2605,8 @@ impl UInterchangeSourceData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_GET_FILENAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_get_filename,
                 __buffer,
             )
         };
@@ -2499,7 +2623,8 @@ impl UInterchangeSourceData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_GET_CONTEXT_OBJECT_BY_TAG,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_get_context_object_by_tag,
                 __buffer,
             )
         };
@@ -2512,7 +2637,8 @@ impl UInterchangeSourceData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_GET_CONTEXT_OBJECT_BY_TAG,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_get_context_object_by_tag,
                 __buffer,
             )
         };
@@ -2531,7 +2657,8 @@ impl UInterchangeSourceData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_GET_ALL_CONTEXT_OBJECT_TAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_get_all_context_object_tags,
                 __buffer,
             )
         };
@@ -2541,7 +2668,8 @@ impl UInterchangeSourceData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_DATA_GET_ALL_CONTEXT_OBJECT_TAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_data_get_all_context_object_tags,
                 __buffer,
             )
         };
@@ -2576,7 +2704,8 @@ impl UInterchangeTranslatorSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_SETTINGS_SAVE_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_settings_save_settings,
                 __buffer,
             )
         };
@@ -2586,7 +2715,8 @@ impl UInterchangeTranslatorSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_SETTINGS_SAVE_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_settings_save_settings,
                 __buffer,
             )
         };
@@ -2599,7 +2729,8 @@ impl UInterchangeTranslatorSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_SETTINGS_LOAD_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_settings_load_settings,
                 __buffer,
             )
         };
@@ -2609,7 +2740,8 @@ impl UInterchangeTranslatorSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_SETTINGS_LOAD_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_settings_load_settings,
                 __buffer,
             )
         };
@@ -2646,7 +2778,8 @@ impl UInterchangeTranslatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_SET_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_set_settings,
                 __buffer,
             )
         };
@@ -2663,7 +2796,8 @@ impl UInterchangeTranslatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_SET_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_set_settings,
                 __buffer,
             )
         };
@@ -2676,7 +2810,8 @@ impl UInterchangeTranslatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_TRANSLATOR_TYPE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_translator_type,
                 __buffer,
             )
         };
@@ -2686,7 +2821,8 @@ impl UInterchangeTranslatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_TRANSLATOR_TYPE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_translator_type,
                 __buffer,
             )
         };
@@ -2700,7 +2836,8 @@ impl UInterchangeTranslatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_FORMATS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_supported_formats,
                 __buffer,
             )
         };
@@ -2710,7 +2847,8 @@ impl UInterchangeTranslatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_FORMATS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_supported_formats,
                 __buffer,
             )
         };
@@ -2724,7 +2862,8 @@ impl UInterchangeTranslatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_ASSET_TYPES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_supported_asset_types,
                 __buffer,
             )
         };
@@ -2734,7 +2873,8 @@ impl UInterchangeTranslatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SUPPORTED_ASSET_TYPES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_supported_asset_types,
                 __buffer,
             )
         };
@@ -2748,7 +2888,8 @@ impl UInterchangeTranslatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SOURCE_DATA,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_source_data,
                 __buffer,
             )
         };
@@ -2758,7 +2899,8 @@ impl UInterchangeTranslatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SOURCE_DATA,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_source_data,
                 __buffer,
             )
         };
@@ -2772,7 +2914,8 @@ impl UInterchangeTranslatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_settings,
                 __buffer,
             )
         };
@@ -2782,7 +2925,8 @@ impl UInterchangeTranslatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_GET_SETTINGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_get_settings,
                 __buffer,
             )
         };
@@ -2799,7 +2943,8 @@ impl UInterchangeTranslatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_CAN_IMPORT_SOURCE_DATA,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_can_import_source_data,
                 __buffer,
             )
         };
@@ -2816,7 +2961,8 @@ impl UInterchangeTranslatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_TRANSLATOR_BASE_CAN_IMPORT_SOURCE_DATA,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_translator_base_can_import_source_data,
                 __buffer,
             )
         };
@@ -2851,7 +2997,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_SET_ENABLED,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_set_enabled,
                 __buffer,
             )
         };
@@ -2868,7 +3015,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_SET_ENABLED,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_set_enabled,
                 __buffer,
             )
         };
@@ -2882,7 +3030,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_SET_DISPLAY_LABEL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_set_display_label,
                 __buffer,
             )
         };
@@ -2899,7 +3048,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_SET_DISPLAY_LABEL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_set_display_label,
                 __buffer,
             )
         };
@@ -2913,7 +3063,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_SET_ASSET_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_set_asset_name,
                 __buffer,
             )
         };
@@ -2930,7 +3081,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_SET_ASSET_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_set_asset_name,
                 __buffer,
             )
         };
@@ -2944,7 +3096,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_REMOVE_TARGET_NODE_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_remove_target_node_uid,
                 __buffer,
             )
         };
@@ -2961,7 +3114,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_REMOVE_TARGET_NODE_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_remove_target_node_uid,
                 __buffer,
             )
         };
@@ -2975,7 +3129,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_REMOVE_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_remove_attribute,
                 __buffer,
             )
         };
@@ -2992,7 +3147,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_REMOVE_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_remove_attribute,
                 __buffer,
             )
         };
@@ -3006,7 +3162,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_IS_ENABLED,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_is_enabled,
                 __buffer,
             )
         };
@@ -3016,7 +3173,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_IS_ENABLED,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_is_enabled,
                 __buffer,
             )
         };
@@ -3035,7 +3193,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_INITIALIZE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_initialize_node,
                 __buffer,
             )
         };
@@ -3066,7 +3225,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_INITIALIZE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_initialize_node,
                 __buffer,
             )
         };
@@ -3083,7 +3243,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_VECTOR2_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_vector2_attribute,
                 __buffer,
             )
         };
@@ -3107,7 +3268,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_VECTOR2_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_vector2_attribute,
                 __buffer,
             )
         };
@@ -3127,7 +3289,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_UNIQUE_ID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_unique_id,
                 __buffer,
             )
         };
@@ -3137,7 +3300,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_UNIQUE_ID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_unique_id,
                 __buffer,
             )
         };
@@ -3151,7 +3315,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_TYPE_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_type_name,
                 __buffer,
             )
         };
@@ -3161,7 +3326,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_TYPE_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_type_name,
                 __buffer,
             )
         };
@@ -3175,7 +3341,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_UIDS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_target_node_uids,
                 __buffer,
             )
         };
@@ -3192,7 +3359,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_UIDS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_target_node_uids,
                 __buffer,
             )
         };
@@ -3208,7 +3376,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_COUNT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_target_node_count,
                 __buffer,
             )
         };
@@ -3218,7 +3387,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_TARGET_NODE_COUNT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_target_node_count,
                 __buffer,
             )
         };
@@ -3236,7 +3406,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_STRING_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_string_attribute,
                 __buffer,
             )
         };
@@ -3260,7 +3431,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_STRING_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_string_attribute,
                 __buffer,
             )
         };
@@ -3277,7 +3449,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_PARENT_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_parent_uid,
                 __buffer,
             )
         };
@@ -3287,7 +3460,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_PARENT_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_parent_uid,
                 __buffer,
             )
         };
@@ -3301,7 +3475,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_NODE_CONTAINER_TYPE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_node_container_type,
                 __buffer,
             )
         };
@@ -3311,7 +3486,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_NODE_CONTAINER_TYPE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_node_container_type,
                 __buffer,
             )
         };
@@ -3325,7 +3501,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_NAMESPACE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_namespace,
                 __buffer,
             )
         };
@@ -3342,7 +3519,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_NAMESPACE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_namespace,
                 __buffer,
             )
         };
@@ -3363,7 +3541,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_LINEAR_COLOR_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_linear_color_attribute,
                 __buffer,
             )
         };
@@ -3387,7 +3566,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_LINEAR_COLOR_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_linear_color_attribute,
                 __buffer,
             )
         };
@@ -3411,7 +3591,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_INT32_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_int32_attribute,
                 __buffer,
             )
         };
@@ -3431,7 +3612,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_INT32_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_int32_attribute,
                 __buffer,
             )
         };
@@ -3448,7 +3630,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_ICON_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_icon_name,
                 __buffer,
             )
         };
@@ -3458,7 +3641,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_ICON_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_icon_name,
                 __buffer,
             )
         };
@@ -3476,7 +3660,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_GUID_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_guid_attribute,
                 __buffer,
             )
         };
@@ -3500,7 +3685,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_GUID_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_guid_attribute,
                 __buffer,
             )
         };
@@ -3524,7 +3710,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_FLOAT_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_float_attribute,
                 __buffer,
             )
         };
@@ -3544,7 +3731,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_FLOAT_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_float_attribute,
                 __buffer,
             )
         };
@@ -3565,7 +3753,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_DOUBLE_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_double_attribute,
                 __buffer,
             )
         };
@@ -3585,7 +3774,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_DOUBLE_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_double_attribute,
                 __buffer,
             )
         };
@@ -3602,7 +3792,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_DISPLAY_LABEL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_display_label,
                 __buffer,
             )
         };
@@ -3612,7 +3803,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_DISPLAY_LABEL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_display_label,
                 __buffer,
             )
         };
@@ -3626,7 +3818,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_DESIRED_CHILD_INDEX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_desired_child_index,
                 __buffer,
             )
         };
@@ -3636,7 +3829,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_DESIRED_CHILD_INDEX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_desired_child_index,
                 __buffer,
             )
         };
@@ -3654,7 +3848,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_BOOLEAN_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_boolean_attribute,
                 __buffer,
             )
         };
@@ -3674,7 +3869,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_BOOLEAN_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_boolean_attribute,
                 __buffer,
             )
         };
@@ -3691,7 +3887,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_ASSET_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_asset_name,
                 __buffer,
             )
         };
@@ -3701,7 +3898,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_GET_ASSET_NAME,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_get_asset_name,
                 __buffer,
             )
         };
@@ -3719,7 +3917,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_VECTOR2_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_vector2_attribute,
                 __buffer,
             )
         };
@@ -3743,7 +3942,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_VECTOR2_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_vector2_attribute,
                 __buffer,
             )
         };
@@ -3757,7 +3957,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_TARGET_NODE_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_target_node_uid,
                 __buffer,
             )
         };
@@ -3774,7 +3975,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_TARGET_NODE_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_target_node_uid,
                 __buffer,
             )
         };
@@ -3792,7 +3994,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_STRING_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_string_attribute,
                 __buffer,
             )
         };
@@ -3812,7 +4015,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_STRING_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_string_attribute,
                 __buffer,
             )
         };
@@ -3830,7 +4034,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_LINEAR_COLOR_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_linear_color_attribute,
                 __buffer,
             )
         };
@@ -3854,7 +4059,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_LINEAR_COLOR_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_linear_color_attribute,
                 __buffer,
             )
         };
@@ -3872,7 +4078,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_INT32_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_int32_attribute,
                 __buffer,
             )
         };
@@ -3892,7 +4099,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_INT32_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_int32_attribute,
                 __buffer,
             )
         };
@@ -3910,7 +4118,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_GUID_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_guid_attribute,
                 __buffer,
             )
         };
@@ -3934,7 +4143,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_GUID_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_guid_attribute,
                 __buffer,
             )
         };
@@ -3952,7 +4162,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_FLOAT_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_float_attribute,
                 __buffer,
             )
         };
@@ -3972,7 +4183,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_FLOAT_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_float_attribute,
                 __buffer,
             )
         };
@@ -3990,7 +4202,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_DOUBLE_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_double_attribute,
                 __buffer,
             )
         };
@@ -4010,7 +4223,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_DOUBLE_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_double_attribute,
                 __buffer,
             )
         };
@@ -4028,7 +4242,8 @@ impl UInterchangeBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_BOOLEAN_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_boolean_attribute,
                 __buffer,
             )
         };
@@ -4048,7 +4263,8 @@ impl UInterchangeBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_ADD_BOOLEAN_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_add_boolean_attribute,
                 __buffer,
             )
         };
@@ -4087,7 +4303,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_PARENT_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_set_node_parent_uid,
                 __buffer,
             )
         };
@@ -4111,7 +4328,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_PARENT_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_set_node_parent_uid,
                 __buffer,
             )
         };
@@ -4129,7 +4347,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_DESIRED_CHILD_INDEX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_set_node_desired_child_index,
                 __buffer,
             )
         };
@@ -4153,7 +4372,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NODE_DESIRED_CHILD_INDEX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_set_node_desired_child_index,
                 __buffer,
             )
         };
@@ -4171,7 +4391,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NAMESPACE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_set_namespace,
                 __buffer,
             )
         };
@@ -4197,7 +4418,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SET_NAMESPACE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_set_namespace,
                 __buffer,
             )
         };
@@ -4210,7 +4432,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SAVE_TO_FILE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_save_to_file,
                 __buffer,
             )
         };
@@ -4227,7 +4450,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_SAVE_TO_FILE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_save_to_file,
                 __buffer,
             )
         };
@@ -4240,7 +4464,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_RESET_CHILDREN_CACHE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_reset_children_cache,
                 __buffer,
             )
         };
@@ -4250,7 +4475,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_RESET_CHILDREN_CACHE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_reset_children_cache,
                 __buffer,
             )
         };
@@ -4263,7 +4489,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_RESET,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_reset,
                 __buffer,
             )
         };
@@ -4273,7 +4500,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_RESET,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_reset,
                 __buffer,
             )
         };
@@ -4290,7 +4518,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_REPLACE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_replace_node,
                 __buffer,
             )
         };
@@ -4314,7 +4543,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_REPLACE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_replace_node,
                 __buffer,
             )
         };
@@ -4327,7 +4557,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_REMOVE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_remove_node,
                 __buffer,
             )
         };
@@ -4344,7 +4575,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_REMOVE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_remove_node,
                 __buffer,
             )
         };
@@ -4357,7 +4589,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_LOAD_FROM_FILE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_load_from_file,
                 __buffer,
             )
         };
@@ -4374,7 +4607,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_LOAD_FROM_FILE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_load_from_file,
                 __buffer,
             )
         };
@@ -4387,7 +4621,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_IS_NODE_UID_VALID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_is_node_uid_valid,
                 __buffer,
             )
         };
@@ -4404,7 +4639,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_IS_NODE_UID_VALID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_is_node_uid_valid,
                 __buffer,
             )
         };
@@ -4418,7 +4654,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_ROOTS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_roots,
                 __buffer,
             )
         };
@@ -4435,7 +4672,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_ROOTS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_roots,
                 __buffer,
             )
         };
@@ -4455,7 +4693,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_nodes,
                 __buffer,
             )
         };
@@ -4481,7 +4720,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_nodes,
                 __buffer,
             )
         };
@@ -4497,7 +4737,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_UIDS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node_children_uids,
                 __buffer,
             )
         };
@@ -4514,7 +4755,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_UIDS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node_children_uids,
                 __buffer,
             )
         };
@@ -4528,7 +4770,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_COUNT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node_children_count,
                 __buffer,
             )
         };
@@ -4545,7 +4788,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN_COUNT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node_children_count,
                 __buffer,
             )
         };
@@ -4563,7 +4807,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node_children,
                 __buffer,
             )
         };
@@ -4587,7 +4832,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE_CHILDREN,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node_children,
                 __buffer,
             )
         };
@@ -4601,7 +4847,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node,
                 __buffer,
             )
         };
@@ -4618,7 +4865,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_node,
                 __buffer,
             )
         };
@@ -4636,7 +4884,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_IS_ANCESTOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_is_ancestor,
                 __buffer,
             )
         };
@@ -4660,7 +4909,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_IS_ANCESTOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_is_ancestor,
                 __buffer,
             )
         };
@@ -4677,7 +4927,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_FACTORY_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_factory_node,
                 __buffer,
             )
         };
@@ -4694,7 +4945,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_GET_FACTORY_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_get_factory_node,
                 __buffer,
             )
         };
@@ -4708,7 +4960,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_COMPUTE_CHILDREN_CACHE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_compute_children_cache,
                 __buffer,
             )
         };
@@ -4718,7 +4971,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_COMPUTE_CHILDREN_CACHE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_compute_children_cache,
                 __buffer,
             )
         };
@@ -4731,7 +4985,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_CLEAR_NODE_PARENT_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_clear_node_parent_uid,
                 __buffer,
             )
         };
@@ -4748,7 +5003,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_CLEAR_NODE_PARENT_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_clear_node_parent_uid,
                 __buffer,
             )
         };
@@ -4762,7 +5018,8 @@ impl UInterchangeBaseNodeContainer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_ADD_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_add_node,
                 __buffer,
             )
         };
@@ -4779,7 +5036,8 @@ impl UInterchangeBaseNodeContainer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_BASE_NODE_CONTAINER_ADD_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_base_node_container_add_node,
                 __buffer,
             )
         };
@@ -4814,7 +5072,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_SKIP_NODE_IMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_unset_skip_node_import,
                 __buffer,
             )
         };
@@ -4824,7 +5083,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_SKIP_NODE_IMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_unset_skip_node_import,
                 __buffer,
             )
         };
@@ -4838,7 +5098,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_FORCE_NODE_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_unset_force_node_reimport,
                 __buffer,
             )
         };
@@ -4848,7 +5109,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_UNSET_FORCE_NODE_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_unset_force_node_reimport,
                 __buffer,
             )
         };
@@ -4862,7 +5124,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_SKIP_NODE_IMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_should_skip_node_import,
                 __buffer,
             )
         };
@@ -4872,7 +5135,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_SKIP_NODE_IMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_should_skip_node_import,
                 __buffer,
             )
         };
@@ -4886,7 +5150,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_FORCE_NODE_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_should_force_node_reimport,
                 __buffer,
             )
         };
@@ -4896,7 +5161,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SHOULD_FORCE_NODE_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_should_force_node_reimport,
                 __buffer,
             )
         };
@@ -4910,7 +5176,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_SKIP_NODE_IMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_skip_node_import,
                 __buffer,
             )
         };
@@ -4920,7 +5187,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_SKIP_NODE_IMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_skip_node_import,
                 __buffer,
             )
         };
@@ -4937,7 +5205,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -4954,7 +5223,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -4968,7 +5238,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_FORCE_NODE_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_force_node_reimport,
                 __buffer,
             )
         };
@@ -4978,7 +5249,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_FORCE_NODE_REIMPORT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_force_node_reimport,
                 __buffer,
             )
         };
@@ -4992,7 +5264,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_SUB_PATH,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_custom_sub_path,
                 __buffer,
             )
         };
@@ -5009,7 +5282,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_SUB_PATH,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_custom_sub_path,
                 __buffer,
             )
         };
@@ -5026,7 +5300,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_REFERENCE_OBJECT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_custom_reference_object,
                 __buffer,
             )
         };
@@ -5045,7 +5320,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_REFERENCE_OBJECT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_custom_reference_object,
                 __buffer,
             )
         };
@@ -5059,7 +5335,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_LEVEL_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_custom_level_uid,
                 __buffer,
             )
         };
@@ -5076,7 +5353,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_SET_CUSTOM_LEVEL_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_set_custom_level_uid,
                 __buffer,
             )
         };
@@ -5090,7 +5368,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_REMOVE_FACTORY_DEPENDENCY_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_remove_factory_dependency_uid,
                 __buffer,
             )
         };
@@ -5107,7 +5386,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_REMOVE_FACTORY_DEPENDENCY_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_remove_factory_dependency_uid,
                 __buffer,
             )
         };
@@ -5121,7 +5401,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_IS_RUNTIME_IMPORT_ALLOWED,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_is_runtime_import_allowed,
                 __buffer,
             )
         };
@@ -5131,7 +5412,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_IS_RUNTIME_IMPORT_ALLOWED,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_is_runtime_import_allowed,
                 __buffer,
             )
         };
@@ -5145,7 +5427,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -5155,7 +5438,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -5171,7 +5455,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_OBJECT_CLASS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_object_class,
                 __buffer,
             )
         };
@@ -5181,7 +5466,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_OBJECT_CLASS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_object_class,
                 __buffer,
             )
         };
@@ -5200,7 +5486,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCY,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_factory_dependency,
                 __buffer,
             )
         };
@@ -5220,7 +5507,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCY,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_factory_dependency,
                 __buffer,
             )
         };
@@ -5236,7 +5524,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES_COUNT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_factory_dependencies_count,
                 __buffer,
             )
         };
@@ -5246,7 +5535,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES_COUNT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_factory_dependencies_count,
                 __buffer,
             )
         };
@@ -5260,7 +5550,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_factory_dependencies,
                 __buffer,
             )
         };
@@ -5277,7 +5568,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_FACTORY_DEPENDENCIES,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_factory_dependencies,
                 __buffer,
             )
         };
@@ -5293,7 +5585,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_SUB_PATH,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_custom_sub_path,
                 __buffer,
             )
         };
@@ -5310,7 +5603,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_SUB_PATH,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_custom_sub_path,
                 __buffer,
             )
         };
@@ -5330,7 +5624,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_REFERENCE_OBJECT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_custom_reference_object,
                 __buffer,
             )
         };
@@ -5349,7 +5644,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_REFERENCE_OBJECT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_custom_reference_object,
                 __buffer,
             )
         };
@@ -5369,7 +5665,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_LEVEL_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_custom_level_uid,
                 __buffer,
             )
         };
@@ -5386,7 +5683,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_GET_CUSTOM_LEVEL_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_get_custom_level_uid,
                 __buffer,
             )
         };
@@ -5403,7 +5701,8 @@ impl UInterchangeFactoryBaseNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_ADD_FACTORY_DEPENDENCY_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_add_factory_dependency_uid,
                 __buffer,
             )
         };
@@ -5420,7 +5719,8 @@ impl UInterchangeFactoryBaseNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_FACTORY_BASE_NODE_ADD_FACTORY_DEPENDENCY_UID,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_factory_base_node_add_factory_dependency_uid,
                 __buffer,
             )
         };
@@ -5455,7 +5755,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_EXTRA_INFORMATION,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_extra_information,
                 __buffer,
             )
         };
@@ -5471,7 +5772,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_EXTRA_INFORMATION,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_extra_information,
                 __buffer,
             )
         };
@@ -5488,7 +5790,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_use_legacy_skeletal_mesh_bake_transform,
                 __buffer,
             )
         };
@@ -5505,7 +5808,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_use_legacy_skeletal_mesh_bake_transform,
                 __buffer,
             )
         };
@@ -5519,7 +5823,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_use_asset_type_sub_path_suffix,
                 __buffer,
             )
         };
@@ -5532,7 +5837,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_use_asset_type_sub_path_suffix,
                 __buffer,
             )
         };
@@ -5546,7 +5852,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SUB_PATH_PREFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_sub_path_prefix,
                 __buffer,
             )
         };
@@ -5559,7 +5866,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SUB_PATH_PREFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_sub_path_prefix,
                 __buffer,
             )
         };
@@ -5573,7 +5881,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_timeline_start,
                 __buffer,
             )
         };
@@ -5590,7 +5899,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_timeline_start,
                 __buffer,
             )
         };
@@ -5604,7 +5914,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_timeline_end,
                 __buffer,
             )
         };
@@ -5621,7 +5932,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_TIMELINE_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_timeline_end,
                 __buffer,
             )
         };
@@ -5638,7 +5950,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_frame_rate_numerator,
                 __buffer,
             )
         };
@@ -5655,7 +5968,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_frame_rate_numerator,
                 __buffer,
             )
         };
@@ -5672,7 +5986,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_frame_rate_denominator,
                 __buffer,
             )
         };
@@ -5689,7 +6004,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_source_frame_rate_denominator,
                 __buffer,
             )
         };
@@ -5703,7 +6019,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SKELETAL_MESH_FRONT_AXIS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_skeletal_mesh_front_axis,
                 __buffer,
             )
         };
@@ -5720,7 +6037,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_SKELETAL_MESH_FRONT_AXIS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_skeletal_mesh_front_axis,
                 __buffer,
             )
         };
@@ -5734,7 +6052,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -5751,7 +6070,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -5768,7 +6088,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_NANITE_TRIANGLE_THRESHOLD,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_nanite_triangle_threshold,
                 __buffer,
             )
         };
@@ -5785,7 +6106,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_NANITE_TRIANGLE_THRESHOLD,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_nanite_triangle_threshold,
                 __buffer,
             )
         };
@@ -5799,7 +6121,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_IMPORT_UNUSED_MATERIAL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_import_unused_material,
                 __buffer,
             )
         };
@@ -5816,7 +6139,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_IMPORT_UNUSED_MATERIAL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_import_unused_material,
                 __buffer,
             )
         };
@@ -5833,7 +6157,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_axis_conversion_inverse_transform,
                 __buffer,
             )
         };
@@ -5850,7 +6175,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_axis_conversion_inverse_transform,
                 __buffer,
             )
         };
@@ -5864,7 +6190,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_animated_time_start,
                 __buffer,
             )
         };
@@ -5881,7 +6208,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_animated_time_start,
                 __buffer,
             )
         };
@@ -5895,7 +6223,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_animated_time_end,
                 __buffer,
             )
         };
@@ -5912,7 +6241,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ANIMATED_TIME_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_animated_time_end,
                 __buffer,
             )
         };
@@ -5929,7 +6259,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_allow_scene_root_as_joint,
                 __buffer,
             )
         };
@@ -5946,7 +6277,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_SET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_set_custom_allow_scene_root_as_joint,
                 __buffer,
             )
         };
@@ -5960,7 +6292,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_REMOVE_EXTRA_INFORMATION,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_remove_extra_information,
                 __buffer,
             )
         };
@@ -5973,7 +6306,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_REMOVE_EXTRA_INFORMATION,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_remove_extra_information,
                 __buffer,
             )
         };
@@ -5992,7 +6326,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_INITIALIZE_SOURCE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_initialize_source_node,
                 __buffer,
             )
         };
@@ -6023,7 +6358,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_INITIALIZE_SOURCE_NODE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_initialize_source_node,
                 __buffer,
             )
         };
@@ -6038,7 +6374,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_UNIQUE_INSTANCE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_unique_instance,
                 __buffer,
             )
         };
@@ -6055,7 +6392,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_UNIQUE_INSTANCE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_unique_instance,
                 __buffer,
             )
         };
@@ -6072,7 +6410,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_EXTRA_INFORMATION,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_extra_information,
                 __buffer,
             )
         };
@@ -6089,7 +6428,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_EXTRA_INFORMATION,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_extra_information,
                 __buffer,
             )
         };
@@ -6108,7 +6448,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_use_legacy_skeletal_mesh_bake_transform,
                 __buffer,
             )
         };
@@ -6125,7 +6466,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_LEGACY_SKELETAL_MESH_BAKE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_use_legacy_skeletal_mesh_bake_transform,
                 __buffer,
             )
         };
@@ -6142,7 +6484,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_use_asset_type_sub_path_suffix,
                 __buffer,
             )
         };
@@ -6155,7 +6498,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_USE_ASSET_TYPE_SUB_PATH_SUFFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_use_asset_type_sub_path_suffix,
                 __buffer,
             )
         };
@@ -6172,7 +6516,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SUB_PATH_PREFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_sub_path_prefix,
                 __buffer,
             )
         };
@@ -6185,7 +6530,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SUB_PATH_PREFIX,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_sub_path_prefix,
                 __buffer,
             )
         };
@@ -6202,7 +6548,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_timeline_start,
                 __buffer,
             )
         };
@@ -6219,7 +6566,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_timeline_start,
                 __buffer,
             )
         };
@@ -6236,7 +6584,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_timeline_end,
                 __buffer,
             )
         };
@@ -6253,7 +6602,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_TIMELINE_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_timeline_end,
                 __buffer,
             )
         };
@@ -6273,7 +6623,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_frame_rate_numerator,
                 __buffer,
             )
         };
@@ -6290,7 +6641,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_NUMERATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_frame_rate_numerator,
                 __buffer,
             )
         };
@@ -6310,7 +6662,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_frame_rate_denominator,
                 __buffer,
             )
         };
@@ -6327,7 +6680,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SOURCE_FRAME_RATE_DENOMINATOR,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_source_frame_rate_denominator,
                 __buffer,
             )
         };
@@ -6344,7 +6698,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SKELETAL_MESH_FRONT_AXIS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_skeletal_mesh_front_axis,
                 __buffer,
             )
         };
@@ -6361,7 +6716,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_SKELETAL_MESH_FRONT_AXIS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_skeletal_mesh_front_axis,
                 __buffer,
             )
         };
@@ -6378,7 +6734,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -6395,7 +6752,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_REIMPORT_STRATEGY_FLAGS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_reimport_strategy_flags,
                 __buffer,
             )
         };
@@ -6415,7 +6773,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_NANITE_TRIANGLE_THRESHOLD,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_nanite_triangle_threshold,
                 __buffer,
             )
         };
@@ -6432,7 +6791,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_NANITE_TRIANGLE_THRESHOLD,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_nanite_triangle_threshold,
                 __buffer,
             )
         };
@@ -6449,7 +6809,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_IMPORT_UNUSED_MATERIAL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_import_unused_material,
                 __buffer,
             )
         };
@@ -6466,7 +6827,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_IMPORT_UNUSED_MATERIAL,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_import_unused_material,
                 __buffer,
             )
         };
@@ -6486,7 +6848,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_axis_conversion_inverse_transform,
                 __buffer,
             )
         };
@@ -6503,7 +6866,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_AXIS_CONVERSION_INVERSE_TRANSFORM,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_axis_conversion_inverse_transform,
                 __buffer,
             )
         };
@@ -6523,7 +6887,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_animated_time_start,
                 __buffer,
             )
         };
@@ -6540,7 +6905,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_START,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_animated_time_start,
                 __buffer,
             )
         };
@@ -6557,7 +6923,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_animated_time_end,
                 __buffer,
             )
         };
@@ -6574,7 +6941,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ANIMATED_TIME_END,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_animated_time_end,
                 __buffer,
             )
         };
@@ -6594,7 +6962,8 @@ impl UInterchangeSourceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_allow_scene_root_as_joint,
                 __buffer,
             )
         };
@@ -6611,7 +6980,8 @@ impl UInterchangeSourceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_SOURCE_NODE_GET_CUSTOM_ALLOW_SCENE_ROOT_AS_JOINT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_source_node_get_custom_allow_scene_root_as_joint,
                 __buffer,
             )
         };
@@ -6652,7 +7022,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_REMOVE_USER_DEFINED_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_remove_user_defined_attribute,
                 __buffer,
             )
         };
@@ -6676,7 +7047,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_REMOVE_USER_DEFINED_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_remove_user_defined_attribute,
                 __buffer,
             )
         };
@@ -6693,7 +7065,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INFOS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_infos,
                 __buffer,
             )
         };
@@ -6717,7 +7090,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INFOS,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_infos,
                 __buffer,
             )
         };
@@ -6741,7 +7115,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INT32,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_int32,
                 __buffer,
             )
         };
@@ -6775,7 +7150,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_INT32,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_int32,
                 __buffer,
             )
         };
@@ -6800,7 +7176,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_F_STRING,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_f_string,
                 __buffer,
             )
         };
@@ -6838,7 +7215,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_F_STRING,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_f_string,
                 __buffer,
             )
         };
@@ -6863,7 +7241,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_FLOAT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_float,
                 __buffer,
             )
         };
@@ -6897,7 +7276,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_FLOAT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_float,
                 __buffer,
             )
         };
@@ -6922,7 +7302,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_DOUBLE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_double,
                 __buffer,
             )
         };
@@ -6956,7 +7337,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_DOUBLE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_double,
                 __buffer,
             )
         };
@@ -6981,7 +7363,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_BOOLEAN,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_boolean,
                 __buffer,
             )
         };
@@ -7015,7 +7398,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_GET_USER_DEFINED_ATTRIBUTE_BOOLEAN,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_get_user_defined_attribute_boolean,
                 __buffer,
             )
         };
@@ -7039,7 +7423,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_DUPLICATE_ALL_USER_DEFINED_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_duplicate_all_user_defined_attribute,
                 __buffer,
             )
         };
@@ -7070,7 +7455,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_DUPLICATE_ALL_USER_DEFINED_ATTRIBUTE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_duplicate_all_user_defined_attribute,
                 __buffer,
             )
         };
@@ -7089,7 +7475,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_INT32,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_int32,
                 __buffer,
             )
         };
@@ -7130,7 +7517,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_INT32,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_int32,
                 __buffer,
             )
         };
@@ -7150,7 +7538,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_F_STRING,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_f_string,
                 __buffer,
             )
         };
@@ -7191,7 +7580,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_F_STRING,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_f_string,
                 __buffer,
             )
         };
@@ -7211,7 +7601,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_FLOAT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_float,
                 __buffer,
             )
         };
@@ -7252,7 +7643,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_FLOAT,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_float,
                 __buffer,
             )
         };
@@ -7272,7 +7664,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_DOUBLE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_double,
                 __buffer,
             )
         };
@@ -7313,7 +7706,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_DOUBLE,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_double,
                 __buffer,
             )
         };
@@ -7333,7 +7727,8 @@ impl UInterchangeUserDefinedAttributesAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_BOOLEAN,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_boolean,
                 __buffer,
             )
         };
@@ -7374,7 +7769,8 @@ impl UInterchangeUserDefinedAttributesAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_core::U_INTERCHANGE_USER_DEFINED_ATTRIBUTES_API_CREATE_USER_DEFINED_ATTRIBUTE_BOOLEAN,
+                crate::bindings::interchange_core::__FUNCTION_PTRS
+                    .u_interchange_user_defined_attributes_api_create_user_defined_attribute_boolean,
                 __buffer,
             )
         };

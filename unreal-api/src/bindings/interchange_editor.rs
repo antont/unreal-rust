@@ -1,28 +1,37 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_SCENE_IMPORT_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_LEVEL_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_GET_EDITABLE_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_ENTER_EDIT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_COMMIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_interchange_editor_script_library_reset_scene_import_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_editor_script_library_reset_level_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_editor_script_library_reset_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_editor_script_library_level_instance_get_editable_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_editor_script_library_level_instance_enter_edit_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_editor_script_library_level_instance_commit: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_editor_script_library_can_reset_world: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_editor_script_library_can_reset_actor: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_interchange_editor_script_library_reset_scene_import_asset: std::ptr::null_mut(),
+            u_interchange_editor_script_library_reset_level_asset: std::ptr::null_mut(),
+            u_interchange_editor_script_library_reset_actors: std::ptr::null_mut(),
+            u_interchange_editor_script_library_level_instance_get_editable_actors: std::ptr::null_mut(),
+            u_interchange_editor_script_library_level_instance_enter_edit_mode: std::ptr::null_mut(),
+            u_interchange_editor_script_library_level_instance_commit: std::ptr::null_mut(),
+            u_interchange_editor_script_library_can_reset_world: std::ptr::null_mut(),
+            u_interchange_editor_script_library_can_reset_actor: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -32,56 +41,61 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetSceneImportAsset"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_SCENE_IMPORT_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_editor_script_library_reset_scene_import_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetLevelAsset"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_LEVEL_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_editor_script_library_reset_level_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetActors"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_interchange_editor_script_library_reset_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LevelInstanceGetEditableActors"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_GET_EDITABLE_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_editor_script_library_level_instance_get_editable_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LevelInstanceEnterEditMode"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_ENTER_EDIT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_editor_script_library_level_instance_enter_edit_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LevelInstanceCommit"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_COMMIT,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_editor_script_library_level_instance_commit,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanResetWorld"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_WORLD,
+            &raw mut __FUNCTION_PTRS.u_interchange_editor_script_library_can_reset_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanResetActor"),
-            &raw mut U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_interchange_editor_script_library_can_reset_actor,
         );
     }
 }
@@ -138,7 +152,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_SCENE_IMPORT_ASSET,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_scene_import_asset,
                 __buffer,
             )
         };
@@ -161,7 +176,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_SCENE_IMPORT_ASSET,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_scene_import_asset,
                 __buffer,
             )
         };
@@ -174,7 +190,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_LEVEL_ASSET,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_level_asset,
                 __buffer,
             )
         };
@@ -191,7 +208,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_LEVEL_ASSET,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_level_asset,
                 __buffer,
             )
         };
@@ -204,7 +222,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_ACTORS,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_actors,
                 __buffer,
             )
         };
@@ -221,7 +240,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_RESET_ACTORS,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_reset_actors,
                 __buffer,
             )
         };
@@ -236,7 +256,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_GET_EDITABLE_ACTORS,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_get_editable_actors,
                 __buffer,
             )
         };
@@ -253,7 +274,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_GET_EDITABLE_ACTORS,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_get_editable_actors,
                 __buffer,
             )
         };
@@ -274,7 +296,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_ENTER_EDIT_MODE,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_enter_edit_mode,
                 __buffer,
             )
         };
@@ -291,7 +314,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_ENTER_EDIT_MODE,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_enter_edit_mode,
                 __buffer,
             )
         };
@@ -308,7 +332,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_COMMIT,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_commit,
                 __buffer,
             )
         };
@@ -332,7 +357,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_LEVEL_INSTANCE_COMMIT,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_level_instance_commit,
                 __buffer,
             )
         };
@@ -346,7 +372,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_WORLD,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_can_reset_world,
                 __buffer,
             )
         };
@@ -363,7 +390,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_WORLD,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_can_reset_world,
                 __buffer,
             )
         };
@@ -377,7 +405,8 @@ impl UInterchangeEditorScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_ACTOR,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_can_reset_actor,
                 __buffer,
             )
         };
@@ -394,7 +423,8 @@ impl UInterchangeEditorScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_editor::U_INTERCHANGE_EDITOR_SCRIPT_LIBRARY_CAN_RESET_ACTOR,
+                crate::bindings::interchange_editor::__FUNCTION_PTRS
+                    .u_interchange_editor_script_library_can_reset_actor,
                 __buffer,
             )
         };

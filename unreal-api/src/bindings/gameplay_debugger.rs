@@ -1,30 +1,39 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_VIEW_POINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_DEBUG_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_CATEGORY_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SEND_EXTENSION_INPUT_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SEND_CATEGORY_INPUT_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_RESET_VIEW_POINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_ON_REP_REPLICATED_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_CLIENT_DATA_PACK_PACKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_gameplay_debugger_category_replicator_server_set_view_point: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_server_set_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_server_set_debug_actor: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_server_set_category_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_server_send_extension_input_event: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_server_send_category_input_event: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_server_reset_view_point: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_on_rep_replicated_data: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_debugger_category_replicator_client_data_pack_packet: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_gameplay_debugger_category_replicator_server_set_view_point: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_server_set_enabled: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_server_set_debug_actor: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_server_set_category_enabled: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_server_send_extension_input_event: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_server_send_category_input_event: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_server_reset_view_point: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_on_rep_replicated_data: std::ptr::null_mut(),
+            a_gameplay_debugger_category_replicator_client_data_pack_packet: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -34,63 +43,72 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerSetViewPoint"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_VIEW_POINT,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_server_set_view_point,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerSetEnabled"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_server_set_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerSetDebugActor"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_DEBUG_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_server_set_debug_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerSetCategoryEnabled"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SET_CATEGORY_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_server_set_category_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerSendExtensionInputEvent"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SEND_EXTENSION_INPUT_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_server_send_extension_input_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerSendCategoryInputEvent"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_SEND_CATEGORY_INPUT_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_server_send_category_input_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ServerResetViewPoint"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_SERVER_RESET_VIEW_POINT,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_server_reset_view_point,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRep_ReplicatedData"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_ON_REP_REPLICATED_DATA,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_on_rep_replicated_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClientDataPackPacket"),
-            &raw mut A_GAMEPLAY_DEBUGGER_CATEGORY_REPLICATOR_CLIENT_DATA_PACK_PACKET,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_debugger_category_replicator_client_data_pack_packet,
         );
     }
 }

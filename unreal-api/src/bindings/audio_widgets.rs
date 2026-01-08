@@ -1,160 +1,169 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_METER_VALUE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_METER_SCALE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_METER_PEAK_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_METER_CLIPPING_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_METER_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_SET_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_METER_GET_METER_CHANNEL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_OSCILLOSCOPE_START_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_OSCILLOSCOPE_GET_OSCILLOSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_OSCILLOSCOPE_CAN_TRIGGERING_BE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_SLIDER_BASE_GET_LIN_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_VECTORSCOPE_STOP_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_VECTORSCOPE_START_PROCESSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_VECTORSCOPE_GET_VECTORSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_audio_material_button_set_is_pressed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_button_get_is_pressed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_set_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_set_step_size: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_set_mouse_uses_step: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_set_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_set_fine_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_get_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_get_step_size: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_get_mouse_uses_step: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_get_is_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_knob_get_fine_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_meter_set_meter_channel_info: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_meter_get_meter_channel_info_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_meter_get_meter_channel_info: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_set_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_set_step_size: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_set_mouse_uses_step: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_set_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_set_fine_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_get_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_get_step_size: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_get_mouse_uses_step: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_get_is_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_material_slider_get_fine_tune_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_meter_value_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_meter_scale_label_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_meter_scale_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_meter_peak_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_meter_clipping_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_meter_channel_info: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_meter_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_set_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_get_meter_channel_info_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_meter_get_meter_channel_info: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_oscilloscope_stop_processing: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_oscilloscope_start_processing: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_oscilloscope_get_oscilloscope_audio_samples_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_oscilloscope_can_triggering_be_set: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_widget_layout: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_value_text_read_only: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_units_text_read_only: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_units_text: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_text_label_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_slider_thickness: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_slider_progress_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_slider_bar_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_show_units_text: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_show_label_only_on_hover: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_output_range: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_hand_start_end_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_set_center_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_get_slider_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_radial_slider_get_output_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_widget_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_value_text_read_only: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_units_text_read_only: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_units_text: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_text_label_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_slider_thumb_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_slider_bar_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_slider_background_color: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_show_units_text: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_set_show_label_only_on_hover: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_get_slider_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_get_output_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_slider_base_get_lin_value: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_vectorscope_stop_processing: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_vectorscope_start_processing: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_vectorscope_get_vectorscope_audio_samples_delegate_signature: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_audio_material_button_set_is_pressed: std::ptr::null_mut(),
+            u_audio_material_button_get_is_pressed: std::ptr::null_mut(),
+            u_audio_material_knob_set_value: std::ptr::null_mut(),
+            u_audio_material_knob_set_tune_speed: std::ptr::null_mut(),
+            u_audio_material_knob_set_step_size: std::ptr::null_mut(),
+            u_audio_material_knob_set_mouse_uses_step: std::ptr::null_mut(),
+            u_audio_material_knob_set_locked: std::ptr::null_mut(),
+            u_audio_material_knob_set_fine_tune_speed: std::ptr::null_mut(),
+            u_audio_material_knob_get_value: std::ptr::null_mut(),
+            u_audio_material_knob_get_tune_speed: std::ptr::null_mut(),
+            u_audio_material_knob_get_step_size: std::ptr::null_mut(),
+            u_audio_material_knob_get_mouse_uses_step: std::ptr::null_mut(),
+            u_audio_material_knob_get_is_locked: std::ptr::null_mut(),
+            u_audio_material_knob_get_fine_tune_speed: std::ptr::null_mut(),
+            u_audio_material_meter_set_meter_channel_info: std::ptr::null_mut(),
+            u_audio_material_meter_get_meter_channel_info_delegate_signature: std::ptr::null_mut(),
+            u_audio_material_meter_get_meter_channel_info: std::ptr::null_mut(),
+            u_audio_material_slider_set_value: std::ptr::null_mut(),
+            u_audio_material_slider_set_tune_speed: std::ptr::null_mut(),
+            u_audio_material_slider_set_step_size: std::ptr::null_mut(),
+            u_audio_material_slider_set_mouse_uses_step: std::ptr::null_mut(),
+            u_audio_material_slider_set_locked: std::ptr::null_mut(),
+            u_audio_material_slider_set_fine_tune_speed: std::ptr::null_mut(),
+            u_audio_material_slider_get_value: std::ptr::null_mut(),
+            u_audio_material_slider_get_tune_speed: std::ptr::null_mut(),
+            u_audio_material_slider_get_step_size: std::ptr::null_mut(),
+            u_audio_material_slider_get_mouse_uses_step: std::ptr::null_mut(),
+            u_audio_material_slider_get_is_locked: std::ptr::null_mut(),
+            u_audio_material_slider_get_fine_tune_speed: std::ptr::null_mut(),
+            u_audio_meter_set_meter_value_color: std::ptr::null_mut(),
+            u_audio_meter_set_meter_scale_label_color: std::ptr::null_mut(),
+            u_audio_meter_set_meter_scale_color: std::ptr::null_mut(),
+            u_audio_meter_set_meter_peak_color: std::ptr::null_mut(),
+            u_audio_meter_set_meter_clipping_color: std::ptr::null_mut(),
+            u_audio_meter_set_meter_channel_info: std::ptr::null_mut(),
+            u_audio_meter_set_meter_background_color: std::ptr::null_mut(),
+            u_audio_meter_set_background_color: std::ptr::null_mut(),
+            u_audio_meter_get_meter_channel_info_delegate_signature: std::ptr::null_mut(),
+            u_audio_meter_get_meter_channel_info: std::ptr::null_mut(),
+            u_audio_oscilloscope_stop_processing: std::ptr::null_mut(),
+            u_audio_oscilloscope_start_processing: std::ptr::null_mut(),
+            u_audio_oscilloscope_get_oscilloscope_audio_samples_delegate_signature: std::ptr::null_mut(),
+            u_audio_oscilloscope_can_triggering_be_set: std::ptr::null_mut(),
+            u_audio_radial_slider_set_widget_layout: std::ptr::null_mut(),
+            u_audio_radial_slider_set_value_text_read_only: std::ptr::null_mut(),
+            u_audio_radial_slider_set_units_text_read_only: std::ptr::null_mut(),
+            u_audio_radial_slider_set_units_text: std::ptr::null_mut(),
+            u_audio_radial_slider_set_text_label_background_color: std::ptr::null_mut(),
+            u_audio_radial_slider_set_slider_thickness: std::ptr::null_mut(),
+            u_audio_radial_slider_set_slider_progress_color: std::ptr::null_mut(),
+            u_audio_radial_slider_set_slider_bar_color: std::ptr::null_mut(),
+            u_audio_radial_slider_set_show_units_text: std::ptr::null_mut(),
+            u_audio_radial_slider_set_show_label_only_on_hover: std::ptr::null_mut(),
+            u_audio_radial_slider_set_output_range: std::ptr::null_mut(),
+            u_audio_radial_slider_set_hand_start_end_ratio: std::ptr::null_mut(),
+            u_audio_radial_slider_set_center_background_color: std::ptr::null_mut(),
+            u_audio_radial_slider_get_slider_value: std::ptr::null_mut(),
+            u_audio_radial_slider_get_output_value: std::ptr::null_mut(),
+            u_audio_slider_base_set_widget_background_color: std::ptr::null_mut(),
+            u_audio_slider_base_set_value_text_read_only: std::ptr::null_mut(),
+            u_audio_slider_base_set_units_text_read_only: std::ptr::null_mut(),
+            u_audio_slider_base_set_units_text: std::ptr::null_mut(),
+            u_audio_slider_base_set_text_label_background_color: std::ptr::null_mut(),
+            u_audio_slider_base_set_slider_thumb_color: std::ptr::null_mut(),
+            u_audio_slider_base_set_slider_bar_color: std::ptr::null_mut(),
+            u_audio_slider_base_set_slider_background_color: std::ptr::null_mut(),
+            u_audio_slider_base_set_show_units_text: std::ptr::null_mut(),
+            u_audio_slider_base_set_show_label_only_on_hover: std::ptr::null_mut(),
+            u_audio_slider_base_get_slider_value: std::ptr::null_mut(),
+            u_audio_slider_base_get_output_value: std::ptr::null_mut(),
+            u_audio_slider_base_get_lin_value: std::ptr::null_mut(),
+            u_audio_vectorscope_stop_processing: std::ptr::null_mut(),
+            u_audio_vectorscope_start_processing: std::ptr::null_mut(),
+            u_audio_vectorscope_get_vectorscope_audio_samples_delegate_signature: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -164,14 +173,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsPressed"),
-            &raw mut U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_button_set_is_pressed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsPressed"),
-            &raw mut U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_button_get_is_pressed,
         );
     }
     unsafe {
@@ -182,84 +191,84 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_tune_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_step_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_mouse_uses_step,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_SET_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_set_fine_tune_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_tune_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStepSize"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_step_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_mouse_uses_step,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsLocked"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_is_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_knob_get_fine_tune_speed,
         );
     }
     unsafe {
@@ -270,21 +279,22 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
-            &raw mut U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO,
+            &raw mut __FUNCTION_PTRS.u_audio_material_meter_set_meter_channel_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
-            &raw mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_material_meter_get_meter_channel_info_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
-            &raw mut U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO,
+            &raw mut __FUNCTION_PTRS.u_audio_material_meter_get_meter_channel_info,
         );
     }
     unsafe {
@@ -295,84 +305,84 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_tune_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_step_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMouseUsesStep"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_mouse_uses_step,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFineTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_set_fine_tune_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_tune_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStepSize"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_step_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMouseUsesStep"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_mouse_uses_step,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsLocked"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_is_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFineTuneSpeed"),
-            &raw mut U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED,
+            &raw mut __FUNCTION_PTRS.u_audio_material_slider_get_fine_tune_speed,
         );
     }
     unsafe {
@@ -383,70 +393,71 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterValueColor"),
-            &raw mut U_AUDIO_METER_SET_METER_VALUE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_value_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterScaleLabelColor"),
-            &raw mut U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_scale_label_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterScaleColor"),
-            &raw mut U_AUDIO_METER_SET_METER_SCALE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_scale_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterPeakColor"),
-            &raw mut U_AUDIO_METER_SET_METER_PEAK_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_peak_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterClippingColor"),
-            &raw mut U_AUDIO_METER_SET_METER_CLIPPING_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_clipping_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterChannelInfo"),
-            &raw mut U_AUDIO_METER_SET_METER_CHANNEL_INFO,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_channel_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMeterBackgroundColor"),
-            &raw mut U_AUDIO_METER_SET_METER_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_meter_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBackgroundColor"),
-            &raw mut U_AUDIO_METER_SET_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_set_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeterChannelInfo__DelegateSignature"),
-            &raw mut U_AUDIO_METER_GET_METER_CHANNEL_INFO_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_meter_get_meter_channel_info_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeterChannelInfo"),
-            &raw mut U_AUDIO_METER_GET_METER_CHANNEL_INFO,
+            &raw mut __FUNCTION_PTRS.u_audio_meter_get_meter_channel_info,
         );
     }
     unsafe {
@@ -457,28 +468,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopProcessing"),
-            &raw mut U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING,
+            &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_stop_processing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartProcessing"),
-            &raw mut U_AUDIO_OSCILLOSCOPE_START_PROCESSING,
+            &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_start_processing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOscilloscopeAudioSamples__DelegateSignature"),
-            &raw mut U_AUDIO_OSCILLOSCOPE_GET_OSCILLOSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_oscilloscope_get_oscilloscope_audio_samples_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanTriggeringBeSet"),
-            &raw mut U_AUDIO_OSCILLOSCOPE_CAN_TRIGGERING_BE_SET,
+            &raw mut __FUNCTION_PTRS.u_audio_oscilloscope_can_triggering_be_set,
         );
     }
     unsafe {
@@ -489,105 +501,106 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWidgetLayout"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_widget_layout,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_value_text_read_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_units_text_read_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUnitsText"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_units_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_radial_slider_set_text_label_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderThickness"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_thickness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderProgressColor"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_progress_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderBarColor"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_slider_bar_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShowUnitsText"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_show_units_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_show_label_only_on_hover,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOutputRange"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_output_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHandStartEndRatio"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_hand_start_end_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCenterBackgroundColor"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_set_center_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSliderValue"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_get_slider_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOutputValue"),
-            &raw mut U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_radial_slider_get_output_value,
         );
     }
     unsafe {
@@ -598,91 +611,91 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWidgetBackgroundColor"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_widget_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueTextReadOnly"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_value_text_read_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUnitsTextReadOnly"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_units_text_read_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUnitsText"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_units_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTextLabelBackgroundColor"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_text_label_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderThumbColor"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_thumb_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderBarColor"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_bar_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderBackgroundColor"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_slider_background_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShowUnitsText"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_show_units_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShowLabelOnlyOnHover"),
-            &raw mut U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_set_show_label_only_on_hover,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSliderValue"),
-            &raw mut U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_slider_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOutputValue"),
-            &raw mut U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_output_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinValue"),
-            &raw mut U_AUDIO_SLIDER_BASE_GET_LIN_VALUE,
+            &raw mut __FUNCTION_PTRS.u_audio_slider_base_get_lin_value,
         );
     }
     unsafe {
@@ -693,21 +706,22 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopProcessing"),
-            &raw mut U_AUDIO_VECTORSCOPE_STOP_PROCESSING,
+            &raw mut __FUNCTION_PTRS.u_audio_vectorscope_stop_processing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartProcessing"),
-            &raw mut U_AUDIO_VECTORSCOPE_START_PROCESSING,
+            &raw mut __FUNCTION_PTRS.u_audio_vectorscope_start_processing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorscopeAudioSamples__DelegateSignature"),
-            &raw mut U_AUDIO_VECTORSCOPE_GET_VECTORSCOPE_AUDIO_SAMPLES_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_vectorscope_get_vectorscope_audio_samples_delegate_signature,
         );
     }
 }
@@ -1077,7 +1091,8 @@ impl UAudioMaterialButton {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_button_set_is_pressed,
                 __buffer,
             )
         };
@@ -1094,7 +1109,8 @@ impl UAudioMaterialButton {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_SET_IS_PRESSED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_button_set_is_pressed,
                 __buffer,
             )
         };
@@ -1107,7 +1123,8 @@ impl UAudioMaterialButton {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_button_get_is_pressed,
                 __buffer,
             )
         };
@@ -1117,7 +1134,8 @@ impl UAudioMaterialButton {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_BUTTON_GET_IS_PRESSED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_button_get_is_pressed,
                 __buffer,
             )
         };
@@ -1188,7 +1206,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_value,
                 __buffer,
             )
         };
@@ -1201,7 +1220,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_value,
                 __buffer,
             )
         };
@@ -1214,7 +1234,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_tune_speed,
                 __buffer,
             )
         };
@@ -1227,7 +1248,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_tune_speed,
                 __buffer,
             )
         };
@@ -1240,7 +1262,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_step_size,
                 __buffer,
             )
         };
@@ -1253,7 +1276,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_step_size,
                 __buffer,
             )
         };
@@ -1266,7 +1290,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1283,7 +1308,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1296,7 +1322,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_locked,
                 __buffer,
             )
         };
@@ -1309,7 +1336,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_locked,
                 __buffer,
             )
         };
@@ -1322,7 +1350,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1335,7 +1364,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_SET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_set_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1348,7 +1378,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_value,
                 __buffer,
             )
         };
@@ -1358,7 +1389,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_value,
                 __buffer,
             )
         };
@@ -1372,7 +1404,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_tune_speed,
                 __buffer,
             )
         };
@@ -1382,7 +1415,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_tune_speed,
                 __buffer,
             )
         };
@@ -1396,7 +1430,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_step_size,
                 __buffer,
             )
         };
@@ -1406,7 +1441,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_step_size,
                 __buffer,
             )
         };
@@ -1420,7 +1456,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1430,7 +1467,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1444,7 +1482,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_is_locked,
                 __buffer,
             )
         };
@@ -1454,7 +1493,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_IS_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_is_locked,
                 __buffer,
             )
         };
@@ -1468,7 +1508,8 @@ impl UAudioMaterialKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1478,7 +1519,8 @@ impl UAudioMaterialKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_KNOB_GET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_knob_get_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1522,7 +1564,8 @@ impl UAudioMaterialMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_meter_set_meter_channel_info,
                 __buffer,
             )
         };
@@ -1539,7 +1582,8 @@ impl UAudioMaterialMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_SET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_meter_set_meter_channel_info,
                 __buffer,
             )
         };
@@ -1552,7 +1596,8 @@ impl UAudioMaterialMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_meter_get_meter_channel_info,
                 __buffer,
             )
         };
@@ -1562,7 +1607,8 @@ impl UAudioMaterialMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_METER_GET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_meter_get_meter_channel_info,
                 __buffer,
             )
         };
@@ -1610,7 +1656,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_value,
                 __buffer,
             )
         };
@@ -1623,7 +1670,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_value,
                 __buffer,
             )
         };
@@ -1636,7 +1684,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_tune_speed,
                 __buffer,
             )
         };
@@ -1649,7 +1698,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_tune_speed,
                 __buffer,
             )
         };
@@ -1662,7 +1712,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_step_size,
                 __buffer,
             )
         };
@@ -1675,7 +1726,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_step_size,
                 __buffer,
             )
         };
@@ -1688,7 +1740,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1705,7 +1758,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1718,7 +1772,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_locked,
                 __buffer,
             )
         };
@@ -1735,7 +1790,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_locked,
                 __buffer,
             )
         };
@@ -1748,7 +1804,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1761,7 +1818,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_SET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_set_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1774,7 +1832,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_value,
                 __buffer,
             )
         };
@@ -1784,7 +1843,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_value,
                 __buffer,
             )
         };
@@ -1798,7 +1858,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_tune_speed,
                 __buffer,
             )
         };
@@ -1808,7 +1869,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_tune_speed,
                 __buffer,
             )
         };
@@ -1822,7 +1884,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_step_size,
                 __buffer,
             )
         };
@@ -1832,7 +1895,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_STEP_SIZE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_step_size,
                 __buffer,
             )
         };
@@ -1846,7 +1910,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1856,7 +1921,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_MOUSE_USES_STEP,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_mouse_uses_step,
                 __buffer,
             )
         };
@@ -1870,7 +1936,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_is_locked,
                 __buffer,
             )
         };
@@ -1880,7 +1947,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_IS_LOCKED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_is_locked,
                 __buffer,
             )
         };
@@ -1894,7 +1962,8 @@ impl UAudioMaterialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1904,7 +1973,8 @@ impl UAudioMaterialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_MATERIAL_SLIDER_GET_FINE_TUNE_SPEED,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_material_slider_get_fine_tune_speed,
                 __buffer,
             )
         };
@@ -1953,7 +2023,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_VALUE_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_value_color,
                 __buffer,
             )
         };
@@ -1970,7 +2041,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_VALUE_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_value_color,
                 __buffer,
             )
         };
@@ -1986,7 +2058,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_scale_label_color,
                 __buffer,
             )
         };
@@ -2003,7 +2076,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_LABEL_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_scale_label_color,
                 __buffer,
             )
         };
@@ -2019,7 +2093,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_scale_color,
                 __buffer,
             )
         };
@@ -2036,7 +2111,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_SCALE_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_scale_color,
                 __buffer,
             )
         };
@@ -2052,7 +2128,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_PEAK_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_peak_color,
                 __buffer,
             )
         };
@@ -2069,7 +2146,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_PEAK_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_peak_color,
                 __buffer,
             )
         };
@@ -2085,7 +2163,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CLIPPING_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_clipping_color,
                 __buffer,
             )
         };
@@ -2102,7 +2181,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CLIPPING_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_clipping_color,
                 __buffer,
             )
         };
@@ -2118,7 +2198,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_channel_info,
                 __buffer,
             )
         };
@@ -2135,7 +2216,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_channel_info,
                 __buffer,
             )
         };
@@ -2151,7 +2233,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_background_color,
                 __buffer,
             )
         };
@@ -2168,7 +2251,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_METER_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_meter_background_color,
                 __buffer,
             )
         };
@@ -2184,7 +2268,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_background_color,
                 __buffer,
             )
         };
@@ -2201,7 +2286,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_SET_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_set_background_color,
                 __buffer,
             )
         };
@@ -2214,7 +2300,8 @@ impl UAudioMeter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_METER_GET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_get_meter_channel_info,
                 __buffer,
             )
         };
@@ -2224,7 +2311,8 @@ impl UAudioMeter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_METER_GET_METER_CHANNEL_INFO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_meter_get_meter_channel_info,
                 __buffer,
             )
         };
@@ -2275,7 +2363,8 @@ impl UAudioOscilloscope {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_oscilloscope_stop_processing,
                 __buffer,
             )
         };
@@ -2285,7 +2374,8 @@ impl UAudioOscilloscope {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_STOP_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_oscilloscope_stop_processing,
                 __buffer,
             )
         };
@@ -2298,7 +2388,8 @@ impl UAudioOscilloscope {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_START_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_oscilloscope_start_processing,
                 __buffer,
             )
         };
@@ -2308,7 +2399,8 @@ impl UAudioOscilloscope {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_OSCILLOSCOPE_START_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_oscilloscope_start_processing,
                 __buffer,
             )
         };
@@ -2342,7 +2434,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_widget_layout,
                 __buffer,
             )
         };
@@ -2359,7 +2452,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_WIDGET_LAYOUT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_widget_layout,
                 __buffer,
             )
         };
@@ -2372,7 +2466,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_value_text_read_only,
                 __buffer,
             )
         };
@@ -2389,7 +2484,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_VALUE_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_value_text_read_only,
                 __buffer,
             )
         };
@@ -2402,7 +2498,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_units_text_read_only,
                 __buffer,
             )
         };
@@ -2419,7 +2516,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_units_text_read_only,
                 __buffer,
             )
         };
@@ -2432,7 +2530,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_units_text,
                 __buffer,
             )
         };
@@ -2445,7 +2544,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_units_text,
                 __buffer,
             )
         };
@@ -2461,7 +2561,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_text_label_background_color,
                 __buffer,
             )
         };
@@ -2478,7 +2579,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_text_label_background_color,
                 __buffer,
             )
         };
@@ -2491,7 +2593,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_slider_thickness,
                 __buffer,
             )
         };
@@ -2508,7 +2611,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_THICKNESS,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_slider_thickness,
                 __buffer,
             )
         };
@@ -2524,7 +2628,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_slider_progress_color,
                 __buffer,
             )
         };
@@ -2541,7 +2646,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_PROGRESS_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_slider_progress_color,
                 __buffer,
             )
         };
@@ -2557,7 +2663,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_slider_bar_color,
                 __buffer,
             )
         };
@@ -2574,7 +2681,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SLIDER_BAR_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_slider_bar_color,
                 __buffer,
             )
         };
@@ -2587,7 +2695,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_show_units_text,
                 __buffer,
             )
         };
@@ -2604,7 +2713,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_show_units_text,
                 __buffer,
             )
         };
@@ -2617,7 +2727,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_show_label_only_on_hover,
                 __buffer,
             )
         };
@@ -2634,7 +2745,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_show_label_only_on_hover,
                 __buffer,
             )
         };
@@ -2650,7 +2762,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_output_range,
                 __buffer,
             )
         };
@@ -2667,7 +2780,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_OUTPUT_RANGE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_output_range,
                 __buffer,
             )
         };
@@ -2683,7 +2797,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_hand_start_end_ratio,
                 __buffer,
             )
         };
@@ -2700,7 +2815,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_HAND_START_END_RATIO,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_hand_start_end_ratio,
                 __buffer,
             )
         };
@@ -2716,7 +2832,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_center_background_color,
                 __buffer,
             )
         };
@@ -2733,7 +2850,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_SET_CENTER_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_set_center_background_color,
                 __buffer,
             )
         };
@@ -2746,7 +2864,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_get_slider_value,
                 __buffer,
             )
         };
@@ -2763,7 +2882,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_SLIDER_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_get_slider_value,
                 __buffer,
             )
         };
@@ -2777,7 +2897,8 @@ impl UAudioRadialSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_get_output_value,
                 __buffer,
             )
         };
@@ -2794,7 +2915,8 @@ impl UAudioRadialSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_RADIAL_SLIDER_GET_OUTPUT_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_radial_slider_get_output_value,
                 __buffer,
             )
         };
@@ -2877,7 +2999,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_widget_background_color,
                 __buffer,
             )
         };
@@ -2894,7 +3017,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_WIDGET_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_widget_background_color,
                 __buffer,
             )
         };
@@ -2907,7 +3031,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_value_text_read_only,
                 __buffer,
             )
         };
@@ -2924,7 +3049,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_VALUE_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_value_text_read_only,
                 __buffer,
             )
         };
@@ -2937,7 +3063,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_units_text_read_only,
                 __buffer,
             )
         };
@@ -2954,7 +3081,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT_READ_ONLY,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_units_text_read_only,
                 __buffer,
             )
         };
@@ -2967,7 +3095,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_units_text,
                 __buffer,
             )
         };
@@ -2980,7 +3109,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_units_text,
                 __buffer,
             )
         };
@@ -2996,7 +3126,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_text_label_background_color,
                 __buffer,
             )
         };
@@ -3013,7 +3144,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_TEXT_LABEL_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_text_label_background_color,
                 __buffer,
             )
         };
@@ -3029,7 +3161,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_slider_thumb_color,
                 __buffer,
             )
         };
@@ -3046,7 +3179,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_THUMB_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_slider_thumb_color,
                 __buffer,
             )
         };
@@ -3062,7 +3196,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_slider_bar_color,
                 __buffer,
             )
         };
@@ -3079,7 +3214,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BAR_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_slider_bar_color,
                 __buffer,
             )
         };
@@ -3095,7 +3231,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_slider_background_color,
                 __buffer,
             )
         };
@@ -3112,7 +3249,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SLIDER_BACKGROUND_COLOR,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_slider_background_color,
                 __buffer,
             )
         };
@@ -3125,7 +3263,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_show_units_text,
                 __buffer,
             )
         };
@@ -3142,7 +3281,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_UNITS_TEXT,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_show_units_text,
                 __buffer,
             )
         };
@@ -3155,7 +3295,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_show_label_only_on_hover,
                 __buffer,
             )
         };
@@ -3172,7 +3313,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_SET_SHOW_LABEL_ONLY_ON_HOVER,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_set_show_label_only_on_hover,
                 __buffer,
             )
         };
@@ -3185,7 +3327,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_get_slider_value,
                 __buffer,
             )
         };
@@ -3202,7 +3345,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_SLIDER_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_get_slider_value,
                 __buffer,
             )
         };
@@ -3216,7 +3360,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_get_output_value,
                 __buffer,
             )
         };
@@ -3233,7 +3378,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_OUTPUT_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_get_output_value,
                 __buffer,
             )
         };
@@ -3247,7 +3393,8 @@ impl UAudioSliderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_LIN_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_get_lin_value,
                 __buffer,
             )
         };
@@ -3264,7 +3411,8 @@ impl UAudioSliderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_SLIDER_BASE_GET_LIN_VALUE,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_slider_base_get_lin_value,
                 __buffer,
             )
         };
@@ -3375,7 +3523,8 @@ impl UAudioVectorscope {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_STOP_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_vectorscope_stop_processing,
                 __buffer,
             )
         };
@@ -3385,7 +3534,8 @@ impl UAudioVectorscope {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_STOP_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_vectorscope_stop_processing,
                 __buffer,
             )
         };
@@ -3398,7 +3548,8 @@ impl UAudioVectorscope {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_START_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_vectorscope_start_processing,
                 __buffer,
             )
         };
@@ -3408,7 +3559,8 @@ impl UAudioVectorscope {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_widgets::U_AUDIO_VECTORSCOPE_START_PROCESSING,
+                crate::bindings::audio_widgets::__FUNCTION_PTRS
+                    .u_audio_vectorscope_start_processing,
                 __buffer,
             )
         };

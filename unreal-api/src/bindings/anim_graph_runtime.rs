@@ -1,236 +1,245 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SEQUENCER_ANIMATION_OVERRIDE_GET_SEQUENCER_ANIM_SLOT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_ANIMATION_OVERRIDE_ALLOWS_CINEMATIC_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_UPDATE_CALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_NODE_CALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_LIST_BASE_LIBRARY_RESET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_LIBRARY_GET_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_END_RECEIVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_BEGIN_RECEIVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_ENDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_BLENDING_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_sequencer_animation_override_get_sequencer_anim_slot_names: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_animation_override_allows_cinematic_override: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_set_state: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_is_state_blending_out: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_is_state_blending_in: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_get_state: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_get_relevant_anim_time_remaining_fraction: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_get_relevant_anim_time_remaining: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_convert_to_animation_state_result_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_convert_to_animation_state_result: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_convert_to_animation_state_machine_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_state_machine_library_convert_to_animation_state_machine: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_prototype_thread_safe_anim_update_call: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_prototype_thread_safe_anim_node_call: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_is_active: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_get_delta_time: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_get_current_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_get_anim_node_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_get_anim_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_convert_to_update_context: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_convert_to_pose_context: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_convert_to_initialization_context: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_execution_context_library_convert_to_component_space_pose_context: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_list_base_library_reset_node: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_list_base_library_convert_to_blend_list_base: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_library_snap_to_position: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_library_get_position: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_library_get_filtered_position: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_library_convert_to_blend_space_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_library_convert_to_blend_space: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_snap_to_position: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_should_reset_play_time_when_blend_space_changes: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_set_reset_play_time_when_blend_space_changes: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_set_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_set_loop: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_set_blend_space_with_inertial_blending: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_set_blend_space: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_get_start_position: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_get_position: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_get_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_get_loop: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_get_blend_space: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_convert_to_blend_space_player_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_blend_space_player_library_convert_to_blend_space_player: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_node_rigid_body_library_set_override_physics_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_two_bone_ik: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_start_profiling_timer: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_make_perlin_noise_vector_and_remap: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_make_perlin_noise_and_remap: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_look_at: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_end_profiling_timer: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_distance_between_two_sockets_and_map_range: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_direction_between_sockets: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_calculate_velocity_from_sockets: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_k2_calculate_velocity_from_position_history: *mut crate::ffi::UFunctionOpague,
+    pub u_kismet_animation_library_calculate_direction: *mut crate::ffi::UFunctionOpague,
+    pub u_layered_bone_blend_library_set_blend_mask: *mut crate::ffi::UFunctionOpague,
+    pub u_layered_bone_blend_library_get_num_poses: *mut crate::ffi::UFunctionOpague,
+    pub u_layered_bone_blend_library_convert_to_layered_bone_blend: *mut crate::ffi::UFunctionOpague,
+    pub u_layered_bone_blend_library_convert_to_layered_blend_per_bone_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_linked_anim_graph_library_has_linked_anim_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_linked_anim_graph_library_get_linked_anim_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_linked_anim_graph_library_convert_to_linked_anim_graph_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_linked_anim_graph_library_convert_to_linked_anim_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_anim_library_set_mirror_transition_blend_time: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_anim_library_set_mirror: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_anim_library_get_mirror_transition_blend_time: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_anim_library_get_mirror_data_table: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_anim_library_get_mirror: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_anim_library_convert_to_mirror_node_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_anim_library_convert_to_mirror_node: *mut crate::ffi::UFunctionOpague,
+    pub u_modify_curve_anim_library_set_curve_map: *mut crate::ffi::UFunctionOpague,
+    pub u_modify_curve_anim_library_set_apply_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_modify_curve_anim_library_set_alpha: *mut crate::ffi::UFunctionOpague,
+    pub u_modify_curve_anim_library_get_apply_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_modify_curve_anim_library_get_alpha: *mut crate::ffi::UFunctionOpague,
+    pub u_modify_curve_anim_library_convert_to_modify_curve_node_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_modify_curve_anim_library_convert_to_modify_curve_node: *mut crate::ffi::UFunctionOpague,
+    pub u_play_montage_callback_proxy_on_notify_end_received: *mut crate::ffi::UFunctionOpague,
+    pub u_play_montage_callback_proxy_on_notify_begin_received: *mut crate::ffi::UFunctionOpague,
+    pub u_play_montage_callback_proxy_on_montage_ended: *mut crate::ffi::UFunctionOpague,
+    pub u_play_montage_callback_proxy_on_montage_blending_out: *mut crate::ffi::UFunctionOpague,
+    pub u_play_montage_callback_proxy_create_proxy_object_for_play_montage: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_set_sequence_with_inertial_blending: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_set_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_set_explicit_time: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_set_explicit_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_get_accumulated_time: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_convert_to_sequence_evaluator_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_convert_to_sequence_evaluator: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_evaluator_library_advance_time: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_set_start_position: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_set_sequence_with_inertial_blending: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_set_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_set_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_set_accumulated_time: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_get_start_position: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_get_sequence_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_get_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_get_loop_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_get_accumulated_time: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_convert_to_sequence_player_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_convert_to_sequence_player: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_player_library_compute_play_rate_from_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_control_library_set_alpha: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_control_library_get_alpha: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_control_library_convert_to_skeletal_control_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_control_library_convert_to_skeletal_control: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_sequencer_animation_override_get_sequencer_anim_slot_names: std::ptr::null_mut(),
+            u_sequencer_animation_override_allows_cinematic_override: std::ptr::null_mut(),
+            u_animation_state_machine_library_set_state: std::ptr::null_mut(),
+            u_animation_state_machine_library_is_state_blending_out: std::ptr::null_mut(),
+            u_animation_state_machine_library_is_state_blending_in: std::ptr::null_mut(),
+            u_animation_state_machine_library_get_state: std::ptr::null_mut(),
+            u_animation_state_machine_library_get_relevant_anim_time_remaining_fraction: std::ptr::null_mut(),
+            u_animation_state_machine_library_get_relevant_anim_time_remaining: std::ptr::null_mut(),
+            u_animation_state_machine_library_convert_to_animation_state_result_pure: std::ptr::null_mut(),
+            u_animation_state_machine_library_convert_to_animation_state_result: std::ptr::null_mut(),
+            u_animation_state_machine_library_convert_to_animation_state_machine_pure: std::ptr::null_mut(),
+            u_animation_state_machine_library_convert_to_animation_state_machine: std::ptr::null_mut(),
+            u_anim_execution_context_library_prototype_thread_safe_anim_update_call: std::ptr::null_mut(),
+            u_anim_execution_context_library_prototype_thread_safe_anim_node_call: std::ptr::null_mut(),
+            u_anim_execution_context_library_is_active: std::ptr::null_mut(),
+            u_anim_execution_context_library_get_delta_time: std::ptr::null_mut(),
+            u_anim_execution_context_library_get_current_weight: std::ptr::null_mut(),
+            u_anim_execution_context_library_get_anim_node_reference: std::ptr::null_mut(),
+            u_anim_execution_context_library_get_anim_instance: std::ptr::null_mut(),
+            u_anim_execution_context_library_convert_to_update_context: std::ptr::null_mut(),
+            u_anim_execution_context_library_convert_to_pose_context: std::ptr::null_mut(),
+            u_anim_execution_context_library_convert_to_initialization_context: std::ptr::null_mut(),
+            u_anim_execution_context_library_convert_to_component_space_pose_context: std::ptr::null_mut(),
+            u_blend_list_base_library_reset_node: std::ptr::null_mut(),
+            u_blend_list_base_library_convert_to_blend_list_base: std::ptr::null_mut(),
+            u_blend_space_library_snap_to_position: std::ptr::null_mut(),
+            u_blend_space_library_get_position: std::ptr::null_mut(),
+            u_blend_space_library_get_filtered_position: std::ptr::null_mut(),
+            u_blend_space_library_convert_to_blend_space_pure: std::ptr::null_mut(),
+            u_blend_space_library_convert_to_blend_space: std::ptr::null_mut(),
+            u_blend_space_player_library_snap_to_position: std::ptr::null_mut(),
+            u_blend_space_player_library_should_reset_play_time_when_blend_space_changes: std::ptr::null_mut(),
+            u_blend_space_player_library_set_reset_play_time_when_blend_space_changes: std::ptr::null_mut(),
+            u_blend_space_player_library_set_play_rate: std::ptr::null_mut(),
+            u_blend_space_player_library_set_loop: std::ptr::null_mut(),
+            u_blend_space_player_library_set_blend_space_with_inertial_blending: std::ptr::null_mut(),
+            u_blend_space_player_library_set_blend_space: std::ptr::null_mut(),
+            u_blend_space_player_library_get_start_position: std::ptr::null_mut(),
+            u_blend_space_player_library_get_position: std::ptr::null_mut(),
+            u_blend_space_player_library_get_play_rate: std::ptr::null_mut(),
+            u_blend_space_player_library_get_loop: std::ptr::null_mut(),
+            u_blend_space_player_library_get_blend_space: std::ptr::null_mut(),
+            u_blend_space_player_library_convert_to_blend_space_player_pure: std::ptr::null_mut(),
+            u_blend_space_player_library_convert_to_blend_space_player: std::ptr::null_mut(),
+            u_anim_node_rigid_body_library_set_override_physics_asset: std::ptr::null_mut(),
+            u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node_pure: std::ptr::null_mut(),
+            u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_two_bone_ik: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_start_profiling_timer: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_make_perlin_noise_vector_and_remap: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_make_perlin_noise_and_remap: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_look_at: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_end_profiling_timer: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_distance_between_two_sockets_and_map_range: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_direction_between_sockets: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_calculate_velocity_from_sockets: std::ptr::null_mut(),
+            u_kismet_animation_library_k2_calculate_velocity_from_position_history: std::ptr::null_mut(),
+            u_kismet_animation_library_calculate_direction: std::ptr::null_mut(),
+            u_layered_bone_blend_library_set_blend_mask: std::ptr::null_mut(),
+            u_layered_bone_blend_library_get_num_poses: std::ptr::null_mut(),
+            u_layered_bone_blend_library_convert_to_layered_bone_blend: std::ptr::null_mut(),
+            u_layered_bone_blend_library_convert_to_layered_blend_per_bone_pure: std::ptr::null_mut(),
+            u_linked_anim_graph_library_has_linked_anim_instance: std::ptr::null_mut(),
+            u_linked_anim_graph_library_get_linked_anim_instance: std::ptr::null_mut(),
+            u_linked_anim_graph_library_convert_to_linked_anim_graph_pure: std::ptr::null_mut(),
+            u_linked_anim_graph_library_convert_to_linked_anim_graph: std::ptr::null_mut(),
+            u_mirror_anim_library_set_mirror_transition_blend_time: std::ptr::null_mut(),
+            u_mirror_anim_library_set_mirror: std::ptr::null_mut(),
+            u_mirror_anim_library_get_mirror_transition_blend_time: std::ptr::null_mut(),
+            u_mirror_anim_library_get_mirror_data_table: std::ptr::null_mut(),
+            u_mirror_anim_library_get_mirror: std::ptr::null_mut(),
+            u_mirror_anim_library_convert_to_mirror_node_pure: std::ptr::null_mut(),
+            u_mirror_anim_library_convert_to_mirror_node: std::ptr::null_mut(),
+            u_modify_curve_anim_library_set_curve_map: std::ptr::null_mut(),
+            u_modify_curve_anim_library_set_apply_mode: std::ptr::null_mut(),
+            u_modify_curve_anim_library_set_alpha: std::ptr::null_mut(),
+            u_modify_curve_anim_library_get_apply_mode: std::ptr::null_mut(),
+            u_modify_curve_anim_library_get_alpha: std::ptr::null_mut(),
+            u_modify_curve_anim_library_convert_to_modify_curve_node_pure: std::ptr::null_mut(),
+            u_modify_curve_anim_library_convert_to_modify_curve_node: std::ptr::null_mut(),
+            u_play_montage_callback_proxy_on_notify_end_received: std::ptr::null_mut(),
+            u_play_montage_callback_proxy_on_notify_begin_received: std::ptr::null_mut(),
+            u_play_montage_callback_proxy_on_montage_ended: std::ptr::null_mut(),
+            u_play_montage_callback_proxy_on_montage_blending_out: std::ptr::null_mut(),
+            u_play_montage_callback_proxy_create_proxy_object_for_play_montage: std::ptr::null_mut(),
+            u_sequence_evaluator_library_set_sequence_with_inertial_blending: std::ptr::null_mut(),
+            u_sequence_evaluator_library_set_sequence: std::ptr::null_mut(),
+            u_sequence_evaluator_library_set_explicit_time: std::ptr::null_mut(),
+            u_sequence_evaluator_library_set_explicit_frame: std::ptr::null_mut(),
+            u_sequence_evaluator_library_get_sequence: std::ptr::null_mut(),
+            u_sequence_evaluator_library_get_accumulated_time: std::ptr::null_mut(),
+            u_sequence_evaluator_library_convert_to_sequence_evaluator_pure: std::ptr::null_mut(),
+            u_sequence_evaluator_library_convert_to_sequence_evaluator: std::ptr::null_mut(),
+            u_sequence_evaluator_library_advance_time: std::ptr::null_mut(),
+            u_sequence_player_library_set_start_position: std::ptr::null_mut(),
+            u_sequence_player_library_set_sequence_with_inertial_blending: std::ptr::null_mut(),
+            u_sequence_player_library_set_sequence: std::ptr::null_mut(),
+            u_sequence_player_library_set_play_rate: std::ptr::null_mut(),
+            u_sequence_player_library_set_accumulated_time: std::ptr::null_mut(),
+            u_sequence_player_library_get_start_position: std::ptr::null_mut(),
+            u_sequence_player_library_get_sequence_pure: std::ptr::null_mut(),
+            u_sequence_player_library_get_sequence: std::ptr::null_mut(),
+            u_sequence_player_library_get_play_rate: std::ptr::null_mut(),
+            u_sequence_player_library_get_loop_animation: std::ptr::null_mut(),
+            u_sequence_player_library_get_accumulated_time: std::ptr::null_mut(),
+            u_sequence_player_library_convert_to_sequence_player_pure: std::ptr::null_mut(),
+            u_sequence_player_library_convert_to_sequence_player: std::ptr::null_mut(),
+            u_sequence_player_library_compute_play_rate_from_duration: std::ptr::null_mut(),
+            u_skeletal_control_library_set_alpha: std::ptr::null_mut(),
+            u_skeletal_control_library_get_alpha: std::ptr::null_mut(),
+            u_skeletal_control_library_convert_to_skeletal_control_pure: std::ptr::null_mut(),
+            u_skeletal_control_library_convert_to_skeletal_control: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -240,14 +249,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequencerAnimSlotNames"),
-            &raw mut U_SEQUENCER_ANIMATION_OVERRIDE_GET_SEQUENCER_ANIM_SLOT_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_animation_override_get_sequencer_anim_slot_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AllowsCinematicOverride"),
-            &raw mut U_SEQUENCER_ANIMATION_OVERRIDE_ALLOWS_CINEMATIC_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_animation_override_allows_cinematic_override,
         );
     }
     unsafe {
@@ -258,70 +269,78 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetState"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE,
+            &raw mut __FUNCTION_PTRS.u_animation_state_machine_library_set_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsStateBlendingOut"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_is_state_blending_out,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsStateBlendingIn"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_is_state_blending_in,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE,
+            &raw mut __FUNCTION_PTRS.u_animation_state_machine_library_get_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRelevantAnimTimeRemainingFraction"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_get_relevant_anim_time_remaining_fraction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRelevantAnimTimeRemaining"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_get_relevant_anim_time_remaining,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToAnimationStateResultPure"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_convert_to_animation_state_result_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToAnimationStateResult"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_convert_to_animation_state_result,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToAnimationStateMachinePure"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_convert_to_animation_state_machine_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToAnimationStateMachine"),
-            &raw mut U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_state_machine_library_convert_to_animation_state_machine,
         );
     }
     unsafe {
@@ -332,77 +351,84 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Prototype_ThreadSafeAnimUpdateCall"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_UPDATE_CALL,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_execution_context_library_prototype_thread_safe_anim_update_call,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Prototype_ThreadSafeAnimNodeCall"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_PROTOTYPE_THREAD_SAFE_ANIM_NODE_CALL,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_execution_context_library_prototype_thread_safe_anim_node_call,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActive"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_anim_execution_context_library_is_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDeltaTime"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME,
+            &raw mut __FUNCTION_PTRS.u_anim_execution_context_library_get_delta_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentWeight"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_anim_execution_context_library_get_current_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimNodeReference"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_execution_context_library_get_anim_node_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimInstance"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_anim_execution_context_library_get_anim_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToUpdateContext"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_execution_context_library_convert_to_update_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToPoseContext"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_execution_context_library_convert_to_pose_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToInitializationContext"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_execution_context_library_convert_to_initialization_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToComponentSpacePoseContext"),
-            &raw mut U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_execution_context_library_convert_to_component_space_pose_context,
         );
     }
     unsafe {
@@ -413,14 +439,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetNode"),
-            &raw mut U_BLEND_LIST_BASE_LIBRARY_RESET_NODE,
+            &raw mut __FUNCTION_PTRS.u_blend_list_base_library_reset_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToBlendListBase"),
-            &raw mut U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE,
+            &raw mut __FUNCTION_PTRS.u_blend_list_base_library_convert_to_blend_list_base,
         );
     }
     unsafe {
@@ -431,35 +457,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SnapToPosition"),
-            &raw mut U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION,
+            &raw mut __FUNCTION_PTRS.u_blend_space_library_snap_to_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPosition"),
-            &raw mut U_BLEND_SPACE_LIBRARY_GET_POSITION,
+            &raw mut __FUNCTION_PTRS.u_blend_space_library_get_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFilteredPosition"),
-            &raw mut U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION,
+            &raw mut __FUNCTION_PTRS.u_blend_space_library_get_filtered_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToBlendSpacePure"),
-            &raw mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE,
+            &raw mut __FUNCTION_PTRS.u_blend_space_library_convert_to_blend_space_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToBlendSpace"),
-            &raw mut U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE,
+            &raw mut __FUNCTION_PTRS.u_blend_space_library_convert_to_blend_space,
         );
     }
     unsafe {
@@ -470,98 +496,103 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SnapToPosition"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_snap_to_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldResetPlayTimeWhenBlendSpaceChanges"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+            &raw mut __FUNCTION_PTRS
+                .u_blend_space_player_library_should_reset_play_time_when_blend_space_changes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetResetPlayTimeWhenBlendSpaceChanges"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+            &raw mut __FUNCTION_PTRS
+                .u_blend_space_player_library_set_reset_play_time_when_blend_space_changes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlayRate"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_set_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLoop"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_set_loop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlendSpaceWithInertialBlending"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING,
+            &raw mut __FUNCTION_PTRS
+                .u_blend_space_player_library_set_blend_space_with_inertial_blending,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlendSpace"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_set_blend_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartPosition"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_get_start_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPosition"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_get_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayRate"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_get_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoop"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_get_loop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlendSpace"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE,
+            &raw mut __FUNCTION_PTRS.u_blend_space_player_library_get_blend_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToBlendSpacePlayerPure"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_blend_space_player_library_convert_to_blend_space_player_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToBlendSpacePlayer"),
-            &raw mut U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER,
+            &raw mut __FUNCTION_PTRS
+                .u_blend_space_player_library_convert_to_blend_space_player,
         );
     }
     unsafe {
@@ -572,21 +603,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOverridePhysicsAsset"),
-            &raw mut U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_node_rigid_body_library_set_override_physics_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToRigidBodyAnimNodePure"),
-            &raw mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToRigidBodyAnimNode"),
-            &raw mut U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node,
         );
     }
     unsafe {
@@ -597,77 +631,83 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_TwoBoneIK"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK,
+            &raw mut __FUNCTION_PTRS.u_kismet_animation_library_k2_two_bone_ik,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_StartProfilingTimer"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER,
+            &raw mut __FUNCTION_PTRS.u_kismet_animation_library_k2_start_profiling_timer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_MakePerlinNoiseVectorAndRemap"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_animation_library_k2_make_perlin_noise_vector_and_remap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_MakePerlinNoiseAndRemap"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_animation_library_k2_make_perlin_noise_and_remap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_LookAt"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT,
+            &raw mut __FUNCTION_PTRS.u_kismet_animation_library_k2_look_at,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_EndProfilingTimer"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER,
+            &raw mut __FUNCTION_PTRS.u_kismet_animation_library_k2_end_profiling_timer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_DistanceBetweenTwoSocketsAndMapRange"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_animation_library_k2_distance_between_two_sockets_and_map_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_DirectionBetweenSockets"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_animation_library_k2_direction_between_sockets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_CalculateVelocityFromSockets"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_animation_library_k2_calculate_velocity_from_sockets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_CalculateVelocityFromPositionHistory"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY,
+            &raw mut __FUNCTION_PTRS
+                .u_kismet_animation_library_k2_calculate_velocity_from_position_history,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CalculateDirection"),
-            &raw mut U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION,
+            &raw mut __FUNCTION_PTRS.u_kismet_animation_library_calculate_direction,
         );
     }
     unsafe {
@@ -678,28 +718,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlendMask"),
-            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK,
+            &raw mut __FUNCTION_PTRS.u_layered_bone_blend_library_set_blend_mask,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumPoses"),
-            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES,
+            &raw mut __FUNCTION_PTRS.u_layered_bone_blend_library_get_num_poses,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToLayeredBoneBlend"),
-            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND,
+            &raw mut __FUNCTION_PTRS
+                .u_layered_bone_blend_library_convert_to_layered_bone_blend,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToLayeredBlendPerBonePure"),
-            &raw mut U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_layered_bone_blend_library_convert_to_layered_blend_per_bone_pure,
         );
     }
     unsafe {
@@ -710,28 +752,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasLinkedAnimInstance"),
-            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_linked_anim_graph_library_has_linked_anim_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinkedAnimInstance"),
-            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_linked_anim_graph_library_get_linked_anim_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToLinkedAnimGraphPure"),
-            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_linked_anim_graph_library_convert_to_linked_anim_graph_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToLinkedAnimGraph"),
-            &raw mut U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH,
+            &raw mut __FUNCTION_PTRS
+                .u_linked_anim_graph_library_convert_to_linked_anim_graph,
         );
     }
     unsafe {
@@ -742,49 +786,51 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMirrorTransitionBlendTime"),
-            &raw mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_mirror_anim_library_set_mirror_transition_blend_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMirror"),
-            &raw mut U_MIRROR_ANIM_LIBRARY_SET_MIRROR,
+            &raw mut __FUNCTION_PTRS.u_mirror_anim_library_set_mirror,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMirrorTransitionBlendTime"),
-            &raw mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_mirror_anim_library_get_mirror_transition_blend_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMirrorDataTable"),
-            &raw mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE,
+            &raw mut __FUNCTION_PTRS.u_mirror_anim_library_get_mirror_data_table,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMirror"),
-            &raw mut U_MIRROR_ANIM_LIBRARY_GET_MIRROR,
+            &raw mut __FUNCTION_PTRS.u_mirror_anim_library_get_mirror,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToMirrorNodePure"),
-            &raw mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE,
+            &raw mut __FUNCTION_PTRS.u_mirror_anim_library_convert_to_mirror_node_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToMirrorNode"),
-            &raw mut U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE,
+            &raw mut __FUNCTION_PTRS.u_mirror_anim_library_convert_to_mirror_node,
         );
     }
     unsafe {
@@ -795,49 +841,51 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveMap"),
-            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP,
+            &raw mut __FUNCTION_PTRS.u_modify_curve_anim_library_set_curve_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetApplyMode"),
-            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE,
+            &raw mut __FUNCTION_PTRS.u_modify_curve_anim_library_set_apply_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAlpha"),
-            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA,
+            &raw mut __FUNCTION_PTRS.u_modify_curve_anim_library_set_alpha,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetApplyMode"),
-            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE,
+            &raw mut __FUNCTION_PTRS.u_modify_curve_anim_library_get_apply_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAlpha"),
-            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA,
+            &raw mut __FUNCTION_PTRS.u_modify_curve_anim_library_get_alpha,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToModifyCurveNodePure"),
-            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_modify_curve_anim_library_convert_to_modify_curve_node_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToModifyCurveNode"),
-            &raw mut U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_modify_curve_anim_library_convert_to_modify_curve_node,
         );
     }
     unsafe {
@@ -848,35 +896,38 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnNotifyEndReceived"),
-            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_END_RECEIVED,
+            &raw mut __FUNCTION_PTRS.u_play_montage_callback_proxy_on_notify_end_received,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnNotifyBeginReceived"),
-            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_NOTIFY_BEGIN_RECEIVED,
+            &raw mut __FUNCTION_PTRS
+                .u_play_montage_callback_proxy_on_notify_begin_received,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMontageEnded"),
-            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_ENDED,
+            &raw mut __FUNCTION_PTRS.u_play_montage_callback_proxy_on_montage_ended,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMontageBlendingOut"),
-            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_ON_MONTAGE_BLENDING_OUT,
+            &raw mut __FUNCTION_PTRS
+                .u_play_montage_callback_proxy_on_montage_blending_out,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForPlayMontage"),
-            &raw mut U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_play_montage_callback_proxy_create_proxy_object_for_play_montage,
         );
     }
     unsafe {
@@ -887,63 +938,66 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequenceWithInertialBlending"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_evaluator_library_set_sequence_with_inertial_blending,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_sequence_evaluator_library_set_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExplicitTime"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME,
+            &raw mut __FUNCTION_PTRS.u_sequence_evaluator_library_set_explicit_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExplicitFrame"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME,
+            &raw mut __FUNCTION_PTRS.u_sequence_evaluator_library_set_explicit_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_sequence_evaluator_library_get_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAccumulatedTime"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME,
+            &raw mut __FUNCTION_PTRS.u_sequence_evaluator_library_get_accumulated_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSequenceEvaluatorPure"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_evaluator_library_convert_to_sequence_evaluator_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSequenceEvaluator"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_evaluator_library_convert_to_sequence_evaluator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AdvanceTime"),
-            &raw mut U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME,
+            &raw mut __FUNCTION_PTRS.u_sequence_evaluator_library_advance_time,
         );
     }
     unsafe {
@@ -954,98 +1008,101 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartPosition"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_set_start_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequenceWithInertialBlending"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_player_library_set_sequence_with_inertial_blending,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_set_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlayRate"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_set_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAccumulatedTime"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_set_accumulated_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartPosition"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_get_start_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequencePure"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_get_sequence_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_get_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayRate"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_get_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoopAnimation"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_get_loop_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAccumulatedTime"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_get_accumulated_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSequencePlayerPure"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_player_library_convert_to_sequence_player_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSequencePlayer"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_sequence_player_library_convert_to_sequence_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputePlayRateFromDuration"),
-            &raw mut U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_player_library_compute_play_rate_from_duration,
         );
     }
     unsafe {
@@ -1056,28 +1113,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAlpha"),
-            &raw mut U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA,
+            &raw mut __FUNCTION_PTRS.u_skeletal_control_library_set_alpha,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAlpha"),
-            &raw mut U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA,
+            &raw mut __FUNCTION_PTRS.u_skeletal_control_library_get_alpha,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSkeletalControlPure"),
-            &raw mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_control_library_convert_to_skeletal_control_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSkeletalControl"),
-            &raw mut U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_control_library_convert_to_skeletal_control,
         );
     }
 }
@@ -1823,6 +1882,58 @@ impl USequencerAnimationOverride {
             cdo
         }
     }
+    pub fn get_sequencer_anim_slot_names(&self) -> TArray<FName> {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequencer_animation_override_get_sequencer_anim_slot_names,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequencer_animation_override_get_sequencer_anim_slot_names,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<TArray<FName>>().read() }
+    }
+    pub fn allows_cinematic_override(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequencer_animation_override_allows_cinematic_override,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequencer_animation_override_allows_cinematic_override,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimationStateMachineLibrary {
@@ -1861,7 +1972,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_set_state,
                 __buffer,
             )
         };
@@ -1923,7 +2035,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_SET_STATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_set_state,
                 __buffer,
             )
         };
@@ -1939,7 +2052,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_is_state_blending_out,
                 __buffer,
             )
         };
@@ -1963,7 +2077,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_OUT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_is_state_blending_out,
                 __buffer,
             )
         };
@@ -1980,7 +2095,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_is_state_blending_in,
                 __buffer,
             )
         };
@@ -2004,7 +2120,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_IS_STATE_BLENDING_IN,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_is_state_blending_in,
                 __buffer,
             )
         };
@@ -2021,7 +2138,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_get_state,
                 __buffer,
             )
         };
@@ -2045,7 +2163,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_STATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_get_state,
                 __buffer,
             )
         };
@@ -2062,7 +2181,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_get_relevant_anim_time_remaining_fraction,
                 __buffer,
             )
         };
@@ -2086,7 +2206,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING_FRACTION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_get_relevant_anim_time_remaining_fraction,
                 __buffer,
             )
         };
@@ -2103,7 +2224,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_get_relevant_anim_time_remaining,
                 __buffer,
             )
         };
@@ -2127,7 +2249,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_GET_RELEVANT_ANIM_TIME_REMAINING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_get_relevant_anim_time_remaining,
                 __buffer,
             )
         };
@@ -2145,7 +2268,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_result_pure,
                 __buffer,
             )
         };
@@ -2172,7 +2296,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_result_pure,
                 __buffer,
             )
         };
@@ -2198,7 +2323,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_result,
                 __buffer,
             )
         };
@@ -2233,7 +2359,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_RESULT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_result,
                 __buffer,
             )
         };
@@ -2262,7 +2389,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_machine_pure,
                 __buffer,
             )
         };
@@ -2289,7 +2417,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_machine_pure,
                 __buffer,
             )
         };
@@ -2315,7 +2444,8 @@ impl UAnimationStateMachineLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_machine,
                 __buffer,
             )
         };
@@ -2350,7 +2480,8 @@ impl UAnimationStateMachineLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIMATION_STATE_MACHINE_LIBRARY_CONVERT_TO_ANIMATION_STATE_MACHINE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_animation_state_machine_library_convert_to_animation_state_machine,
                 __buffer,
             )
         };
@@ -2396,7 +2527,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_is_active,
                 __buffer,
             )
         };
@@ -2413,7 +2545,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_IS_ACTIVE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_is_active,
                 __buffer,
             )
         };
@@ -2427,7 +2560,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_delta_time,
                 __buffer,
             )
         };
@@ -2444,7 +2578,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_DELTA_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_delta_time,
                 __buffer,
             )
         };
@@ -2460,7 +2595,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_current_weight,
                 __buffer,
             )
         };
@@ -2477,7 +2613,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_CURRENT_WEIGHT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_current_weight,
                 __buffer,
             )
         };
@@ -2494,7 +2631,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_anim_node_reference,
                 __buffer,
             )
         };
@@ -2514,7 +2652,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_NODE_REFERENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_anim_node_reference,
                 __buffer,
             )
         };
@@ -2532,7 +2671,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_anim_instance,
                 __buffer,
             )
         };
@@ -2549,7 +2689,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_GET_ANIM_INSTANCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_get_anim_instance,
                 __buffer,
             )
         };
@@ -2571,7 +2712,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_update_context,
                 __buffer,
             )
         };
@@ -2599,7 +2741,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_UPDATE_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_update_context,
                 __buffer,
             )
         };
@@ -2624,7 +2767,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_pose_context,
                 __buffer,
             )
         };
@@ -2652,7 +2796,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_POSE_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_pose_context,
                 __buffer,
             )
         };
@@ -2677,7 +2822,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_initialization_context,
                 __buffer,
             )
         };
@@ -2705,7 +2851,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_INITIALIZATION_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_initialization_context,
                 __buffer,
             )
         };
@@ -2733,7 +2880,8 @@ impl UAnimExecutionContextLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_component_space_pose_context,
                 __buffer,
             )
         };
@@ -2761,7 +2909,8 @@ impl UAnimExecutionContextLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_EXECUTION_CONTEXT_LIBRARY_CONVERT_TO_COMPONENT_SPACE_POSE_CONTEXT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_execution_context_library_convert_to_component_space_pose_context,
                 __buffer,
             )
         };
@@ -2874,7 +3023,8 @@ impl UBlendListBaseLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_RESET_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_list_base_library_reset_node,
                 __buffer,
             )
         };
@@ -2891,7 +3041,8 @@ impl UBlendListBaseLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_RESET_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_list_base_library_reset_node,
                 __buffer,
             )
         };
@@ -2907,7 +3058,8 @@ impl UBlendListBaseLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_list_base_library_convert_to_blend_list_base,
                 __buffer,
             )
         };
@@ -2935,7 +3087,8 @@ impl UBlendListBaseLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_LIST_BASE_LIBRARY_CONVERT_TO_BLEND_LIST_BASE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_list_base_library_convert_to_blend_list_base,
                 __buffer,
             )
         };
@@ -2979,7 +3132,8 @@ impl UBlendSpaceLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_snap_to_position,
                 __buffer,
             )
         };
@@ -3003,7 +3157,8 @@ impl UBlendSpaceLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_SNAP_TO_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_snap_to_position,
                 __buffer,
             )
         };
@@ -3018,7 +3173,8 @@ impl UBlendSpaceLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_get_position,
                 __buffer,
             )
         };
@@ -3035,7 +3191,8 @@ impl UBlendSpaceLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_get_position,
                 __buffer,
             )
         };
@@ -3053,7 +3210,8 @@ impl UBlendSpaceLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_get_filtered_position,
                 __buffer,
             )
         };
@@ -3070,7 +3228,8 @@ impl UBlendSpaceLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_GET_FILTERED_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_get_filtered_position,
                 __buffer,
             )
         };
@@ -3090,7 +3249,8 @@ impl UBlendSpaceLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_convert_to_blend_space_pure,
                 __buffer,
             )
         };
@@ -3117,7 +3277,8 @@ impl UBlendSpaceLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_convert_to_blend_space_pure,
                 __buffer,
             )
         };
@@ -3139,7 +3300,8 @@ impl UBlendSpaceLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_convert_to_blend_space,
                 __buffer,
             )
         };
@@ -3167,7 +3329,8 @@ impl UBlendSpaceLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_LIBRARY_CONVERT_TO_BLEND_SPACE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_library_convert_to_blend_space,
                 __buffer,
             )
         };
@@ -3211,7 +3374,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_snap_to_position,
                 __buffer,
             )
         };
@@ -3235,7 +3399,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SNAP_TO_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_snap_to_position,
                 __buffer,
             )
         };
@@ -3250,7 +3415,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_should_reset_play_time_when_blend_space_changes,
                 __buffer,
             )
         };
@@ -3267,7 +3433,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SHOULD_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_should_reset_play_time_when_blend_space_changes,
                 __buffer,
             )
         };
@@ -3284,7 +3451,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_reset_play_time_when_blend_space_changes,
                 __buffer,
             )
         };
@@ -3304,7 +3472,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_RESET_PLAY_TIME_WHEN_BLEND_SPACE_CHANGES,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_reset_play_time_when_blend_space_changes,
                 __buffer,
             )
         };
@@ -3321,7 +3490,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_play_rate,
                 __buffer,
             )
         };
@@ -3341,7 +3511,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_play_rate,
                 __buffer,
             )
         };
@@ -3358,7 +3529,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_loop,
                 __buffer,
             )
         };
@@ -3378,7 +3550,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_LOOP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_loop,
                 __buffer,
             )
         };
@@ -3397,7 +3570,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_blend_space_with_inertial_blending,
                 __buffer,
             )
         };
@@ -3435,7 +3609,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE_WITH_INERTIAL_BLENDING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_blend_space_with_inertial_blending,
                 __buffer,
             )
         };
@@ -3452,7 +3627,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_blend_space,
                 __buffer,
             )
         };
@@ -3476,7 +3652,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_SET_BLEND_SPACE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_set_blend_space,
                 __buffer,
             )
         };
@@ -3490,7 +3667,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_start_position,
                 __buffer,
             )
         };
@@ -3507,7 +3685,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_START_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_start_position,
                 __buffer,
             )
         };
@@ -3523,7 +3702,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_position,
                 __buffer,
             )
         };
@@ -3540,7 +3720,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_position,
                 __buffer,
             )
         };
@@ -3556,7 +3737,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_play_rate,
                 __buffer,
             )
         };
@@ -3573,7 +3755,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_play_rate,
                 __buffer,
             )
         };
@@ -3587,7 +3770,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_loop,
                 __buffer,
             )
         };
@@ -3604,7 +3788,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_LOOP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_loop,
                 __buffer,
             )
         };
@@ -3620,7 +3805,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_blend_space,
                 __buffer,
             )
         };
@@ -3637,7 +3823,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_GET_BLEND_SPACE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_get_blend_space,
                 __buffer,
             )
         };
@@ -3657,7 +3844,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_convert_to_blend_space_player_pure,
                 __buffer,
             )
         };
@@ -3684,7 +3872,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_convert_to_blend_space_player_pure,
                 __buffer,
             )
         };
@@ -3709,7 +3898,8 @@ impl UBlendSpacePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_convert_to_blend_space_player,
                 __buffer,
             )
         };
@@ -3737,7 +3927,8 @@ impl UBlendSpacePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_BLEND_SPACE_PLAYER_LIBRARY_CONVERT_TO_BLEND_SPACE_PLAYER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_blend_space_player_library_convert_to_blend_space_player,
                 __buffer,
             )
         };
@@ -3781,7 +3972,8 @@ impl UAnimNodeRigidBodyLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_node_rigid_body_library_set_override_physics_asset,
                 __buffer,
             )
         };
@@ -3805,7 +3997,8 @@ impl UAnimNodeRigidBodyLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_SET_OVERRIDE_PHYSICS_ASSET,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_node_rigid_body_library_set_override_physics_asset,
                 __buffer,
             )
         };
@@ -3823,7 +4016,8 @@ impl UAnimNodeRigidBodyLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node_pure,
                 __buffer,
             )
         };
@@ -3850,7 +4044,8 @@ impl UAnimNodeRigidBodyLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node_pure,
                 __buffer,
             )
         };
@@ -3875,7 +4070,8 @@ impl UAnimNodeRigidBodyLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node,
                 __buffer,
             )
         };
@@ -3903,7 +4099,8 @@ impl UAnimNodeRigidBodyLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_ANIM_NODE_RIGID_BODY_LIBRARY_CONVERT_TO_RIGID_BODY_ANIM_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_anim_node_rigid_body_library_convert_to_rigid_body_anim_node,
                 __buffer,
             )
         };
@@ -3955,7 +4152,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_two_bone_ik,
                 __buffer,
             )
         };
@@ -4035,7 +4233,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_TWO_BONE_IK,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_two_bone_ik,
                 __buffer,
             )
         };
@@ -4060,7 +4259,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_start_profiling_timer,
                 __buffer,
             )
         };
@@ -4070,7 +4270,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_START_PROFILING_TIMER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_start_profiling_timer,
                 __buffer,
             )
         };
@@ -4093,7 +4294,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_make_perlin_noise_vector_and_remap,
                 __buffer,
             )
         };
@@ -4154,7 +4356,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_VECTOR_AND_REMAP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_make_perlin_noise_vector_and_remap,
                 __buffer,
             )
         };
@@ -4174,7 +4377,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_make_perlin_noise_and_remap,
                 __buffer,
             )
         };
@@ -4201,7 +4405,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_MAKE_PERLIN_NOISE_AND_REMAP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_make_perlin_noise_and_remap,
                 __buffer,
             )
         };
@@ -4222,7 +4427,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_look_at,
                 __buffer,
             )
         };
@@ -4274,7 +4480,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_LOOK_AT,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_look_at,
                 __buffer,
             )
         };
@@ -4290,7 +4497,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_end_profiling_timer,
                 __buffer,
             )
         };
@@ -4310,7 +4518,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_END_PROFILING_TIMER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_end_profiling_timer,
                 __buffer,
             )
         };
@@ -4335,7 +4544,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_distance_between_two_sockets_and_map_range,
                 __buffer,
             )
         };
@@ -4421,7 +4631,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DISTANCE_BETWEEN_TWO_SOCKETS_AND_MAP_RANGE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_distance_between_two_sockets_and_map_range,
                 __buffer,
             )
         };
@@ -4439,7 +4650,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_direction_between_sockets,
                 __buffer,
             )
         };
@@ -4472,7 +4684,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_DIRECTION_BETWEEN_SOCKETS,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_direction_between_sockets,
                 __buffer,
             )
         };
@@ -4501,7 +4714,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_calculate_velocity_from_sockets,
                 __buffer,
             )
         };
@@ -4599,7 +4813,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_SOCKETS,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_calculate_velocity_from_sockets,
                 __buffer,
             )
         };
@@ -4623,7 +4838,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_calculate_velocity_from_position_history,
                 __buffer,
             )
         };
@@ -4675,7 +4891,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_K2_CALCULATE_VELOCITY_FROM_POSITION_HISTORY,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_k2_calculate_velocity_from_position_history,
                 __buffer,
             )
         };
@@ -4695,7 +4912,8 @@ impl UKismetAnimationLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_calculate_direction,
                 __buffer,
             )
         };
@@ -4719,7 +4937,8 @@ impl UKismetAnimationLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_KISMET_ANIMATION_LIBRARY_CALCULATE_DIRECTION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_kismet_animation_library_calculate_direction,
                 __buffer,
             )
         };
@@ -4759,7 +4978,8 @@ impl ULayeredBoneBlendLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_set_blend_mask,
                 __buffer,
             )
         };
@@ -4797,7 +5017,8 @@ impl ULayeredBoneBlendLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_SET_BLEND_MASK,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_set_blend_mask,
                 __buffer,
             )
         };
@@ -4811,7 +5032,8 @@ impl ULayeredBoneBlendLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_get_num_poses,
                 __buffer,
             )
         };
@@ -4828,7 +5050,8 @@ impl ULayeredBoneBlendLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_GET_NUM_POSES,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_get_num_poses,
                 __buffer,
             )
         };
@@ -4845,7 +5068,8 @@ impl ULayeredBoneBlendLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_convert_to_layered_bone_blend,
                 __buffer,
             )
         };
@@ -4873,7 +5097,8 @@ impl ULayeredBoneBlendLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BONE_BLEND,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_convert_to_layered_bone_blend,
                 __buffer,
             )
         };
@@ -4897,7 +5122,8 @@ impl ULayeredBoneBlendLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_convert_to_layered_blend_per_bone_pure,
                 __buffer,
             )
         };
@@ -4924,7 +5150,8 @@ impl ULayeredBoneBlendLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LAYERED_BONE_BLEND_LIBRARY_CONVERT_TO_LAYERED_BLEND_PER_BONE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_layered_bone_blend_library_convert_to_layered_blend_per_bone_pure,
                 __buffer,
             )
         };
@@ -4967,7 +5194,8 @@ impl ULinkedAnimGraphLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_has_linked_anim_instance,
                 __buffer,
             )
         };
@@ -4984,7 +5212,8 @@ impl ULinkedAnimGraphLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_HAS_LINKED_ANIM_INSTANCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_has_linked_anim_instance,
                 __buffer,
             )
         };
@@ -5000,7 +5229,8 @@ impl ULinkedAnimGraphLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_get_linked_anim_instance,
                 __buffer,
             )
         };
@@ -5017,7 +5247,8 @@ impl ULinkedAnimGraphLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_GET_LINKED_ANIM_INSTANCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_get_linked_anim_instance,
                 __buffer,
             )
         };
@@ -5040,7 +5271,8 @@ impl ULinkedAnimGraphLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_convert_to_linked_anim_graph_pure,
                 __buffer,
             )
         };
@@ -5067,7 +5299,8 @@ impl ULinkedAnimGraphLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_convert_to_linked_anim_graph_pure,
                 __buffer,
             )
         };
@@ -5089,7 +5322,8 @@ impl ULinkedAnimGraphLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_convert_to_linked_anim_graph,
                 __buffer,
             )
         };
@@ -5117,7 +5351,8 @@ impl ULinkedAnimGraphLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_LINKED_ANIM_GRAPH_LIBRARY_CONVERT_TO_LINKED_ANIM_GRAPH,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_linked_anim_graph_library_convert_to_linked_anim_graph,
                 __buffer,
             )
         };
@@ -5161,7 +5396,8 @@ impl UMirrorAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_set_mirror_transition_blend_time,
                 __buffer,
             )
         };
@@ -5185,7 +5421,8 @@ impl UMirrorAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR_TRANSITION_BLEND_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_set_mirror_transition_blend_time,
                 __buffer,
             )
         };
@@ -5202,7 +5439,8 @@ impl UMirrorAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_set_mirror,
                 __buffer,
             )
         };
@@ -5226,7 +5464,8 @@ impl UMirrorAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_SET_MIRROR,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_set_mirror,
                 __buffer,
             )
         };
@@ -5242,7 +5481,8 @@ impl UMirrorAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_get_mirror_transition_blend_time,
                 __buffer,
             )
         };
@@ -5259,7 +5499,8 @@ impl UMirrorAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_TRANSITION_BLEND_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_get_mirror_transition_blend_time,
                 __buffer,
             )
         };
@@ -5275,7 +5516,8 @@ impl UMirrorAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_get_mirror_data_table,
                 __buffer,
             )
         };
@@ -5292,7 +5534,8 @@ impl UMirrorAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR_DATA_TABLE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_get_mirror_data_table,
                 __buffer,
             )
         };
@@ -5311,7 +5554,8 @@ impl UMirrorAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_get_mirror,
                 __buffer,
             )
         };
@@ -5328,7 +5572,8 @@ impl UMirrorAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_GET_MIRROR,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_get_mirror,
                 __buffer,
             )
         };
@@ -5346,7 +5591,8 @@ impl UMirrorAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_convert_to_mirror_node_pure,
                 __buffer,
             )
         };
@@ -5373,7 +5619,8 @@ impl UMirrorAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_convert_to_mirror_node_pure,
                 __buffer,
             )
         };
@@ -5395,7 +5642,8 @@ impl UMirrorAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_convert_to_mirror_node,
                 __buffer,
             )
         };
@@ -5423,7 +5671,8 @@ impl UMirrorAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MIRROR_ANIM_LIBRARY_CONVERT_TO_MIRROR_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_mirror_anim_library_convert_to_mirror_node,
                 __buffer,
             )
         };
@@ -5467,7 +5716,8 @@ impl UModifyCurveAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_set_curve_map,
                 __buffer,
             )
         };
@@ -5491,7 +5741,8 @@ impl UModifyCurveAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_CURVE_MAP,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_set_curve_map,
                 __buffer,
             )
         };
@@ -5508,7 +5759,8 @@ impl UModifyCurveAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_set_apply_mode,
                 __buffer,
             )
         };
@@ -5532,7 +5784,8 @@ impl UModifyCurveAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_APPLY_MODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_set_apply_mode,
                 __buffer,
             )
         };
@@ -5549,7 +5802,8 @@ impl UModifyCurveAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_set_alpha,
                 __buffer,
             )
         };
@@ -5569,7 +5823,8 @@ impl UModifyCurveAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_SET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_set_alpha,
                 __buffer,
             )
         };
@@ -5585,7 +5840,8 @@ impl UModifyCurveAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_get_apply_mode,
                 __buffer,
             )
         };
@@ -5602,7 +5858,8 @@ impl UModifyCurveAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_APPLY_MODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_get_apply_mode,
                 __buffer,
             )
         };
@@ -5616,7 +5873,8 @@ impl UModifyCurveAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_get_alpha,
                 __buffer,
             )
         };
@@ -5633,7 +5891,8 @@ impl UModifyCurveAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_GET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_get_alpha,
                 __buffer,
             )
         };
@@ -5651,7 +5910,8 @@ impl UModifyCurveAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_convert_to_modify_curve_node_pure,
                 __buffer,
             )
         };
@@ -5678,7 +5938,8 @@ impl UModifyCurveAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_convert_to_modify_curve_node_pure,
                 __buffer,
             )
         };
@@ -5703,7 +5964,8 @@ impl UModifyCurveAnimLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_convert_to_modify_curve_node,
                 __buffer,
             )
         };
@@ -5731,7 +5993,8 @@ impl UModifyCurveAnimLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_MODIFY_CURVE_ANIM_LIBRARY_CONVERT_TO_MODIFY_CURVE_NODE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_modify_curve_anim_library_convert_to_modify_curve_node,
                 __buffer,
             )
         };
@@ -5781,7 +6044,8 @@ impl UPlayMontageCallbackProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_play_montage_callback_proxy_create_proxy_object_for_play_montage,
                 __buffer,
             )
         };
@@ -5831,7 +6095,8 @@ impl UPlayMontageCallbackProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_PLAY_MONTAGE_CALLBACK_PROXY_CREATE_PROXY_OBJECT_FOR_PLAY_MONTAGE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_play_montage_callback_proxy_create_proxy_object_for_play_montage,
                 __buffer,
             )
         };
@@ -5871,7 +6136,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_sequence_with_inertial_blending,
                 __buffer,
             )
         };
@@ -5911,7 +6177,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_sequence_with_inertial_blending,
                 __buffer,
             )
         };
@@ -5928,7 +6195,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_sequence,
                 __buffer,
             )
         };
@@ -5954,7 +6222,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_sequence,
                 __buffer,
             )
         };
@@ -5971,7 +6240,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_explicit_time,
                 __buffer,
             )
         };
@@ -5991,7 +6261,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_explicit_time,
                 __buffer,
             )
         };
@@ -6008,7 +6279,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_explicit_frame,
                 __buffer,
             )
         };
@@ -6028,7 +6300,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_SET_EXPLICIT_FRAME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_set_explicit_frame,
                 __buffer,
             )
         };
@@ -6044,7 +6317,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_get_sequence,
                 __buffer,
             )
         };
@@ -6061,7 +6335,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_get_sequence,
                 __buffer,
             )
         };
@@ -6082,7 +6357,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_get_accumulated_time,
                 __buffer,
             )
         };
@@ -6099,7 +6375,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_GET_ACCUMULATED_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_get_accumulated_time,
                 __buffer,
             )
         };
@@ -6117,7 +6394,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_convert_to_sequence_evaluator_pure,
                 __buffer,
             )
         };
@@ -6144,7 +6422,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_convert_to_sequence_evaluator_pure,
                 __buffer,
             )
         };
@@ -6169,7 +6448,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_convert_to_sequence_evaluator,
                 __buffer,
             )
         };
@@ -6197,7 +6477,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_CONVERT_TO_SEQUENCE_EVALUATOR,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_convert_to_sequence_evaluator,
                 __buffer,
             )
         };
@@ -6221,7 +6502,8 @@ impl USequenceEvaluatorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_advance_time,
                 __buffer,
             )
         };
@@ -6248,7 +6530,8 @@ impl USequenceEvaluatorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_EVALUATOR_LIBRARY_ADVANCE_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_evaluator_library_advance_time,
                 __buffer,
             )
         };
@@ -6286,7 +6569,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_start_position,
                 __buffer,
             )
         };
@@ -6310,7 +6594,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_START_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_start_position,
                 __buffer,
             )
         };
@@ -6329,7 +6614,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_sequence_with_inertial_blending,
                 __buffer,
             )
         };
@@ -6369,7 +6655,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE_WITH_INERTIAL_BLENDING,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_sequence_with_inertial_blending,
                 __buffer,
             )
         };
@@ -6386,7 +6673,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_sequence,
                 __buffer,
             )
         };
@@ -6412,7 +6700,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_sequence,
                 __buffer,
             )
         };
@@ -6429,7 +6718,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_play_rate,
                 __buffer,
             )
         };
@@ -6449,7 +6739,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_play_rate,
                 __buffer,
             )
         };
@@ -6466,7 +6757,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_accumulated_time,
                 __buffer,
             )
         };
@@ -6486,7 +6778,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_SET_ACCUMULATED_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_set_accumulated_time,
                 __buffer,
             )
         };
@@ -6500,7 +6793,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_start_position,
                 __buffer,
             )
         };
@@ -6517,7 +6811,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_START_POSITION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_start_position,
                 __buffer,
             )
         };
@@ -6533,7 +6828,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_sequence_pure,
                 __buffer,
             )
         };
@@ -6550,7 +6846,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_sequence_pure,
                 __buffer,
             )
         };
@@ -6572,7 +6869,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_sequence,
                 __buffer,
             )
         };
@@ -6598,7 +6896,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_SEQUENCE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_sequence,
                 __buffer,
             )
         };
@@ -6618,7 +6917,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_play_rate,
                 __buffer,
             )
         };
@@ -6635,7 +6935,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_PLAY_RATE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_play_rate,
                 __buffer,
             )
         };
@@ -6649,7 +6950,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_loop_animation,
                 __buffer,
             )
         };
@@ -6666,7 +6968,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_LOOP_ANIMATION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_loop_animation,
                 __buffer,
             )
         };
@@ -6680,7 +6983,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_accumulated_time,
                 __buffer,
             )
         };
@@ -6697,7 +7001,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_GET_ACCUMULATED_TIME,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_get_accumulated_time,
                 __buffer,
             )
         };
@@ -6715,7 +7020,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_convert_to_sequence_player_pure,
                 __buffer,
             )
         };
@@ -6742,7 +7048,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_convert_to_sequence_player_pure,
                 __buffer,
             )
         };
@@ -6764,7 +7071,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_convert_to_sequence_player,
                 __buffer,
             )
         };
@@ -6792,7 +7100,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_CONVERT_TO_SEQUENCE_PLAYER,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_convert_to_sequence_player,
                 __buffer,
             )
         };
@@ -6815,7 +7124,8 @@ impl USequencePlayerLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_compute_play_rate_from_duration,
                 __buffer,
             )
         };
@@ -6835,7 +7145,8 @@ impl USequencePlayerLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SEQUENCE_PLAYER_LIBRARY_COMPUTE_PLAY_RATE_FROM_DURATION,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_sequence_player_library_compute_play_rate_from_duration,
                 __buffer,
             )
         };
@@ -6895,7 +7206,8 @@ impl USkeletalControlLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_set_alpha,
                 __buffer,
             )
         };
@@ -6915,7 +7227,8 @@ impl USkeletalControlLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_SET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_set_alpha,
                 __buffer,
             )
         };
@@ -6929,7 +7242,8 @@ impl USkeletalControlLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_get_alpha,
                 __buffer,
             )
         };
@@ -6946,7 +7260,8 @@ impl USkeletalControlLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_GET_ALPHA,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_get_alpha,
                 __buffer,
             )
         };
@@ -6964,7 +7279,8 @@ impl USkeletalControlLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_convert_to_skeletal_control_pure,
                 __buffer,
             )
         };
@@ -6991,7 +7307,8 @@ impl USkeletalControlLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL_PURE,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_convert_to_skeletal_control_pure,
                 __buffer,
             )
         };
@@ -7013,7 +7330,8 @@ impl USkeletalControlLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_convert_to_skeletal_control,
                 __buffer,
             )
         };
@@ -7041,7 +7359,8 @@ impl USkeletalControlLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::anim_graph_runtime::U_SKELETAL_CONTROL_LIBRARY_CONVERT_TO_SKELETAL_CONTROL,
+                crate::bindings::anim_graph_runtime::__FUNCTION_PTRS
+                    .u_skeletal_control_library_convert_to_skeletal_control,
                 __buffer,
             )
         };

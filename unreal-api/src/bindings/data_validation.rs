@@ -1,40 +1,49 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_BASE_K2_VALIDATE_LOADED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_BASE_K2_CAN_VALIDATE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_BASE_K2_CAN_VALIDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_BASE_GET_VALIDATION_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_BASE_ASSET_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_BASE_ASSET_PASSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_BASE_ASSET_FAILS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELISTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_ASSETS_WITH_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_SUBSYSTEM_REMOVE_VALIDATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_SUBSYSTEM_IS_OBJECT_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_SUBSYSTEM_IS_ASSET_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_VALIDATOR_SUBSYSTEM_ADD_VALIDATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_editor_validator_base_k2_validate_loaded_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_base_k2_can_validate_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_base_k2_can_validate: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_base_get_validation_result: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_base_asset_warning: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_base_asset_passes: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_base_asset_fails: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_subsystem_validate_changelists: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_subsystem_validate_changelist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_subsystem_validate_assets_with_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_subsystem_remove_validator: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_subsystem_is_object_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_subsystem_is_asset_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_validator_subsystem_add_validator: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_editor_validator_base_k2_validate_loaded_asset: std::ptr::null_mut(),
+            u_editor_validator_base_k2_can_validate_asset: std::ptr::null_mut(),
+            u_editor_validator_base_k2_can_validate: std::ptr::null_mut(),
+            u_editor_validator_base_get_validation_result: std::ptr::null_mut(),
+            u_editor_validator_base_asset_warning: std::ptr::null_mut(),
+            u_editor_validator_base_asset_passes: std::ptr::null_mut(),
+            u_editor_validator_base_asset_fails: std::ptr::null_mut(),
+            u_editor_validator_subsystem_validate_changelists: std::ptr::null_mut(),
+            u_editor_validator_subsystem_validate_changelist: std::ptr::null_mut(),
+            u_editor_validator_subsystem_validate_assets_with_settings: std::ptr::null_mut(),
+            u_editor_validator_subsystem_remove_validator: std::ptr::null_mut(),
+            u_editor_validator_subsystem_is_object_valid: std::ptr::null_mut(),
+            u_editor_validator_subsystem_is_asset_valid: std::ptr::null_mut(),
+            u_editor_validator_subsystem_add_validator: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -44,49 +53,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_ValidateLoadedAsset"),
-            &raw mut U_EDITOR_VALIDATOR_BASE_K2_VALIDATE_LOADED_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_validate_loaded_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_CanValidateAsset"),
-            &raw mut U_EDITOR_VALIDATOR_BASE_K2_CAN_VALIDATE_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_can_validate_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_CanValidate"),
-            &raw mut U_EDITOR_VALIDATOR_BASE_K2_CAN_VALIDATE,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_base_k2_can_validate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValidationResult"),
-            &raw mut U_EDITOR_VALIDATOR_BASE_GET_VALIDATION_RESULT,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_base_get_validation_result,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssetWarning"),
-            &raw mut U_EDITOR_VALIDATOR_BASE_ASSET_WARNING,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_warning,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssetPasses"),
-            &raw mut U_EDITOR_VALIDATOR_BASE_ASSET_PASSES,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_passes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssetFails"),
-            &raw mut U_EDITOR_VALIDATOR_BASE_ASSET_FAILS,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_base_asset_fails,
         );
     }
     unsafe {
@@ -97,49 +106,50 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ValidateChangelists"),
-            &raw mut U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELISTS,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_validate_changelists,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ValidateChangelist"),
-            &raw mut U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELIST,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_validate_changelist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ValidateAssetsWithSettings"),
-            &raw mut U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_ASSETS_WITH_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_validator_subsystem_validate_assets_with_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveValidator"),
-            &raw mut U_EDITOR_VALIDATOR_SUBSYSTEM_REMOVE_VALIDATOR,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_remove_validator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsObjectValid"),
-            &raw mut U_EDITOR_VALIDATOR_SUBSYSTEM_IS_OBJECT_VALID,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_is_object_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAssetValid"),
-            &raw mut U_EDITOR_VALIDATOR_SUBSYSTEM_IS_ASSET_VALID,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_is_asset_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddValidator"),
-            &raw mut U_EDITOR_VALIDATOR_SUBSYSTEM_ADD_VALIDATOR,
+            &raw mut __FUNCTION_PTRS.u_editor_validator_subsystem_add_validator,
         );
     }
 }
@@ -296,6 +306,121 @@ impl UEditorValidatorBase {
             cdo
         }
     }
+    pub fn k2_validate_loaded_asset(
+        &mut self,
+        in_asset: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> crate::bindings::core_u_object::EDataValidationResult {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_k2_validate_loaded_asset,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_k2_validate_loaded_asset,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<crate::bindings::core_u_object::EDataValidationResult>()
+                .read()
+        }
+    }
+    pub fn k2_can_validate_asset(
+        &self,
+        in_asset: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_k2_can_validate_asset,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_asset,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_k2_can_validate_asset,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn k2_can_validate(
+        &self,
+        in_usecase: crate::bindings::core_u_object::EDataValidationUsecase,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<2>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_k2_can_validate,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_usecase,
+                __buffer
+                    .add(0)
+                    .cast::<crate::bindings::core_u_object::EDataValidationUsecase>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_k2_can_validate,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
     pub fn get_validation_result(
         &self,
     ) -> crate::bindings::core_u_object::EDataValidationResult {
@@ -306,7 +431,8 @@ impl UEditorValidatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_GET_VALIDATION_RESULT,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_get_validation_result,
                 __buffer,
             )
         };
@@ -316,7 +442,8 @@ impl UEditorValidatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_GET_VALIDATION_RESULT,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_get_validation_result,
                 __buffer,
             )
         };
@@ -339,7 +466,8 @@ impl UEditorValidatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_WARNING,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_asset_warning,
                 __buffer,
             )
         };
@@ -363,7 +491,8 @@ impl UEditorValidatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_WARNING,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_asset_warning,
                 __buffer,
             )
         };
@@ -379,7 +508,8 @@ impl UEditorValidatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_PASSES,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_asset_passes,
                 __buffer,
             )
         };
@@ -396,7 +526,8 @@ impl UEditorValidatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_PASSES,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_asset_passes,
                 __buffer,
             )
         };
@@ -413,7 +544,8 @@ impl UEditorValidatorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_FAILS,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_asset_fails,
                 __buffer,
             )
         };
@@ -437,7 +569,8 @@ impl UEditorValidatorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_BASE_ASSET_FAILS,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_base_asset_fails,
                 __buffer,
             )
         };
@@ -497,7 +630,8 @@ impl UEditorValidatorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELISTS,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_changelists,
                 __buffer,
             )
         };
@@ -528,7 +662,8 @@ impl UEditorValidatorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELISTS,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_changelists,
                 __buffer,
             )
         };
@@ -555,7 +690,8 @@ impl UEditorValidatorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELIST,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_changelist,
                 __buffer,
             )
         };
@@ -586,7 +722,8 @@ impl UEditorValidatorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_CHANGELIST,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_changelist,
                 __buffer,
             )
         };
@@ -613,7 +750,8 @@ impl UEditorValidatorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_ASSETS_WITH_SETTINGS,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_assets_with_settings,
                 __buffer,
             )
         };
@@ -646,7 +784,8 @@ impl UEditorValidatorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_VALIDATE_ASSETS_WITH_SETTINGS,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_validate_assets_with_settings,
                 __buffer,
             )
         };
@@ -663,7 +802,8 @@ impl UEditorValidatorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_REMOVE_VALIDATOR,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_remove_validator,
                 __buffer,
             )
         };
@@ -680,7 +820,8 @@ impl UEditorValidatorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_REMOVE_VALIDATOR,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_remove_validator,
                 __buffer,
             )
         };
@@ -699,7 +840,8 @@ impl UEditorValidatorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_OBJECT_VALID,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_is_object_valid,
                 __buffer,
             )
         };
@@ -739,7 +881,8 @@ impl UEditorValidatorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_OBJECT_VALID,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_is_object_valid,
                 __buffer,
             )
         };
@@ -770,7 +913,8 @@ impl UEditorValidatorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_ASSET_VALID,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_is_asset_valid,
                 __buffer,
             )
         };
@@ -810,7 +954,8 @@ impl UEditorValidatorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_IS_ASSET_VALID,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_is_asset_valid,
                 __buffer,
             )
         };
@@ -835,7 +980,8 @@ impl UEditorValidatorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_ADD_VALIDATOR,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_add_validator,
                 __buffer,
             )
         };
@@ -852,7 +998,8 @@ impl UEditorValidatorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::data_validation::U_EDITOR_VALIDATOR_SUBSYSTEM_ADD_VALIDATOR,
+                crate::bindings::data_validation::__FUNCTION_PTRS
+                    .u_editor_validator_subsystem_add_validator,
                 __buffer,
             )
         };

@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DIRECTOR_BLUEPRINT_CONDITION_ENDPOINT_UTIL_SAMPLE_DIRECTOR_BLUEPRINT_CONDITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DYNAMIC_BINDING_ENDPOINT_UTIL_SAMPLE_RESOLVE_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_movie_scene_director_blueprint_condition_endpoint_util_sample_director_blueprint_condition: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_dynamic_binding_endpoint_util_sample_resolve_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_user_import_fbx_control_rig_settings_load_control_mappings_from_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_user_export_fbx_control_rig_settings_load_control_mappings_from_preset: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_movie_scene_director_blueprint_condition_endpoint_util_sample_director_blueprint_condition: std::ptr::null_mut(),
+            u_movie_scene_dynamic_binding_endpoint_util_sample_resolve_binding: std::ptr::null_mut(),
+            u_movie_scene_user_import_fbx_control_rig_settings_load_control_mappings_from_preset: std::ptr::null_mut(),
+            u_movie_scene_user_export_fbx_control_rig_settings_load_control_mappings_from_preset: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,7 +33,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SampleDirectorBlueprintCondition"),
-            &raw mut U_MOVIE_SCENE_DIRECTOR_BLUEPRINT_CONDITION_ENDPOINT_UTIL_SAMPLE_DIRECTOR_BLUEPRINT_CONDITION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_director_blueprint_condition_endpoint_util_sample_director_blueprint_condition,
         );
     }
     unsafe {
@@ -35,7 +45,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SampleResolveBinding"),
-            &raw mut U_MOVIE_SCENE_DYNAMIC_BINDING_ENDPOINT_UTIL_SAMPLE_RESOLVE_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_dynamic_binding_endpoint_util_sample_resolve_binding,
         );
     }
     unsafe {
@@ -46,7 +57,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
-            &raw mut U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_user_import_fbx_control_rig_settings_load_control_mappings_from_preset,
         );
     }
     unsafe {
@@ -57,7 +69,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadControlMappingsFromPreset"),
-            &raw mut U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_user_export_fbx_control_rig_settings_load_control_mappings_from_preset,
         );
     }
 }
@@ -507,7 +520,8 @@ impl UMovieSceneUserImportFBXControlRigSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                crate::bindings::movie_scene_tools::__FUNCTION_PTRS
+                    .u_movie_scene_user_import_fbx_control_rig_settings_load_control_mappings_from_preset,
                 __buffer,
             )
         };
@@ -524,7 +538,8 @@ impl UMovieSceneUserImportFBXControlRigSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_IMPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                crate::bindings::movie_scene_tools::__FUNCTION_PTRS
+                    .u_movie_scene_user_import_fbx_control_rig_settings_load_control_mappings_from_preset,
                 __buffer,
             )
         };
@@ -566,7 +581,8 @@ impl UMovieSceneUserExportFBXControlRigSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                crate::bindings::movie_scene_tools::__FUNCTION_PTRS
+                    .u_movie_scene_user_export_fbx_control_rig_settings_load_control_mappings_from_preset,
                 __buffer,
             )
         };
@@ -583,7 +599,8 @@ impl UMovieSceneUserExportFBXControlRigSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tools::U_MOVIE_SCENE_USER_EXPORT_FBX_CONTROL_RIG_SETTINGS_LOAD_CONTROL_MAPPINGS_FROM_PRESET,
+                crate::bindings::movie_scene_tools::__FUNCTION_PTRS
+                    .u_movie_scene_user_export_fbx_control_rig_settings_load_control_mappings_from_preset,
                 __buffer,
             )
         };

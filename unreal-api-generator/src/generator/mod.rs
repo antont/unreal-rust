@@ -126,41 +126,59 @@ pub fn generate_module_globals(api: &Api) -> HashMap<String, TokenStream> {
     //     module_to_struct.insert(module_name, def);
     // }
 
-    fn convert_to_fn_name(name: &str, f: &Function) -> Ident {
+    fn convert_to_fn_field_name(name: &str, f: &Function) -> Ident {
         format_ident!(
             "{}_{}",
-            name.to_shouty_snake_case(),
-            f.function_name.to_shouty_snake_case()
+            name.to_snake_case(),
+            f.function_name.to_snake_case()
         )
     }
 
     module_to_class
         .into_iter()
         .map(|(module_name, defs)| {
-            let all_fn_pts = defs.iter()
+            let all_fn_pts_idents: Vec<_> = defs.iter()
                 .flat_map(|&def| {
                 def.functions.iter().map(|f| {
-                    let ident = convert_to_fn_name(&def.class_name, f);
-                    quote! {
-                        #[doc(hidden)]
-                        pub static mut #ident: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-                    }
+                    convert_to_fn_field_name(&def.class_name, f)
                 })
-            });
+            }).collect();
+
+            let fn_ptr_def = quote!{
+                pub struct FunctionPtrs
+                {
+                    #(
+                        pub #all_fn_pts_idents: *mut crate::ffi::UFunctionOpague,
+                    )*
+                }
+
+                impl FunctionPtrs
+                {
+                    pub const fn empty() -> Self
+                    {
+                        Self {
+                            #(
+                                #all_fn_pts_idents: std::ptr::null_mut(),
+                            )*
+                        }
+                    }
+                }
+            };
+
 
             let initialize_all_fn_ptrs = defs.iter().flat_map(|&def| {
                 let name = format_ident!("{}", def.class_name);
 
                 let initialize_ptrs_scope: Vec<TokenStream> = def.functions.iter().map(|f| {
                     let fn_name = &f.function_name;
-                    let ptr_ident = convert_to_fn_name(&def.class_name, f);
+                    let ptr_ident = convert_to_fn_field_name(&def.class_name, f);
                     quote! {
                         (bindings
                             .core_fns
                             .find_function_by_name)(
                             class_ptr,
                             unreal_ffi::Utf8Str::from(#fn_name),
-                            &raw mut #ptr_ident,
+                            &raw mut __FUNCTION_PTRS.#ptr_ident,
                         );
                     }
                 }).collect();
@@ -186,9 +204,12 @@ pub fn generate_module_globals(api: &Api) -> HashMap<String, TokenStream> {
             });
 
             let q = quote! {
-                #(
-                    #all_fn_pts
-                )*
+                #[doc(hidden)]
+                pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+                #fn_ptr_def
+                // #(
+                //     #all_fn_pts_idents
+                // )*
                 pub fn initialize()
                 {
                     #(
@@ -375,44 +396,6 @@ pub fn generate_layout_test(
         }
     }
 }
-pub fn generate_layout_check(name: &str, properties: &[Property]) -> TokenStream {
-    let property_tokens: Vec<TokenStream> = iter_properties(properties)
-        .filter_map(|property| {
-            // TODO: Verify bitfields
-            if let Type::Bitfield { .. } = &property.data_type {
-                return None;
-            }
-
-            let ty_ident = format_ident!("{}", name);
-            let field_name = property_name(property);
-            let field_ident = format_ident!("{}", field_name);
-            let offset = property.offset as usize;
-            // let q = quote! {
-            //     assert_eq!(std::mem::offset_of!(#ty_ident, #field_ident), #offset, #field_name);
-            // };
-            let q = quote! {
-                log::warn!("{} = {} vs {}", #field_name, std::mem::offset_of!(#ty_ident, #field_ident), #offset);
-            };
-            Some(q)
-        })
-        .collect();
-
-    quote! {
-        pub fn verify_layout()
-        {
-            // const _: () = {
-            //     #(
-            //         #property_tokens
-            //     )*
-            // };
-            #(
-                #property_tokens
-            )*
-
-
-        }
-    }
-}
 
 pub fn generate_function(
     ctx: &Context,
@@ -558,11 +541,16 @@ pub fn generate_function(
         })
     });
 
-    let fn_ptr = format_ident!(
+    let fn_ptr_ident = format_ident!(
         "{}_{}",
-        ty_name.to_shouty_snake_case(),
-        function.function_name.to_shouty_snake_case()
+        ty_name.to_snake_case(),
+        function.function_name.to_snake_case()
     );
+
+    let fn_ptr = quote!
+    {
+        __FUNCTION_PTRS.#fn_ptr_ident
+    };
 
     quote! {
         pub fn #fn_ident(#(#self_tokens,)* #(#param_tokens),*) #return_ty
@@ -638,41 +626,14 @@ pub fn generate_class(
         }
     };
 
-    let allow_list = [
-        "AActor",
-        "UCharacterMovementComponent",
-        "USceneComponent",
-        "UWorldPartition",
-        "UStaticMesh",
-        "UWidget",
-        "UVolumetricCloudComponent",
-        "URustExtension_FHitResult",
-    ];
-    let layout_check_tokens = if allow_list.contains(&class_def.class_name.as_str()) {
-        Some(generate_layout_check(
-            &class_def.class_name,
-            &class_def.properties,
-        ))
-    } else {
-        None
-    };
-
-    let fn_allow_list = [
-        "K2_GetActorLocation",
-        "K2_SetActorLocation",
-        "GetLevelTransform",
-        "New",
-        "SetTextureParameterValueByInfo",
-    ];
-
     let function_tokens: Vec<_> = class_def
         .functions
         .iter()
         .filter(|f| {
             f.flags.contains(&FunctionFlag::BlueprintCallable)
                 || f.flags.contains(&FunctionFlag::BlueprintPure)
+                || f.flags.contains(&FunctionFlag::BlueprintEvent)
         })
-        // .filter(|f| fn_allow_list.contains(&f.function_name.as_str()))
         .map(|f| generate_function(ctx, &class_def.class_name, &module_name, f))
         .collect();
 
@@ -697,8 +658,6 @@ pub fn generate_class(
             #(
                 #function_tokens
             )*
-
-            #layout_check_tokens
         }
     };
 
@@ -1039,16 +998,6 @@ pub fn generate_struct(
         }
     };
 
-    let allow_list = ["FHitResult", "FBodyInstance"];
-    let layout_check_tokens = if allow_list.contains(&struct_def.struct_name.as_str()) {
-        Some(generate_layout_check(
-            &struct_def.struct_name,
-            &struct_def.properties,
-        ))
-    } else {
-        None
-    };
-
     let fn_tokens = ctx
         .extension_fns
         .get(&struct_def.struct_name)
@@ -1078,7 +1027,6 @@ pub fn generate_struct(
         #struct_def_tokens
         impl #struct_ident
         {
-            #layout_check_tokens
             #fn_tokens
         }
     };
@@ -1121,6 +1069,13 @@ pub fn save_file(tokens: &TokenStream, path: &Path) {
 
 pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> {
     let ctx = Context::new(api);
+
+    let count: usize = api
+        .classes
+        .iter()
+        .flat_map(|def| def.functions.iter())
+        .count();
+    println!("functions {}", count);
 
     let pods = generate_structs(&ctx, api)?;
     let classes = generate_classes(&ctx, api)?;
@@ -1185,7 +1140,6 @@ pub fn generate_crate(api: &Api, out_path: &Path) -> Result<(), Box<dyn Error>> 
             #![allow(dead_code)]
             #![allow(unused_imports)]
             #![allow(unused_variables)]
-            #![allow(non_camel_case_types)]
             #![allow(clippy::non_camel_case_types)]
             #![allow(clippy::new_without_default)]
             #![allow(clippy::new_ret_no_self)]

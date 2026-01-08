@@ -1,26 +1,35 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_GROOM_SOLVER_COMPONENT_SET_DEFORMER_SOLVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_SOLVER_COMPONENT_RESET_GROOM_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_SOLVER_COMPONENT_RESET_COLLISION_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_SOLVER_COMPONENT_REMOVE_GROOM_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_SOLVER_COMPONENT_REMOVE_COLLISION_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_SOLVER_COMPONENT_ADD_GROOM_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GROOM_SOLVER_COMPONENT_ADD_COLLISION_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_groom_solver_component_set_deformer_solver: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_solver_component_reset_groom_components: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_solver_component_reset_collision_components: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_solver_component_remove_groom_component: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_solver_component_remove_collision_component: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_solver_component_add_groom_component: *mut crate::ffi::UFunctionOpague,
+    pub u_groom_solver_component_add_collision_component: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_groom_solver_component_set_deformer_solver: std::ptr::null_mut(),
+            u_groom_solver_component_reset_groom_components: std::ptr::null_mut(),
+            u_groom_solver_component_reset_collision_components: std::ptr::null_mut(),
+            u_groom_solver_component_remove_groom_component: std::ptr::null_mut(),
+            u_groom_solver_component_remove_collision_component: std::ptr::null_mut(),
+            u_groom_solver_component_add_groom_component: std::ptr::null_mut(),
+            u_groom_solver_component_add_collision_component: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -30,49 +39,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDeformerSolver"),
-            &raw mut U_GROOM_SOLVER_COMPONENT_SET_DEFORMER_SOLVER,
+            &raw mut __FUNCTION_PTRS.u_groom_solver_component_set_deformer_solver,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetGroomComponents"),
-            &raw mut U_GROOM_SOLVER_COMPONENT_RESET_GROOM_COMPONENTS,
+            &raw mut __FUNCTION_PTRS.u_groom_solver_component_reset_groom_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetCollisionComponents"),
-            &raw mut U_GROOM_SOLVER_COMPONENT_RESET_COLLISION_COMPONENTS,
+            &raw mut __FUNCTION_PTRS.u_groom_solver_component_reset_collision_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveGroomComponent"),
-            &raw mut U_GROOM_SOLVER_COMPONENT_REMOVE_GROOM_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_groom_solver_component_remove_groom_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCollisionComponent"),
-            &raw mut U_GROOM_SOLVER_COMPONENT_REMOVE_COLLISION_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_groom_solver_component_remove_collision_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGroomComponent"),
-            &raw mut U_GROOM_SOLVER_COMPONENT_ADD_GROOM_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_groom_solver_component_add_groom_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCollisionComponent"),
-            &raw mut U_GROOM_SOLVER_COMPONENT_ADD_COLLISION_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_groom_solver_component_add_collision_component,
         );
     }
 }
@@ -112,7 +121,8 @@ impl UGroomSolverComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_SET_DEFORMER_SOLVER,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_set_deformer_solver,
                 __buffer,
             )
         };
@@ -129,7 +139,8 @@ impl UGroomSolverComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_SET_DEFORMER_SOLVER,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_set_deformer_solver,
                 __buffer,
             )
         };
@@ -142,7 +153,8 @@ impl UGroomSolverComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_RESET_GROOM_COMPONENTS,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_reset_groom_components,
                 __buffer,
             )
         };
@@ -152,7 +164,8 @@ impl UGroomSolverComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_RESET_GROOM_COMPONENTS,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_reset_groom_components,
                 __buffer,
             )
         };
@@ -165,7 +178,8 @@ impl UGroomSolverComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_RESET_COLLISION_COMPONENTS,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_reset_collision_components,
                 __buffer,
             )
         };
@@ -175,7 +189,8 @@ impl UGroomSolverComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_RESET_COLLISION_COMPONENTS,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_reset_collision_components,
                 __buffer,
             )
         };
@@ -191,7 +206,8 @@ impl UGroomSolverComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_REMOVE_GROOM_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_remove_groom_component,
                 __buffer,
             )
         };
@@ -210,7 +226,8 @@ impl UGroomSolverComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_REMOVE_GROOM_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_remove_groom_component,
                 __buffer,
             )
         };
@@ -226,7 +243,8 @@ impl UGroomSolverComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_REMOVE_COLLISION_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_remove_collision_component,
                 __buffer,
             )
         };
@@ -243,7 +261,8 @@ impl UGroomSolverComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_REMOVE_COLLISION_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_remove_collision_component,
                 __buffer,
             )
         };
@@ -259,7 +278,8 @@ impl UGroomSolverComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_ADD_GROOM_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_add_groom_component,
                 __buffer,
             )
         };
@@ -278,7 +298,8 @@ impl UGroomSolverComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_ADD_GROOM_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_add_groom_component,
                 __buffer,
             )
         };
@@ -295,7 +316,8 @@ impl UGroomSolverComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_ADD_COLLISION_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_add_collision_component,
                 __buffer,
             )
         };
@@ -315,7 +337,8 @@ impl UGroomSolverComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::hair_strands_solver::U_GROOM_SOLVER_COMPONENT_ADD_COLLISION_COMPONENT,
+                crate::bindings::hair_strands_solver::__FUNCTION_PTRS
+                    .u_groom_solver_component_add_collision_component,
                 __buffer,
             )
         };

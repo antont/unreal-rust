@@ -1,48 +1,57 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_MENU_CONTEXT_IS_ALT_DOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_HOST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_ASSET_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_GRAPH_MENU_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_REQUEST_AUTO_VM_RECOMPILATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM_IF_REQUIRED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_NODE_FILTER_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_BLUEPRINT_FILTER_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_FILTER_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_NODE_FILTERS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_BLUEPRINT_FILTERS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_ASSETS_WITH_FILTER_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_rig_vm_editor_menu_context_is_alt_down: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_menu_context_get_rig_vm_host: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_menu_context_get_rig_vm_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_menu_context_get_rig_vm_asset_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_menu_context_get_graph_menu_context: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_request_auto_vm_recompilation: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_recompile_vm_if_required: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_recompile_vm: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_load_assets_with_node_filter_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_load_assets_with_blueprint_filter_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_filter_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_node_filters_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_blueprint_filters_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_load_assets_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_load_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_get_model: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_get_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_editor_blueprint_library_get_assets_with_filter_for_blueprint: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_rig_vm_editor_menu_context_is_alt_down: std::ptr::null_mut(),
+            u_rig_vm_editor_menu_context_get_rig_vm_host: std::ptr::null_mut(),
+            u_rig_vm_editor_menu_context_get_rig_vm_blueprint: std::ptr::null_mut(),
+            u_rig_vm_editor_menu_context_get_rig_vm_asset_interface: std::ptr::null_mut(),
+            u_rig_vm_editor_menu_context_get_graph_menu_context: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_request_auto_vm_recompilation: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_recompile_vm_if_required: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_recompile_vm: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_load_assets_with_node_filter_for_blueprint: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_load_assets_with_blueprint_filter_for_blueprint: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_filter_for_blueprint: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_node_filters_for_blueprint: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_blueprint_filters_for_blueprint: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_load_assets_by_class: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_load_assets: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_get_model: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_get_controller: std::ptr::null_mut(),
+            u_rig_vm_editor_blueprint_library_get_assets_with_filter_for_blueprint: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -52,35 +61,36 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAltDown"),
-            &raw mut U_RIG_VM_EDITOR_MENU_CONTEXT_IS_ALT_DOWN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_is_alt_down,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigVMHost"),
-            &raw mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_HOST,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_get_rig_vm_host,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigVMBlueprint"),
-            &raw mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_get_rig_vm_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigVMAssetInterface"),
-            &raw mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_ASSET_INTERFACE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_menu_context_get_rig_vm_asset_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphMenuContext"),
-            &raw mut U_RIG_VM_EDITOR_MENU_CONTEXT_GET_GRAPH_MENU_CONTEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_menu_context_get_graph_menu_context,
         );
     }
     unsafe {
@@ -91,42 +101,47 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestAutoVMRecompilation"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_REQUEST_AUTO_VM_RECOMPILATION,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_request_auto_vm_recompilation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecompileVMIfRequired"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM_IF_REQUIRED,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_recompile_vm_if_required,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecompileVM"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_recompile_vm,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAssetsWithNodeFilter_ForBlueprint"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_NODE_FILTER_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_load_assets_with_node_filter_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAssetsWithBlueprintFilter_ForBlueprint"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_BLUEPRINT_FILTER_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_load_assets_with_blueprint_filter_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAssetsWithAssetDataFilter_ForBlueprint"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_FILTER_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_filter_for_blueprint,
         );
         (bindings
             .core_fns
@@ -135,7 +150,8 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "LoadAssetsWithAssetDataAndNodeFilters_ForBlueprint",
             ),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_NODE_FILTERS_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_node_filters_for_blueprint,
         );
         (bindings
             .core_fns
@@ -144,42 +160,45 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "LoadAssetsWithAssetDataAndBlueprintFilters_ForBlueprint",
             ),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_BLUEPRINT_FILTERS_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_blueprint_filters_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAssetsByClass"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_BY_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_load_assets_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAssets"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_load_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModel"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_MODEL,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_get_model,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetController"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_CONTROLLER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_editor_blueprint_library_get_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsWithFilter_ForBlueprint"),
-            &raw mut U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_ASSETS_WITH_FILTER_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_editor_blueprint_library_get_assets_with_filter_for_blueprint,
         );
     }
 }
@@ -288,7 +307,8 @@ impl URigVMEditorMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_IS_ALT_DOWN,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_is_alt_down,
                 __buffer,
             )
         };
@@ -298,7 +318,8 @@ impl URigVMEditorMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_IS_ALT_DOWN,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_is_alt_down,
                 __buffer,
             )
         };
@@ -312,7 +333,8 @@ impl URigVMEditorMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_HOST,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_host,
                 __buffer,
             )
         };
@@ -322,7 +344,8 @@ impl URigVMEditorMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_HOST,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_host,
                 __buffer,
             )
         };
@@ -340,7 +363,8 @@ impl URigVMEditorMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_blueprint,
                 __buffer,
             )
         };
@@ -350,7 +374,8 @@ impl URigVMEditorMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_blueprint,
                 __buffer,
             )
         };
@@ -371,7 +396,8 @@ impl URigVMEditorMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_ASSET_INTERFACE,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_asset_interface,
                 __buffer,
             )
         };
@@ -381,7 +407,8 @@ impl URigVMEditorMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_RIG_VM_ASSET_INTERFACE,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_rig_vm_asset_interface,
                 __buffer,
             )
         };
@@ -404,7 +431,8 @@ impl URigVMEditorMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_GRAPH_MENU_CONTEXT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_graph_menu_context,
                 __buffer,
             )
         };
@@ -414,7 +442,8 @@ impl URigVMEditorMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_MENU_CONTEXT_GET_GRAPH_MENU_CONTEXT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_menu_context_get_graph_menu_context,
                 __buffer,
             )
         };
@@ -451,7 +480,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_REQUEST_AUTO_VM_RECOMPILATION,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_request_auto_vm_recompilation,
                 __buffer,
             )
         };
@@ -470,7 +500,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_REQUEST_AUTO_VM_RECOMPILATION,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_request_auto_vm_recompilation,
                 __buffer,
             )
         };
@@ -485,7 +516,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM_IF_REQUIRED,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_recompile_vm_if_required,
                 __buffer,
             )
         };
@@ -504,7 +536,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM_IF_REQUIRED,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_recompile_vm_if_required,
                 __buffer,
             )
         };
@@ -519,7 +552,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_recompile_vm,
                 __buffer,
             )
         };
@@ -538,7 +572,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_RECOMPILE_VM,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_recompile_vm,
                 __buffer,
             )
         };
@@ -554,7 +589,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_NODE_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_node_filter_for_blueprint,
                 __buffer,
             )
         };
@@ -584,7 +620,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_NODE_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_node_filter_for_blueprint,
                 __buffer,
             )
         };
@@ -608,7 +645,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_BLUEPRINT_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_blueprint_filter_for_blueprint,
                 __buffer,
             )
         };
@@ -640,7 +678,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_BLUEPRINT_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_blueprint_filter_for_blueprint,
                 __buffer,
             )
         };
@@ -664,7 +703,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_filter_for_blueprint,
                 __buffer,
             )
         };
@@ -696,7 +736,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_filter_for_blueprint,
                 __buffer,
             )
         };
@@ -721,7 +762,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_NODE_FILTERS_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_node_filters_for_blueprint,
                 __buffer,
             )
         };
@@ -764,7 +806,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_NODE_FILTERS_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_node_filters_for_blueprint,
                 __buffer,
             )
         };
@@ -789,7 +832,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_BLUEPRINT_FILTERS_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_blueprint_filters_for_blueprint,
                 __buffer,
             )
         };
@@ -832,7 +876,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_WITH_ASSET_DATA_AND_BLUEPRINT_FILTERS_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_with_asset_data_and_blueprint_filters_for_blueprint,
                 __buffer,
             )
         };
@@ -855,7 +900,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_BY_CLASS,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_by_class,
                 __buffer,
             )
         };
@@ -876,7 +922,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS_BY_CLASS,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets_by_class,
                 __buffer,
             )
         };
@@ -899,7 +946,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets,
                 __buffer,
             )
         };
@@ -909,7 +957,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_LOAD_ASSETS,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_load_assets,
                 __buffer,
             )
         };
@@ -932,7 +981,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_MODEL,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_get_model,
                 __buffer,
             )
         };
@@ -951,7 +1001,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_MODEL,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_get_model,
                 __buffer,
             )
         };
@@ -972,7 +1023,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_CONTROLLER,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_get_controller,
                 __buffer,
             )
         };
@@ -991,7 +1043,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_CONTROLLER,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_get_controller,
                 __buffer,
             )
         };
@@ -1013,7 +1066,8 @@ impl URigVMEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_ASSETS_WITH_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_get_assets_with_filter_for_blueprint,
                 __buffer,
             )
         };
@@ -1043,7 +1097,8 @@ impl URigVMEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_editor::U_RIG_VM_EDITOR_BLUEPRINT_LIBRARY_GET_ASSETS_WITH_FILTER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_editor::__FUNCTION_PTRS
+                    .u_rig_vm_editor_blueprint_library_get_assets_with_filter_for_blueprint,
                 __buffer,
             )
         };

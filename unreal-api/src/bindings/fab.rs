@@ -1,84 +1,93 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_SET_PREFERRED_QUALITY_TIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_PLUGIN_OPENED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_OPEN_URL_IN_BROWSER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_OPEN_PLUGIN_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_ON_DRAG_INFO_SUCCESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_ON_DRAG_INFO_FAILURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_LOGOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_LOGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_GET_URL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_GET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_GET_REFRESH_TOKEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_GET_AUTH_TOKEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_GET_API_VERSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_DRAG_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_COPY_TO_CLIPBOARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FAB_BROWSER_API_ADD_TO_PROJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Z: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Y: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_X: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_YAW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_PITCH_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_ALIGN_TO_NORMAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Z: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Y: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_X: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_YAW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_PITCH_ANGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_ALIGN_TO_NORMAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_fab_browser_api_set_preferred_quality_tier: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_plugin_opened: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_open_url_in_browser: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_open_plugin_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_on_drag_info_success: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_on_drag_info_failure: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_logout: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_login: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_get_url: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_get_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_get_refresh_token: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_get_auth_token: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_get_api_version: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_drag_start: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_copy_to_clipboard: *mut crate::ffi::UFunctionOpague,
+    pub u_fab_browser_api_add_to_project: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_world_position_offset_disable_distance: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_scaling: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_scale_z: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_scale_y: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_scale_x: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_random_yaw: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_random_pitch_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_align_to_normal: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_set_custom_affect_distance_field_lighting: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_world_position_offset_disable_distance: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_scaling: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_scale_z: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_scale_y: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_scale_x: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_random_yaw: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_random_pitch_angle: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_align_to_normal: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_instanced_foliage_type_factory_node_get_custom_affect_distance_field_lighting: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_fab_browser_api_set_preferred_quality_tier: std::ptr::null_mut(),
+            u_fab_browser_api_plugin_opened: std::ptr::null_mut(),
+            u_fab_browser_api_open_url_in_browser: std::ptr::null_mut(),
+            u_fab_browser_api_open_plugin_settings: std::ptr::null_mut(),
+            u_fab_browser_api_on_drag_info_success: std::ptr::null_mut(),
+            u_fab_browser_api_on_drag_info_failure: std::ptr::null_mut(),
+            u_fab_browser_api_logout: std::ptr::null_mut(),
+            u_fab_browser_api_login: std::ptr::null_mut(),
+            u_fab_browser_api_get_url: std::ptr::null_mut(),
+            u_fab_browser_api_get_settings: std::ptr::null_mut(),
+            u_fab_browser_api_get_refresh_token: std::ptr::null_mut(),
+            u_fab_browser_api_get_auth_token: std::ptr::null_mut(),
+            u_fab_browser_api_get_api_version: std::ptr::null_mut(),
+            u_fab_browser_api_drag_start: std::ptr::null_mut(),
+            u_fab_browser_api_copy_to_clipboard: std::ptr::null_mut(),
+            u_fab_browser_api_add_to_project: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_world_position_offset_disable_distance: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_static_mesh: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_scaling: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_scale_z: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_scale_y: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_scale_x: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_random_yaw: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_random_pitch_angle: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_align_to_normal: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_set_custom_affect_distance_field_lighting: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_world_position_offset_disable_distance: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_static_mesh: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_scaling: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_scale_z: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_scale_y: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_scale_x: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_random_yaw: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_random_pitch_angle: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_align_to_normal: std::ptr::null_mut(),
+            u_interchange_instanced_foliage_type_factory_node_get_custom_affect_distance_field_lighting: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -88,112 +97,112 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreferredQualityTier"),
-            &raw mut U_FAB_BROWSER_API_SET_PREFERRED_QUALITY_TIER,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_set_preferred_quality_tier,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PluginOpened"),
-            &raw mut U_FAB_BROWSER_API_PLUGIN_OPENED,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_plugin_opened,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenUrlInBrowser"),
-            &raw mut U_FAB_BROWSER_API_OPEN_URL_IN_BROWSER,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_open_url_in_browser,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenPluginSettings"),
-            &raw mut U_FAB_BROWSER_API_OPEN_PLUGIN_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_open_plugin_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnDragInfoSuccess"),
-            &raw mut U_FAB_BROWSER_API_ON_DRAG_INFO_SUCCESS,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_on_drag_info_success,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnDragInfoFailure"),
-            &raw mut U_FAB_BROWSER_API_ON_DRAG_INFO_FAILURE,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_on_drag_info_failure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Logout"),
-            &raw mut U_FAB_BROWSER_API_LOGOUT,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_logout,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Login"),
-            &raw mut U_FAB_BROWSER_API_LOGIN,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_login,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUrl"),
-            &raw mut U_FAB_BROWSER_API_GET_URL,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_url,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettings"),
-            &raw mut U_FAB_BROWSER_API_GET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRefreshToken"),
-            &raw mut U_FAB_BROWSER_API_GET_REFRESH_TOKEN,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_refresh_token,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAuthToken"),
-            &raw mut U_FAB_BROWSER_API_GET_AUTH_TOKEN,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_auth_token,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetApiVersion"),
-            &raw mut U_FAB_BROWSER_API_GET_API_VERSION,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_get_api_version,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DragStart"),
-            &raw mut U_FAB_BROWSER_API_DRAG_START,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_drag_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyToClipboard"),
-            &raw mut U_FAB_BROWSER_API_COPY_TO_CLIPBOARD,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_copy_to_clipboard,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddToProject"),
-            &raw mut U_FAB_BROWSER_API_ADD_TO_PROJECT,
+            &raw mut __FUNCTION_PTRS.u_fab_browser_api_add_to_project,
         );
     }
     unsafe {
@@ -204,140 +213,160 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomWorldPositionOffsetDisableDistance"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_world_position_offset_disable_distance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomStaticMesh"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_static_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomScaling"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_scaling,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomScaleZ"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Z,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_z,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomScaleY"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Y,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_y,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomScaleX"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_X,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_x,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomRandomYaw"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_YAW,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_random_yaw,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomRandomPitchAngle"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_PITCH_ANGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_random_pitch_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAlignToNormal"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_ALIGN_TO_NORMAL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_align_to_normal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomAffectDistanceFieldLighting"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_set_custom_affect_distance_field_lighting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomWorldPositionOffsetDisableDistance"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_world_position_offset_disable_distance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomStaticMesh"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_static_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomScaling"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_scaling,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomScaleZ"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Z,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_z,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomScaleY"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Y,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_y,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomScaleX"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_X,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_x,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomRandomYaw"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_YAW,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_random_yaw,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomRandomPitchAngle"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_PITCH_ANGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_random_pitch_angle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAlignToNormal"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_ALIGN_TO_NORMAL,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_align_to_normal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomAffectDistanceFieldLighting"),
-            &raw mut U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_instanced_foliage_type_factory_node_get_custom_affect_distance_field_lighting,
         );
     }
 }
@@ -608,7 +637,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_world_position_offset_disable_distance,
                 __buffer,
             )
         };
@@ -632,7 +662,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_world_position_offset_disable_distance,
                 __buffer,
             )
         };
@@ -646,7 +677,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_STATIC_MESH,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_static_mesh,
                 __buffer,
             )
         };
@@ -663,7 +695,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_STATIC_MESH,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_static_mesh,
                 __buffer,
             )
         };
@@ -681,7 +714,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scaling,
                 __buffer,
             )
         };
@@ -705,7 +739,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scaling,
                 __buffer,
             )
         };
@@ -722,7 +757,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Z,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_z,
                 __buffer,
             )
         };
@@ -739,7 +775,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Z,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_z,
                 __buffer,
             )
         };
@@ -756,7 +793,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Y,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_y,
                 __buffer,
             )
         };
@@ -773,7 +811,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_Y,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_y,
                 __buffer,
             )
         };
@@ -790,7 +829,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_X,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_x,
                 __buffer,
             )
         };
@@ -807,7 +847,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_SCALE_X,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_scale_x,
                 __buffer,
             )
         };
@@ -825,7 +866,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_YAW,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_random_yaw,
                 __buffer,
             )
         };
@@ -849,7 +891,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_YAW,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_random_yaw,
                 __buffer,
             )
         };
@@ -867,7 +910,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_PITCH_ANGLE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_random_pitch_angle,
                 __buffer,
             )
         };
@@ -891,7 +935,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_RANDOM_PITCH_ANGLE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_random_pitch_angle,
                 __buffer,
             )
         };
@@ -909,7 +954,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_ALIGN_TO_NORMAL,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_align_to_normal,
                 __buffer,
             )
         };
@@ -933,7 +979,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_ALIGN_TO_NORMAL,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_align_to_normal,
                 __buffer,
             )
         };
@@ -951,7 +998,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_affect_distance_field_lighting,
                 __buffer,
             )
         };
@@ -975,7 +1023,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_SET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_set_custom_affect_distance_field_lighting,
                 __buffer,
             )
         };
@@ -992,7 +1041,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_world_position_offset_disable_distance,
                 __buffer,
             )
         };
@@ -1009,7 +1059,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_WORLD_POSITION_OFFSET_DISABLE_DISTANCE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_world_position_offset_disable_distance,
                 __buffer,
             )
         };
@@ -1026,7 +1077,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_STATIC_MESH,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_static_mesh,
                 __buffer,
             )
         };
@@ -1043,7 +1095,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_STATIC_MESH,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_static_mesh,
                 __buffer,
             )
         };
@@ -1063,7 +1116,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scaling,
                 __buffer,
             )
         };
@@ -1080,7 +1134,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scaling,
                 __buffer,
             )
         };
@@ -1103,7 +1158,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Z,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_z,
                 __buffer,
             )
         };
@@ -1120,7 +1176,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Z,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_z,
                 __buffer,
             )
         };
@@ -1143,7 +1200,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Y,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_y,
                 __buffer,
             )
         };
@@ -1160,7 +1218,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_Y,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_y,
                 __buffer,
             )
         };
@@ -1183,7 +1242,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_X,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_x,
                 __buffer,
             )
         };
@@ -1200,7 +1260,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_SCALE_X,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_scale_x,
                 __buffer,
             )
         };
@@ -1220,7 +1281,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_YAW,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_random_yaw,
                 __buffer,
             )
         };
@@ -1237,7 +1299,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_YAW,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_random_yaw,
                 __buffer,
             )
         };
@@ -1254,7 +1317,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_PITCH_ANGLE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_random_pitch_angle,
                 __buffer,
             )
         };
@@ -1271,7 +1335,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_RANDOM_PITCH_ANGLE,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_random_pitch_angle,
                 __buffer,
             )
         };
@@ -1288,7 +1353,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_ALIGN_TO_NORMAL,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_align_to_normal,
                 __buffer,
             )
         };
@@ -1305,7 +1371,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_ALIGN_TO_NORMAL,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_align_to_normal,
                 __buffer,
             )
         };
@@ -1325,7 +1392,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_affect_distance_field_lighting,
                 __buffer,
             )
         };
@@ -1342,7 +1410,8 @@ impl UInterchangeInstancedFoliageTypeFactoryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::fab::U_INTERCHANGE_INSTANCED_FOLIAGE_TYPE_FACTORY_NODE_GET_CUSTOM_AFFECT_DISTANCE_FIELD_LIGHTING,
+                crate::bindings::fab::__FUNCTION_PTRS
+                    .u_interchange_instanced_foliage_type_factory_node_get_custom_affect_distance_field_lighting,
                 __buffer,
             )
         };

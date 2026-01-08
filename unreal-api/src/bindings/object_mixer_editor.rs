@@ -1,32 +1,41 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_object_mixer_blueprint_object_filter_should_include_unsupported_properties: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_show_transient_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_properties_that_require_list_refresh: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_object_mixer_property_inheritance_inclusion_options: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_object_mixer_placement_class_inclusion_options: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_object_classes_to_place: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_object_classes_to_filter: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_force_added_columns: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_columns_to_show_by_default: *mut crate::ffi::UFunctionOpague,
+    pub u_object_mixer_blueprint_object_filter_get_columns_to_exclude: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_object_mixer_blueprint_object_filter_should_include_unsupported_properties: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_show_transient_objects: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_properties_that_require_list_refresh: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_object_mixer_property_inheritance_inclusion_options: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_object_mixer_placement_class_inclusion_options: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_object_classes_to_place: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_object_classes_to_filter: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_force_added_columns: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_columns_to_show_by_default: std::ptr::null_mut(),
+            u_object_mixer_blueprint_object_filter_get_columns_to_exclude: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -36,21 +45,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldIncludeUnsupportedProperties"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_should_include_unsupported_properties,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetShowTransientObjects"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_show_transient_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertiesThatRequireListRefresh"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_properties_that_require_list_refresh,
         );
         (bindings
             .core_fns
@@ -59,49 +71,56 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "GetObjectMixerPropertyInheritanceInclusionOptions",
             ),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_object_mixer_property_inheritance_inclusion_options,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectMixerPlacementClassInclusionOptions"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_object_mixer_placement_class_inclusion_options,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectClassesToPlace"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_object_classes_to_place,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectClassesToFilter"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_object_classes_to_filter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetForceAddedColumns"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_force_added_columns,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetColumnsToShowByDefault"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_columns_to_show_by_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetColumnsToExclude"),
-            &raw mut U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE,
+            &raw mut __FUNCTION_PTRS
+                .u_object_mixer_blueprint_object_filter_get_columns_to_exclude,
         );
     }
 }
@@ -180,7 +199,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_should_include_unsupported_properties,
                 __buffer,
             )
         };
@@ -190,7 +210,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_SHOULD_INCLUDE_UNSUPPORTED_PROPERTIES,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_should_include_unsupported_properties,
                 __buffer,
             )
         };
@@ -204,7 +225,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_show_transient_objects,
                 __buffer,
             )
         };
@@ -214,7 +236,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_SHOW_TRANSIENT_OBJECTS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_show_transient_objects,
                 __buffer,
             )
         };
@@ -228,7 +251,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_properties_that_require_list_refresh,
                 __buffer,
             )
         };
@@ -238,7 +262,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_PROPERTIES_THAT_REQUIRE_LIST_REFRESH,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_properties_that_require_list_refresh,
                 __buffer,
             )
         };
@@ -254,7 +279,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_mixer_property_inheritance_inclusion_options,
                 __buffer,
             )
         };
@@ -264,7 +290,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PROPERTY_INHERITANCE_INCLUSION_OPTIONS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_mixer_property_inheritance_inclusion_options,
                 __buffer,
             )
         };
@@ -282,7 +309,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_mixer_placement_class_inclusion_options,
                 __buffer,
             )
         };
@@ -292,7 +320,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_MIXER_PLACEMENT_CLASS_INCLUSION_OPTIONS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_mixer_placement_class_inclusion_options,
                 __buffer,
             )
         };
@@ -310,7 +339,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_classes_to_place,
                 __buffer,
             )
         };
@@ -320,7 +350,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_PLACE,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_classes_to_place,
                 __buffer,
             )
         };
@@ -341,7 +372,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_classes_to_filter,
                 __buffer,
             )
         };
@@ -351,7 +383,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_OBJECT_CLASSES_TO_FILTER,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_object_classes_to_filter,
                 __buffer,
             )
         };
@@ -370,7 +403,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_force_added_columns,
                 __buffer,
             )
         };
@@ -380,7 +414,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_FORCE_ADDED_COLUMNS,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_force_added_columns,
                 __buffer,
             )
         };
@@ -394,7 +429,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_columns_to_show_by_default,
                 __buffer,
             )
         };
@@ -404,7 +440,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_SHOW_BY_DEFAULT,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_columns_to_show_by_default,
                 __buffer,
             )
         };
@@ -418,7 +455,8 @@ impl UObjectMixerBlueprintObjectFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_columns_to_exclude,
                 __buffer,
             )
         };
@@ -428,7 +466,8 @@ impl UObjectMixerBlueprintObjectFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::object_mixer_editor::U_OBJECT_MIXER_BLUEPRINT_OBJECT_FILTER_GET_COLUMNS_TO_EXCLUDE,
+                crate::bindings::object_mixer_editor::__FUNCTION_PTRS
+                    .u_object_mixer_blueprint_object_filter_get_columns_to_exclude,
                 __buffer,
             )
         };

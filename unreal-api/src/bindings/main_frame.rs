@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_HOME_SCREEN_WEB_OPEN_WEB_PAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_HOME_SCREEN_WEB_OPEN_GETTING_STARTED_PROJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_HOME_SCREEN_WEB_NAVIGATE_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_home_screen_web_open_web_page: *mut crate::ffi::UFunctionOpague,
+    pub u_home_screen_web_open_getting_started_project: *mut crate::ffi::UFunctionOpague,
+    pub u_home_screen_web_navigate_to: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_home_screen_web_open_web_page: std::ptr::null_mut(),
+            u_home_screen_web_open_getting_started_project: std::ptr::null_mut(),
+            u_home_screen_web_navigate_to: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,21 +31,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenWebPage"),
-            &raw mut U_HOME_SCREEN_WEB_OPEN_WEB_PAGE,
+            &raw mut __FUNCTION_PTRS.u_home_screen_web_open_web_page,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenGettingStartedProject"),
-            &raw mut U_HOME_SCREEN_WEB_OPEN_GETTING_STARTED_PROJECT,
+            &raw mut __FUNCTION_PTRS.u_home_screen_web_open_getting_started_project,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NavigateTo"),
-            &raw mut U_HOME_SCREEN_WEB_NAVIGATE_TO,
+            &raw mut __FUNCTION_PTRS.u_home_screen_web_navigate_to,
         );
     }
 }

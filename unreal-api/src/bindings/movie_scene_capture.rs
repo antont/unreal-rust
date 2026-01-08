@@ -1,72 +1,81 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_WARM_UP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_START_CAPTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_SETUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PRE_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PIXELS_RECEIVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PAUSE_CAPTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAPTURE_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAN_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_BEGIN_FINALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_movie_scene_capture_protocol_base_is_capturing: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_protocol_base_get_state: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_set_image_capture_protocol_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_set_audio_capture_protocol_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_get_image_capture_protocol: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_get_audio_capture_protocol: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_environment_is_capture_in_progress: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_environment_get_capture_frame_number: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_environment_get_capture_elapsed_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_environment_find_image_capture_protocol: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_capture_environment_find_audio_capture_protocol: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_stop_capturing_final_pixels: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_start_capturing_final_pixels: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_resolve_buffer: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_warm_up: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_start_capture: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_setup: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_pre_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_pixels_received: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_pause_capture: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_finalize: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_capture_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_can_finalize: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_on_begin_finalize: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_get_current_frame_metrics: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_capture_protocol_generate_filename: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_image_capture_protocol_write_image_to_disk: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_image_capture_protocol_generate_filename_for_current_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_user_defined_image_capture_protocol_generate_filename_for_buffer: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_movie_scene_capture_protocol_base_is_capturing: std::ptr::null_mut(),
+            u_movie_scene_capture_protocol_base_get_state: std::ptr::null_mut(),
+            u_movie_scene_capture_set_image_capture_protocol_type: std::ptr::null_mut(),
+            u_movie_scene_capture_set_audio_capture_protocol_type: std::ptr::null_mut(),
+            u_movie_scene_capture_get_image_capture_protocol: std::ptr::null_mut(),
+            u_movie_scene_capture_get_audio_capture_protocol: std::ptr::null_mut(),
+            u_movie_scene_capture_environment_is_capture_in_progress: std::ptr::null_mut(),
+            u_movie_scene_capture_environment_get_capture_frame_number: std::ptr::null_mut(),
+            u_movie_scene_capture_environment_get_capture_elapsed_time: std::ptr::null_mut(),
+            u_movie_scene_capture_environment_find_image_capture_protocol: std::ptr::null_mut(),
+            u_movie_scene_capture_environment_find_audio_capture_protocol: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_stop_capturing_final_pixels: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_start_capturing_final_pixels: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_resolve_buffer: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_warm_up: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_tick: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_start_capture: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_setup: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_pre_tick: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_pixels_received: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_pause_capture: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_finalize: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_capture_frame: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_can_finalize: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_on_begin_finalize: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_get_current_frame_metrics: std::ptr::null_mut(),
+            u_user_defined_capture_protocol_generate_filename: std::ptr::null_mut(),
+            u_user_defined_image_capture_protocol_write_image_to_disk: std::ptr::null_mut(),
+            u_user_defined_image_capture_protocol_generate_filename_for_current_frame: std::ptr::null_mut(),
+            u_user_defined_image_capture_protocol_generate_filename_for_buffer: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -76,14 +85,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCapturing"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_capture_protocol_base_is_capturing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_capture_protocol_base_get_state,
         );
     }
     unsafe {
@@ -94,28 +103,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetImageCaptureProtocolType"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_capture_set_image_capture_protocol_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAudioCaptureProtocolType"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_capture_set_audio_capture_protocol_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetImageCaptureProtocol"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_capture_get_image_capture_protocol,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioCaptureProtocol"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_capture_get_audio_capture_protocol,
         );
     }
     unsafe {
@@ -126,35 +137,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCaptureInProgress"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_capture_environment_is_capture_in_progress,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCaptureFrameNumber"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_capture_environment_get_capture_frame_number,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCaptureElapsedTime"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_capture_environment_get_capture_elapsed_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindImageCaptureProtocol"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_capture_environment_find_image_capture_protocol,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindAudioCaptureProtocol"),
-            &raw mut U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_capture_environment_find_audio_capture_protocol,
         );
     }
     unsafe {
@@ -165,112 +181,115 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCapturingFinalPixels"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS,
+            &raw mut __FUNCTION_PTRS
+                .u_user_defined_capture_protocol_stop_capturing_final_pixels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartCapturingFinalPixels"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS,
+            &raw mut __FUNCTION_PTRS
+                .u_user_defined_capture_protocol_start_capturing_final_pixels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResolveBuffer"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_resolve_buffer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnWarmUp"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_WARM_UP,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_warm_up,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnTick"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_TICK,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnStartCapture"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_START_CAPTURE,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_start_capture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnSetup"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_SETUP,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_setup,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPreTick"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PRE_TICK,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_pre_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPixelsReceived"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PIXELS_RECEIVED,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_pixels_received,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPauseCapture"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_PAUSE_CAPTURE,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_pause_capture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnFinalize"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_FINALIZE,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_finalize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnCaptureFrame"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAPTURE_FRAME,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_capture_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnCanFinalize"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_CAN_FINALIZE,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_can_finalize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnBeginFinalize"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_ON_BEGIN_FINALIZE,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_on_begin_finalize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentFrameMetrics"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS,
+            &raw mut __FUNCTION_PTRS
+                .u_user_defined_capture_protocol_get_current_frame_metrics,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateFilename"),
-            &raw mut U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME,
+            &raw mut __FUNCTION_PTRS.u_user_defined_capture_protocol_generate_filename,
         );
     }
     unsafe {
@@ -281,21 +300,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteImageToDisk"),
-            &raw mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK,
+            &raw mut __FUNCTION_PTRS
+                .u_user_defined_image_capture_protocol_write_image_to_disk,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateFilenameForCurrentFrame"),
-            &raw mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_user_defined_image_capture_protocol_generate_filename_for_current_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateFilenameForBuffer"),
-            &raw mut U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER,
+            &raw mut __FUNCTION_PTRS
+                .u_user_defined_image_capture_protocol_generate_filename_for_buffer,
         );
     }
 }
@@ -381,7 +403,8 @@ impl UMovieSceneCaptureProtocolBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_protocol_base_is_capturing,
                 __buffer,
             )
         };
@@ -391,7 +414,8 @@ impl UMovieSceneCaptureProtocolBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_IS_CAPTURING,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_protocol_base_is_capturing,
                 __buffer,
             )
         };
@@ -405,7 +429,8 @@ impl UMovieSceneCaptureProtocolBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_protocol_base_get_state,
                 __buffer,
             )
         };
@@ -415,7 +440,8 @@ impl UMovieSceneCaptureProtocolBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_PROTOCOL_BASE_GET_STATE,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_protocol_base_get_state,
                 __buffer,
             )
         };
@@ -747,7 +773,8 @@ impl UMovieSceneCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_set_image_capture_protocol_type,
                 __buffer,
             )
         };
@@ -764,7 +791,8 @@ impl UMovieSceneCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_IMAGE_CAPTURE_PROTOCOL_TYPE,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_set_image_capture_protocol_type,
                 __buffer,
             )
         };
@@ -780,7 +808,8 @@ impl UMovieSceneCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_set_audio_capture_protocol_type,
                 __buffer,
             )
         };
@@ -797,7 +826,8 @@ impl UMovieSceneCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_SET_AUDIO_CAPTURE_PROTOCOL_TYPE,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_set_audio_capture_protocol_type,
                 __buffer,
             )
         };
@@ -812,7 +842,8 @@ impl UMovieSceneCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_get_image_capture_protocol,
                 __buffer,
             )
         };
@@ -822,7 +853,8 @@ impl UMovieSceneCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_IMAGE_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_get_image_capture_protocol,
                 __buffer,
             )
         };
@@ -838,7 +870,8 @@ impl UMovieSceneCapture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_get_audio_capture_protocol,
                 __buffer,
             )
         };
@@ -848,7 +881,8 @@ impl UMovieSceneCapture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_GET_AUDIO_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_get_audio_capture_protocol,
                 __buffer,
             )
         };
@@ -904,7 +938,8 @@ impl UMovieSceneCaptureEnvironment {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_is_capture_in_progress,
                 __buffer,
             )
         };
@@ -914,7 +949,8 @@ impl UMovieSceneCaptureEnvironment {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_IS_CAPTURE_IN_PROGRESS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_is_capture_in_progress,
                 __buffer,
             )
         };
@@ -928,7 +964,8 @@ impl UMovieSceneCaptureEnvironment {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_get_capture_frame_number,
                 __buffer,
             )
         };
@@ -938,7 +975,8 @@ impl UMovieSceneCaptureEnvironment {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_FRAME_NUMBER,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_get_capture_frame_number,
                 __buffer,
             )
         };
@@ -952,7 +990,8 @@ impl UMovieSceneCaptureEnvironment {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_get_capture_elapsed_time,
                 __buffer,
             )
         };
@@ -962,7 +1001,8 @@ impl UMovieSceneCaptureEnvironment {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_GET_CAPTURE_ELAPSED_TIME,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_get_capture_elapsed_time,
                 __buffer,
             )
         };
@@ -976,7 +1016,8 @@ impl UMovieSceneCaptureEnvironment {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_find_image_capture_protocol,
                 __buffer,
             )
         };
@@ -986,7 +1027,8 @@ impl UMovieSceneCaptureEnvironment {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_IMAGE_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_find_image_capture_protocol,
                 __buffer,
             )
         };
@@ -1002,7 +1044,8 @@ impl UMovieSceneCaptureEnvironment {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_find_audio_capture_protocol,
                 __buffer,
             )
         };
@@ -1012,7 +1055,8 @@ impl UMovieSceneCaptureEnvironment {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_MOVIE_SCENE_CAPTURE_ENVIRONMENT_FIND_AUDIO_CAPTURE_PROTOCOL,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_movie_scene_capture_environment_find_audio_capture_protocol,
                 __buffer,
             )
         };
@@ -1052,7 +1096,8 @@ impl UUserDefinedCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_stop_capturing_final_pixels,
                 __buffer,
             )
         };
@@ -1062,7 +1107,8 @@ impl UUserDefinedCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_STOP_CAPTURING_FINAL_PIXELS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_stop_capturing_final_pixels,
                 __buffer,
             )
         };
@@ -1075,7 +1121,8 @@ impl UUserDefinedCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_start_capturing_final_pixels,
                 __buffer,
             )
         };
@@ -1092,7 +1139,8 @@ impl UUserDefinedCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_START_CAPTURING_FINAL_PIXELS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_start_capturing_final_pixels,
                 __buffer,
             )
         };
@@ -1109,7 +1157,8 @@ impl UUserDefinedCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_resolve_buffer,
                 __buffer,
             )
         };
@@ -1133,7 +1182,311 @@ impl UUserDefinedCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_RESOLVE_BUFFER,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_resolve_buffer,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_warm_up(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_warm_up,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_warm_up,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_tick(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_tick,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_start_capture(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_start_capture,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_start_capture,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_setup(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_setup,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_setup,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn on_pre_tick(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_pre_tick,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_pre_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_pixels_received(
+        &mut self,
+        pixels: &FCapturedPixels,
+        id: &FCapturedPixelsID,
+        frame_metrics: FFrameMetrics,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_pixels_received,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                pixels,
+                __buffer.add(0).cast::<FCapturedPixels>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                id,
+                __buffer.add(16).cast::<FCapturedPixelsID>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &frame_metrics,
+                __buffer.add(96).cast::<FFrameMetrics>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_pixels_received,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_pause_capture(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_pause_capture,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_pause_capture,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_finalize(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_finalize,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_finalize,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_capture_frame(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_capture_frame,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_capture_frame,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_can_finalize(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_can_finalize,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_can_finalize,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn on_begin_finalize(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_begin_finalize,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_on_begin_finalize,
                 __buffer,
             )
         };
@@ -1146,7 +1499,8 @@ impl UUserDefinedCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_get_current_frame_metrics,
                 __buffer,
             )
         };
@@ -1156,7 +1510,8 @@ impl UUserDefinedCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GET_CURRENT_FRAME_METRICS,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_get_current_frame_metrics,
                 __buffer,
             )
         };
@@ -1170,7 +1525,8 @@ impl UUserDefinedCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_generate_filename,
                 __buffer,
             )
         };
@@ -1187,7 +1543,8 @@ impl UUserDefinedCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_CAPTURE_PROTOCOL_GENERATE_FILENAME,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_capture_protocol_generate_filename,
                 __buffer,
             )
         };
@@ -1232,7 +1589,8 @@ impl UUserDefinedImageCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_image_capture_protocol_write_image_to_disk,
                 __buffer,
             )
         };
@@ -1270,7 +1628,8 @@ impl UUserDefinedImageCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_WRITE_IMAGE_TO_DISK,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_image_capture_protocol_write_image_to_disk,
                 __buffer,
             )
         };
@@ -1283,7 +1642,8 @@ impl UUserDefinedImageCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_image_capture_protocol_generate_filename_for_current_frame,
                 __buffer,
             )
         };
@@ -1293,7 +1653,8 @@ impl UUserDefinedImageCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_CURRENT_FRAME,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_image_capture_protocol_generate_filename_for_current_frame,
                 __buffer,
             )
         };
@@ -1311,7 +1672,8 @@ impl UUserDefinedImageCaptureProtocol {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_image_capture_protocol_generate_filename_for_buffer,
                 __buffer,
             )
         };
@@ -1335,7 +1697,8 @@ impl UUserDefinedImageCaptureProtocol {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_capture::U_USER_DEFINED_IMAGE_CAPTURE_PROTOCOL_GENERATE_FILENAME_FOR_BUFFER,
+                crate::bindings::movie_scene_capture::__FUNCTION_PTRS
+                    .u_user_defined_image_capture_protocol_generate_filename_for_buffer,
                 __buffer,
             )
         };

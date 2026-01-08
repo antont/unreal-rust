@@ -1,348 +1,357 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_SHOW_OR_HIDE_CONTROLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_SHOW_ALL_CONTROLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_SET_SHOW_AND_SET_SELECTED_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_SET_ITEM_ROW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_SET_ITEM_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_SET_ACTOR_AS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_SELECT_ITEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_RENAME_SET_ITEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_REMOVE_SELECTION_FROM_SET_ITEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_LOAD_FROM_JSON_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_LOAD_FROM_JSON_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_KEY_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_ISOLATE_CONTROLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_IS_MULTI_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_SHOW_AND_SET_SELECTED_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_ITEM_ROW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_ITEM_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_ITEM_GUIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_ITEM_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_ALL_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_ACTIVE_SELECTION_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_GET_ACTIVE_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_EXPORT_AS_JSON_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_EXPORT_AS_JSON_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_DELETE_SET_ITEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_CREATE_SET_ITEM_FROM_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_CREATE_MIRROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UAIE_SELECTION_SETS_ADD_SELECTION_TO_SET_ITEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SETUP_ALL_EDITOR_MENUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SET_PREVIEW_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_REQUEST_CONTROL_RIG_INIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_PREVIEW_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_UNITS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_CAST_TO_CONTROL_RIG_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_NEW_CONTROL_RIG_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_CONTROL_RIG_FROM_SKELETAL_MESH_OR_SKELETON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_TWEEN_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SPACE_COMPENSATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SNAP_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SMART_REDUCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SHOW_ALL_CONTROLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOATS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_INTERACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROLS_MASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_PRIORITY_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_LAYERED_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_APPLY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONSTRAINT_ACTIVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_RENAME_CONTROL_RIG_CONTROL_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONTROL_RIG_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONSTRAINT_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS_WITH_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION_WITH_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_LAYERED_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_FK_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_HIDE_ALL_CONTROLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_WORLD_SPACE_REFERENCE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_VISIBLE_CONTROL_RIGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SELECTION_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOATS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_FK_CONTROL_RIG_APPLY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_DEFAULT_PARENT_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROLS_MASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_PRIORITY_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINTS_FOR_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_COMPONENT_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_ANIM_SEQUENCE_FROM_SEQUENCER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DUPLICATE_ANIM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONTROL_RIG_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONSTRAINT_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_ANIM_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_CONTROL_RIG_COPY_VECTOR_PARAMETER_CURVES_TO_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS_WITH_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BLEND_VALUES_ON_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_TO_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONTROL_RIG_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_CONSTRAINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_ANIM_LAYER_FROM_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_EDIT_MODE_DELEGATE_HELPER_POST_POSE_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_EDIT_MODE_DELEGATE_HELPER_ON_POSE_INITIALIZED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_IS_ALT_DOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_TO_GRAPH_DRAG_AND_DROP_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_DRAG_AND_DROP_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_GRAPH_NODE_CONTEXT_MENU_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_ASSET_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_SET_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_SET_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_SET_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_SET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_SET_LOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_SET_KEYED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_SET_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_REMOVE_SELECTED_IN_SEQUENCER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_GET_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_GET_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_GET_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_GET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_GET_LOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_GET_KEYED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_GET_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_LAYER_ADD_SELECTED_IN_SEQUENCER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub uaie_selection_sets_show_or_hide_controls: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_show_all_controls: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_set_show_and_set_selected_only: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_set_item_row: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_set_item_color: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_set_actor_as_active: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_select_item: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_rename_set_item: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_remove_selection_from_set_item: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_load_from_json_string: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_load_from_json_file: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_key_all: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_isolate_controls: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_is_multi_asset: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_show_and_set_selected_only: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_item_row: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_item_name: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_item_guids: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_item_color: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_all_actors: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_active_selection_sets: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_get_active_actors: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_export_as_json_string: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_export_as_json_file: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_delete_set_item: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_create_set_item_from_selection: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_create_mirror: *mut crate::ffi::UFunctionOpague,
+    pub uaie_selection_sets_add_selection_to_set_item: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_setup_all_editor_menus: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_set_preview_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_request_control_rig_init: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_get_preview_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_get_hierarchy_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_get_hierarchy: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_get_currently_open_rig_blueprints: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_get_available_rig_units: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_get_available_rig_modules: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_editor_library_cast_to_control_rig_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_factory_create_new_control_rig_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_factory_create_control_rig_from_skeletal_mesh_or_skeleton: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_tween_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_space_compensate: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_snap_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_smart_reduce: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_show_all_controls: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_ds: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scales: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_scales: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_rotators: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_positions: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_position: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_ints: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_int: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_floats: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_float: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_bools: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_local_control_rig_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_interaction: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_controls_mask: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_control_rig_world_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_control_rig_world_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_control_rig_space: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_control_rig_priority_order: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_control_rig_layered_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_control_rig_apply_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_set_constraint_active_key: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_rename_control_rig_control_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_move_control_rig_space: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_move_constraint_key: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_merge_anim_layers_with_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_merge_anim_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section_with_range: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_is_layered_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_is_fk_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_import_fbx_to_control_rig_track: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_hide_all_controls: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_world_space_reference_key: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_visible_control_rigs: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_selection_sets: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_ds: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scales: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_scales: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_rotators: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_positions: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_position: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_ints: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_int: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_floats: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_float: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_bools: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_local_control_rig_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_fk_control_rig_apply_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_default_parent_key: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_controls_mask: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_control_rig_world_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_control_rig_world_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_control_rigs: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_control_rig_priority_order: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_constraints_for_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_constraint_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_anim_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_anim_layer_index: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_actor_world_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_get_actor_world_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_find_or_create_control_rig_track: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_find_or_create_control_rig_component_track: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_export_fbx_from_control_rig_section: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_export_anim_sequence_from_sequencer: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_duplicate_anim_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_delete_control_rig_space: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_delete_constraint_key: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_delete_anim_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_control_rig_copy_vector_parameter_curves_to_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_compensate_all: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_compensate: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers_with_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_blend_values_on_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_bake_to_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_bake_control_rig_space: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_bake_constraints: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_bake_constraint: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_add_constraint: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_sequencer_editor_library_add_anim_layer_from_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_edit_mode_delegate_helper_post_pose_update: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_edit_mode_delegate_helper_on_pose_initialized: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_context_menu_context_is_alt_down: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_context_menu_context_get_rig_hierarchy_to_graph_drag_and_drop_context: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_context_menu_context_get_rig_hierarchy_drag_and_drop_context: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_context_menu_context_get_graph_node_context_menu_context: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_context_menu_context_get_control_rig_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_context_menu_context_get_control_rig_asset_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_context_menu_context_get_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_set_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_set_type: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_set_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_set_name: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_set_lock: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_set_keyed: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_set_active: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_remove_selected_in_sequencer: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_get_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_get_type: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_get_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_get_name: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_get_lock: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_get_keyed: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_get_active: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_layer_add_selected_in_sequencer: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            uaie_selection_sets_show_or_hide_controls: std::ptr::null_mut(),
+            uaie_selection_sets_show_all_controls: std::ptr::null_mut(),
+            uaie_selection_sets_set_show_and_set_selected_only: std::ptr::null_mut(),
+            uaie_selection_sets_set_item_row: std::ptr::null_mut(),
+            uaie_selection_sets_set_item_color: std::ptr::null_mut(),
+            uaie_selection_sets_set_actor_as_active: std::ptr::null_mut(),
+            uaie_selection_sets_select_item: std::ptr::null_mut(),
+            uaie_selection_sets_rename_set_item: std::ptr::null_mut(),
+            uaie_selection_sets_remove_selection_from_set_item: std::ptr::null_mut(),
+            uaie_selection_sets_load_from_json_string: std::ptr::null_mut(),
+            uaie_selection_sets_load_from_json_file: std::ptr::null_mut(),
+            uaie_selection_sets_key_all: std::ptr::null_mut(),
+            uaie_selection_sets_isolate_controls: std::ptr::null_mut(),
+            uaie_selection_sets_is_multi_asset: std::ptr::null_mut(),
+            uaie_selection_sets_get_show_and_set_selected_only: std::ptr::null_mut(),
+            uaie_selection_sets_get_item_row: std::ptr::null_mut(),
+            uaie_selection_sets_get_item_name: std::ptr::null_mut(),
+            uaie_selection_sets_get_item_guids: std::ptr::null_mut(),
+            uaie_selection_sets_get_item_color: std::ptr::null_mut(),
+            uaie_selection_sets_get_all_actors: std::ptr::null_mut(),
+            uaie_selection_sets_get_active_selection_sets: std::ptr::null_mut(),
+            uaie_selection_sets_get_active_actors: std::ptr::null_mut(),
+            uaie_selection_sets_export_as_json_string: std::ptr::null_mut(),
+            uaie_selection_sets_export_as_json_file: std::ptr::null_mut(),
+            uaie_selection_sets_delete_set_item: std::ptr::null_mut(),
+            uaie_selection_sets_create_set_item_from_selection: std::ptr::null_mut(),
+            uaie_selection_sets_create_mirror: std::ptr::null_mut(),
+            uaie_selection_sets_add_selection_to_set_item: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_setup_all_editor_menus: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_set_preview_mesh: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_request_control_rig_init: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_get_preview_mesh: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_get_hierarchy_controller: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_get_hierarchy: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_get_currently_open_rig_blueprints: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_get_available_rig_units: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_get_available_rig_modules: std::ptr::null_mut(),
+            u_control_rig_blueprint_editor_library_cast_to_control_rig_blueprint: std::ptr::null_mut(),
+            u_control_rig_blueprint_factory_create_new_control_rig_asset: std::ptr::null_mut(),
+            u_control_rig_blueprint_factory_create_control_rig_from_skeletal_mesh_or_skeleton: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_tween_control_rig: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_space_compensate: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_snap_control_rig: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_smart_reduce: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_show_all_controls: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_ds: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_d: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scales: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scale: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_scales: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_scale: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_rotators: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_rotator: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_positions: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_position: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_ints: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_int: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_floats: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_float: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_bools: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_local_control_rig_bool: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_interaction: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_controls_mask: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_control_rig_world_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_control_rig_world_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_control_rig_space: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_control_rig_priority_order: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_control_rig_layered_mode: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_control_rig_apply_mode: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_set_constraint_active_key: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_rename_control_rig_control_channels: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_move_control_rig_space: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_move_constraint_key: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_merge_anim_layers_with_settings: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_merge_anim_layers: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section_with_range: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_is_layered_control_rig: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_is_fk_control_rig: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_import_fbx_to_control_rig_track: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_hide_all_controls: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_world_space_reference_key: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_visible_control_rigs: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_selection_sets: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_ds: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_d: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scales: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scale: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_scales: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_scale: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_rotators: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_rotator: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_positions: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_position: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_ints: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_int: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_floats: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_float: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_bools: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_local_control_rig_bool: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_fk_control_rig_apply_mode: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_default_parent_key: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_controls_mask: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_control_rig_world_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_control_rig_world_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_control_rigs: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_control_rig_priority_order: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_constraints_for_handle: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_constraint_keys: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_anim_layers: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_anim_layer_index: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_actor_world_transforms: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_get_actor_world_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_find_or_create_control_rig_track: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_find_or_create_control_rig_component_track: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_export_fbx_from_control_rig_section: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_export_anim_sequence_from_sequencer: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_duplicate_anim_layer: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_delete_control_rig_space: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_delete_constraint_key: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_delete_anim_layer: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_control_rig_copy_vector_parameter_curves_to_transform: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_compensate_all: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_compensate: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers_with_settings: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_blend_values_on_selected: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_bake_to_control_rig: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_bake_control_rig_space: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_bake_constraints: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_bake_constraint: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_add_constraint: std::ptr::null_mut(),
+            u_control_rig_sequencer_editor_library_add_anim_layer_from_selection: std::ptr::null_mut(),
+            u_control_rig_edit_mode_delegate_helper_post_pose_update: std::ptr::null_mut(),
+            u_control_rig_edit_mode_delegate_helper_on_pose_initialized: std::ptr::null_mut(),
+            u_control_rig_context_menu_context_is_alt_down: std::ptr::null_mut(),
+            u_control_rig_context_menu_context_get_rig_hierarchy_to_graph_drag_and_drop_context: std::ptr::null_mut(),
+            u_control_rig_context_menu_context_get_rig_hierarchy_drag_and_drop_context: std::ptr::null_mut(),
+            u_control_rig_context_menu_context_get_graph_node_context_menu_context: std::ptr::null_mut(),
+            u_control_rig_context_menu_context_get_control_rig_blueprint: std::ptr::null_mut(),
+            u_control_rig_context_menu_context_get_control_rig_asset_interface: std::ptr::null_mut(),
+            u_control_rig_context_menu_context_get_control_rig: std::ptr::null_mut(),
+            u_anim_layer_set_weight: std::ptr::null_mut(),
+            u_anim_layer_set_type: std::ptr::null_mut(),
+            u_anim_layer_set_selected: std::ptr::null_mut(),
+            u_anim_layer_set_name: std::ptr::null_mut(),
+            u_anim_layer_set_lock: std::ptr::null_mut(),
+            u_anim_layer_set_keyed: std::ptr::null_mut(),
+            u_anim_layer_set_active: std::ptr::null_mut(),
+            u_anim_layer_remove_selected_in_sequencer: std::ptr::null_mut(),
+            u_anim_layer_get_weight: std::ptr::null_mut(),
+            u_anim_layer_get_type: std::ptr::null_mut(),
+            u_anim_layer_get_selected: std::ptr::null_mut(),
+            u_anim_layer_get_name: std::ptr::null_mut(),
+            u_anim_layer_get_lock: std::ptr::null_mut(),
+            u_anim_layer_get_keyed: std::ptr::null_mut(),
+            u_anim_layer_get_active: std::ptr::null_mut(),
+            u_anim_layer_add_selected_in_sequencer: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -352,196 +361,196 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowOrHideControls"),
-            &raw mut UAIE_SELECTION_SETS_SHOW_OR_HIDE_CONTROLS,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_show_or_hide_controls,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowAllControls"),
-            &raw mut UAIE_SELECTION_SETS_SHOW_ALL_CONTROLS,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_show_all_controls,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShowAndSetSelectedOnly"),
-            &raw mut UAIE_SELECTION_SETS_SET_SHOW_AND_SET_SELECTED_ONLY,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_show_and_set_selected_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetItemRow"),
-            &raw mut UAIE_SELECTION_SETS_SET_ITEM_ROW,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_item_row,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetItemColor"),
-            &raw mut UAIE_SELECTION_SETS_SET_ITEM_COLOR,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_item_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActorAsActive"),
-            &raw mut UAIE_SELECTION_SETS_SET_ACTOR_AS_ACTIVE,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_set_actor_as_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectItem"),
-            &raw mut UAIE_SELECTION_SETS_SELECT_ITEM,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_select_item,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameSetItem"),
-            &raw mut UAIE_SELECTION_SETS_RENAME_SET_ITEM,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_rename_set_item,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSelectionFromSetItem"),
-            &raw mut UAIE_SELECTION_SETS_REMOVE_SELECTION_FROM_SET_ITEM,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_remove_selection_from_set_item,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadFromJsonString"),
-            &raw mut UAIE_SELECTION_SETS_LOAD_FROM_JSON_STRING,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_load_from_json_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadFromJsonFile"),
-            &raw mut UAIE_SELECTION_SETS_LOAD_FROM_JSON_FILE,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_load_from_json_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("KeyAll"),
-            &raw mut UAIE_SELECTION_SETS_KEY_ALL,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_key_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsolateControls"),
-            &raw mut UAIE_SELECTION_SETS_ISOLATE_CONTROLS,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_isolate_controls,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsMultiAsset"),
-            &raw mut UAIE_SELECTION_SETS_IS_MULTI_ASSET,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_is_multi_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetShowAndSetSelectedOnly"),
-            &raw mut UAIE_SELECTION_SETS_GET_SHOW_AND_SET_SELECTED_ONLY,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_show_and_set_selected_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemRow"),
-            &raw mut UAIE_SELECTION_SETS_GET_ITEM_ROW,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_row,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemName"),
-            &raw mut UAIE_SELECTION_SETS_GET_ITEM_NAME,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemGuids"),
-            &raw mut UAIE_SELECTION_SETS_GET_ITEM_GUIDS,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_guids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetItemColor"),
-            &raw mut UAIE_SELECTION_SETS_GET_ITEM_COLOR,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_item_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllActors"),
-            &raw mut UAIE_SELECTION_SETS_GET_ALL_ACTORS,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_all_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveSelectionSets"),
-            &raw mut UAIE_SELECTION_SETS_GET_ACTIVE_SELECTION_SETS,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_active_selection_sets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveActors"),
-            &raw mut UAIE_SELECTION_SETS_GET_ACTIVE_ACTORS,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_get_active_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportAsJsonString"),
-            &raw mut UAIE_SELECTION_SETS_EXPORT_AS_JSON_STRING,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_export_as_json_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportAsJsonFile"),
-            &raw mut UAIE_SELECTION_SETS_EXPORT_AS_JSON_FILE,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_export_as_json_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteSetItem"),
-            &raw mut UAIE_SELECTION_SETS_DELETE_SET_ITEM,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_delete_set_item,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateSetItemFromSelection"),
-            &raw mut UAIE_SELECTION_SETS_CREATE_SET_ITEM_FROM_SELECTION,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_create_set_item_from_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMirror"),
-            &raw mut UAIE_SELECTION_SETS_CREATE_MIRROR,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_create_mirror,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSelectionToSetItem"),
-            &raw mut UAIE_SELECTION_SETS_ADD_SELECTION_TO_SET_ITEM,
+            &raw mut __FUNCTION_PTRS.uaie_selection_sets_add_selection_to_set_item,
         );
     }
     unsafe {
@@ -552,70 +561,79 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetupAllEditorMenus"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SETUP_ALL_EDITOR_MENUS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_setup_all_editor_menus,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreviewMesh"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SET_PREVIEW_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_set_preview_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestControlRigInit"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_REQUEST_CONTROL_RIG_INIT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_request_control_rig_init,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviewMesh"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_PREVIEW_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_get_preview_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHierarchyController"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_get_hierarchy_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHierarchy"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_editor_library_get_hierarchy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentlyOpenRigBlueprints"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_get_currently_open_rig_blueprints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAvailableRigUnits"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_UNITS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_get_available_rig_units,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAvailableRigModules"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_MODULES,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_get_available_rig_modules,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CastToControlRigBlueprint"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_CAST_TO_CONTROL_RIG_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_editor_library_cast_to_control_rig_blueprint,
         );
     }
     unsafe {
@@ -626,14 +644,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewControlRigAsset"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_NEW_CONTROL_RIG_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_factory_create_new_control_rig_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateControlRigFromSkeletalMeshOrSkeleton"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_CONTROL_RIG_FROM_SKELETAL_MESH_OR_SKELETON,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_factory_create_control_rig_from_skeletal_mesh_or_skeleton,
         );
     }
     unsafe {
@@ -644,721 +664,822 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TweenControlRig"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_TWEEN_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_tween_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpaceCompensate"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SPACE_COMPENSATE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_space_compensate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SnapControlRig"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SNAP_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_snap_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SmartReduce"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SMART_REDUCE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_sequencer_editor_library_smart_reduce,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowAllControls"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SHOW_ALL_CONTROLS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_show_all_controls,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigVector2Ds"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_DS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigVector2D"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigTransformNoScales"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scales,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigTransformNoScale"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigScales"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALES,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_scales,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigScale"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigRotators"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATORS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_rotators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigRotator"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigPositions"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_positions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigPosition"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigInts"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INTS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_ints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigInt"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigFloats"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOATS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_floats,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigFloat"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigEulerTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigEulerTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigBools"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOLS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_bools,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalControlRigBool"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_local_control_rig_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInteraction"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_INTERACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_interaction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlsMask"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROLS_MASK,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_controls_mask,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigWorldTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_control_rig_world_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigWorldTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_control_rig_world_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigSpace"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_SPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_control_rig_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigPriorityOrder"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_PRIORITY_ORDER,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_control_rig_priority_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigLayeredMode"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_LAYERED_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_control_rig_layered_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigApplyMode"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_APPLY_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_control_rig_apply_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConstraintActiveKey"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONSTRAINT_ACTIVE_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_set_constraint_active_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameControlRigControlChannels"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_RENAME_CONTROL_RIG_CONTROL_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_rename_control_rig_control_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveControlRigSpace"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONTROL_RIG_SPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_move_control_rig_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveConstraintKey"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONSTRAINT_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_move_constraint_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MergeAnimLayersWithSettings"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS_WITH_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_merge_anim_layers_with_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MergeAnimLayers"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_merge_anim_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAnimSequenceIntoControlRigSectionWithRange"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION_WITH_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section_with_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAnimSequenceIntoControlRigSection"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLayeredControlRig"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_LAYERED_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_is_layered_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFKControlRig"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_FK_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_is_fk_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportFBXToControlRigTrack"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_import_fbx_to_control_rig_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HideAllControls"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_HIDE_ALL_CONTROLS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_hide_all_controls,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorldSpaceReferenceKey"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_WORLD_SPACE_REFERENCE_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_world_space_reference_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVisibleControlRigs"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_VISIBLE_CONTROL_RIGS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_visible_control_rigs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletalMeshComponentWorldTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletalMeshComponentWorldTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionSets"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SELECTION_SETS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_selection_sets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigVector2Ds"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_DS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigVector2D"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigTransformNoScales"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scales,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigTransformNoScale"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigScales"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALES,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_scales,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigScale"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigRotators"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATORS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_rotators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigRotator"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigPositions"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_positions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigPosition"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigInts"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INTS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_ints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigInt"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigFloats"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOATS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_floats,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigFloat"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigEulerTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigEulerTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigBools"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOLS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_bools,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlRigBool"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_local_control_rig_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFKControlRigApplyMode"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_FK_CONTROL_RIG_APPLY_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_fk_control_rig_apply_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultParentKey"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_DEFAULT_PARENT_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_default_parent_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlsMask"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROLS_MASK,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_controls_mask,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRigWorldTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_control_rig_world_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRigWorldTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_control_rig_world_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRigs"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIGS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_control_rigs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRigPriorityOrder"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_PRIORITY_ORDER,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_control_rig_priority_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConstraintsForHandle"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINTS_FOR_HANDLE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_constraints_for_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConstraintKeys"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINT_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_constraint_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimLayers"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYERS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_anim_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimLayerIndex"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYER_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_anim_layer_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorWorldTransforms"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_actor_world_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorWorldTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_get_actor_world_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindOrCreateControlRigTrack"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_find_or_create_control_rig_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindOrCreateControlRigComponentTrack"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_COMPONENT_TRACK,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_find_or_create_control_rig_component_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportFBXFromControlRigSection"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG_SECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_export_fbx_from_control_rig_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportAnimSequenceFromSequencer"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_ANIM_SEQUENCE_FROM_SEQUENCER,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_export_anim_sequence_from_sequencer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateAnimLayer"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DUPLICATE_ANIM_LAYER,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_duplicate_anim_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteControlRigSpace"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONTROL_RIG_SPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_delete_control_rig_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteConstraintKey"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONSTRAINT_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_delete_constraint_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteAnimLayer"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_ANIM_LAYER,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_delete_anim_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ControlRigCopyVectorParameterCurvesToTransform"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_CONTROL_RIG_COPY_VECTOR_PARAMETER_CURVES_TO_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_control_rig_copy_vector_parameter_curves_to_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CompensateAll"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE_ALL,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_compensate_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Compensate"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_sequencer_editor_library_compensate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CollapseControlRigAnimLayersWithSettings"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS_WITH_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers_with_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CollapseControlRigAnimLayers"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BlendValuesOnSelected"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BLEND_VALUES_ON_SELECTED,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_blend_values_on_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BakeToControlRig"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_TO_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_bake_to_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BakeControlRigSpace"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONTROL_RIG_SPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_bake_control_rig_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BakeConstraints"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINTS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_bake_constraints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BakeConstraint"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_bake_constraint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddConstraint"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_CONSTRAINT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_add_constraint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimLayerFromSelection"),
-            &raw mut U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_ANIM_LAYER_FROM_SELECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_sequencer_editor_library_add_anim_layer_from_selection,
         );
     }
     unsafe {
@@ -1369,14 +1490,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PostPoseUpdate"),
-            &raw mut U_CONTROL_RIG_EDIT_MODE_DELEGATE_HELPER_POST_POSE_UPDATE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_edit_mode_delegate_helper_post_pose_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPoseInitialized"),
-            &raw mut U_CONTROL_RIG_EDIT_MODE_DELEGATE_HELPER_ON_POSE_INITIALIZED,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_edit_mode_delegate_helper_on_pose_initialized,
         );
     }
     unsafe {
@@ -1387,49 +1510,54 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAltDown"),
-            &raw mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_IS_ALT_DOWN,
+            &raw mut __FUNCTION_PTRS.u_control_rig_context_menu_context_is_alt_down,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigHierarchyToGraphDragAndDropContext"),
-            &raw mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_TO_GRAPH_DRAG_AND_DROP_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_context_menu_context_get_rig_hierarchy_to_graph_drag_and_drop_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigHierarchyDragAndDropContext"),
-            &raw mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_DRAG_AND_DROP_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_context_menu_context_get_rig_hierarchy_drag_and_drop_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphNodeContextMenuContext"),
-            &raw mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_GRAPH_NODE_CONTEXT_MENU_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_context_menu_context_get_graph_node_context_menu_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRigBlueprint"),
-            &raw mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_context_menu_context_get_control_rig_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRigAssetInterface"),
-            &raw mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_ASSET_INTERFACE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_context_menu_context_get_control_rig_asset_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRig"),
-            &raw mut U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS.u_control_rig_context_menu_context_get_control_rig,
         );
     }
     unsafe {
@@ -1440,112 +1568,112 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWeight"),
-            &raw mut U_ANIM_LAYER_SET_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_set_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetType"),
-            &raw mut U_ANIM_LAYER_SET_TYPE,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_set_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelected"),
-            &raw mut U_ANIM_LAYER_SET_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_set_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetName"),
-            &raw mut U_ANIM_LAYER_SET_NAME,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_set_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLock"),
-            &raw mut U_ANIM_LAYER_SET_LOCK,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_set_lock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetKeyed"),
-            &raw mut U_ANIM_LAYER_SET_KEYED,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_set_keyed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActive"),
-            &raw mut U_ANIM_LAYER_SET_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_set_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSelectedInSequencer"),
-            &raw mut U_ANIM_LAYER_REMOVE_SELECTED_IN_SEQUENCER,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_remove_selected_in_sequencer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWeight"),
-            &raw mut U_ANIM_LAYER_GET_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_get_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetType"),
-            &raw mut U_ANIM_LAYER_GET_TYPE,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_get_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelected"),
-            &raw mut U_ANIM_LAYER_GET_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_get_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetName"),
-            &raw mut U_ANIM_LAYER_GET_NAME,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_get_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLock"),
-            &raw mut U_ANIM_LAYER_GET_LOCK,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_get_lock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeyed"),
-            &raw mut U_ANIM_LAYER_GET_KEYED,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_get_keyed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActive"),
-            &raw mut U_ANIM_LAYER_GET_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_get_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSelectedInSequencer"),
-            &raw mut U_ANIM_LAYER_ADD_SELECTED_IN_SEQUENCER,
+            &raw mut __FUNCTION_PTRS.u_anim_layer_add_selected_in_sequencer,
         );
     }
 }
@@ -1870,7 +1998,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SHOW_OR_HIDE_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_show_or_hide_controls,
                 __buffer,
             )
         };
@@ -1897,7 +2026,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SHOW_OR_HIDE_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_show_or_hide_controls,
                 __buffer,
             )
         };
@@ -1914,7 +2044,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SHOW_ALL_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_show_all_controls,
                 __buffer,
             )
         };
@@ -1931,7 +2062,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SHOW_ALL_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_show_all_controls,
                 __buffer,
             )
         };
@@ -1945,7 +2077,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_SHOW_AND_SET_SELECTED_ONLY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_show_and_set_selected_only,
                 __buffer,
             )
         };
@@ -1962,7 +2095,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_SHOW_AND_SET_SELECTED_ONLY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_show_and_set_selected_only,
                 __buffer,
             )
         };
@@ -1979,7 +2113,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_ITEM_ROW,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_item_row,
                 __buffer,
             )
         };
@@ -1999,7 +2134,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_ITEM_ROW,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_item_row,
                 __buffer,
             )
         };
@@ -2017,7 +2153,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_ITEM_COLOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_item_color,
                 __buffer,
             )
         };
@@ -2041,7 +2178,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_ITEM_COLOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_item_color,
                 __buffer,
             )
         };
@@ -2059,7 +2197,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_ACTOR_AS_ACTIVE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_actor_as_active,
                 __buffer,
             )
         };
@@ -2083,7 +2222,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SET_ACTOR_AS_ACTIVE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_set_actor_as_active,
                 __buffer,
             )
         };
@@ -2104,7 +2244,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SELECT_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_select_item,
                 __buffer,
             )
         };
@@ -2137,7 +2278,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_SELECT_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_select_item,
                 __buffer,
             )
         };
@@ -2155,7 +2297,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_RENAME_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_rename_set_item,
                 __buffer,
             )
         };
@@ -2175,7 +2318,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_RENAME_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_rename_set_item,
                 __buffer,
             )
         };
@@ -2192,7 +2336,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_REMOVE_SELECTION_FROM_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_remove_selection_from_set_item,
                 __buffer,
             )
         };
@@ -2209,7 +2354,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_REMOVE_SELECTION_FROM_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_remove_selection_from_set_item,
                 __buffer,
             )
         };
@@ -2223,7 +2369,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_LOAD_FROM_JSON_STRING,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_load_from_json_string,
                 __buffer,
             )
         };
@@ -2240,7 +2387,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_LOAD_FROM_JSON_STRING,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_load_from_json_string,
                 __buffer,
             )
         };
@@ -2257,7 +2405,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_LOAD_FROM_JSON_FILE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_load_from_json_file,
                 __buffer,
             )
         };
@@ -2274,7 +2423,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_LOAD_FROM_JSON_FILE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_load_from_json_file,
                 __buffer,
             )
         };
@@ -2288,7 +2438,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_KEY_ALL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_key_all,
                 __buffer,
             )
         };
@@ -2305,7 +2456,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_KEY_ALL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_key_all,
                 __buffer,
             )
         };
@@ -2322,7 +2474,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_ISOLATE_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_isolate_controls,
                 __buffer,
             )
         };
@@ -2339,7 +2492,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_ISOLATE_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_isolate_controls,
                 __buffer,
             )
         };
@@ -2356,7 +2510,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_IS_MULTI_ASSET,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_is_multi_asset,
                 __buffer,
             )
         };
@@ -2373,7 +2528,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_IS_MULTI_ASSET,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_is_multi_asset,
                 __buffer,
             )
         };
@@ -2387,7 +2543,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_SHOW_AND_SET_SELECTED_ONLY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_show_and_set_selected_only,
                 __buffer,
             )
         };
@@ -2397,7 +2554,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_SHOW_AND_SET_SELECTED_ONLY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_show_and_set_selected_only,
                 __buffer,
             )
         };
@@ -2415,7 +2573,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_ROW,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_row,
                 __buffer,
             )
         };
@@ -2435,7 +2594,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_ROW,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_row,
                 __buffer,
             )
         };
@@ -2456,7 +2616,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_NAME,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_name,
                 __buffer,
             )
         };
@@ -2476,7 +2637,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_NAME,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_name,
                 __buffer,
             )
         };
@@ -2497,7 +2659,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_GUIDS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_guids,
                 __buffer,
             )
         };
@@ -2517,7 +2680,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_GUIDS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_guids,
                 __buffer,
             )
         };
@@ -2540,7 +2704,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_COLOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_color,
                 __buffer,
             )
         };
@@ -2564,7 +2729,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ITEM_COLOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_item_color,
                 __buffer,
             )
         };
@@ -2584,7 +2750,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ALL_ACTORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_all_actors,
                 __buffer,
             )
         };
@@ -2594,7 +2761,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ALL_ACTORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_all_actors,
                 __buffer,
             )
         };
@@ -2615,7 +2783,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ACTIVE_SELECTION_SETS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_active_selection_sets,
                 __buffer,
             )
         };
@@ -2625,7 +2794,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ACTIVE_SELECTION_SETS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_active_selection_sets,
                 __buffer,
             )
         };
@@ -2644,7 +2814,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ACTIVE_ACTORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_active_actors,
                 __buffer,
             )
         };
@@ -2654,7 +2825,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_GET_ACTIVE_ACTORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_get_active_actors,
                 __buffer,
             )
         };
@@ -2673,7 +2845,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_EXPORT_AS_JSON_STRING,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_export_as_json_string,
                 __buffer,
             )
         };
@@ -2690,7 +2863,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_EXPORT_AS_JSON_STRING,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_export_as_json_string,
                 __buffer,
             )
         };
@@ -2710,7 +2884,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_EXPORT_AS_JSON_FILE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_export_as_json_file,
                 __buffer,
             )
         };
@@ -2727,7 +2902,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_EXPORT_AS_JSON_FILE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_export_as_json_file,
                 __buffer,
             )
         };
@@ -2744,7 +2920,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_DELETE_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_delete_set_item,
                 __buffer,
             )
         };
@@ -2761,7 +2938,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_DELETE_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_delete_set_item,
                 __buffer,
             )
         };
@@ -2777,7 +2955,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_CREATE_SET_ITEM_FROM_SELECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_create_set_item_from_selection,
                 __buffer,
             )
         };
@@ -2787,7 +2966,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_CREATE_SET_ITEM_FROM_SELECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_create_set_item_from_selection,
                 __buffer,
             )
         };
@@ -2804,7 +2984,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_CREATE_MIRROR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_create_mirror,
                 __buffer,
             )
         };
@@ -2821,7 +3002,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_CREATE_MIRROR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_create_mirror,
                 __buffer,
             )
         };
@@ -2840,7 +3022,8 @@ impl UAIESelectionSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_ADD_SELECTION_TO_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_add_selection_to_set_item,
                 __buffer,
             )
         };
@@ -2857,7 +3040,8 @@ impl UAIESelectionSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::UAIE_SELECTION_SETS_ADD_SELECTION_TO_SET_ITEM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .uaie_selection_sets_add_selection_to_set_item,
                 __buffer,
             )
         };
@@ -3185,7 +3369,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SETUP_ALL_EDITOR_MENUS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_setup_all_editor_menus,
                 __buffer,
             )
         };
@@ -3195,7 +3380,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SETUP_ALL_EDITOR_MENUS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_setup_all_editor_menus,
                 __buffer,
             )
         };
@@ -3214,7 +3400,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SET_PREVIEW_MESH,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_set_preview_mesh,
                 __buffer,
             )
         };
@@ -3251,7 +3438,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_SET_PREVIEW_MESH,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_set_preview_mesh,
                 __buffer,
             )
         };
@@ -3268,7 +3456,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_REQUEST_CONTROL_RIG_INIT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_request_control_rig_init,
                 __buffer,
             )
         };
@@ -3291,7 +3480,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_REQUEST_CONTROL_RIG_INIT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_request_control_rig_init,
                 __buffer,
             )
         };
@@ -3308,7 +3498,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_PREVIEW_MESH,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_preview_mesh,
                 __buffer,
             )
         };
@@ -3331,7 +3522,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_PREVIEW_MESH,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_preview_mesh,
                 __buffer,
             )
         };
@@ -3351,7 +3543,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY_CONTROLLER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_hierarchy_controller,
                 __buffer,
             )
         };
@@ -3374,7 +3567,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY_CONTROLLER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_hierarchy_controller,
                 __buffer,
             )
         };
@@ -3397,7 +3591,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_hierarchy,
                 __buffer,
             )
         };
@@ -3420,7 +3615,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_HIERARCHY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_hierarchy,
                 __buffer,
             )
         };
@@ -3441,7 +3637,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_currently_open_rig_blueprints,
                 __buffer,
             )
         };
@@ -3451,7 +3648,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_currently_open_rig_blueprints,
                 __buffer,
             )
         };
@@ -3478,7 +3676,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_UNITS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_available_rig_units,
                 __buffer,
             )
         };
@@ -3488,7 +3687,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_UNITS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_available_rig_units,
                 __buffer,
             )
         };
@@ -3509,7 +3709,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_MODULES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_available_rig_modules,
                 __buffer,
             )
         };
@@ -3519,7 +3720,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_GET_AVAILABLE_RIG_MODULES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_get_available_rig_modules,
                 __buffer,
             )
         };
@@ -3544,7 +3746,8 @@ impl UControlRigBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_CAST_TO_CONTROL_RIG_BLUEPRINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_cast_to_control_rig_blueprint,
                 __buffer,
             )
         };
@@ -3581,7 +3784,8 @@ impl UControlRigBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_EDITOR_LIBRARY_CAST_TO_CONTROL_RIG_BLUEPRINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_editor_library_cast_to_control_rig_blueprint,
                 __buffer,
             )
         };
@@ -3629,7 +3833,8 @@ impl UControlRigBlueprintFactory {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_NEW_CONTROL_RIG_ASSET,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_factory_create_new_control_rig_asset,
                 __buffer,
             )
         };
@@ -3653,7 +3858,8 @@ impl UControlRigBlueprintFactory {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_NEW_CONTROL_RIG_ASSET,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_factory_create_new_control_rig_asset,
                 __buffer,
             )
         };
@@ -3677,7 +3883,8 @@ impl UControlRigBlueprintFactory {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_CONTROL_RIG_FROM_SKELETAL_MESH_OR_SKELETON,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_factory_create_control_rig_from_skeletal_mesh_or_skeleton,
                 __buffer,
             )
         };
@@ -3701,7 +3908,8 @@ impl UControlRigBlueprintFactory {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_BLUEPRINT_FACTORY_CREATE_CONTROL_RIG_FROM_SKELETAL_MESH_OR_SKELETON,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_factory_create_control_rig_from_skeletal_mesh_or_skeleton,
                 __buffer,
             )
         };
@@ -3768,7 +3976,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_TWEEN_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_tween_control_rig,
                 __buffer,
             )
         };
@@ -3803,7 +4012,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_TWEEN_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_tween_control_rig,
                 __buffer,
             )
         };
@@ -3821,7 +4031,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SPACE_COMPENSATE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_space_compensate,
                 __buffer,
             )
         };
@@ -3856,7 +4067,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SPACE_COMPENSATE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_space_compensate,
                 __buffer,
             )
         };
@@ -3878,7 +4090,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SNAP_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_snap_control_rig,
                 __buffer,
             )
         };
@@ -3941,7 +4154,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SNAP_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_snap_control_rig,
                 __buffer,
             )
         };
@@ -3958,7 +4172,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SMART_REDUCE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_smart_reduce,
                 __buffer,
             )
         };
@@ -3986,7 +4201,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SMART_REDUCE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_smart_reduce,
                 __buffer,
             )
         };
@@ -4008,7 +4224,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SHOW_ALL_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_show_all_controls,
                 __buffer,
             )
         };
@@ -4027,7 +4244,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SHOW_ALL_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_show_all_controls,
                 __buffer,
             )
         };
@@ -4047,7 +4265,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_DS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_ds,
                 __buffer,
             )
         };
@@ -4109,7 +4328,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_DS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_ds,
                 __buffer,
             )
         };
@@ -4130,7 +4350,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_D,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_d,
                 __buffer,
             )
         };
@@ -4195,7 +4416,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_VECTOR2_D,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_vector2_d,
                 __buffer,
             )
         };
@@ -4215,7 +4437,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transforms,
                 __buffer,
             )
         };
@@ -4277,7 +4500,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transforms,
                 __buffer,
             )
         };
@@ -4297,7 +4521,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scales,
                 __buffer,
             )
         };
@@ -4361,7 +4586,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scales,
                 __buffer,
             )
         };
@@ -4382,7 +4608,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scale,
                 __buffer,
             )
         };
@@ -4449,7 +4676,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform_no_scale,
                 __buffer,
             )
         };
@@ -4470,7 +4698,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform,
                 __buffer,
             )
         };
@@ -4535,7 +4764,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_transform,
                 __buffer,
             )
         };
@@ -4555,7 +4785,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_scales,
                 __buffer,
             )
         };
@@ -4617,7 +4848,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_scales,
                 __buffer,
             )
         };
@@ -4638,7 +4870,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_scale,
                 __buffer,
             )
         };
@@ -4703,7 +4936,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_scale,
                 __buffer,
             )
         };
@@ -4723,7 +4957,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_rotators,
                 __buffer,
             )
         };
@@ -4785,7 +5020,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_rotators,
                 __buffer,
             )
         };
@@ -4806,7 +5042,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_rotator,
                 __buffer,
             )
         };
@@ -4871,7 +5108,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_ROTATOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_rotator,
                 __buffer,
             )
         };
@@ -4891,7 +5129,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITIONS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_positions,
                 __buffer,
             )
         };
@@ -4953,7 +5192,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITIONS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_positions,
                 __buffer,
             )
         };
@@ -4974,7 +5214,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_position,
                 __buffer,
             )
         };
@@ -5039,7 +5280,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_POSITION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_position,
                 __buffer,
             )
         };
@@ -5059,7 +5301,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_ints,
                 __buffer,
             )
         };
@@ -5119,7 +5362,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_ints,
                 __buffer,
             )
         };
@@ -5140,7 +5384,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_int,
                 __buffer,
             )
         };
@@ -5201,7 +5446,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_INT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_int,
                 __buffer,
             )
         };
@@ -5221,7 +5467,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOATS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_floats,
                 __buffer,
             )
         };
@@ -5281,7 +5528,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOATS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_floats,
                 __buffer,
             )
         };
@@ -5302,7 +5550,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOAT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_float,
                 __buffer,
             )
         };
@@ -5363,7 +5612,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_FLOAT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_float,
                 __buffer,
             )
         };
@@ -5383,7 +5633,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transforms,
                 __buffer,
             )
         };
@@ -5445,7 +5696,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transforms,
                 __buffer,
             )
         };
@@ -5466,7 +5718,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transform,
                 __buffer,
             )
         };
@@ -5533,7 +5786,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_EULER_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_euler_transform,
                 __buffer,
             )
         };
@@ -5553,7 +5807,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_bools,
                 __buffer,
             )
         };
@@ -5613,7 +5868,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_bools,
                 __buffer,
             )
         };
@@ -5634,7 +5890,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_bool,
                 __buffer,
             )
         };
@@ -5695,7 +5952,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_LOCAL_CONTROL_RIG_BOOL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_local_control_rig_bool,
                 __buffer,
             )
         };
@@ -5708,7 +5966,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_INTERACTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_interaction,
                 __buffer,
             )
         };
@@ -5725,7 +5984,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_INTERACTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_interaction,
                 __buffer,
             )
         };
@@ -5742,7 +6002,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROLS_MASK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_controls_mask,
                 __buffer,
             )
         };
@@ -5775,7 +6036,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROLS_MASK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_controls_mask,
                 __buffer,
             )
         };
@@ -5795,7 +6057,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_world_transforms,
                 __buffer,
             )
         };
@@ -5857,7 +6120,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_world_transforms,
                 __buffer,
             )
         };
@@ -5878,7 +6142,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_world_transform,
                 __buffer,
             )
         };
@@ -5943,7 +6208,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_world_transform,
                 __buffer,
             )
         };
@@ -5963,7 +6229,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_space,
                 __buffer,
             )
         };
@@ -6021,7 +6288,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_space,
                 __buffer,
             )
         };
@@ -6038,7 +6306,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_PRIORITY_ORDER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_priority_order,
                 __buffer,
             )
         };
@@ -6064,7 +6333,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_PRIORITY_ORDER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_priority_order,
                 __buffer,
             )
         };
@@ -6082,7 +6352,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_LAYERED_MODE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_layered_mode,
                 __buffer,
             )
         };
@@ -6112,7 +6383,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_LAYERED_MODE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_layered_mode,
                 __buffer,
             )
         };
@@ -6129,7 +6401,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_APPLY_MODE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_apply_mode,
                 __buffer,
             )
         };
@@ -6157,7 +6430,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONTROL_RIG_APPLY_MODE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_control_rig_apply_mode,
                 __buffer,
             )
         };
@@ -6176,7 +6450,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONSTRAINT_ACTIVE_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_constraint_active_key,
                 __buffer,
             )
         };
@@ -6214,7 +6489,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_SET_CONSTRAINT_ACTIVE_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_set_constraint_active_key,
                 __buffer,
             )
         };
@@ -6233,7 +6509,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_RENAME_CONTROL_RIG_CONTROL_CHANNELS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_rename_control_rig_control_channels,
                 __buffer,
             )
         };
@@ -6275,7 +6552,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_RENAME_CONTROL_RIG_CONTROL_CHANNELS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_rename_control_rig_control_channels,
                 __buffer,
             )
         };
@@ -6296,7 +6574,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_move_control_rig_space,
                 __buffer,
             )
         };
@@ -6354,7 +6633,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_move_control_rig_space,
                 __buffer,
             )
         };
@@ -6374,7 +6654,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONSTRAINT_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_move_constraint_key,
                 __buffer,
             )
         };
@@ -6425,7 +6706,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MOVE_CONSTRAINT_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_move_constraint_key,
                 __buffer,
             )
         };
@@ -6442,7 +6724,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS_WITH_SETTINGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_merge_anim_layers_with_settings,
                 __buffer,
             )
         };
@@ -6466,7 +6749,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS_WITH_SETTINGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_merge_anim_layers_with_settings,
                 __buffer,
             )
         };
@@ -6480,7 +6764,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_merge_anim_layers,
                 __buffer,
             )
         };
@@ -6497,7 +6782,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_MERGE_ANIM_LAYERS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_merge_anim_layers,
                 __buffer,
             )
         };
@@ -6525,7 +6811,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION_WITH_RANGE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section_with_range,
                 __buffer,
             )
         };
@@ -6630,7 +6917,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION_WITH_RANGE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section_with_range,
                 __buffer,
             )
         };
@@ -6654,7 +6942,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section,
                 __buffer,
             )
         };
@@ -6731,7 +7020,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_LOAD_ANIM_SEQUENCE_INTO_CONTROL_RIG_SECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_load_anim_sequence_into_control_rig_section,
                 __buffer,
             )
         };
@@ -6747,7 +7037,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_LAYERED_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_is_layered_control_rig,
                 __buffer,
             )
         };
@@ -6766,7 +7057,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_LAYERED_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_is_layered_control_rig,
                 __buffer,
             )
         };
@@ -6782,7 +7074,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_FK_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_is_fk_control_rig,
                 __buffer,
             )
         };
@@ -6801,7 +7094,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IS_FK_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_is_fk_control_rig,
                 __buffer,
             )
         };
@@ -6829,7 +7123,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG_TRACK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_import_fbx_to_control_rig_track,
                 __buffer,
             )
         };
@@ -6908,7 +7203,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG_TRACK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_import_fbx_to_control_rig_track,
                 __buffer,
             )
         };
@@ -6924,7 +7220,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_HIDE_ALL_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_hide_all_controls,
                 __buffer,
             )
         };
@@ -6943,7 +7240,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_HIDE_ALL_CONTROLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_hide_all_controls,
                 __buffer,
             )
         };
@@ -6956,7 +7254,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_WORLD_SPACE_REFERENCE_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_world_space_reference_key,
                 __buffer,
             )
         };
@@ -6966,7 +7265,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_WORLD_SPACE_REFERENCE_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_world_space_reference_key,
                 __buffer,
             )
         };
@@ -6984,7 +7284,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_VISIBLE_CONTROL_RIGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_visible_control_rigs,
                 __buffer,
             )
         };
@@ -6994,7 +7295,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_VISIBLE_CONTROL_RIGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_visible_control_rigs,
                 __buffer,
             )
         };
@@ -7019,7 +7321,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transforms,
                 __buffer,
             )
         };
@@ -7072,7 +7375,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transforms,
                 __buffer,
             )
         };
@@ -7097,7 +7401,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transform,
                 __buffer,
             )
         };
@@ -7148,7 +7453,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SKELETAL_MESH_COMPONENT_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_skeletal_mesh_component_world_transform,
                 __buffer,
             )
         };
@@ -7164,7 +7470,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SELECTION_SETS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_selection_sets,
                 __buffer,
             )
         };
@@ -7181,7 +7488,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_SELECTION_SETS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_selection_sets,
                 __buffer,
             )
         };
@@ -7201,7 +7509,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_DS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_ds,
                 __buffer,
             )
         };
@@ -7254,7 +7563,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_DS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_ds,
                 __buffer,
             )
         };
@@ -7279,7 +7589,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_D,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_d,
                 __buffer,
             )
         };
@@ -7330,7 +7641,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_VECTOR2_D,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_vector2_d,
                 __buffer,
             )
         };
@@ -7352,7 +7664,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transforms,
                 __buffer,
             )
         };
@@ -7405,7 +7718,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transforms,
                 __buffer,
             )
         };
@@ -7430,7 +7744,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scales,
                 __buffer,
             )
         };
@@ -7483,7 +7798,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scales,
                 __buffer,
             )
         };
@@ -7508,7 +7824,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scale,
                 __buffer,
             )
         };
@@ -7559,7 +7876,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM_NO_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform_no_scale,
                 __buffer,
             )
         };
@@ -7584,7 +7902,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform,
                 __buffer,
             )
         };
@@ -7635,7 +7954,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_transform,
                 __buffer,
             )
         };
@@ -7657,7 +7977,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_scales,
                 __buffer,
             )
         };
@@ -7710,7 +8031,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALES,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_scales,
                 __buffer,
             )
         };
@@ -7735,7 +8057,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_scale,
                 __buffer,
             )
         };
@@ -7786,7 +8109,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_SCALE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_scale,
                 __buffer,
             )
         };
@@ -7808,7 +8132,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_rotators,
                 __buffer,
             )
         };
@@ -7861,7 +8186,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATORS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_rotators,
                 __buffer,
             )
         };
@@ -7886,7 +8212,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_rotator,
                 __buffer,
             )
         };
@@ -7937,7 +8264,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_ROTATOR,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_rotator,
                 __buffer,
             )
         };
@@ -7959,7 +8287,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITIONS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_positions,
                 __buffer,
             )
         };
@@ -8012,7 +8341,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITIONS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_positions,
                 __buffer,
             )
         };
@@ -8037,7 +8367,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_position,
                 __buffer,
             )
         };
@@ -8088,7 +8419,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_POSITION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_position,
                 __buffer,
             )
         };
@@ -8110,7 +8442,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_ints,
                 __buffer,
             )
         };
@@ -8163,7 +8496,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_ints,
                 __buffer,
             )
         };
@@ -8183,7 +8517,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_int,
                 __buffer,
             )
         };
@@ -8234,7 +8569,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_INT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_int,
                 __buffer,
             )
         };
@@ -8254,7 +8590,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOATS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_floats,
                 __buffer,
             )
         };
@@ -8307,7 +8644,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOATS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_floats,
                 __buffer,
             )
         };
@@ -8327,7 +8665,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOAT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_float,
                 __buffer,
             )
         };
@@ -8378,7 +8717,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_FLOAT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_float,
                 __buffer,
             )
         };
@@ -8398,7 +8738,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transforms,
                 __buffer,
             )
         };
@@ -8451,7 +8792,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transforms,
                 __buffer,
             )
         };
@@ -8476,7 +8818,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transform,
                 __buffer,
             )
         };
@@ -8527,7 +8870,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_EULER_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_euler_transform,
                 __buffer,
             )
         };
@@ -8552,7 +8896,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_bools,
                 __buffer,
             )
         };
@@ -8605,7 +8950,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOLS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_bools,
                 __buffer,
             )
         };
@@ -8625,7 +8971,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_bool,
                 __buffer,
             )
         };
@@ -8676,7 +9023,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_LOCAL_CONTROL_RIG_BOOL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_local_control_rig_bool,
                 __buffer,
             )
         };
@@ -8692,7 +9040,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_FK_CONTROL_RIG_APPLY_MODE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_fk_control_rig_apply_mode,
                 __buffer,
             )
         };
@@ -8711,7 +9060,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_FK_CONTROL_RIG_APPLY_MODE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_fk_control_rig_apply_mode,
                 __buffer,
             )
         };
@@ -8730,7 +9080,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_DEFAULT_PARENT_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_default_parent_key,
                 __buffer,
             )
         };
@@ -8740,7 +9091,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_DEFAULT_PARENT_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_default_parent_key,
                 __buffer,
             )
         };
@@ -8759,7 +9111,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROLS_MASK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_controls_mask,
                 __buffer,
             )
         };
@@ -8785,7 +9138,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROLS_MASK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_controls_mask,
                 __buffer,
             )
         };
@@ -8805,7 +9159,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_world_transforms,
                 __buffer,
             )
         };
@@ -8858,7 +9213,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_world_transforms,
                 __buffer,
             )
         };
@@ -8883,7 +9239,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_world_transform,
                 __buffer,
             )
         };
@@ -8934,7 +9291,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_world_transform,
                 __buffer,
             )
         };
@@ -8952,7 +9310,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rigs,
                 __buffer,
             )
         };
@@ -8971,7 +9330,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rigs,
                 __buffer,
             )
         };
@@ -8989,7 +9349,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_PRIORITY_ORDER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_priority_order,
                 __buffer,
             )
         };
@@ -9008,7 +9369,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONTROL_RIG_PRIORITY_ORDER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_control_rig_priority_order,
                 __buffer,
             )
         };
@@ -9025,7 +9387,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINTS_FOR_HANDLE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_constraints_for_handle,
                 __buffer,
             )
         };
@@ -9051,7 +9414,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINTS_FOR_HANDLE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_constraints_for_handle,
                 __buffer,
             )
         };
@@ -9078,7 +9442,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINT_KEYS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_constraint_keys,
                 __buffer,
             )
         };
@@ -9131,7 +9496,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_CONSTRAINT_KEYS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_constraint_keys,
                 __buffer,
             )
         };
@@ -9154,7 +9520,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYERS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_anim_layers,
                 __buffer,
             )
         };
@@ -9171,7 +9538,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYERS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_anim_layers,
                 __buffer,
             )
         };
@@ -9185,7 +9553,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYER_INDEX,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_anim_layer_index,
                 __buffer,
             )
         };
@@ -9202,7 +9571,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ANIM_LAYER_INDEX,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_anim_layer_index,
                 __buffer,
             )
         };
@@ -9221,7 +9591,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_actor_world_transforms,
                 __buffer,
             )
         };
@@ -9265,7 +9636,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORMS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_actor_world_transforms,
                 __buffer,
             )
         };
@@ -9289,7 +9661,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_actor_world_transform,
                 __buffer,
             )
         };
@@ -9331,7 +9704,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_GET_ACTOR_WORLD_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_get_actor_world_transform,
                 __buffer,
             )
         };
@@ -9353,7 +9727,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_TRACK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_find_or_create_control_rig_track,
                 __buffer,
             )
         };
@@ -9404,7 +9779,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_TRACK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_find_or_create_control_rig_track,
                 __buffer,
             )
         };
@@ -9427,7 +9803,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_COMPONENT_TRACK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_find_or_create_control_rig_component_track,
                 __buffer,
             )
         };
@@ -9462,7 +9839,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_FIND_OR_CREATE_CONTROL_RIG_COMPONENT_TRACK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_find_or_create_control_rig_component_track,
                 __buffer,
             )
         };
@@ -9489,7 +9867,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG_SECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_export_fbx_from_control_rig_section,
                 __buffer,
             )
         };
@@ -9534,7 +9913,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG_SECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_export_fbx_from_control_rig_section,
                 __buffer,
             )
         };
@@ -9553,7 +9933,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_ANIM_SEQUENCE_FROM_SEQUENCER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_export_anim_sequence_from_sequencer,
                 __buffer,
             )
         };
@@ -9595,7 +9976,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_EXPORT_ANIM_SEQUENCE_FROM_SEQUENCER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_export_anim_sequence_from_sequencer,
                 __buffer,
             )
         };
@@ -9609,7 +9991,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DUPLICATE_ANIM_LAYER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_duplicate_anim_layer,
                 __buffer,
             )
         };
@@ -9622,7 +10005,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DUPLICATE_ANIM_LAYER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_duplicate_anim_layer,
                 __buffer,
             )
         };
@@ -9642,7 +10026,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_control_rig_space,
                 __buffer,
             )
         };
@@ -9693,7 +10078,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_control_rig_space,
                 __buffer,
             )
         };
@@ -9712,7 +10098,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONSTRAINT_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_constraint_key,
                 __buffer,
             )
         };
@@ -9756,7 +10143,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_CONSTRAINT_KEY,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_constraint_key,
                 __buffer,
             )
         };
@@ -9770,7 +10158,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_ANIM_LAYER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_anim_layer,
                 __buffer,
             )
         };
@@ -9783,7 +10172,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_DELETE_ANIM_LAYER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_delete_anim_layer,
                 __buffer,
             )
         };
@@ -9803,7 +10193,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_CONTROL_RIG_COPY_VECTOR_PARAMETER_CURVES_TO_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_control_rig_copy_vector_parameter_curves_to_transform,
                 __buffer,
             )
         };
@@ -9840,7 +10231,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_CONTROL_RIG_COPY_VECTOR_PARAMETER_CURVES_TO_TRANSFORM,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_control_rig_copy_vector_parameter_curves_to_transform,
                 __buffer,
             )
         };
@@ -9856,7 +10248,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE_ALL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_compensate_all,
                 __buffer,
             )
         };
@@ -9875,7 +10268,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE_ALL,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_compensate_all,
                 __buffer,
             )
         };
@@ -9893,7 +10287,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_compensate,
                 __buffer,
             )
         };
@@ -9928,7 +10323,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COMPENSATE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_compensate,
                 __buffer,
             )
         };
@@ -9948,7 +10344,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS_WITH_SETTINGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers_with_settings,
                 __buffer,
             )
         };
@@ -9991,7 +10388,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS_WITH_SETTINGS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers_with_settings,
                 __buffer,
             )
         };
@@ -10012,7 +10410,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers,
                 __buffer,
             )
         };
@@ -10054,7 +10453,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_COLLAPSE_CONTROL_RIG_ANIM_LAYERS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_collapse_control_rig_anim_layers,
                 __buffer,
             )
         };
@@ -10072,7 +10472,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BLEND_VALUES_ON_SELECTED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_blend_values_on_selected,
                 __buffer,
             )
         };
@@ -10105,7 +10506,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BLEND_VALUES_ON_SELECTED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_blend_values_on_selected,
                 __buffer,
             )
         };
@@ -10128,7 +10530,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_TO_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_to_control_rig,
                 __buffer,
             )
         };
@@ -10198,7 +10601,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_TO_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_to_control_rig,
                 __buffer,
             )
         };
@@ -10218,7 +10622,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_control_rig_space,
                 __buffer,
             )
         };
@@ -10269,7 +10674,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONTROL_RIG_SPACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_control_rig_space,
                 __buffer,
             )
         };
@@ -10289,7 +10695,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_constraints,
                 __buffer,
             )
         };
@@ -10328,7 +10735,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINTS,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_constraints,
                 __buffer,
             )
         };
@@ -10355,7 +10763,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_constraint,
                 __buffer,
             )
         };
@@ -10399,7 +10808,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_BAKE_CONSTRAINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_bake_constraint,
                 __buffer,
             )
         };
@@ -10419,7 +10829,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_CONSTRAINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_add_constraint,
                 __buffer,
             )
         };
@@ -10470,7 +10881,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_CONSTRAINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_add_constraint,
                 __buffer,
             )
         };
@@ -10489,7 +10901,8 @@ impl UControlRigSequencerEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_ANIM_LAYER_FROM_SELECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_add_anim_layer_from_selection,
                 __buffer,
             )
         };
@@ -10499,7 +10912,8 @@ impl UControlRigSequencerEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_SEQUENCER_EDITOR_LIBRARY_ADD_ANIM_LAYER_FROM_SELECTION,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_sequencer_editor_library_add_anim_layer_from_selection,
                 __buffer,
             )
         };
@@ -10597,7 +11011,8 @@ impl UControlRigContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_IS_ALT_DOWN,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_is_alt_down,
                 __buffer,
             )
         };
@@ -10607,7 +11022,8 @@ impl UControlRigContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_IS_ALT_DOWN,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_is_alt_down,
                 __buffer,
             )
         };
@@ -10623,7 +11039,8 @@ impl UControlRigContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_TO_GRAPH_DRAG_AND_DROP_CONTEXT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_rig_hierarchy_to_graph_drag_and_drop_context,
                 __buffer,
             )
         };
@@ -10633,7 +11050,8 @@ impl UControlRigContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_TO_GRAPH_DRAG_AND_DROP_CONTEXT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_rig_hierarchy_to_graph_drag_and_drop_context,
                 __buffer,
             )
         };
@@ -10654,7 +11072,8 @@ impl UControlRigContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_DRAG_AND_DROP_CONTEXT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_rig_hierarchy_drag_and_drop_context,
                 __buffer,
             )
         };
@@ -10664,7 +11083,8 @@ impl UControlRigContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_RIG_HIERARCHY_DRAG_AND_DROP_CONTEXT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_rig_hierarchy_drag_and_drop_context,
                 __buffer,
             )
         };
@@ -10682,7 +11102,8 @@ impl UControlRigContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_GRAPH_NODE_CONTEXT_MENU_CONTEXT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_graph_node_context_menu_context,
                 __buffer,
             )
         };
@@ -10692,7 +11113,8 @@ impl UControlRigContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_GRAPH_NODE_CONTEXT_MENU_CONTEXT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_graph_node_context_menu_context,
                 __buffer,
             )
         };
@@ -10710,7 +11132,8 @@ impl UControlRigContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_BLUEPRINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig_blueprint,
                 __buffer,
             )
         };
@@ -10720,7 +11143,8 @@ impl UControlRigContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_BLUEPRINT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig_blueprint,
                 __buffer,
             )
         };
@@ -10745,7 +11169,8 @@ impl UControlRigContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_ASSET_INTERFACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig_asset_interface,
                 __buffer,
             )
         };
@@ -10755,7 +11180,8 @@ impl UControlRigContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG_ASSET_INTERFACE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig_asset_interface,
                 __buffer,
             )
         };
@@ -10778,7 +11204,8 @@ impl UControlRigContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig,
                 __buffer,
             )
         };
@@ -10788,7 +11215,8 @@ impl UControlRigContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_CONTROL_RIG_CONTEXT_MENU_CONTEXT_GET_CONTROL_RIG,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_control_rig_context_menu_context_get_control_rig,
                 __buffer,
             )
         };
@@ -11019,7 +11447,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_WEIGHT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_weight,
                 __buffer,
             )
         };
@@ -11032,7 +11461,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_WEIGHT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_weight,
                 __buffer,
             )
         };
@@ -11045,7 +11475,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_TYPE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_type,
                 __buffer,
             )
         };
@@ -11062,7 +11493,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_TYPE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_type,
                 __buffer,
             )
         };
@@ -11075,7 +11507,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_SELECTED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_selected,
                 __buffer,
             )
         };
@@ -11099,7 +11532,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_SELECTED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_selected,
                 __buffer,
             )
         };
@@ -11112,7 +11546,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_NAME,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_name,
                 __buffer,
             )
         };
@@ -11125,7 +11560,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_NAME,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_name,
                 __buffer,
             )
         };
@@ -11138,7 +11574,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_LOCK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_lock,
                 __buffer,
             )
         };
@@ -11151,7 +11588,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_LOCK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_lock,
                 __buffer,
             )
         };
@@ -11164,7 +11602,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_KEYED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_keyed,
                 __buffer,
             )
         };
@@ -11174,7 +11613,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_KEYED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_keyed,
                 __buffer,
             )
         };
@@ -11187,7 +11627,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_ACTIVE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_active,
                 __buffer,
             )
         };
@@ -11204,7 +11645,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_SET_ACTIVE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_set_active,
                 __buffer,
             )
         };
@@ -11217,7 +11659,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_REMOVE_SELECTED_IN_SEQUENCER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_remove_selected_in_sequencer,
                 __buffer,
             )
         };
@@ -11227,7 +11670,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_REMOVE_SELECTED_IN_SEQUENCER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_remove_selected_in_sequencer,
                 __buffer,
             )
         };
@@ -11241,7 +11685,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_WEIGHT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_weight,
                 __buffer,
             )
         };
@@ -11251,7 +11696,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_WEIGHT,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_weight,
                 __buffer,
             )
         };
@@ -11265,7 +11711,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_TYPE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_type,
                 __buffer,
             )
         };
@@ -11275,7 +11722,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_TYPE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_type,
                 __buffer,
             )
         };
@@ -11289,7 +11737,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_SELECTED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_selected,
                 __buffer,
             )
         };
@@ -11299,7 +11748,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_SELECTED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_selected,
                 __buffer,
             )
         };
@@ -11315,7 +11765,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_NAME,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_name,
                 __buffer,
             )
         };
@@ -11325,7 +11776,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_NAME,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_name,
                 __buffer,
             )
         };
@@ -11339,7 +11791,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_LOCK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_lock,
                 __buffer,
             )
         };
@@ -11349,7 +11802,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_LOCK,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_lock,
                 __buffer,
             )
         };
@@ -11363,7 +11817,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_KEYED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_keyed,
                 __buffer,
             )
         };
@@ -11373,7 +11828,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_KEYED,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_keyed,
                 __buffer,
             )
         };
@@ -11389,7 +11845,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_ACTIVE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_active,
                 __buffer,
             )
         };
@@ -11399,7 +11856,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_GET_ACTIVE,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_get_active,
                 __buffer,
             )
         };
@@ -11413,7 +11871,8 @@ impl UAnimLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_ADD_SELECTED_IN_SEQUENCER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_add_selected_in_sequencer,
                 __buffer,
             )
         };
@@ -11423,7 +11882,8 @@ impl UAnimLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_editor::U_ANIM_LAYER_ADD_SELECTED_IN_SEQUENCER,
+                crate::bindings::control_rig_editor::__FUNCTION_PTRS
+                    .u_anim_layer_add_selected_in_sequencer,
                 __buffer,
             )
         };

@@ -1,138 +1,147 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_UPDATE_NANITE_SOURCE_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_NANITE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_SCREEN_SIZES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_REDUCTION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_MATERIAL_SLOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_FROM_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_GENERATE_LIGHTMAP_U_VS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_ALLOW_CPU_ACCESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_LODS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_MERGE_STATIC_MESH_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_JOIN_STATIC_MESH_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_VISIBLE_IN_RAY_TRACING_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_FORCE_OPAQUE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_COLLISION_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_CAST_SHADOW_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_INSERT_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_NANITE_HI_RES_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_VERTEX_COLORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_INSTANCE_VERTEX_COLORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_SIMPLE_COLLISION_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUM_UV_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_VERTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SOURCE_FILENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_SCREEN_SIZES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_REDUCTION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_CONVEX_COLLISION_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_COLLISION_COMPLEXITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_PLANAR_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_CYLINDRICAL_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_BOX_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_VISIBLE_IN_RAY_TRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_FORCE_OPAQUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_CAST_SHADOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_CREATE_PROXY_MESH_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_static_mesh_editor_subsystem_update_nanite_source_filename: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_nanite_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lods_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lod_screen_sizes: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lods: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lod_reduction_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lod_material_slot: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lod_group: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lod_from_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_generate_lightmap_u_vs: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_convex_decomposition_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_convex_decomposition_collisions: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_set_allow_cpu_access: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_replace_mesh_components_meshes_on_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_replace_mesh_components_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_replace_mesh_components_materials_on_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_replace_mesh_components_materials: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_remove_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_remove_lods: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_remove_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_remove_collisions: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_reimport_all_custom_lo_ds: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_merge_static_mesh_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_join_static_mesh_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_is_section_visible_in_ray_tracing_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_is_section_force_opaque_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_is_section_collision_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_is_section_cast_shadow_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_is_section_affect_distance_field_lighting_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_insert_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_import_nanite_hi_res_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_import_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_has_vertex_colors: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_has_instance_vertex_colors: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_simple_collision_count: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_num_uv_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_number_verts: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_number_materials: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_nanite_source_filename: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_nanite_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_lod_screen_sizes: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_lod_reduction_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_lod_material_slot: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_lod_group: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_lod_count: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_convex_collision_count: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_get_collision_complexity: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_generate_planar_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_generate_cylindrical_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_generate_box_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_enable_section_visible_in_ray_tracing: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_enable_section_force_opaque: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_enable_section_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_enable_section_cast_shadow: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_enable_section_affect_distance_field_lighting: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_create_proxy_mesh_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_add_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_add_simple_collisions_with_notification: *mut crate::ffi::UFunctionOpague,
+    pub u_static_mesh_editor_subsystem_add_simple_collisions: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_static_mesh_editor_subsystem_update_nanite_source_filename: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_nanite_settings: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lods_with_notification: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lod_screen_sizes: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lods: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lod_reduction_settings: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lod_material_slot: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lod_group: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lod_from_static_mesh: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_lod_build_settings: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_generate_lightmap_u_vs: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_convex_decomposition_collisions_with_notification: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_convex_decomposition_collisions: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_set_allow_cpu_access: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_replace_mesh_components_meshes_on_actors: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_replace_mesh_components_meshes: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_replace_mesh_components_materials_on_actors: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_replace_mesh_components_materials: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_remove_uv_channel: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_remove_lods: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_remove_collisions_with_notification: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_remove_collisions: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_reimport_all_custom_lo_ds: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_merge_static_mesh_actors: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_join_static_mesh_actors: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_is_section_visible_in_ray_tracing_enabled: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_is_section_force_opaque_enabled: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_is_section_collision_enabled: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_is_section_cast_shadow_enabled: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_is_section_affect_distance_field_lighting_enabled: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_insert_uv_channel: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_import_nanite_hi_res_mesh: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_import_lod: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_has_vertex_colors: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_has_instance_vertex_colors: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_simple_collision_count: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_num_uv_channels: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_number_verts: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_number_materials: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_nanite_source_filename: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_nanite_settings: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_lod_screen_sizes: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_lod_reduction_settings: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_lod_material_slot: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_lod_group: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_lod_count: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_lod_build_settings: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_convex_collision_count: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_get_collision_complexity: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_generate_planar_uv_channel: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_generate_cylindrical_uv_channel: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_generate_box_uv_channel: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_enable_section_visible_in_ray_tracing: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_enable_section_force_opaque: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_enable_section_collision: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_enable_section_cast_shadow: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_enable_section_affect_distance_field_lighting: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_create_proxy_mesh_actor: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions_with_notification: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_add_uv_channel: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_add_simple_collisions_with_notification: std::ptr::null_mut(),
+            u_static_mesh_editor_subsystem_add_simple_collisions: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -142,77 +151,83 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateNaniteSourceFilename"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_UPDATE_NANITE_SOURCE_FILENAME,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_update_nanite_source_filename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNaniteSettings"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_NANITE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_nanite_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodsWithNotification"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_set_lods_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodScreenSizes"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_SCREEN_SIZES,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lod_screen_sizes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLods"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lods,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodReductionSettings"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_REDUCTION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_set_lod_reduction_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLODMaterialSlot"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_MATERIAL_SLOT,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lod_material_slot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLODGroup"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_GROUP,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_lod_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodFromStaticMesh"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_FROM_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_set_lod_from_static_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_set_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGenerateLightmapUVs"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_GENERATE_LIGHTMAP_U_VS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_set_generate_lightmap_u_vs,
         );
         (bindings
             .core_fns
@@ -221,329 +236,361 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "SetConvexDecompositionCollisionsWithNotification",
             ),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConvexDecompositionCollisions"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllowCPUAccess"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_ALLOW_CPU_ACCESS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_set_allow_cpu_access,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshesOnActors"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_replace_mesh_components_meshes_on_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMeshes"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_replace_mesh_components_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterialsOnActors"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_replace_mesh_components_materials_on_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceMeshComponentsMaterials"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_replace_mesh_components_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveUVChannel"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLods"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_LODS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_lods,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCollisionsWithNotification"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_remove_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCollisions"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_remove_collisions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_reimport_all_custom_lo_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MergeStaticMeshActors"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_MERGE_STATIC_MESH_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_merge_static_mesh_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("JoinStaticMeshActors"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_JOIN_STATIC_MESH_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_join_static_mesh_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSectionVisibleInRayTracingEnabled"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_VISIBLE_IN_RAY_TRACING_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_is_section_visible_in_ray_tracing_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSectionForceOpaqueEnabled"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_FORCE_OPAQUE_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_is_section_force_opaque_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSectionCollisionEnabled"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_COLLISION_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_is_section_collision_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSectionCastShadowEnabled"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_CAST_SHADOW_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_is_section_cast_shadow_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSectionAffectDistanceFieldLightingEnabled"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_is_section_affect_distance_field_lighting_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InsertUVChannel"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_INSERT_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_insert_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportNaniteHiResMesh"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_NANITE_HI_RES_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_import_nanite_hi_res_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_import_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasVertexColors"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_VERTEX_COLORS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_has_vertex_colors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasInstanceVertexColors"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_INSTANCE_VERTEX_COLORS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_has_instance_vertex_colors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSimpleCollisionCount"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_SIMPLE_COLLISION_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_get_simple_collision_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumUVChannels"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUM_UV_CHANNELS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_num_uv_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberVerts"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_VERTS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_number_verts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberMaterials"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_MATERIALS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_number_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNaniteSourceFilename"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SOURCE_FILENAME,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_get_nanite_source_filename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNaniteSettings"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_nanite_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodScreenSizes"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_SCREEN_SIZES,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_screen_sizes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodReductionSettings"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_REDUCTION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_get_lod_reduction_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLODMaterialSlot"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_material_slot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLODGroup"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_GROUP,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodCount"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_get_lod_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_get_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConvexCollisionCount"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_CONVEX_COLLISION_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_get_convex_collision_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollisionComplexity"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_COLLISION_COMPLEXITY,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_get_collision_complexity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GeneratePlanarUVChannel"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_PLANAR_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_generate_planar_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateCylindricalUVChannel"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_CYLINDRICAL_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_generate_cylindrical_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateBoxUVChannel"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_BOX_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_generate_box_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableSectionVisibleInRayTracing"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_VISIBLE_IN_RAY_TRACING,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_enable_section_visible_in_ray_tracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableSectionForceOpaque"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_FORCE_OPAQUE,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_enable_section_force_opaque,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableSectionCollision"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_COLLISION,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_enable_section_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableSectionCastShadow"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_CAST_SHADOW,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_enable_section_cast_shadow,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableSectionAffectDistanceFieldLighting"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_enable_section_affect_distance_field_lighting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyMeshActor"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_CREATE_PROXY_MESH_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_create_proxy_mesh_actor,
         );
         (bindings
             .core_fns
@@ -552,35 +599,38 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "BulkSetConvexDecompositionCollisionsWithNotification",
             ),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BulkSetConvexDecompositionCollisions"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddUVChannel"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_add_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSimpleCollisionsWithNotification"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION,
+            &raw mut __FUNCTION_PTRS
+                .u_static_mesh_editor_subsystem_add_simple_collisions_with_notification,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSimpleCollisions"),
-            &raw mut U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS,
+            &raw mut __FUNCTION_PTRS.u_static_mesh_editor_subsystem_add_simple_collisions,
         );
     }
 }
@@ -674,7 +724,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_UPDATE_NANITE_SOURCE_FILENAME,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_update_nanite_source_filename,
                 __buffer,
             )
         };
@@ -698,7 +749,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_UPDATE_NANITE_SOURCE_FILENAME,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_update_nanite_source_filename,
                 __buffer,
             )
         };
@@ -717,7 +769,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_NANITE_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_nanite_settings,
                 __buffer,
             )
         };
@@ -748,7 +801,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_NANITE_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_nanite_settings,
                 __buffer,
             )
         };
@@ -766,7 +820,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lods_with_notification,
                 __buffer,
             )
         };
@@ -797,7 +852,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lods_with_notification,
                 __buffer,
             )
         };
@@ -815,7 +871,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_SCREEN_SIZES,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_screen_sizes,
                 __buffer,
             )
         };
@@ -839,7 +896,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_SCREEN_SIZES,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_screen_sizes,
                 __buffer,
             )
         };
@@ -857,7 +915,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lods,
                 __buffer,
             )
         };
@@ -881,7 +940,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LODS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lods,
                 __buffer,
             )
         };
@@ -900,7 +960,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -929,7 +990,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -948,7 +1010,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_MATERIAL_SLOT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_material_slot,
                 __buffer,
             )
         };
@@ -982,7 +1045,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_MATERIAL_SLOT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_material_slot,
                 __buffer,
             )
         };
@@ -1000,7 +1064,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_GROUP,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_group,
                 __buffer,
             )
         };
@@ -1031,7 +1096,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_GROUP,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_group,
                 __buffer,
             )
         };
@@ -1052,7 +1118,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_FROM_STATIC_MESH,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_from_static_mesh,
                 __buffer,
             )
         };
@@ -1097,7 +1164,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_FROM_STATIC_MESH,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_from_static_mesh,
                 __buffer,
             )
         };
@@ -1116,7 +1184,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -1143,7 +1212,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -1160,7 +1230,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_GENERATE_LIGHTMAP_U_VS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_generate_lightmap_u_vs,
                 __buffer,
             )
         };
@@ -1184,7 +1255,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_GENERATE_LIGHTMAP_U_VS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_generate_lightmap_u_vs,
                 __buffer,
             )
         };
@@ -1205,7 +1277,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -1246,7 +1319,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -1266,7 +1340,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -1300,7 +1375,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -1318,7 +1394,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_ALLOW_CPU_ACCESS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_allow_cpu_access,
                 __buffer,
             )
         };
@@ -1342,7 +1419,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_SET_ALLOW_CPU_ACCESS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_set_allow_cpu_access,
                 __buffer,
             )
         };
@@ -1360,7 +1438,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_meshes_on_actors,
                 __buffer,
             )
         };
@@ -1391,7 +1470,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES_ON_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_meshes_on_actors,
                 __buffer,
             )
         };
@@ -1409,7 +1489,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_meshes,
                 __buffer,
             )
         };
@@ -1444,7 +1525,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MESHES,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_meshes,
                 __buffer,
             )
         };
@@ -1462,7 +1544,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_materials_on_actors,
                 __buffer,
             )
         };
@@ -1497,7 +1580,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS_ON_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_materials_on_actors,
                 __buffer,
             )
         };
@@ -1515,7 +1599,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_materials,
                 __buffer,
             )
         };
@@ -1552,7 +1637,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REPLACE_MESH_COMPONENTS_MATERIALS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_replace_mesh_components_materials,
                 __buffer,
             )
         };
@@ -1570,7 +1656,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_uv_channel,
                 __buffer,
             )
         };
@@ -1597,7 +1684,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_uv_channel,
                 __buffer,
             )
         };
@@ -1614,7 +1702,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_LODS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_lods,
                 __buffer,
             )
         };
@@ -1631,7 +1720,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_LODS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_lods,
                 __buffer,
             )
         };
@@ -1649,7 +1739,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_collisions_with_notification,
                 __buffer,
             )
         };
@@ -1673,7 +1764,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_collisions_with_notification,
                 __buffer,
             )
         };
@@ -1690,7 +1782,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_collisions,
                 __buffer,
             )
         };
@@ -1707,7 +1800,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REMOVE_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_remove_collisions,
                 __buffer,
             )
         };
@@ -1724,7 +1818,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -1741,7 +1836,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -1760,7 +1856,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_MERGE_STATIC_MESH_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_merge_static_mesh_actors,
                 __buffer,
             )
         };
@@ -1795,7 +1892,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_MERGE_STATIC_MESH_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_merge_static_mesh_actors,
                 __buffer,
             )
         };
@@ -1819,7 +1917,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_JOIN_STATIC_MESH_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_join_static_mesh_actors,
                 __buffer,
             )
         };
@@ -1845,7 +1944,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_JOIN_STATIC_MESH_ACTORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_join_static_mesh_actors,
                 __buffer,
             )
         };
@@ -1866,7 +1966,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_VISIBLE_IN_RAY_TRACING_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_visible_in_ray_tracing_enabled,
                 __buffer,
             )
         };
@@ -1893,7 +1994,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_VISIBLE_IN_RAY_TRACING_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_visible_in_ray_tracing_enabled,
                 __buffer,
             )
         };
@@ -1912,7 +2014,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_FORCE_OPAQUE_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_force_opaque_enabled,
                 __buffer,
             )
         };
@@ -1939,7 +2042,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_FORCE_OPAQUE_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_force_opaque_enabled,
                 __buffer,
             )
         };
@@ -1958,7 +2062,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_COLLISION_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_collision_enabled,
                 __buffer,
             )
         };
@@ -1985,7 +2090,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_COLLISION_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_collision_enabled,
                 __buffer,
             )
         };
@@ -2004,7 +2110,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_CAST_SHADOW_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_cast_shadow_enabled,
                 __buffer,
             )
         };
@@ -2031,7 +2138,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_CAST_SHADOW_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_cast_shadow_enabled,
                 __buffer,
             )
         };
@@ -2050,7 +2158,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_affect_distance_field_lighting_enabled,
                 __buffer,
             )
         };
@@ -2077,7 +2186,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IS_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING_ENABLED,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_is_section_affect_distance_field_lighting_enabled,
                 __buffer,
             )
         };
@@ -2096,7 +2206,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_INSERT_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_insert_uv_channel,
                 __buffer,
             )
         };
@@ -2123,7 +2234,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_INSERT_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_insert_uv_channel,
                 __buffer,
             )
         };
@@ -2142,7 +2254,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_NANITE_HI_RES_MESH,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_import_nanite_hi_res_mesh,
                 __buffer,
             )
         };
@@ -2173,7 +2286,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_NANITE_HI_RES_MESH,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_import_nanite_hi_res_mesh,
                 __buffer,
             )
         };
@@ -2192,7 +2306,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_import_lod,
                 __buffer,
             )
         };
@@ -2219,7 +2334,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_import_lod,
                 __buffer,
             )
         };
@@ -2236,7 +2352,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_VERTEX_COLORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_has_vertex_colors,
                 __buffer,
             )
         };
@@ -2253,7 +2370,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_VERTEX_COLORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_has_vertex_colors,
                 __buffer,
             )
         };
@@ -2270,7 +2388,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_INSTANCE_VERTEX_COLORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_has_instance_vertex_colors,
                 __buffer,
             )
         };
@@ -2289,7 +2408,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_HAS_INSTANCE_VERTEX_COLORS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_has_instance_vertex_colors,
                 __buffer,
             )
         };
@@ -2306,7 +2426,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_SIMPLE_COLLISION_COUNT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_simple_collision_count,
                 __buffer,
             )
         };
@@ -2323,7 +2444,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_SIMPLE_COLLISION_COUNT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_simple_collision_count,
                 __buffer,
             )
         };
@@ -2341,7 +2463,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUM_UV_CHANNELS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_num_uv_channels,
                 __buffer,
             )
         };
@@ -2361,7 +2484,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUM_UV_CHANNELS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_num_uv_channels,
                 __buffer,
             )
         };
@@ -2379,7 +2503,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_VERTS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_number_verts,
                 __buffer,
             )
         };
@@ -2399,7 +2524,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_VERTS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_number_verts,
                 __buffer,
             )
         };
@@ -2416,7 +2542,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_MATERIALS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_number_materials,
                 __buffer,
             )
         };
@@ -2433,7 +2560,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NUMBER_MATERIALS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_number_materials,
                 __buffer,
             )
         };
@@ -2450,7 +2578,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SOURCE_FILENAME,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_nanite_source_filename,
                 __buffer,
             )
         };
@@ -2467,7 +2596,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SOURCE_FILENAME,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_nanite_source_filename,
                 __buffer,
             )
         };
@@ -2484,7 +2614,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_nanite_settings,
                 __buffer,
             )
         };
@@ -2501,7 +2632,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_NANITE_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_nanite_settings,
                 __buffer,
             )
         };
@@ -2520,7 +2652,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_SCREEN_SIZES,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_screen_sizes,
                 __buffer,
             )
         };
@@ -2537,7 +2670,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_SCREEN_SIZES,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_screen_sizes,
                 __buffer,
             )
         };
@@ -2556,7 +2690,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -2585,7 +2720,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_REDUCTION_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_reduction_settings,
                 __buffer,
             )
         };
@@ -2609,7 +2745,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_material_slot,
                 __buffer,
             )
         };
@@ -2636,7 +2773,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_material_slot,
                 __buffer,
             )
         };
@@ -2653,7 +2791,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_GROUP,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_group,
                 __buffer,
             )
         };
@@ -2670,7 +2809,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_GROUP,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_group,
                 __buffer,
             )
         };
@@ -2687,7 +2827,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_count,
                 __buffer,
             )
         };
@@ -2704,7 +2845,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_count,
                 __buffer,
             )
         };
@@ -2723,7 +2865,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -2750,7 +2893,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -2772,7 +2916,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_CONVEX_COLLISION_COUNT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_convex_collision_count,
                 __buffer,
             )
         };
@@ -2789,7 +2934,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_CONVEX_COLLISION_COUNT,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_convex_collision_count,
                 __buffer,
             )
         };
@@ -2806,7 +2952,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_COLLISION_COMPLEXITY,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_collision_complexity,
                 __buffer,
             )
         };
@@ -2823,7 +2970,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GET_COLLISION_COMPLEXITY,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_get_collision_complexity,
                 __buffer,
             )
         };
@@ -2850,7 +2998,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_PLANAR_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_planar_uv_channel,
                 __buffer,
             )
         };
@@ -2898,7 +3047,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_PLANAR_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_planar_uv_channel,
                 __buffer,
             )
         };
@@ -2920,7 +3070,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_CYLINDRICAL_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_cylindrical_uv_channel,
                 __buffer,
             )
         };
@@ -2968,7 +3119,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_CYLINDRICAL_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_cylindrical_uv_channel,
                 __buffer,
             )
         };
@@ -2990,7 +3142,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_BOX_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_box_uv_channel,
                 __buffer,
             )
         };
@@ -3038,7 +3191,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_GENERATE_BOX_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_generate_box_uv_channel,
                 __buffer,
             )
         };
@@ -3058,7 +3212,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_VISIBLE_IN_RAY_TRACING,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_visible_in_ray_tracing,
                 __buffer,
             )
         };
@@ -3092,7 +3247,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_VISIBLE_IN_RAY_TRACING,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_visible_in_ray_tracing,
                 __buffer,
             )
         };
@@ -3111,7 +3267,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_FORCE_OPAQUE,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_force_opaque,
                 __buffer,
             )
         };
@@ -3145,7 +3302,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_FORCE_OPAQUE,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_force_opaque,
                 __buffer,
             )
         };
@@ -3164,7 +3322,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_COLLISION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_collision,
                 __buffer,
             )
         };
@@ -3198,7 +3357,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_COLLISION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_collision,
                 __buffer,
             )
         };
@@ -3217,7 +3377,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_CAST_SHADOW,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_cast_shadow,
                 __buffer,
             )
         };
@@ -3251,7 +3412,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_CAST_SHADOW,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_cast_shadow,
                 __buffer,
             )
         };
@@ -3270,7 +3432,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_affect_distance_field_lighting,
                 __buffer,
             )
         };
@@ -3304,7 +3467,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ENABLE_SECTION_AFFECT_DISTANCE_FIELD_LIGHTING,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_enable_section_affect_distance_field_lighting,
                 __buffer,
             )
         };
@@ -3322,7 +3486,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_CREATE_PROXY_MESH_ACTOR,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_create_proxy_mesh_actor,
                 __buffer,
             )
         };
@@ -3357,7 +3522,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_CREATE_PROXY_MESH_ACTOR,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_create_proxy_mesh_actor,
                 __buffer,
             )
         };
@@ -3384,7 +3550,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -3431,7 +3598,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions_with_notification,
                 __buffer,
             )
         };
@@ -3451,7 +3619,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -3491,7 +3660,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_BULK_SET_CONVEX_DECOMPOSITION_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_bulk_set_convex_decomposition_collisions,
                 __buffer,
             )
         };
@@ -3509,7 +3679,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_uv_channel,
                 __buffer,
             )
         };
@@ -3529,7 +3700,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_UV_CHANNEL,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_uv_channel,
                 __buffer,
             )
         };
@@ -3548,7 +3720,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_simple_collisions_with_notification,
                 __buffer,
             )
         };
@@ -3579,7 +3752,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS_WITH_NOTIFICATION,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_simple_collisions_with_notification,
                 __buffer,
             )
         };
@@ -3597,7 +3771,8 @@ impl UStaticMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_simple_collisions,
                 __buffer,
             )
         };
@@ -3621,7 +3796,8 @@ impl UStaticMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::static_mesh_editor::U_STATIC_MESH_EDITOR_SUBSYSTEM_ADD_SIMPLE_COLLISIONS,
+                crate::bindings::static_mesh_editor::__FUNCTION_PTRS
+                    .u_static_mesh_editor_subsystem_add_simple_collisions,
                 __buffer,
             )
         };

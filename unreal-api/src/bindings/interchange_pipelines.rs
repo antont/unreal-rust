@@ -1,54 +1,63 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_INTERCHANGE_GENERIC_AUDIO_PIPELINE_CREATE_SOUND_WAVE_FACTORY_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GENERIC_MESH_PIPELINE_SET_COMBINE_SKELETAL_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_GENERIC_MESH_PIPELINE_GET_COMBINE_SKELETAL_MESHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_SET_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_INSTANCE_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_GEOMETRY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_SKELETON_ROOT_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_BY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_SKELETON_ROOT_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_BY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_GEOMETRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_GEOMETRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS_USING_MESH_GEOMETRY_UID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY_NOT_INSTANCED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_GEOMETRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_CREATE_INTERCHANGE_PIPELINE_MESHES_UTILITIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_interchange_generic_audio_pipeline_create_sound_wave_factory_node: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_generic_mesh_pipeline_set_combine_skeletal_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_generic_mesh_pipeline_get_combine_skeletal_meshes: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_set_context: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_is_valid_mesh_instance_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_is_valid_mesh_geometry_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_mesh_instance_skeleton_root_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_mesh_instance_by_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_mesh_geometry_skeleton_root_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_mesh_geometry_by_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_static_mesh_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_static_mesh_geometry: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_geometry: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids_using_mesh_geometry_uid: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry_not_instanced: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_geometry: *mut crate::ffi::UFunctionOpague,
+    pub u_interchange_pipeline_meshes_utilities_create_interchange_pipeline_meshes_utilities: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_interchange_generic_audio_pipeline_create_sound_wave_factory_node: std::ptr::null_mut(),
+            u_interchange_generic_mesh_pipeline_set_combine_skeletal_meshes: std::ptr::null_mut(),
+            u_interchange_generic_mesh_pipeline_get_combine_skeletal_meshes: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_set_context: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_is_valid_mesh_instance_uid: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_is_valid_mesh_geometry_uid: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_mesh_instance_skeleton_root_uid: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_mesh_instance_by_uid: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_mesh_geometry_skeleton_root_uid: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_mesh_geometry_by_uid: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_static_mesh_instance: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_static_mesh_geometry: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_instance: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_geometry: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids_using_mesh_geometry_uid: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry_not_instanced: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_instance: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_geometry: std::ptr::null_mut(),
+            u_interchange_pipeline_meshes_utilities_create_interchange_pipeline_meshes_utilities: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -58,7 +67,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateSoundWaveFactoryNode"),
-            &raw mut U_INTERCHANGE_GENERIC_AUDIO_PIPELINE_CREATE_SOUND_WAVE_FACTORY_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_generic_audio_pipeline_create_sound_wave_factory_node,
         );
     }
     unsafe {
@@ -69,14 +79,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCombineSkeletalMeshes"),
-            &raw mut U_INTERCHANGE_GENERIC_MESH_PIPELINE_SET_COMBINE_SKELETAL_MESHES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_generic_mesh_pipeline_set_combine_skeletal_meshes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCombineSkeletalMeshes"),
-            &raw mut U_INTERCHANGE_GENERIC_MESH_PIPELINE_GET_COMBINE_SKELETAL_MESHES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_generic_mesh_pipeline_get_combine_skeletal_meshes,
         );
     }
     unsafe {
@@ -87,126 +99,143 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetContext"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_SET_CONTEXT,
+            &raw mut __FUNCTION_PTRS.u_interchange_pipeline_meshes_utilities_set_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidMeshInstanceUid"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_INSTANCE_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_is_valid_mesh_instance_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidMeshGeometryUid"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_GEOMETRY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_is_valid_mesh_geometry_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeshInstanceSkeletonRootUid"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_SKELETON_ROOT_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_mesh_instance_skeleton_root_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeshInstanceByUid"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_BY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_mesh_instance_by_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeshGeometrySkeletonRootUid"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_SKELETON_ROOT_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_skeleton_root_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMeshGeometryByUid"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_BY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_by_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllStaticMeshInstance"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllStaticMeshGeometry"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_GEOMETRY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_geometry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllSkinnedMeshInstance"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllSkinnedMeshGeometry"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_GEOMETRY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_geometry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllMeshInstanceUidsUsingMeshGeometryUid"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS_USING_MESH_GEOMETRY_UID,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids_using_mesh_geometry_uid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllMeshInstanceUids"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllMeshGeometryNotInstanced"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY_NOT_INSTANCED,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry_not_instanced,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllMeshGeometry"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllGeometryCacheInstance"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllGeometryCacheGeometry"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_GEOMETRY,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_geometry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateInterchangePipelineMeshesUtilities"),
-            &raw mut U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_CREATE_INTERCHANGE_PIPELINE_MESHES_UTILITIES,
+            &raw mut __FUNCTION_PTRS
+                .u_interchange_pipeline_meshes_utilities_create_interchange_pipeline_meshes_utilities,
         );
     }
 }
@@ -423,7 +452,8 @@ impl UInterchangeGenericAudioPipeline {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_AUDIO_PIPELINE_CREATE_SOUND_WAVE_FACTORY_NODE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_generic_audio_pipeline_create_sound_wave_factory_node,
                 __buffer,
             )
         };
@@ -446,7 +476,8 @@ impl UInterchangeGenericAudioPipeline {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_AUDIO_PIPELINE_CREATE_SOUND_WAVE_FACTORY_NODE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_generic_audio_pipeline_create_sound_wave_factory_node,
                 __buffer,
             )
         };
@@ -614,7 +645,8 @@ impl UInterchangeGenericMeshPipeline {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_SET_COMBINE_SKELETAL_MESHES,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_generic_mesh_pipeline_set_combine_skeletal_meshes,
                 __buffer,
             )
         };
@@ -631,7 +663,8 @@ impl UInterchangeGenericMeshPipeline {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_SET_COMBINE_SKELETAL_MESHES,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_generic_mesh_pipeline_set_combine_skeletal_meshes,
                 __buffer,
             )
         };
@@ -644,7 +677,8 @@ impl UInterchangeGenericMeshPipeline {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_GET_COMBINE_SKELETAL_MESHES,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_generic_mesh_pipeline_get_combine_skeletal_meshes,
                 __buffer,
             )
         };
@@ -654,7 +688,8 @@ impl UInterchangeGenericMeshPipeline {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_GENERIC_MESH_PIPELINE_GET_COMBINE_SKELETAL_MESHES,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_generic_mesh_pipeline_get_combine_skeletal_meshes,
                 __buffer,
             )
         };
@@ -840,7 +875,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_SET_CONTEXT,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_set_context,
                 __buffer,
             )
         };
@@ -857,7 +893,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_SET_CONTEXT,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_set_context,
                 __buffer,
             )
         };
@@ -870,7 +907,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_INSTANCE_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_is_valid_mesh_instance_uid,
                 __buffer,
             )
         };
@@ -887,7 +925,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_INSTANCE_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_is_valid_mesh_instance_uid,
                 __buffer,
             )
         };
@@ -901,7 +940,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_GEOMETRY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_is_valid_mesh_geometry_uid,
                 __buffer,
             )
         };
@@ -918,7 +958,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_IS_VALID_MESH_GEOMETRY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_is_valid_mesh_geometry_uid,
                 __buffer,
             )
         };
@@ -935,7 +976,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_SKELETON_ROOT_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_instance_skeleton_root_uid,
                 __buffer,
             )
         };
@@ -952,7 +994,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_SKELETON_ROOT_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_instance_skeleton_root_uid,
                 __buffer,
             )
         };
@@ -969,7 +1012,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_BY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_instance_by_uid,
                 __buffer,
             )
         };
@@ -986,7 +1030,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_INSTANCE_BY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_instance_by_uid,
                 __buffer,
             )
         };
@@ -1003,7 +1048,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_SKELETON_ROOT_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_skeleton_root_uid,
                 __buffer,
             )
         };
@@ -1020,7 +1066,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_SKELETON_ROOT_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_skeleton_root_uid,
                 __buffer,
             )
         };
@@ -1037,7 +1084,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_BY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_by_uid,
                 __buffer,
             )
         };
@@ -1054,7 +1102,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_MESH_GEOMETRY_BY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_mesh_geometry_by_uid,
                 __buffer,
             )
         };
@@ -1071,7 +1120,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_INSTANCE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_instance,
                 __buffer,
             )
         };
@@ -1088,7 +1138,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_INSTANCE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_instance,
                 __buffer,
             )
         };
@@ -1107,7 +1158,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_geometry,
                 __buffer,
             )
         };
@@ -1124,7 +1176,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_STATIC_MESH_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_static_mesh_geometry,
                 __buffer,
             )
         };
@@ -1143,7 +1196,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_INSTANCE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_instance,
                 __buffer,
             )
         };
@@ -1160,7 +1214,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_INSTANCE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_instance,
                 __buffer,
             )
         };
@@ -1179,7 +1234,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_geometry,
                 __buffer,
             )
         };
@@ -1196,7 +1252,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_SKINNED_MESH_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_skinned_mesh_geometry,
                 __buffer,
             )
         };
@@ -1216,7 +1273,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS_USING_MESH_GEOMETRY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids_using_mesh_geometry_uid,
                 __buffer,
             )
         };
@@ -1240,7 +1298,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS_USING_MESH_GEOMETRY_UID,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids_using_mesh_geometry_uid,
                 __buffer,
             )
         };
@@ -1256,7 +1315,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids,
                 __buffer,
             )
         };
@@ -1273,7 +1333,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_INSTANCE_UIDS,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_instance_uids,
                 __buffer,
             )
         };
@@ -1292,7 +1353,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY_NOT_INSTANCED,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry_not_instanced,
                 __buffer,
             )
         };
@@ -1309,7 +1371,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY_NOT_INSTANCED,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry_not_instanced,
                 __buffer,
             )
         };
@@ -1325,7 +1388,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry,
                 __buffer,
             )
         };
@@ -1342,7 +1406,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_MESH_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_mesh_geometry,
                 __buffer,
             )
         };
@@ -1361,7 +1426,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_INSTANCE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_instance,
                 __buffer,
             )
         };
@@ -1378,7 +1444,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_INSTANCE,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_instance,
                 __buffer,
             )
         };
@@ -1397,7 +1464,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_geometry,
                 __buffer,
             )
         };
@@ -1414,7 +1482,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_GET_ALL_GEOMETRY_CACHE_GEOMETRY,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_get_all_geometry_cache_geometry,
                 __buffer,
             )
         };
@@ -1434,7 +1503,8 @@ impl UInterchangePipelineMeshesUtilities {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_CREATE_INTERCHANGE_PIPELINE_MESHES_UTILITIES,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_create_interchange_pipeline_meshes_utilities,
                 __buffer,
             )
         };
@@ -1457,7 +1527,8 @@ impl UInterchangePipelineMeshesUtilities {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::interchange_pipelines::U_INTERCHANGE_PIPELINE_MESHES_UTILITIES_CREATE_INTERCHANGE_PIPELINE_MESHES_UTILITIES,
+                crate::bindings::interchange_pipelines::__FUNCTION_PTRS
+                    .u_interchange_pipeline_meshes_utilities_create_interchange_pipeline_meshes_utilities,
                 __buffer,
             )
         };

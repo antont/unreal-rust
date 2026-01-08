@@ -1,68 +1,77 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_GIZMO_BASE_COMPONENT_UPDATE_WORLD_LOCAL_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_BASE_COMPONENT_UPDATE_HOVER_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_TRANSFORM_SOURCE_SET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_TRANSFORM_SOURCE_GET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_AXIS_SOURCE_HAS_TANGENT_VECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_AXIS_SOURCE_GET_TANGENT_VECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_AXIS_SOURCE_GET_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_AXIS_SOURCE_GET_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_TARGET_UPDATE_SUBDUE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_TARGET_UPDATE_SELECTED_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_TARGET_UPDATE_INTERACTING_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_TARGET_UPDATE_HOVER_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_SUBDUE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_SELECTED_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_INTERACTING_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_HOVER_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_HITTABLE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_RENDER_MULTI_TARGET_UPDATE_VISIBILITY_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_STATE_TARGET_END_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_STATE_TARGET_BEGIN_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_FLOAT_PARAMETER_SOURCE_SET_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_FLOAT_PARAMETER_SOURCE_GET_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_FLOAT_PARAMETER_SOURCE_END_MODIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_FLOAT_PARAMETER_SOURCE_BEGIN_MODIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_VEC2_PARAMETER_SOURCE_SET_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_VEC2_PARAMETER_SOURCE_GET_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_VEC2_PARAMETER_SOURCE_END_MODIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GIZMO_VEC2_PARAMETER_SOURCE_BEGIN_MODIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_gizmo_base_component_update_world_local_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_base_component_update_hover_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_transform_source_set_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_transform_source_get_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_axis_source_has_tangent_vectors: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_axis_source_get_tangent_vectors: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_axis_source_get_origin: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_axis_source_get_direction: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_target_update_subdue_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_target_update_selected_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_target_update_interacting_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_target_update_hover_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_multi_target_update_subdue_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_multi_target_update_selected_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_multi_target_update_interacting_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_multi_target_update_hover_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_click_multi_target_update_hittable_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_render_multi_target_update_visibility_state: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_state_target_end_update: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_state_target_begin_update: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_float_parameter_source_set_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_float_parameter_source_get_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_float_parameter_source_end_modify: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_float_parameter_source_begin_modify: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_vec2_parameter_source_set_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_vec2_parameter_source_get_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_vec2_parameter_source_end_modify: *mut crate::ffi::UFunctionOpague,
+    pub u_gizmo_vec2_parameter_source_begin_modify: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_gizmo_base_component_update_world_local_state: std::ptr::null_mut(),
+            u_gizmo_base_component_update_hover_state: std::ptr::null_mut(),
+            u_gizmo_transform_source_set_transform: std::ptr::null_mut(),
+            u_gizmo_transform_source_get_transform: std::ptr::null_mut(),
+            u_gizmo_axis_source_has_tangent_vectors: std::ptr::null_mut(),
+            u_gizmo_axis_source_get_tangent_vectors: std::ptr::null_mut(),
+            u_gizmo_axis_source_get_origin: std::ptr::null_mut(),
+            u_gizmo_axis_source_get_direction: std::ptr::null_mut(),
+            u_gizmo_click_target_update_subdue_state: std::ptr::null_mut(),
+            u_gizmo_click_target_update_selected_state: std::ptr::null_mut(),
+            u_gizmo_click_target_update_interacting_state: std::ptr::null_mut(),
+            u_gizmo_click_target_update_hover_state: std::ptr::null_mut(),
+            u_gizmo_click_multi_target_update_subdue_state: std::ptr::null_mut(),
+            u_gizmo_click_multi_target_update_selected_state: std::ptr::null_mut(),
+            u_gizmo_click_multi_target_update_interacting_state: std::ptr::null_mut(),
+            u_gizmo_click_multi_target_update_hover_state: std::ptr::null_mut(),
+            u_gizmo_click_multi_target_update_hittable_state: std::ptr::null_mut(),
+            u_gizmo_render_multi_target_update_visibility_state: std::ptr::null_mut(),
+            u_gizmo_state_target_end_update: std::ptr::null_mut(),
+            u_gizmo_state_target_begin_update: std::ptr::null_mut(),
+            u_gizmo_float_parameter_source_set_parameter: std::ptr::null_mut(),
+            u_gizmo_float_parameter_source_get_parameter: std::ptr::null_mut(),
+            u_gizmo_float_parameter_source_end_modify: std::ptr::null_mut(),
+            u_gizmo_float_parameter_source_begin_modify: std::ptr::null_mut(),
+            u_gizmo_vec2_parameter_source_set_parameter: std::ptr::null_mut(),
+            u_gizmo_vec2_parameter_source_get_parameter: std::ptr::null_mut(),
+            u_gizmo_vec2_parameter_source_end_modify: std::ptr::null_mut(),
+            u_gizmo_vec2_parameter_source_begin_modify: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -72,14 +81,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateWorldLocalState"),
-            &raw mut U_GIZMO_BASE_COMPONENT_UPDATE_WORLD_LOCAL_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_base_component_update_world_local_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateHoverState"),
-            &raw mut U_GIZMO_BASE_COMPONENT_UPDATE_HOVER_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_base_component_update_hover_state,
         );
     }
     unsafe {
@@ -90,14 +99,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTransform"),
-            &raw mut U_GIZMO_TRANSFORM_SOURCE_SET_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_gizmo_transform_source_set_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransform"),
-            &raw mut U_GIZMO_TRANSFORM_SOURCE_GET_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_gizmo_transform_source_get_transform,
         );
     }
     unsafe {
@@ -108,28 +117,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasTangentVectors"),
-            &raw mut U_GIZMO_AXIS_SOURCE_HAS_TANGENT_VECTORS,
+            &raw mut __FUNCTION_PTRS.u_gizmo_axis_source_has_tangent_vectors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTangentVectors"),
-            &raw mut U_GIZMO_AXIS_SOURCE_GET_TANGENT_VECTORS,
+            &raw mut __FUNCTION_PTRS.u_gizmo_axis_source_get_tangent_vectors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOrigin"),
-            &raw mut U_GIZMO_AXIS_SOURCE_GET_ORIGIN,
+            &raw mut __FUNCTION_PTRS.u_gizmo_axis_source_get_origin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDirection"),
-            &raw mut U_GIZMO_AXIS_SOURCE_GET_DIRECTION,
+            &raw mut __FUNCTION_PTRS.u_gizmo_axis_source_get_direction,
         );
     }
     unsafe {
@@ -140,28 +149,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateSubdueState"),
-            &raw mut U_GIZMO_CLICK_TARGET_UPDATE_SUBDUE_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_target_update_subdue_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateSelectedState"),
-            &raw mut U_GIZMO_CLICK_TARGET_UPDATE_SELECTED_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_target_update_selected_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateInteractingState"),
-            &raw mut U_GIZMO_CLICK_TARGET_UPDATE_INTERACTING_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_target_update_interacting_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateHoverState"),
-            &raw mut U_GIZMO_CLICK_TARGET_UPDATE_HOVER_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_target_update_hover_state,
         );
     }
     unsafe {
@@ -172,35 +181,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateSubdueState"),
-            &raw mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_SUBDUE_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_multi_target_update_subdue_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateSelectedState"),
-            &raw mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_SELECTED_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_multi_target_update_selected_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateInteractingState"),
-            &raw mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_INTERACTING_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_multi_target_update_interacting_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateHoverState"),
-            &raw mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_HOVER_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_multi_target_update_hover_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateHittableState"),
-            &raw mut U_GIZMO_CLICK_MULTI_TARGET_UPDATE_HITTABLE_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_click_multi_target_update_hittable_state,
         );
     }
     unsafe {
@@ -211,7 +220,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateVisibilityState"),
-            &raw mut U_GIZMO_RENDER_MULTI_TARGET_UPDATE_VISIBILITY_STATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_render_multi_target_update_visibility_state,
         );
     }
     unsafe {
@@ -222,14 +231,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndUpdate"),
-            &raw mut U_GIZMO_STATE_TARGET_END_UPDATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_state_target_end_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginUpdate"),
-            &raw mut U_GIZMO_STATE_TARGET_BEGIN_UPDATE,
+            &raw mut __FUNCTION_PTRS.u_gizmo_state_target_begin_update,
         );
     }
     unsafe {
@@ -240,28 +249,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetParameter"),
-            &raw mut U_GIZMO_FLOAT_PARAMETER_SOURCE_SET_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_gizmo_float_parameter_source_set_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParameter"),
-            &raw mut U_GIZMO_FLOAT_PARAMETER_SOURCE_GET_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_gizmo_float_parameter_source_get_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndModify"),
-            &raw mut U_GIZMO_FLOAT_PARAMETER_SOURCE_END_MODIFY,
+            &raw mut __FUNCTION_PTRS.u_gizmo_float_parameter_source_end_modify,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginModify"),
-            &raw mut U_GIZMO_FLOAT_PARAMETER_SOURCE_BEGIN_MODIFY,
+            &raw mut __FUNCTION_PTRS.u_gizmo_float_parameter_source_begin_modify,
         );
     }
     unsafe {
@@ -272,28 +281,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetParameter"),
-            &raw mut U_GIZMO_VEC2_PARAMETER_SOURCE_SET_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_gizmo_vec2_parameter_source_set_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParameter"),
-            &raw mut U_GIZMO_VEC2_PARAMETER_SOURCE_GET_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_gizmo_vec2_parameter_source_get_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndModify"),
-            &raw mut U_GIZMO_VEC2_PARAMETER_SOURCE_END_MODIFY,
+            &raw mut __FUNCTION_PTRS.u_gizmo_vec2_parameter_source_end_modify,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginModify"),
-            &raw mut U_GIZMO_VEC2_PARAMETER_SOURCE_BEGIN_MODIFY,
+            &raw mut __FUNCTION_PTRS.u_gizmo_vec2_parameter_source_begin_modify,
         );
     }
 }

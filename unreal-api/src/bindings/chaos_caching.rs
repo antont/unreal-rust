@@ -1,44 +1,53 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT_BY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_TRIGGER_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_SET_START_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_SET_CURRENT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_SET_CACHE_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_RESET_SINGLE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_RESET_ALL_COMPONENT_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_REMOVE_OBSERVED_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_IS_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_FIND_OR_ADD_OBSERVED_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK_BY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CHAOS_CACHE_MANAGER_CLEAR_OBSERVED_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_chaos_cache_manager_trigger_component_by_cache: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_trigger_component: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_trigger_all: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_stop: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_start: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_set_start_time: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_set_current_time: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_set_cache_collection: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_reset_single_transform: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_reset_all_component_transforms: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_remove_observed_component: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_is_recording: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_find_or_add_observed_component: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_enable_playback_by_cache: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_enable_playback: *mut crate::ffi::UFunctionOpague,
+    pub a_chaos_cache_manager_clear_observed_components: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_chaos_cache_manager_trigger_component_by_cache: std::ptr::null_mut(),
+            a_chaos_cache_manager_trigger_component: std::ptr::null_mut(),
+            a_chaos_cache_manager_trigger_all: std::ptr::null_mut(),
+            a_chaos_cache_manager_stop: std::ptr::null_mut(),
+            a_chaos_cache_manager_start: std::ptr::null_mut(),
+            a_chaos_cache_manager_set_start_time: std::ptr::null_mut(),
+            a_chaos_cache_manager_set_current_time: std::ptr::null_mut(),
+            a_chaos_cache_manager_set_cache_collection: std::ptr::null_mut(),
+            a_chaos_cache_manager_reset_single_transform: std::ptr::null_mut(),
+            a_chaos_cache_manager_reset_all_component_transforms: std::ptr::null_mut(),
+            a_chaos_cache_manager_remove_observed_component: std::ptr::null_mut(),
+            a_chaos_cache_manager_is_recording: std::ptr::null_mut(),
+            a_chaos_cache_manager_find_or_add_observed_component: std::ptr::null_mut(),
+            a_chaos_cache_manager_enable_playback_by_cache: std::ptr::null_mut(),
+            a_chaos_cache_manager_enable_playback: std::ptr::null_mut(),
+            a_chaos_cache_manager_clear_observed_components: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -48,112 +57,112 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TriggerComponentByCache"),
-            &raw mut A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT_BY_CACHE,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_component_by_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TriggerComponent"),
-            &raw mut A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TriggerAll"),
-            &raw mut A_CHAOS_CACHE_MANAGER_TRIGGER_ALL,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_trigger_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut A_CHAOS_CACHE_MANAGER_STOP,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Start"),
-            &raw mut A_CHAOS_CACHE_MANAGER_START,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartTime"),
-            &raw mut A_CHAOS_CACHE_MANAGER_SET_START_TIME,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_start_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentTime"),
-            &raw mut A_CHAOS_CACHE_MANAGER_SET_CURRENT_TIME,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_current_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCacheCollection"),
-            &raw mut A_CHAOS_CACHE_MANAGER_SET_CACHE_COLLECTION,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_set_cache_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetSingleTransform"),
-            &raw mut A_CHAOS_CACHE_MANAGER_RESET_SINGLE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_reset_single_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetAllComponentTransforms"),
-            &raw mut A_CHAOS_CACHE_MANAGER_RESET_ALL_COMPONENT_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_reset_all_component_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveObservedComponent"),
-            &raw mut A_CHAOS_CACHE_MANAGER_REMOVE_OBSERVED_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_remove_observed_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut A_CHAOS_CACHE_MANAGER_IS_RECORDING,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_is_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindOrAddObservedComponent"),
-            &raw mut A_CHAOS_CACHE_MANAGER_FIND_OR_ADD_OBSERVED_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_find_or_add_observed_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnablePlaybackByCache"),
-            &raw mut A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK_BY_CACHE,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_enable_playback_by_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnablePlayback"),
-            &raw mut A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_enable_playback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearObservedComponents"),
-            &raw mut A_CHAOS_CACHE_MANAGER_CLEAR_OBSERVED_COMPONENTS,
+            &raw mut __FUNCTION_PTRS.a_chaos_cache_manager_clear_observed_components,
         );
     }
 }
@@ -222,7 +231,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT_BY_CACHE,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_trigger_component_by_cache,
                 __buffer,
             )
         };
@@ -239,7 +249,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT_BY_CACHE,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_trigger_component_by_cache,
                 __buffer,
             )
         };
@@ -255,7 +266,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_trigger_component,
                 __buffer,
             )
         };
@@ -274,7 +286,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_COMPONENT,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_trigger_component,
                 __buffer,
             )
         };
@@ -287,7 +300,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_ALL,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_trigger_all,
                 __buffer,
             )
         };
@@ -297,7 +311,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_TRIGGER_ALL,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_trigger_all,
                 __buffer,
             )
         };
@@ -310,7 +325,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_STOP,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_stop,
                 __buffer,
             )
         };
@@ -320,7 +336,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_STOP,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_stop,
                 __buffer,
             )
         };
@@ -333,7 +350,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_START,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_start,
                 __buffer,
             )
         };
@@ -350,7 +368,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_START,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_start,
                 __buffer,
             )
         };
@@ -363,7 +382,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CURRENT_TIME,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_set_current_time,
                 __buffer,
             )
         };
@@ -380,7 +400,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CURRENT_TIME,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_set_current_time,
                 __buffer,
             )
         };
@@ -396,7 +417,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CACHE_COLLECTION,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_set_cache_collection,
                 __buffer,
             )
         };
@@ -413,7 +435,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_SET_CACHE_COLLECTION,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_set_cache_collection,
                 __buffer,
             )
         };
@@ -426,7 +449,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_SINGLE_TRANSFORM,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_reset_single_transform,
                 __buffer,
             )
         };
@@ -439,7 +463,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_SINGLE_TRANSFORM,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_reset_single_transform,
                 __buffer,
             )
         };
@@ -452,7 +477,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_ALL_COMPONENT_TRANSFORMS,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_reset_all_component_transforms,
                 __buffer,
             )
         };
@@ -462,7 +488,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_RESET_ALL_COMPONENT_TRANSFORMS,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_reset_all_component_transforms,
                 __buffer,
             )
         };
@@ -478,7 +505,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_REMOVE_OBSERVED_COMPONENT,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_remove_observed_component,
                 __buffer,
             )
         };
@@ -497,7 +525,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_REMOVE_OBSERVED_COMPONENT,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_remove_observed_component,
                 __buffer,
             )
         };
@@ -510,7 +539,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_IS_RECORDING,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_is_recording,
                 __buffer,
             )
         };
@@ -520,7 +550,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_IS_RECORDING,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_is_recording,
                 __buffer,
             )
         };
@@ -539,7 +570,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_FIND_OR_ADD_OBSERVED_COMPONENT,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_find_or_add_observed_component,
                 __buffer,
             )
         };
@@ -572,7 +604,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_FIND_OR_ADD_OBSERVED_COMPONENT,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_find_or_add_observed_component,
                 __buffer,
             )
         };
@@ -585,7 +618,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK_BY_CACHE,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_enable_playback_by_cache,
                 __buffer,
             )
         };
@@ -605,7 +639,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK_BY_CACHE,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_enable_playback_by_cache,
                 __buffer,
             )
         };
@@ -618,7 +653,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_enable_playback,
                 __buffer,
             )
         };
@@ -634,7 +670,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_ENABLE_PLAYBACK,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_enable_playback,
                 __buffer,
             )
         };
@@ -647,7 +684,8 @@ impl AChaosCacheManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_CLEAR_OBSERVED_COMPONENTS,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_clear_observed_components,
                 __buffer,
             )
         };
@@ -664,7 +702,8 @@ impl AChaosCacheManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::chaos_caching::A_CHAOS_CACHE_MANAGER_CLEAR_OBSERVED_COMPONENTS,
+                crate::bindings::chaos_caching::__FUNCTION_PTRS
+                    .a_chaos_cache_manager_clear_observed_components,
                 __buffer,
             )
         };

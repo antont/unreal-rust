@@ -1,58 +1,67 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEGACY_CAMERA_SHAKE_RECEIVE_STOP_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEGACY_CAMERA_SHAKE_RECEIVE_PLAY_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEGACY_CAMERA_SHAKE_RECEIVE_IS_FINISHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEGACY_CAMERA_SHAKE_BLUEPRINT_UPDATE_CAMERA_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_camera_animation_camera_modifier_stop_camera_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_animation_camera_modifier_stop_all_camera_animations_of: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_animation_camera_modifier_stop_all_camera_animations: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_animation_camera_modifier_play_camera_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_animation_camera_modifier_is_camera_animation_active: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_player_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_id: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_animation_camera_modifier_get_camera_animation_camera_modifier: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_camera_animation_function_library_conv_camera_shake_play_space: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_camera_animation_function_library_conv_camera_animation_play_space: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_camera_animation_function_library_conv_camera_animation_camera_modifier: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_cameras_subsystem_stop_camera_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_cameras_subsystem_stop_all_camera_animations_of: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_cameras_subsystem_stop_all_camera_animations: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_cameras_subsystem_play_camera_animation: *mut crate::ffi::UFunctionOpague,
+    pub u_engine_cameras_subsystem_is_camera_animation_active: *mut crate::ffi::UFunctionOpague,
+    pub u_legacy_camera_shake_start_legacy_camera_shake_from_source: *mut crate::ffi::UFunctionOpague,
+    pub u_legacy_camera_shake_start_legacy_camera_shake: *mut crate::ffi::UFunctionOpague,
+    pub u_legacy_camera_shake_receive_stop_shake: *mut crate::ffi::UFunctionOpague,
+    pub u_legacy_camera_shake_receive_play_shake: *mut crate::ffi::UFunctionOpague,
+    pub u_legacy_camera_shake_receive_is_finished: *mut crate::ffi::UFunctionOpague,
+    pub u_legacy_camera_shake_blueprint_update_camera_shake: *mut crate::ffi::UFunctionOpague,
+    pub u_legacy_camera_shake_function_library_conv_legacy_camera_shake: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_camera_animation_camera_modifier_stop_camera_animation: std::ptr::null_mut(),
+            u_camera_animation_camera_modifier_stop_all_camera_animations_of: std::ptr::null_mut(),
+            u_camera_animation_camera_modifier_stop_all_camera_animations: std::ptr::null_mut(),
+            u_camera_animation_camera_modifier_play_camera_animation: std::ptr::null_mut(),
+            u_camera_animation_camera_modifier_is_camera_animation_active: std::ptr::null_mut(),
+            u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_player_controller: std::ptr::null_mut(),
+            u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_id: std::ptr::null_mut(),
+            u_camera_animation_camera_modifier_get_camera_animation_camera_modifier: std::ptr::null_mut(),
+            u_engine_camera_animation_function_library_conv_camera_shake_play_space: std::ptr::null_mut(),
+            u_engine_camera_animation_function_library_conv_camera_animation_play_space: std::ptr::null_mut(),
+            u_engine_camera_animation_function_library_conv_camera_animation_camera_modifier: std::ptr::null_mut(),
+            u_engine_cameras_subsystem_stop_camera_animation: std::ptr::null_mut(),
+            u_engine_cameras_subsystem_stop_all_camera_animations_of: std::ptr::null_mut(),
+            u_engine_cameras_subsystem_stop_all_camera_animations: std::ptr::null_mut(),
+            u_engine_cameras_subsystem_play_camera_animation: std::ptr::null_mut(),
+            u_engine_cameras_subsystem_is_camera_animation_active: std::ptr::null_mut(),
+            u_legacy_camera_shake_start_legacy_camera_shake_from_source: std::ptr::null_mut(),
+            u_legacy_camera_shake_start_legacy_camera_shake: std::ptr::null_mut(),
+            u_legacy_camera_shake_receive_stop_shake: std::ptr::null_mut(),
+            u_legacy_camera_shake_receive_play_shake: std::ptr::null_mut(),
+            u_legacy_camera_shake_receive_is_finished: std::ptr::null_mut(),
+            u_legacy_camera_shake_blueprint_update_camera_shake: std::ptr::null_mut(),
+            u_legacy_camera_shake_function_library_conv_legacy_camera_shake: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -62,35 +71,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCameraAnimation"),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_stop_camera_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAllCameraAnimationsOf"),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_stop_all_camera_animations_of,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAllCameraAnimations"),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_stop_all_camera_animations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayCameraAnimation"),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_play_camera_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCameraAnimationActive"),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_is_camera_animation_active,
         );
         (bindings
             .core_fns
@@ -99,21 +113,24 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "GetCameraAnimationCameraModifierFromPlayerController",
             ),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_player_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraAnimationCameraModifierFromID"),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraAnimationCameraModifier"),
-            &raw mut U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier,
         );
     }
     unsafe {
@@ -124,21 +141,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_CameraShakePlaySpace"),
-            &raw mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_engine_camera_animation_function_library_conv_camera_shake_play_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_CameraAnimationPlaySpace"),
-            &raw mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE,
+            &raw mut __FUNCTION_PTRS
+                .u_engine_camera_animation_function_library_conv_camera_animation_play_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_CameraAnimationCameraModifier"),
-            &raw mut U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER,
+            &raw mut __FUNCTION_PTRS
+                .u_engine_camera_animation_function_library_conv_camera_animation_camera_modifier,
         );
     }
     unsafe {
@@ -149,35 +169,38 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCameraAnimation"),
-            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION,
+            &raw mut __FUNCTION_PTRS.u_engine_cameras_subsystem_stop_camera_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAllCameraAnimationsOf"),
-            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF,
+            &raw mut __FUNCTION_PTRS
+                .u_engine_cameras_subsystem_stop_all_camera_animations_of,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAllCameraAnimations"),
-            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_engine_cameras_subsystem_stop_all_camera_animations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayCameraAnimation"),
-            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION,
+            &raw mut __FUNCTION_PTRS.u_engine_cameras_subsystem_play_camera_animation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCameraAnimationActive"),
-            &raw mut U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE,
+            &raw mut __FUNCTION_PTRS
+                .u_engine_cameras_subsystem_is_camera_animation_active,
         );
     }
     unsafe {
@@ -188,42 +211,43 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartLegacyCameraShakeFromSource"),
-            &raw mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_legacy_camera_shake_start_legacy_camera_shake_from_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartLegacyCameraShake"),
-            &raw mut U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE,
+            &raw mut __FUNCTION_PTRS.u_legacy_camera_shake_start_legacy_camera_shake,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveStopShake"),
-            &raw mut U_LEGACY_CAMERA_SHAKE_RECEIVE_STOP_SHAKE,
+            &raw mut __FUNCTION_PTRS.u_legacy_camera_shake_receive_stop_shake,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceivePlayShake"),
-            &raw mut U_LEGACY_CAMERA_SHAKE_RECEIVE_PLAY_SHAKE,
+            &raw mut __FUNCTION_PTRS.u_legacy_camera_shake_receive_play_shake,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveIsFinished"),
-            &raw mut U_LEGACY_CAMERA_SHAKE_RECEIVE_IS_FINISHED,
+            &raw mut __FUNCTION_PTRS.u_legacy_camera_shake_receive_is_finished,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BlueprintUpdateCameraShake"),
-            &raw mut U_LEGACY_CAMERA_SHAKE_BLUEPRINT_UPDATE_CAMERA_SHAKE,
+            &raw mut __FUNCTION_PTRS.u_legacy_camera_shake_blueprint_update_camera_shake,
         );
     }
     unsafe {
@@ -234,7 +258,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_LegacyCameraShake"),
-            &raw mut U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE,
+            &raw mut __FUNCTION_PTRS
+                .u_legacy_camera_shake_function_library_conv_legacy_camera_shake,
         );
     }
 }
@@ -327,7 +352,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_stop_camera_animation,
                 __buffer,
             )
         };
@@ -351,7 +377,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_stop_camera_animation,
                 __buffer,
             )
         };
@@ -368,7 +395,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_stop_all_camera_animations_of,
                 __buffer,
             )
         };
@@ -398,7 +426,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_stop_all_camera_animations_of,
                 __buffer,
             )
         };
@@ -411,7 +440,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_stop_all_camera_animations,
                 __buffer,
             )
         };
@@ -428,7 +458,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_STOP_ALL_CAMERA_ANIMATIONS,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_stop_all_camera_animations,
                 __buffer,
             )
         };
@@ -445,7 +476,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_play_camera_animation,
                 __buffer,
             )
         };
@@ -475,7 +507,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_PLAY_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_play_camera_animation,
                 __buffer,
             )
         };
@@ -489,7 +522,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_is_camera_animation_active,
                 __buffer,
             )
         };
@@ -506,7 +540,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_IS_CAMERA_ANIMATION_ACTIVE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_is_camera_animation_active,
                 __buffer,
             )
         };
@@ -522,7 +557,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_player_controller,
                 __buffer,
             )
         };
@@ -541,7 +577,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_PLAYER_CONTROLLER,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_player_controller,
                 __buffer,
             )
         };
@@ -558,7 +595,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_id,
                 __buffer,
             )
         };
@@ -582,7 +620,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER_FROM_ID,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier_from_id,
                 __buffer,
             )
         };
@@ -599,7 +638,8 @@ impl UCameraAnimationCameraModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier,
                 __buffer,
             )
         };
@@ -623,7 +663,8 @@ impl UCameraAnimationCameraModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_CAMERA_ANIMATION_CAMERA_MODIFIER_GET_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_camera_animation_camera_modifier_get_camera_animation_camera_modifier,
                 __buffer,
             )
         };
@@ -660,7 +701,8 @@ impl UEngineCameraAnimationFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_camera_animation_function_library_conv_camera_shake_play_space,
                 __buffer,
             )
         };
@@ -677,7 +719,8 @@ impl UEngineCameraAnimationFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_SHAKE_PLAY_SPACE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_camera_animation_function_library_conv_camera_shake_play_space,
                 __buffer,
             )
         };
@@ -698,7 +741,8 @@ impl UEngineCameraAnimationFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_camera_animation_function_library_conv_camera_animation_play_space,
                 __buffer,
             )
         };
@@ -715,7 +759,8 @@ impl UEngineCameraAnimationFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_PLAY_SPACE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_camera_animation_function_library_conv_camera_animation_play_space,
                 __buffer,
             )
         };
@@ -731,7 +776,8 @@ impl UEngineCameraAnimationFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_camera_animation_function_library_conv_camera_animation_camera_modifier,
                 __buffer,
             )
         };
@@ -750,7 +796,8 @@ impl UEngineCameraAnimationFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERA_ANIMATION_FUNCTION_LIBRARY_CONV_CAMERA_ANIMATION_CAMERA_MODIFIER,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_camera_animation_function_library_conv_camera_animation_camera_modifier,
                 __buffer,
             )
         };
@@ -790,7 +837,8 @@ impl UEngineCamerasSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_stop_camera_animation,
                 __buffer,
             )
         };
@@ -823,7 +871,8 @@ impl UEngineCamerasSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_stop_camera_animation,
                 __buffer,
             )
         };
@@ -841,7 +890,8 @@ impl UEngineCamerasSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_stop_all_camera_animations_of,
                 __buffer,
             )
         };
@@ -880,7 +930,8 @@ impl UEngineCamerasSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS_OF,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_stop_all_camera_animations_of,
                 __buffer,
             )
         };
@@ -897,7 +948,8 @@ impl UEngineCamerasSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_stop_all_camera_animations,
                 __buffer,
             )
         };
@@ -923,7 +975,8 @@ impl UEngineCamerasSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_STOP_ALL_CAMERA_ANIMATIONS,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_stop_all_camera_animations,
                 __buffer,
             )
         };
@@ -941,7 +994,8 @@ impl UEngineCamerasSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_play_camera_animation,
                 __buffer,
             )
         };
@@ -980,7 +1034,8 @@ impl UEngineCamerasSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_PLAY_CAMERA_ANIMATION,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_play_camera_animation,
                 __buffer,
             )
         };
@@ -998,7 +1053,8 @@ impl UEngineCamerasSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_is_camera_animation_active,
                 __buffer,
             )
         };
@@ -1024,7 +1080,8 @@ impl UEngineCamerasSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_ENGINE_CAMERAS_SUBSYSTEM_IS_CAMERA_ANIMATION_ACTIVE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_engine_cameras_subsystem_is_camera_animation_active,
                 __buffer,
             )
         };
@@ -1116,7 +1173,8 @@ impl ULegacyCameraShake {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_start_legacy_camera_shake_from_source,
                 __buffer,
             )
         };
@@ -1172,7 +1230,8 @@ impl ULegacyCameraShake {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE_FROM_SOURCE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_start_legacy_camera_shake_from_source,
                 __buffer,
             )
         };
@@ -1192,7 +1251,8 @@ impl ULegacyCameraShake {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_start_legacy_camera_shake,
                 __buffer,
             )
         };
@@ -1237,11 +1297,155 @@ impl ULegacyCameraShake {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_START_LEGACY_CAMERA_SHAKE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_start_legacy_camera_shake,
                 __buffer,
             )
         };
         unsafe { __buffer.add(48).cast::<UPtr<ULegacyCameraShake>>().read() }
+    }
+    pub fn receive_stop_shake(&mut self, b_immediately: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_receive_stop_shake,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_immediately,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_receive_stop_shake,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_play_shake(&mut self, scale: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_receive_play_shake,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&scale, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_receive_play_shake,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_is_finished(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_receive_is_finished,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_receive_is_finished,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn blueprint_update_camera_shake(
+        &mut self,
+        delta_time: f32,
+        alpha: f32,
+        pov: &crate::bindings::engine::FMinimalViewInfo,
+        modified_pov: &mut crate::bindings::engine::FMinimalViewInfo,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<4624>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_blueprint_update_camera_shake,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&alpha, __buffer.add(4).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                pov,
+                __buffer.add(16).cast::<crate::bindings::engine::FMinimalViewInfo>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                modified_pov,
+                __buffer.add(2320).cast::<crate::bindings::engine::FMinimalViewInfo>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_blueprint_update_camera_shake,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(2320)
+                .cast::<crate::bindings::engine::FMinimalViewInfo>()
+                .swap(modified_pov);
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1295,7 +1499,8 @@ impl ULegacyCameraShakeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_function_library_conv_legacy_camera_shake,
                 __buffer,
             )
         };
@@ -1314,7 +1519,8 @@ impl ULegacyCameraShakeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::engine_cameras::U_LEGACY_CAMERA_SHAKE_FUNCTION_LIBRARY_CONV_LEGACY_CAMERA_SHAKE,
+                crate::bindings::engine_cameras::__FUNCTION_PTRS
+                    .u_legacy_camera_shake_function_library_conv_legacy_camera_shake,
                 __buffer,
             )
         };

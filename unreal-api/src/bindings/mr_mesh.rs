@@ -1,54 +1,63 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOCK_DATA_MESH_TRACKER_COMPONENT_ON_MOCK_DATA_MESH_TRACKER_UPDATED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOCK_DATA_MESH_TRACKER_COMPONENT_DISCONNECT_MR_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOCK_DATA_MESH_TRACKER_COMPONENT_CONNECT_MR_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_SET_WIREFRAME_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_SET_WIREFRAME_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_SET_USE_WIREFRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_SET_ENABLE_MESH_OCCLUSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_REQUEST_NAV_MESH_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_IS_CONNECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_GET_WIREFRAME_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_GET_USE_WIREFRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_GET_ENABLE_MESH_OCCLUSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_FORCE_NAV_MESH_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UMR_MESH_COMPONENT_CLEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_RECONSTRUCTOR_BASE_STOP_RECONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_RECONSTRUCTOR_BASE_START_RECONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_RECONSTRUCTOR_BASE_PAUSE_RECONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_STARTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_RECONSTRUCTOR_BASE_DISCONNECT_MR_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_RECONSTRUCTOR_BASE_CONNECT_MR_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_mock_data_mesh_tracker_component_on_mock_data_mesh_tracker_updated_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_mock_data_mesh_tracker_component_disconnect_mr_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_mock_data_mesh_tracker_component_connect_mr_mesh: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_set_wireframe_material: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_set_wireframe_color: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_set_use_wireframe: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_set_enable_mesh_occlusion: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_request_nav_mesh_update: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_is_connected: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_get_wireframe_color: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_get_use_wireframe: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_get_enable_mesh_occlusion: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_force_nav_mesh_update: *mut crate::ffi::UFunctionOpague,
+    pub umr_mesh_component_clear: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_reconstructor_base_stop_reconstruction: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_reconstructor_base_start_reconstruction: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_reconstructor_base_pause_reconstruction: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_reconstructor_base_is_reconstruction_started: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_reconstructor_base_is_reconstruction_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_reconstructor_base_disconnect_mr_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_reconstructor_base_connect_mr_mesh: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_mock_data_mesh_tracker_component_on_mock_data_mesh_tracker_updated_delegate_signature: std::ptr::null_mut(),
+            u_mock_data_mesh_tracker_component_disconnect_mr_mesh: std::ptr::null_mut(),
+            u_mock_data_mesh_tracker_component_connect_mr_mesh: std::ptr::null_mut(),
+            umr_mesh_component_set_wireframe_material: std::ptr::null_mut(),
+            umr_mesh_component_set_wireframe_color: std::ptr::null_mut(),
+            umr_mesh_component_set_use_wireframe: std::ptr::null_mut(),
+            umr_mesh_component_set_enable_mesh_occlusion: std::ptr::null_mut(),
+            umr_mesh_component_request_nav_mesh_update: std::ptr::null_mut(),
+            umr_mesh_component_is_connected: std::ptr::null_mut(),
+            umr_mesh_component_get_wireframe_color: std::ptr::null_mut(),
+            umr_mesh_component_get_use_wireframe: std::ptr::null_mut(),
+            umr_mesh_component_get_enable_mesh_occlusion: std::ptr::null_mut(),
+            umr_mesh_component_force_nav_mesh_update: std::ptr::null_mut(),
+            umr_mesh_component_clear: std::ptr::null_mut(),
+            u_mesh_reconstructor_base_stop_reconstruction: std::ptr::null_mut(),
+            u_mesh_reconstructor_base_start_reconstruction: std::ptr::null_mut(),
+            u_mesh_reconstructor_base_pause_reconstruction: std::ptr::null_mut(),
+            u_mesh_reconstructor_base_is_reconstruction_started: std::ptr::null_mut(),
+            u_mesh_reconstructor_base_is_reconstruction_paused: std::ptr::null_mut(),
+            u_mesh_reconstructor_base_disconnect_mr_mesh: std::ptr::null_mut(),
+            u_mesh_reconstructor_base_connect_mr_mesh: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -58,21 +67,23 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMockDataMeshTrackerUpdated__DelegateSignature"),
-            &raw mut U_MOCK_DATA_MESH_TRACKER_COMPONENT_ON_MOCK_DATA_MESH_TRACKER_UPDATED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_mock_data_mesh_tracker_component_on_mock_data_mesh_tracker_updated_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectMRMesh"),
-            &raw mut U_MOCK_DATA_MESH_TRACKER_COMPONENT_DISCONNECT_MR_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_mock_data_mesh_tracker_component_disconnect_mr_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectMRMesh"),
-            &raw mut U_MOCK_DATA_MESH_TRACKER_COMPONENT_CONNECT_MR_MESH,
+            &raw mut __FUNCTION_PTRS.u_mock_data_mesh_tracker_component_connect_mr_mesh,
         );
     }
     unsafe {
@@ -83,77 +94,77 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWireframeMaterial"),
-            &raw mut UMR_MESH_COMPONENT_SET_WIREFRAME_MATERIAL,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_wireframe_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWireframeColor"),
-            &raw mut UMR_MESH_COMPONENT_SET_WIREFRAME_COLOR,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_wireframe_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUseWireframe"),
-            &raw mut UMR_MESH_COMPONENT_SET_USE_WIREFRAME,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_use_wireframe,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableMeshOcclusion"),
-            &raw mut UMR_MESH_COMPONENT_SET_ENABLE_MESH_OCCLUSION,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_set_enable_mesh_occlusion,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestNavMeshUpdate"),
-            &raw mut UMR_MESH_COMPONENT_REQUEST_NAV_MESH_UPDATE,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_request_nav_mesh_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsConnected"),
-            &raw mut UMR_MESH_COMPONENT_IS_CONNECTED,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_is_connected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWireframeColor"),
-            &raw mut UMR_MESH_COMPONENT_GET_WIREFRAME_COLOR,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_get_wireframe_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUseWireframe"),
-            &raw mut UMR_MESH_COMPONENT_GET_USE_WIREFRAME,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_get_use_wireframe,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnableMeshOcclusion"),
-            &raw mut UMR_MESH_COMPONENT_GET_ENABLE_MESH_OCCLUSION,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_get_enable_mesh_occlusion,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForceNavMeshUpdate"),
-            &raw mut UMR_MESH_COMPONENT_FORCE_NAV_MESH_UPDATE,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_force_nav_mesh_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut UMR_MESH_COMPONENT_CLEAR,
+            &raw mut __FUNCTION_PTRS.umr_mesh_component_clear,
         );
     }
     unsafe {
@@ -164,49 +175,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopReconstruction"),
-            &raw mut U_MESH_RECONSTRUCTOR_BASE_STOP_RECONSTRUCTION,
+            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_stop_reconstruction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartReconstruction"),
-            &raw mut U_MESH_RECONSTRUCTOR_BASE_START_RECONSTRUCTION,
+            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_start_reconstruction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PauseReconstruction"),
-            &raw mut U_MESH_RECONSTRUCTOR_BASE_PAUSE_RECONSTRUCTION,
+            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_pause_reconstruction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReconstructionStarted"),
-            &raw mut U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_STARTED,
+            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_is_reconstruction_started,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReconstructionPaused"),
-            &raw mut U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_PAUSED,
+            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_is_reconstruction_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectMRMesh"),
-            &raw mut U_MESH_RECONSTRUCTOR_BASE_DISCONNECT_MR_MESH,
+            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_disconnect_mr_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectMRMesh"),
-            &raw mut U_MESH_RECONSTRUCTOR_BASE_CONNECT_MR_MESH,
+            &raw mut __FUNCTION_PTRS.u_mesh_reconstructor_base_connect_mr_mesh,
         );
     }
 }
@@ -253,7 +264,8 @@ impl UMockDataMeshTrackerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::U_MOCK_DATA_MESH_TRACKER_COMPONENT_DISCONNECT_MR_MESH,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mock_data_mesh_tracker_component_disconnect_mr_mesh,
                 __buffer,
             )
         };
@@ -270,7 +282,8 @@ impl UMockDataMeshTrackerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::U_MOCK_DATA_MESH_TRACKER_COMPONENT_DISCONNECT_MR_MESH,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mock_data_mesh_tracker_component_disconnect_mr_mesh,
                 __buffer,
             )
         };
@@ -283,7 +296,8 @@ impl UMockDataMeshTrackerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::U_MOCK_DATA_MESH_TRACKER_COMPONENT_CONNECT_MR_MESH,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mock_data_mesh_tracker_component_connect_mr_mesh,
                 __buffer,
             )
         };
@@ -300,7 +314,8 @@ impl UMockDataMeshTrackerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::U_MOCK_DATA_MESH_TRACKER_COMPONENT_CONNECT_MR_MESH,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mock_data_mesh_tracker_component_connect_mr_mesh,
                 __buffer,
             )
         };
@@ -358,7 +373,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_WIREFRAME_MATERIAL,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_wireframe_material,
                 __buffer,
             )
         };
@@ -377,7 +393,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_WIREFRAME_MATERIAL,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_wireframe_material,
                 __buffer,
             )
         };
@@ -393,7 +410,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_WIREFRAME_COLOR,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_wireframe_color,
                 __buffer,
             )
         };
@@ -410,7 +428,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_WIREFRAME_COLOR,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_wireframe_color,
                 __buffer,
             )
         };
@@ -423,7 +442,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_USE_WIREFRAME,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_use_wireframe,
                 __buffer,
             )
         };
@@ -440,7 +460,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_USE_WIREFRAME,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_use_wireframe,
                 __buffer,
             )
         };
@@ -453,7 +474,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_ENABLE_MESH_OCCLUSION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_enable_mesh_occlusion,
                 __buffer,
             )
         };
@@ -466,7 +488,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_SET_ENABLE_MESH_OCCLUSION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_set_enable_mesh_occlusion,
                 __buffer,
             )
         };
@@ -479,7 +502,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_REQUEST_NAV_MESH_UPDATE,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_request_nav_mesh_update,
                 __buffer,
             )
         };
@@ -489,7 +513,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_REQUEST_NAV_MESH_UPDATE,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_request_nav_mesh_update,
                 __buffer,
             )
         };
@@ -502,7 +527,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_IS_CONNECTED,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_is_connected,
                 __buffer,
             )
         };
@@ -512,7 +538,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_IS_CONNECTED,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_is_connected,
                 __buffer,
             )
         };
@@ -526,7 +553,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_GET_WIREFRAME_COLOR,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_get_wireframe_color,
                 __buffer,
             )
         };
@@ -536,7 +564,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_GET_WIREFRAME_COLOR,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_get_wireframe_color,
                 __buffer,
             )
         };
@@ -552,7 +581,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_GET_USE_WIREFRAME,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_get_use_wireframe,
                 __buffer,
             )
         };
@@ -562,7 +592,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_GET_USE_WIREFRAME,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_get_use_wireframe,
                 __buffer,
             )
         };
@@ -576,7 +607,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_GET_ENABLE_MESH_OCCLUSION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_get_enable_mesh_occlusion,
                 __buffer,
             )
         };
@@ -586,7 +618,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_GET_ENABLE_MESH_OCCLUSION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_get_enable_mesh_occlusion,
                 __buffer,
             )
         };
@@ -600,7 +633,8 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_FORCE_NAV_MESH_UPDATE,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_force_nav_mesh_update,
                 __buffer,
             )
         };
@@ -610,7 +644,8 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_FORCE_NAV_MESH_UPDATE,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .umr_mesh_component_force_nav_mesh_update,
                 __buffer,
             )
         };
@@ -623,7 +658,7 @@ impl UMRMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_CLEAR,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS.umr_mesh_component_clear,
                 __buffer,
             )
         };
@@ -633,7 +668,7 @@ impl UMRMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::UMR_MESH_COMPONENT_CLEAR,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS.umr_mesh_component_clear,
                 __buffer,
             )
         };
@@ -667,7 +702,8 @@ impl UMeshReconstructorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_STOP_RECONSTRUCTION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_stop_reconstruction,
                 __buffer,
             )
         };
@@ -677,7 +713,8 @@ impl UMeshReconstructorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_STOP_RECONSTRUCTION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_stop_reconstruction,
                 __buffer,
             )
         };
@@ -690,7 +727,8 @@ impl UMeshReconstructorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_START_RECONSTRUCTION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_start_reconstruction,
                 __buffer,
             )
         };
@@ -700,7 +738,8 @@ impl UMeshReconstructorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_START_RECONSTRUCTION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_start_reconstruction,
                 __buffer,
             )
         };
@@ -713,7 +752,8 @@ impl UMeshReconstructorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_PAUSE_RECONSTRUCTION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_pause_reconstruction,
                 __buffer,
             )
         };
@@ -723,7 +763,8 @@ impl UMeshReconstructorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_PAUSE_RECONSTRUCTION,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_pause_reconstruction,
                 __buffer,
             )
         };
@@ -736,7 +777,8 @@ impl UMeshReconstructorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_STARTED,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_is_reconstruction_started,
                 __buffer,
             )
         };
@@ -746,7 +788,8 @@ impl UMeshReconstructorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_STARTED,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_is_reconstruction_started,
                 __buffer,
             )
         };
@@ -760,7 +803,8 @@ impl UMeshReconstructorBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_PAUSED,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_is_reconstruction_paused,
                 __buffer,
             )
         };
@@ -770,7 +814,8 @@ impl UMeshReconstructorBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::mr_mesh::U_MESH_RECONSTRUCTOR_BASE_IS_RECONSTRUCTION_PAUSED,
+                crate::bindings::mr_mesh::__FUNCTION_PTRS
+                    .u_mesh_reconstructor_base_is_reconstruction_paused,
                 __buffer,
             )
         };

@@ -1,278 +1,287 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CAMERA_RIG_INSTANCE_FUNCTIONS_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CHILD_CAMERA_DIRECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CAMERA_DIRECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RESOLVE_CAMERA_RIG_PROXY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_REMOVE_CHILD_EVALUATION_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_INITIAL_CONTEXT_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_CONDITIONAL_CONTEXT_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_BASE_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_CAMERA_DIRECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ADD_CHILD_EVALUATION_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG_VIA_PROXY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_DIRECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_DEFAULT_CAMERA_RIG_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_CAMERA_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_MAKE_CAMERA_EVALUATION_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_GET_CAMERA_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_BLEND_CAMERA_EVALUATION_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR4_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR3_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR2_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_TRANSFORM_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_ROTATOR_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_INTEGER32_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_FLOAT_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_DOUBLE_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_BOOLEAN_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR4_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR3_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR2_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_TRANSFORM_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_ROTATOR_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_INTEGER32_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_FLOAT_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_DOUBLE_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_BOOLEAN_CAMERA_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRUCT_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRING_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_OBJECT_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_NAME_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_ENUM_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_CLASS_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRUCT_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRING_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_OBJECT_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_NAME_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_ENUM_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_CLASS_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TARGET_DISTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FOCAL_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CINE_CAMERA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CAMERA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_DISTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_AT_DISTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_SENSOR_ASPECT_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FOCAL_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_EFFECTIVE_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_RAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_DIR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_RIG_PARAMETER_INTEROP_SET_CAMERA_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_RIG_PARAMETER_INTEROP_GET_CAMERA_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR3F: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERA_ACTOR_GET_CAMERA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_OUTPUT_CAMERA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_INITIAL_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_EVALUATED_CAMERA_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_CONDITIONAL_RESULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_DEACTIVATE_CAMERA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_COMPONENT_NOTIFY_CHANGE_CAMERA_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_STOP_PARAMETER_SETTERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_START_PARAMETER_SETTERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_ON_ACTOR_END_OVERLAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_ON_ACTOR_BEGIN_OVERLAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERA_RIG_ACTOR_GET_CAMERA_RIG_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_RIG_COMPONENT_NOTIFY_CHANGE_CAMERA_RIG_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_SHAKE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_MODIFIER_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STEAL_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_VISUAL_CAMERA_MODIFIER_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_GLOBAL_CAMERA_MODIFIER_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_CAMERA_SHAKE_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_RELEASE_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_IS_CAMERA_SHAKE_ASSET_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_GAMEPLAY_CAMERA_SYSTEM_ACTOR_GET_CAMERA_SYSTEM_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_STOP_CAMERA_MODIFIER_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_VISUAL_CAMERA_MODIFIER_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_GLOBAL_CAMERA_MODIFIER_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_IS_CAMERA_SYSTEM_ACTIVE_FOR_PLAY_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_DEACTIVATE_CAMERA_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_DEACTIVATE_CONTROL_ROTATION_MANAGEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_TICK_CAMERA_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_DEFAULT_OWNING_CAMERA_RIG_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CURRENT_CAMERA_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CAMERA_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_INITIALIZE_CAMERA_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_PLAYER_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CURRENT_CAMERA_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CAMERA_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_camera_rig_instance_functions_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_run_child_camera_director: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_run_camera_director: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_resolve_camera_rig_proxy: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_remove_child_evaluation_context: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_get_initial_context_result: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_get_conditional_context_result: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_find_evaluation_context_owner_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_deactivate_persistent_visual_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_deactivate_persistent_global_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_deactivate_persistent_base_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_deactivate_camera_director: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_add_child_evaluation_context: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_activate_persistent_visual_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_activate_persistent_global_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_activate_persistent_base_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_activate_camera_rig_via_proxy: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_activate_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_director_evaluator_activate_camera_director: *mut crate::ffi::UFunctionOpague,
+    pub u_activate_camera_rig_functions_activate_persistent_visual_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_activate_camera_rig_functions_activate_persistent_global_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_activate_camera_rig_functions_activate_persistent_base_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_evaluation_data_function_library_set_default_camera_rig_parameters: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_evaluation_data_function_library_set_camera_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_evaluation_data_function_library_make_camera_evaluation_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_evaluation_data_function_library_get_camera_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_evaluation_data_function_library_blend_camera_evaluation_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_vector4_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_vector3_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_vector2_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_transform_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_rotator_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_integer32_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_float_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_double_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_set_boolean_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_vector4_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_vector3_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_vector2_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_transform_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_rotator_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_integer32_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_float_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_double_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_variable_table_function_library_get_boolean_camera_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_set_struct_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_set_string_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_set_object_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_set_name_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_set_enum_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_set_class_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_get_struct_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_get_string_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_get_object_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_get_name_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_get_enum_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_context_data_table_function_library_get_class_data: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_set_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_set_target_distance: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_set_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_set_location: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_set_focal_length: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_set_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_make_camera_pose_from_cine_camera_component: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_make_camera_pose_from_camera_component: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_target_distance: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_target_at_distance: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_target: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_sensor_aspect_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_location: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_focal_length: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_effective_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_aim_ray: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_pose_function_library_get_aim_dir: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_rig_parameter_interop_set_camera_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_rig_parameter_interop_get_camera_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_rig_parameter_interop_library_make_literal_vector3f: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_rig_parameter_interop_library_make_literal_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_rig_parameter_interop_library_make_literal_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_rig_parameter_interop_library_make_literal_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_camera_rig_parameter_interop_library_make_literal_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_camera_actor_get_camera_component: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_get_output_camera_component: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_get_initial_result: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_get_evaluated_camera_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_get_conditional_result: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_deactivate_camera: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_activate_persistent_visual_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_activate_persistent_global_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_activate_persistent_base_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_activate_camera_for_player_index: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_base_activate_camera_for_player_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_component_notify_change_camera_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_parameter_setter_component_stop_parameter_setters: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_parameter_setter_component_start_parameter_setters: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_parameter_setter_component_on_actor_end_overlap: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_parameter_setter_component_on_actor_begin_overlap: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_camera_rig_actor_get_camera_rig_component: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_rig_component_notify_change_camera_rig_reference: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_stop_camera_shake_asset: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_stop_camera_modifier_rig: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_steal_player_controller: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_start_visual_camera_modifier_rig: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_start_global_camera_modifier_rig: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_start_camera_shake_asset: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_release_player_controller: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_is_camera_shake_asset_playing: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_activate_persistent_visual_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_activate_persistent_global_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_cameras_player_camera_manager_activate_persistent_base_camera_rig: *mut crate::ffi::UFunctionOpague,
+    pub a_gameplay_camera_system_actor_get_camera_system_component: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_system_component_stop_camera_modifier_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_system_component_start_visual_camera_modifier_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_system_component_start_global_camera_modifier_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_system_component_is_camera_system_active_for_play_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_system_component_deactivate_camera_system: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_system_component_activate_camera_system_for_player_index: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_camera_system_component_activate_camera_system_for_player_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_control_rotation_component_deactivate_control_rotation_management: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_index: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_tick_camera_node: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_set_default_owning_camera_rig_parameters: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_set_current_camera_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_set_camera_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_initialize_camera_node: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_get_player_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_get_current_camera_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_get_camera_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_camera_node_evaluator_find_evaluation_context_owner_actor: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_camera_rig_instance_functions_is_valid: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_run_child_camera_director: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_run_camera_director: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_resolve_camera_rig_proxy: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_remove_child_evaluation_context: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_get_initial_context_result: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_get_conditional_context_result: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_find_evaluation_context_owner_actor: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_deactivate_persistent_visual_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_deactivate_persistent_global_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_deactivate_persistent_base_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_deactivate_camera_director: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_add_child_evaluation_context: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_activate_persistent_visual_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_activate_persistent_global_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_activate_persistent_base_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_activate_camera_rig_via_proxy: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_activate_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_director_evaluator_activate_camera_director: std::ptr::null_mut(),
+            u_activate_camera_rig_functions_activate_persistent_visual_camera_rig: std::ptr::null_mut(),
+            u_activate_camera_rig_functions_activate_persistent_global_camera_rig: std::ptr::null_mut(),
+            u_activate_camera_rig_functions_activate_persistent_base_camera_rig: std::ptr::null_mut(),
+            u_blueprint_camera_evaluation_data_function_library_set_default_camera_rig_parameters: std::ptr::null_mut(),
+            u_blueprint_camera_evaluation_data_function_library_set_camera_pose: std::ptr::null_mut(),
+            u_blueprint_camera_evaluation_data_function_library_make_camera_evaluation_data: std::ptr::null_mut(),
+            u_blueprint_camera_evaluation_data_function_library_get_camera_pose: std::ptr::null_mut(),
+            u_blueprint_camera_evaluation_data_function_library_blend_camera_evaluation_data: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_vector4_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_vector3_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_vector2_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_transform_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_rotator_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_integer32_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_float_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_double_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_set_boolean_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_vector4_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_vector3_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_vector2_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_transform_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_rotator_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_integer32_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_float_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_double_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_variable_table_function_library_get_boolean_camera_variable: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_set_struct_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_set_string_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_set_object_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_set_name_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_set_enum_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_set_class_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_get_struct_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_get_string_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_get_object_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_get_name_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_get_enum_data: std::ptr::null_mut(),
+            u_blueprint_camera_context_data_table_function_library_get_class_data: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_set_transform: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_set_target_distance: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_set_rotation: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_set_location: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_set_focal_length: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_set_field_of_view: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_make_camera_pose_from_cine_camera_component: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_make_camera_pose_from_camera_component: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_transform: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_target_distance: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_target_at_distance: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_target: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_sensor_aspect_ratio: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_rotation: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_location: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_focal_length: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_field_of_view: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_effective_field_of_view: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_aim_ray: std::ptr::null_mut(),
+            u_blueprint_camera_pose_function_library_get_aim_dir: std::ptr::null_mut(),
+            u_camera_rig_parameter_interop_set_camera_parameter: std::ptr::null_mut(),
+            u_camera_rig_parameter_interop_get_camera_parameter: std::ptr::null_mut(),
+            u_camera_rig_parameter_interop_library_make_literal_vector3f: std::ptr::null_mut(),
+            u_camera_rig_parameter_interop_library_make_literal_vector2_d: std::ptr::null_mut(),
+            u_camera_rig_parameter_interop_library_make_literal_vector: std::ptr::null_mut(),
+            u_camera_rig_parameter_interop_library_make_literal_rotator: std::ptr::null_mut(),
+            u_camera_rig_parameter_interop_library_make_literal_linear_color: std::ptr::null_mut(),
+            a_gameplay_camera_actor_get_camera_component: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_get_output_camera_component: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_get_initial_result: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_get_evaluated_camera_rotation: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_get_conditional_result: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_deactivate_camera: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_activate_persistent_visual_camera_rig: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_activate_persistent_global_camera_rig: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_activate_persistent_base_camera_rig: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_activate_camera_for_player_index: std::ptr::null_mut(),
+            u_gameplay_camera_component_base_activate_camera_for_player_controller: std::ptr::null_mut(),
+            u_gameplay_camera_component_notify_change_camera_reference: std::ptr::null_mut(),
+            u_gameplay_camera_parameter_setter_component_stop_parameter_setters: std::ptr::null_mut(),
+            u_gameplay_camera_parameter_setter_component_start_parameter_setters: std::ptr::null_mut(),
+            u_gameplay_camera_parameter_setter_component_on_actor_end_overlap: std::ptr::null_mut(),
+            u_gameplay_camera_parameter_setter_component_on_actor_begin_overlap: std::ptr::null_mut(),
+            a_gameplay_camera_rig_actor_get_camera_rig_component: std::ptr::null_mut(),
+            u_gameplay_camera_rig_component_notify_change_camera_rig_reference: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_stop_camera_shake_asset: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_stop_camera_modifier_rig: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_steal_player_controller: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_start_visual_camera_modifier_rig: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_start_global_camera_modifier_rig: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_start_camera_shake_asset: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_release_player_controller: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_is_camera_shake_asset_playing: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_activate_persistent_visual_camera_rig: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_activate_persistent_global_camera_rig: std::ptr::null_mut(),
+            a_gameplay_cameras_player_camera_manager_activate_persistent_base_camera_rig: std::ptr::null_mut(),
+            a_gameplay_camera_system_actor_get_camera_system_component: std::ptr::null_mut(),
+            u_gameplay_camera_system_component_stop_camera_modifier_rig: std::ptr::null_mut(),
+            u_gameplay_camera_system_component_start_visual_camera_modifier_rig: std::ptr::null_mut(),
+            u_gameplay_camera_system_component_start_global_camera_modifier_rig: std::ptr::null_mut(),
+            u_gameplay_camera_system_component_is_camera_system_active_for_play_controller: std::ptr::null_mut(),
+            u_gameplay_camera_system_component_deactivate_camera_system: std::ptr::null_mut(),
+            u_gameplay_camera_system_component_activate_camera_system_for_player_index: std::ptr::null_mut(),
+            u_gameplay_camera_system_component_activate_camera_system_for_player_controller: std::ptr::null_mut(),
+            u_gameplay_control_rotation_component_deactivate_control_rotation_management: std::ptr::null_mut(),
+            u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_index: std::ptr::null_mut(),
+            u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_controller: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_tick_camera_node: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_set_default_owning_camera_rig_parameters: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_set_current_camera_pose: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_set_camera_pose: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_initialize_camera_node: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_get_player_controller: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_get_current_camera_pose: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_get_camera_pose: std::ptr::null_mut(),
+            u_blueprint_camera_node_evaluator_find_evaluation_context_owner_actor: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -282,7 +291,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_CAMERA_RIG_INSTANCE_FUNCTIONS_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_camera_rig_instance_functions_is_valid,
         );
     }
     unsafe {
@@ -293,126 +302,144 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RunChildCameraDirector"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CHILD_CAMERA_DIRECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_run_child_camera_director,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RunCameraDirector"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CAMERA_DIRECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_run_camera_director,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResolveCameraRigProxy"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RESOLVE_CAMERA_RIG_PROXY,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_resolve_camera_rig_proxy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveChildEvaluationContext"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_REMOVE_CHILD_EVALUATION_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_remove_child_evaluation_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInitialContextResult"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_INITIAL_CONTEXT_RESULT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_get_initial_context_result,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConditionalContextResult"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_CONDITIONAL_CONTEXT_RESULT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_get_conditional_context_result,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindEvaluationContextOwnerActor"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_find_evaluation_context_owner_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivatePersistentVisualCameraRig"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_deactivate_persistent_visual_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivatePersistentGlobalCameraRig"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_deactivate_persistent_global_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivatePersistentBaseCameraRig"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_deactivate_persistent_base_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivateCameraDirector"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_CAMERA_DIRECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_deactivate_camera_director,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddChildEvaluationContext"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ADD_CHILD_EVALUATION_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_add_child_evaluation_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_activate_persistent_visual_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_activate_persistent_global_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_activate_persistent_base_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateCameraRigViaProxy"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG_VIA_PROXY,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_activate_camera_rig_via_proxy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateCameraRig"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_activate_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateCameraDirector"),
-            &raw mut U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_DIRECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_director_evaluator_activate_camera_director,
         );
     }
     unsafe {
@@ -423,21 +450,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_activate_camera_rig_functions_activate_persistent_visual_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_activate_camera_rig_functions_activate_persistent_global_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_activate_camera_rig_functions_activate_persistent_base_camera_rig,
         );
     }
     unsafe {
@@ -448,35 +478,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultCameraRigParameters"),
-            &raw mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_DEFAULT_CAMERA_RIG_PARAMETERS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_evaluation_data_function_library_set_default_camera_rig_parameters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCameraPose"),
-            &raw mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_CAMERA_POSE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_evaluation_data_function_library_set_camera_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeCameraEvaluationData"),
-            &raw mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_MAKE_CAMERA_EVALUATION_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_evaluation_data_function_library_make_camera_evaluation_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraPose"),
-            &raw mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_GET_CAMERA_POSE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_evaluation_data_function_library_get_camera_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BlendCameraEvaluationData"),
-            &raw mut U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_BLEND_CAMERA_EVALUATION_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_evaluation_data_function_library_blend_camera_evaluation_data,
         );
     }
     unsafe {
@@ -487,126 +522,144 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector4CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR4_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_vector4_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector3CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR3_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_vector3_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector2CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR2_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_vector2_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTransformCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_TRANSFORM_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_transform_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRotatorCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_ROTATOR_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_rotator_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInteger32CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_INTEGER32_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_integer32_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_FLOAT_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_float_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDoubleCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_DOUBLE_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_double_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBooleanCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_BOOLEAN_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_set_boolean_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector4CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR4_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_vector4_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector3CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR3_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_vector3_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector2CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR2_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_vector2_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_TRANSFORM_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_transform_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRotatorCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_ROTATOR_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_rotator_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInteger32CameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_INTEGER32_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_integer32_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_FLOAT_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_float_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDoubleCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_DOUBLE_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_double_camera_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBooleanCameraVariable"),
-            &raw mut U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_BOOLEAN_CAMERA_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_variable_table_function_library_get_boolean_camera_variable,
         );
     }
     unsafe {
@@ -617,84 +670,96 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStructData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRUCT_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_set_struct_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStringData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRING_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_set_string_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetObjectData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_OBJECT_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_set_object_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNameData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_NAME_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_set_name_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnumData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_ENUM_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_set_enum_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetClassData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_CLASS_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_set_class_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStructData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRUCT_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_get_struct_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStringData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRING_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_get_string_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_OBJECT_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_get_object_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNameData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_NAME_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_get_name_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnumData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_ENUM_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_get_enum_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetClassData"),
-            &raw mut U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_CLASS_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_context_data_table_function_library_get_class_data,
         );
     }
     unsafe {
@@ -705,140 +770,157 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTransform"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_set_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetDistance"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TARGET_DISTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_set_target_distance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRotation"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_ROTATION,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_set_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocation"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_set_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFocalLength"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FOCAL_LENGTH,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_set_focal_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFieldOfView"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_set_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeCameraPoseFromCineCameraComponent"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CINE_CAMERA_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_make_camera_pose_from_cine_camera_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeCameraPoseFromCameraComponent"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CAMERA_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_make_camera_pose_from_camera_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransform"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetDistance"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_DISTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_target_distance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetAtDistance"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_AT_DISTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_target_at_distance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTarget"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET,
+            &raw mut __FUNCTION_PTRS.u_blueprint_camera_pose_function_library_get_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSensorAspectRatio"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_SENSOR_ASPECT_RATIO,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_sensor_aspect_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRotation"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_ROTATION,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocation"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFocalLength"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FOCAL_LENGTH,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_focal_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFieldOfView"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEffectiveFieldOfView"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_EFFECTIVE_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_pose_function_library_get_effective_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAimRay"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_RAY,
+            &raw mut __FUNCTION_PTRS.u_blueprint_camera_pose_function_library_get_aim_ray,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAimDir"),
-            &raw mut U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_DIR,
+            &raw mut __FUNCTION_PTRS.u_blueprint_camera_pose_function_library_get_aim_dir,
         );
     }
     unsafe {
@@ -849,14 +931,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCameraParameter"),
-            &raw mut U_CAMERA_RIG_PARAMETER_INTEROP_SET_CAMERA_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_camera_rig_parameter_interop_set_camera_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraParameter"),
-            &raw mut U_CAMERA_RIG_PARAMETER_INTEROP_GET_CAMERA_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_camera_rig_parameter_interop_get_camera_parameter,
         );
     }
     unsafe {
@@ -867,35 +949,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLiteralVector3f"),
-            &raw mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR3F,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_rig_parameter_interop_library_make_literal_vector3f,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLiteralVector2D"),
-            &raw mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_rig_parameter_interop_library_make_literal_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLiteralVector"),
-            &raw mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_rig_parameter_interop_library_make_literal_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLiteralRotator"),
-            &raw mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_ROTATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_rig_parameter_interop_library_make_literal_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeLiteralLinearColor"),
-            &raw mut U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_camera_rig_parameter_interop_library_make_literal_linear_color,
         );
     }
     unsafe {
@@ -906,7 +993,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraComponent"),
-            &raw mut A_GAMEPLAY_CAMERA_ACTOR_GET_CAMERA_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_gameplay_camera_actor_get_camera_component,
         );
     }
     unsafe {
@@ -917,70 +1004,78 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOutputCameraComponent"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_OUTPUT_CAMERA_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_get_output_camera_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInitialResult"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_INITIAL_RESULT,
+            &raw mut __FUNCTION_PTRS.u_gameplay_camera_component_base_get_initial_result,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEvaluatedCameraRotation"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_EVALUATED_CAMERA_ROTATION,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_get_evaluated_camera_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConditionalResult"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_CONDITIONAL_RESULT,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_get_conditional_result,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivateCamera"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_DEACTIVATE_CAMERA,
+            &raw mut __FUNCTION_PTRS.u_gameplay_camera_component_base_deactivate_camera,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_activate_persistent_visual_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_activate_persistent_global_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_activate_persistent_base_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateCameraForPlayerIndex"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_activate_camera_for_player_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateCameraForPlayerController"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_base_activate_camera_for_player_controller,
         );
     }
     unsafe {
@@ -991,7 +1086,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotifyChangeCameraReference"),
-            &raw mut U_GAMEPLAY_CAMERA_COMPONENT_NOTIFY_CHANGE_CAMERA_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_component_notify_change_camera_reference,
         );
     }
     unsafe {
@@ -1002,28 +1098,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopParameterSetters"),
-            &raw mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_STOP_PARAMETER_SETTERS,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_parameter_setter_component_stop_parameter_setters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartParameterSetters"),
-            &raw mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_START_PARAMETER_SETTERS,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_parameter_setter_component_start_parameter_setters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorEndOverlap"),
-            &raw mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_ON_ACTOR_END_OVERLAP,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_parameter_setter_component_on_actor_end_overlap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorBeginOverlap"),
-            &raw mut U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_ON_ACTOR_BEGIN_OVERLAP,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_parameter_setter_component_on_actor_begin_overlap,
         );
     }
     unsafe {
@@ -1034,7 +1134,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraRigComponent"),
-            &raw mut A_GAMEPLAY_CAMERA_RIG_ACTOR_GET_CAMERA_RIG_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_gameplay_camera_rig_actor_get_camera_rig_component,
         );
     }
     unsafe {
@@ -1045,7 +1145,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotifyChangeCameraRigReference"),
-            &raw mut U_GAMEPLAY_CAMERA_RIG_COMPONENT_NOTIFY_CHANGE_CAMERA_RIG_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_rig_component_notify_change_camera_rig_reference,
         );
     }
     unsafe {
@@ -1056,77 +1157,88 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCameraShakeAsset"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_SHAKE_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_stop_camera_shake_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCameraModifierRig"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_MODIFIER_RIG,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_stop_camera_modifier_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StealPlayerController"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STEAL_PLAYER_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_steal_player_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartVisualCameraModifierRig"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_VISUAL_CAMERA_MODIFIER_RIG,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_start_visual_camera_modifier_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartGlobalCameraModifierRig"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_GLOBAL_CAMERA_MODIFIER_RIG,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_start_global_camera_modifier_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartCameraShakeAsset"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_CAMERA_SHAKE_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_start_camera_shake_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReleasePlayerController"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_RELEASE_PLAYER_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_release_player_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCameraShakeAssetPlaying"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_IS_CAMERA_SHAKE_ASSET_PLAYING,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_is_camera_shake_asset_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentVisualCameraRig"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_activate_persistent_visual_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentGlobalCameraRig"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_activate_persistent_global_camera_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePersistentBaseCameraRig"),
-            &raw mut A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_cameras_player_camera_manager_activate_persistent_base_camera_rig,
         );
     }
     unsafe {
@@ -1137,7 +1249,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraSystemComponent"),
-            &raw mut A_GAMEPLAY_CAMERA_SYSTEM_ACTOR_GET_CAMERA_SYSTEM_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .a_gameplay_camera_system_actor_get_camera_system_component,
         );
     }
     unsafe {
@@ -1148,49 +1261,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopCameraModifierRig"),
-            &raw mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_STOP_CAMERA_MODIFIER_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_system_component_stop_camera_modifier_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartVisualCameraModifierRig"),
-            &raw mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_VISUAL_CAMERA_MODIFIER_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_system_component_start_visual_camera_modifier_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartGlobalCameraModifierRig"),
-            &raw mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_GLOBAL_CAMERA_MODIFIER_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_system_component_start_global_camera_modifier_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCameraSystemActiveForPlayController"),
-            &raw mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_IS_CAMERA_SYSTEM_ACTIVE_FOR_PLAY_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_system_component_is_camera_system_active_for_play_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivateCameraSystem"),
-            &raw mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_DEACTIVATE_CAMERA_SYSTEM,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_system_component_deactivate_camera_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateCameraSystemForPlayerIndex"),
-            &raw mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_system_component_activate_camera_system_for_player_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateCameraSystemForPlayerController"),
-            &raw mut U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_camera_system_component_activate_camera_system_for_player_controller,
         );
     }
     unsafe {
@@ -1201,14 +1321,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivateControlRotationManagement"),
-            &raw mut U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_DEACTIVATE_CONTROL_ROTATION_MANAGEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_control_rotation_component_deactivate_control_rotation_management,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivateControlRotationManagementForPlayerIndex"),
-            &raw mut U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_index,
         );
         (bindings
             .core_fns
@@ -1217,7 +1339,8 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "ActivateControlRotationManagementForPlayerController",
             ),
-            &raw mut U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_controller,
         );
     }
     unsafe {
@@ -1228,63 +1351,69 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TickCameraNode"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_TICK_CAMERA_NODE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_camera_node_evaluator_tick_camera_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultOwningCameraRigParameters"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_DEFAULT_OWNING_CAMERA_RIG_PARAMETERS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_node_evaluator_set_default_owning_camera_rig_parameters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentCameraPose"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CURRENT_CAMERA_POSE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_node_evaluator_set_current_camera_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCameraPose"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CAMERA_POSE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_camera_node_evaluator_set_camera_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitializeCameraNode"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_INITIALIZE_CAMERA_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_node_evaluator_initialize_camera_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayerController"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_PLAYER_CONTROLLER,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_node_evaluator_get_player_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentCameraPose"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CURRENT_CAMERA_POSE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_node_evaluator_get_current_camera_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraPose"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CAMERA_POSE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_camera_node_evaluator_get_camera_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindEvaluationContextOwnerActor"),
-            &raw mut U_BLUEPRINT_CAMERA_NODE_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_camera_node_evaluator_find_evaluation_context_owner_actor,
         );
     }
 }
@@ -1545,7 +1674,8 @@ impl UCameraRigInstanceFunctions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_INSTANCE_FUNCTIONS_IS_VALID,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_instance_functions_is_valid,
                 __buffer,
             )
         };
@@ -1562,7 +1692,8 @@ impl UCameraRigInstanceFunctions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_INSTANCE_FUNCTIONS_IS_VALID,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_instance_functions_is_valid,
                 __buffer,
             )
         };
@@ -2508,7 +2639,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CHILD_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_run_child_camera_director,
                 __buffer,
             )
         };
@@ -2528,7 +2660,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CHILD_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_run_child_camera_director,
                 __buffer,
             )
         };
@@ -2547,7 +2680,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_run_camera_director,
                 __buffer,
             )
         };
@@ -2574,7 +2708,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RUN_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_run_camera_director,
                 __buffer,
             )
         };
@@ -2590,7 +2725,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RESOLVE_CAMERA_RIG_PROXY,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_resolve_camera_rig_proxy,
                 __buffer,
             )
         };
@@ -2607,7 +2743,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_RESOLVE_CAMERA_RIG_PROXY,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_resolve_camera_rig_proxy,
                 __buffer,
             )
         };
@@ -2625,7 +2762,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_REMOVE_CHILD_EVALUATION_CONTEXT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_remove_child_evaluation_context,
                 __buffer,
             )
         };
@@ -2649,7 +2787,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_REMOVE_CHILD_EVALUATION_CONTEXT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_remove_child_evaluation_context,
                 __buffer,
             )
         };
@@ -2663,7 +2802,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_INITIAL_CONTEXT_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_get_initial_context_result,
                 __buffer,
             )
         };
@@ -2673,7 +2813,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_INITIAL_CONTEXT_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_get_initial_context_result,
                 __buffer,
             )
         };
@@ -2690,7 +2831,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_CONDITIONAL_CONTEXT_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_get_conditional_context_result,
                 __buffer,
             )
         };
@@ -2707,7 +2849,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_GET_CONDITIONAL_CONTEXT_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_get_conditional_context_result,
                 __buffer,
             )
         };
@@ -2724,7 +2867,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_find_evaluation_context_owner_actor,
                 __buffer,
             )
         };
@@ -2741,7 +2885,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_find_evaluation_context_owner_actor,
                 __buffer,
             )
         };
@@ -2758,7 +2903,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -2775,7 +2921,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -2791,7 +2938,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -2808,7 +2956,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -2824,7 +2973,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -2841,7 +2991,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -2858,7 +3009,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_camera_director,
                 __buffer,
             )
         };
@@ -2882,7 +3034,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_DEACTIVATE_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_deactivate_camera_director,
                 __buffer,
             )
         };
@@ -2898,7 +3051,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ADD_CHILD_EVALUATION_CONTEXT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_add_child_evaluation_context,
                 __buffer,
             )
         };
@@ -2915,7 +3069,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ADD_CHILD_EVALUATION_CONTEXT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_add_child_evaluation_context,
                 __buffer,
             )
         };
@@ -2932,7 +3087,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -2949,7 +3105,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -2965,7 +3122,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -2982,7 +3140,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -2998,7 +3157,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -3015,7 +3175,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -3032,7 +3193,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG_VIA_PROXY,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_rig_via_proxy,
                 __buffer,
             )
         };
@@ -3056,7 +3218,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG_VIA_PROXY,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_rig_via_proxy,
                 __buffer,
             )
         };
@@ -3073,7 +3236,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_rig,
                 __buffer,
             )
         };
@@ -3097,7 +3261,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_rig,
                 __buffer,
             )
         };
@@ -3114,7 +3279,8 @@ impl UBlueprintCameraDirectorEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_director,
                 __buffer,
             )
         };
@@ -3138,7 +3304,8 @@ impl UBlueprintCameraDirectorEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_DIRECTOR_EVALUATOR_ACTIVATE_CAMERA_DIRECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_director_evaluator_activate_camera_director,
                 __buffer,
             )
         };
@@ -3281,7 +3448,8 @@ impl UActivateCameraRigFunctions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -3314,7 +3482,8 @@ impl UActivateCameraRigFunctions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -3331,7 +3500,8 @@ impl UActivateCameraRigFunctions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -3364,7 +3534,8 @@ impl UActivateCameraRigFunctions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -3381,7 +3552,8 @@ impl UActivateCameraRigFunctions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -3414,7 +3586,8 @@ impl UActivateCameraRigFunctions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_ACTIVATE_CAMERA_RIG_FUNCTIONS_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_activate_camera_rig_functions_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -3493,7 +3666,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_DEFAULT_CAMERA_RIG_PARAMETERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_set_default_camera_rig_parameters,
                 __buffer,
             )
         };
@@ -3517,7 +3691,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_DEFAULT_CAMERA_RIG_PARAMETERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_set_default_camera_rig_parameters,
                 __buffer,
             )
         };
@@ -3533,7 +3708,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_set_camera_pose,
                 __buffer,
             )
         };
@@ -3557,7 +3733,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_SET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_set_camera_pose,
                 __buffer,
             )
         };
@@ -3570,7 +3747,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_MAKE_CAMERA_EVALUATION_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_make_camera_evaluation_data,
                 __buffer,
             )
         };
@@ -3580,7 +3758,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_MAKE_CAMERA_EVALUATION_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_make_camera_evaluation_data,
                 __buffer,
             )
         };
@@ -3596,7 +3775,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_GET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_get_camera_pose,
                 __buffer,
             )
         };
@@ -3613,7 +3793,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_GET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_get_camera_pose,
                 __buffer,
             )
         };
@@ -3631,7 +3812,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_BLEND_CAMERA_EVALUATION_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_blend_camera_evaluation_data,
                 __buffer,
             )
         };
@@ -3658,7 +3840,8 @@ impl UBlueprintCameraEvaluationDataFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_EVALUATION_DATA_FUNCTION_LIBRARY_BLEND_CAMERA_EVALUATION_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_evaluation_data_function_library_blend_camera_evaluation_data,
                 __buffer,
             )
         };
@@ -3696,7 +3879,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR4_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector4_camera_variable,
                 __buffer,
             )
         };
@@ -3727,7 +3911,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR4_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector4_camera_variable,
                 __buffer,
             )
         };
@@ -3744,7 +3929,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR3_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector3_camera_variable,
                 __buffer,
             )
         };
@@ -3775,7 +3961,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR3_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector3_camera_variable,
                 __buffer,
             )
         };
@@ -3792,7 +3979,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR2_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector2_camera_variable,
                 __buffer,
             )
         };
@@ -3823,7 +4011,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_VECTOR2_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_vector2_camera_variable,
                 __buffer,
             )
         };
@@ -3840,7 +4029,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_TRANSFORM_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_transform_camera_variable,
                 __buffer,
             )
         };
@@ -3871,7 +4061,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_TRANSFORM_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_transform_camera_variable,
                 __buffer,
             )
         };
@@ -3888,7 +4079,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_ROTATOR_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_rotator_camera_variable,
                 __buffer,
             )
         };
@@ -3919,7 +4111,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_ROTATOR_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_rotator_camera_variable,
                 __buffer,
             )
         };
@@ -3936,7 +4129,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_INTEGER32_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_integer32_camera_variable,
                 __buffer,
             )
         };
@@ -3963,7 +4157,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_INTEGER32_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_integer32_camera_variable,
                 __buffer,
             )
         };
@@ -3980,7 +4175,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_FLOAT_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_float_camera_variable,
                 __buffer,
             )
         };
@@ -4007,7 +4203,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_FLOAT_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_float_camera_variable,
                 __buffer,
             )
         };
@@ -4024,7 +4221,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_DOUBLE_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_double_camera_variable,
                 __buffer,
             )
         };
@@ -4051,7 +4249,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_DOUBLE_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_double_camera_variable,
                 __buffer,
             )
         };
@@ -4068,7 +4267,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_BOOLEAN_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_boolean_camera_variable,
                 __buffer,
             )
         };
@@ -4095,7 +4295,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_SET_BOOLEAN_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_set_boolean_camera_variable,
                 __buffer,
             )
         };
@@ -4111,7 +4312,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR4_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector4_camera_variable,
                 __buffer,
             )
         };
@@ -4135,7 +4337,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR4_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector4_camera_variable,
                 __buffer,
             )
         };
@@ -4154,7 +4357,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR3_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector3_camera_variable,
                 __buffer,
             )
         };
@@ -4178,7 +4382,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR3_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector3_camera_variable,
                 __buffer,
             )
         };
@@ -4197,7 +4402,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR2_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector2_camera_variable,
                 __buffer,
             )
         };
@@ -4221,7 +4427,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_VECTOR2_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_vector2_camera_variable,
                 __buffer,
             )
         };
@@ -4240,7 +4447,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_TRANSFORM_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_transform_camera_variable,
                 __buffer,
             )
         };
@@ -4264,7 +4472,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_TRANSFORM_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_transform_camera_variable,
                 __buffer,
             )
         };
@@ -4283,7 +4492,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_ROTATOR_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_rotator_camera_variable,
                 __buffer,
             )
         };
@@ -4307,7 +4517,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_ROTATOR_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_rotator_camera_variable,
                 __buffer,
             )
         };
@@ -4326,7 +4537,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_INTEGER32_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_integer32_camera_variable,
                 __buffer,
             )
         };
@@ -4350,7 +4562,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_INTEGER32_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_integer32_camera_variable,
                 __buffer,
             )
         };
@@ -4367,7 +4580,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_FLOAT_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_float_camera_variable,
                 __buffer,
             )
         };
@@ -4391,7 +4605,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_FLOAT_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_float_camera_variable,
                 __buffer,
             )
         };
@@ -4408,7 +4623,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_DOUBLE_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_double_camera_variable,
                 __buffer,
             )
         };
@@ -4432,7 +4648,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_DOUBLE_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_double_camera_variable,
                 __buffer,
             )
         };
@@ -4449,7 +4666,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_BOOLEAN_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_boolean_camera_variable,
                 __buffer,
             )
         };
@@ -4473,7 +4691,8 @@ impl UBlueprintCameraVariableTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_VARIABLE_TABLE_FUNCTION_LIBRARY_GET_BOOLEAN_CAMERA_VARIABLE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_variable_table_function_library_get_boolean_camera_variable,
                 __buffer,
             )
         };
@@ -4512,7 +4731,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRUCT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_struct_data,
                 __buffer,
             )
         };
@@ -4545,7 +4765,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRUCT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_struct_data,
                 __buffer,
             )
         };
@@ -4563,7 +4784,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRING_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_string_data,
                 __buffer,
             )
         };
@@ -4590,7 +4812,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_STRING_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_string_data,
                 __buffer,
             )
         };
@@ -4608,7 +4831,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_OBJECT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_object_data,
                 __buffer,
             )
         };
@@ -4639,7 +4863,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_OBJECT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_object_data,
                 __buffer,
             )
         };
@@ -4657,7 +4882,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_NAME_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_name_data,
                 __buffer,
             )
         };
@@ -4684,7 +4910,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_NAME_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_name_data,
                 __buffer,
             )
         };
@@ -4703,7 +4930,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_ENUM_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_enum_data,
                 __buffer,
             )
         };
@@ -4737,7 +4965,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_ENUM_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_enum_data,
                 __buffer,
             )
         };
@@ -4755,7 +4984,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_CLASS_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_class_data,
                 __buffer,
             )
         };
@@ -4788,7 +5018,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_SET_CLASS_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_set_class_data,
                 __buffer,
             )
         };
@@ -4806,7 +5037,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRUCT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_struct_data,
                 __buffer,
             )
         };
@@ -4839,7 +5071,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRUCT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_struct_data,
                 __buffer,
             )
         };
@@ -4861,7 +5094,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRING_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_string_data,
                 __buffer,
             )
         };
@@ -4885,7 +5119,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_STRING_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_string_data,
                 __buffer,
             )
         };
@@ -4902,7 +5137,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_OBJECT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_object_data,
                 __buffer,
             )
         };
@@ -4926,7 +5162,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_OBJECT_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_object_data,
                 __buffer,
             )
         };
@@ -4948,7 +5185,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_NAME_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_name_data,
                 __buffer,
             )
         };
@@ -4972,7 +5210,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_NAME_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_name_data,
                 __buffer,
             )
         };
@@ -4990,7 +5229,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_ENUM_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_enum_data,
                 __buffer,
             )
         };
@@ -5021,7 +5261,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_ENUM_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_enum_data,
                 __buffer,
             )
         };
@@ -5038,7 +5279,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_CLASS_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_class_data,
                 __buffer,
             )
         };
@@ -5062,7 +5304,8 @@ impl UBlueprintCameraContextDataTableFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_CONTEXT_DATA_TABLE_FUNCTION_LIBRARY_GET_CLASS_DATA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_context_data_table_function_library_get_class_data,
                 __buffer,
             )
         };
@@ -5105,7 +5348,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TRANSFORM,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_transform,
                 __buffer,
             )
         };
@@ -5129,7 +5373,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TRANSFORM,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_transform,
                 __buffer,
             )
         };
@@ -5146,7 +5391,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TARGET_DISTANCE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_target_distance,
                 __buffer,
             )
         };
@@ -5170,7 +5416,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_TARGET_DISTANCE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_target_distance,
                 __buffer,
             )
         };
@@ -5187,7 +5434,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_ROTATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_rotation,
                 __buffer,
             )
         };
@@ -5211,7 +5459,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_ROTATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_rotation,
                 __buffer,
             )
         };
@@ -5228,7 +5477,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_LOCATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_location,
                 __buffer,
             )
         };
@@ -5252,7 +5502,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_LOCATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_location,
                 __buffer,
             )
         };
@@ -5269,7 +5520,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FOCAL_LENGTH,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_focal_length,
                 __buffer,
             )
         };
@@ -5293,7 +5545,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FOCAL_LENGTH,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_focal_length,
                 __buffer,
             )
         };
@@ -5310,7 +5563,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FIELD_OF_VIEW,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_field_of_view,
                 __buffer,
             )
         };
@@ -5334,7 +5588,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_SET_FIELD_OF_VIEW,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_set_field_of_view,
                 __buffer,
             )
         };
@@ -5350,7 +5605,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CINE_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_make_camera_pose_from_cine_camera_component,
                 __buffer,
             )
         };
@@ -5371,7 +5627,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CINE_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_make_camera_pose_from_cine_camera_component,
                 __buffer,
             )
         };
@@ -5387,7 +5644,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_make_camera_pose_from_camera_component,
                 __buffer,
             )
         };
@@ -5406,7 +5664,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_MAKE_CAMERA_POSE_FROM_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_make_camera_pose_from_camera_component,
                 __buffer,
             )
         };
@@ -5422,7 +5681,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TRANSFORM,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_transform,
                 __buffer,
             )
         };
@@ -5439,7 +5699,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TRANSFORM,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_transform,
                 __buffer,
             )
         };
@@ -5455,7 +5716,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_DISTANCE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target_distance,
                 __buffer,
             )
         };
@@ -5472,7 +5734,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_DISTANCE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target_distance,
                 __buffer,
             )
         };
@@ -5489,7 +5752,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_AT_DISTANCE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target_at_distance,
                 __buffer,
             )
         };
@@ -5513,7 +5777,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET_AT_DISTANCE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target_at_distance,
                 __buffer,
             )
         };
@@ -5531,7 +5796,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target,
                 __buffer,
             )
         };
@@ -5548,7 +5814,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_TARGET,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_target,
                 __buffer,
             )
         };
@@ -5564,7 +5831,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_SENSOR_ASPECT_RATIO,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_sensor_aspect_ratio,
                 __buffer,
             )
         };
@@ -5581,7 +5849,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_SENSOR_ASPECT_RATIO,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_sensor_aspect_ratio,
                 __buffer,
             )
         };
@@ -5597,7 +5866,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_ROTATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_rotation,
                 __buffer,
             )
         };
@@ -5614,7 +5884,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_ROTATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_rotation,
                 __buffer,
             )
         };
@@ -5632,7 +5903,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_LOCATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_location,
                 __buffer,
             )
         };
@@ -5649,7 +5921,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_LOCATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_location,
                 __buffer,
             )
         };
@@ -5665,7 +5938,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FOCAL_LENGTH,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_focal_length,
                 __buffer,
             )
         };
@@ -5682,7 +5956,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FOCAL_LENGTH,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_focal_length,
                 __buffer,
             )
         };
@@ -5696,7 +5971,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FIELD_OF_VIEW,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_field_of_view,
                 __buffer,
             )
         };
@@ -5713,7 +5989,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_FIELD_OF_VIEW,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_field_of_view,
                 __buffer,
             )
         };
@@ -5727,7 +6004,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_EFFECTIVE_FIELD_OF_VIEW,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_effective_field_of_view,
                 __buffer,
             )
         };
@@ -5744,7 +6022,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_EFFECTIVE_FIELD_OF_VIEW,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_effective_field_of_view,
                 __buffer,
             )
         };
@@ -5760,7 +6039,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_RAY,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_aim_ray,
                 __buffer,
             )
         };
@@ -5777,7 +6057,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_RAY,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_aim_ray,
                 __buffer,
             )
         };
@@ -5795,7 +6076,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_DIR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_aim_dir,
                 __buffer,
             )
         };
@@ -5812,7 +6094,8 @@ impl UBlueprintCameraPoseFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_POSE_FUNCTION_LIBRARY_GET_AIM_DIR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_pose_function_library_get_aim_dir,
                 __buffer,
             )
         };
@@ -5854,7 +6137,8 @@ impl UCameraRigParameterInterop {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_SET_CAMERA_PARAMETER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_set_camera_parameter,
                 __buffer,
             )
         };
@@ -5888,7 +6172,8 @@ impl UCameraRigParameterInterop {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_SET_CAMERA_PARAMETER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_set_camera_parameter,
                 __buffer,
             )
         };
@@ -5906,7 +6191,8 @@ impl UCameraRigParameterInterop {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_GET_CAMERA_PARAMETER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_get_camera_parameter,
                 __buffer,
             )
         };
@@ -5944,7 +6230,8 @@ impl UCameraRigParameterInterop {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_GET_CAMERA_PARAMETER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_get_camera_parameter,
                 __buffer,
             )
         };
@@ -5981,7 +6268,8 @@ impl UCameraRigParameterInteropLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR3F,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector3f,
                 __buffer,
             )
         };
@@ -5998,7 +6286,8 @@ impl UCameraRigParameterInteropLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR3F,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector3f,
                 __buffer,
             )
         };
@@ -6016,7 +6305,8 @@ impl UCameraRigParameterInteropLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR2_D,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector2_d,
                 __buffer,
             )
         };
@@ -6033,7 +6323,8 @@ impl UCameraRigParameterInteropLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR2_D,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector2_d,
                 __buffer,
             )
         };
@@ -6051,7 +6342,8 @@ impl UCameraRigParameterInteropLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector,
                 __buffer,
             )
         };
@@ -6068,7 +6360,8 @@ impl UCameraRigParameterInteropLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_VECTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_vector,
                 __buffer,
             )
         };
@@ -6086,7 +6379,8 @@ impl UCameraRigParameterInteropLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_ROTATOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_rotator,
                 __buffer,
             )
         };
@@ -6103,7 +6397,8 @@ impl UCameraRigParameterInteropLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_ROTATOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_rotator,
                 __buffer,
             )
         };
@@ -6121,7 +6416,8 @@ impl UCameraRigParameterInteropLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_LINEAR_COLOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_linear_color,
                 __buffer,
             )
         };
@@ -6138,7 +6434,8 @@ impl UCameraRigParameterInteropLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_CAMERA_RIG_PARAMETER_INTEROP_LIBRARY_MAKE_LITERAL_LINEAR_COLOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_camera_rig_parameter_interop_library_make_literal_linear_color,
                 __buffer,
             )
         };
@@ -6222,7 +6519,8 @@ impl AGameplayCameraActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_ACTOR_GET_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_camera_actor_get_camera_component,
                 __buffer,
             )
         };
@@ -6232,7 +6530,8 @@ impl AGameplayCameraActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_ACTOR_GET_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_camera_actor_get_camera_component,
                 __buffer,
             )
         };
@@ -6273,7 +6572,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_OUTPUT_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_output_camera_component,
                 __buffer,
             )
         };
@@ -6283,7 +6583,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_OUTPUT_CAMERA_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_output_camera_component,
                 __buffer,
             )
         };
@@ -6302,7 +6603,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_INITIAL_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_initial_result,
                 __buffer,
             )
         };
@@ -6312,7 +6614,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_INITIAL_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_initial_result,
                 __buffer,
             )
         };
@@ -6328,7 +6631,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_EVALUATED_CAMERA_ROTATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_evaluated_camera_rotation,
                 __buffer,
             )
         };
@@ -6338,7 +6642,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_EVALUATED_CAMERA_ROTATION,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_evaluated_camera_rotation,
                 __buffer,
             )
         };
@@ -6357,7 +6662,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_CONDITIONAL_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_conditional_result,
                 __buffer,
             )
         };
@@ -6374,7 +6680,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_GET_CONDITIONAL_RESULT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_get_conditional_result,
                 __buffer,
             )
         };
@@ -6388,7 +6695,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_DEACTIVATE_CAMERA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_deactivate_camera,
                 __buffer,
             )
         };
@@ -6405,7 +6713,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_DEACTIVATE_CAMERA,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_deactivate_camera,
                 __buffer,
             )
         };
@@ -6421,7 +6730,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -6438,7 +6748,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -6454,7 +6765,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -6471,7 +6783,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -6487,7 +6800,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -6504,7 +6818,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -6522,7 +6837,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_INDEX,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_camera_for_player_index,
                 __buffer,
             )
         };
@@ -6553,7 +6869,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_INDEX,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_camera_for_player_index,
                 __buffer,
             )
         };
@@ -6571,7 +6888,8 @@ impl UGameplayCameraComponentBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_camera_for_player_controller,
                 __buffer,
             )
         };
@@ -6604,7 +6922,8 @@ impl UGameplayCameraComponentBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_COMPONENT_BASE_ACTIVATE_CAMERA_FOR_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_component_base_activate_camera_for_player_controller,
                 __buffer,
             )
         };
@@ -6668,7 +6987,8 @@ impl UGameplayCameraParameterSetterComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_STOP_PARAMETER_SETTERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_stop_parameter_setters,
                 __buffer,
             )
         };
@@ -6685,7 +7005,8 @@ impl UGameplayCameraParameterSetterComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_STOP_PARAMETER_SETTERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_stop_parameter_setters,
                 __buffer,
             )
         };
@@ -6698,7 +7019,8 @@ impl UGameplayCameraParameterSetterComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_START_PARAMETER_SETTERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_start_parameter_setters,
                 __buffer,
             )
         };
@@ -6708,7 +7030,8 @@ impl UGameplayCameraParameterSetterComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_PARAMETER_SETTER_COMPONENT_START_PARAMETER_SETTERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_parameter_setter_component_start_parameter_setters,
                 __buffer,
             )
         };
@@ -6744,7 +7067,8 @@ impl AGameplayCameraRigActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_RIG_ACTOR_GET_CAMERA_RIG_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_camera_rig_actor_get_camera_rig_component,
                 __buffer,
             )
         };
@@ -6754,7 +7078,8 @@ impl AGameplayCameraRigActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_RIG_ACTOR_GET_CAMERA_RIG_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_camera_rig_actor_get_camera_rig_component,
                 __buffer,
             )
         };
@@ -6817,7 +7142,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_SHAKE_ASSET,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_stop_camera_shake_asset,
                 __buffer,
             )
         };
@@ -6841,7 +7167,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_SHAKE_ASSET,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_stop_camera_shake_asset,
                 __buffer,
             )
         };
@@ -6859,7 +7186,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_stop_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -6883,7 +7211,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STOP_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_stop_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -6899,7 +7228,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STEAL_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_steal_player_controller,
                 __buffer,
             )
         };
@@ -6918,7 +7248,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_STEAL_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_steal_player_controller,
                 __buffer,
             )
         };
@@ -6935,7 +7266,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_VISUAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_visual_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -6955,7 +7287,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_VISUAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_visual_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -6973,7 +7306,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_global_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -6993,7 +7327,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_global_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -7013,7 +7348,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_CAMERA_SHAKE_ASSET,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_camera_shake_asset,
                 __buffer,
             )
         };
@@ -7053,7 +7389,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_START_CAMERA_SHAKE_ASSET,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_start_camera_shake_asset,
                 __buffer,
             )
         };
@@ -7067,7 +7404,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_RELEASE_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_release_player_controller,
                 __buffer,
             )
         };
@@ -7077,7 +7415,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_RELEASE_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_release_player_controller,
                 __buffer,
             )
         };
@@ -7093,7 +7432,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_IS_CAMERA_SHAKE_ASSET_PLAYING,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_is_camera_shake_asset_playing,
                 __buffer,
             )
         };
@@ -7110,7 +7450,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_IS_CAMERA_SHAKE_ASSET_PLAYING,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_is_camera_shake_asset_playing,
                 __buffer,
             )
         };
@@ -7127,7 +7468,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -7144,7 +7486,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_VISUAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_visual_camera_rig,
                 __buffer,
             )
         };
@@ -7160,7 +7503,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -7177,7 +7521,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_GLOBAL_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_global_camera_rig,
                 __buffer,
             )
         };
@@ -7193,7 +7538,8 @@ impl AGameplayCamerasPlayerCameraManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -7210,7 +7556,8 @@ impl AGameplayCamerasPlayerCameraManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERAS_PLAYER_CAMERA_MANAGER_ACTIVATE_PERSISTENT_BASE_CAMERA_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_cameras_player_camera_manager_activate_persistent_base_camera_rig,
                 __buffer,
             )
         };
@@ -7246,7 +7593,8 @@ impl AGameplayCameraSystemActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_SYSTEM_ACTOR_GET_CAMERA_SYSTEM_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_camera_system_actor_get_camera_system_component,
                 __buffer,
             )
         };
@@ -7256,7 +7604,8 @@ impl AGameplayCameraSystemActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::A_GAMEPLAY_CAMERA_SYSTEM_ACTOR_GET_CAMERA_SYSTEM_COMPONENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .a_gameplay_camera_system_actor_get_camera_system_component,
                 __buffer,
             )
         };
@@ -7298,7 +7647,8 @@ impl UGameplayCameraSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_STOP_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_stop_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -7322,7 +7672,8 @@ impl UGameplayCameraSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_STOP_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_stop_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -7339,7 +7690,8 @@ impl UGameplayCameraSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_VISUAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_start_visual_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -7359,7 +7711,8 @@ impl UGameplayCameraSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_VISUAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_start_visual_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -7377,7 +7730,8 @@ impl UGameplayCameraSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_start_global_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -7397,7 +7751,8 @@ impl UGameplayCameraSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_START_GLOBAL_CAMERA_MODIFIER_RIG,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_start_global_camera_modifier_rig,
                 __buffer,
             )
         };
@@ -7414,7 +7769,8 @@ impl UGameplayCameraSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_IS_CAMERA_SYSTEM_ACTIVE_FOR_PLAY_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_is_camera_system_active_for_play_controller,
                 __buffer,
             )
         };
@@ -7433,7 +7789,8 @@ impl UGameplayCameraSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_IS_CAMERA_SYSTEM_ACTIVE_FOR_PLAY_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_is_camera_system_active_for_play_controller,
                 __buffer,
             )
         };
@@ -7450,7 +7807,8 @@ impl UGameplayCameraSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_DEACTIVATE_CAMERA_SYSTEM,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_deactivate_camera_system,
                 __buffer,
             )
         };
@@ -7467,7 +7825,8 @@ impl UGameplayCameraSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_DEACTIVATE_CAMERA_SYSTEM,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_deactivate_camera_system,
                 __buffer,
             )
         };
@@ -7480,7 +7839,8 @@ impl UGameplayCameraSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_INDEX,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_activate_camera_system_for_player_index,
                 __buffer,
             )
         };
@@ -7497,7 +7857,8 @@ impl UGameplayCameraSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_INDEX,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_activate_camera_system_for_player_index,
                 __buffer,
             )
         };
@@ -7513,7 +7874,8 @@ impl UGameplayCameraSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_activate_camera_system_for_player_controller,
                 __buffer,
             )
         };
@@ -7532,7 +7894,8 @@ impl UGameplayCameraSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CAMERA_SYSTEM_COMPONENT_ACTIVATE_CAMERA_SYSTEM_FOR_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_camera_system_component_activate_camera_system_for_player_controller,
                 __buffer,
             )
         };
@@ -7569,7 +7932,8 @@ impl UGameplayControlRotationComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_DEACTIVATE_CONTROL_ROTATION_MANAGEMENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_deactivate_control_rotation_management,
                 __buffer,
             )
         };
@@ -7579,7 +7943,8 @@ impl UGameplayControlRotationComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_DEACTIVATE_CONTROL_ROTATION_MANAGEMENT,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_deactivate_control_rotation_management,
                 __buffer,
             )
         };
@@ -7595,7 +7960,8 @@ impl UGameplayControlRotationComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_INDEX,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_index,
                 __buffer,
             )
         };
@@ -7612,7 +7978,8 @@ impl UGameplayControlRotationComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_INDEX,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_index,
                 __buffer,
             )
         };
@@ -7628,7 +7995,8 @@ impl UGameplayControlRotationComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_controller,
                 __buffer,
             )
         };
@@ -7647,7 +8015,8 @@ impl UGameplayControlRotationComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_GAMEPLAY_CONTROL_ROTATION_COMPONENT_ACTIVATE_CONTROL_ROTATION_MANAGEMENT_FOR_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_gameplay_control_rotation_component_activate_control_rotation_management_for_player_controller,
                 __buffer,
             )
         };
@@ -8840,6 +9209,34 @@ impl UBlueprintCameraNodeEvaluator {
             cdo
         }
     }
+    pub fn tick_camera_node(&mut self, delta_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_tick_camera_node,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_tick_camera_node,
+                __buffer,
+            )
+        };
+    }
     pub fn set_default_owning_camera_rig_parameters(
         &self,
         target_camera_data: FBlueprintCameraEvaluationDataRef,
@@ -8851,7 +9248,8 @@ impl UBlueprintCameraNodeEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_DEFAULT_OWNING_CAMERA_RIG_PARAMETERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_default_owning_camera_rig_parameters,
                 __buffer,
             )
         };
@@ -8868,7 +9266,8 @@ impl UBlueprintCameraNodeEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_DEFAULT_OWNING_CAMERA_RIG_PARAMETERS,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_default_owning_camera_rig_parameters,
                 __buffer,
             )
         };
@@ -8881,7 +9280,8 @@ impl UBlueprintCameraNodeEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CURRENT_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_current_camera_pose,
                 __buffer,
             )
         };
@@ -8898,7 +9298,8 @@ impl UBlueprintCameraNodeEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CURRENT_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_current_camera_pose,
                 __buffer,
             )
         };
@@ -8911,7 +9312,8 @@ impl UBlueprintCameraNodeEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_camera_pose,
                 __buffer,
             )
         };
@@ -8928,7 +9330,33 @@ impl UBlueprintCameraNodeEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_SET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_set_camera_pose,
+                __buffer,
+            )
+        };
+    }
+    pub fn initialize_camera_node(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_initialize_camera_node,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_initialize_camera_node,
                 __buffer,
             )
         };
@@ -8943,7 +9371,8 @@ impl UBlueprintCameraNodeEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_player_controller,
                 __buffer,
             )
         };
@@ -8953,7 +9382,8 @@ impl UBlueprintCameraNodeEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_PLAYER_CONTROLLER,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_player_controller,
                 __buffer,
             )
         };
@@ -8972,7 +9402,8 @@ impl UBlueprintCameraNodeEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CURRENT_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_current_camera_pose,
                 __buffer,
             )
         };
@@ -8982,7 +9413,8 @@ impl UBlueprintCameraNodeEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CURRENT_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_current_camera_pose,
                 __buffer,
             )
         };
@@ -8996,7 +9428,8 @@ impl UBlueprintCameraNodeEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_camera_pose,
                 __buffer,
             )
         };
@@ -9006,7 +9439,8 @@ impl UBlueprintCameraNodeEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_GET_CAMERA_POSE,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_get_camera_pose,
                 __buffer,
             )
         };
@@ -9023,7 +9457,8 @@ impl UBlueprintCameraNodeEvaluator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_find_evaluation_context_owner_actor,
                 __buffer,
             )
         };
@@ -9040,7 +9475,8 @@ impl UBlueprintCameraNodeEvaluator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_cameras::U_BLUEPRINT_CAMERA_NODE_EVALUATOR_FIND_EVALUATION_CONTEXT_OWNER_ACTOR,
+                crate::bindings::gameplay_cameras::__FUNCTION_PTRS
+                    .u_blueprint_camera_node_evaluator_find_evaluation_context_owner_actor,
                 __buffer,
             )
         };

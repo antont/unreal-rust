@@ -1,56 +1,65 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_NODE_PORT_IS_NODE_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NODE_PORT_GET_NODE_PORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_START_NODE_PROCESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_SHOW_LOGIN_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_SHOW_DIALOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_SEND_SUCCESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_SEND_FAILURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_SAVE_AUTH_TOKEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_RESTART_NODE_PROCESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_OPEN_MEGASCANS_PLUGIN_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_OPEN_EXTERNAL_URL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_ON_EXIT_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_ON_DROPPED_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_ON_DROP_DISCARDED_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_ON_BULK_EXPORT_METAHUMANS_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_LOGOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_GET_PROJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_GET_AUTH_TOKEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_EXPORT_DATA_TO_MS_PLUGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_DRAG_STARTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_DIALOG_SUCCESS_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BROWSER_BINDING_DIALOG_FAIL_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_node_port_is_node_running: *mut crate::ffi::UFunctionOpague,
+    pub u_node_port_get_node_port: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_start_node_process: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_show_login_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_show_dialog: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_send_success: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_send_failure: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_save_auth_token: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_restart_node_process: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_open_megascans_plugin_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_open_external_url: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_on_exit_callback: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_on_dropped_callback: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_on_drop_discarded_callback: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_on_bulk_export_metahumans_callback: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_logout: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_get_project_path: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_get_auth_token: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_export_data_to_ms_plugin: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_drag_started: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_dialog_success_callback: *mut crate::ffi::UFunctionOpague,
+    pub u_browser_binding_dialog_fail_callback: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_node_port_is_node_running: std::ptr::null_mut(),
+            u_node_port_get_node_port: std::ptr::null_mut(),
+            u_browser_binding_start_node_process: std::ptr::null_mut(),
+            u_browser_binding_show_login_dialog: std::ptr::null_mut(),
+            u_browser_binding_show_dialog: std::ptr::null_mut(),
+            u_browser_binding_send_success: std::ptr::null_mut(),
+            u_browser_binding_send_failure: std::ptr::null_mut(),
+            u_browser_binding_save_auth_token: std::ptr::null_mut(),
+            u_browser_binding_restart_node_process: std::ptr::null_mut(),
+            u_browser_binding_open_megascans_plugin_settings: std::ptr::null_mut(),
+            u_browser_binding_open_external_url: std::ptr::null_mut(),
+            u_browser_binding_on_exit_callback: std::ptr::null_mut(),
+            u_browser_binding_on_dropped_callback: std::ptr::null_mut(),
+            u_browser_binding_on_drop_discarded_callback: std::ptr::null_mut(),
+            u_browser_binding_on_bulk_export_metahumans_callback: std::ptr::null_mut(),
+            u_browser_binding_logout: std::ptr::null_mut(),
+            u_browser_binding_get_project_path: std::ptr::null_mut(),
+            u_browser_binding_get_auth_token: std::ptr::null_mut(),
+            u_browser_binding_export_data_to_ms_plugin: std::ptr::null_mut(),
+            u_browser_binding_drag_started: std::ptr::null_mut(),
+            u_browser_binding_dialog_success_callback: std::ptr::null_mut(),
+            u_browser_binding_dialog_fail_callback: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -60,14 +69,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNodeRunning"),
-            &raw mut U_NODE_PORT_IS_NODE_RUNNING,
+            &raw mut __FUNCTION_PTRS.u_node_port_is_node_running,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodePort"),
-            &raw mut U_NODE_PORT_GET_NODE_PORT,
+            &raw mut __FUNCTION_PTRS.u_node_port_get_node_port,
         );
     }
     unsafe {
@@ -78,140 +87,140 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartNodeProcess"),
-            &raw mut U_BROWSER_BINDING_START_NODE_PROCESS,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_start_node_process,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowLoginDialog"),
-            &raw mut U_BROWSER_BINDING_SHOW_LOGIN_DIALOG,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_show_login_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowDialog"),
-            &raw mut U_BROWSER_BINDING_SHOW_DIALOG,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_show_dialog,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SendSuccess"),
-            &raw mut U_BROWSER_BINDING_SEND_SUCCESS,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_send_success,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SendFailure"),
-            &raw mut U_BROWSER_BINDING_SEND_FAILURE,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_send_failure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveAuthToken"),
-            &raw mut U_BROWSER_BINDING_SAVE_AUTH_TOKEN,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_save_auth_token,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RestartNodeProcess"),
-            &raw mut U_BROWSER_BINDING_RESTART_NODE_PROCESS,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_restart_node_process,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenMegascansPluginSettings"),
-            &raw mut U_BROWSER_BINDING_OPEN_MEGASCANS_PLUGIN_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_open_megascans_plugin_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenExternalUrl"),
-            &raw mut U_BROWSER_BINDING_OPEN_EXTERNAL_URL,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_open_external_url,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnExitCallback"),
-            &raw mut U_BROWSER_BINDING_ON_EXIT_CALLBACK,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_on_exit_callback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnDroppedCallback"),
-            &raw mut U_BROWSER_BINDING_ON_DROPPED_CALLBACK,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_on_dropped_callback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnDropDiscardedCallback"),
-            &raw mut U_BROWSER_BINDING_ON_DROP_DISCARDED_CALLBACK,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_on_drop_discarded_callback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnBulkExportMetahumansCallback"),
-            &raw mut U_BROWSER_BINDING_ON_BULK_EXPORT_METAHUMANS_CALLBACK,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_on_bulk_export_metahumans_callback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Logout"),
-            &raw mut U_BROWSER_BINDING_LOGOUT,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_logout,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetProjectPath"),
-            &raw mut U_BROWSER_BINDING_GET_PROJECT_PATH,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_get_project_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAuthToken"),
-            &raw mut U_BROWSER_BINDING_GET_AUTH_TOKEN,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_get_auth_token,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportDataToMSPlugin"),
-            &raw mut U_BROWSER_BINDING_EXPORT_DATA_TO_MS_PLUGIN,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_export_data_to_ms_plugin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DragStarted"),
-            &raw mut U_BROWSER_BINDING_DRAG_STARTED,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_drag_started,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DialogSuccessCallback"),
-            &raw mut U_BROWSER_BINDING_DIALOG_SUCCESS_CALLBACK,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_dialog_success_callback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DialogFailCallback"),
-            &raw mut U_BROWSER_BINDING_DIALOG_FAIL_CALLBACK,
+            &raw mut __FUNCTION_PTRS.u_browser_binding_dialog_fail_callback,
         );
     }
 }

@@ -1,76 +1,85 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_SET_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_SET_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_SET_BONES_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_RENAME_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_RENAME_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_REMOVE_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_REMOVE_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_PARENT_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_PARENT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_ORIENT_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_ORIENT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_MIRROR_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_MIRROR_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_GET_PARENT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_GET_CHILDREN_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_GET_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_GET_ALL_BONE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_COMMIT_SKELETON_TO_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_ADD_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETON_MODIFIER_ADD_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_SET_VERTEX_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_SET_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_PRUNE_VERTEX_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_PRUNE_ALL_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_NORMALIZE_VERTEX_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_NORMALIZE_ALL_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_GET_VERTEX_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_GET_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_GET_NUM_VERTICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_GET_ALL_BONE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_ENFORCE_MAX_INFLUENCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHT_MODIFIER_COMMIT_WEIGHTS_TO_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_skeleton_modifier_set_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_set_bone_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_set_bones_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_rename_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_rename_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_remove_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_remove_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_parent_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_parent_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_orient_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_orient_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_mirror_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_mirror_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_get_parent_name: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_get_children_names: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_get_bone_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_get_all_bone_names: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_commit_skeleton_to_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_add_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_skeleton_modifier_add_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_set_vertex_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_set_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_prune_vertex_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_prune_all_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_normalize_vertex_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_normalize_all_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_get_vertex_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_get_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_get_num_vertices: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_get_all_bone_names: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_enforce_max_influences: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weight_modifier_commit_weights_to_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_skeleton_modifier_set_skeletal_mesh: std::ptr::null_mut(),
+            u_skeleton_modifier_set_bone_transform: std::ptr::null_mut(),
+            u_skeleton_modifier_set_bones_transforms: std::ptr::null_mut(),
+            u_skeleton_modifier_rename_bones: std::ptr::null_mut(),
+            u_skeleton_modifier_rename_bone: std::ptr::null_mut(),
+            u_skeleton_modifier_remove_bones: std::ptr::null_mut(),
+            u_skeleton_modifier_remove_bone: std::ptr::null_mut(),
+            u_skeleton_modifier_parent_bones: std::ptr::null_mut(),
+            u_skeleton_modifier_parent_bone: std::ptr::null_mut(),
+            u_skeleton_modifier_orient_bones: std::ptr::null_mut(),
+            u_skeleton_modifier_orient_bone: std::ptr::null_mut(),
+            u_skeleton_modifier_mirror_bones: std::ptr::null_mut(),
+            u_skeleton_modifier_mirror_bone: std::ptr::null_mut(),
+            u_skeleton_modifier_get_parent_name: std::ptr::null_mut(),
+            u_skeleton_modifier_get_children_names: std::ptr::null_mut(),
+            u_skeleton_modifier_get_bone_transform: std::ptr::null_mut(),
+            u_skeleton_modifier_get_all_bone_names: std::ptr::null_mut(),
+            u_skeleton_modifier_commit_skeleton_to_skeletal_mesh: std::ptr::null_mut(),
+            u_skeleton_modifier_add_bones: std::ptr::null_mut(),
+            u_skeleton_modifier_add_bone: std::ptr::null_mut(),
+            u_skin_weight_modifier_set_vertex_weights: std::ptr::null_mut(),
+            u_skin_weight_modifier_set_skeletal_mesh: std::ptr::null_mut(),
+            u_skin_weight_modifier_prune_vertex_weights: std::ptr::null_mut(),
+            u_skin_weight_modifier_prune_all_weights: std::ptr::null_mut(),
+            u_skin_weight_modifier_normalize_vertex_weights: std::ptr::null_mut(),
+            u_skin_weight_modifier_normalize_all_weights: std::ptr::null_mut(),
+            u_skin_weight_modifier_get_vertex_weights: std::ptr::null_mut(),
+            u_skin_weight_modifier_get_skeletal_mesh: std::ptr::null_mut(),
+            u_skin_weight_modifier_get_num_vertices: std::ptr::null_mut(),
+            u_skin_weight_modifier_get_all_bone_names: std::ptr::null_mut(),
+            u_skin_weight_modifier_enforce_max_influences: std::ptr::null_mut(),
+            u_skin_weight_modifier_commit_weights_to_skeletal_mesh: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -80,140 +89,140 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkeletalMesh"),
-            &raw mut U_SKELETON_MODIFIER_SET_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoneTransform"),
-            &raw mut U_SKELETON_MODIFIER_SET_BONE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_bone_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBonesTransforms"),
-            &raw mut U_SKELETON_MODIFIER_SET_BONES_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_set_bones_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameBones"),
-            &raw mut U_SKELETON_MODIFIER_RENAME_BONES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_rename_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameBone"),
-            &raw mut U_SKELETON_MODIFIER_RENAME_BONE,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_rename_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBones"),
-            &raw mut U_SKELETON_MODIFIER_REMOVE_BONES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_remove_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBone"),
-            &raw mut U_SKELETON_MODIFIER_REMOVE_BONE,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_remove_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ParentBones"),
-            &raw mut U_SKELETON_MODIFIER_PARENT_BONES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_parent_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ParentBone"),
-            &raw mut U_SKELETON_MODIFIER_PARENT_BONE,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_parent_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OrientBones"),
-            &raw mut U_SKELETON_MODIFIER_ORIENT_BONES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_orient_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OrientBone"),
-            &raw mut U_SKELETON_MODIFIER_ORIENT_BONE,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_orient_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MirrorBones"),
-            &raw mut U_SKELETON_MODIFIER_MIRROR_BONES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_mirror_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MirrorBone"),
-            &raw mut U_SKELETON_MODIFIER_MIRROR_BONE,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_mirror_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentName"),
-            &raw mut U_SKELETON_MODIFIER_GET_PARENT_NAME,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_parent_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildrenNames"),
-            &raw mut U_SKELETON_MODIFIER_GET_CHILDREN_NAMES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_children_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoneTransform"),
-            &raw mut U_SKELETON_MODIFIER_GET_BONE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_bone_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllBoneNames"),
-            &raw mut U_SKELETON_MODIFIER_GET_ALL_BONE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_get_all_bone_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CommitSkeletonToSkeletalMesh"),
-            &raw mut U_SKELETON_MODIFIER_COMMIT_SKELETON_TO_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_commit_skeleton_to_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBones"),
-            &raw mut U_SKELETON_MODIFIER_ADD_BONES,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_add_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBone"),
-            &raw mut U_SKELETON_MODIFIER_ADD_BONE,
+            &raw mut __FUNCTION_PTRS.u_skeleton_modifier_add_bone,
         );
     }
     unsafe {
@@ -224,84 +233,85 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVertexWeights"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_SET_VERTEX_WEIGHTS,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_set_vertex_weights,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkeletalMesh"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_SET_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_set_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PruneVertexWeights"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_PRUNE_VERTEX_WEIGHTS,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_prune_vertex_weights,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PruneAllWeights"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_PRUNE_ALL_WEIGHTS,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_prune_all_weights,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NormalizeVertexWeights"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_NORMALIZE_VERTEX_WEIGHTS,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_normalize_vertex_weights,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NormalizeAllWeights"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_NORMALIZE_ALL_WEIGHTS,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_normalize_all_weights,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVertexWeights"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_GET_VERTEX_WEIGHTS,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_vertex_weights,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletalMesh"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_GET_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVertices"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_GET_NUM_VERTICES,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_num_vertices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllBoneNames"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_GET_ALL_BONE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_get_all_bone_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnforceMaxInfluences"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_ENFORCE_MAX_INFLUENCES,
+            &raw mut __FUNCTION_PTRS.u_skin_weight_modifier_enforce_max_influences,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CommitWeightsToSkeletalMesh"),
-            &raw mut U_SKIN_WEIGHT_MODIFIER_COMMIT_WEIGHTS_TO_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_skin_weight_modifier_commit_weights_to_skeletal_mesh,
         );
     }
 }
@@ -354,7 +364,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_SET_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_set_skeletal_mesh,
                 __buffer,
             )
         };
@@ -371,7 +382,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_SET_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_set_skeletal_mesh,
                 __buffer,
             )
         };
@@ -390,7 +402,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_SET_BONE_TRANSFORM,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_set_bone_transform,
                 __buffer,
             )
         };
@@ -421,7 +434,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_SET_BONE_TRANSFORM,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_set_bone_transform,
                 __buffer,
             )
         };
@@ -440,7 +454,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_SET_BONES_TRANSFORMS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_set_bones_transforms,
                 __buffer,
             )
         };
@@ -473,7 +488,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_SET_BONES_TRANSFORMS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_set_bones_transforms,
                 __buffer,
             )
         };
@@ -491,7 +507,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_RENAME_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_rename_bones,
                 __buffer,
             )
         };
@@ -515,7 +532,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_RENAME_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_rename_bones,
                 __buffer,
             )
         };
@@ -533,7 +551,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_RENAME_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_rename_bone,
                 __buffer,
             )
         };
@@ -557,7 +576,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_RENAME_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_rename_bone,
                 __buffer,
             )
         };
@@ -575,7 +595,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_REMOVE_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_remove_bones,
                 __buffer,
             )
         };
@@ -599,7 +620,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_REMOVE_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_remove_bones,
                 __buffer,
             )
         };
@@ -613,7 +635,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_REMOVE_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_remove_bone,
                 __buffer,
             )
         };
@@ -637,7 +660,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_REMOVE_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_remove_bone,
                 __buffer,
             )
         };
@@ -655,7 +679,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_PARENT_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_parent_bones,
                 __buffer,
             )
         };
@@ -679,7 +704,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_PARENT_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_parent_bones,
                 __buffer,
             )
         };
@@ -693,7 +719,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_PARENT_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_parent_bone,
                 __buffer,
             )
         };
@@ -717,7 +744,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_PARENT_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_parent_bone,
                 __buffer,
             )
         };
@@ -735,7 +763,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ORIENT_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_orient_bones,
                 __buffer,
             )
         };
@@ -759,7 +788,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ORIENT_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_orient_bones,
                 __buffer,
             )
         };
@@ -777,7 +807,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ORIENT_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_orient_bone,
                 __buffer,
             )
         };
@@ -801,7 +832,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ORIENT_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_orient_bone,
                 __buffer,
             )
         };
@@ -819,7 +851,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_MIRROR_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_mirror_bones,
                 __buffer,
             )
         };
@@ -843,7 +876,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_MIRROR_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_mirror_bones,
                 __buffer,
             )
         };
@@ -861,7 +895,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_MIRROR_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_mirror_bone,
                 __buffer,
             )
         };
@@ -885,7 +920,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_MIRROR_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_mirror_bone,
                 __buffer,
             )
         };
@@ -899,7 +935,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_PARENT_NAME,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_parent_name,
                 __buffer,
             )
         };
@@ -916,7 +953,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_PARENT_NAME,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_parent_name,
                 __buffer,
             )
         };
@@ -934,7 +972,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_CHILDREN_NAMES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_children_names,
                 __buffer,
             )
         };
@@ -958,7 +997,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_CHILDREN_NAMES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_children_names,
                 __buffer,
             )
         };
@@ -976,7 +1016,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_BONE_TRANSFORM,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_bone_transform,
                 __buffer,
             )
         };
@@ -996,7 +1037,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_BONE_TRANSFORM,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_bone_transform,
                 __buffer,
             )
         };
@@ -1012,7 +1054,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_ALL_BONE_NAMES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_all_bone_names,
                 __buffer,
             )
         };
@@ -1022,7 +1065,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_GET_ALL_BONE_NAMES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_get_all_bone_names,
                 __buffer,
             )
         };
@@ -1036,7 +1080,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_COMMIT_SKELETON_TO_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_commit_skeleton_to_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1046,7 +1091,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_COMMIT_SKELETON_TO_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_commit_skeleton_to_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1065,7 +1111,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ADD_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_add_bones,
                 __buffer,
             )
         };
@@ -1098,7 +1145,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ADD_BONES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_add_bones,
                 __buffer,
             )
         };
@@ -1117,7 +1165,8 @@ impl USkeletonModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ADD_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_add_bone,
                 __buffer,
             )
         };
@@ -1148,7 +1197,8 @@ impl USkeletonModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKELETON_MODIFIER_ADD_BONE,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skeleton_modifier_add_bone,
                 __buffer,
             )
         };
@@ -1209,7 +1259,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_SET_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_set_vertex_weights,
                 __buffer,
             )
         };
@@ -1236,7 +1287,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_SET_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_set_vertex_weights,
                 __buffer,
             )
         };
@@ -1253,7 +1305,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_SET_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_set_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1270,7 +1323,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_SET_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_set_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1288,7 +1342,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_PRUNE_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_prune_vertex_weights,
                 __buffer,
             )
         };
@@ -1308,7 +1363,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_PRUNE_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_prune_vertex_weights,
                 __buffer,
             )
         };
@@ -1322,7 +1378,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_PRUNE_ALL_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_prune_all_weights,
                 __buffer,
             )
         };
@@ -1339,7 +1396,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_PRUNE_ALL_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_prune_all_weights,
                 __buffer,
             )
         };
@@ -1353,7 +1411,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_NORMALIZE_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_normalize_vertex_weights,
                 __buffer,
             )
         };
@@ -1366,7 +1425,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_NORMALIZE_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_normalize_vertex_weights,
                 __buffer,
             )
         };
@@ -1380,7 +1440,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_NORMALIZE_ALL_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_normalize_all_weights,
                 __buffer,
             )
         };
@@ -1390,7 +1451,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_NORMALIZE_ALL_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_normalize_all_weights,
                 __buffer,
             )
         };
@@ -1404,7 +1466,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_vertex_weights,
                 __buffer,
             )
         };
@@ -1417,7 +1480,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_VERTEX_WEIGHTS,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_vertex_weights,
                 __buffer,
             )
         };
@@ -1431,7 +1495,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1441,7 +1506,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1457,7 +1523,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_NUM_VERTICES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_num_vertices,
                 __buffer,
             )
         };
@@ -1467,7 +1534,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_NUM_VERTICES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_num_vertices,
                 __buffer,
             )
         };
@@ -1481,7 +1549,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_ALL_BONE_NAMES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_all_bone_names,
                 __buffer,
             )
         };
@@ -1491,7 +1560,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_GET_ALL_BONE_NAMES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_get_all_bone_names,
                 __buffer,
             )
         };
@@ -1505,7 +1575,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_ENFORCE_MAX_INFLUENCES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_enforce_max_influences,
                 __buffer,
             )
         };
@@ -1522,7 +1593,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_ENFORCE_MAX_INFLUENCES,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_enforce_max_influences,
                 __buffer,
             )
         };
@@ -1536,7 +1608,8 @@ impl USkinWeightModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_COMMIT_WEIGHTS_TO_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_commit_weights_to_skeletal_mesh,
                 __buffer,
             )
         };
@@ -1546,7 +1619,8 @@ impl USkinWeightModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_modifiers::U_SKIN_WEIGHT_MODIFIER_COMMIT_WEIGHTS_TO_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_modifiers::__FUNCTION_PTRS
+                    .u_skin_weight_modifier_commit_weights_to_skeletal_mesh,
                 __buffer,
             )
         };

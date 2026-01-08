@@ -1,122 +1,131 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_TOOL_MENU_REMOVE_MENU_ENTRY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_INIT_MENU: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ADD_SUB_MENU_SCRIPT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ADD_SECTION_SCRIPT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ADD_MENU_ENTRY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ADD_MENU_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ADD_DYNAMIC_SECTION_SCRIPT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_UNREGISTER_MENU_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_SHOW_IN_TOOLBAR_TOP_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_REGISTER_MENU_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_IS_VISIBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_INIT_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_GET_TOOL_TIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_GET_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_GET_ICON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_GET_CHECK_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_CONSTRUCT_MENU_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_SCRIPT_CAN_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_UNREGISTER_OWNER_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_SET_SECTION_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_SET_SECTION_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_REMOVE_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_REMOVE_MENU_ENTRY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_REMOVE_MENU: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_REMOVE_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_REGISTER_MENU: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_REFRESH_MENU_WIDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_REFRESH_ALL_WIDGETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_IS_MENU_REGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_GET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_FIND_MENU: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_FIND_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_EXTEND_MENU: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENUS_ADD_MENU_ENTRY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_CONTEXT_EXTENSIONS_FIND_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_CONTEXT_EXTENSIONS_DEBUG_LOG_CONTEXT_OBJECT_CLASSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_TOOL_TIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_STRING_COMMAND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_ICON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_TOOL_MENU_OWNER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_STRING_COMMAND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_SCRIPT_SLATE_ICON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_INIT_MENU_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_GET_TOOL_TIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_GET_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_TOOL_MENU_OWNER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_STRING_COMMAND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_SCRIPT_SLATE_ICON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_SECTION_EXTENSIONS_SET_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_SECTION_EXTENSIONS_GET_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TOOL_MENU_SECTION_DYNAMIC_CONSTRUCT_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_tool_menu_remove_menu_entry_object: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_init_menu: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_add_sub_menu_script: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_add_section_script: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_add_menu_entry_object: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_add_menu_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_add_dynamic_section_script: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_unregister_menu_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_show_in_toolbar_top_level: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_register_menu_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_is_visible: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_init_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_get_tool_tip: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_get_label: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_get_icon: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_get_check_state: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_execute: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_construct_menu_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_script_can_execute: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_unregister_owner_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_set_section_position: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_set_section_label: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_remove_section: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_remove_menu_entry_object: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_remove_menu: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_remove_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_register_menu: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_refresh_menu_widget: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_refresh_all_widgets: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_is_menu_registered: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_get: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_find_menu: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_find_context: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_extend_menu: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menus_add_menu_entry_object: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_context_extensions_find_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_context_extensions_debug_log_context_object_classes: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_set_tool_tip: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_set_string_command: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_set_label: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_set_icon: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_make_tool_menu_owner: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_make_string_command: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_make_script_slate_icon: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_init_menu_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_get_tool_tip: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_get_label: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_break_tool_menu_owner: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_break_string_command: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_entry_extensions_break_script_slate_icon: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_section_extensions_set_label: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_section_extensions_get_label: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_section_extensions_add_entry_object: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_section_extensions_add_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_tool_menu_section_dynamic_construct_sections: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_tool_menu_remove_menu_entry_object: std::ptr::null_mut(),
+            u_tool_menu_init_menu: std::ptr::null_mut(),
+            u_tool_menu_add_sub_menu_script: std::ptr::null_mut(),
+            u_tool_menu_add_section_script: std::ptr::null_mut(),
+            u_tool_menu_add_menu_entry_object: std::ptr::null_mut(),
+            u_tool_menu_add_menu_entry: std::ptr::null_mut(),
+            u_tool_menu_add_dynamic_section_script: std::ptr::null_mut(),
+            u_tool_menu_entry_script_unregister_menu_entry: std::ptr::null_mut(),
+            u_tool_menu_entry_script_show_in_toolbar_top_level: std::ptr::null_mut(),
+            u_tool_menu_entry_script_register_menu_entry: std::ptr::null_mut(),
+            u_tool_menu_entry_script_is_visible: std::ptr::null_mut(),
+            u_tool_menu_entry_script_init_entry: std::ptr::null_mut(),
+            u_tool_menu_entry_script_get_tool_tip: std::ptr::null_mut(),
+            u_tool_menu_entry_script_get_label: std::ptr::null_mut(),
+            u_tool_menu_entry_script_get_icon: std::ptr::null_mut(),
+            u_tool_menu_entry_script_get_check_state: std::ptr::null_mut(),
+            u_tool_menu_entry_script_execute: std::ptr::null_mut(),
+            u_tool_menu_entry_script_construct_menu_entry: std::ptr::null_mut(),
+            u_tool_menu_entry_script_can_execute: std::ptr::null_mut(),
+            u_tool_menus_unregister_owner_by_name: std::ptr::null_mut(),
+            u_tool_menus_set_section_position: std::ptr::null_mut(),
+            u_tool_menus_set_section_label: std::ptr::null_mut(),
+            u_tool_menus_remove_section: std::ptr::null_mut(),
+            u_tool_menus_remove_menu_entry_object: std::ptr::null_mut(),
+            u_tool_menus_remove_menu: std::ptr::null_mut(),
+            u_tool_menus_remove_entry: std::ptr::null_mut(),
+            u_tool_menus_register_menu: std::ptr::null_mut(),
+            u_tool_menus_refresh_menu_widget: std::ptr::null_mut(),
+            u_tool_menus_refresh_all_widgets: std::ptr::null_mut(),
+            u_tool_menus_is_menu_registered: std::ptr::null_mut(),
+            u_tool_menus_get: std::ptr::null_mut(),
+            u_tool_menus_find_menu: std::ptr::null_mut(),
+            u_tool_menus_find_context: std::ptr::null_mut(),
+            u_tool_menus_extend_menu: std::ptr::null_mut(),
+            u_tool_menus_add_menu_entry_object: std::ptr::null_mut(),
+            u_tool_menu_context_extensions_find_by_class: std::ptr::null_mut(),
+            u_tool_menu_context_extensions_debug_log_context_object_classes: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_set_tool_tip: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_set_string_command: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_set_label: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_set_icon: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_make_tool_menu_owner: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_make_string_command: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_make_script_slate_icon: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_init_menu_entry: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_get_tool_tip: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_get_label: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_break_tool_menu_owner: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_break_string_command: std::ptr::null_mut(),
+            u_tool_menu_entry_extensions_break_script_slate_icon: std::ptr::null_mut(),
+            u_tool_menu_section_extensions_set_label: std::ptr::null_mut(),
+            u_tool_menu_section_extensions_get_label: std::ptr::null_mut(),
+            u_tool_menu_section_extensions_add_entry_object: std::ptr::null_mut(),
+            u_tool_menu_section_extensions_add_entry: std::ptr::null_mut(),
+            u_tool_menu_section_dynamic_construct_sections: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -126,49 +135,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMenuEntryObject"),
-            &raw mut U_TOOL_MENU_REMOVE_MENU_ENTRY_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_remove_menu_entry_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitMenu"),
-            &raw mut U_TOOL_MENU_INIT_MENU,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_init_menu,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSubMenuScript"),
-            &raw mut U_TOOL_MENU_ADD_SUB_MENU_SCRIPT,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_add_sub_menu_script,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSectionScript"),
-            &raw mut U_TOOL_MENU_ADD_SECTION_SCRIPT,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_add_section_script,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMenuEntryObject"),
-            &raw mut U_TOOL_MENU_ADD_MENU_ENTRY_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_add_menu_entry_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMenuEntry"),
-            &raw mut U_TOOL_MENU_ADD_MENU_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_add_menu_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDynamicSectionScript"),
-            &raw mut U_TOOL_MENU_ADD_DYNAMIC_SECTION_SCRIPT,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_add_dynamic_section_script,
         );
     }
     unsafe {
@@ -179,84 +188,84 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterMenuEntry"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_UNREGISTER_MENU_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_unregister_menu_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowInToolbarTopLevel"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_SHOW_IN_TOOLBAR_TOP_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_show_in_toolbar_top_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterMenuEntry"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_REGISTER_MENU_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_register_menu_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsVisible"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_IS_VISIBLE,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_is_visible,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitEntry"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_INIT_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_init_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetToolTip"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_GET_TOOL_TIP,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_tool_tip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_GET_LABEL,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIcon"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_GET_ICON,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_icon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCheckState"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_GET_CHECK_STATE,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_get_check_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Execute"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_EXECUTE,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_execute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConstructMenuEntry"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_CONSTRUCT_MENU_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_construct_menu_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanExecute"),
-            &raw mut U_TOOL_MENU_ENTRY_SCRIPT_CAN_EXECUTE,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_script_can_execute,
         );
     }
     unsafe {
@@ -267,112 +276,112 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterOwnerByName"),
-            &raw mut U_TOOL_MENUS_UNREGISTER_OWNER_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_unregister_owner_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionPosition"),
-            &raw mut U_TOOL_MENUS_SET_SECTION_POSITION,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_set_section_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionLabel"),
-            &raw mut U_TOOL_MENUS_SET_SECTION_LABEL,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_set_section_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSection"),
-            &raw mut U_TOOL_MENUS_REMOVE_SECTION,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMenuEntryObject"),
-            &raw mut U_TOOL_MENUS_REMOVE_MENU_ENTRY_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_menu_entry_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMenu"),
-            &raw mut U_TOOL_MENUS_REMOVE_MENU,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_menu,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveEntry"),
-            &raw mut U_TOOL_MENUS_REMOVE_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_remove_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterMenu"),
-            &raw mut U_TOOL_MENUS_REGISTER_MENU,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_register_menu,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshMenuWidget"),
-            &raw mut U_TOOL_MENUS_REFRESH_MENU_WIDGET,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_refresh_menu_widget,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshAllWidgets"),
-            &raw mut U_TOOL_MENUS_REFRESH_ALL_WIDGETS,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_refresh_all_widgets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsMenuRegistered"),
-            &raw mut U_TOOL_MENUS_IS_MENU_REGISTERED,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_is_menu_registered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Get"),
-            &raw mut U_TOOL_MENUS_GET,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_get,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindMenu"),
-            &raw mut U_TOOL_MENUS_FIND_MENU,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_find_menu,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindContext"),
-            &raw mut U_TOOL_MENUS_FIND_CONTEXT,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_find_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExtendMenu"),
-            &raw mut U_TOOL_MENUS_EXTEND_MENU,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_extend_menu,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMenuEntryObject"),
-            &raw mut U_TOOL_MENUS_ADD_MENU_ENTRY_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_tool_menus_add_menu_entry_object,
         );
     }
     unsafe {
@@ -383,14 +392,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindByClass"),
-            &raw mut U_TOOL_MENU_CONTEXT_EXTENSIONS_FIND_BY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_context_extensions_find_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DebugLogContextObjectClasses"),
-            &raw mut U_TOOL_MENU_CONTEXT_EXTENSIONS_DEBUG_LOG_CONTEXT_OBJECT_CLASSES,
+            &raw mut __FUNCTION_PTRS
+                .u_tool_menu_context_extensions_debug_log_context_object_classes,
         );
     }
     unsafe {
@@ -401,91 +411,91 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetToolTip"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_TOOL_TIP,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_tool_tip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStringCommand"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_STRING_COMMAND,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_string_command,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLabel"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_LABEL,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIcon"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_SET_ICON,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_set_icon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeToolMenuOwner"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_TOOL_MENU_OWNER,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_make_tool_menu_owner,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeStringCommand"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_STRING_COMMAND,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_make_string_command,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeScriptSlateIcon"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_SCRIPT_SLATE_ICON,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_make_script_slate_icon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitMenuEntry"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_INIT_MENU_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_init_menu_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetToolTip"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_GET_TOOL_TIP,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_get_tool_tip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_GET_LABEL,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_get_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakToolMenuOwner"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_TOOL_MENU_OWNER,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_break_tool_menu_owner,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakStringCommand"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_STRING_COMMAND,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_break_string_command,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakScriptSlateIcon"),
-            &raw mut U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_SCRIPT_SLATE_ICON,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_entry_extensions_break_script_slate_icon,
         );
     }
     unsafe {
@@ -496,28 +506,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLabel"),
-            &raw mut U_TOOL_MENU_SECTION_EXTENSIONS_SET_LABEL,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_set_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut U_TOOL_MENU_SECTION_EXTENSIONS_GET_LABEL,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_get_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddEntryObject"),
-            &raw mut U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_add_entry_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddEntry"),
-            &raw mut U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_section_extensions_add_entry,
         );
     }
     unsafe {
@@ -528,7 +538,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConstructSections"),
-            &raw mut U_TOOL_MENU_SECTION_DYNAMIC_CONSTRUCT_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_tool_menu_section_dynamic_construct_sections,
         );
     }
 }
@@ -667,7 +677,8 @@ impl UToolMenu {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_REMOVE_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_remove_menu_entry_object,
                 __buffer,
             )
         };
@@ -684,7 +695,8 @@ impl UToolMenu {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_REMOVE_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_remove_menu_entry_object,
                 __buffer,
             )
         };
@@ -703,7 +715,7 @@ impl UToolMenu {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_INIT_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menu_init_menu,
                 __buffer,
             )
         };
@@ -733,7 +745,7 @@ impl UToolMenu {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_INIT_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menu_init_menu,
                 __buffer,
             )
         };
@@ -753,7 +765,8 @@ impl UToolMenu {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_SUB_MENU_SCRIPT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_sub_menu_script,
                 __buffer,
             )
         };
@@ -782,7 +795,8 @@ impl UToolMenu {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_SUB_MENU_SCRIPT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_sub_menu_script,
                 __buffer,
             )
         };
@@ -803,7 +817,8 @@ impl UToolMenu {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_SECTION_SCRIPT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_section_script,
                 __buffer,
             )
         };
@@ -844,7 +859,8 @@ impl UToolMenu {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_SECTION_SCRIPT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_section_script,
                 __buffer,
             )
         };
@@ -857,7 +873,8 @@ impl UToolMenu {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_menu_entry_object,
                 __buffer,
             )
         };
@@ -874,7 +891,8 @@ impl UToolMenu {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_menu_entry_object,
                 __buffer,
             )
         };
@@ -887,7 +905,7 @@ impl UToolMenu {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menu_add_menu_entry,
                 __buffer,
             )
         };
@@ -911,7 +929,7 @@ impl UToolMenu {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menu_add_menu_entry,
                 __buffer,
             )
         };
@@ -928,7 +946,8 @@ impl UToolMenu {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_DYNAMIC_SECTION_SCRIPT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_dynamic_section_script,
                 __buffer,
             )
         };
@@ -952,7 +971,8 @@ impl UToolMenu {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ADD_DYNAMIC_SECTION_SCRIPT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_add_dynamic_section_script,
                 __buffer,
             )
         };
@@ -1031,7 +1051,8 @@ impl UToolMenuEntryScript {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_SCRIPT_UNREGISTER_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_unregister_menu_entry,
                 __buffer,
             )
         };
@@ -1041,10 +1062,44 @@ impl UToolMenuEntryScript {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_SCRIPT_UNREGISTER_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_unregister_menu_entry,
                 __buffer,
             )
         };
+    }
+    pub fn show_in_toolbar_top_level(&self, context: &FToolMenuContext) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<105>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_show_in_toolbar_top_level,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_show_in_toolbar_top_level,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<bool>().read() }
     }
     pub fn register_menu_entry(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
@@ -1054,7 +1109,8 @@ impl UToolMenuEntryScript {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_SCRIPT_REGISTER_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_register_menu_entry,
                 __buffer,
             )
         };
@@ -1064,10 +1120,44 @@ impl UToolMenuEntryScript {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_SCRIPT_REGISTER_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_register_menu_entry,
                 __buffer,
             )
         };
+    }
+    pub fn is_visible(&self, context: &FToolMenuContext) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<105>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_is_visible,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_is_visible,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<bool>().read() }
     }
     pub fn init_entry(
         &mut self,
@@ -1085,7 +1175,8 @@ impl UToolMenuEntryScript {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_SCRIPT_INIT_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_init_entry,
                 __buffer,
             )
         };
@@ -1117,10 +1208,267 @@ impl UToolMenuEntryScript {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_SCRIPT_INIT_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_init_entry,
                 __buffer,
             )
         };
+    }
+    pub fn get_tool_tip(&self, context: &FToolMenuContext) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_tool_tip,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_tool_tip,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<FText>().read() }
+    }
+    pub fn get_label(&self, context: &FToolMenuContext) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<120>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_label,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_label,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<FText>().read() }
+    }
+    pub fn get_icon(&self, context: &FToolMenuContext) -> FScriptSlateIcon {
+        let mut __stack = crate::core_data::StackAlloc::<140>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_icon,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_icon,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<FScriptSlateIcon>().read() }
+    }
+    pub fn get_check_state(
+        &self,
+        context: &FToolMenuContext,
+    ) -> crate::bindings::slate_core::ECheckBoxState {
+        let mut __stack = crate::core_data::StackAlloc::<105>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_check_state,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_get_check_state,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(104)
+                .cast::<crate::bindings::slate_core::ECheckBoxState>()
+                .read()
+        }
+    }
+    pub fn execute(&mut self, context: &FToolMenuContext) {
+        let mut __stack = crate::core_data::StackAlloc::<104>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_execute,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_execute,
+                __buffer,
+            )
+        };
+    }
+    pub fn construct_menu_entry(
+        &mut self,
+        menu: UPtr<UToolMenu>,
+        section_name: FName,
+        context: &FToolMenuContext,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<128>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_construct_menu_entry,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &menu,
+                __buffer.add(0).cast::<UPtr<UToolMenu>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &section_name,
+                __buffer.add(8).cast::<FName>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(24).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_construct_menu_entry,
+                __buffer,
+            )
+        };
+    }
+    pub fn can_execute(&self, context: &FToolMenuContext) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<105>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_can_execute,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(0).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_script_can_execute,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(104).cast::<bool>().read() }
     }
 }
 #[repr(C, align(8))]
@@ -1172,7 +1520,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_UNREGISTER_OWNER_BY_NAME,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_unregister_owner_by_name,
                 __buffer,
             )
         };
@@ -1189,7 +1538,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_UNREGISTER_OWNER_BY_NAME,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_unregister_owner_by_name,
                 __buffer,
             )
         };
@@ -1208,7 +1558,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_SET_SECTION_POSITION,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_set_section_position,
                 __buffer,
             )
         };
@@ -1246,7 +1597,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_SET_SECTION_POSITION,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_set_section_position,
                 __buffer,
             )
         };
@@ -1264,7 +1616,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_SET_SECTION_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_set_section_label,
                 __buffer,
             )
         };
@@ -1291,7 +1644,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_SET_SECTION_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_set_section_label,
                 __buffer,
             )
         };
@@ -1304,7 +1658,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_SECTION,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_remove_section,
                 __buffer,
             )
         };
@@ -1324,7 +1678,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_SECTION,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_remove_section,
                 __buffer,
             )
         };
@@ -1339,7 +1693,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_remove_menu_entry_object,
                 __buffer,
             )
         };
@@ -1356,7 +1711,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_remove_menu_entry_object,
                 __buffer,
             )
         };
@@ -1370,7 +1726,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_remove_menu,
                 __buffer,
             )
         };
@@ -1387,7 +1743,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_remove_menu,
                 __buffer,
             )
         };
@@ -1400,7 +1756,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_remove_entry,
                 __buffer,
             )
         };
@@ -1423,7 +1779,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_REMOVE_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_remove_entry,
                 __buffer,
             )
         };
@@ -1442,7 +1798,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_REGISTER_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_register_menu,
                 __buffer,
             )
         };
@@ -1472,7 +1828,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_REGISTER_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_register_menu,
                 __buffer,
             )
         };
@@ -1486,7 +1842,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_REFRESH_MENU_WIDGET,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_refresh_menu_widget,
                 __buffer,
             )
         };
@@ -1499,7 +1856,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_REFRESH_MENU_WIDGET,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_refresh_menu_widget,
                 __buffer,
             )
         };
@@ -1513,7 +1871,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_REFRESH_ALL_WIDGETS,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_refresh_all_widgets,
                 __buffer,
             )
         };
@@ -1523,7 +1882,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_REFRESH_ALL_WIDGETS,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_refresh_all_widgets,
                 __buffer,
             )
         };
@@ -1536,7 +1896,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_IS_MENU_REGISTERED,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_is_menu_registered,
                 __buffer,
             )
         };
@@ -1549,7 +1910,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_IS_MENU_REGISTERED,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_is_menu_registered,
                 __buffer,
             )
         };
@@ -1563,7 +1925,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_GET,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_get,
                 __buffer,
             )
         };
@@ -1573,7 +1935,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_GET,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_get,
                 __buffer,
             )
         };
@@ -1587,7 +1949,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_FIND_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_find_menu,
                 __buffer,
             )
         };
@@ -1600,7 +1962,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_FIND_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_find_menu,
                 __buffer,
             )
         };
@@ -1617,7 +1979,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_FIND_CONTEXT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_find_context,
                 __buffer,
             )
         };
@@ -1643,7 +2005,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_FIND_CONTEXT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_find_context,
                 __buffer,
             )
         };
@@ -1662,7 +2024,7 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_EXTEND_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_extend_menu,
                 __buffer,
             )
         };
@@ -1675,7 +2037,7 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_EXTEND_MENU,
+                crate::bindings::tool_menus::__FUNCTION_PTRS.u_tool_menus_extend_menu,
                 __buffer,
             )
         };
@@ -1689,7 +2051,8 @@ impl UToolMenus {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENUS_ADD_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_add_menu_entry_object,
                 __buffer,
             )
         };
@@ -1706,7 +2069,8 @@ impl UToolMenus {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENUS_ADD_MENU_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menus_add_menu_entry_object,
                 __buffer,
             )
         };
@@ -1744,7 +2108,8 @@ impl UToolMenuContextExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_CONTEXT_EXTENSIONS_FIND_BY_CLASS,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_context_extensions_find_by_class,
                 __buffer,
             )
         };
@@ -1770,7 +2135,8 @@ impl UToolMenuContextExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_CONTEXT_EXTENSIONS_FIND_BY_CLASS,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_context_extensions_find_by_class,
                 __buffer,
             )
         };
@@ -1789,7 +2155,8 @@ impl UToolMenuContextExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_CONTEXT_EXTENSIONS_DEBUG_LOG_CONTEXT_OBJECT_CLASSES,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_context_extensions_debug_log_context_object_classes,
                 __buffer,
             )
         };
@@ -1806,7 +2173,8 @@ impl UToolMenuContextExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_CONTEXT_EXTENSIONS_DEBUG_LOG_CONTEXT_OBJECT_CLASSES,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_context_extensions_debug_log_context_object_classes,
                 __buffer,
             )
         };
@@ -1840,7 +2208,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_TOOL_TIP,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_tool_tip,
                 __buffer,
             )
         };
@@ -1864,7 +2233,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_TOOL_TIP,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_tool_tip,
                 __buffer,
             )
         };
@@ -1885,7 +2255,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_STRING_COMMAND,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_string_command,
                 __buffer,
             )
         };
@@ -1923,7 +2294,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_STRING_COMMAND,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_string_command,
                 __buffer,
             )
         };
@@ -1939,7 +2311,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_label,
                 __buffer,
             )
         };
@@ -1959,7 +2332,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_label,
                 __buffer,
             )
         };
@@ -1980,7 +2354,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_ICON,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_icon,
                 __buffer,
             )
         };
@@ -2018,7 +2393,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_SET_ICON,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_set_icon,
                 __buffer,
             )
         };
@@ -2034,7 +2410,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_TOOL_MENU_OWNER,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_tool_menu_owner,
                 __buffer,
             )
         };
@@ -2047,7 +2424,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_TOOL_MENU_OWNER,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_tool_menu_owner,
                 __buffer,
             )
         };
@@ -2065,7 +2443,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_STRING_COMMAND,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_string_command,
                 __buffer,
             )
         };
@@ -2096,7 +2475,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_STRING_COMMAND,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_string_command,
                 __buffer,
             )
         };
@@ -2114,7 +2494,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_SCRIPT_SLATE_ICON,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_script_slate_icon,
                 __buffer,
             )
         };
@@ -2145,7 +2526,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_MAKE_SCRIPT_SLATE_ICON,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_make_script_slate_icon,
                 __buffer,
             )
         };
@@ -2167,7 +2549,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_INIT_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_init_menu_entry,
                 __buffer,
             )
         };
@@ -2214,7 +2597,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_INIT_MENU_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_init_menu_entry,
                 __buffer,
             )
         };
@@ -2228,7 +2612,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_GET_TOOL_TIP,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_get_tool_tip,
                 __buffer,
             )
         };
@@ -2245,7 +2630,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_GET_TOOL_TIP,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_get_tool_tip,
                 __buffer,
             )
         };
@@ -2259,7 +2645,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_GET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_get_label,
                 __buffer,
             )
         };
@@ -2276,7 +2663,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_GET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_get_label,
                 __buffer,
             )
         };
@@ -2290,7 +2678,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_TOOL_MENU_OWNER,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_tool_menu_owner,
                 __buffer,
             )
         };
@@ -2310,7 +2699,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_TOOL_MENU_OWNER,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_tool_menu_owner,
                 __buffer,
             )
         };
@@ -2331,7 +2721,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_STRING_COMMAND,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_string_command,
                 __buffer,
             )
         };
@@ -2365,7 +2756,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_STRING_COMMAND,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_string_command,
                 __buffer,
             )
         };
@@ -2392,7 +2784,8 @@ impl UToolMenuEntryExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_SCRIPT_SLATE_ICON,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_script_slate_icon,
                 __buffer,
             )
         };
@@ -2430,7 +2823,8 @@ impl UToolMenuEntryExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_ENTRY_EXTENSIONS_BREAK_SCRIPT_SLATE_ICON,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_entry_extensions_break_script_slate_icon,
                 __buffer,
             )
         };
@@ -2473,7 +2867,8 @@ impl UToolMenuSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_SET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_set_label,
                 __buffer,
             )
         };
@@ -2493,7 +2888,8 @@ impl UToolMenuSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_SET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_set_label,
                 __buffer,
             )
         };
@@ -2509,7 +2905,8 @@ impl UToolMenuSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_GET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_get_label,
                 __buffer,
             )
         };
@@ -2526,7 +2923,8 @@ impl UToolMenuSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_GET_LABEL,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_get_label,
                 __buffer,
             )
         };
@@ -2543,7 +2941,8 @@ impl UToolMenuSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_add_entry_object,
                 __buffer,
             )
         };
@@ -2567,7 +2966,8 @@ impl UToolMenuSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY_OBJECT,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_add_entry_object,
                 __buffer,
             )
         };
@@ -2583,7 +2983,8 @@ impl UToolMenuSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_add_entry,
                 __buffer,
             )
         };
@@ -2607,7 +3008,8 @@ impl UToolMenuSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::tool_menus::U_TOOL_MENU_SECTION_EXTENSIONS_ADD_ENTRY,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_extensions_add_entry,
                 __buffer,
             )
         };
@@ -2635,6 +3037,49 @@ impl UToolMenuSectionDynamic {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn construct_sections(
+        &mut self,
+        menu: UPtr<UToolMenu>,
+        context: &FToolMenuContext,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_dynamic_construct_sections,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &menu,
+                __buffer.add(0).cast::<UPtr<UToolMenu>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                context,
+                __buffer.add(8).cast::<FToolMenuContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::tool_menus::__FUNCTION_PTRS
+                    .u_tool_menu_section_dynamic_construct_sections,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]

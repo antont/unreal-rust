@@ -1,164 +1,173 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_SET_GRAPH_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GET_NODE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GET_NODE_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GET_GRAPH_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_GET_VARIABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_GET_RESOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_GET_PRIMARY_COMPONENT_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_GET_COMPONENT_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_ARRAY_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_DEFORMER_INSTANCE_ENQUEUE_TRIGGER_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH_DIRECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_REMOVE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_REMOVE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_REMOVE_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_REMOVE_ALL_LINKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_MOVE_GRAPH_DIRECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_IS_SUB_GRAPH_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_IS_KERNEL_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_IS_EXECUTION_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_IS_CUSTOM_KERNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_GET_GRAPH_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_GET_GRAPHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_GET_GRAPH_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_EXPAND_COLLAPSED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_CONVERT_TO_SUB_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_CONVERT_TO_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_CONVERT_FUNCTION_TO_CUSTOM_KERNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_CONVERT_CUSTOM_KERNEL_TO_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_SUB_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_VARIABLE_GET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_VALUE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_SET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_GET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_LOOP_TERMINAL_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_FUNCTION_REFERENCE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_DATA_INTERFACE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_COMPONENT_BINDING_GET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_NODE_GRAPH_ADD_COMMENT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPTIMUS_FUNCTION_NODE_GRAPH_GET_ACCESS_SPECIFIER_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_optimus_node_set_graph_position: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_get_node_name: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_get_node_category: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_get_graph_position: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_get_variables: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_get_resources: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_get_primary_component_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_get_component_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_vector_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_vector_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_vector4_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_vector4_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_vector2_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_vector2_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_transform_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_transform_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_rotator_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_rotator_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_quat_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_quat_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_name_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_name_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_linear_color_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_linear_color_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int4_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int4_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int3_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int3_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int2_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_int2_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_float_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_float_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_bool_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_set_bool_array_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_deformer_instance_enqueue_trigger_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_rename_graph_direct: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_rename_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_remove_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_remove_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_remove_link: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_remove_all_links: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_move_graph_direct: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_is_sub_graph_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_is_kernel_function: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_is_function_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_is_function_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_is_execution_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_is_custom_kernel: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_get_graph_type: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_get_graphs: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_get_graph_index: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_expand_collapsed_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_duplicate_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_duplicate_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_convert_to_sub_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_convert_to_function: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_convert_function_to_custom_kernel: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_convert_custom_kernel_to_function: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_collapse_nodes_to_sub_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_collapse_nodes_to_function: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_variable_get_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_value_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_resource_set_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_resource_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_resource_get_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_loop_terminal_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_link: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_function_reference_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_data_interface_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_component_binding_get_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_node_graph_add_comment_node: *mut crate::ffi::UFunctionOpague,
+    pub u_optimus_function_node_graph_get_access_specifier_options: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_optimus_node_set_graph_position: std::ptr::null_mut(),
+            u_optimus_node_get_node_name: std::ptr::null_mut(),
+            u_optimus_node_get_node_category: std::ptr::null_mut(),
+            u_optimus_node_get_graph_position: std::ptr::null_mut(),
+            u_optimus_node_get_display_name: std::ptr::null_mut(),
+            u_optimus_deformer_get_variables: std::ptr::null_mut(),
+            u_optimus_deformer_get_resources: std::ptr::null_mut(),
+            u_optimus_deformer_get_primary_component_binding: std::ptr::null_mut(),
+            u_optimus_deformer_get_component_bindings: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_vector_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_vector_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_vector4_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_vector4_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_vector2_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_vector2_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_transform_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_transform_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_rotator_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_rotator_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_quat_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_quat_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_name_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_name_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_linear_color_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_linear_color_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int4_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int4_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int3_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int3_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int2_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_int2_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_float_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_float_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_bool_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_set_bool_array_variable: std::ptr::null_mut(),
+            u_optimus_deformer_instance_enqueue_trigger_graph: std::ptr::null_mut(),
+            u_optimus_node_graph_rename_graph_direct: std::ptr::null_mut(),
+            u_optimus_node_graph_rename_graph: std::ptr::null_mut(),
+            u_optimus_node_graph_remove_nodes: std::ptr::null_mut(),
+            u_optimus_node_graph_remove_node: std::ptr::null_mut(),
+            u_optimus_node_graph_remove_link: std::ptr::null_mut(),
+            u_optimus_node_graph_remove_all_links: std::ptr::null_mut(),
+            u_optimus_node_graph_move_graph_direct: std::ptr::null_mut(),
+            u_optimus_node_graph_is_sub_graph_reference: std::ptr::null_mut(),
+            u_optimus_node_graph_is_kernel_function: std::ptr::null_mut(),
+            u_optimus_node_graph_is_function_reference: std::ptr::null_mut(),
+            u_optimus_node_graph_is_function_graph: std::ptr::null_mut(),
+            u_optimus_node_graph_is_execution_graph: std::ptr::null_mut(),
+            u_optimus_node_graph_is_custom_kernel: std::ptr::null_mut(),
+            u_optimus_node_graph_get_graph_type: std::ptr::null_mut(),
+            u_optimus_node_graph_get_graphs: std::ptr::null_mut(),
+            u_optimus_node_graph_get_graph_index: std::ptr::null_mut(),
+            u_optimus_node_graph_expand_collapsed_nodes: std::ptr::null_mut(),
+            u_optimus_node_graph_duplicate_nodes: std::ptr::null_mut(),
+            u_optimus_node_graph_duplicate_node: std::ptr::null_mut(),
+            u_optimus_node_graph_convert_to_sub_graph: std::ptr::null_mut(),
+            u_optimus_node_graph_convert_to_function: std::ptr::null_mut(),
+            u_optimus_node_graph_convert_function_to_custom_kernel: std::ptr::null_mut(),
+            u_optimus_node_graph_convert_custom_kernel_to_function: std::ptr::null_mut(),
+            u_optimus_node_graph_collapse_nodes_to_sub_graph: std::ptr::null_mut(),
+            u_optimus_node_graph_collapse_nodes_to_function: std::ptr::null_mut(),
+            u_optimus_node_graph_add_variable_get_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_value_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_resource_set_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_resource_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_resource_get_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_loop_terminal_nodes: std::ptr::null_mut(),
+            u_optimus_node_graph_add_link: std::ptr::null_mut(),
+            u_optimus_node_graph_add_function_reference_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_data_interface_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_component_binding_get_node: std::ptr::null_mut(),
+            u_optimus_node_graph_add_comment_node: std::ptr::null_mut(),
+            u_optimus_function_node_graph_get_access_specifier_options: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -168,35 +177,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphPosition"),
-            &raw mut U_OPTIMUS_NODE_SET_GRAPH_POSITION,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_set_graph_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeName"),
-            &raw mut U_OPTIMUS_NODE_GET_NODE_NAME,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_get_node_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeCategory"),
-            &raw mut U_OPTIMUS_NODE_GET_NODE_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_get_node_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphPosition"),
-            &raw mut U_OPTIMUS_NODE_GET_GRAPH_POSITION,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_get_graph_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_OPTIMUS_NODE_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_get_display_name,
         );
     }
     unsafe {
@@ -207,28 +216,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariables"),
-            &raw mut U_OPTIMUS_DEFORMER_GET_VARIABLES,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_variables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetResources"),
-            &raw mut U_OPTIMUS_DEFORMER_GET_RESOURCES,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_resources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPrimaryComponentBinding"),
-            &raw mut U_OPTIMUS_DEFORMER_GET_PRIMARY_COMPONENT_BINDING,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_primary_component_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentBindings"),
-            &raw mut U_OPTIMUS_DEFORMER_GET_COMPONENT_BINDINGS,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_get_component_bindings,
         );
     }
     unsafe {
@@ -239,203 +248,210 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVectorVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVectorArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_deformer_instance_set_vector_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector4Variable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector4_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector4ArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_deformer_instance_set_vector4_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector2Variable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_vector2_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector2ArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_deformer_instance_set_vector2_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTransformVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_transform_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTransformArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_deformer_instance_set_transform_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRotatorVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_rotator_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRotatorArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_deformer_instance_set_rotator_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuatVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_quat_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuatArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_quat_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNameVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_name_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNameArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_name_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLinearColorVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_deformer_instance_set_linear_color_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLinearColorArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_deformer_instance_set_linear_color_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIntVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIntArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt4Variable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int4_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt4ArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int4_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt3Variable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int3_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt3ArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int3_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt2Variable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int2_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt2ArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_int2_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_float_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_float_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_bool_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolArrayVariable"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_ARRAY_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_set_bool_array_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnqueueTriggerGraph"),
-            &raw mut U_OPTIMUS_DEFORMER_INSTANCE_ENQUEUE_TRIGGER_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_optimus_deformer_instance_enqueue_trigger_graph,
         );
     }
     unsafe {
@@ -446,259 +462,261 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameGraphDirect"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH_DIRECT,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_rename_graph_direct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameGraph"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_rename_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNodes"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_REMOVE_NODES,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_REMOVE_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLink"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_REMOVE_LINK,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllLinks"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_REMOVE_ALL_LINKS,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_remove_all_links,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveGraphDirect"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_MOVE_GRAPH_DIRECT,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_move_graph_direct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSubGraphReference"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_IS_SUB_GRAPH_REFERENCE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_sub_graph_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsKernelFunction"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_IS_KERNEL_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_kernel_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFunctionReference"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_REFERENCE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_function_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFunctionGraph"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_function_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsExecutionGraph"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_IS_EXECUTION_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_execution_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCustomKernel"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_IS_CUSTOM_KERNEL,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_is_custom_kernel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphType"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_GET_GRAPH_TYPE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graph_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphs"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_GET_GRAPHS,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graphs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphIndex"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_GET_GRAPH_INDEX,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_get_graph_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExpandCollapsedNodes"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_EXPAND_COLLAPSED_NODES,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_expand_collapsed_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateNodes"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODES,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_duplicate_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_duplicate_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSubGraph"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_CONVERT_TO_SUB_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_convert_to_sub_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToFunction"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_CONVERT_TO_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_convert_to_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertFunctionToCustomKernel"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_CONVERT_FUNCTION_TO_CUSTOM_KERNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_node_graph_convert_function_to_custom_kernel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertCustomKernelToFunction"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_CONVERT_CUSTOM_KERNEL_TO_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_node_graph_convert_custom_kernel_to_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CollapseNodesToSubGraph"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_SUB_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_collapse_nodes_to_sub_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CollapseNodesToFunction"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_collapse_nodes_to_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVariableGetNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_VARIABLE_GET_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_variable_get_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddValueNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_VALUE_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_value_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddResourceSetNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_SET_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_set_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddResourceNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddResourceGetNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_GET_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_resource_get_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLoopTerminalNodes"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_LOOP_TERMINAL_NODES,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_loop_terminal_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLink"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_LINK,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFunctionReferenceNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_FUNCTION_REFERENCE_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_function_reference_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDataInterfaceNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_DATA_INTERFACE_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_data_interface_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddComponentBindingGetNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_COMPONENT_BINDING_GET_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_component_binding_get_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCommentNode"),
-            &raw mut U_OPTIMUS_NODE_GRAPH_ADD_COMMENT_NODE,
+            &raw mut __FUNCTION_PTRS.u_optimus_node_graph_add_comment_node,
         );
     }
     unsafe {
@@ -709,7 +727,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAccessSpecifierOptions"),
-            &raw mut U_OPTIMUS_FUNCTION_NODE_GRAPH_GET_ACCESS_SPECIFIER_OPTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_optimus_function_node_graph_get_access_specifier_options,
         );
     }
 }
@@ -2686,7 +2705,8 @@ impl UOptimusNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_SET_GRAPH_POSITION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_set_graph_position,
                 __buffer,
             )
         };
@@ -2703,7 +2723,8 @@ impl UOptimusNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_SET_GRAPH_POSITION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_set_graph_position,
                 __buffer,
             )
         };
@@ -2717,7 +2738,8 @@ impl UOptimusNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_NAME,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_node_name,
                 __buffer,
             )
         };
@@ -2727,7 +2749,8 @@ impl UOptimusNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_NAME,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_node_name,
                 __buffer,
             )
         };
@@ -2741,7 +2764,8 @@ impl UOptimusNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_CATEGORY,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_node_category,
                 __buffer,
             )
         };
@@ -2751,7 +2775,8 @@ impl UOptimusNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_NODE_CATEGORY,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_node_category,
                 __buffer,
             )
         };
@@ -2765,7 +2790,8 @@ impl UOptimusNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_GRAPH_POSITION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_graph_position,
                 __buffer,
             )
         };
@@ -2775,7 +2801,8 @@ impl UOptimusNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_GRAPH_POSITION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_graph_position,
                 __buffer,
             )
         };
@@ -2791,7 +2818,8 @@ impl UOptimusNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_DISPLAY_NAME,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_display_name,
                 __buffer,
             )
         };
@@ -2801,7 +2829,8 @@ impl UOptimusNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GET_DISPLAY_NAME,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_get_display_name,
                 __buffer,
             )
         };
@@ -3340,7 +3369,8 @@ impl UOptimusDeformer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_VARIABLES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_variables,
                 __buffer,
             )
         };
@@ -3350,7 +3380,8 @@ impl UOptimusDeformer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_VARIABLES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_variables,
                 __buffer,
             )
         };
@@ -3366,7 +3397,8 @@ impl UOptimusDeformer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_RESOURCES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_resources,
                 __buffer,
             )
         };
@@ -3376,7 +3408,8 @@ impl UOptimusDeformer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_RESOURCES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_resources,
                 __buffer,
             )
         };
@@ -3392,7 +3425,8 @@ impl UOptimusDeformer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_PRIMARY_COMPONENT_BINDING,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_primary_component_binding,
                 __buffer,
             )
         };
@@ -3402,7 +3436,8 @@ impl UOptimusDeformer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_PRIMARY_COMPONENT_BINDING,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_primary_component_binding,
                 __buffer,
             )
         };
@@ -3418,7 +3453,8 @@ impl UOptimusDeformer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_COMPONENT_BINDINGS,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_component_bindings,
                 __buffer,
             )
         };
@@ -3428,7 +3464,8 @@ impl UOptimusDeformer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_GET_COMPONENT_BINDINGS,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_get_component_bindings,
                 __buffer,
             )
         };
@@ -3511,7 +3548,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector_variable,
                 __buffer,
             )
         };
@@ -3535,7 +3573,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector_variable,
                 __buffer,
             )
         };
@@ -3553,7 +3592,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector_array_variable,
                 __buffer,
             )
         };
@@ -3579,7 +3619,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector_array_variable,
                 __buffer,
             )
         };
@@ -3597,7 +3638,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector4_variable,
                 __buffer,
             )
         };
@@ -3621,7 +3663,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector4_variable,
                 __buffer,
             )
         };
@@ -3639,7 +3682,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector4_array_variable,
                 __buffer,
             )
         };
@@ -3665,7 +3709,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR4_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector4_array_variable,
                 __buffer,
             )
         };
@@ -3683,7 +3728,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector2_variable,
                 __buffer,
             )
         };
@@ -3707,7 +3753,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector2_variable,
                 __buffer,
             )
         };
@@ -3725,7 +3772,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector2_array_variable,
                 __buffer,
             )
         };
@@ -3751,7 +3799,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_VECTOR2_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_vector2_array_variable,
                 __buffer,
             )
         };
@@ -3769,7 +3818,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_transform_variable,
                 __buffer,
             )
         };
@@ -3793,7 +3843,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_transform_variable,
                 __buffer,
             )
         };
@@ -3811,7 +3862,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_transform_array_variable,
                 __buffer,
             )
         };
@@ -3837,7 +3889,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_TRANSFORM_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_transform_array_variable,
                 __buffer,
             )
         };
@@ -3855,7 +3908,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_rotator_variable,
                 __buffer,
             )
         };
@@ -3879,7 +3933,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_rotator_variable,
                 __buffer,
             )
         };
@@ -3897,7 +3952,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_rotator_array_variable,
                 __buffer,
             )
         };
@@ -3923,7 +3979,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_ROTATOR_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_rotator_array_variable,
                 __buffer,
             )
         };
@@ -3941,7 +3998,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_quat_variable,
                 __buffer,
             )
         };
@@ -3965,7 +4023,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_quat_variable,
                 __buffer,
             )
         };
@@ -3983,7 +4042,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_quat_array_variable,
                 __buffer,
             )
         };
@@ -4007,7 +4067,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_QUAT_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_quat_array_variable,
                 __buffer,
             )
         };
@@ -4025,7 +4086,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_name_variable,
                 __buffer,
             )
         };
@@ -4045,7 +4107,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_name_variable,
                 __buffer,
             )
         };
@@ -4063,7 +4126,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_name_array_variable,
                 __buffer,
             )
         };
@@ -4087,7 +4151,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_NAME_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_name_array_variable,
                 __buffer,
             )
         };
@@ -4105,7 +4170,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_linear_color_variable,
                 __buffer,
             )
         };
@@ -4129,7 +4195,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_linear_color_variable,
                 __buffer,
             )
         };
@@ -4147,7 +4214,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_linear_color_array_variable,
                 __buffer,
             )
         };
@@ -4173,7 +4241,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_LINEAR_COLOR_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_linear_color_array_variable,
                 __buffer,
             )
         };
@@ -4187,7 +4256,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int_variable,
                 __buffer,
             )
         };
@@ -4207,7 +4277,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int_variable,
                 __buffer,
             )
         };
@@ -4225,7 +4296,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int_array_variable,
                 __buffer,
             )
         };
@@ -4249,7 +4321,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int_array_variable,
                 __buffer,
             )
         };
@@ -4267,7 +4340,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int4_variable,
                 __buffer,
             )
         };
@@ -4291,7 +4365,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int4_variable,
                 __buffer,
             )
         };
@@ -4309,7 +4384,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int4_array_variable,
                 __buffer,
             )
         };
@@ -4335,7 +4411,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT4_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int4_array_variable,
                 __buffer,
             )
         };
@@ -4353,7 +4430,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int3_variable,
                 __buffer,
             )
         };
@@ -4377,7 +4455,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int3_variable,
                 __buffer,
             )
         };
@@ -4395,7 +4474,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int3_array_variable,
                 __buffer,
             )
         };
@@ -4421,7 +4501,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT3_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int3_array_variable,
                 __buffer,
             )
         };
@@ -4439,7 +4520,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int2_variable,
                 __buffer,
             )
         };
@@ -4463,7 +4545,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int2_variable,
                 __buffer,
             )
         };
@@ -4481,7 +4564,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int2_array_variable,
                 __buffer,
             )
         };
@@ -4507,7 +4591,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_INT2_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_int2_array_variable,
                 __buffer,
             )
         };
@@ -4525,7 +4610,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_float_variable,
                 __buffer,
             )
         };
@@ -4545,7 +4631,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_float_variable,
                 __buffer,
             )
         };
@@ -4563,7 +4650,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_float_array_variable,
                 __buffer,
             )
         };
@@ -4587,7 +4675,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_FLOAT_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_float_array_variable,
                 __buffer,
             )
         };
@@ -4605,7 +4694,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_bool_variable,
                 __buffer,
             )
         };
@@ -4625,7 +4715,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_bool_variable,
                 __buffer,
             )
         };
@@ -4643,7 +4734,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_bool_array_variable,
                 __buffer,
             )
         };
@@ -4667,7 +4759,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_SET_BOOL_ARRAY_VARIABLE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_set_bool_array_variable,
                 __buffer,
             )
         };
@@ -4681,7 +4774,8 @@ impl UOptimusDeformerInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_ENQUEUE_TRIGGER_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_enqueue_trigger_graph,
                 __buffer,
             )
         };
@@ -4698,7 +4792,8 @@ impl UOptimusDeformerInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_DEFORMER_INSTANCE_ENQUEUE_TRIGGER_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_deformer_instance_enqueue_trigger_graph,
                 __buffer,
             )
         };
@@ -4740,7 +4835,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH_DIRECT,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_rename_graph_direct,
                 __buffer,
             )
         };
@@ -4764,7 +4860,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH_DIRECT,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_rename_graph_direct,
                 __buffer,
             )
         };
@@ -4782,7 +4879,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_rename_graph,
                 __buffer,
             )
         };
@@ -4806,7 +4904,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_RENAME_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_rename_graph,
                 __buffer,
             )
         };
@@ -4820,7 +4919,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_nodes,
                 __buffer,
             )
         };
@@ -4837,7 +4937,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_nodes,
                 __buffer,
             )
         };
@@ -4851,7 +4952,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_node,
                 __buffer,
             )
         };
@@ -4868,7 +4970,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_node,
                 __buffer,
             )
         };
@@ -4886,7 +4989,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_LINK,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_link,
                 __buffer,
             )
         };
@@ -4910,7 +5014,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_LINK,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_link,
                 __buffer,
             )
         };
@@ -4924,7 +5029,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_ALL_LINKS,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_all_links,
                 __buffer,
             )
         };
@@ -4941,7 +5047,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_REMOVE_ALL_LINKS,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_remove_all_links,
                 __buffer,
             )
         };
@@ -4959,7 +5066,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_MOVE_GRAPH_DIRECT,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_move_graph_direct,
                 __buffer,
             )
         };
@@ -4983,7 +5091,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_MOVE_GRAPH_DIRECT,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_move_graph_direct,
                 __buffer,
             )
         };
@@ -4997,7 +5106,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_SUB_GRAPH_REFERENCE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_sub_graph_reference,
                 __buffer,
             )
         };
@@ -5014,7 +5124,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_SUB_GRAPH_REFERENCE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_sub_graph_reference,
                 __buffer,
             )
         };
@@ -5028,7 +5139,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_KERNEL_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_kernel_function,
                 __buffer,
             )
         };
@@ -5045,7 +5157,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_KERNEL_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_kernel_function,
                 __buffer,
             )
         };
@@ -5059,7 +5172,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_REFERENCE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_function_reference,
                 __buffer,
             )
         };
@@ -5076,7 +5190,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_REFERENCE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_function_reference,
                 __buffer,
             )
         };
@@ -5090,7 +5205,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_function_graph,
                 __buffer,
             )
         };
@@ -5100,7 +5216,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_FUNCTION_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_function_graph,
                 __buffer,
             )
         };
@@ -5114,7 +5231,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_EXECUTION_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_execution_graph,
                 __buffer,
             )
         };
@@ -5124,7 +5242,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_EXECUTION_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_execution_graph,
                 __buffer,
             )
         };
@@ -5138,7 +5257,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_CUSTOM_KERNEL,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_custom_kernel,
                 __buffer,
             )
         };
@@ -5155,7 +5275,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_IS_CUSTOM_KERNEL,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_is_custom_kernel,
                 __buffer,
             )
         };
@@ -5169,7 +5290,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_TYPE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_get_graph_type,
                 __buffer,
             )
         };
@@ -5179,7 +5301,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_TYPE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_get_graph_type,
                 __buffer,
             )
         };
@@ -5193,7 +5316,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPHS,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_get_graphs,
                 __buffer,
             )
         };
@@ -5203,7 +5327,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPHS,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_get_graphs,
                 __buffer,
             )
         };
@@ -5217,7 +5342,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_INDEX,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_get_graph_index,
                 __buffer,
             )
         };
@@ -5227,7 +5353,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_GET_GRAPH_INDEX,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_get_graph_index,
                 __buffer,
             )
         };
@@ -5244,7 +5371,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_EXPAND_COLLAPSED_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_expand_collapsed_nodes,
                 __buffer,
             )
         };
@@ -5261,7 +5389,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_EXPAND_COLLAPSED_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_expand_collapsed_nodes,
                 __buffer,
             )
         };
@@ -5279,7 +5408,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_duplicate_nodes,
                 __buffer,
             )
         };
@@ -5303,7 +5433,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_duplicate_nodes,
                 __buffer,
             )
         };
@@ -5321,7 +5452,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_duplicate_node,
                 __buffer,
             )
         };
@@ -5345,7 +5477,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_DUPLICATE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_duplicate_node,
                 __buffer,
             )
         };
@@ -5362,7 +5495,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_SUB_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_to_sub_graph,
                 __buffer,
             )
         };
@@ -5379,7 +5513,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_SUB_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_to_sub_graph,
                 __buffer,
             )
         };
@@ -5396,7 +5531,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_to_function,
                 __buffer,
             )
         };
@@ -5413,7 +5549,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_TO_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_to_function,
                 __buffer,
             )
         };
@@ -5430,7 +5567,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_FUNCTION_TO_CUSTOM_KERNEL,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_function_to_custom_kernel,
                 __buffer,
             )
         };
@@ -5447,7 +5585,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_FUNCTION_TO_CUSTOM_KERNEL,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_function_to_custom_kernel,
                 __buffer,
             )
         };
@@ -5464,7 +5603,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_CUSTOM_KERNEL_TO_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_custom_kernel_to_function,
                 __buffer,
             )
         };
@@ -5481,7 +5621,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_CONVERT_CUSTOM_KERNEL_TO_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_convert_custom_kernel_to_function,
                 __buffer,
             )
         };
@@ -5498,7 +5639,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_SUB_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_collapse_nodes_to_sub_graph,
                 __buffer,
             )
         };
@@ -5515,7 +5657,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_SUB_GRAPH,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_collapse_nodes_to_sub_graph,
                 __buffer,
             )
         };
@@ -5532,7 +5675,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_collapse_nodes_to_function,
                 __buffer,
             )
         };
@@ -5549,7 +5693,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_COLLAPSE_NODES_TO_FUNCTION,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_collapse_nodes_to_function,
                 __buffer,
             )
         };
@@ -5567,7 +5712,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VARIABLE_GET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_variable_get_node,
                 __buffer,
             )
         };
@@ -5591,7 +5737,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VARIABLE_GET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_variable_get_node,
                 __buffer,
             )
         };
@@ -5609,7 +5756,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VALUE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_value_node,
                 __buffer,
             )
         };
@@ -5633,7 +5781,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_VALUE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_value_node,
                 __buffer,
             )
         };
@@ -5651,7 +5800,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_SET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_resource_set_node,
                 __buffer,
             )
         };
@@ -5675,7 +5825,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_SET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_resource_set_node,
                 __buffer,
             )
         };
@@ -5693,7 +5844,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_resource_node,
                 __buffer,
             )
         };
@@ -5717,7 +5869,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_resource_node,
                 __buffer,
             )
         };
@@ -5735,7 +5888,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_GET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_resource_get_node,
                 __buffer,
             )
         };
@@ -5759,7 +5913,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_RESOURCE_GET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_resource_get_node,
                 __buffer,
             )
         };
@@ -5777,7 +5932,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_node,
                 __buffer,
             )
         };
@@ -5801,7 +5957,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_node,
                 __buffer,
             )
         };
@@ -5818,7 +5975,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LOOP_TERMINAL_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_loop_terminal_nodes,
                 __buffer,
             )
         };
@@ -5835,7 +5993,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LOOP_TERMINAL_NODES,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_loop_terminal_nodes,
                 __buffer,
             )
         };
@@ -5853,7 +6012,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LINK,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_link,
                 __buffer,
             )
         };
@@ -5877,7 +6037,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_LINK,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_link,
                 __buffer,
             )
         };
@@ -5895,7 +6056,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_FUNCTION_REFERENCE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_function_reference_node,
                 __buffer,
             )
         };
@@ -5919,7 +6081,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_FUNCTION_REFERENCE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_function_reference_node,
                 __buffer,
             )
         };
@@ -5937,7 +6100,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_DATA_INTERFACE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_data_interface_node,
                 __buffer,
             )
         };
@@ -5961,7 +6125,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_DATA_INTERFACE_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_data_interface_node,
                 __buffer,
             )
         };
@@ -5979,7 +6144,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMPONENT_BINDING_GET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_component_binding_get_node,
                 __buffer,
             )
         };
@@ -6003,7 +6169,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMPONENT_BINDING_GET_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_component_binding_get_node,
                 __buffer,
             )
         };
@@ -6022,7 +6189,8 @@ impl UOptimusNodeGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMMENT_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_comment_node,
                 __buffer,
             )
         };
@@ -6053,7 +6221,8 @@ impl UOptimusNodeGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::optimus_core::U_OPTIMUS_NODE_GRAPH_ADD_COMMENT_NODE,
+                crate::bindings::optimus_core::__FUNCTION_PTRS
+                    .u_optimus_node_graph_add_comment_node,
                 __buffer,
             )
         };

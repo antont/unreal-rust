@@ -1,172 +1,181 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_OBJECT_RUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_ACTION_UTILITY_IS_ACTION_FOR_BLUEPRINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_WITH_WARMUP_ASYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_ASYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_IMAGE_EXPORT_EXPORT_IMAGE_ASYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_REGISTER_AND_EXECUTE_TASK_REGISTER_AND_EXECUTE_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_EDITOR_UTILITY_ACTOR_SET_RECEIVES_EDITOR_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_EDITOR_UTILITY_ACTOR_RUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_EDITOR_UTILITY_ACTOR_GET_RECEIVES_EDITOR_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_EDITOR_UTILITY_ACTOR_GET_INPUT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_EDITOR_DELAY_ASYNC_EDITOR_DELAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_EDITOR_WAIT_FOR_GAME_WORLD_ASYNC_WAIT_FOR_GAME_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_SYNC_BROWSER_TO_FOLDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_RENAME_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_PATH_VIEW_FOLDER_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_FOLDER_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_BLUEPRINT_CLASSES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_ITEM_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_GET_ACTOR_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_FIND_SOURCE_WIDGET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_CONVERT_TO_EDITOR_UTILITY_WIDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_CAST_TO_WIDGET_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_LIBRARY_ADD_SOURCE_WIDGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_UNREGISTER_TAB_BY_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_REGISTERED_TAB_BY_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID_GENERATED_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_GENERATED_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_RELEASE_INSTANCE_OF_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_AND_EXECUTE_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_FIND_UTILITY_WIDGET_FROM_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_DOES_TAB_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_CLOSE_TAB_BY_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_SUBSYSTEM_CAN_RUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_TASK_WAS_CANCEL_REQUESTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_TASK_SET_TASK_NOTIFICATION_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_TASK_RUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_TASK_RECEIVE_CANCEL_REQUESTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_TASK_RECEIVE_BEGIN_EXECUTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_TASK_GET_TASK_TITLE_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_TASK_FINISH_EXECUTING_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_WIDGET_RUN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_UTILITY_WIDGET_FIND_CHILD_WIDGET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SELECT_NOTHING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_RENAME_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_ON_DEFAULT_ACTION_CLICKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTED_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_EDITOR_USER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_LEVEL_VIEWPORT_CAMERA_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SELECT_NOTHING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_LEVEL_VIEWPORT_CAMERA_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_editor_utility_object_run: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_action_utility_get_supported_classes: *mut crate::ffi::UFunctionOpague,
+    pub u_actor_action_utility_get_supported_class: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_action_utility_is_action_for_blueprints: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_action_utility_get_supported_classes: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_action_utility_get_supported_class: *mut crate::ffi::UFunctionOpague,
+    pub u_async_capture_scene_capture_scene_with_warmup_async: *mut crate::ffi::UFunctionOpague,
+    pub u_async_capture_scene_capture_scene_async: *mut crate::ffi::UFunctionOpague,
+    pub u_async_image_export_export_image_async: *mut crate::ffi::UFunctionOpague,
+    pub u_async_register_and_execute_task_register_and_execute_task: *mut crate::ffi::UFunctionOpague,
+    pub a_editor_utility_actor_set_receives_editor_input: *mut crate::ffi::UFunctionOpague,
+    pub a_editor_utility_actor_run: *mut crate::ffi::UFunctionOpague,
+    pub a_editor_utility_actor_get_receives_editor_input: *mut crate::ffi::UFunctionOpague,
+    pub a_editor_utility_actor_get_input_component: *mut crate::ffi::UFunctionOpague,
+    pub u_async_editor_delay_async_editor_delay: *mut crate::ffi::UFunctionOpague,
+    pub u_async_editor_wait_for_game_world_async_wait_for_game_world: *mut crate::ffi::UFunctionOpague,
+    pub u_async_editor_open_map_and_focus_actor_async_editor_open_map_and_focus_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_sync_browser_to_folders: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_rename_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selection_set: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selection_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selected_path_view_folder_paths: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selected_folder_paths: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selected_blueprint_classes: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selected_assets_of_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selected_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_selected_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_current_content_browser_path: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_current_content_browser_item_path: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_get_actor_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_find_source_widget_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_convert_to_editor_utility_widget: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_cast_to_widget_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_library_add_source_widget: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_unregister_tab_by_id: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_try_run_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_try_run: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_spawn_registered_tab_by_id: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_spawn_and_register_tab_with_id_generated_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_spawn_and_register_tab_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_spawn_and_register_tab_generated_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_spawn_and_register_tab_and_get_id_generated_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_spawn_and_register_tab_and_get_id: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_spawn_and_register_tab: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_release_instance_of_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_register_tab_and_get_id_generated_class: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_register_tab_and_get_id: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_register_and_execute_task: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_find_utility_widget_from_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_does_tab_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_close_tab_by_id: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_subsystem_can_run: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_task_was_cancel_requested: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_task_set_task_notification_text: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_task_run: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_task_receive_cancel_requested: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_task_receive_begin_execution: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_task_get_task_title_override: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_task_finish_executing_task: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_widget_run: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_utility_widget_find_child_widget_by_name: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_set_actor_selection_state: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_select_nothing: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_rename_asset: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_on_default_action_clicked: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_get_selection_set: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_get_selection_bounds: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_get_selected_assets: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_get_editor_user_settings: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_get_actor_reference: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_for_each_selected_asset: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_for_each_selected_actor: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_global_editor_utility_base_clear_actor_selection_set: *mut crate::ffi::UFunctionOpague,
+    pub adeprecated_placed_editor_utility_base_set_level_viewport_camera_info: *mut crate::ffi::UFunctionOpague,
+    pub adeprecated_placed_editor_utility_base_set_actor_selection_state: *mut crate::ffi::UFunctionOpague,
+    pub adeprecated_placed_editor_utility_base_select_nothing: *mut crate::ffi::UFunctionOpague,
+    pub adeprecated_placed_editor_utility_base_get_selection_set: *mut crate::ffi::UFunctionOpague,
+    pub adeprecated_placed_editor_utility_base_get_level_viewport_camera_info: *mut crate::ffi::UFunctionOpague,
+    pub adeprecated_placed_editor_utility_base_get_actor_reference: *mut crate::ffi::UFunctionOpague,
+    pub adeprecated_placed_editor_utility_base_clear_actor_selection_set: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_editor_utility_object_run: std::ptr::null_mut(),
+            u_actor_action_utility_get_supported_classes: std::ptr::null_mut(),
+            u_actor_action_utility_get_supported_class: std::ptr::null_mut(),
+            u_asset_action_utility_is_action_for_blueprints: std::ptr::null_mut(),
+            u_asset_action_utility_get_supported_classes: std::ptr::null_mut(),
+            u_asset_action_utility_get_supported_class: std::ptr::null_mut(),
+            u_async_capture_scene_capture_scene_with_warmup_async: std::ptr::null_mut(),
+            u_async_capture_scene_capture_scene_async: std::ptr::null_mut(),
+            u_async_image_export_export_image_async: std::ptr::null_mut(),
+            u_async_register_and_execute_task_register_and_execute_task: std::ptr::null_mut(),
+            a_editor_utility_actor_set_receives_editor_input: std::ptr::null_mut(),
+            a_editor_utility_actor_run: std::ptr::null_mut(),
+            a_editor_utility_actor_get_receives_editor_input: std::ptr::null_mut(),
+            a_editor_utility_actor_get_input_component: std::ptr::null_mut(),
+            u_async_editor_delay_async_editor_delay: std::ptr::null_mut(),
+            u_async_editor_wait_for_game_world_async_wait_for_game_world: std::ptr::null_mut(),
+            u_async_editor_open_map_and_focus_actor_async_editor_open_map_and_focus_actor: std::ptr::null_mut(),
+            u_editor_utility_library_sync_browser_to_folders: std::ptr::null_mut(),
+            u_editor_utility_library_rename_asset: std::ptr::null_mut(),
+            u_editor_utility_library_get_selection_set: std::ptr::null_mut(),
+            u_editor_utility_library_get_selection_bounds: std::ptr::null_mut(),
+            u_editor_utility_library_get_selected_path_view_folder_paths: std::ptr::null_mut(),
+            u_editor_utility_library_get_selected_folder_paths: std::ptr::null_mut(),
+            u_editor_utility_library_get_selected_blueprint_classes: std::ptr::null_mut(),
+            u_editor_utility_library_get_selected_assets_of_class: std::ptr::null_mut(),
+            u_editor_utility_library_get_selected_assets: std::ptr::null_mut(),
+            u_editor_utility_library_get_selected_asset_data: std::ptr::null_mut(),
+            u_editor_utility_library_get_current_content_browser_path: std::ptr::null_mut(),
+            u_editor_utility_library_get_current_content_browser_item_path: std::ptr::null_mut(),
+            u_editor_utility_library_get_actor_reference: std::ptr::null_mut(),
+            u_editor_utility_library_find_source_widget_by_name: std::ptr::null_mut(),
+            u_editor_utility_library_convert_to_editor_utility_widget: std::ptr::null_mut(),
+            u_editor_utility_library_cast_to_widget_blueprint: std::ptr::null_mut(),
+            u_editor_utility_library_add_source_widget: std::ptr::null_mut(),
+            u_editor_utility_subsystem_unregister_tab_by_id: std::ptr::null_mut(),
+            u_editor_utility_subsystem_try_run_class: std::ptr::null_mut(),
+            u_editor_utility_subsystem_try_run: std::ptr::null_mut(),
+            u_editor_utility_subsystem_spawn_registered_tab_by_id: std::ptr::null_mut(),
+            u_editor_utility_subsystem_spawn_and_register_tab_with_id_generated_class: std::ptr::null_mut(),
+            u_editor_utility_subsystem_spawn_and_register_tab_with_id: std::ptr::null_mut(),
+            u_editor_utility_subsystem_spawn_and_register_tab_generated_class: std::ptr::null_mut(),
+            u_editor_utility_subsystem_spawn_and_register_tab_and_get_id_generated_class: std::ptr::null_mut(),
+            u_editor_utility_subsystem_spawn_and_register_tab_and_get_id: std::ptr::null_mut(),
+            u_editor_utility_subsystem_spawn_and_register_tab: std::ptr::null_mut(),
+            u_editor_utility_subsystem_release_instance_of_asset: std::ptr::null_mut(),
+            u_editor_utility_subsystem_register_tab_and_get_id_generated_class: std::ptr::null_mut(),
+            u_editor_utility_subsystem_register_tab_and_get_id: std::ptr::null_mut(),
+            u_editor_utility_subsystem_register_and_execute_task: std::ptr::null_mut(),
+            u_editor_utility_subsystem_find_utility_widget_from_blueprint: std::ptr::null_mut(),
+            u_editor_utility_subsystem_does_tab_exist: std::ptr::null_mut(),
+            u_editor_utility_subsystem_close_tab_by_id: std::ptr::null_mut(),
+            u_editor_utility_subsystem_can_run: std::ptr::null_mut(),
+            u_editor_utility_task_was_cancel_requested: std::ptr::null_mut(),
+            u_editor_utility_task_set_task_notification_text: std::ptr::null_mut(),
+            u_editor_utility_task_run: std::ptr::null_mut(),
+            u_editor_utility_task_receive_cancel_requested: std::ptr::null_mut(),
+            u_editor_utility_task_receive_begin_execution: std::ptr::null_mut(),
+            u_editor_utility_task_get_task_title_override: std::ptr::null_mut(),
+            u_editor_utility_task_finish_executing_task: std::ptr::null_mut(),
+            u_editor_utility_widget_run: std::ptr::null_mut(),
+            u_editor_utility_widget_find_child_widget_by_name: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_set_actor_selection_state: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_select_nothing: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_rename_asset: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_on_default_action_clicked: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_get_selection_set: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_get_selection_bounds: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_get_selected_assets: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_get_editor_user_settings: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_get_actor_reference: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_for_each_selected_asset: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_for_each_selected_actor: std::ptr::null_mut(),
+            udeprecated_global_editor_utility_base_clear_actor_selection_set: std::ptr::null_mut(),
+            adeprecated_placed_editor_utility_base_set_level_viewport_camera_info: std::ptr::null_mut(),
+            adeprecated_placed_editor_utility_base_set_actor_selection_state: std::ptr::null_mut(),
+            adeprecated_placed_editor_utility_base_select_nothing: std::ptr::null_mut(),
+            adeprecated_placed_editor_utility_base_get_selection_set: std::ptr::null_mut(),
+            adeprecated_placed_editor_utility_base_get_level_viewport_camera_info: std::ptr::null_mut(),
+            adeprecated_placed_editor_utility_base_get_actor_reference: std::ptr::null_mut(),
+            adeprecated_placed_editor_utility_base_clear_actor_selection_set: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -176,7 +185,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Run"),
-            &raw mut U_EDITOR_UTILITY_OBJECT_RUN,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_object_run,
         );
     }
     unsafe {
@@ -187,14 +196,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedClasses"),
-            &raw mut U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASSES,
+            &raw mut __FUNCTION_PTRS.u_actor_action_utility_get_supported_classes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedClass"),
-            &raw mut U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASS,
+            &raw mut __FUNCTION_PTRS.u_actor_action_utility_get_supported_class,
         );
     }
     unsafe {
@@ -205,21 +214,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActionForBlueprints"),
-            &raw mut U_ASSET_ACTION_UTILITY_IS_ACTION_FOR_BLUEPRINTS,
+            &raw mut __FUNCTION_PTRS.u_asset_action_utility_is_action_for_blueprints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedClasses"),
-            &raw mut U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASSES,
+            &raw mut __FUNCTION_PTRS.u_asset_action_utility_get_supported_classes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedClass"),
-            &raw mut U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASS,
+            &raw mut __FUNCTION_PTRS.u_asset_action_utility_get_supported_class,
         );
     }
     unsafe {
@@ -230,14 +239,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureSceneWithWarmupAsync"),
-            &raw mut U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_WITH_WARMUP_ASYNC,
+            &raw mut __FUNCTION_PTRS
+                .u_async_capture_scene_capture_scene_with_warmup_async,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureSceneAsync"),
-            &raw mut U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_ASYNC,
+            &raw mut __FUNCTION_PTRS.u_async_capture_scene_capture_scene_async,
         );
     }
     unsafe {
@@ -248,7 +258,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportImageAsync"),
-            &raw mut U_ASYNC_IMAGE_EXPORT_EXPORT_IMAGE_ASYNC,
+            &raw mut __FUNCTION_PTRS.u_async_image_export_export_image_async,
         );
     }
     unsafe {
@@ -259,7 +269,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterAndExecuteTask"),
-            &raw mut U_ASYNC_REGISTER_AND_EXECUTE_TASK_REGISTER_AND_EXECUTE_TASK,
+            &raw mut __FUNCTION_PTRS
+                .u_async_register_and_execute_task_register_and_execute_task,
         );
     }
     unsafe {
@@ -270,28 +281,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReceivesEditorInput"),
-            &raw mut A_EDITOR_UTILITY_ACTOR_SET_RECEIVES_EDITOR_INPUT,
+            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_set_receives_editor_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Run"),
-            &raw mut A_EDITOR_UTILITY_ACTOR_RUN,
+            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_run,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReceivesEditorInput"),
-            &raw mut A_EDITOR_UTILITY_ACTOR_GET_RECEIVES_EDITOR_INPUT,
+            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_get_receives_editor_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInputComponent"),
-            &raw mut A_EDITOR_UTILITY_ACTOR_GET_INPUT_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_editor_utility_actor_get_input_component,
         );
     }
     unsafe {
@@ -302,7 +313,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsyncEditorDelay"),
-            &raw mut U_ASYNC_EDITOR_DELAY_ASYNC_EDITOR_DELAY,
+            &raw mut __FUNCTION_PTRS.u_async_editor_delay_async_editor_delay,
         );
     }
     unsafe {
@@ -313,7 +324,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsyncWaitForGameWorld"),
-            &raw mut U_ASYNC_EDITOR_WAIT_FOR_GAME_WORLD_ASYNC_WAIT_FOR_GAME_WORLD,
+            &raw mut __FUNCTION_PTRS
+                .u_async_editor_wait_for_game_world_async_wait_for_game_world,
         );
     }
     unsafe {
@@ -324,7 +336,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsyncEditorOpenMapAndFocusActor"),
-            &raw mut U_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_async_editor_open_map_and_focus_actor_async_editor_open_map_and_focus_actor,
         );
     }
     unsafe {
@@ -335,119 +348,125 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SyncBrowserToFolders"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_SYNC_BROWSER_TO_FOLDERS,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_sync_browser_to_folders,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameAsset"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_RENAME_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_rename_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selection_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionBounds"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selection_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedPathViewFolderPaths"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_PATH_VIEW_FOLDER_PATHS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_library_get_selected_path_view_folder_paths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedFolderPaths"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_FOLDER_PATHS,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_folder_paths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedBlueprintClasses"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_BLUEPRINT_CLASSES,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_library_get_selected_blueprint_classes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedAssetsOfClass"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS_OF_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_library_get_selected_assets_of_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedAssets"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedAssetData"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_selected_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentContentBrowserPath"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_library_get_current_content_browser_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentContentBrowserItemPath"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_ITEM_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_library_get_current_content_browser_item_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_GET_ACTOR_REFERENCE,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_get_actor_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindSourceWidgetByName"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_FIND_SOURCE_WIDGET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_find_source_widget_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToEditorUtilityWidget"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_CONVERT_TO_EDITOR_UTILITY_WIDGET,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_library_convert_to_editor_utility_widget,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CastToWidgetBlueprint"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_CAST_TO_WIDGET_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_cast_to_widget_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSourceWidget"),
-            &raw mut U_EDITOR_UTILITY_LIBRARY_ADD_SOURCE_WIDGET,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_library_add_source_widget,
         );
     }
     unsafe {
@@ -458,126 +477,134 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterTabByID"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_UNREGISTER_TAB_BY_ID,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_unregister_tab_by_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryRunClass"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN_CLASS,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_try_run_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryRun"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_try_run,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnRegisteredTabByID"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_REGISTERED_TAB_BY_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_spawn_registered_tab_by_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnAndRegisterTabWithIdGeneratedClass"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID_GENERATED_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_spawn_and_register_tab_with_id_generated_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnAndRegisterTabWithId"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_spawn_and_register_tab_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnAndRegisterTabGeneratedClass"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_GENERATED_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_spawn_and_register_tab_generated_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnAndRegisterTabAndGetIDGeneratedClass"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id_generated_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnAndRegisterTabAndGetID"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnAndRegisterTab"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_spawn_and_register_tab,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReleaseInstanceOfAsset"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_RELEASE_INSTANCE_OF_ASSET,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_release_instance_of_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterTabAndGetIDGeneratedClass"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_register_tab_and_get_id_generated_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterTabAndGetID"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_register_tab_and_get_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterAndExecuteTask"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_AND_EXECUTE_TASK,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_register_and_execute_task,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindUtilityWidgetFromBlueprint"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_FIND_UTILITY_WIDGET_FROM_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_utility_subsystem_find_utility_widget_from_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesTabExist"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_DOES_TAB_EXIST,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_does_tab_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CloseTabByID"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_CLOSE_TAB_BY_ID,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_close_tab_by_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanRun"),
-            &raw mut U_EDITOR_UTILITY_SUBSYSTEM_CAN_RUN,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_subsystem_can_run,
         );
     }
     unsafe {
@@ -588,49 +615,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WasCancelRequested"),
-            &raw mut U_EDITOR_UTILITY_TASK_WAS_CANCEL_REQUESTED,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_task_was_cancel_requested,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTaskNotificationText"),
-            &raw mut U_EDITOR_UTILITY_TASK_SET_TASK_NOTIFICATION_TEXT,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_task_set_task_notification_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Run"),
-            &raw mut U_EDITOR_UTILITY_TASK_RUN,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_task_run,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveCancelRequested"),
-            &raw mut U_EDITOR_UTILITY_TASK_RECEIVE_CANCEL_REQUESTED,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_task_receive_cancel_requested,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveBeginExecution"),
-            &raw mut U_EDITOR_UTILITY_TASK_RECEIVE_BEGIN_EXECUTION,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_task_receive_begin_execution,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTaskTitleOverride"),
-            &raw mut U_EDITOR_UTILITY_TASK_GET_TASK_TITLE_OVERRIDE,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_task_get_task_title_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinishExecutingTask"),
-            &raw mut U_EDITOR_UTILITY_TASK_FINISH_EXECUTING_TASK,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_task_finish_executing_task,
         );
     }
     unsafe {
@@ -641,14 +668,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Run"),
-            &raw mut U_EDITOR_UTILITY_WIDGET_RUN,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_widget_run,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindChildWidgetByName"),
-            &raw mut U_EDITOR_UTILITY_WIDGET_FIND_CHILD_WIDGET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_editor_utility_widget_find_child_widget_by_name,
         );
     }
     unsafe {
@@ -659,84 +686,95 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActorSelectionState"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_set_actor_selection_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectNothing"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SELECT_NOTHING,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_select_nothing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameAsset"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_RENAME_ASSET,
+            &raw mut __FUNCTION_PTRS.udeprecated_global_editor_utility_base_rename_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnDefaultActionClicked"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_ON_DEFAULT_ACTION_CLICKED,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_on_default_action_clicked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_get_selection_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionBounds"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_BOUNDS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_get_selection_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedAssets"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTED_ASSETS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_get_selected_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEditorUserSettings"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_EDITOR_USER_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_get_editor_user_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_get_actor_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForEachSelectedAsset"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_for_each_selected_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForEachSelectedActor"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_for_each_selected_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
-            &raw mut UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_global_editor_utility_base_clear_actor_selection_set,
         );
     }
     unsafe {
@@ -747,49 +785,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelViewportCameraInfo"),
-            &raw mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+            &raw mut __FUNCTION_PTRS
+                .adeprecated_placed_editor_utility_base_set_level_viewport_camera_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActorSelectionState"),
-            &raw mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE,
+            &raw mut __FUNCTION_PTRS
+                .adeprecated_placed_editor_utility_base_set_actor_selection_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectNothing"),
-            &raw mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SELECT_NOTHING,
+            &raw mut __FUNCTION_PTRS
+                .adeprecated_placed_editor_utility_base_select_nothing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS
+                .adeprecated_placed_editor_utility_base_get_selection_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelViewportCameraInfo"),
-            &raw mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+            &raw mut __FUNCTION_PTRS
+                .adeprecated_placed_editor_utility_base_get_level_viewport_camera_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActorReference"),
-            &raw mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .adeprecated_placed_editor_utility_base_get_actor_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearActorSelectionSet"),
-            &raw mut ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS
+                .adeprecated_placed_editor_utility_base_clear_actor_selection_set,
         );
     }
 }
@@ -906,7 +951,7 @@ impl UEditorUtilityObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_OBJECT_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS.u_editor_utility_object_run,
                 __buffer,
             )
         };
@@ -916,7 +961,7 @@ impl UEditorUtilityObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_OBJECT_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS.u_editor_utility_object_run,
                 __buffer,
             )
         };
@@ -952,7 +997,8 @@ impl UActorActionUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASSES,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_actor_action_utility_get_supported_classes,
                 __buffer,
             )
         };
@@ -962,7 +1008,8 @@ impl UActorActionUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASSES,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_actor_action_utility_get_supported_classes,
                 __buffer,
             )
         };
@@ -983,7 +1030,8 @@ impl UActorActionUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_actor_action_utility_get_supported_class,
                 __buffer,
             )
         };
@@ -993,7 +1041,8 @@ impl UActorActionUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ACTOR_ACTION_UTILITY_GET_SUPPORTED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_actor_action_utility_get_supported_class,
                 __buffer,
             )
         };
@@ -1033,7 +1082,8 @@ impl UAssetActionUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASSET_ACTION_UTILITY_IS_ACTION_FOR_BLUEPRINTS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_asset_action_utility_is_action_for_blueprints,
                 __buffer,
             )
         };
@@ -1043,7 +1093,8 @@ impl UAssetActionUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASSET_ACTION_UTILITY_IS_ACTION_FOR_BLUEPRINTS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_asset_action_utility_is_action_for_blueprints,
                 __buffer,
             )
         };
@@ -1059,7 +1110,8 @@ impl UAssetActionUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASSES,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_asset_action_utility_get_supported_classes,
                 __buffer,
             )
         };
@@ -1069,7 +1121,8 @@ impl UAssetActionUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASSES,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_asset_action_utility_get_supported_classes,
                 __buffer,
             )
         };
@@ -1090,7 +1143,8 @@ impl UAssetActionUtility {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_asset_action_utility_get_supported_class,
                 __buffer,
             )
         };
@@ -1100,7 +1154,8 @@ impl UAssetActionUtility {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASSET_ACTION_UTILITY_GET_SUPPORTED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_asset_action_utility_get_supported_class,
                 __buffer,
             )
         };
@@ -1146,7 +1201,8 @@ impl UAsyncCaptureScene {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_WITH_WARMUP_ASYNC,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_capture_scene_capture_scene_with_warmup_async,
                 __buffer,
             )
         };
@@ -1187,7 +1243,8 @@ impl UAsyncCaptureScene {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_WITH_WARMUP_ASYNC,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_capture_scene_capture_scene_with_warmup_async,
                 __buffer,
             )
         };
@@ -1206,7 +1263,8 @@ impl UAsyncCaptureScene {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_ASYNC,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_capture_scene_capture_scene_async,
                 __buffer,
             )
         };
@@ -1240,7 +1298,8 @@ impl UAsyncCaptureScene {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASYNC_CAPTURE_SCENE_CAPTURE_SCENE_ASYNC,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_capture_scene_capture_scene_async,
                 __buffer,
             )
         };
@@ -1279,7 +1338,8 @@ impl UAsyncImageExport {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASYNC_IMAGE_EXPORT_EXPORT_IMAGE_ASYNC,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_image_export_export_image_async,
                 __buffer,
             )
         };
@@ -1306,7 +1366,8 @@ impl UAsyncImageExport {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASYNC_IMAGE_EXPORT_EXPORT_IMAGE_ASYNC,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_image_export_export_image_async,
                 __buffer,
             )
         };
@@ -1344,7 +1405,8 @@ impl UAsyncRegisterAndExecuteTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASYNC_REGISTER_AND_EXECUTE_TASK_REGISTER_AND_EXECUTE_TASK,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_register_and_execute_task_register_and_execute_task,
                 __buffer,
             )
         };
@@ -1368,7 +1430,8 @@ impl UAsyncRegisterAndExecuteTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASYNC_REGISTER_AND_EXECUTE_TASK_REGISTER_AND_EXECUTE_TASK,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_register_and_execute_task_register_and_execute_task,
                 __buffer,
             )
         };
@@ -1405,7 +1468,8 @@ impl AEditorUtilityActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_SET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .a_editor_utility_actor_set_receives_editor_input,
                 __buffer,
             )
         };
@@ -1422,7 +1486,8 @@ impl AEditorUtilityActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_SET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .a_editor_utility_actor_set_receives_editor_input,
                 __buffer,
             )
         };
@@ -1435,7 +1500,7 @@ impl AEditorUtilityActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS.a_editor_utility_actor_run,
                 __buffer,
             )
         };
@@ -1445,7 +1510,7 @@ impl AEditorUtilityActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS.a_editor_utility_actor_run,
                 __buffer,
             )
         };
@@ -1458,7 +1523,8 @@ impl AEditorUtilityActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_GET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .a_editor_utility_actor_get_receives_editor_input,
                 __buffer,
             )
         };
@@ -1468,7 +1534,8 @@ impl AEditorUtilityActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_GET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .a_editor_utility_actor_get_receives_editor_input,
                 __buffer,
             )
         };
@@ -1482,7 +1549,8 @@ impl AEditorUtilityActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_GET_INPUT_COMPONENT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .a_editor_utility_actor_get_input_component,
                 __buffer,
             )
         };
@@ -1492,7 +1560,8 @@ impl AEditorUtilityActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::A_EDITOR_UTILITY_ACTOR_GET_INPUT_COMPONENT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .a_editor_utility_actor_get_input_component,
                 __buffer,
             )
         };
@@ -1640,7 +1709,8 @@ impl UAsyncEditorDelay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASYNC_EDITOR_DELAY_ASYNC_EDITOR_DELAY,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_editor_delay_async_editor_delay,
                 __buffer,
             )
         };
@@ -1660,7 +1730,8 @@ impl UAsyncEditorDelay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASYNC_EDITOR_DELAY_ASYNC_EDITOR_DELAY,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_editor_delay_async_editor_delay,
                 __buffer,
             )
         };
@@ -1698,7 +1769,8 @@ impl UAsyncEditorWaitForGameWorld {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASYNC_EDITOR_WAIT_FOR_GAME_WORLD_ASYNC_WAIT_FOR_GAME_WORLD,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_editor_wait_for_game_world_async_wait_for_game_world,
                 __buffer,
             )
         };
@@ -1714,7 +1786,8 @@ impl UAsyncEditorWaitForGameWorld {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASYNC_EDITOR_WAIT_FOR_GAME_WORLD_ASYNC_WAIT_FOR_GAME_WORLD,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_editor_wait_for_game_world_async_wait_for_game_world,
                 __buffer,
             )
         };
@@ -1752,7 +1825,8 @@ impl UAsyncEditorOpenMapAndFocusActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_editor_open_map_and_focus_actor_async_editor_open_map_and_focus_actor,
                 __buffer,
             )
         };
@@ -1778,7 +1852,8 @@ impl UAsyncEditorOpenMapAndFocusActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR_ASYNC_EDITOR_OPEN_MAP_AND_FOCUS_ACTOR,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_async_editor_open_map_and_focus_actor_async_editor_open_map_and_focus_actor,
                 __buffer,
             )
         };
@@ -1815,7 +1890,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_SYNC_BROWSER_TO_FOLDERS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_sync_browser_to_folders,
                 __buffer,
             )
         };
@@ -1832,7 +1908,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_SYNC_BROWSER_TO_FOLDERS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_sync_browser_to_folders,
                 __buffer,
             )
         };
@@ -1848,7 +1925,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_RENAME_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_rename_asset,
                 __buffer,
             )
         };
@@ -1872,7 +1950,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_RENAME_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_rename_asset,
                 __buffer,
             )
         };
@@ -1885,7 +1964,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selection_set,
                 __buffer,
             )
         };
@@ -1895,7 +1975,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selection_set,
                 __buffer,
             )
         };
@@ -1918,7 +1999,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_BOUNDS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selection_bounds,
                 __buffer,
             )
         };
@@ -1949,7 +2031,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTION_BOUNDS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selection_bounds,
                 __buffer,
             )
         };
@@ -1977,7 +2060,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_PATH_VIEW_FOLDER_PATHS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_path_view_folder_paths,
                 __buffer,
             )
         };
@@ -1987,7 +2071,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_PATH_VIEW_FOLDER_PATHS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_path_view_folder_paths,
                 __buffer,
             )
         };
@@ -2001,7 +2086,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_FOLDER_PATHS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_folder_paths,
                 __buffer,
             )
         };
@@ -2011,7 +2097,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_FOLDER_PATHS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_folder_paths,
                 __buffer,
             )
         };
@@ -2027,7 +2114,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_BLUEPRINT_CLASSES,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_blueprint_classes,
                 __buffer,
             )
         };
@@ -2037,7 +2125,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_BLUEPRINT_CLASSES,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_blueprint_classes,
                 __buffer,
             )
         };
@@ -2058,7 +2147,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS_OF_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_assets_of_class,
                 __buffer,
             )
         };
@@ -2077,7 +2167,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS_OF_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_assets_of_class,
                 __buffer,
             )
         };
@@ -2098,7 +2189,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_assets,
                 __buffer,
             )
         };
@@ -2108,7 +2200,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSETS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_assets,
                 __buffer,
             )
         };
@@ -2129,7 +2222,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSET_DATA,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_asset_data,
                 __buffer,
             )
         };
@@ -2139,7 +2233,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_SELECTED_ASSET_DATA,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_selected_asset_data,
                 __buffer,
             )
         };
@@ -2158,7 +2253,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_PATH,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_current_content_browser_path,
                 __buffer,
             )
         };
@@ -2175,7 +2271,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_PATH,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_current_content_browser_path,
                 __buffer,
             )
         };
@@ -2192,7 +2289,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_ITEM_PATH,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_current_content_browser_item_path,
                 __buffer,
             )
         };
@@ -2202,7 +2300,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_CURRENT_CONTENT_BROWSER_ITEM_PATH,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_current_content_browser_item_path,
                 __buffer,
             )
         };
@@ -2224,7 +2323,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_ACTOR_REFERENCE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_actor_reference,
                 __buffer,
             )
         };
@@ -2241,7 +2341,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_GET_ACTOR_REFERENCE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_get_actor_reference,
                 __buffer,
             )
         };
@@ -2260,7 +2361,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_FIND_SOURCE_WIDGET_BY_NAME,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_find_source_widget_by_name,
                 __buffer,
             )
         };
@@ -2286,7 +2388,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_FIND_SOURCE_WIDGET_BY_NAME,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_find_source_widget_by_name,
                 __buffer,
             )
         };
@@ -2302,7 +2405,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_CONVERT_TO_EDITOR_UTILITY_WIDGET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_convert_to_editor_utility_widget,
                 __buffer,
             )
         };
@@ -2321,7 +2425,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_CONVERT_TO_EDITOR_UTILITY_WIDGET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_convert_to_editor_utility_widget,
                 __buffer,
             )
         };
@@ -2338,7 +2443,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_CAST_TO_WIDGET_BLUEPRINT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_cast_to_widget_blueprint,
                 __buffer,
             )
         };
@@ -2371,7 +2477,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_CAST_TO_WIDGET_BLUEPRINT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_cast_to_widget_blueprint,
                 __buffer,
             )
         };
@@ -2398,7 +2505,8 @@ impl UEditorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_ADD_SOURCE_WIDGET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_add_source_widget,
                 __buffer,
             )
         };
@@ -2438,7 +2546,8 @@ impl UEditorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_LIBRARY_ADD_SOURCE_WIDGET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_library_add_source_widget,
                 __buffer,
             )
         };
@@ -2473,7 +2582,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_UNREGISTER_TAB_BY_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_unregister_tab_by_id,
                 __buffer,
             )
         };
@@ -2486,7 +2596,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_UNREGISTER_TAB_BY_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_unregister_tab_by_id,
                 __buffer,
             )
         };
@@ -2503,7 +2614,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_try_run_class,
                 __buffer,
             )
         };
@@ -2522,7 +2634,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_try_run_class,
                 __buffer,
             )
         };
@@ -2539,7 +2652,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_try_run,
                 __buffer,
             )
         };
@@ -2556,7 +2670,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_TRY_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_try_run,
                 __buffer,
             )
         };
@@ -2570,7 +2685,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_REGISTERED_TAB_BY_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_registered_tab_by_id,
                 __buffer,
             )
         };
@@ -2587,7 +2703,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_REGISTERED_TAB_BY_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_registered_tab_by_id,
                 __buffer,
             )
         };
@@ -2607,7 +2724,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_with_id_generated_class,
                 __buffer,
             )
         };
@@ -2633,7 +2751,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_with_id_generated_class,
                 __buffer,
             )
         };
@@ -2651,7 +2770,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_with_id,
                 __buffer,
             )
         };
@@ -2675,7 +2795,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_WITH_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_with_id,
                 __buffer,
             )
         };
@@ -2694,7 +2815,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_generated_class,
                 __buffer,
             )
         };
@@ -2713,7 +2835,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_generated_class,
                 __buffer,
             )
         };
@@ -2733,7 +2856,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id_generated_class,
                 __buffer,
             )
         };
@@ -2759,7 +2883,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id_generated_class,
                 __buffer,
             )
         };
@@ -2780,7 +2905,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id,
                 __buffer,
             )
         };
@@ -2804,7 +2930,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB_AND_GET_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab_and_get_id,
                 __buffer,
             )
         };
@@ -2824,7 +2951,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab,
                 __buffer,
             )
         };
@@ -2841,7 +2969,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_SPAWN_AND_REGISTER_TAB,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_spawn_and_register_tab,
                 __buffer,
             )
         };
@@ -2858,7 +2987,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_RELEASE_INSTANCE_OF_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_release_instance_of_asset,
                 __buffer,
             )
         };
@@ -2875,7 +3005,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_RELEASE_INSTANCE_OF_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_release_instance_of_asset,
                 __buffer,
             )
         };
@@ -2894,7 +3025,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_tab_and_get_id_generated_class,
                 __buffer,
             )
         };
@@ -2920,7 +3052,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID_GENERATED_CLASS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_tab_and_get_id_generated_class,
                 __buffer,
             )
         };
@@ -2940,7 +3073,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_tab_and_get_id,
                 __buffer,
             )
         };
@@ -2964,7 +3098,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_TAB_AND_GET_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_tab_and_get_id,
                 __buffer,
             )
         };
@@ -2984,7 +3119,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_AND_EXECUTE_TASK,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_and_execute_task,
                 __buffer,
             )
         };
@@ -3008,7 +3144,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_REGISTER_AND_EXECUTE_TASK,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_register_and_execute_task,
                 __buffer,
             )
         };
@@ -3024,7 +3161,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_FIND_UTILITY_WIDGET_FROM_BLUEPRINT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_find_utility_widget_from_blueprint,
                 __buffer,
             )
         };
@@ -3041,7 +3179,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_FIND_UTILITY_WIDGET_FROM_BLUEPRINT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_find_utility_widget_from_blueprint,
                 __buffer,
             )
         };
@@ -3055,7 +3194,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_DOES_TAB_EXIST,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_does_tab_exist,
                 __buffer,
             )
         };
@@ -3072,7 +3212,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_DOES_TAB_EXIST,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_does_tab_exist,
                 __buffer,
             )
         };
@@ -3086,7 +3227,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_CLOSE_TAB_BY_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_close_tab_by_id,
                 __buffer,
             )
         };
@@ -3103,7 +3245,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_CLOSE_TAB_BY_ID,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_close_tab_by_id,
                 __buffer,
             )
         };
@@ -3117,7 +3260,8 @@ impl UEditorUtilitySubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_CAN_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_can_run,
                 __buffer,
             )
         };
@@ -3134,7 +3278,8 @@ impl UEditorUtilitySubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_SUBSYSTEM_CAN_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_subsystem_can_run,
                 __buffer,
             )
         };
@@ -3169,7 +3314,8 @@ impl UEditorUtilityTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_TASK_WAS_CANCEL_REQUESTED,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_was_cancel_requested,
                 __buffer,
             )
         };
@@ -3179,7 +3325,8 @@ impl UEditorUtilityTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_TASK_WAS_CANCEL_REQUESTED,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_was_cancel_requested,
                 __buffer,
             )
         };
@@ -3193,7 +3340,8 @@ impl UEditorUtilityTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_TASK_SET_TASK_NOTIFICATION_TEXT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_set_task_notification_text,
                 __buffer,
             )
         };
@@ -3206,10 +3354,87 @@ impl UEditorUtilityTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_TASK_SET_TASK_NOTIFICATION_TEXT,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_set_task_notification_text,
                 __buffer,
             )
         };
+    }
+    pub fn receive_cancel_requested(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_receive_cancel_requested,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_receive_cancel_requested,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_begin_execution(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_receive_begin_execution,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_receive_begin_execution,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_task_title_override(&self) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_get_task_title_override,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_get_task_title_override,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<FText>().read() }
     }
     pub fn finish_executing_task(&mut self, b_success: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -3219,7 +3444,8 @@ impl UEditorUtilityTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_TASK_FINISH_EXECUTING_TASK,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_finish_executing_task,
                 __buffer,
             )
         };
@@ -3232,7 +3458,8 @@ impl UEditorUtilityTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_TASK_FINISH_EXECUTING_TASK,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_task_finish_executing_task,
                 __buffer,
             )
         };
@@ -3272,7 +3499,7 @@ impl UEditorUtilityWidget {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_WIDGET_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS.u_editor_utility_widget_run,
                 __buffer,
             )
         };
@@ -3282,7 +3509,7 @@ impl UEditorUtilityWidget {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_WIDGET_RUN,
+                crate::bindings::blutility::__FUNCTION_PTRS.u_editor_utility_widget_run,
                 __buffer,
             )
         };
@@ -3298,7 +3525,8 @@ impl UEditorUtilityWidget {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::U_EDITOR_UTILITY_WIDGET_FIND_CHILD_WIDGET_BY_NAME,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_widget_find_child_widget_by_name,
                 __buffer,
             )
         };
@@ -3315,7 +3543,8 @@ impl UEditorUtilityWidget {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::U_EDITOR_UTILITY_WIDGET_FIND_CHILD_WIDGET_BY_NAME,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .u_editor_utility_widget_find_child_widget_by_name,
                 __buffer,
             )
         };
@@ -3822,7 +4051,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -3846,7 +4076,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -3859,7 +4090,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SELECT_NOTHING,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_select_nothing,
                 __buffer,
             )
         };
@@ -3869,7 +4101,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_SELECT_NOTHING,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_select_nothing,
                 __buffer,
             )
         };
@@ -3886,7 +4119,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_RENAME_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_rename_asset,
                 __buffer,
             )
         };
@@ -3910,7 +4144,33 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_RENAME_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_rename_asset,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_default_action_clicked(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_on_default_action_clicked,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_on_default_action_clicked,
                 __buffer,
             )
         };
@@ -3925,7 +4185,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selection_set,
                 __buffer,
             )
         };
@@ -3935,7 +4196,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selection_set,
                 __buffer,
             )
         };
@@ -3959,7 +4221,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_BOUNDS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selection_bounds,
                 __buffer,
             )
         };
@@ -3990,7 +4253,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTION_BOUNDS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selection_bounds,
                 __buffer,
             )
         };
@@ -4020,7 +4284,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTED_ASSETS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selected_assets,
                 __buffer,
             )
         };
@@ -4030,7 +4295,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_SELECTED_ASSETS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_selected_assets,
                 __buffer,
             )
         };
@@ -4051,7 +4317,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_EDITOR_USER_SETTINGS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_editor_user_settings,
                 __buffer,
             )
         };
@@ -4061,7 +4328,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_EDITOR_USER_SETTINGS,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_editor_user_settings,
                 __buffer,
             )
         };
@@ -4085,7 +4353,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_actor_reference,
                 __buffer,
             )
         };
@@ -4102,7 +4371,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_get_actor_reference,
                 __buffer,
             )
         };
@@ -4118,7 +4388,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_for_each_selected_asset,
                 __buffer,
             )
         };
@@ -4128,7 +4399,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ASSET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_for_each_selected_asset,
                 __buffer,
             )
         };
@@ -4141,7 +4413,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ACTOR,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_for_each_selected_actor,
                 __buffer,
             )
         };
@@ -4151,7 +4424,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_FOR_EACH_SELECTED_ACTOR,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_for_each_selected_actor,
                 __buffer,
             )
         };
@@ -4164,7 +4438,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_clear_actor_selection_set,
                 __buffer,
             )
         };
@@ -4174,7 +4449,8 @@ impl UDEPRECATED_GlobalEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::UDEPRECATED_GLOBAL_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .udeprecated_global_editor_utility_base_clear_actor_selection_set,
                 __buffer,
             )
         };
@@ -4214,7 +4490,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_set_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -4238,7 +4515,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_set_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -4255,7 +4533,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -4279,7 +4558,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SET_ACTOR_SELECTION_STATE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_set_actor_selection_state,
                 __buffer,
             )
         };
@@ -4292,7 +4572,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SELECT_NOTHING,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_select_nothing,
                 __buffer,
             )
         };
@@ -4302,7 +4583,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_SELECT_NOTHING,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_select_nothing,
                 __buffer,
             )
         };
@@ -4317,7 +4599,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_selection_set,
                 __buffer,
             )
         };
@@ -4327,7 +4610,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_selection_set,
                 __buffer,
             )
         };
@@ -4350,7 +4634,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -4374,7 +4659,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_LEVEL_VIEWPORT_CAMERA_INFO,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_level_viewport_camera_info,
                 __buffer,
             )
         };
@@ -4403,7 +4689,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_actor_reference,
                 __buffer,
             )
         };
@@ -4420,7 +4707,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_GET_ACTOR_REFERENCE,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_get_actor_reference,
                 __buffer,
             )
         };
@@ -4436,7 +4724,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_clear_actor_selection_set,
                 __buffer,
             )
         };
@@ -4446,7 +4735,8 @@ impl ADEPRECATED_PlacedEditorUtilityBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blutility::ADEPRECATED_PLACED_EDITOR_UTILITY_BASE_CLEAR_ACTOR_SELECTION_SET,
+                crate::bindings::blutility::__FUNCTION_PTRS
+                    .adeprecated_placed_editor_utility_base_clear_actor_selection_set,
                 __buffer,
             )
         };

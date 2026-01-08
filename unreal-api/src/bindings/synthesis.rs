@@ -1,460 +1,469 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_SPREAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_PAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_NOTE_ON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_NOTE_OFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_SOUND_WAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_SCRUB_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_GRAIN_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_GRAIN_PITCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_GRAIN_PAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_GRAIN_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_SET_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_NOTE_ON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_NOTE_OFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_IS_LOADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_GET_SAMPLE_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_SET_PITCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_IS_LOADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH2_D_SLIDER_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH2_D_SLIDER_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH2_D_SLIDER_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH2_D_SLIDER_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_KNOB_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_KNOB_SET_STEP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_KNOB_SET_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_KNOB_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_modular_synth_library_add_modular_synth_preset_to_bank_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_synth_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_sustain_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_stereo_delay_wetlevel: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_stereo_delay_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_stereo_delay_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_stereo_delay_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_stereo_delay_is_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_stereo_delay_feedback: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_spread: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_release_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_portamento: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_pitch_bend: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_pan: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_type: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_sync: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_semitones: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_pulsewidth: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_octave: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_gain_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_frequency_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_osc_cents: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_sustain_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_release_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_patch: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_decay_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_bias_patch: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_bias_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_mod_env_attack_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_lfo_type: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_lfo_patch: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_lfo_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_lfo_gain_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_lfo_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_lfo_frequency_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_lfo_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_gain_db: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_filter_type: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_filter_q_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_filter_q: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_filter_frequency_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_filter_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_filter_algorithm: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_enable_unison: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_enable_retrigger: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_enable_polyphony: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_enable_patch: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_enable_legato: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_decay_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_chorus_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_chorus_feedback: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_chorus_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_chorus_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_set_attack_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_note_on: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_note_off: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_synth_component_create_patch: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_sample_rate_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_sample_rate_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_sample_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_modulation_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_bits: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_bit_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_bit_crusher_preset_set_bit_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_wet_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_wet_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_wet: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_spread_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_spread_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_spread: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_modulation_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_frequency_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_frequency_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_feedback_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_feedback_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_feedback: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_dry_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_dry_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_dry: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_depth_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_depth_modulator: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_chorus_preset_set_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_convolution_reverb_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_convolution_reverb_preset_set_impulse_response: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_dynamics_processor_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_envelope_follower_preset_unregister_envelope_follower_listener: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_envelope_follower_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_envelope_follower_preset_register_envelope_follower_listener: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_eq_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_filter_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_foldback_distortion_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_mid_side_spreader_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_motion_filter_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_panner_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_phaser_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_ring_modulation_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_simple_delay_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_stereo_delay_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_source_effect_wave_shaper_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_convolution_reverb_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_convolution_reverb_preset_set_impulse_response: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_statics_set_maximum_delay_length: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_statics_set_interpolation_time: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_statics_set_delay_length: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_preset_set_interpolation_time: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_preset_set_delay: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_preset_set_default_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_delay_preset_get_max_delay_in_milliseconds: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_filter_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_filter_preset_set_filter_type: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_filter_preset_set_filter_q_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_filter_preset_set_filter_q: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_filter_preset_set_filter_cutoff_frequency_mod: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_filter_preset_set_filter_cutoff_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_filter_preset_set_filter_algorithm: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_flexiverb_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_multiband_compressor_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_multiband_compressor_preset_set_external_submix: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_multiband_compressor_preset_set_audio_bus: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_multiband_compressor_preset_reset_key: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_stereo_delay_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_stereo_to_quad_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_set_tap: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_set_interpolation_time: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_remove_tap: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_get_tap_ids: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_get_tap: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_get_max_delay_in_milliseconds: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_tap_delay_preset_add_tap: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_sustain_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_sound_wave: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_scrub_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_release_time_msec: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_playhead_time: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_playback_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_grain_volume: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_grains_per_second: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_grain_probability: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_grain_pitch: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_grain_pan: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_grain_envelope_type: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_grain_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_decay_time: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_set_attack_time: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_note_on: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_note_off: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_is_loaded: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_get_sample_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_granular_synth_get_current_playhead_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_wave_table_position: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_sustain_pedal_state: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_pos_lfo_type: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_pos_lfo_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_pos_lfo_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_sustain_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_release_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_decay_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_bias_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_bias_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_position_envelope_attack_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_low_pass_filter_resonance: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_frequency_with_midi_note: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_frequency_pitch_bend: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelope_sustain_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelope_release_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelopen_decay_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelope_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelope_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelope_bias_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelope_bias_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_filter_envelope_attack_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_curve_value: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_curve_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_curve_interpolation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_sustain_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_release_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_decay_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_bias_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_bias_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_set_amp_envelope_attack_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_refresh_wave_table: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_refresh_all_wave_tables: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_note_on: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_note_off: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_get_num_table_entries: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_get_max_table_index: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_get_key_frame_values_for_table: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_mono_wave_table_get_curve_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_tone_generator_set_volume: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_tone_generator_set_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_set_sound_wave: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_set_scrub_time_width: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_set_scrub_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_set_pitch: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_seek_to_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_is_loaded: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_get_sample_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_get_current_playback_progress_time: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_sample_player_get_current_playback_progress_percent: *mut crate::ffi::UFunctionOpague,
+    pub u_synthesis_utilities_blueprint_function_library_get_log_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_synthesis_utilities_blueprint_function_library_get_linear_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_synth2_d_slider_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_synth2_d_slider_set_step_size: *mut crate::ffi::UFunctionOpague,
+    pub u_synth2_d_slider_set_slider_handle_color: *mut crate::ffi::UFunctionOpague,
+    pub u_synth2_d_slider_set_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_synth2_d_slider_set_indent_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_synth2_d_slider_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_knob_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_knob_set_step_size: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_knob_set_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_knob_get_value: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_modular_synth_library_add_modular_synth_preset_to_bank_asset: std::ptr::null_mut(),
+            u_modular_synth_component_set_synth_preset: std::ptr::null_mut(),
+            u_modular_synth_component_set_sustain_gain: std::ptr::null_mut(),
+            u_modular_synth_component_set_stereo_delay_wetlevel: std::ptr::null_mut(),
+            u_modular_synth_component_set_stereo_delay_time: std::ptr::null_mut(),
+            u_modular_synth_component_set_stereo_delay_ratio: std::ptr::null_mut(),
+            u_modular_synth_component_set_stereo_delay_mode: std::ptr::null_mut(),
+            u_modular_synth_component_set_stereo_delay_is_enabled: std::ptr::null_mut(),
+            u_modular_synth_component_set_stereo_delay_feedback: std::ptr::null_mut(),
+            u_modular_synth_component_set_spread: std::ptr::null_mut(),
+            u_modular_synth_component_set_release_time: std::ptr::null_mut(),
+            u_modular_synth_component_set_portamento: std::ptr::null_mut(),
+            u_modular_synth_component_set_pitch_bend: std::ptr::null_mut(),
+            u_modular_synth_component_set_pan: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_type: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_sync: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_semitones: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_pulsewidth: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_octave: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_gain_mod: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_gain: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_frequency_mod: std::ptr::null_mut(),
+            u_modular_synth_component_set_osc_cents: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_sustain_gain: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_release_time: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_patch: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_invert: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_depth: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_decay_time: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_bias_patch: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_bias_invert: std::ptr::null_mut(),
+            u_modular_synth_component_set_mod_env_attack_time: std::ptr::null_mut(),
+            u_modular_synth_component_set_lfo_type: std::ptr::null_mut(),
+            u_modular_synth_component_set_lfo_patch: std::ptr::null_mut(),
+            u_modular_synth_component_set_lfo_mode: std::ptr::null_mut(),
+            u_modular_synth_component_set_lfo_gain_mod: std::ptr::null_mut(),
+            u_modular_synth_component_set_lfo_gain: std::ptr::null_mut(),
+            u_modular_synth_component_set_lfo_frequency_mod: std::ptr::null_mut(),
+            u_modular_synth_component_set_lfo_frequency: std::ptr::null_mut(),
+            u_modular_synth_component_set_gain_db: std::ptr::null_mut(),
+            u_modular_synth_component_set_filter_type: std::ptr::null_mut(),
+            u_modular_synth_component_set_filter_q_mod: std::ptr::null_mut(),
+            u_modular_synth_component_set_filter_q: std::ptr::null_mut(),
+            u_modular_synth_component_set_filter_frequency_mod: std::ptr::null_mut(),
+            u_modular_synth_component_set_filter_frequency: std::ptr::null_mut(),
+            u_modular_synth_component_set_filter_algorithm: std::ptr::null_mut(),
+            u_modular_synth_component_set_enable_unison: std::ptr::null_mut(),
+            u_modular_synth_component_set_enable_retrigger: std::ptr::null_mut(),
+            u_modular_synth_component_set_enable_polyphony: std::ptr::null_mut(),
+            u_modular_synth_component_set_enable_patch: std::ptr::null_mut(),
+            u_modular_synth_component_set_enable_legato: std::ptr::null_mut(),
+            u_modular_synth_component_set_decay_time: std::ptr::null_mut(),
+            u_modular_synth_component_set_chorus_frequency: std::ptr::null_mut(),
+            u_modular_synth_component_set_chorus_feedback: std::ptr::null_mut(),
+            u_modular_synth_component_set_chorus_enabled: std::ptr::null_mut(),
+            u_modular_synth_component_set_chorus_depth: std::ptr::null_mut(),
+            u_modular_synth_component_set_attack_time: std::ptr::null_mut(),
+            u_modular_synth_component_note_on: std::ptr::null_mut(),
+            u_modular_synth_component_note_off: std::ptr::null_mut(),
+            u_modular_synth_component_create_patch: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_sample_rate_modulators: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_sample_rate_modulator: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_sample_rate: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_modulation_settings: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_bits: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_bit_modulators: std::ptr::null_mut(),
+            u_source_effect_bit_crusher_preset_set_bit_modulator: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_wet_modulators: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_wet_modulator: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_wet: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_spread_modulators: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_spread_modulator: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_spread: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_modulation_settings: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_frequency_modulators: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_frequency_modulator: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_frequency: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_feedback_modulators: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_feedback_modulator: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_feedback: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_dry_modulators: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_dry_modulator: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_dry: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_depth_modulators: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_depth_modulator: std::ptr::null_mut(),
+            u_source_effect_chorus_preset_set_depth: std::ptr::null_mut(),
+            u_source_effect_convolution_reverb_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_convolution_reverb_preset_set_impulse_response: std::ptr::null_mut(),
+            u_source_effect_dynamics_processor_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_envelope_follower_preset_unregister_envelope_follower_listener: std::ptr::null_mut(),
+            u_source_effect_envelope_follower_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_envelope_follower_preset_register_envelope_follower_listener: std::ptr::null_mut(),
+            u_source_effect_eq_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_filter_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_foldback_distortion_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_mid_side_spreader_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_motion_filter_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_panner_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_phaser_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_ring_modulation_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_simple_delay_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_stereo_delay_preset_set_settings: std::ptr::null_mut(),
+            u_source_effect_wave_shaper_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_convolution_reverb_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_convolution_reverb_preset_set_impulse_response: std::ptr::null_mut(),
+            u_submix_effect_delay_statics_set_maximum_delay_length: std::ptr::null_mut(),
+            u_submix_effect_delay_statics_set_interpolation_time: std::ptr::null_mut(),
+            u_submix_effect_delay_statics_set_delay_length: std::ptr::null_mut(),
+            u_submix_effect_delay_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_delay_preset_set_interpolation_time: std::ptr::null_mut(),
+            u_submix_effect_delay_preset_set_delay: std::ptr::null_mut(),
+            u_submix_effect_delay_preset_set_default_settings: std::ptr::null_mut(),
+            u_submix_effect_delay_preset_get_max_delay_in_milliseconds: std::ptr::null_mut(),
+            u_submix_effect_filter_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_filter_preset_set_filter_type: std::ptr::null_mut(),
+            u_submix_effect_filter_preset_set_filter_q_mod: std::ptr::null_mut(),
+            u_submix_effect_filter_preset_set_filter_q: std::ptr::null_mut(),
+            u_submix_effect_filter_preset_set_filter_cutoff_frequency_mod: std::ptr::null_mut(),
+            u_submix_effect_filter_preset_set_filter_cutoff_frequency: std::ptr::null_mut(),
+            u_submix_effect_filter_preset_set_filter_algorithm: std::ptr::null_mut(),
+            u_submix_effect_flexiverb_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_multiband_compressor_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_multiband_compressor_preset_set_external_submix: std::ptr::null_mut(),
+            u_submix_effect_multiband_compressor_preset_set_audio_bus: std::ptr::null_mut(),
+            u_submix_effect_multiband_compressor_preset_reset_key: std::ptr::null_mut(),
+            u_submix_effect_stereo_delay_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_stereo_to_quad_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_set_tap: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_set_interpolation_time: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_remove_tap: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_get_tap_ids: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_get_tap: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_get_max_delay_in_milliseconds: std::ptr::null_mut(),
+            u_submix_effect_tap_delay_preset_add_tap: std::ptr::null_mut(),
+            u_granular_synth_set_sustain_gain: std::ptr::null_mut(),
+            u_granular_synth_set_sound_wave: std::ptr::null_mut(),
+            u_granular_synth_set_scrub_mode: std::ptr::null_mut(),
+            u_granular_synth_set_release_time_msec: std::ptr::null_mut(),
+            u_granular_synth_set_playhead_time: std::ptr::null_mut(),
+            u_granular_synth_set_playback_speed: std::ptr::null_mut(),
+            u_granular_synth_set_grain_volume: std::ptr::null_mut(),
+            u_granular_synth_set_grains_per_second: std::ptr::null_mut(),
+            u_granular_synth_set_grain_probability: std::ptr::null_mut(),
+            u_granular_synth_set_grain_pitch: std::ptr::null_mut(),
+            u_granular_synth_set_grain_pan: std::ptr::null_mut(),
+            u_granular_synth_set_grain_envelope_type: std::ptr::null_mut(),
+            u_granular_synth_set_grain_duration: std::ptr::null_mut(),
+            u_granular_synth_set_decay_time: std::ptr::null_mut(),
+            u_granular_synth_set_attack_time: std::ptr::null_mut(),
+            u_granular_synth_note_on: std::ptr::null_mut(),
+            u_granular_synth_note_off: std::ptr::null_mut(),
+            u_granular_synth_is_loaded: std::ptr::null_mut(),
+            u_granular_synth_get_sample_duration: std::ptr::null_mut(),
+            u_granular_synth_get_current_playhead_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_wave_table_position: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_sustain_pedal_state: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_pos_lfo_type: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_pos_lfo_frequency: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_pos_lfo_depth: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_sustain_gain: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_release_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_invert: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_depth: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_decay_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_bias_invert: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_bias_depth: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_position_envelope_attack_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_low_pass_filter_resonance: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_frequency_with_midi_note: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_frequency_pitch_bend: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_frequency: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelope_sustain_gain: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelope_release_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelopen_decay_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelope_invert: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelope_depth: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelope_bias_invert: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelope_bias_depth: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_filter_envelope_attack_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_curve_value: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_curve_tangent: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_curve_interpolation_type: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_sustain_gain: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_release_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_invert: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_depth: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_decay_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_bias_invert: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_bias_depth: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_set_amp_envelope_attack_time: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_refresh_wave_table: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_refresh_all_wave_tables: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_note_on: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_note_off: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_get_num_table_entries: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_get_max_table_index: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_get_key_frame_values_for_table: std::ptr::null_mut(),
+            u_synth_component_mono_wave_table_get_curve_tangent: std::ptr::null_mut(),
+            u_synth_component_tone_generator_set_volume: std::ptr::null_mut(),
+            u_synth_component_tone_generator_set_frequency: std::ptr::null_mut(),
+            u_synth_sample_player_set_sound_wave: std::ptr::null_mut(),
+            u_synth_sample_player_set_scrub_time_width: std::ptr::null_mut(),
+            u_synth_sample_player_set_scrub_mode: std::ptr::null_mut(),
+            u_synth_sample_player_set_pitch: std::ptr::null_mut(),
+            u_synth_sample_player_seek_to_time: std::ptr::null_mut(),
+            u_synth_sample_player_is_loaded: std::ptr::null_mut(),
+            u_synth_sample_player_get_sample_duration: std::ptr::null_mut(),
+            u_synth_sample_player_get_current_playback_progress_time: std::ptr::null_mut(),
+            u_synth_sample_player_get_current_playback_progress_percent: std::ptr::null_mut(),
+            u_synthesis_utilities_blueprint_function_library_get_log_frequency: std::ptr::null_mut(),
+            u_synthesis_utilities_blueprint_function_library_get_linear_frequency: std::ptr::null_mut(),
+            u_synth2_d_slider_set_value: std::ptr::null_mut(),
+            u_synth2_d_slider_set_step_size: std::ptr::null_mut(),
+            u_synth2_d_slider_set_slider_handle_color: std::ptr::null_mut(),
+            u_synth2_d_slider_set_locked: std::ptr::null_mut(),
+            u_synth2_d_slider_set_indent_handle: std::ptr::null_mut(),
+            u_synth2_d_slider_get_value: std::ptr::null_mut(),
+            u_synth_knob_set_value: std::ptr::null_mut(),
+            u_synth_knob_set_step_size: std::ptr::null_mut(),
+            u_synth_knob_set_locked: std::ptr::null_mut(),
+            u_synth_knob_get_value: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -464,7 +473,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddModularSynthPresetToBankAsset"),
-            &raw mut U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_synth_library_add_modular_synth_preset_to_bank_asset,
         );
     }
     unsafe {
@@ -475,413 +485,414 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSynthPreset"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_synth_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSustainGain"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_sustain_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStereoDelayWetlevel"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_wetlevel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStereoDelayTime"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStereoDelayRatio"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStereoDelayMode"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStereoDelayIsEnabled"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_synth_component_set_stereo_delay_is_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStereoDelayFeedback"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_stereo_delay_feedback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpread"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_SPREAD,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_spread,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReleaseTime"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_release_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPortamento"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_portamento,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPitchBend"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_pitch_bend,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPan"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_PAN,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_pan,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscType"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscSync"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_sync,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscSemitones"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_semitones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscPulsewidth"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_pulsewidth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscOctave"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_octave,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscGainMod"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_gain_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscGain"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscFrequencyMod"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_frequency_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOscCents"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_osc_cents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvSustainGain"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_sustain_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvReleaseTime"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_release_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvPatch"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_patch,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvInvert"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvDepth"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvDecayTime"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_decay_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvBiasPatch"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_bias_patch,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvBiasInvert"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_bias_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModEnvAttackTime"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_mod_env_attack_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLFOType"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLFOPatch"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_patch,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLFOMode"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLFOGainMod"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_gain_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLFOGain"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLFOFrequencyMod"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_frequency_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLFOFrequency"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_lfo_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGainDb"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_gain_db,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterType"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterQMod"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_q_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterQ"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_q,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterFrequencyMod"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_frequency_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterFrequency"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_filter_algorithm,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableUnison"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_unison,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableRetrigger"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_retrigger,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnablePolyphony"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_polyphony,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnablePatch"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_patch,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableLegato"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_enable_legato,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDecayTime"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_decay_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChorusFrequency"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChorusFeedback"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_feedback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChorusEnabled"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetChorusDepth"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_chorus_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAttackTime"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_set_attack_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NoteOn"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_NOTE_ON,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_note_on,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NoteOff"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_NOTE_OFF,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_note_off,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePatch"),
-            &raw mut U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH,
+            &raw mut __FUNCTION_PTRS.u_modular_synth_component_create_patch,
         );
     }
     unsafe {
@@ -892,56 +903,60 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSampleRateModulators"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_bit_crusher_preset_set_sample_rate_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSampleRateModulator"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_bit_crusher_preset_set_sample_rate_modulator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSampleRate"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE,
+            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_sample_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModulationSettings"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_bit_crusher_preset_set_modulation_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBits"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_bits,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBitModulators"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_bit_crusher_preset_set_bit_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBitModulator"),
-            &raw mut U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR,
+            &raw mut __FUNCTION_PTRS.u_source_effect_bit_crusher_preset_set_bit_modulator,
         );
     }
     unsafe {
@@ -952,140 +967,144 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWetModulators"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWetModulator"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet_modulator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWet"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_wet,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpreadModulators"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_spread_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpreadModulator"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_spread_modulator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpread"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_spread,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModulationSettings"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_chorus_preset_set_modulation_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrequencyModulators"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_chorus_preset_set_frequency_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrequencyModulator"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_chorus_preset_set_frequency_modulator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrequency"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFeedbackModulators"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_chorus_preset_set_feedback_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFeedbackModulator"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_feedback_modulator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFeedback"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_feedback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDryModulators"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDryModulator"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry_modulator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDry"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_dry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDepthModulators"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_depth_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDepthModulator"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_depth_modulator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDepth"),
-            &raw mut U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH,
+            &raw mut __FUNCTION_PTRS.u_source_effect_chorus_preset_set_depth,
         );
     }
     unsafe {
@@ -1096,14 +1115,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_convolution_reverb_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetImpulseResponse"),
-            &raw mut U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_convolution_reverb_preset_set_impulse_response,
         );
     }
     unsafe {
@@ -1114,7 +1135,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_dynamics_processor_preset_set_settings,
         );
     }
     unsafe {
@@ -1125,21 +1147,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterEnvelopeFollowerListener"),
-            &raw mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_envelope_follower_preset_unregister_envelope_follower_listener,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_envelope_follower_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterEnvelopeFollowerListener"),
-            &raw mut U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_envelope_follower_preset_register_envelope_follower_listener,
         );
     }
     unsafe {
@@ -1150,7 +1175,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_eq_preset_set_settings,
         );
     }
     unsafe {
@@ -1161,7 +1186,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_filter_preset_set_settings,
         );
     }
     unsafe {
@@ -1172,7 +1197,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_foldback_distortion_preset_set_settings,
         );
     }
     unsafe {
@@ -1183,7 +1209,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_source_effect_mid_side_spreader_preset_set_settings,
         );
     }
     unsafe {
@@ -1194,7 +1221,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_motion_filter_preset_set_settings,
         );
     }
     unsafe {
@@ -1205,7 +1232,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_panner_preset_set_settings,
         );
     }
     unsafe {
@@ -1216,7 +1243,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_phaser_preset_set_settings,
         );
     }
     unsafe {
@@ -1227,7 +1254,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_ring_modulation_preset_set_settings,
         );
     }
     unsafe {
@@ -1238,7 +1265,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_simple_delay_preset_set_settings,
         );
     }
     unsafe {
@@ -1249,7 +1276,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_stereo_delay_preset_set_settings,
         );
     }
     unsafe {
@@ -1260,7 +1287,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_source_effect_wave_shaper_preset_set_settings,
         );
     }
     unsafe {
@@ -1271,14 +1298,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_convolution_reverb_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetImpulseResponse"),
-            &raw mut U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_convolution_reverb_preset_set_impulse_response,
         );
     }
     unsafe {
@@ -1289,21 +1318,22 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaximumDelayLength"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_delay_statics_set_maximum_delay_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInterpolationTime"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_statics_set_interpolation_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDelayLength"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_statics_set_delay_length,
         );
     }
     unsafe {
@@ -1314,35 +1344,36 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInterpolationTime"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_interpolation_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDelay"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_delay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultSettings"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_delay_preset_set_default_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
-            &raw mut U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_delay_preset_get_max_delay_in_milliseconds,
         );
     }
     unsafe {
@@ -1353,49 +1384,51 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterType"),
-            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterQMod"),
-            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_q_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterQ"),
-            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_q,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterCutoffFrequencyMod"),
-            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_filter_preset_set_filter_cutoff_frequency_mod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterCutoffFrequency"),
-            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_filter_preset_set_filter_cutoff_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterAlgorithm"),
-            &raw mut U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_filter_preset_set_filter_algorithm,
         );
     }
     unsafe {
@@ -1406,7 +1439,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_flexiverb_preset_set_settings,
         );
     }
     unsafe {
@@ -1417,28 +1450,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_multiband_compressor_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExternalSubmix"),
-            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_multiband_compressor_preset_set_external_submix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAudioBus"),
-            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_multiband_compressor_preset_set_audio_bus,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetKey"),
-            &raw mut U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_multiband_compressor_preset_reset_key,
         );
     }
     unsafe {
@@ -1449,7 +1486,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_stereo_delay_preset_set_settings,
         );
     }
     unsafe {
@@ -1460,7 +1497,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_stereo_to_quad_preset_set_settings,
         );
     }
     unsafe {
@@ -1471,56 +1508,58 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTap"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_set_tap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInterpolationTime"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_tap_delay_preset_set_interpolation_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTap"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_remove_tap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTapIds"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_get_tap_ids,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTap"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_get_tap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaxDelayInMilliseconds"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_tap_delay_preset_get_max_delay_in_milliseconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTap"),
-            &raw mut U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_tap_delay_preset_add_tap,
         );
     }
     unsafe {
@@ -1531,140 +1570,140 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSustainGain"),
-            &raw mut U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_sustain_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSoundWave"),
-            &raw mut U_GRANULAR_SYNTH_SET_SOUND_WAVE,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_sound_wave,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetScrubMode"),
-            &raw mut U_GRANULAR_SYNTH_SET_SCRUB_MODE,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_scrub_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReleaseTimeMsec"),
-            &raw mut U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_release_time_msec,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlayheadTime"),
-            &raw mut U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_playhead_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
-            &raw mut U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_playback_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainVolume"),
-            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_VOLUME,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_volume,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainsPerSecond"),
-            &raw mut U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grains_per_second,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainProbability"),
-            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_probability,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainPitch"),
-            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_PITCH,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_pitch,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainPan"),
-            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_PAN,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_pan,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainEnvelopeType"),
-            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_envelope_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainDuration"),
-            &raw mut U_GRANULAR_SYNTH_SET_GRAIN_DURATION,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_grain_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDecayTime"),
-            &raw mut U_GRANULAR_SYNTH_SET_DECAY_TIME,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_decay_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAttackTime"),
-            &raw mut U_GRANULAR_SYNTH_SET_ATTACK_TIME,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_set_attack_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NoteOn"),
-            &raw mut U_GRANULAR_SYNTH_NOTE_ON,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_note_on,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NoteOff"),
-            &raw mut U_GRANULAR_SYNTH_NOTE_OFF,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_note_off,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLoaded"),
-            &raw mut U_GRANULAR_SYNTH_IS_LOADED,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_is_loaded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSampleDuration"),
-            &raw mut U_GRANULAR_SYNTH_GET_SAMPLE_DURATION,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_get_sample_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPlayheadTime"),
-            &raw mut U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME,
+            &raw mut __FUNCTION_PTRS.u_granular_synth_get_current_playhead_time,
         );
     }
     unsafe {
@@ -1675,308 +1714,343 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWaveTablePosition"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_wave_table_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSustainPedalState"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_sustain_pedal_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPosLfoType"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_pos_lfo_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPosLfoFrequency"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_pos_lfo_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPosLfoDepth"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_pos_lfo_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeSustainGain"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_sustain_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeReleaseTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_release_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeInvert"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeDepth"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeDecayTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_decay_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasInvert"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_bias_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeBiasDepth"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_bias_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPositionEnvelopeAttackTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_position_envelope_attack_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLowPassFilterResonance"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_low_pass_filter_resonance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrequencyWithMidiNote"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_frequency_with_midi_note,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrequencyPitchBend"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_frequency_pitch_bend,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrequency"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopeSustainGain"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelope_sustain_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopeReleaseTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelope_release_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopenDecayTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelopen_decay_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopeInvert"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelope_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopeDepth"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelope_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasInvert"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelope_bias_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopeBiasDepth"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelope_bias_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterEnvelopeAttackTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_filter_envelope_attack_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveValue"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_curve_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveTangent"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_set_curve_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveInterpolationType"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_curve_interpolation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeSustainGain"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_sustain_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeReleaseTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_release_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeInvert"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeDepth"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeDecayTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_decay_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasInvert"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_bias_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeBiasDepth"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_bias_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAmpEnvelopeAttackTime"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_set_amp_envelope_attack_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshWaveTable"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_refresh_wave_table,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshAllWaveTables"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_refresh_all_wave_tables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NoteOn"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_note_on,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NoteOff"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_note_off,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumTableEntries"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_get_num_table_entries,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaxTableIndex"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_get_max_table_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeyFrameValuesForTable"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_component_mono_wave_table_get_key_frame_values_for_table,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveTangent"),
-            &raw mut U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_synth_component_mono_wave_table_get_curve_tangent,
         );
     }
     unsafe {
@@ -1987,14 +2061,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVolume"),
-            &raw mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME,
+            &raw mut __FUNCTION_PTRS.u_synth_component_tone_generator_set_volume,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrequency"),
-            &raw mut U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_synth_component_tone_generator_set_frequency,
         );
     }
     unsafe {
@@ -2005,63 +2079,65 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSoundWave"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE,
+            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_sound_wave,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetScrubTimeWidth"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH,
+            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_scrub_time_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetScrubMode"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE,
+            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_scrub_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPitch"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_SET_PITCH,
+            &raw mut __FUNCTION_PTRS.u_synth_sample_player_set_pitch,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SeekToTime"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME,
+            &raw mut __FUNCTION_PTRS.u_synth_sample_player_seek_to_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLoaded"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_IS_LOADED,
+            &raw mut __FUNCTION_PTRS.u_synth_sample_player_is_loaded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSampleDuration"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION,
+            &raw mut __FUNCTION_PTRS.u_synth_sample_player_get_sample_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressTime"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_sample_player_get_current_playback_progress_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPlaybackProgressPercent"),
-            &raw mut U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT,
+            &raw mut __FUNCTION_PTRS
+                .u_synth_sample_player_get_current_playback_progress_percent,
         );
     }
     unsafe {
@@ -2072,14 +2148,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLogFrequency"),
-            &raw mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_synthesis_utilities_blueprint_function_library_get_log_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinearFrequency"),
-            &raw mut U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_synthesis_utilities_blueprint_function_library_get_linear_frequency,
         );
     }
     unsafe {
@@ -2090,42 +2168,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_SYNTH2_D_SLIDER_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut U_SYNTH2_D_SLIDER_SET_STEP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_step_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSliderHandleColor"),
-            &raw mut U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_slider_handle_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut U_SYNTH2_D_SLIDER_SET_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIndentHandle"),
-            &raw mut U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE,
+            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_set_indent_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_SYNTH2_D_SLIDER_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_synth2_d_slider_get_value,
         );
     }
     unsafe {
@@ -2136,28 +2214,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_SYNTH_KNOB_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_synth_knob_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStepSize"),
-            &raw mut U_SYNTH_KNOB_SET_STEP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_synth_knob_set_step_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocked"),
-            &raw mut U_SYNTH_KNOB_SET_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_synth_knob_set_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_SYNTH_KNOB_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_synth_knob_get_value,
         );
     }
 }
@@ -2676,7 +2754,8 @@ impl UModularSynthLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_library_add_modular_synth_preset_to_bank_asset,
                 __buffer,
             )
         };
@@ -2707,7 +2786,8 @@ impl UModularSynthLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_LIBRARY_ADD_MODULAR_SYNTH_PRESET_TO_BANK_ASSET,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_library_add_modular_synth_preset_to_bank_asset,
                 __buffer,
             )
         };
@@ -2744,7 +2824,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_synth_preset,
                 __buffer,
             )
         };
@@ -2761,7 +2842,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SYNTH_PRESET,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_synth_preset,
                 __buffer,
             )
         };
@@ -2774,7 +2856,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_sustain_gain,
                 __buffer,
             )
         };
@@ -2791,7 +2874,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_sustain_gain,
                 __buffer,
             )
         };
@@ -2804,7 +2888,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_wetlevel,
                 __buffer,
             )
         };
@@ -2821,7 +2906,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_WETLEVEL,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_wetlevel,
                 __buffer,
             )
         };
@@ -2834,7 +2920,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_time,
                 __buffer,
             )
         };
@@ -2851,7 +2938,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_time,
                 __buffer,
             )
         };
@@ -2864,7 +2952,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_ratio,
                 __buffer,
             )
         };
@@ -2881,7 +2970,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_RATIO,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_ratio,
                 __buffer,
             )
         };
@@ -2894,7 +2984,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_mode,
                 __buffer,
             )
         };
@@ -2911,7 +3002,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_mode,
                 __buffer,
             )
         };
@@ -2924,7 +3016,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_is_enabled,
                 __buffer,
             )
         };
@@ -2941,7 +3034,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_IS_ENABLED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_is_enabled,
                 __buffer,
             )
         };
@@ -2954,7 +3048,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_feedback,
                 __buffer,
             )
         };
@@ -2971,7 +3066,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_STEREO_DELAY_FEEDBACK,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_stereo_delay_feedback,
                 __buffer,
             )
         };
@@ -2984,7 +3080,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SPREAD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_spread,
                 __buffer,
             )
         };
@@ -2997,7 +3094,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_SPREAD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_spread,
                 __buffer,
             )
         };
@@ -3010,7 +3108,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_release_time,
                 __buffer,
             )
         };
@@ -3027,7 +3126,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_release_time,
                 __buffer,
             )
         };
@@ -3040,7 +3140,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_portamento,
                 __buffer,
             )
         };
@@ -3053,7 +3154,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PORTAMENTO,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_portamento,
                 __buffer,
             )
         };
@@ -3066,7 +3168,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_pitch_bend,
                 __buffer,
             )
         };
@@ -3079,7 +3182,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PITCH_BEND,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_pitch_bend,
                 __buffer,
             )
         };
@@ -3092,7 +3196,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PAN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_pan,
                 __buffer,
             )
         };
@@ -3105,7 +3210,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_PAN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_pan,
                 __buffer,
             )
         };
@@ -3118,7 +3224,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_type,
                 __buffer,
             )
         };
@@ -3138,7 +3245,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_type,
                 __buffer,
             )
         };
@@ -3151,7 +3259,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_sync,
                 __buffer,
             )
         };
@@ -3168,7 +3277,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SYNC,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_sync,
                 __buffer,
             )
         };
@@ -3181,7 +3291,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_semitones,
                 __buffer,
             )
         };
@@ -3197,7 +3308,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_SEMITONES,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_semitones,
                 __buffer,
             )
         };
@@ -3210,7 +3322,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_pulsewidth,
                 __buffer,
             )
         };
@@ -3226,7 +3339,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_PULSEWIDTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_pulsewidth,
                 __buffer,
             )
         };
@@ -3239,7 +3353,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_octave,
                 __buffer,
             )
         };
@@ -3255,7 +3370,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_OCTAVE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_octave,
                 __buffer,
             )
         };
@@ -3268,7 +3384,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_gain_mod,
                 __buffer,
             )
         };
@@ -3288,7 +3405,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_gain_mod,
                 __buffer,
             )
         };
@@ -3301,7 +3419,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_gain,
                 __buffer,
             )
         };
@@ -3317,7 +3436,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_gain,
                 __buffer,
             )
         };
@@ -3330,7 +3450,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_frequency_mod,
                 __buffer,
             )
         };
@@ -3350,7 +3471,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_frequency_mod,
                 __buffer,
             )
         };
@@ -3363,7 +3485,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_cents,
                 __buffer,
             )
         };
@@ -3379,7 +3502,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_OSC_CENTS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_osc_cents,
                 __buffer,
             )
         };
@@ -3392,7 +3516,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_sustain_gain,
                 __buffer,
             )
         };
@@ -3409,7 +3534,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_sustain_gain,
                 __buffer,
             )
         };
@@ -3422,7 +3548,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_release_time,
                 __buffer,
             )
         };
@@ -3435,7 +3562,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_release_time,
                 __buffer,
             )
         };
@@ -3448,7 +3576,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_patch,
                 __buffer,
             )
         };
@@ -3465,7 +3594,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_patch,
                 __buffer,
             )
         };
@@ -3478,7 +3608,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_invert,
                 __buffer,
             )
         };
@@ -3491,7 +3622,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_invert,
                 __buffer,
             )
         };
@@ -3504,7 +3636,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_depth,
                 __buffer,
             )
         };
@@ -3517,7 +3650,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_depth,
                 __buffer,
             )
         };
@@ -3530,7 +3664,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_decay_time,
                 __buffer,
             )
         };
@@ -3547,7 +3682,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_decay_time,
                 __buffer,
             )
         };
@@ -3560,7 +3696,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_bias_patch,
                 __buffer,
             )
         };
@@ -3577,7 +3714,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_bias_patch,
                 __buffer,
             )
         };
@@ -3590,7 +3728,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_bias_invert,
                 __buffer,
             )
         };
@@ -3603,7 +3742,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_bias_invert,
                 __buffer,
             )
         };
@@ -3616,7 +3756,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_attack_time,
                 __buffer,
             )
         };
@@ -3633,7 +3774,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_MOD_ENV_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_mod_env_attack_time,
                 __buffer,
             )
         };
@@ -3646,7 +3788,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_type,
                 __buffer,
             )
         };
@@ -3666,7 +3809,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_type,
                 __buffer,
             )
         };
@@ -3679,7 +3823,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_patch,
                 __buffer,
             )
         };
@@ -3699,7 +3844,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_patch,
                 __buffer,
             )
         };
@@ -3712,7 +3858,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_mode,
                 __buffer,
             )
         };
@@ -3732,7 +3879,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_mode,
                 __buffer,
             )
         };
@@ -3745,7 +3893,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_gain_mod,
                 __buffer,
             )
         };
@@ -3761,7 +3910,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_gain_mod,
                 __buffer,
             )
         };
@@ -3774,7 +3924,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_gain,
                 __buffer,
             )
         };
@@ -3790,7 +3941,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_gain,
                 __buffer,
             )
         };
@@ -3803,7 +3955,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_frequency_mod,
                 __buffer,
             )
         };
@@ -3823,7 +3976,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_frequency_mod,
                 __buffer,
             )
         };
@@ -3836,7 +3990,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_frequency,
                 __buffer,
             )
         };
@@ -3856,7 +4011,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_LFO_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_lfo_frequency,
                 __buffer,
             )
         };
@@ -3869,7 +4025,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_gain_db,
                 __buffer,
             )
         };
@@ -3882,7 +4039,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_GAIN_DB,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_gain_db,
                 __buffer,
             )
         };
@@ -3895,7 +4053,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_type,
                 __buffer,
             )
         };
@@ -3912,7 +4071,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_type,
                 __buffer,
             )
         };
@@ -3925,7 +4085,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_q_mod,
                 __buffer,
             )
         };
@@ -3938,7 +4099,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_q_mod,
                 __buffer,
             )
         };
@@ -3951,7 +4113,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_q,
                 __buffer,
             )
         };
@@ -3964,7 +4127,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_Q,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_q,
                 __buffer,
             )
         };
@@ -3977,7 +4141,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_frequency_mod,
                 __buffer,
             )
         };
@@ -3994,7 +4159,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_frequency_mod,
                 __buffer,
             )
         };
@@ -4007,7 +4173,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_frequency,
                 __buffer,
             )
         };
@@ -4024,7 +4191,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_frequency,
                 __buffer,
             )
         };
@@ -4037,7 +4205,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_algorithm,
                 __buffer,
             )
         };
@@ -4054,7 +4223,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_FILTER_ALGORITHM,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_filter_algorithm,
                 __buffer,
             )
         };
@@ -4067,7 +4237,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_unison,
                 __buffer,
             )
         };
@@ -4084,7 +4255,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_UNISON,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_unison,
                 __buffer,
             )
         };
@@ -4097,7 +4269,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_retrigger,
                 __buffer,
             )
         };
@@ -4114,7 +4287,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_RETRIGGER,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_retrigger,
                 __buffer,
             )
         };
@@ -4127,7 +4301,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_polyphony,
                 __buffer,
             )
         };
@@ -4144,7 +4319,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_POLYPHONY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_polyphony,
                 __buffer,
             )
         };
@@ -4157,7 +4333,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_patch,
                 __buffer,
             )
         };
@@ -4181,7 +4358,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_patch,
                 __buffer,
             )
         };
@@ -4195,7 +4373,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_legato,
                 __buffer,
             )
         };
@@ -4212,7 +4391,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ENABLE_LEGATO,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_enable_legato,
                 __buffer,
             )
         };
@@ -4225,7 +4405,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_decay_time,
                 __buffer,
             )
         };
@@ -4242,7 +4423,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_decay_time,
                 __buffer,
             )
         };
@@ -4255,7 +4437,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_frequency,
                 __buffer,
             )
         };
@@ -4268,7 +4451,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_frequency,
                 __buffer,
             )
         };
@@ -4281,7 +4465,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_feedback,
                 __buffer,
             )
         };
@@ -4294,7 +4479,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_FEEDBACK,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_feedback,
                 __buffer,
             )
         };
@@ -4307,7 +4493,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_enabled,
                 __buffer,
             )
         };
@@ -4324,7 +4511,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_ENABLED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_enabled,
                 __buffer,
             )
         };
@@ -4337,7 +4525,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_depth,
                 __buffer,
             )
         };
@@ -4350,7 +4539,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_CHORUS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_chorus_depth,
                 __buffer,
             )
         };
@@ -4363,7 +4553,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_attack_time,
                 __buffer,
             )
         };
@@ -4380,7 +4571,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_SET_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_set_attack_time,
                 __buffer,
             )
         };
@@ -4393,7 +4585,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_ON,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_note_on,
                 __buffer,
             )
         };
@@ -4412,7 +4605,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_ON,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_note_on,
                 __buffer,
             )
         };
@@ -4430,7 +4624,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_OFF,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_note_off,
                 __buffer,
             )
         };
@@ -4457,7 +4652,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_NOTE_OFF,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_note_off,
                 __buffer,
             )
         };
@@ -4475,7 +4671,8 @@ impl UModularSynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_create_patch,
                 __buffer,
             )
         };
@@ -4506,7 +4703,8 @@ impl UModularSynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_MODULAR_SYNTH_COMPONENT_CREATE_PATCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_modular_synth_component_create_patch,
                 __buffer,
             )
         };
@@ -4543,7 +4741,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_settings,
                 __buffer,
             )
         };
@@ -4560,7 +4759,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_settings,
                 __buffer,
             )
         };
@@ -4578,7 +4778,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate_modulators,
                 __buffer,
             )
         };
@@ -4601,7 +4802,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate_modulators,
                 __buffer,
             )
         };
@@ -4617,7 +4819,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate_modulator,
                 __buffer,
             )
         };
@@ -4638,7 +4841,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate_modulator,
                 __buffer,
             )
         };
@@ -4651,7 +4855,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate,
                 __buffer,
             )
         };
@@ -4668,7 +4873,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_SAMPLE_RATE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_sample_rate,
                 __buffer,
             )
         };
@@ -4684,7 +4890,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_modulation_settings,
                 __buffer,
             )
         };
@@ -4701,7 +4908,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_MODULATION_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_modulation_settings,
                 __buffer,
             )
         };
@@ -4714,7 +4922,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bits,
                 __buffer,
             )
         };
@@ -4727,7 +4936,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BITS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bits,
                 __buffer,
             )
         };
@@ -4745,7 +4955,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bit_modulators,
                 __buffer,
             )
         };
@@ -4768,7 +4979,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bit_modulators,
                 __buffer,
             )
         };
@@ -4784,7 +4996,8 @@ impl USourceEffectBitCrusherPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bit_modulator,
                 __buffer,
             )
         };
@@ -4805,7 +5018,8 @@ impl USourceEffectBitCrusherPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_BIT_CRUSHER_PRESET_SET_BIT_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_bit_crusher_preset_set_bit_modulator,
                 __buffer,
             )
         };
@@ -4844,7 +5058,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_wet_modulators,
                 __buffer,
             )
         };
@@ -4867,7 +5082,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_wet_modulators,
                 __buffer,
             )
         };
@@ -4883,7 +5099,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_wet_modulator,
                 __buffer,
             )
         };
@@ -4904,7 +5121,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_wet_modulator,
                 __buffer,
             )
         };
@@ -4917,7 +5135,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_wet,
                 __buffer,
             )
         };
@@ -4930,7 +5149,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_WET,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_wet,
                 __buffer,
             )
         };
@@ -4946,7 +5166,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread_modulators,
                 __buffer,
             )
         };
@@ -4969,7 +5190,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread_modulators,
                 __buffer,
             )
         };
@@ -4985,7 +5207,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread_modulator,
                 __buffer,
             )
         };
@@ -5006,7 +5229,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread_modulator,
                 __buffer,
             )
         };
@@ -5019,7 +5243,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread,
                 __buffer,
             )
         };
@@ -5032,7 +5257,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SPREAD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_spread,
                 __buffer,
             )
         };
@@ -5045,7 +5271,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_settings,
                 __buffer,
             )
         };
@@ -5062,7 +5289,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_settings,
                 __buffer,
             )
         };
@@ -5078,7 +5306,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_modulation_settings,
                 __buffer,
             )
         };
@@ -5095,7 +5324,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_MODULATION_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_modulation_settings,
                 __buffer,
             )
         };
@@ -5111,7 +5341,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency_modulators,
                 __buffer,
             )
         };
@@ -5134,7 +5365,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency_modulators,
                 __buffer,
             )
         };
@@ -5150,7 +5382,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency_modulator,
                 __buffer,
             )
         };
@@ -5171,7 +5404,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency_modulator,
                 __buffer,
             )
         };
@@ -5184,7 +5418,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency,
                 __buffer,
             )
         };
@@ -5197,7 +5432,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_frequency,
                 __buffer,
             )
         };
@@ -5213,7 +5449,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback_modulators,
                 __buffer,
             )
         };
@@ -5236,7 +5473,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback_modulators,
                 __buffer,
             )
         };
@@ -5252,7 +5490,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback_modulator,
                 __buffer,
             )
         };
@@ -5273,7 +5512,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback_modulator,
                 __buffer,
             )
         };
@@ -5286,7 +5526,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback,
                 __buffer,
             )
         };
@@ -5299,7 +5540,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_FEEDBACK,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_feedback,
                 __buffer,
             )
         };
@@ -5315,7 +5557,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_dry_modulators,
                 __buffer,
             )
         };
@@ -5338,7 +5581,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_dry_modulators,
                 __buffer,
             )
         };
@@ -5354,7 +5598,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_dry_modulator,
                 __buffer,
             )
         };
@@ -5375,7 +5620,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_dry_modulator,
                 __buffer,
             )
         };
@@ -5388,7 +5634,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_dry,
                 __buffer,
             )
         };
@@ -5401,7 +5648,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DRY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_dry,
                 __buffer,
             )
         };
@@ -5417,7 +5665,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth_modulators,
                 __buffer,
             )
         };
@@ -5440,7 +5689,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATORS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth_modulators,
                 __buffer,
             )
         };
@@ -5456,7 +5706,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth_modulator,
                 __buffer,
             )
         };
@@ -5477,7 +5728,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH_MODULATOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth_modulator,
                 __buffer,
             )
         };
@@ -5490,7 +5742,8 @@ impl USourceEffectChorusPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth,
                 __buffer,
             )
         };
@@ -5503,7 +5756,8 @@ impl USourceEffectChorusPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CHORUS_PRESET_SET_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_chorus_preset_set_depth,
                 __buffer,
             )
         };
@@ -5546,7 +5800,8 @@ impl USourceEffectConvolutionReverbPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_convolution_reverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -5563,7 +5818,8 @@ impl USourceEffectConvolutionReverbPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_convolution_reverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -5579,7 +5835,8 @@ impl USourceEffectConvolutionReverbPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_convolution_reverb_preset_set_impulse_response,
                 __buffer,
             )
         };
@@ -5596,7 +5853,8 @@ impl USourceEffectConvolutionReverbPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_convolution_reverb_preset_set_impulse_response,
                 __buffer,
             )
         };
@@ -5635,7 +5893,8 @@ impl USourceEffectDynamicsProcessorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_dynamics_processor_preset_set_settings,
                 __buffer,
             )
         };
@@ -5652,7 +5911,8 @@ impl USourceEffectDynamicsProcessorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_dynamics_processor_preset_set_settings,
                 __buffer,
             )
         };
@@ -5712,7 +5972,8 @@ impl USourceEffectEnvelopeFollowerPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_unregister_envelope_follower_listener,
                 __buffer,
             )
         };
@@ -5729,7 +5990,8 @@ impl USourceEffectEnvelopeFollowerPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_UNREGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_unregister_envelope_follower_listener,
                 __buffer,
             )
         };
@@ -5742,7 +6004,8 @@ impl USourceEffectEnvelopeFollowerPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_set_settings,
                 __buffer,
             )
         };
@@ -5759,7 +6022,8 @@ impl USourceEffectEnvelopeFollowerPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_set_settings,
                 __buffer,
             )
         };
@@ -5775,7 +6039,8 @@ impl USourceEffectEnvelopeFollowerPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_register_envelope_follower_listener,
                 __buffer,
             )
         };
@@ -5792,7 +6057,8 @@ impl USourceEffectEnvelopeFollowerPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_ENVELOPE_FOLLOWER_PRESET_REGISTER_ENVELOPE_FOLLOWER_LISTENER,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_envelope_follower_preset_register_envelope_follower_listener,
                 __buffer,
             )
         };
@@ -5828,7 +6094,8 @@ impl USourceEffectEQPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_eq_preset_set_settings,
                 __buffer,
             )
         };
@@ -5845,7 +6112,8 @@ impl USourceEffectEQPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_EQ_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_eq_preset_set_settings,
                 __buffer,
             )
         };
@@ -5881,7 +6149,8 @@ impl USourceEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_filter_preset_set_settings,
                 __buffer,
             )
         };
@@ -5898,7 +6167,8 @@ impl USourceEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_filter_preset_set_settings,
                 __buffer,
             )
         };
@@ -5937,7 +6207,8 @@ impl USourceEffectFoldbackDistortionPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_foldback_distortion_preset_set_settings,
                 __buffer,
             )
         };
@@ -5954,7 +6225,8 @@ impl USourceEffectFoldbackDistortionPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_FOLDBACK_DISTORTION_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_foldback_distortion_preset_set_settings,
                 __buffer,
             )
         };
@@ -5990,7 +6262,8 @@ impl USourceEffectMidSideSpreaderPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_mid_side_spreader_preset_set_settings,
                 __buffer,
             )
         };
@@ -6007,7 +6280,8 @@ impl USourceEffectMidSideSpreaderPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_MID_SIDE_SPREADER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_mid_side_spreader_preset_set_settings,
                 __buffer,
             )
         };
@@ -6043,7 +6317,8 @@ impl USourceEffectMotionFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_motion_filter_preset_set_settings,
                 __buffer,
             )
         };
@@ -6060,7 +6335,8 @@ impl USourceEffectMotionFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_MOTION_FILTER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_motion_filter_preset_set_settings,
                 __buffer,
             )
         };
@@ -6096,7 +6372,8 @@ impl USourceEffectPannerPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_panner_preset_set_settings,
                 __buffer,
             )
         };
@@ -6113,7 +6390,8 @@ impl USourceEffectPannerPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_PANNER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_panner_preset_set_settings,
                 __buffer,
             )
         };
@@ -6149,7 +6427,8 @@ impl USourceEffectPhaserPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_phaser_preset_set_settings,
                 __buffer,
             )
         };
@@ -6166,7 +6445,8 @@ impl USourceEffectPhaserPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_PHASER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_phaser_preset_set_settings,
                 __buffer,
             )
         };
@@ -6202,7 +6482,8 @@ impl USourceEffectRingModulationPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_ring_modulation_preset_set_settings,
                 __buffer,
             )
         };
@@ -6219,7 +6500,8 @@ impl USourceEffectRingModulationPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_RING_MODULATION_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_ring_modulation_preset_set_settings,
                 __buffer,
             )
         };
@@ -6255,7 +6537,8 @@ impl USourceEffectSimpleDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_simple_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -6272,7 +6555,8 @@ impl USourceEffectSimpleDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_SIMPLE_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_simple_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -6308,7 +6592,8 @@ impl USourceEffectStereoDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_stereo_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -6325,7 +6610,8 @@ impl USourceEffectStereoDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_stereo_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -6361,7 +6647,8 @@ impl USourceEffectWaveShaperPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_wave_shaper_preset_set_settings,
                 __buffer,
             )
         };
@@ -6378,7 +6665,8 @@ impl USourceEffectWaveShaperPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SOURCE_EFFECT_WAVE_SHAPER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_source_effect_wave_shaper_preset_set_settings,
                 __buffer,
             )
         };
@@ -6421,7 +6709,8 @@ impl USubmixEffectConvolutionReverbPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_convolution_reverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -6438,7 +6727,8 @@ impl USubmixEffectConvolutionReverbPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_convolution_reverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -6454,7 +6744,8 @@ impl USubmixEffectConvolutionReverbPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_convolution_reverb_preset_set_impulse_response,
                 __buffer,
             )
         };
@@ -6471,7 +6762,8 @@ impl USubmixEffectConvolutionReverbPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_CONVOLUTION_REVERB_PRESET_SET_IMPULSE_RESPONSE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_convolution_reverb_preset_set_impulse_response,
                 __buffer,
             )
         };
@@ -6508,7 +6800,8 @@ impl USubmixEffectDelayStatics {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_maximum_delay_length,
                 __buffer,
             )
         };
@@ -6532,7 +6825,8 @@ impl USubmixEffectDelayStatics {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_MAXIMUM_DELAY_LENGTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_maximum_delay_length,
                 __buffer,
             )
         };
@@ -6552,7 +6846,8 @@ impl USubmixEffectDelayStatics {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_interpolation_time,
                 __buffer,
             )
         };
@@ -6576,7 +6871,8 @@ impl USubmixEffectDelayStatics {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_INTERPOLATION_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_interpolation_time,
                 __buffer,
             )
         };
@@ -6596,7 +6892,8 @@ impl USubmixEffectDelayStatics {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_delay_length,
                 __buffer,
             )
         };
@@ -6620,7 +6917,8 @@ impl USubmixEffectDelayStatics {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_STATICS_SET_DELAY_LENGTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_statics_set_delay_length,
                 __buffer,
             )
         };
@@ -6661,7 +6959,8 @@ impl USubmixEffectDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -6678,7 +6977,8 @@ impl USubmixEffectDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -6691,7 +6991,8 @@ impl USubmixEffectDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_interpolation_time,
                 __buffer,
             )
         };
@@ -6704,7 +7005,8 @@ impl USubmixEffectDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_interpolation_time,
                 __buffer,
             )
         };
@@ -6717,7 +7019,8 @@ impl USubmixEffectDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_delay,
                 __buffer,
             )
         };
@@ -6730,7 +7033,8 @@ impl USubmixEffectDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DELAY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_delay,
                 __buffer,
             )
         };
@@ -6743,7 +7047,8 @@ impl USubmixEffectDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_default_settings,
                 __buffer,
             )
         };
@@ -6760,7 +7065,8 @@ impl USubmixEffectDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_SET_DEFAULT_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_set_default_settings,
                 __buffer,
             )
         };
@@ -6773,7 +7079,8 @@ impl USubmixEffectDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_get_max_delay_in_milliseconds,
                 __buffer,
             )
         };
@@ -6783,7 +7090,8 @@ impl USubmixEffectDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_delay_preset_get_max_delay_in_milliseconds,
                 __buffer,
             )
         };
@@ -6820,7 +7128,8 @@ impl USubmixEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_settings,
                 __buffer,
             )
         };
@@ -6837,7 +7146,8 @@ impl USubmixEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_settings,
                 __buffer,
             )
         };
@@ -6850,7 +7160,8 @@ impl USubmixEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_type,
                 __buffer,
             )
         };
@@ -6867,7 +7178,8 @@ impl USubmixEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_type,
                 __buffer,
             )
         };
@@ -6880,7 +7192,8 @@ impl USubmixEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_q_mod,
                 __buffer,
             )
         };
@@ -6893,7 +7206,8 @@ impl USubmixEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_q_mod,
                 __buffer,
             )
         };
@@ -6906,7 +7220,8 @@ impl USubmixEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_q,
                 __buffer,
             )
         };
@@ -6919,7 +7234,8 @@ impl USubmixEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_Q,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_q,
                 __buffer,
             )
         };
@@ -6932,7 +7248,8 @@ impl USubmixEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_cutoff_frequency_mod,
                 __buffer,
             )
         };
@@ -6949,7 +7266,8 @@ impl USubmixEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY_MOD,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_cutoff_frequency_mod,
                 __buffer,
             )
         };
@@ -6962,7 +7280,8 @@ impl USubmixEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_cutoff_frequency,
                 __buffer,
             )
         };
@@ -6979,7 +7298,8 @@ impl USubmixEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_CUTOFF_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_cutoff_frequency,
                 __buffer,
             )
         };
@@ -6992,7 +7312,8 @@ impl USubmixEffectFilterPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_algorithm,
                 __buffer,
             )
         };
@@ -7009,7 +7330,8 @@ impl USubmixEffectFilterPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FILTER_PRESET_SET_FILTER_ALGORITHM,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_filter_preset_set_filter_algorithm,
                 __buffer,
             )
         };
@@ -7045,7 +7367,8 @@ impl USubmixEffectFlexiverbPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_flexiverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -7062,7 +7385,8 @@ impl USubmixEffectFlexiverbPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_FLEXIVERB_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_flexiverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -7101,7 +7425,8 @@ impl USubmixEffectMultibandCompressorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_settings,
                 __buffer,
             )
         };
@@ -7118,7 +7443,8 @@ impl USubmixEffectMultibandCompressorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_settings,
                 __buffer,
             )
         };
@@ -7134,7 +7460,8 @@ impl USubmixEffectMultibandCompressorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_external_submix,
                 __buffer,
             )
         };
@@ -7151,7 +7478,8 @@ impl USubmixEffectMultibandCompressorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_external_submix,
                 __buffer,
             )
         };
@@ -7167,7 +7495,8 @@ impl USubmixEffectMultibandCompressorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_audio_bus,
                 __buffer,
             )
         };
@@ -7184,7 +7513,8 @@ impl USubmixEffectMultibandCompressorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_SET_AUDIO_BUS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_set_audio_bus,
                 __buffer,
             )
         };
@@ -7197,7 +7527,8 @@ impl USubmixEffectMultibandCompressorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_reset_key,
                 __buffer,
             )
         };
@@ -7207,7 +7538,8 @@ impl USubmixEffectMultibandCompressorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_MULTIBAND_COMPRESSOR_PRESET_RESET_KEY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_multiband_compressor_preset_reset_key,
                 __buffer,
             )
         };
@@ -7243,7 +7575,8 @@ impl USubmixEffectStereoDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_stereo_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -7260,7 +7593,8 @@ impl USubmixEffectStereoDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_stereo_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -7296,7 +7630,8 @@ impl USubmixEffectStereoToQuadPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_stereo_to_quad_preset_set_settings,
                 __buffer,
             )
         };
@@ -7313,7 +7648,8 @@ impl USubmixEffectStereoToQuadPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_STEREO_TO_QUAD_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_stereo_to_quad_preset_set_settings,
                 __buffer,
             )
         };
@@ -7350,7 +7686,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_set_tap,
                 __buffer,
             )
         };
@@ -7370,7 +7707,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_set_tap,
                 __buffer,
             )
         };
@@ -7383,7 +7721,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -7400,7 +7739,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_SETTINGS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_set_settings,
                 __buffer,
             )
         };
@@ -7413,7 +7753,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_set_interpolation_time,
                 __buffer,
             )
         };
@@ -7426,7 +7767,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_SET_INTERPOLATION_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_set_interpolation_time,
                 __buffer,
             )
         };
@@ -7439,7 +7781,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_remove_tap,
                 __buffer,
             )
         };
@@ -7452,7 +7795,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_REMOVE_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_remove_tap,
                 __buffer,
             )
         };
@@ -7465,7 +7809,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_get_tap_ids,
                 __buffer,
             )
         };
@@ -7482,7 +7827,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP_IDS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_get_tap_ids,
                 __buffer,
             )
         };
@@ -7498,7 +7844,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_get_tap,
                 __buffer,
             )
         };
@@ -7518,7 +7865,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_get_tap,
                 __buffer,
             )
         };
@@ -7534,7 +7882,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_get_max_delay_in_milliseconds,
                 __buffer,
             )
         };
@@ -7544,7 +7893,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_GET_MAX_DELAY_IN_MILLISECONDS,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_get_max_delay_in_milliseconds,
                 __buffer,
             )
         };
@@ -7558,7 +7908,8 @@ impl USubmixEffectTapDelayPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_add_tap,
                 __buffer,
             )
         };
@@ -7571,7 +7922,8 @@ impl USubmixEffectTapDelayPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SUBMIX_EFFECT_TAP_DELAY_PRESET_ADD_TAP,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_submix_effect_tap_delay_preset_add_tap,
                 __buffer,
             )
         };
@@ -7608,7 +7960,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_sustain_gain,
                 __buffer,
             )
         };
@@ -7625,7 +7978,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_sustain_gain,
                 __buffer,
             )
         };
@@ -7641,7 +7995,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SOUND_WAVE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_sound_wave,
                 __buffer,
             )
         };
@@ -7658,7 +8013,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SOUND_WAVE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_sound_wave,
                 __buffer,
             )
         };
@@ -7671,7 +8027,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SCRUB_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_scrub_mode,
                 __buffer,
             )
         };
@@ -7688,7 +8045,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_SCRUB_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_scrub_mode,
                 __buffer,
             )
         };
@@ -7701,7 +8059,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_release_time_msec,
                 __buffer,
             )
         };
@@ -7718,7 +8077,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_RELEASE_TIME_MSEC,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_release_time_msec,
                 __buffer,
             )
         };
@@ -7736,7 +8096,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_playhead_time,
                 __buffer,
             )
         };
@@ -7767,7 +8128,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYHEAD_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_playhead_time,
                 __buffer,
             )
         };
@@ -7780,7 +8142,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_playback_speed,
                 __buffer,
             )
         };
@@ -7797,7 +8160,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_PLAYBACK_SPEED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_playback_speed,
                 __buffer,
             )
         };
@@ -7814,7 +8178,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_VOLUME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_volume,
                 __buffer,
             )
         };
@@ -7838,7 +8203,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_VOLUME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_volume,
                 __buffer,
             )
         };
@@ -7851,7 +8217,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grains_per_second,
                 __buffer,
             )
         };
@@ -7868,7 +8235,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAINS_PER_SECOND,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grains_per_second,
                 __buffer,
             )
         };
@@ -7881,7 +8249,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_probability,
                 __buffer,
             )
         };
@@ -7898,7 +8267,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PROBABILITY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_probability,
                 __buffer,
             )
         };
@@ -7915,7 +8285,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PITCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_pitch,
                 __buffer,
             )
         };
@@ -7935,7 +8306,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PITCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_pitch,
                 __buffer,
             )
         };
@@ -7952,7 +8324,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PAN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_pan,
                 __buffer,
             )
         };
@@ -7972,7 +8345,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_PAN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_pan,
                 __buffer,
             )
         };
@@ -7988,7 +8362,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_envelope_type,
                 __buffer,
             )
         };
@@ -8005,7 +8380,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_ENVELOPE_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_envelope_type,
                 __buffer,
             )
         };
@@ -8022,7 +8398,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_DURATION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_duration,
                 __buffer,
             )
         };
@@ -8046,7 +8423,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_GRAIN_DURATION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_grain_duration,
                 __buffer,
             )
         };
@@ -8059,7 +8437,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_decay_time,
                 __buffer,
             )
         };
@@ -8076,7 +8455,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_decay_time,
                 __buffer,
             )
         };
@@ -8089,7 +8469,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_attack_time,
                 __buffer,
             )
         };
@@ -8106,7 +8487,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_SET_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_set_attack_time,
                 __buffer,
             )
         };
@@ -8119,7 +8501,7 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_ON,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_granular_synth_note_on,
                 __buffer,
             )
         };
@@ -8138,7 +8520,7 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_ON,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_granular_synth_note_on,
                 __buffer,
             )
         };
@@ -8151,7 +8533,7 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_OFF,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_granular_synth_note_off,
                 __buffer,
             )
         };
@@ -8167,7 +8549,7 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_NOTE_OFF,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_granular_synth_note_off,
                 __buffer,
             )
         };
@@ -8180,7 +8562,7 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_IS_LOADED,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_granular_synth_is_loaded,
                 __buffer,
             )
         };
@@ -8190,7 +8572,7 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_IS_LOADED,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_granular_synth_is_loaded,
                 __buffer,
             )
         };
@@ -8204,7 +8586,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_SAMPLE_DURATION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_get_sample_duration,
                 __buffer,
             )
         };
@@ -8214,7 +8597,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_SAMPLE_DURATION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_get_sample_duration,
                 __buffer,
             )
         };
@@ -8228,7 +8612,8 @@ impl UGranularSynth {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_get_current_playhead_time,
                 __buffer,
             )
         };
@@ -8238,7 +8623,8 @@ impl UGranularSynth {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_GRANULAR_SYNTH_GET_CURRENT_PLAYHEAD_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_granular_synth_get_current_playhead_time,
                 __buffer,
             )
         };
@@ -8302,7 +8688,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_wave_table_position,
                 __buffer,
             )
         };
@@ -8319,7 +8706,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_WAVE_TABLE_POSITION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_wave_table_position,
                 __buffer,
             )
         };
@@ -8332,7 +8720,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_sustain_pedal_state,
                 __buffer,
             )
         };
@@ -8349,7 +8738,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_SUSTAIN_PEDAL_STATE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_sustain_pedal_state,
                 __buffer,
             )
         };
@@ -8362,7 +8752,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_type,
                 __buffer,
             )
         };
@@ -8379,7 +8770,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_type,
                 __buffer,
             )
         };
@@ -8392,7 +8784,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_frequency,
                 __buffer,
             )
         };
@@ -8409,7 +8802,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_frequency,
                 __buffer,
             )
         };
@@ -8422,7 +8816,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_depth,
                 __buffer,
             )
         };
@@ -8439,7 +8834,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POS_LFO_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_pos_lfo_depth,
                 __buffer,
             )
         };
@@ -8452,7 +8848,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_sustain_gain,
                 __buffer,
             )
         };
@@ -8469,7 +8866,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_sustain_gain,
                 __buffer,
             )
         };
@@ -8482,7 +8880,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_release_time,
                 __buffer,
             )
         };
@@ -8499,7 +8898,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_release_time,
                 __buffer,
             )
         };
@@ -8512,7 +8912,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_invert,
                 __buffer,
             )
         };
@@ -8529,7 +8930,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_invert,
                 __buffer,
             )
         };
@@ -8542,7 +8944,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_depth,
                 __buffer,
             )
         };
@@ -8555,7 +8958,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_depth,
                 __buffer,
             )
         };
@@ -8568,7 +8972,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_decay_time,
                 __buffer,
             )
         };
@@ -8585,7 +8990,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_decay_time,
                 __buffer,
             )
         };
@@ -8598,7 +9004,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_bias_invert,
                 __buffer,
             )
         };
@@ -8615,7 +9022,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_bias_invert,
                 __buffer,
             )
         };
@@ -8628,7 +9036,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_bias_depth,
                 __buffer,
             )
         };
@@ -8641,7 +9050,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_BIAS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_bias_depth,
                 __buffer,
             )
         };
@@ -8654,7 +9064,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_attack_time,
                 __buffer,
             )
         };
@@ -8671,7 +9082,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_POSITION_ENVELOPE_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_position_envelope_attack_time,
                 __buffer,
             )
         };
@@ -8684,7 +9096,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_low_pass_filter_resonance,
                 __buffer,
             )
         };
@@ -8697,7 +9110,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_LOW_PASS_FILTER_RESONANCE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_low_pass_filter_resonance,
                 __buffer,
             )
         };
@@ -8710,7 +9124,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency_with_midi_note,
                 __buffer,
             )
         };
@@ -8727,7 +9142,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_WITH_MIDI_NOTE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency_with_midi_note,
                 __buffer,
             )
         };
@@ -8740,7 +9156,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency_pitch_bend,
                 __buffer,
             )
         };
@@ -8757,7 +9174,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY_PITCH_BEND,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency_pitch_bend,
                 __buffer,
             )
         };
@@ -8770,7 +9188,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency,
                 __buffer,
             )
         };
@@ -8787,7 +9206,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_frequency,
                 __buffer,
             )
         };
@@ -8800,7 +9220,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_sustain_gain,
                 __buffer,
             )
         };
@@ -8817,7 +9238,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_sustain_gain,
                 __buffer,
             )
         };
@@ -8830,7 +9252,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_release_time,
                 __buffer,
             )
         };
@@ -8847,7 +9270,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_release_time,
                 __buffer,
             )
         };
@@ -8860,7 +9284,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelopen_decay_time,
                 __buffer,
             )
         };
@@ -8877,7 +9302,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPEN_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelopen_decay_time,
                 __buffer,
             )
         };
@@ -8890,7 +9316,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_invert,
                 __buffer,
             )
         };
@@ -8907,7 +9334,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_invert,
                 __buffer,
             )
         };
@@ -8920,7 +9348,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_depth,
                 __buffer,
             )
         };
@@ -8933,7 +9362,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_depth,
                 __buffer,
             )
         };
@@ -8946,7 +9376,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_bias_invert,
                 __buffer,
             )
         };
@@ -8963,7 +9394,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_bias_invert,
                 __buffer,
             )
         };
@@ -8976,7 +9408,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_bias_depth,
                 __buffer,
             )
         };
@@ -8989,7 +9422,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_BIAS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_bias_depth,
                 __buffer,
             )
         };
@@ -9002,7 +9436,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_attack_time,
                 __buffer,
             )
         };
@@ -9019,7 +9454,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_FILTER_ENVELOPE_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_filter_envelope_attack_time,
                 __buffer,
             )
         };
@@ -9037,7 +9473,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_value,
                 __buffer,
             )
         };
@@ -9064,7 +9501,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_value,
                 __buffer,
             )
         };
@@ -9078,7 +9516,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_tangent,
                 __buffer,
             )
         };
@@ -9102,7 +9541,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_TANGENT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_tangent,
                 __buffer,
             )
         };
@@ -9120,7 +9560,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_interpolation_type,
                 __buffer,
             )
         };
@@ -9144,7 +9585,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_CURVE_INTERPOLATION_TYPE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_curve_interpolation_type,
                 __buffer,
             )
         };
@@ -9158,7 +9600,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_sustain_gain,
                 __buffer,
             )
         };
@@ -9175,7 +9618,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_SUSTAIN_GAIN,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_sustain_gain,
                 __buffer,
             )
         };
@@ -9188,7 +9632,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_release_time,
                 __buffer,
             )
         };
@@ -9205,7 +9650,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_RELEASE_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_release_time,
                 __buffer,
             )
         };
@@ -9218,7 +9664,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_invert,
                 __buffer,
             )
         };
@@ -9235,7 +9682,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_invert,
                 __buffer,
             )
         };
@@ -9248,7 +9696,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_depth,
                 __buffer,
             )
         };
@@ -9261,7 +9710,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_depth,
                 __buffer,
             )
         };
@@ -9274,7 +9724,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_decay_time,
                 __buffer,
             )
         };
@@ -9291,7 +9742,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_DECAY_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_decay_time,
                 __buffer,
             )
         };
@@ -9304,7 +9756,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_bias_invert,
                 __buffer,
             )
         };
@@ -9321,7 +9774,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_INVERT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_bias_invert,
                 __buffer,
             )
         };
@@ -9334,7 +9788,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_bias_depth,
                 __buffer,
             )
         };
@@ -9347,7 +9802,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_BIAS_DEPTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_bias_depth,
                 __buffer,
             )
         };
@@ -9360,7 +9816,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_attack_time,
                 __buffer,
             )
         };
@@ -9377,7 +9834,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_SET_AMP_ENVELOPE_ATTACK_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_set_amp_envelope_attack_time,
                 __buffer,
             )
         };
@@ -9390,7 +9848,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_refresh_wave_table,
                 __buffer,
             )
         };
@@ -9403,7 +9862,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_WAVE_TABLE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_refresh_wave_table,
                 __buffer,
             )
         };
@@ -9416,7 +9876,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_refresh_all_wave_tables,
                 __buffer,
             )
         };
@@ -9426,7 +9887,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_REFRESH_ALL_WAVE_TABLES,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_refresh_all_wave_tables,
                 __buffer,
             )
         };
@@ -9439,7 +9901,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_note_on,
                 __buffer,
             )
         };
@@ -9463,7 +9926,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_ON,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_note_on,
                 __buffer,
             )
         };
@@ -9476,7 +9940,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_note_off,
                 __buffer,
             )
         };
@@ -9493,7 +9958,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_NOTE_OFF,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_note_off,
                 __buffer,
             )
         };
@@ -9506,7 +9972,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_num_table_entries,
                 __buffer,
             )
         };
@@ -9516,7 +9983,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_NUM_TABLE_ENTRIES,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_num_table_entries,
                 __buffer,
             )
         };
@@ -9530,7 +9998,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_max_table_index,
                 __buffer,
             )
         };
@@ -9540,7 +10009,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_MAX_TABLE_INDEX,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_max_table_index,
                 __buffer,
             )
         };
@@ -9554,7 +10024,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_key_frame_values_for_table,
                 __buffer,
             )
         };
@@ -9571,7 +10042,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_KEY_FRAME_VALUES_FOR_TABLE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_key_frame_values_for_table,
                 __buffer,
             )
         };
@@ -9585,7 +10057,8 @@ impl USynthComponentMonoWaveTable {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_curve_tangent,
                 __buffer,
             )
         };
@@ -9602,7 +10075,8 @@ impl USynthComponentMonoWaveTable {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_MONO_WAVE_TABLE_GET_CURVE_TANGENT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_mono_wave_table_get_curve_tangent,
                 __buffer,
             )
         };
@@ -9644,7 +10118,8 @@ impl USynthComponentToneGenerator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_tone_generator_set_volume,
                 __buffer,
             )
         };
@@ -9657,7 +10132,8 @@ impl USynthComponentToneGenerator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_VOLUME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_tone_generator_set_volume,
                 __buffer,
             )
         };
@@ -9670,7 +10146,8 @@ impl USynthComponentToneGenerator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_tone_generator_set_frequency,
                 __buffer,
             )
         };
@@ -9687,7 +10164,8 @@ impl USynthComponentToneGenerator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_COMPONENT_TONE_GENERATOR_SET_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_component_tone_generator_set_frequency,
                 __buffer,
             )
         };
@@ -9727,7 +10205,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_sound_wave,
                 __buffer,
             )
         };
@@ -9744,7 +10223,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SOUND_WAVE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_sound_wave,
                 __buffer,
             )
         };
@@ -9757,7 +10237,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_scrub_time_width,
                 __buffer,
             )
         };
@@ -9774,7 +10255,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_TIME_WIDTH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_scrub_time_width,
                 __buffer,
             )
         };
@@ -9787,7 +10269,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_scrub_mode,
                 __buffer,
             )
         };
@@ -9804,7 +10287,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_SCRUB_MODE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_scrub_mode,
                 __buffer,
             )
         };
@@ -9817,7 +10301,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_PITCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_pitch,
                 __buffer,
             )
         };
@@ -9833,7 +10318,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SET_PITCH,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_set_pitch,
                 __buffer,
             )
         };
@@ -9851,7 +10337,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_seek_to_time,
                 __buffer,
             )
         };
@@ -9874,7 +10361,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_SEEK_TO_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_seek_to_time,
                 __buffer,
             )
         };
@@ -9887,7 +10375,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_IS_LOADED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_is_loaded,
                 __buffer,
             )
         };
@@ -9897,7 +10386,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_IS_LOADED,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_is_loaded,
                 __buffer,
             )
         };
@@ -9911,7 +10401,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_get_sample_duration,
                 __buffer,
             )
         };
@@ -9921,7 +10412,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_SAMPLE_DURATION,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_get_sample_duration,
                 __buffer,
             )
         };
@@ -9935,7 +10427,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_get_current_playback_progress_time,
                 __buffer,
             )
         };
@@ -9945,7 +10438,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_TIME,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_get_current_playback_progress_time,
                 __buffer,
             )
         };
@@ -9959,7 +10453,8 @@ impl USynthSamplePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_get_current_playback_progress_percent,
                 __buffer,
             )
         };
@@ -9969,7 +10464,8 @@ impl USynthSamplePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_SAMPLE_PLAYER_GET_CURRENT_PLAYBACK_PROGRESS_PERCENT,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth_sample_player_get_current_playback_progress_percent,
                 __buffer,
             )
         };
@@ -10010,7 +10506,8 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synthesis_utilities_blueprint_function_library_get_log_frequency,
                 __buffer,
             )
         };
@@ -10055,7 +10552,8 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LOG_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synthesis_utilities_blueprint_function_library_get_log_frequency,
                 __buffer,
             )
         };
@@ -10075,7 +10573,8 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synthesis_utilities_blueprint_function_library_get_linear_frequency,
                 __buffer,
             )
         };
@@ -10120,7 +10619,8 @@ impl USynthesisUtilitiesBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTHESIS_UTILITIES_BLUEPRINT_FUNCTION_LIBRARY_GET_LINEAR_FREQUENCY,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synthesis_utilities_blueprint_function_library_get_linear_frequency,
                 __buffer,
             )
         };
@@ -10163,7 +10663,7 @@ impl USynth2DSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth2_d_slider_set_value,
                 __buffer,
             )
         };
@@ -10180,7 +10680,7 @@ impl USynth2DSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth2_d_slider_set_value,
                 __buffer,
             )
         };
@@ -10193,7 +10693,8 @@ impl USynth2DSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_STEP_SIZE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth2_d_slider_set_step_size,
                 __buffer,
             )
         };
@@ -10206,7 +10707,8 @@ impl USynth2DSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_STEP_SIZE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth2_d_slider_set_step_size,
                 __buffer,
             )
         };
@@ -10222,7 +10724,8 @@ impl USynth2DSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth2_d_slider_set_slider_handle_color,
                 __buffer,
             )
         };
@@ -10239,7 +10742,8 @@ impl USynth2DSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_SLIDER_HANDLE_COLOR,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth2_d_slider_set_slider_handle_color,
                 __buffer,
             )
         };
@@ -10252,7 +10756,7 @@ impl USynth2DSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_LOCKED,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth2_d_slider_set_locked,
                 __buffer,
             )
         };
@@ -10265,7 +10769,7 @@ impl USynth2DSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_LOCKED,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth2_d_slider_set_locked,
                 __buffer,
             )
         };
@@ -10278,7 +10782,8 @@ impl USynth2DSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth2_d_slider_set_indent_handle,
                 __buffer,
             )
         };
@@ -10291,7 +10796,8 @@ impl USynth2DSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_SET_INDENT_HANDLE,
+                crate::bindings::synthesis::__FUNCTION_PTRS
+                    .u_synth2_d_slider_set_indent_handle,
                 __buffer,
             )
         };
@@ -10304,7 +10810,7 @@ impl USynth2DSlider {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_GET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth2_d_slider_get_value,
                 __buffer,
             )
         };
@@ -10314,7 +10820,7 @@ impl USynth2DSlider {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH2_D_SLIDER_GET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth2_d_slider_get_value,
                 __buffer,
             )
         };
@@ -10364,7 +10870,7 @@ impl USynthKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_KNOB_SET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_set_value,
                 __buffer,
             )
         };
@@ -10377,7 +10883,7 @@ impl USynthKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_KNOB_SET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_set_value,
                 __buffer,
             )
         };
@@ -10390,7 +10896,7 @@ impl USynthKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_KNOB_SET_STEP_SIZE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_set_step_size,
                 __buffer,
             )
         };
@@ -10403,7 +10909,7 @@ impl USynthKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_KNOB_SET_STEP_SIZE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_set_step_size,
                 __buffer,
             )
         };
@@ -10416,7 +10922,7 @@ impl USynthKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_KNOB_SET_LOCKED,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_set_locked,
                 __buffer,
             )
         };
@@ -10429,7 +10935,7 @@ impl USynthKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_KNOB_SET_LOCKED,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_set_locked,
                 __buffer,
             )
         };
@@ -10442,7 +10948,7 @@ impl USynthKnob {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::synthesis::U_SYNTH_KNOB_GET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_get_value,
                 __buffer,
             )
         };
@@ -10452,7 +10958,7 @@ impl USynthKnob {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::synthesis::U_SYNTH_KNOB_GET_VALUE,
+                crate::bindings::synthesis::__FUNCTION_PTRS.u_synth_knob_get_value,
                 __buffer,
             )
         };

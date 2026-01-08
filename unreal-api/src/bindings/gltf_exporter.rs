@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut UGLTF_EXPORTER_EXPORT_TO_GLTF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub ugltf_exporter_export_to_gltf: *mut crate::ffi::UFunctionOpague,
+    pub ugltf_export_options_reset_to_default: *mut crate::ffi::UFunctionOpague,
+    pub ugltf_proxy_options_reset_to_default: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            ugltf_exporter_export_to_gltf: std::ptr::null_mut(),
+            ugltf_export_options_reset_to_default: std::ptr::null_mut(),
+            ugltf_proxy_options_reset_to_default: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,7 +31,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportToGLTF"),
-            &raw mut UGLTF_EXPORTER_EXPORT_TO_GLTF,
+            &raw mut __FUNCTION_PTRS.ugltf_exporter_export_to_gltf,
         );
     }
     unsafe {
@@ -33,7 +42,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS.ugltf_export_options_reset_to_default,
         );
     }
     unsafe {
@@ -44,7 +53,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS.ugltf_proxy_options_reset_to_default,
         );
     }
 }
@@ -106,7 +115,8 @@ impl UGLTFExporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gltf_exporter::UGLTF_EXPORTER_EXPORT_TO_GLTF,
+                crate::bindings::gltf_exporter::__FUNCTION_PTRS
+                    .ugltf_exporter_export_to_gltf,
                 __buffer,
             )
         };
@@ -151,7 +161,8 @@ impl UGLTFExporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gltf_exporter::UGLTF_EXPORTER_EXPORT_TO_GLTF,
+                crate::bindings::gltf_exporter::__FUNCTION_PTRS
+                    .ugltf_exporter_export_to_gltf,
                 __buffer,
             )
         };
@@ -375,7 +386,8 @@ impl UGLTFExportOptions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gltf_exporter::UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT,
+                crate::bindings::gltf_exporter::__FUNCTION_PTRS
+                    .ugltf_export_options_reset_to_default,
                 __buffer,
             )
         };
@@ -385,7 +397,8 @@ impl UGLTFExportOptions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gltf_exporter::UGLTF_EXPORT_OPTIONS_RESET_TO_DEFAULT,
+                crate::bindings::gltf_exporter::__FUNCTION_PTRS
+                    .ugltf_export_options_reset_to_default,
                 __buffer,
             )
         };
@@ -429,7 +442,8 @@ impl UGLTFProxyOptions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gltf_exporter::UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT,
+                crate::bindings::gltf_exporter::__FUNCTION_PTRS
+                    .ugltf_proxy_options_reset_to_default,
                 __buffer,
             )
         };
@@ -439,7 +453,8 @@ impl UGLTFProxyOptions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gltf_exporter::UGLTF_PROXY_OPTIONS_RESET_TO_DEFAULT,
+                crate::bindings::gltf_exporter::__FUNCTION_PTRS
+                    .ugltf_proxy_options_reset_to_default,
                 __buffer,
             )
         };

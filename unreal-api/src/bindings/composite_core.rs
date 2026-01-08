@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_COMPOSITE_CORE_SUBSYSTEM_UNREGISTER_PRIMITIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COMPOSITE_CORE_SUBSYSTEM_REGISTER_PRIMITIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_HOLDOUT_COMPOSITE_COMPONENT_SET_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_HOLDOUT_COMPOSITE_COMPONENT_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_composite_core_subsystem_unregister_primitive: *mut crate::ffi::UFunctionOpague,
+    pub u_composite_core_subsystem_register_primitive: *mut crate::ffi::UFunctionOpague,
+    pub u_holdout_composite_component_set_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_holdout_composite_component_is_enabled: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_composite_core_subsystem_unregister_primitive: std::ptr::null_mut(),
+            u_composite_core_subsystem_register_primitive: std::ptr::null_mut(),
+            u_holdout_composite_component_set_enabled: std::ptr::null_mut(),
+            u_holdout_composite_component_is_enabled: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,14 +33,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterPrimitive"),
-            &raw mut U_COMPOSITE_CORE_SUBSYSTEM_UNREGISTER_PRIMITIVE,
+            &raw mut __FUNCTION_PTRS.u_composite_core_subsystem_unregister_primitive,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterPrimitive"),
-            &raw mut U_COMPOSITE_CORE_SUBSYSTEM_REGISTER_PRIMITIVE,
+            &raw mut __FUNCTION_PTRS.u_composite_core_subsystem_register_primitive,
         );
     }
     unsafe {
@@ -42,14 +51,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnabled"),
-            &raw mut U_HOLDOUT_COMPOSITE_COMPONENT_SET_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_holdout_composite_component_set_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut U_HOLDOUT_COMPOSITE_COMPONENT_IS_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_holdout_composite_component_is_enabled,
         );
     }
 }
@@ -105,7 +114,8 @@ impl UCompositeCoreSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_UNREGISTER_PRIMITIVE,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_composite_core_subsystem_unregister_primitive,
                 __buffer,
             )
         };
@@ -124,7 +134,8 @@ impl UCompositeCoreSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_UNREGISTER_PRIMITIVE,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_composite_core_subsystem_unregister_primitive,
                 __buffer,
             )
         };
@@ -140,7 +151,8 @@ impl UCompositeCoreSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_REGISTER_PRIMITIVE,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_composite_core_subsystem_register_primitive,
                 __buffer,
             )
         };
@@ -159,7 +171,8 @@ impl UCompositeCoreSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::composite_core::U_COMPOSITE_CORE_SUBSYSTEM_REGISTER_PRIMITIVE,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_composite_core_subsystem_register_primitive,
                 __buffer,
             )
         };
@@ -195,7 +208,8 @@ impl UHoldoutCompositeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_SET_ENABLED,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_holdout_composite_component_set_enabled,
                 __buffer,
             )
         };
@@ -212,7 +226,8 @@ impl UHoldoutCompositeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_SET_ENABLED,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_holdout_composite_component_set_enabled,
                 __buffer,
             )
         };
@@ -225,7 +240,8 @@ impl UHoldoutCompositeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_IS_ENABLED,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_holdout_composite_component_is_enabled,
                 __buffer,
             )
         };
@@ -235,7 +251,8 @@ impl UHoldoutCompositeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::composite_core::U_HOLDOUT_COMPOSITE_COMPONENT_IS_ENABLED,
+                crate::bindings::composite_core::__FUNCTION_PTRS
+                    .u_holdout_composite_component_is_enabled,
                 __buffer,
             )
         };

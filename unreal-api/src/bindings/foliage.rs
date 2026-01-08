@@ -1,26 +1,35 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_INTERACTIVE_FOLIAGE_ACTOR_CAPSULE_TOUCHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_instanced_foliage_actor_remove_all_instances: *mut crate::ffi::UFunctionOpague,
+    pub a_instanced_foliage_actor_add_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_foliage_statistics_foliage_overlapping_sphere_count: *mut crate::ffi::UFunctionOpague,
+    pub u_foliage_statistics_foliage_overlapping_box_transforms: *mut crate::ffi::UFunctionOpague,
+    pub u_foliage_statistics_foliage_overlapping_box_count: *mut crate::ffi::UFunctionOpague,
+    pub a_interactive_foliage_actor_capsule_touched: *mut crate::ffi::UFunctionOpague,
+    pub u_procedural_foliage_spawner_simulate: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_instanced_foliage_actor_remove_all_instances: std::ptr::null_mut(),
+            a_instanced_foliage_actor_add_instances: std::ptr::null_mut(),
+            u_foliage_statistics_foliage_overlapping_sphere_count: std::ptr::null_mut(),
+            u_foliage_statistics_foliage_overlapping_box_transforms: std::ptr::null_mut(),
+            u_foliage_statistics_foliage_overlapping_box_count: std::ptr::null_mut(),
+            a_interactive_foliage_actor_capsule_touched: std::ptr::null_mut(),
+            u_procedural_foliage_spawner_simulate: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -30,14 +39,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllInstances"),
-            &raw mut A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES,
+            &raw mut __FUNCTION_PTRS.a_instanced_foliage_actor_remove_all_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInstances"),
-            &raw mut A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES,
+            &raw mut __FUNCTION_PTRS.a_instanced_foliage_actor_add_instances,
         );
     }
     unsafe {
@@ -48,21 +57,23 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FoliageOverlappingSphereCount"),
-            &raw mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_foliage_statistics_foliage_overlapping_sphere_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FoliageOverlappingBoxTransforms"),
-            &raw mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS,
+            &raw mut __FUNCTION_PTRS
+                .u_foliage_statistics_foliage_overlapping_box_transforms,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FoliageOverlappingBoxCount"),
-            &raw mut U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT,
+            &raw mut __FUNCTION_PTRS.u_foliage_statistics_foliage_overlapping_box_count,
         );
     }
     unsafe {
@@ -73,7 +84,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CapsuleTouched"),
-            &raw mut A_INTERACTIVE_FOLIAGE_ACTOR_CAPSULE_TOUCHED,
+            &raw mut __FUNCTION_PTRS.a_interactive_foliage_actor_capsule_touched,
         );
     }
     unsafe {
@@ -84,7 +95,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Simulate"),
-            &raw mut U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE,
+            &raw mut __FUNCTION_PTRS.u_procedural_foliage_spawner_simulate,
         );
     }
 }
@@ -283,7 +294,8 @@ impl AInstancedFoliageActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .a_instanced_foliage_actor_remove_all_instances,
                 __buffer,
             )
         };
@@ -307,7 +319,8 @@ impl AInstancedFoliageActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_REMOVE_ALL_INSTANCES,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .a_instanced_foliage_actor_remove_all_instances,
                 __buffer,
             )
         };
@@ -324,7 +337,8 @@ impl AInstancedFoliageActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .a_instanced_foliage_actor_add_instances,
                 __buffer,
             )
         };
@@ -357,7 +371,8 @@ impl AInstancedFoliageActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::foliage::A_INSTANCED_FOLIAGE_ACTOR_ADD_INSTANCES,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .a_instanced_foliage_actor_add_instances,
                 __buffer,
             )
         };
@@ -417,7 +432,8 @@ impl UFoliageStatistics {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_foliage_statistics_foliage_overlapping_sphere_count,
                 __buffer,
             )
         };
@@ -451,7 +467,8 @@ impl UFoliageStatistics {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_SPHERE_COUNT,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_foliage_statistics_foliage_overlapping_sphere_count,
                 __buffer,
             )
         };
@@ -470,7 +487,8 @@ impl UFoliageStatistics {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_foliage_statistics_foliage_overlapping_box_transforms,
                 __buffer,
             )
         };
@@ -510,7 +528,8 @@ impl UFoliageStatistics {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_TRANSFORMS,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_foliage_statistics_foliage_overlapping_box_transforms,
                 __buffer,
             )
         };
@@ -533,7 +552,8 @@ impl UFoliageStatistics {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_foliage_statistics_foliage_overlapping_box_count,
                 __buffer,
             )
         };
@@ -564,7 +584,8 @@ impl UFoliageStatistics {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::foliage::U_FOLIAGE_STATISTICS_FOLIAGE_OVERLAPPING_BOX_COUNT,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_foliage_statistics_foliage_overlapping_box_count,
                 __buffer,
             )
         };
@@ -709,7 +730,8 @@ impl UProceduralFoliageSpawner {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::foliage::U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_procedural_foliage_spawner_simulate,
                 __buffer,
             )
         };
@@ -722,7 +744,8 @@ impl UProceduralFoliageSpawner {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::foliage::U_PROCEDURAL_FOLIAGE_SPAWNER_SIMULATE,
+                crate::bindings::foliage::__FUNCTION_PTRS
+                    .u_procedural_foliage_spawner_simulate,
                 __buffer,
             )
         };

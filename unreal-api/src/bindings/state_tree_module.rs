@@ -1,64 +1,73 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_STATE_TREE_NODE_BLUEPRINT_BASE_SEND_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_NODE_BLUEPRINT_BASE_REQUEST_TRANSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_NODE_BLUEPRINT_BASE_RECEIVE_GET_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_NODE_BLUEPRINT_BASE_IS_PROPERTY_REF_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_DESCRIPTION_BY_PROPERTY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_CONDITION_BLUEPRINT_BASE_RECEIVE_TEST_CONDITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_CONSIDERATION_BLUEPRINT_BASE_RECEIVE_GET_SCORE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_EVALUATOR_BLUEPRINT_BASE_RECEIVE_TREE_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_EVALUATOR_BLUEPRINT_BASE_RECEIVE_TREE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_EVALUATOR_BLUEPRINT_BASE_RECEIVE_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_UNBIND_DELEGATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_STATE_COMPLETED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_LATENT_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_LATENT_ENTER_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_EXIT_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_ENTER_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_FINISH_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_BROADCAST_DELEGATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_TASK_BLUEPRINT_BASE_BIND_DELEGATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_K2_GET_EXTENSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_FUNCTION_LIBRARY_SET_STATE_TREE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_FUNCTION_LIBRARY_MAKE_STATE_TREE_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_FUNCTION_LIBRARY_K2_SET_PARAMETERS_PROPERTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_STATE_TREE_FUNCTION_LIBRARY_K2_GET_PARAMETERS_PROPERTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_state_tree_node_blueprint_base_send_event: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_node_blueprint_base_request_transition: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_node_blueprint_base_receive_get_description: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_node_blueprint_base_is_property_ref_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_node_blueprint_base_get_property_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_node_blueprint_base_get_property_description_by_property_name: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_condition_blueprint_base_receive_test_condition: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_consideration_blueprint_base_receive_get_score: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_evaluator_blueprint_base_receive_tree_stop: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_evaluator_blueprint_base_receive_tree_start: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_evaluator_blueprint_base_receive_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_unbind_delegate: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_receive_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_receive_state_completed: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_receive_latent_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_receive_latent_enter_state: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_receive_exit_state: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_receive_enter_state: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_finish_task: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_broadcast_delegate: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_task_blueprint_base_bind_delegate: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_k2_get_extension: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_function_library_set_state_tree: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_function_library_make_state_tree_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_function_library_k2_set_parameters_property: *mut crate::ffi::UFunctionOpague,
+    pub u_state_tree_function_library_k2_get_parameters_property: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_state_tree_node_blueprint_base_send_event: std::ptr::null_mut(),
+            u_state_tree_node_blueprint_base_request_transition: std::ptr::null_mut(),
+            u_state_tree_node_blueprint_base_receive_get_description: std::ptr::null_mut(),
+            u_state_tree_node_blueprint_base_is_property_ref_valid: std::ptr::null_mut(),
+            u_state_tree_node_blueprint_base_get_property_reference: std::ptr::null_mut(),
+            u_state_tree_node_blueprint_base_get_property_description_by_property_name: std::ptr::null_mut(),
+            u_state_tree_condition_blueprint_base_receive_test_condition: std::ptr::null_mut(),
+            u_state_tree_consideration_blueprint_base_receive_get_score: std::ptr::null_mut(),
+            u_state_tree_evaluator_blueprint_base_receive_tree_stop: std::ptr::null_mut(),
+            u_state_tree_evaluator_blueprint_base_receive_tree_start: std::ptr::null_mut(),
+            u_state_tree_evaluator_blueprint_base_receive_tick: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_unbind_delegate: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_receive_tick: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_receive_state_completed: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_receive_latent_tick: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_receive_latent_enter_state: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_receive_exit_state: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_receive_enter_state: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_finish_task: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_broadcast_delegate: std::ptr::null_mut(),
+            u_state_tree_task_blueprint_base_bind_delegate: std::ptr::null_mut(),
+            u_state_tree_k2_get_extension: std::ptr::null_mut(),
+            u_state_tree_function_library_set_state_tree: std::ptr::null_mut(),
+            u_state_tree_function_library_make_state_tree_reference: std::ptr::null_mut(),
+            u_state_tree_function_library_k2_set_parameters_property: std::ptr::null_mut(),
+            u_state_tree_function_library_k2_get_parameters_property: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -68,42 +77,46 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SendEvent"),
-            &raw mut U_STATE_TREE_NODE_BLUEPRINT_BASE_SEND_EVENT,
+            &raw mut __FUNCTION_PTRS.u_state_tree_node_blueprint_base_send_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestTransition"),
-            &raw mut U_STATE_TREE_NODE_BLUEPRINT_BASE_REQUEST_TRANSITION,
+            &raw mut __FUNCTION_PTRS.u_state_tree_node_blueprint_base_request_transition,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveGetDescription"),
-            &raw mut U_STATE_TREE_NODE_BLUEPRINT_BASE_RECEIVE_GET_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_node_blueprint_base_receive_get_description,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPropertyRefValid"),
-            &raw mut U_STATE_TREE_NODE_BLUEPRINT_BASE_IS_PROPERTY_REF_VALID,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_node_blueprint_base_is_property_ref_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertyReference"),
-            &raw mut U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_node_blueprint_base_get_property_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertyDescriptionByPropertyName"),
-            &raw mut U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_DESCRIPTION_BY_PROPERTY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_node_blueprint_base_get_property_description_by_property_name,
         );
     }
     unsafe {
@@ -114,7 +127,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTestCondition"),
-            &raw mut U_STATE_TREE_CONDITION_BLUEPRINT_BASE_RECEIVE_TEST_CONDITION,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_condition_blueprint_base_receive_test_condition,
         );
     }
     unsafe {
@@ -125,7 +139,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveGetScore"),
-            &raw mut U_STATE_TREE_CONSIDERATION_BLUEPRINT_BASE_RECEIVE_GET_SCORE,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_consideration_blueprint_base_receive_get_score,
         );
     }
     unsafe {
@@ -136,21 +151,23 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTreeStop"),
-            &raw mut U_STATE_TREE_EVALUATOR_BLUEPRINT_BASE_RECEIVE_TREE_STOP,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_evaluator_blueprint_base_receive_tree_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTreeStart"),
-            &raw mut U_STATE_TREE_EVALUATOR_BLUEPRINT_BASE_RECEIVE_TREE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_evaluator_blueprint_base_receive_tree_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut U_STATE_TREE_EVALUATOR_BLUEPRINT_BASE_RECEIVE_TICK,
+            &raw mut __FUNCTION_PTRS.u_state_tree_evaluator_blueprint_base_receive_tick,
         );
     }
     unsafe {
@@ -161,70 +178,72 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnbindDelegate"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_UNBIND_DELEGATE,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_unbind_delegate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveTick"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_TICK,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveStateCompleted"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_STATE_COMPLETED,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_task_blueprint_base_receive_state_completed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveLatentTick"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_LATENT_TICK,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_latent_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveLatentEnterState"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_LATENT_ENTER_STATE,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_task_blueprint_base_receive_latent_enter_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveExitState"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_EXIT_STATE,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_exit_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveEnterState"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_RECEIVE_ENTER_STATE,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_receive_enter_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinishTask"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_FINISH_TASK,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_finish_task,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BroadcastDelegate"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_BROADCAST_DELEGATE,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_broadcast_delegate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BindDelegate"),
-            &raw mut U_STATE_TREE_TASK_BLUEPRINT_BASE_BIND_DELEGATE,
+            &raw mut __FUNCTION_PTRS.u_state_tree_task_blueprint_base_bind_delegate,
         );
     }
     unsafe {
@@ -235,7 +254,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetExtension"),
-            &raw mut U_STATE_TREE_K2_GET_EXTENSION,
+            &raw mut __FUNCTION_PTRS.u_state_tree_k2_get_extension,
         );
     }
     unsafe {
@@ -246,28 +265,31 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStateTree"),
-            &raw mut U_STATE_TREE_FUNCTION_LIBRARY_SET_STATE_TREE,
+            &raw mut __FUNCTION_PTRS.u_state_tree_function_library_set_state_tree,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeStateTreeReference"),
-            &raw mut U_STATE_TREE_FUNCTION_LIBRARY_MAKE_STATE_TREE_REFERENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_function_library_make_state_tree_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_SetParametersProperty"),
-            &raw mut U_STATE_TREE_FUNCTION_LIBRARY_K2_SET_PARAMETERS_PROPERTY,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_function_library_k2_set_parameters_property,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetParametersProperty"),
-            &raw mut U_STATE_TREE_FUNCTION_LIBRARY_K2_GET_PARAMETERS_PROPERTY,
+            &raw mut __FUNCTION_PTRS
+                .u_state_tree_function_library_k2_get_parameters_property,
         );
     }
 }
@@ -431,7 +453,8 @@ impl UStateTreeNodeBlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_SEND_EVENT,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_send_event,
                 __buffer,
             )
         };
@@ -448,7 +471,8 @@ impl UStateTreeNodeBlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_SEND_EVENT,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_send_event,
                 __buffer,
             )
         };
@@ -465,7 +489,8 @@ impl UStateTreeNodeBlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_REQUEST_TRANSITION,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_request_transition,
                 __buffer,
             )
         };
@@ -489,10 +514,47 @@ impl UStateTreeNodeBlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_REQUEST_TRANSITION,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_request_transition,
                 __buffer,
             )
         };
+    }
+    pub fn receive_get_description(
+        &self,
+        formatting: EStateTreeNodeFormatting,
+    ) -> FText {
+        let mut __stack = crate::core_data::StackAlloc::<24>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_receive_get_description,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &formatting,
+                __buffer.add(0).cast::<EStateTreeNodeFormatting>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_receive_get_description,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<FText>().read() }
     }
     pub fn get_property_description_by_property_name(
         &self,
@@ -505,7 +567,8 @@ impl UStateTreeNodeBlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_DESCRIPTION_BY_PROPERTY_NAME,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_get_property_description_by_property_name,
                 __buffer,
             )
         };
@@ -522,7 +585,8 @@ impl UStateTreeNodeBlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_NODE_BLUEPRINT_BASE_GET_PROPERTY_DESCRIPTION_BY_PROPERTY_NAME,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_node_blueprint_base_get_property_description_by_property_name,
                 __buffer,
             )
         };
@@ -549,6 +613,32 @@ impl UStateTreeConditionBlueprintBase {
             cdo
         }
     }
+    pub fn receive_test_condition(&self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_condition_blueprint_base_receive_test_condition,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_condition_blueprint_base_receive_test_condition,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UStateTreeConsiderationBlueprintBase {
@@ -570,6 +660,32 @@ impl UStateTreeConsiderationBlueprintBase {
             cdo
         }
     }
+    pub fn receive_get_score(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_consideration_blueprint_base_receive_get_score,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_consideration_blueprint_base_receive_get_score,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UStateTreeEvaluatorBlueprintBase {
@@ -590,6 +706,84 @@ impl UStateTreeEvaluatorBlueprintBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn receive_tree_stop(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tree_stop,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tree_stop,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_tree_start(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tree_start,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tree_start,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_tick(&mut self, delta_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_evaluator_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -620,7 +814,8 @@ impl UStateTreeTaskBlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_UNBIND_DELEGATE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_unbind_delegate,
                 __buffer,
             )
         };
@@ -637,10 +832,214 @@ impl UStateTreeTaskBlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_UNBIND_DELEGATE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_unbind_delegate,
                 __buffer,
             )
         };
+    }
+    pub fn receive_tick(&mut self, delta_time: f32) -> EStateTreeRunStatus {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_tick,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<EStateTreeRunStatus>().read() }
+    }
+    pub fn receive_state_completed(
+        &mut self,
+        completion_status: EStateTreeRunStatus,
+        completed_active_states: FStateTreeActiveStates,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_state_completed,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &completion_status,
+                __buffer.add(0).cast::<EStateTreeRunStatus>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &completed_active_states,
+                __buffer.add(4).cast::<FStateTreeActiveStates>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_state_completed,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_latent_tick(&mut self, delta_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_latent_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_latent_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_latent_enter_state(
+        &mut self,
+        transition: &FStateTreeTransitionResult,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_latent_enter_state,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                transition,
+                __buffer.add(0).cast::<FStateTreeTransitionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_latent_enter_state,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_exit_state(&mut self, transition: &FStateTreeTransitionResult) {
+        let mut __stack = crate::core_data::StackAlloc::<64>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_exit_state,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                transition,
+                __buffer.add(0).cast::<FStateTreeTransitionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_exit_state,
+                __buffer,
+            )
+        };
+    }
+    pub fn receive_enter_state(
+        &mut self,
+        transition: &FStateTreeTransitionResult,
+    ) -> EStateTreeRunStatus {
+        let mut __stack = crate::core_data::StackAlloc::<65>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_enter_state,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                transition,
+                __buffer.add(0).cast::<FStateTreeTransitionResult>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_receive_enter_state,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(64).cast::<EStateTreeRunStatus>().read() }
     }
     pub fn finish_task(&mut self, b_succeeded: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -650,7 +1049,8 @@ impl UStateTreeTaskBlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_FINISH_TASK,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_finish_task,
                 __buffer,
             )
         };
@@ -667,7 +1067,8 @@ impl UStateTreeTaskBlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_FINISH_TASK,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_finish_task,
                 __buffer,
             )
         };
@@ -680,7 +1081,8 @@ impl UStateTreeTaskBlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BROADCAST_DELEGATE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_broadcast_delegate,
                 __buffer,
             )
         };
@@ -697,7 +1099,8 @@ impl UStateTreeTaskBlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BROADCAST_DELEGATE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_broadcast_delegate,
                 __buffer,
             )
         };
@@ -714,7 +1117,8 @@ impl UStateTreeTaskBlueprintBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BIND_DELEGATE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_bind_delegate,
                 __buffer,
             )
         };
@@ -738,7 +1142,8 @@ impl UStateTreeTaskBlueprintBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_TASK_BLUEPRINT_BASE_BIND_DELEGATE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_task_blueprint_base_bind_delegate,
                 __buffer,
             )
         };
@@ -775,7 +1180,8 @@ impl UStateTree {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_K2_GET_EXTENSION,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_k2_get_extension,
                 __buffer,
             )
         };
@@ -792,7 +1198,8 @@ impl UStateTree {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_K2_GET_EXTENSION,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_k2_get_extension,
                 __buffer,
             )
         };
@@ -851,7 +1258,8 @@ impl UStateTreeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_SET_STATE_TREE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_set_state_tree,
                 __buffer,
             )
         };
@@ -875,7 +1283,8 @@ impl UStateTreeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_SET_STATE_TREE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_set_state_tree,
                 __buffer,
             )
         };
@@ -893,7 +1302,8 @@ impl UStateTreeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_MAKE_STATE_TREE_REFERENCE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_make_state_tree_reference,
                 __buffer,
             )
         };
@@ -910,7 +1320,8 @@ impl UStateTreeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_MAKE_STATE_TREE_REFERENCE,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_make_state_tree_reference,
                 __buffer,
             )
         };
@@ -928,7 +1339,8 @@ impl UStateTreeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_SET_PARAMETERS_PROPERTY,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_k2_set_parameters_property,
                 __buffer,
             )
         };
@@ -955,7 +1367,8 @@ impl UStateTreeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_SET_PARAMETERS_PROPERTY,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_k2_set_parameters_property,
                 __buffer,
             )
         };
@@ -975,7 +1388,8 @@ impl UStateTreeFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_GET_PARAMETERS_PROPERTY,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_k2_get_parameters_property,
                 __buffer,
             )
         };
@@ -1006,7 +1420,8 @@ impl UStateTreeFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_module::U_STATE_TREE_FUNCTION_LIBRARY_K2_GET_PARAMETERS_PROPERTY,
+                crate::bindings::state_tree_module::__FUNCTION_PTRS
+                    .u_state_tree_function_library_k2_get_parameters_property,
                 __buffer,
             )
         };

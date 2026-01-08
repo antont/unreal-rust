@@ -1,66 +1,75 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_CONTEXT_MENU_CONTEXT_GET_SCRIPT_HIT_PROXY_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_SET_EXACT_CAMERA_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_SET_CURRENT_LEVEL_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_SET_ALLOWS_CINEMATIC_CONTROL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_SAVE_CURRENT_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_SAVE_ALL_DIRTY_LEVELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_PILOT_LEVEL_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL_FROM_TEMPLATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_LOAD_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_IS_IN_PLAY_IN_EDITOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_GET_VIEWPORT_CONFIG_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_GET_SELECTION_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_GET_PILOT_LEVEL_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_GET_EXACT_CAMERA_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_GET_CURRENT_LEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_GET_ALLOWS_CINEMATIC_CONTROL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_GET_ACTIVE_VIEWPORT_CONFIG_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EJECT_PILOT_LEVEL_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_VIEWPORT_REALTIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_GAME_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_BEGIN_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_PLAY_SIMULATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_INVALIDATE_VIEWPORTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_GET_GAME_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_EDITOR_SUBSYSTEM_BUILD_LIGHT_MAPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_level_editor_context_menu_context_get_script_hit_proxy_element: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_set_exact_camera_view: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_set_current_level_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_set_allows_cinematic_control: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_save_current_level: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_save_all_dirty_levels: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_pilot_level_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_new_level_from_template: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_new_level: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_load_level: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_is_in_play_in_editor: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_get_viewport_config_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_get_selection_set: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_get_pilot_level_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_get_exact_camera_view: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_get_current_level: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_get_allows_cinematic_control: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_get_active_viewport_config_key: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_eject_pilot_level_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_editor_set_viewport_realtime: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_editor_set_game_view: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_editor_request_end_play: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_editor_request_begin_play: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_editor_play_simulate: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_editor_invalidate_viewports: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_editor_get_game_view: *mut crate::ffi::UFunctionOpague,
+    pub u_level_editor_subsystem_build_light_maps: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_level_editor_context_menu_context_get_script_hit_proxy_element: std::ptr::null_mut(),
+            u_level_editor_subsystem_set_exact_camera_view: std::ptr::null_mut(),
+            u_level_editor_subsystem_set_current_level_by_name: std::ptr::null_mut(),
+            u_level_editor_subsystem_set_allows_cinematic_control: std::ptr::null_mut(),
+            u_level_editor_subsystem_save_current_level: std::ptr::null_mut(),
+            u_level_editor_subsystem_save_all_dirty_levels: std::ptr::null_mut(),
+            u_level_editor_subsystem_pilot_level_actor: std::ptr::null_mut(),
+            u_level_editor_subsystem_new_level_from_template: std::ptr::null_mut(),
+            u_level_editor_subsystem_new_level: std::ptr::null_mut(),
+            u_level_editor_subsystem_load_level: std::ptr::null_mut(),
+            u_level_editor_subsystem_is_in_play_in_editor: std::ptr::null_mut(),
+            u_level_editor_subsystem_get_viewport_config_keys: std::ptr::null_mut(),
+            u_level_editor_subsystem_get_selection_set: std::ptr::null_mut(),
+            u_level_editor_subsystem_get_pilot_level_actor: std::ptr::null_mut(),
+            u_level_editor_subsystem_get_exact_camera_view: std::ptr::null_mut(),
+            u_level_editor_subsystem_get_current_level: std::ptr::null_mut(),
+            u_level_editor_subsystem_get_allows_cinematic_control: std::ptr::null_mut(),
+            u_level_editor_subsystem_get_active_viewport_config_key: std::ptr::null_mut(),
+            u_level_editor_subsystem_eject_pilot_level_actor: std::ptr::null_mut(),
+            u_level_editor_subsystem_editor_set_viewport_realtime: std::ptr::null_mut(),
+            u_level_editor_subsystem_editor_set_game_view: std::ptr::null_mut(),
+            u_level_editor_subsystem_editor_request_end_play: std::ptr::null_mut(),
+            u_level_editor_subsystem_editor_request_begin_play: std::ptr::null_mut(),
+            u_level_editor_subsystem_editor_play_simulate: std::ptr::null_mut(),
+            u_level_editor_subsystem_editor_invalidate_viewports: std::ptr::null_mut(),
+            u_level_editor_subsystem_editor_get_game_view: std::ptr::null_mut(),
+            u_level_editor_subsystem_build_light_maps: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -70,7 +79,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetScriptHitProxyElement"),
-            &raw mut U_LEVEL_EDITOR_CONTEXT_MENU_CONTEXT_GET_SCRIPT_HIT_PROXY_ELEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_level_editor_context_menu_context_get_script_hit_proxy_element,
         );
     }
     unsafe {
@@ -81,182 +91,186 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExactCameraView"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_SET_EXACT_CAMERA_VIEW,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_set_exact_camera_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentLevelByName"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_SET_CURRENT_LEVEL_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_set_current_level_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllowsCinematicControl"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_SET_ALLOWS_CINEMATIC_CONTROL,
+            &raw mut __FUNCTION_PTRS
+                .u_level_editor_subsystem_set_allows_cinematic_control,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveCurrentLevel"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_SAVE_CURRENT_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_save_current_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveAllDirtyLevels"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_SAVE_ALL_DIRTY_LEVELS,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_save_all_dirty_levels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PilotLevelActor"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_PILOT_LEVEL_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_pilot_level_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NewLevelFromTemplate"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL_FROM_TEMPLATE,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_new_level_from_template,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NewLevel"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_new_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadLevel"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_LOAD_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_load_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInPlayInEditor"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_IS_IN_PLAY_IN_EDITOR,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_is_in_play_in_editor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetViewportConfigKeys"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_GET_VIEWPORT_CONFIG_KEYS,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_viewport_config_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionSet"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_GET_SELECTION_SET,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_selection_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPilotLevelActor"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_GET_PILOT_LEVEL_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_pilot_level_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetExactCameraView"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_GET_EXACT_CAMERA_VIEW,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_exact_camera_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentLevel"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_GET_CURRENT_LEVEL,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_get_current_level,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllowsCinematicControl"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_GET_ALLOWS_CINEMATIC_CONTROL,
+            &raw mut __FUNCTION_PTRS
+                .u_level_editor_subsystem_get_allows_cinematic_control,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveViewportConfigKey"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_GET_ACTIVE_VIEWPORT_CONFIG_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_level_editor_subsystem_get_active_viewport_config_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EjectPilotLevelActor"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EJECT_PILOT_LEVEL_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_eject_pilot_level_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorSetViewportRealtime"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_VIEWPORT_REALTIME,
+            &raw mut __FUNCTION_PTRS
+                .u_level_editor_subsystem_editor_set_viewport_realtime,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorSetGameView"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_GAME_VIEW,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_set_game_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorRequestEndPlay"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_END_PLAY,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_request_end_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorRequestBeginPlay"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_BEGIN_PLAY,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_request_begin_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorPlaySimulate"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_PLAY_SIMULATE,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_play_simulate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorInvalidateViewports"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_INVALIDATE_VIEWPORTS,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_invalidate_viewports,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorGetGameView"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_GET_GAME_VIEW,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_editor_get_game_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BuildLightMaps"),
-            &raw mut U_LEVEL_EDITOR_SUBSYSTEM_BUILD_LIGHT_MAPS,
+            &raw mut __FUNCTION_PTRS.u_level_editor_subsystem_build_light_maps,
         );
     }
 }
@@ -342,7 +356,8 @@ impl ULevelEditorContextMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_CONTEXT_MENU_CONTEXT_GET_SCRIPT_HIT_PROXY_ELEMENT,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_context_menu_context_get_script_hit_proxy_element,
                 __buffer,
             )
         };
@@ -352,7 +367,8 @@ impl ULevelEditorContextMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_CONTEXT_MENU_CONTEXT_GET_SCRIPT_HIT_PROXY_ELEMENT,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_context_menu_context_get_script_hit_proxy_element,
                 __buffer,
             )
         };
@@ -465,7 +481,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_EXACT_CAMERA_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_exact_camera_view,
                 __buffer,
             )
         };
@@ -489,7 +506,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_EXACT_CAMERA_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_exact_camera_view,
                 __buffer,
             )
         };
@@ -502,7 +520,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_CURRENT_LEVEL_BY_NAME,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_current_level_by_name,
                 __buffer,
             )
         };
@@ -519,7 +538,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_CURRENT_LEVEL_BY_NAME,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_current_level_by_name,
                 __buffer,
             )
         };
@@ -537,7 +557,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_ALLOWS_CINEMATIC_CONTROL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_allows_cinematic_control,
                 __buffer,
             )
         };
@@ -557,7 +578,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SET_ALLOWS_CINEMATIC_CONTROL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_set_allows_cinematic_control,
                 __buffer,
             )
         };
@@ -570,7 +592,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_CURRENT_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_save_current_level,
                 __buffer,
             )
         };
@@ -580,7 +603,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_CURRENT_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_save_current_level,
                 __buffer,
             )
         };
@@ -594,7 +618,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_ALL_DIRTY_LEVELS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_save_all_dirty_levels,
                 __buffer,
             )
         };
@@ -604,7 +629,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_SAVE_ALL_DIRTY_LEVELS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_save_all_dirty_levels,
                 __buffer,
             )
         };
@@ -622,7 +648,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_PILOT_LEVEL_ACTOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_pilot_level_actor,
                 __buffer,
             )
         };
@@ -646,7 +673,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_PILOT_LEVEL_ACTOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_pilot_level_actor,
                 __buffer,
             )
         };
@@ -663,7 +691,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL_FROM_TEMPLATE,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_new_level_from_template,
                 __buffer,
             )
         };
@@ -687,7 +716,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL_FROM_TEMPLATE,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_new_level_from_template,
                 __buffer,
             )
         };
@@ -705,7 +735,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_new_level,
                 __buffer,
             )
         };
@@ -729,7 +760,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_NEW_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_new_level,
                 __buffer,
             )
         };
@@ -743,7 +775,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_LOAD_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_load_level,
                 __buffer,
             )
         };
@@ -760,7 +793,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_LOAD_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_load_level,
                 __buffer,
             )
         };
@@ -774,7 +808,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_IS_IN_PLAY_IN_EDITOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_is_in_play_in_editor,
                 __buffer,
             )
         };
@@ -784,7 +819,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_IS_IN_PLAY_IN_EDITOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_is_in_play_in_editor,
                 __buffer,
             )
         };
@@ -798,7 +834,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_VIEWPORT_CONFIG_KEYS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_viewport_config_keys,
                 __buffer,
             )
         };
@@ -808,7 +845,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_VIEWPORT_CONFIG_KEYS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_viewport_config_keys,
                 __buffer,
             )
         };
@@ -824,7 +862,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_SELECTION_SET,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_selection_set,
                 __buffer,
             )
         };
@@ -834,7 +873,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_SELECTION_SET,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_selection_set,
                 __buffer,
             )
         };
@@ -860,7 +900,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_PILOT_LEVEL_ACTOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_pilot_level_actor,
                 __buffer,
             )
         };
@@ -877,7 +918,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_PILOT_LEVEL_ACTOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_pilot_level_actor,
                 __buffer,
             )
         };
@@ -893,7 +935,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_EXACT_CAMERA_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_exact_camera_view,
                 __buffer,
             )
         };
@@ -910,7 +953,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_EXACT_CAMERA_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_exact_camera_view,
                 __buffer,
             )
         };
@@ -924,7 +968,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_CURRENT_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_current_level,
                 __buffer,
             )
         };
@@ -934,7 +979,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_CURRENT_LEVEL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_current_level,
                 __buffer,
             )
         };
@@ -948,7 +994,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ALLOWS_CINEMATIC_CONTROL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_allows_cinematic_control,
                 __buffer,
             )
         };
@@ -965,7 +1012,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ALLOWS_CINEMATIC_CONTROL,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_allows_cinematic_control,
                 __buffer,
             )
         };
@@ -979,7 +1027,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ACTIVE_VIEWPORT_CONFIG_KEY,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_active_viewport_config_key,
                 __buffer,
             )
         };
@@ -989,7 +1038,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_GET_ACTIVE_VIEWPORT_CONFIG_KEY,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_get_active_viewport_config_key,
                 __buffer,
             )
         };
@@ -1003,7 +1053,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EJECT_PILOT_LEVEL_ACTOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_eject_pilot_level_actor,
                 __buffer,
             )
         };
@@ -1020,7 +1071,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EJECT_PILOT_LEVEL_ACTOR,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_eject_pilot_level_actor,
                 __buffer,
             )
         };
@@ -1037,7 +1089,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_VIEWPORT_REALTIME,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_set_viewport_realtime,
                 __buffer,
             )
         };
@@ -1061,7 +1114,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_VIEWPORT_REALTIME,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_set_viewport_realtime,
                 __buffer,
             )
         };
@@ -1078,7 +1132,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_GAME_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_set_game_view,
                 __buffer,
             )
         };
@@ -1102,7 +1157,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_SET_GAME_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_set_game_view,
                 __buffer,
             )
         };
@@ -1115,7 +1171,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_END_PLAY,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_request_end_play,
                 __buffer,
             )
         };
@@ -1125,7 +1182,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_END_PLAY,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_request_end_play,
                 __buffer,
             )
         };
@@ -1138,7 +1196,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_BEGIN_PLAY,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_request_begin_play,
                 __buffer,
             )
         };
@@ -1148,7 +1207,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_REQUEST_BEGIN_PLAY,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_request_begin_play,
                 __buffer,
             )
         };
@@ -1161,7 +1221,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_PLAY_SIMULATE,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_play_simulate,
                 __buffer,
             )
         };
@@ -1171,7 +1232,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_PLAY_SIMULATE,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_play_simulate,
                 __buffer,
             )
         };
@@ -1184,7 +1246,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_INVALIDATE_VIEWPORTS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_invalidate_viewports,
                 __buffer,
             )
         };
@@ -1194,7 +1257,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_INVALIDATE_VIEWPORTS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_invalidate_viewports,
                 __buffer,
             )
         };
@@ -1207,7 +1271,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_GET_GAME_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_get_game_view,
                 __buffer,
             )
         };
@@ -1224,7 +1289,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_EDITOR_GET_GAME_VIEW,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_editor_get_game_view,
                 __buffer,
             )
         };
@@ -1242,7 +1308,8 @@ impl ULevelEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_BUILD_LIGHT_MAPS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_build_light_maps,
                 __buffer,
             )
         };
@@ -1266,7 +1333,8 @@ impl ULevelEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_editor::U_LEVEL_EDITOR_SUBSYSTEM_BUILD_LIGHT_MAPS,
+                crate::bindings::level_editor::__FUNCTION_PTRS
+                    .u_level_editor_subsystem_build_light_maps,
                 __buffer,
             )
         };

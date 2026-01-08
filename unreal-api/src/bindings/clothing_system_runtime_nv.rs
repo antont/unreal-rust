@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_NV_SET_ANIM_DRIVE_DAMPER_STIFFNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_clothing_simulation_interactor_nv_set_anim_drive_damper_stiffness: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_clothing_simulation_interactor_nv_set_anim_drive_damper_stiffness: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimDriveDamperStiffness"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_NV_SET_ANIM_DRIVE_DAMPER_STIFFNESS,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_nv_set_anim_drive_damper_stiffness,
         );
     }
 }
@@ -92,7 +102,8 @@ impl UClothingSimulationInteractorNv {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_nv::U_CLOTHING_SIMULATION_INTERACTOR_NV_SET_ANIM_DRIVE_DAMPER_STIFFNESS,
+                crate::bindings::clothing_system_runtime_nv::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_nv_set_anim_drive_damper_stiffness,
                 __buffer,
             )
         };
@@ -109,7 +120,8 @@ impl UClothingSimulationInteractorNv {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_nv::U_CLOTHING_SIMULATION_INTERACTOR_NV_SET_ANIM_DRIVE_DAMPER_STIFFNESS,
+                crate::bindings::clothing_system_runtime_nv::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_nv_set_anim_drive_damper_stiffness,
                 __buffer,
             )
         };

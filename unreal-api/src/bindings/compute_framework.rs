@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_COMPUTE_GRAPH_COMPONENT_QUEUE_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COMPUTE_GRAPH_COMPONENT_DESTROY_DATA_PROVIDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_COMPUTE_GRAPH_COMPONENT_CREATE_DATA_PROVIDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_compute_graph_component_queue_execute: *mut crate::ffi::UFunctionOpague,
+    pub u_compute_graph_component_destroy_data_providers: *mut crate::ffi::UFunctionOpague,
+    pub u_compute_graph_component_create_data_providers: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_compute_graph_component_queue_execute: std::ptr::null_mut(),
+            u_compute_graph_component_destroy_data_providers: std::ptr::null_mut(),
+            u_compute_graph_component_create_data_providers: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,21 +31,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueueExecute"),
-            &raw mut U_COMPUTE_GRAPH_COMPONENT_QUEUE_EXECUTE,
+            &raw mut __FUNCTION_PTRS.u_compute_graph_component_queue_execute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DestroyDataProviders"),
-            &raw mut U_COMPUTE_GRAPH_COMPONENT_DESTROY_DATA_PROVIDERS,
+            &raw mut __FUNCTION_PTRS.u_compute_graph_component_destroy_data_providers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateDataProviders"),
-            &raw mut U_COMPUTE_GRAPH_COMPONENT_CREATE_DATA_PROVIDERS,
+            &raw mut __FUNCTION_PTRS.u_compute_graph_component_create_data_providers,
         );
     }
 }
@@ -281,7 +290,8 @@ impl UComputeGraphComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_QUEUE_EXECUTE,
+                crate::bindings::compute_framework::__FUNCTION_PTRS
+                    .u_compute_graph_component_queue_execute,
                 __buffer,
             )
         };
@@ -291,7 +301,8 @@ impl UComputeGraphComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_QUEUE_EXECUTE,
+                crate::bindings::compute_framework::__FUNCTION_PTRS
+                    .u_compute_graph_component_queue_execute,
                 __buffer,
             )
         };
@@ -304,7 +315,8 @@ impl UComputeGraphComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_DESTROY_DATA_PROVIDERS,
+                crate::bindings::compute_framework::__FUNCTION_PTRS
+                    .u_compute_graph_component_destroy_data_providers,
                 __buffer,
             )
         };
@@ -314,7 +326,8 @@ impl UComputeGraphComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_DESTROY_DATA_PROVIDERS,
+                crate::bindings::compute_framework::__FUNCTION_PTRS
+                    .u_compute_graph_component_destroy_data_providers,
                 __buffer,
             )
         };
@@ -331,7 +344,8 @@ impl UComputeGraphComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_CREATE_DATA_PROVIDERS,
+                crate::bindings::compute_framework::__FUNCTION_PTRS
+                    .u_compute_graph_component_create_data_providers,
                 __buffer,
             )
         };
@@ -355,7 +369,8 @@ impl UComputeGraphComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::compute_framework::U_COMPUTE_GRAPH_COMPONENT_CREATE_DATA_PROVIDERS,
+                crate::bindings::compute_framework::__FUNCTION_PTRS
+                    .u_compute_graph_component_create_data_providers,
                 __buffer,
             )
         };

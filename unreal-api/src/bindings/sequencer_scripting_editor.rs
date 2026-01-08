@@ -1,80 +1,89 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SHOW_CURVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_RANDOM_COLOR_FOR_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SELECT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_OPEN_CURVE_EDITOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_SHOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_EDITOR_OPEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_HAS_CUSTOM_COLOR_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_SELECTED_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CUSTOM_COLOR_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CHANNELS_WITH_SELECTED_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_EMPTY_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_DELETE_COLOR_FOR_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_CLOSE_CURVE_EDITOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_CURVE_EDITOR_OBJECT_APPLY_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_RENDER_MOVIE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_LINK_ANIM_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_RENDERING_MOVIE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_EVENT_ENDPOINT_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_LEVEL_SEQUENCE_FBX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_OBJECT_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_LEVEL_SEQUENCE_LINK_FROM_ANIM_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_BOUND_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_ANIM_SEQUENCE_LINK_FROM_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_LEVEL_SEQUENCE_FBX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE_WAIT_FOR_DELEGATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_QUICK_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CLEAR_LINKED_ANIM_SEQUENCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CANCEL_MOVIE_RENDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_sequencer_curve_editor_object_show_curve: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_set_random_color_for_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_set_custom_color_for_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_set_custom_color_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_select_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_open_curve_editor: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_is_curve_shown: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_is_curve_editor_open: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_has_custom_color_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_get_selected_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_get_custom_color_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_get_channels_with_selected_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_empty_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_delete_color_for_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_close_curve_editor: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_curve_editor_object_apply_filter: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_render_movie: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_link_anim_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_is_rendering_movie: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_is_event_endpoint_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_import_level_sequence_fbx: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_import_fbx_to_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_get_object_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_get_level_sequence_link_from_anim_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_get_bound_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_get_anim_sequence_link_from_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_export_level_sequence_fbx: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_export_fbx_from_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_export_anim_sequence_wait_for_delegate: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_export_anim_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_create_quick_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_create_event: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_clear_linked_anim_sequences: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_tools_function_library_cancel_movie_render: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_sequencer_curve_editor_object_show_curve: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_set_random_color_for_channels: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_set_custom_color_for_channels: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_set_custom_color_for_channel: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_select_keys: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_open_curve_editor: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_is_curve_shown: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_is_curve_editor_open: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_has_custom_color_for_channel: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_get_selected_keys: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_get_custom_color_for_channel: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_get_channels_with_selected_keys: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_empty_selection: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_delete_color_for_channels: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_close_curve_editor: std::ptr::null_mut(),
+            u_sequencer_curve_editor_object_apply_filter: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_render_movie: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_link_anim_sequence: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_is_rendering_movie: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_is_event_endpoint_valid: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_import_level_sequence_fbx: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_import_fbx_to_control_rig: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_get_object_bindings: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_get_level_sequence_link_from_anim_sequence: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_get_bound_objects: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_get_anim_sequence_link_from_level_sequence: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_export_level_sequence_fbx: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_export_fbx_from_control_rig: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_export_anim_sequence_wait_for_delegate: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_export_anim_sequence: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_create_quick_binding: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_create_event: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_clear_linked_anim_sequences: std::ptr::null_mut(),
+            u_sequencer_tools_function_library_cancel_movie_render: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -84,112 +93,119 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowCurve"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SHOW_CURVE,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_show_curve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRandomColorForChannels"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_RANDOM_COLOR_FOR_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_curve_editor_object_set_random_color_for_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomColorForChannels"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_curve_editor_object_set_custom_color_for_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomColorForChannel"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_curve_editor_object_set_custom_color_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectKeys"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_SELECT_KEYS,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_select_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenCurveEditor"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_OPEN_CURVE_EDITOR,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_open_curve_editor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCurveShown"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_SHOWN,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_is_curve_shown,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCurveEditorOpen"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_EDITOR_OPEN,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_is_curve_editor_open,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasCustomColorForChannel"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_HAS_CUSTOM_COLOR_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_curve_editor_object_has_custom_color_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedKeys"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_SELECTED_KEYS,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_get_selected_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomColorForChannel"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CUSTOM_COLOR_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_curve_editor_object_get_custom_color_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannelsWithSelectedKeys"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CHANNELS_WITH_SELECTED_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_curve_editor_object_get_channels_with_selected_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EmptySelection"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_EMPTY_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_empty_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteColorForChannels"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_DELETE_COLOR_FOR_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_curve_editor_object_delete_color_for_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CloseCurveEditor"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_CLOSE_CURVE_EDITOR,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_close_curve_editor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyFilter"),
-            &raw mut U_SEQUENCER_CURVE_EDITOR_OBJECT_APPLY_FILTER,
+            &raw mut __FUNCTION_PTRS.u_sequencer_curve_editor_object_apply_filter,
         );
     }
     unsafe {
@@ -200,126 +216,141 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenderMovie"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_RENDER_MOVIE,
+            &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_render_movie,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LinkAnimSequence"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_LINK_ANIM_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_link_anim_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRenderingMovie"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_RENDERING_MOVIE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_is_rendering_movie,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEventEndpointValid"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_EVENT_ENDPOINT_VALID,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_is_event_endpoint_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportLevelSequenceFBX"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_LEVEL_SEQUENCE_FBX,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_import_level_sequence_fbx,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportFBXToControlRig"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_import_fbx_to_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectBindings"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_OBJECT_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_get_object_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelSequenceLinkFromAnimSequence"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_LEVEL_SEQUENCE_LINK_FROM_ANIM_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_get_level_sequence_link_from_anim_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_BOUND_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_get_bound_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimSequenceLinkFromLevelSequence"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_ANIM_SEQUENCE_LINK_FROM_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_get_anim_sequence_link_from_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportLevelSequenceFBX"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_LEVEL_SEQUENCE_FBX,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_export_level_sequence_fbx,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportFBXFromControlRig"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_export_fbx_from_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportAnimSequenceWaitForDelegate"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE_WAIT_FOR_DELEGATE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_export_anim_sequence_wait_for_delegate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportAnimSequence"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_export_anim_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateQuickBinding"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_QUICK_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_create_quick_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateEvent"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_EVENT,
+            &raw mut __FUNCTION_PTRS.u_sequencer_tools_function_library_create_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearLinkedAnimSequences"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CLEAR_LINKED_ANIM_SEQUENCES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_clear_linked_anim_sequences,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CancelMovieRender"),
-            &raw mut U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CANCEL_MOVIE_RENDER,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_tools_function_library_cancel_movie_render,
         );
     }
 }
@@ -381,7 +412,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SHOW_CURVE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_show_curve,
                 __buffer,
             )
         };
@@ -405,7 +437,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SHOW_CURVE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_show_curve,
                 __buffer,
             )
         };
@@ -422,7 +455,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_RANDOM_COLOR_FOR_CHANNELS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_random_color_for_channels,
                 __buffer,
             )
         };
@@ -448,7 +482,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_RANDOM_COLOR_FOR_CHANNELS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_random_color_for_channels,
                 __buffer,
             )
         };
@@ -466,7 +501,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNELS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_custom_color_for_channels,
                 __buffer,
             )
         };
@@ -501,7 +537,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNELS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_custom_color_for_channels,
                 __buffer,
             )
         };
@@ -519,7 +556,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -552,7 +590,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_set_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -569,7 +608,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SELECT_KEYS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_select_keys,
                 __buffer,
             )
         };
@@ -593,7 +633,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_SELECT_KEYS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_select_keys,
                 __buffer,
             )
         };
@@ -606,7 +647,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_OPEN_CURVE_EDITOR,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_open_curve_editor,
                 __buffer,
             )
         };
@@ -616,7 +658,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_OPEN_CURVE_EDITOR,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_open_curve_editor,
                 __buffer,
             )
         };
@@ -629,7 +672,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_SHOWN,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_is_curve_shown,
                 __buffer,
             )
         };
@@ -646,7 +690,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_SHOWN,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_is_curve_shown,
                 __buffer,
             )
         };
@@ -660,7 +705,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_EDITOR_OPEN,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_is_curve_editor_open,
                 __buffer,
             )
         };
@@ -670,7 +716,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_IS_CURVE_EDITOR_OPEN,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_is_curve_editor_open,
                 __buffer,
             )
         };
@@ -688,7 +735,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_HAS_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_has_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -714,7 +762,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_HAS_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_has_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -731,7 +780,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_SELECTED_KEYS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_selected_keys,
                 __buffer,
             )
         };
@@ -748,7 +798,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_SELECTED_KEYS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_selected_keys,
                 __buffer,
             )
         };
@@ -766,7 +817,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -792,7 +844,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -811,7 +864,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CHANNELS_WITH_SELECTED_KEYS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_channels_with_selected_keys,
                 __buffer,
             )
         };
@@ -821,7 +875,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_GET_CHANNELS_WITH_SELECTED_KEYS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_get_channels_with_selected_keys,
                 __buffer,
             )
         };
@@ -835,7 +890,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_EMPTY_SELECTION,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_empty_selection,
                 __buffer,
             )
         };
@@ -845,7 +901,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_EMPTY_SELECTION,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_empty_selection,
                 __buffer,
             )
         };
@@ -862,7 +919,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_DELETE_COLOR_FOR_CHANNELS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_delete_color_for_channels,
                 __buffer,
             )
         };
@@ -888,7 +946,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_DELETE_COLOR_FOR_CHANNELS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_delete_color_for_channels,
                 __buffer,
             )
         };
@@ -904,7 +963,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_CLOSE_CURVE_EDITOR,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_close_curve_editor,
                 __buffer,
             )
         };
@@ -914,7 +974,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_CLOSE_CURVE_EDITOR,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_close_curve_editor,
                 __buffer,
             )
         };
@@ -930,7 +991,8 @@ impl USequencerCurveEditorObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_APPLY_FILTER,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_apply_filter,
                 __buffer,
             )
         };
@@ -951,7 +1013,8 @@ impl USequencerCurveEditorObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_CURVE_EDITOR_OBJECT_APPLY_FILTER,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_curve_editor_object_apply_filter,
                 __buffer,
             )
         };
@@ -990,7 +1053,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_RENDER_MOVIE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_render_movie,
                 __buffer,
             )
         };
@@ -1018,7 +1082,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_RENDER_MOVIE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_render_movie,
                 __buffer,
             )
         };
@@ -1037,7 +1102,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_LINK_ANIM_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_link_anim_sequence,
                 __buffer,
             )
         };
@@ -1081,7 +1147,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_LINK_ANIM_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_link_anim_sequence,
                 __buffer,
             )
         };
@@ -1095,7 +1162,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_RENDERING_MOVIE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_is_rendering_movie,
                 __buffer,
             )
         };
@@ -1105,7 +1173,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_RENDERING_MOVIE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_is_rendering_movie,
                 __buffer,
             )
         };
@@ -1119,7 +1188,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_EVENT_ENDPOINT_VALID,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_is_event_endpoint_valid,
                 __buffer,
             )
         };
@@ -1136,7 +1206,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IS_EVENT_ENDPOINT_VALID,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_is_event_endpoint_valid,
                 __buffer,
             )
         };
@@ -1159,7 +1230,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_LEVEL_SEQUENCE_FBX,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_import_level_sequence_fbx,
                 __buffer,
             )
         };
@@ -1227,7 +1299,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_LEVEL_SEQUENCE_FBX,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_import_level_sequence_fbx,
                 __buffer,
             )
         };
@@ -1250,7 +1323,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_import_fbx_to_control_rig,
                 __buffer,
             )
         };
@@ -1310,7 +1384,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_IMPORT_FBX_TO_CONTROL_RIG,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_import_fbx_to_control_rig,
                 __buffer,
             )
         };
@@ -1329,7 +1404,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_OBJECT_BINDINGS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_object_bindings,
                 __buffer,
             )
         };
@@ -1375,7 +1451,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_OBJECT_BINDINGS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_object_bindings,
                 __buffer,
             )
         };
@@ -1391,7 +1468,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_LEVEL_SEQUENCE_LINK_FROM_ANIM_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_level_sequence_link_from_anim_sequence,
                 __buffer,
             )
         };
@@ -1408,7 +1486,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_LEVEL_SEQUENCE_LINK_FROM_ANIM_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_level_sequence_link_from_anim_sequence,
                 __buffer,
             )
         };
@@ -1434,7 +1513,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_BOUND_OBJECTS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_bound_objects,
                 __buffer,
             )
         };
@@ -1482,7 +1562,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_BOUND_OBJECTS,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_bound_objects,
                 __buffer,
             )
         };
@@ -1498,7 +1579,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_ANIM_SEQUENCE_LINK_FROM_LEVEL_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_anim_sequence_link_from_level_sequence,
                 __buffer,
             )
         };
@@ -1517,7 +1599,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_GET_ANIM_SEQUENCE_LINK_FROM_LEVEL_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_get_anim_sequence_link_from_level_sequence,
                 __buffer,
             )
         };
@@ -1538,7 +1621,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_LEVEL_SEQUENCE_FBX,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_level_sequence_fbx,
                 __buffer,
             )
         };
@@ -1555,7 +1639,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_LEVEL_SEQUENCE_FBX,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_level_sequence_fbx,
                 __buffer,
             )
         };
@@ -1575,7 +1660,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_fbx_from_control_rig,
                 __buffer,
             )
         };
@@ -1614,7 +1700,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_FBX_FROM_CONTROL_RIG,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_fbx_from_control_rig,
                 __buffer,
             )
         };
@@ -1636,7 +1723,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE_WAIT_FOR_DELEGATE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_anim_sequence_wait_for_delegate,
                 __buffer,
             )
         };
@@ -1701,7 +1789,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE_WAIT_FOR_DELEGATE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_anim_sequence_wait_for_delegate,
                 __buffer,
             )
         };
@@ -1722,7 +1811,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_anim_sequence,
                 __buffer,
             )
         };
@@ -1780,7 +1870,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_EXPORT_ANIM_SEQUENCE,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_export_anim_sequence,
                 __buffer,
             )
         };
@@ -1799,7 +1890,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_QUICK_BINDING,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_create_quick_binding,
                 __buffer,
             )
         };
@@ -1839,7 +1931,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_QUICK_BINDING,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_create_quick_binding,
                 __buffer,
             )
         };
@@ -1860,7 +1953,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_EVENT,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_create_event,
                 __buffer,
             )
         };
@@ -1906,7 +2000,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CREATE_EVENT,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_create_event,
                 __buffer,
             )
         };
@@ -1927,7 +2022,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CLEAR_LINKED_ANIM_SEQUENCES,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_clear_linked_anim_sequences,
                 __buffer,
             )
         };
@@ -1946,7 +2042,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CLEAR_LINKED_ANIM_SEQUENCES,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_clear_linked_anim_sequences,
                 __buffer,
             )
         };
@@ -1959,7 +2056,8 @@ impl USequencerToolsFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CANCEL_MOVIE_RENDER,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_cancel_movie_render,
                 __buffer,
             )
         };
@@ -1969,7 +2067,8 @@ impl USequencerToolsFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting_editor::U_SEQUENCER_TOOLS_FUNCTION_LIBRARY_CANCEL_MOVIE_RENDER,
+                crate::bindings::sequencer_scripting_editor::__FUNCTION_PTRS
+                    .u_sequencer_tools_function_library_cancel_movie_render,
                 __buffer,
             )
         };

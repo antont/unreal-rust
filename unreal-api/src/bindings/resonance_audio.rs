@@ -1,38 +1,47 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_SET_GLOBAL_REVERB_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_GET_GLOBAL_REVERB_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_DIMENSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_TIME_MODIFIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_GAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_BRIGHTNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REFLECTION_SCALAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ENABLE_ROOM_EFFECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_SPREAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_DIRECTIVITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_resonance_audio_blueprint_function_library_set_global_reverb_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_blueprint_function_library_get_global_reverb_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_room_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_room_position: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_room_materials: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_room_dimensions: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_reverb_time_modifier: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_reverb_gain: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_reverb_brightness: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_reflection_scalar: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_reverb_plugin_preset_set_enable_room_effects: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_spatialization_source_settings_set_sound_source_spread: *mut crate::ffi::UFunctionOpague,
+    pub u_resonance_audio_spatialization_source_settings_set_sound_source_directivity: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_resonance_audio_blueprint_function_library_set_global_reverb_preset: std::ptr::null_mut(),
+            u_resonance_audio_blueprint_function_library_get_global_reverb_preset: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_room_rotation: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_room_position: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_room_materials: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_room_dimensions: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_reverb_time_modifier: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_reverb_gain: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_reverb_brightness: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_reflection_scalar: std::ptr::null_mut(),
+            u_resonance_audio_reverb_plugin_preset_set_enable_room_effects: std::ptr::null_mut(),
+            u_resonance_audio_spatialization_source_settings_set_sound_source_spread: std::ptr::null_mut(),
+            u_resonance_audio_spatialization_source_settings_set_sound_source_directivity: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -42,14 +51,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalReverbPreset"),
-            &raw mut U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_SET_GLOBAL_REVERB_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_blueprint_function_library_set_global_reverb_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalReverbPreset"),
-            &raw mut U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_GET_GLOBAL_REVERB_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_blueprint_function_library_get_global_reverb_preset,
         );
     }
     unsafe {
@@ -60,63 +71,72 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRoomRotation"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_ROTATION,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_room_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRoomPosition"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_room_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRoomMaterials"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_MATERIALS,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_room_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRoomDimensions"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_DIMENSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_room_dimensions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReverbTimeModifier"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_TIME_MODIFIER,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_reverb_time_modifier,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReverbGain"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_GAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_reverb_gain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReverbBrightness"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_BRIGHTNESS,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_reverb_brightness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReflectionScalar"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REFLECTION_SCALAR,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_reflection_scalar,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableRoomEffects"),
-            &raw mut U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ENABLE_ROOM_EFFECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_reverb_plugin_preset_set_enable_room_effects,
         );
     }
     unsafe {
@@ -127,14 +147,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSoundSourceSpread"),
-            &raw mut U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_SPREAD,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_spatialization_source_settings_set_sound_source_spread,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSoundSourceDirectivity"),
-            &raw mut U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_DIRECTIVITY,
+            &raw mut __FUNCTION_PTRS
+                .u_resonance_audio_spatialization_source_settings_set_sound_source_directivity,
         );
     }
 }
@@ -207,7 +229,8 @@ impl UResonanceAudioBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_SET_GLOBAL_REVERB_PRESET,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_blueprint_function_library_set_global_reverb_preset,
                 __buffer,
             )
         };
@@ -224,7 +247,8 @@ impl UResonanceAudioBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_SET_GLOBAL_REVERB_PRESET,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_blueprint_function_library_set_global_reverb_preset,
                 __buffer,
             )
         };
@@ -237,7 +261,8 @@ impl UResonanceAudioBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_GET_GLOBAL_REVERB_PRESET,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_blueprint_function_library_get_global_reverb_preset,
                 __buffer,
             )
         };
@@ -247,7 +272,8 @@ impl UResonanceAudioBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_BLUEPRINT_FUNCTION_LIBRARY_GET_GLOBAL_REVERB_PRESET,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_blueprint_function_library_get_global_reverb_preset,
                 __buffer,
             )
         };
@@ -308,7 +334,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_ROTATION,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_rotation,
                 __buffer,
             )
         };
@@ -325,7 +352,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_ROTATION,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_rotation,
                 __buffer,
             )
         };
@@ -341,7 +369,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_POSITION,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_position,
                 __buffer,
             )
         };
@@ -358,7 +387,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_POSITION,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_position,
                 __buffer,
             )
         };
@@ -371,7 +401,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_MATERIALS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_materials,
                 __buffer,
             )
         };
@@ -388,7 +419,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_MATERIALS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_materials,
                 __buffer,
             )
         };
@@ -404,7 +436,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_DIMENSIONS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_dimensions,
                 __buffer,
             )
         };
@@ -421,7 +454,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ROOM_DIMENSIONS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_room_dimensions,
                 __buffer,
             )
         };
@@ -434,7 +468,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_TIME_MODIFIER,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_time_modifier,
                 __buffer,
             )
         };
@@ -451,7 +486,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_TIME_MODIFIER,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_time_modifier,
                 __buffer,
             )
         };
@@ -464,7 +500,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_GAIN,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_gain,
                 __buffer,
             )
         };
@@ -481,7 +518,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_GAIN,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_gain,
                 __buffer,
             )
         };
@@ -494,7 +532,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_BRIGHTNESS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_brightness,
                 __buffer,
             )
         };
@@ -511,7 +550,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REVERB_BRIGHTNESS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reverb_brightness,
                 __buffer,
             )
         };
@@ -524,7 +564,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REFLECTION_SCALAR,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reflection_scalar,
                 __buffer,
             )
         };
@@ -541,7 +582,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_REFLECTION_SCALAR,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_reflection_scalar,
                 __buffer,
             )
         };
@@ -554,7 +596,8 @@ impl UResonanceAudioReverbPluginPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ENABLE_ROOM_EFFECTS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_enable_room_effects,
                 __buffer,
             )
         };
@@ -571,7 +614,8 @@ impl UResonanceAudioReverbPluginPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_REVERB_PLUGIN_PRESET_SET_ENABLE_ROOM_EFFECTS,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_reverb_plugin_preset_set_enable_room_effects,
                 __buffer,
             )
         };
@@ -626,7 +670,8 @@ impl UResonanceAudioSpatializationSourceSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_SPREAD,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_spatialization_source_settings_set_sound_source_spread,
                 __buffer,
             )
         };
@@ -639,7 +684,8 @@ impl UResonanceAudioSpatializationSourceSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_SPREAD,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_spatialization_source_settings_set_sound_source_spread,
                 __buffer,
             )
         };
@@ -652,7 +698,8 @@ impl UResonanceAudioSpatializationSourceSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_DIRECTIVITY,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_spatialization_source_settings_set_sound_source_directivity,
                 __buffer,
             )
         };
@@ -672,7 +719,8 @@ impl UResonanceAudioSpatializationSourceSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::resonance_audio::U_RESONANCE_AUDIO_SPATIALIZATION_SOURCE_SETTINGS_SET_SOUND_SOURCE_DIRECTIVITY,
+                crate::bindings::resonance_audio::__FUNCTION_PTRS
+                    .u_resonance_audio_spatialization_source_settings_set_sound_source_directivity,
                 __buffer,
             )
         };

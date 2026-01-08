@@ -1,88 +1,97 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_TAKE_META_DATA_UNLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_TIMESTAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_TIMECODE_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_TIMECODE_IN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_TAKE_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_SLATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_PRESET_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_LEVEL_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_FRAME_RATE_FROM_TIMECODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_SET_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_RECORDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_LOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_IS_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_TIMESTAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_TIMECODE_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_TIMECODE_IN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_TAKE_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_SLATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_PRESET_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_LEVEL_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_LEVEL_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_FRAME_RATE_FROM_TIMECODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GET_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_META_DATA_GENERATE_ASSET_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SOURCES_START_RECORDING_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SOURCES_REMOVE_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SOURCES_GET_SOURCES_COPY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SOURCES_ADD_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_SLATE_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKES_CORE_BLUEPRINT_LIBRARY_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKES_CORE_BLUEPRINT_LIBRARY_ON_TAKE_RECORDER_SLATE_CHANGED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKES_CORE_BLUEPRINT_LIBRARY_FIND_TAKES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKES_CORE_BLUEPRINT_LIBRARY_COMPUTE_NEXT_TAKE_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_take_meta_data_unlock: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_timestamp: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_timecode_out: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_timecode_in: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_take_number: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_slate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_preset_origin: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_level_origin: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_frame_rate_from_timecode: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_set_description: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_recorded: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_lock: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_is_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_timestamp: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_timecode_out: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_timecode_in: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_take_number: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_slate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_preset_origin: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_level_path: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_level_origin: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_frame_rate_from_timecode: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_get_description: *mut crate::ffi::UFunctionOpague,
+    pub u_take_meta_data_generate_asset_path: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_sources_start_recording_source: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_sources_remove_source: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_sources_get_sources_copy: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_sources_add_source: *mut crate::ffi::UFunctionOpague,
+    pub u_takes_core_blueprint_library_set_on_take_recorder_take_number_changed: *mut crate::ffi::UFunctionOpague,
+    pub u_takes_core_blueprint_library_set_on_take_recorder_slate_changed: *mut crate::ffi::UFunctionOpague,
+    pub u_takes_core_blueprint_library_on_take_recorder_take_number_changed_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_takes_core_blueprint_library_on_take_recorder_slate_changed_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_takes_core_blueprint_library_find_takes: *mut crate::ffi::UFunctionOpague,
+    pub u_takes_core_blueprint_library_compute_next_take_number: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_take_meta_data_unlock: std::ptr::null_mut(),
+            u_take_meta_data_set_timestamp: std::ptr::null_mut(),
+            u_take_meta_data_set_timecode_out: std::ptr::null_mut(),
+            u_take_meta_data_set_timecode_in: std::ptr::null_mut(),
+            u_take_meta_data_set_take_number: std::ptr::null_mut(),
+            u_take_meta_data_set_slate: std::ptr::null_mut(),
+            u_take_meta_data_set_preset_origin: std::ptr::null_mut(),
+            u_take_meta_data_set_level_origin: std::ptr::null_mut(),
+            u_take_meta_data_set_frame_rate_from_timecode: std::ptr::null_mut(),
+            u_take_meta_data_set_frame_rate: std::ptr::null_mut(),
+            u_take_meta_data_set_duration: std::ptr::null_mut(),
+            u_take_meta_data_set_description: std::ptr::null_mut(),
+            u_take_meta_data_recorded: std::ptr::null_mut(),
+            u_take_meta_data_lock: std::ptr::null_mut(),
+            u_take_meta_data_is_locked: std::ptr::null_mut(),
+            u_take_meta_data_get_timestamp: std::ptr::null_mut(),
+            u_take_meta_data_get_timecode_out: std::ptr::null_mut(),
+            u_take_meta_data_get_timecode_in: std::ptr::null_mut(),
+            u_take_meta_data_get_take_number: std::ptr::null_mut(),
+            u_take_meta_data_get_slate: std::ptr::null_mut(),
+            u_take_meta_data_get_preset_origin: std::ptr::null_mut(),
+            u_take_meta_data_get_level_path: std::ptr::null_mut(),
+            u_take_meta_data_get_level_origin: std::ptr::null_mut(),
+            u_take_meta_data_get_frame_rate_from_timecode: std::ptr::null_mut(),
+            u_take_meta_data_get_frame_rate: std::ptr::null_mut(),
+            u_take_meta_data_get_duration: std::ptr::null_mut(),
+            u_take_meta_data_get_description: std::ptr::null_mut(),
+            u_take_meta_data_generate_asset_path: std::ptr::null_mut(),
+            u_take_recorder_sources_start_recording_source: std::ptr::null_mut(),
+            u_take_recorder_sources_remove_source: std::ptr::null_mut(),
+            u_take_recorder_sources_get_sources_copy: std::ptr::null_mut(),
+            u_take_recorder_sources_add_source: std::ptr::null_mut(),
+            u_takes_core_blueprint_library_set_on_take_recorder_take_number_changed: std::ptr::null_mut(),
+            u_takes_core_blueprint_library_set_on_take_recorder_slate_changed: std::ptr::null_mut(),
+            u_takes_core_blueprint_library_on_take_recorder_take_number_changed_delegate_signature: std::ptr::null_mut(),
+            u_takes_core_blueprint_library_on_take_recorder_slate_changed_delegate_signature: std::ptr::null_mut(),
+            u_takes_core_blueprint_library_find_takes: std::ptr::null_mut(),
+            u_takes_core_blueprint_library_compute_next_take_number: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -92,196 +101,196 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Unlock"),
-            &raw mut U_TAKE_META_DATA_UNLOCK,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_unlock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTimestamp"),
-            &raw mut U_TAKE_META_DATA_SET_TIMESTAMP,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_timestamp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTimecodeOut"),
-            &raw mut U_TAKE_META_DATA_SET_TIMECODE_OUT,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_timecode_out,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTimecodeIn"),
-            &raw mut U_TAKE_META_DATA_SET_TIMECODE_IN,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_timecode_in,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTakeNumber"),
-            &raw mut U_TAKE_META_DATA_SET_TAKE_NUMBER,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_take_number,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSlate"),
-            &raw mut U_TAKE_META_DATA_SET_SLATE,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_slate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPresetOrigin"),
-            &raw mut U_TAKE_META_DATA_SET_PRESET_ORIGIN,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_preset_origin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelOrigin"),
-            &raw mut U_TAKE_META_DATA_SET_LEVEL_ORIGIN,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_level_origin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRateFromTimecode"),
-            &raw mut U_TAKE_META_DATA_SET_FRAME_RATE_FROM_TIMECODE,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_frame_rate_from_timecode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRate"),
-            &raw mut U_TAKE_META_DATA_SET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDuration"),
-            &raw mut U_TAKE_META_DATA_SET_DURATION,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDescription"),
-            &raw mut U_TAKE_META_DATA_SET_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_set_description,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Recorded"),
-            &raw mut U_TAKE_META_DATA_RECORDED,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_recorded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Lock"),
-            &raw mut U_TAKE_META_DATA_LOCK,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_lock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLocked"),
-            &raw mut U_TAKE_META_DATA_IS_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_is_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimestamp"),
-            &raw mut U_TAKE_META_DATA_GET_TIMESTAMP,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_timestamp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimecodeOut"),
-            &raw mut U_TAKE_META_DATA_GET_TIMECODE_OUT,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_timecode_out,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimecodeIn"),
-            &raw mut U_TAKE_META_DATA_GET_TIMECODE_IN,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_timecode_in,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTakeNumber"),
-            &raw mut U_TAKE_META_DATA_GET_TAKE_NUMBER,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_take_number,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlate"),
-            &raw mut U_TAKE_META_DATA_GET_SLATE,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_slate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPresetOrigin"),
-            &raw mut U_TAKE_META_DATA_GET_PRESET_ORIGIN,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_preset_origin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelPath"),
-            &raw mut U_TAKE_META_DATA_GET_LEVEL_PATH,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_level_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelOrigin"),
-            &raw mut U_TAKE_META_DATA_GET_LEVEL_ORIGIN,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_level_origin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameRateFromTimecode"),
-            &raw mut U_TAKE_META_DATA_GET_FRAME_RATE_FROM_TIMECODE,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_frame_rate_from_timecode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameRate"),
-            &raw mut U_TAKE_META_DATA_GET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDuration"),
-            &raw mut U_TAKE_META_DATA_GET_DURATION,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDescription"),
-            &raw mut U_TAKE_META_DATA_GET_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_get_description,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateAssetPath"),
-            &raw mut U_TAKE_META_DATA_GENERATE_ASSET_PATH,
+            &raw mut __FUNCTION_PTRS.u_take_meta_data_generate_asset_path,
         );
     }
     unsafe {
@@ -292,28 +301,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartRecordingSource"),
-            &raw mut U_TAKE_RECORDER_SOURCES_START_RECORDING_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_sources_start_recording_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSource"),
-            &raw mut U_TAKE_RECORDER_SOURCES_REMOVE_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_sources_remove_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourcesCopy"),
-            &raw mut U_TAKE_RECORDER_SOURCES_GET_SOURCES_COPY,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_sources_get_sources_copy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSource"),
-            &raw mut U_TAKE_RECORDER_SOURCES_ADD_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_sources_add_source,
         );
     }
     unsafe {
@@ -324,14 +333,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderTakeNumberChanged"),
-            &raw mut U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED,
+            &raw mut __FUNCTION_PTRS
+                .u_takes_core_blueprint_library_set_on_take_recorder_take_number_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderSlateChanged"),
-            &raw mut U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_SLATE_CHANGED,
+            &raw mut __FUNCTION_PTRS
+                .u_takes_core_blueprint_library_set_on_take_recorder_slate_changed,
         );
         (bindings
             .core_fns
@@ -340,28 +351,31 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "OnTakeRecorderTakeNumberChanged__DelegateSignature",
             ),
-            &raw mut U_TAKES_CORE_BLUEPRINT_LIBRARY_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_takes_core_blueprint_library_on_take_recorder_take_number_changed_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnTakeRecorderSlateChanged__DelegateSignature"),
-            &raw mut U_TAKES_CORE_BLUEPRINT_LIBRARY_ON_TAKE_RECORDER_SLATE_CHANGED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_takes_core_blueprint_library_on_take_recorder_slate_changed_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindTakes"),
-            &raw mut U_TAKES_CORE_BLUEPRINT_LIBRARY_FIND_TAKES,
+            &raw mut __FUNCTION_PTRS.u_takes_core_blueprint_library_find_takes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputeNextTakeNumber"),
-            &raw mut U_TAKES_CORE_BLUEPRINT_LIBRARY_COMPUTE_NEXT_TAKE_NUMBER,
+            &raw mut __FUNCTION_PTRS
+                .u_takes_core_blueprint_library_compute_next_take_number,
         );
     }
 }
@@ -443,7 +457,7 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_UNLOCK,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_unlock,
                 __buffer,
             )
         };
@@ -453,7 +467,7 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_UNLOCK,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_unlock,
                 __buffer,
             )
         };
@@ -469,7 +483,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMESTAMP,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_timestamp,
                 __buffer,
             )
         };
@@ -486,7 +501,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMESTAMP,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_timestamp,
                 __buffer,
             )
         };
@@ -502,7 +518,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_OUT,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_timecode_out,
                 __buffer,
             )
         };
@@ -519,7 +536,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_OUT,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_timecode_out,
                 __buffer,
             )
         };
@@ -535,7 +553,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_IN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_timecode_in,
                 __buffer,
             )
         };
@@ -552,7 +571,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TIMECODE_IN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_timecode_in,
                 __buffer,
             )
         };
@@ -565,7 +585,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TAKE_NUMBER,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_take_number,
                 __buffer,
             )
         };
@@ -589,7 +610,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_TAKE_NUMBER,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_take_number,
                 __buffer,
             )
         };
@@ -602,7 +624,7 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_SLATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_set_slate,
                 __buffer,
             )
         };
@@ -626,7 +648,7 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_SLATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_set_slate,
                 __buffer,
             )
         };
@@ -639,7 +661,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_PRESET_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_preset_origin,
                 __buffer,
             )
         };
@@ -656,7 +679,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_PRESET_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_preset_origin,
                 __buffer,
             )
         };
@@ -672,7 +696,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_LEVEL_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_level_origin,
                 __buffer,
             )
         };
@@ -689,7 +714,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_LEVEL_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_level_origin,
                 __buffer,
             )
         };
@@ -702,7 +728,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -719,7 +746,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -735,7 +763,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_frame_rate,
                 __buffer,
             )
         };
@@ -752,7 +781,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_FRAME_RATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_frame_rate,
                 __buffer,
             )
         };
@@ -768,7 +798,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DURATION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_duration,
                 __buffer,
             )
         };
@@ -785,7 +816,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DURATION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_duration,
                 __buffer,
             )
         };
@@ -798,7 +830,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DESCRIPTION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_description,
                 __buffer,
             )
         };
@@ -815,7 +848,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_SET_DESCRIPTION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_set_description,
                 __buffer,
             )
         };
@@ -828,7 +862,7 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_RECORDED,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_recorded,
                 __buffer,
             )
         };
@@ -838,7 +872,7 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_RECORDED,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_recorded,
                 __buffer,
             )
         };
@@ -852,7 +886,7 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_LOCK,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_lock,
                 __buffer,
             )
         };
@@ -862,7 +896,7 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_LOCK,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_lock,
                 __buffer,
             )
         };
@@ -875,7 +909,7 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_IS_LOCKED,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_is_locked,
                 __buffer,
             )
         };
@@ -885,7 +919,7 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_IS_LOCKED,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_is_locked,
                 __buffer,
             )
         };
@@ -899,7 +933,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMESTAMP,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_timestamp,
                 __buffer,
             )
         };
@@ -909,7 +944,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMESTAMP,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_timestamp,
                 __buffer,
             )
         };
@@ -925,7 +961,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_OUT,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_timecode_out,
                 __buffer,
             )
         };
@@ -935,7 +972,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_OUT,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_timecode_out,
                 __buffer,
             )
         };
@@ -951,7 +989,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_IN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_timecode_in,
                 __buffer,
             )
         };
@@ -961,7 +1000,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TIMECODE_IN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_timecode_in,
                 __buffer,
             )
         };
@@ -977,7 +1017,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TAKE_NUMBER,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_take_number,
                 __buffer,
             )
         };
@@ -987,7 +1028,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_TAKE_NUMBER,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_take_number,
                 __buffer,
             )
         };
@@ -1001,7 +1043,7 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_SLATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_get_slate,
                 __buffer,
             )
         };
@@ -1011,7 +1053,7 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_SLATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS.u_take_meta_data_get_slate,
                 __buffer,
             )
         };
@@ -1025,7 +1067,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_PRESET_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_preset_origin,
                 __buffer,
             )
         };
@@ -1035,7 +1078,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_PRESET_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_preset_origin,
                 __buffer,
             )
         };
@@ -1049,7 +1093,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_PATH,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_level_path,
                 __buffer,
             )
         };
@@ -1059,7 +1104,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_PATH,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_level_path,
                 __buffer,
             )
         };
@@ -1073,7 +1119,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_level_origin,
                 __buffer,
             )
         };
@@ -1083,7 +1130,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_LEVEL_ORIGIN,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_level_origin,
                 __buffer,
             )
         };
@@ -1097,7 +1145,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -1107,7 +1156,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -1121,7 +1171,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_frame_rate,
                 __buffer,
             )
         };
@@ -1131,7 +1182,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_FRAME_RATE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_frame_rate,
                 __buffer,
             )
         };
@@ -1147,7 +1199,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DURATION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_duration,
                 __buffer,
             )
         };
@@ -1157,7 +1210,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DURATION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_duration,
                 __buffer,
             )
         };
@@ -1173,7 +1227,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DESCRIPTION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_description,
                 __buffer,
             )
         };
@@ -1183,7 +1238,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GET_DESCRIPTION,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_get_description,
                 __buffer,
             )
         };
@@ -1201,7 +1257,8 @@ impl UTakeMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_META_DATA_GENERATE_ASSET_PATH,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_generate_asset_path,
                 __buffer,
             )
         };
@@ -1225,7 +1282,8 @@ impl UTakeMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_META_DATA_GENERATE_ASSET_PATH,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_meta_data_generate_asset_path,
                 __buffer,
             )
         };
@@ -1378,7 +1436,8 @@ impl UTakeRecorderSources {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_START_RECORDING_SOURCE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_start_recording_source,
                 __buffer,
             )
         };
@@ -1404,7 +1463,8 @@ impl UTakeRecorderSources {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_START_RECORDING_SOURCE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_start_recording_source,
                 __buffer,
             )
         };
@@ -1417,7 +1477,8 @@ impl UTakeRecorderSources {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_REMOVE_SOURCE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_remove_source,
                 __buffer,
             )
         };
@@ -1434,7 +1495,8 @@ impl UTakeRecorderSources {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_REMOVE_SOURCE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_remove_source,
                 __buffer,
             )
         };
@@ -1447,7 +1509,8 @@ impl UTakeRecorderSources {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_GET_SOURCES_COPY,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_get_sources_copy,
                 __buffer,
             )
         };
@@ -1457,7 +1520,8 @@ impl UTakeRecorderSources {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_GET_SOURCES_COPY,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_get_sources_copy,
                 __buffer,
             )
         };
@@ -1474,7 +1538,8 @@ impl UTakeRecorderSources {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_ADD_SOURCE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_add_source,
                 __buffer,
             )
         };
@@ -1491,7 +1556,8 @@ impl UTakeRecorderSources {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKE_RECORDER_SOURCES_ADD_SOURCE,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_take_recorder_sources_add_source,
                 __buffer,
             )
         };
@@ -1528,7 +1594,8 @@ impl UTakesCoreBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_set_on_take_recorder_take_number_changed,
                 __buffer,
             )
         };
@@ -1549,7 +1616,8 @@ impl UTakesCoreBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_TAKE_NUMBER_CHANGED,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_set_on_take_recorder_take_number_changed,
                 __buffer,
             )
         };
@@ -1564,7 +1632,8 @@ impl UTakesCoreBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_SLATE_CHANGED,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_set_on_take_recorder_slate_changed,
                 __buffer,
             )
         };
@@ -1583,7 +1652,8 @@ impl UTakesCoreBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_SLATE_CHANGED,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_set_on_take_recorder_slate_changed,
                 __buffer,
             )
         };
@@ -1599,7 +1669,8 @@ impl UTakesCoreBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_FIND_TAKES,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_find_takes,
                 __buffer,
             )
         };
@@ -1619,7 +1690,8 @@ impl UTakesCoreBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_FIND_TAKES,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_find_takes,
                 __buffer,
             )
         };
@@ -1638,7 +1710,8 @@ impl UTakesCoreBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_COMPUTE_NEXT_TAKE_NUMBER,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_compute_next_take_number,
                 __buffer,
             )
         };
@@ -1651,7 +1724,8 @@ impl UTakesCoreBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::takes_core::U_TAKES_CORE_BLUEPRINT_LIBRARY_COMPUTE_NEXT_TAKE_NUMBER,
+                crate::bindings::takes_core::__FUNCTION_PTRS
+                    .u_takes_core_blueprint_library_compute_next_take_number,
                 __buffer,
             )
         };

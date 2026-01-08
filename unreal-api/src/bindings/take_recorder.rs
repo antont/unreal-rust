@@ -1,168 +1,177 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SET_COUNTDOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_GET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_GET_COUNTDOWN_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_STOP_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_START_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STOPPED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STARTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PRE_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PANEL_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_MARKED_FRAME_ADDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_FINISHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_CANCELLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_DEFAULT_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_OPEN_TAKE_RECORDER_PANEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_TAKE_RECORDER_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_TAKE_RECORDER_PANEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_DEFAULT_PARAMETERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_ACTIVE_RECORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_CANCEL_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_STOP_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_START_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_SETUP_FOR_VIEWING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_INTO_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_TAKE_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_SETUP_FOR_EDITING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_SET_FRAME_RATE_FROM_TIMECODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_SET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_GET_TAKE_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_GET_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_GET_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_GET_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_GET_LAST_RECORDED_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_GET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_CLEAR_PENDING_TAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_PANEL_CAN_START_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_TRY_GET_SEQUENCE_COUNTDOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_STOP_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_START_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_SET_TARGET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_SET_TAKE_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_SET_SLATE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_SET_SEQUENCE_COUNTDOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_SET_GLOBAL_RECORD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE_FROM_TIMECODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_REVIEW_LAST_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_REVERT_CHANGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_RESET_TO_PENDING_TAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_REMOVE_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_REMOVE_ACTOR_FROM_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_MARK_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_IS_REVIEWING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_IS_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_RECORDER_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_RECORD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_SLATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_PENDING_TAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_NUMBER_OF_TAKES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_NEXT_TAKE_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_LAST_RECORDED_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_GLOBAL_RECORD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_GET_ALL_SOURCES_COPY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_CLEAR_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_CLEAR_PENDING_TAKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_CAN_REVIEW_LAST_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_CANCEL_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE_FOR_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_take_recorder_set_countdown: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_get_state: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_get_countdown_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_stop_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_start_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_on_take_recorder_stopped: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_on_take_recorder_started: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_on_take_recorder_pre_initialize: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_on_take_recorder_panel_changed: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_on_take_recorder_marked_frame_added: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_on_take_recorder_finished: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_on_take_recorder_cancelled: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_set_default_parameters: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_open_take_recorder_panel: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_is_take_recorder_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_is_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_get_take_recorder_panel: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_get_default_parameters: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_get_active_recorder: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_blueprint_library_cancel_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_stop_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_start_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_setup_for_viewing: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_setup_for_recording_into_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_setup_for_recording_take_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_setup_for_recording_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_setup_for_editing: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_set_frame_rate_from_timecode: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_set_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_get_take_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_get_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_get_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_get_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_get_last_recorded_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_get_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_clear_pending_take: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_panel_can_start_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_try_get_sequence_countdown: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_stop_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_start_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_set_target_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_set_take_number: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_set_slate_name: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_set_sequence_countdown: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_set_global_record_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_set_frame_rate_from_timecode: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_set_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_review_last_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_revert_changes: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_reset_to_pending_take: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_remove_source: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_remove_actor_from_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_mark_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_is_reviewing: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_is_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_take_recorder_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_take_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_state: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_source_record_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_source_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_source_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_slates: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_pending_take: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_number_of_takes: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_next_take_number: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_last_recorded_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_global_record_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_get_all_sources_copy: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_clear_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_clear_pending_take: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_can_review_last_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_cancel_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_add_source_for_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_subsystem_add_source: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_take_recorder_set_countdown: std::ptr::null_mut(),
+            u_take_recorder_get_state: std::ptr::null_mut(),
+            u_take_recorder_get_sequence: std::ptr::null_mut(),
+            u_take_recorder_get_countdown_seconds: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_stop_recording: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_start_recording: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_on_take_recorder_stopped: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_on_take_recorder_started: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_on_take_recorder_pre_initialize: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_on_take_recorder_panel_changed: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_on_take_recorder_marked_frame_added: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_on_take_recorder_finished: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_on_take_recorder_cancelled: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_set_default_parameters: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_open_take_recorder_panel: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_is_take_recorder_enabled: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_is_recording: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_get_take_recorder_panel: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_get_default_parameters: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_get_active_recorder: std::ptr::null_mut(),
+            u_take_recorder_blueprint_library_cancel_recording: std::ptr::null_mut(),
+            u_take_recorder_panel_stop_recording: std::ptr::null_mut(),
+            u_take_recorder_panel_start_recording: std::ptr::null_mut(),
+            u_take_recorder_panel_setup_for_viewing: std::ptr::null_mut(),
+            u_take_recorder_panel_setup_for_recording_into_level_sequence: std::ptr::null_mut(),
+            u_take_recorder_panel_setup_for_recording_take_preset: std::ptr::null_mut(),
+            u_take_recorder_panel_setup_for_recording_level_sequence: std::ptr::null_mut(),
+            u_take_recorder_panel_setup_for_editing: std::ptr::null_mut(),
+            u_take_recorder_panel_set_frame_rate_from_timecode: std::ptr::null_mut(),
+            u_take_recorder_panel_set_frame_rate: std::ptr::null_mut(),
+            u_take_recorder_panel_get_take_meta_data: std::ptr::null_mut(),
+            u_take_recorder_panel_get_sources: std::ptr::null_mut(),
+            u_take_recorder_panel_get_mode: std::ptr::null_mut(),
+            u_take_recorder_panel_get_level_sequence: std::ptr::null_mut(),
+            u_take_recorder_panel_get_last_recorded_level_sequence: std::ptr::null_mut(),
+            u_take_recorder_panel_get_frame_rate: std::ptr::null_mut(),
+            u_take_recorder_panel_clear_pending_take: std::ptr::null_mut(),
+            u_take_recorder_panel_can_start_recording: std::ptr::null_mut(),
+            u_take_recorder_subsystem_try_get_sequence_countdown: std::ptr::null_mut(),
+            u_take_recorder_subsystem_stop_recording: std::ptr::null_mut(),
+            u_take_recorder_subsystem_start_recording: std::ptr::null_mut(),
+            u_take_recorder_subsystem_set_target_sequence: std::ptr::null_mut(),
+            u_take_recorder_subsystem_set_take_number: std::ptr::null_mut(),
+            u_take_recorder_subsystem_set_slate_name: std::ptr::null_mut(),
+            u_take_recorder_subsystem_set_sequence_countdown: std::ptr::null_mut(),
+            u_take_recorder_subsystem_set_global_record_settings: std::ptr::null_mut(),
+            u_take_recorder_subsystem_set_frame_rate_from_timecode: std::ptr::null_mut(),
+            u_take_recorder_subsystem_set_frame_rate: std::ptr::null_mut(),
+            u_take_recorder_subsystem_review_last_recording: std::ptr::null_mut(),
+            u_take_recorder_subsystem_revert_changes: std::ptr::null_mut(),
+            u_take_recorder_subsystem_reset_to_pending_take: std::ptr::null_mut(),
+            u_take_recorder_subsystem_remove_source: std::ptr::null_mut(),
+            u_take_recorder_subsystem_remove_actor_from_sources: std::ptr::null_mut(),
+            u_take_recorder_subsystem_mark_frame: std::ptr::null_mut(),
+            u_take_recorder_subsystem_is_reviewing: std::ptr::null_mut(),
+            u_take_recorder_subsystem_is_recording: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_take_recorder_mode: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_take_meta_data: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_state: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_sources: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_source_record_settings: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_source_by_class: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_source_actor: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_slates: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_pending_take: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_number_of_takes: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_next_take_number: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_level_sequence: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_last_recorded_level_sequence: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_global_record_settings: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_frame_rate: std::ptr::null_mut(),
+            u_take_recorder_subsystem_get_all_sources_copy: std::ptr::null_mut(),
+            u_take_recorder_subsystem_clear_sources: std::ptr::null_mut(),
+            u_take_recorder_subsystem_clear_pending_take: std::ptr::null_mut(),
+            u_take_recorder_subsystem_can_review_last_recording: std::ptr::null_mut(),
+            u_take_recorder_subsystem_cancel_recording: std::ptr::null_mut(),
+            u_take_recorder_subsystem_add_source_for_actor: std::ptr::null_mut(),
+            u_take_recorder_subsystem_add_source: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -172,28 +181,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCountdown"),
-            &raw mut U_TAKE_RECORDER_SET_COUNTDOWN,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_set_countdown,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut U_TAKE_RECORDER_GET_STATE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_get_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut U_TAKE_RECORDER_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_get_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCountdownSeconds"),
-            &raw mut U_TAKE_RECORDER_GET_COUNTDOWN_SECONDS,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_get_countdown_seconds,
         );
     }
     unsafe {
@@ -204,119 +213,132 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopRecording"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_STOP_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_stop_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartRecording"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_START_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_start_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderStopped"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STOPPED,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_on_take_recorder_stopped,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderStarted"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STARTED,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_on_take_recorder_started,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderPreInitialize"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PRE_INITIALIZE,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_on_take_recorder_pre_initialize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderPanelChanged"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PANEL_CHANGED,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_on_take_recorder_panel_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderMarkedFrameAdded"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_MARKED_FRAME_ADDED,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_on_take_recorder_marked_frame_added,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderFinished"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_FINISHED,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_on_take_recorder_finished,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOnTakeRecorderCancelled"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_CANCELLED,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_on_take_recorder_cancelled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultParameters"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_DEFAULT_PARAMETERS,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_set_default_parameters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenTakeRecorderPanel"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_OPEN_TAKE_RECORDER_PANEL,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_open_take_recorder_panel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTakeRecorderEnabled"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_TAKE_RECORDER_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_is_take_recorder_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_is_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTakeRecorderPanel"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_TAKE_RECORDER_PANEL,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_get_take_recorder_panel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultParameters"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_DEFAULT_PARAMETERS,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_get_default_parameters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveRecorder"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_ACTIVE_RECORDER,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_blueprint_library_get_active_recorder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CancelRecording"),
-            &raw mut U_TAKE_RECORDER_BLUEPRINT_LIBRARY_CANCEL_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_blueprint_library_cancel_recording,
         );
     }
     unsafe {
@@ -327,119 +349,123 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopRecording"),
-            &raw mut U_TAKE_RECORDER_PANEL_STOP_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_stop_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartRecording"),
-            &raw mut U_TAKE_RECORDER_PANEL_START_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_start_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetupForViewing"),
-            &raw mut U_TAKE_RECORDER_PANEL_SETUP_FOR_VIEWING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_setup_for_viewing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetupForRecordingInto_LevelSequence"),
-            &raw mut U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_INTO_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_panel_setup_for_recording_into_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetupForRecording_TakePreset"),
-            &raw mut U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_TAKE_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_panel_setup_for_recording_take_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetupForRecording_LevelSequence"),
-            &raw mut U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_panel_setup_for_recording_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetupForEditing"),
-            &raw mut U_TAKE_RECORDER_PANEL_SETUP_FOR_EDITING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_setup_for_editing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRateFromTimecode"),
-            &raw mut U_TAKE_RECORDER_PANEL_SET_FRAME_RATE_FROM_TIMECODE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_set_frame_rate_from_timecode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRate"),
-            &raw mut U_TAKE_RECORDER_PANEL_SET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_set_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTakeMetaData"),
-            &raw mut U_TAKE_RECORDER_PANEL_GET_TAKE_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_take_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSources"),
-            &raw mut U_TAKE_RECORDER_PANEL_GET_SOURCES,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMode"),
-            &raw mut U_TAKE_RECORDER_PANEL_GET_MODE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelSequence"),
-            &raw mut U_TAKE_RECORDER_PANEL_GET_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLastRecordedLevelSequence"),
-            &raw mut U_TAKE_RECORDER_PANEL_GET_LAST_RECORDED_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_panel_get_last_recorded_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameRate"),
-            &raw mut U_TAKE_RECORDER_PANEL_GET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_get_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearPendingTake"),
-            &raw mut U_TAKE_RECORDER_PANEL_CLEAR_PENDING_TAKE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_clear_pending_take,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanStartRecording"),
-            &raw mut U_TAKE_RECORDER_PANEL_CAN_START_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_panel_can_start_recording,
         );
     }
     unsafe {
@@ -450,280 +476,282 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryGetSequenceCountdown"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_TRY_GET_SEQUENCE_COUNTDOWN,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_try_get_sequence_countdown,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopRecording"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_STOP_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_stop_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartRecording"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_START_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_start_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetSequence"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_SET_TARGET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_target_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTakeNumber"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_SET_TAKE_NUMBER,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_take_number,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSlateName"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_SET_SLATE_NAME,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_slate_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequenceCountdown"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_SET_SEQUENCE_COUNTDOWN,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_sequence_countdown,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalRecordSettings"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_SET_GLOBAL_RECORD_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_global_record_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRateFromTimecode"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE_FROM_TIMECODE,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_subsystem_set_frame_rate_from_timecode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRate"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_set_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReviewLastRecording"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_REVIEW_LAST_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_review_last_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RevertChanges"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_REVERT_CHANGES,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_revert_changes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToPendingTake"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_RESET_TO_PENDING_TAKE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_reset_to_pending_take,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSource"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_REMOVE_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_remove_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorFromSources"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_REMOVE_ACTOR_FROM_SOURCES,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_remove_actor_from_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MarkFrame"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_MARK_FRAME,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_mark_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReviewing"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_IS_REVIEWING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_is_reviewing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_IS_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_is_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTakeRecorderMode"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_RECORDER_MODE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_take_recorder_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTakeMetaData"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_take_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_STATE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSources"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCES,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceRecordSettings"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_RECORD_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_record_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceByClass"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_BY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceActor"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_source_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlates"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_SLATES,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_slates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPendingTake"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_PENDING_TAKE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_pending_take,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberOfTakes"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_NUMBER_OF_TAKES,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_number_of_takes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNextTakeNumber"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_NEXT_TAKE_NUMBER,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_next_take_number,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelSequence"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLastRecordedLevelSequence"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_LAST_RECORDED_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_subsystem_get_last_recorded_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalRecordSettings"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_GLOBAL_RECORD_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_global_record_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameRate"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllSourcesCopy"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_GET_ALL_SOURCES_COPY,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_get_all_sources_copy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSources"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_CLEAR_SOURCES,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_clear_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearPendingTake"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_CLEAR_PENDING_TAKE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_clear_pending_take,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanReviewLastRecording"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_CAN_REVIEW_LAST_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_can_review_last_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CancelRecording"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_CANCEL_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_cancel_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSourceForActor"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE_FOR_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_add_source_for_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSource"),
-            &raw mut U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_subsystem_add_source,
         );
     }
 }
@@ -869,7 +897,8 @@ impl UTakeRecorder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SET_COUNTDOWN,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_set_countdown,
                 __buffer,
             )
         };
@@ -882,7 +911,8 @@ impl UTakeRecorder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SET_COUNTDOWN,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_set_countdown,
                 __buffer,
             )
         };
@@ -895,7 +925,8 @@ impl UTakeRecorder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_GET_STATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_get_state,
                 __buffer,
             )
         };
@@ -905,7 +936,8 @@ impl UTakeRecorder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_GET_STATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_get_state,
                 __buffer,
             )
         };
@@ -919,7 +951,8 @@ impl UTakeRecorder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_GET_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_get_sequence,
                 __buffer,
             )
         };
@@ -929,7 +962,8 @@ impl UTakeRecorder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_GET_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_get_sequence,
                 __buffer,
             )
         };
@@ -948,7 +982,8 @@ impl UTakeRecorder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_GET_COUNTDOWN_SECONDS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_get_countdown_seconds,
                 __buffer,
             )
         };
@@ -958,7 +993,8 @@ impl UTakeRecorder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_GET_COUNTDOWN_SECONDS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_get_countdown_seconds,
                 __buffer,
             )
         };
@@ -993,7 +1029,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_STOP_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_stop_recording,
                 __buffer,
             )
         };
@@ -1003,7 +1040,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_STOP_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_stop_recording,
                 __buffer,
             )
         };
@@ -1021,7 +1059,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_start_recording,
                 __buffer,
             )
         };
@@ -1065,7 +1104,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_start_recording,
                 __buffer,
             )
         };
@@ -1081,7 +1121,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STOPPED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_stopped,
                 __buffer,
             )
         };
@@ -1100,7 +1141,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STOPPED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_stopped,
                 __buffer,
             )
         };
@@ -1115,7 +1157,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STARTED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_started,
                 __buffer,
             )
         };
@@ -1134,7 +1177,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_STARTED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_started,
                 __buffer,
             )
         };
@@ -1149,7 +1193,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PRE_INITIALIZE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_pre_initialize,
                 __buffer,
             )
         };
@@ -1170,7 +1215,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PRE_INITIALIZE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_pre_initialize,
                 __buffer,
             )
         };
@@ -1185,7 +1231,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PANEL_CHANGED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_panel_changed,
                 __buffer,
             )
         };
@@ -1204,7 +1251,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_PANEL_CHANGED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_panel_changed,
                 __buffer,
             )
         };
@@ -1219,7 +1267,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_MARKED_FRAME_ADDED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_marked_frame_added,
                 __buffer,
             )
         };
@@ -1240,7 +1289,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_MARKED_FRAME_ADDED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_marked_frame_added,
                 __buffer,
             )
         };
@@ -1255,7 +1305,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_FINISHED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_finished,
                 __buffer,
             )
         };
@@ -1274,7 +1325,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_FINISHED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_finished,
                 __buffer,
             )
         };
@@ -1289,7 +1341,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_CANCELLED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_cancelled,
                 __buffer,
             )
         };
@@ -1308,7 +1361,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_ON_TAKE_RECORDER_CANCELLED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_on_take_recorder_cancelled,
                 __buffer,
             )
         };
@@ -1321,7 +1375,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_DEFAULT_PARAMETERS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_default_parameters,
                 __buffer,
             )
         };
@@ -1338,7 +1393,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_SET_DEFAULT_PARAMETERS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_set_default_parameters,
                 __buffer,
             )
         };
@@ -1351,7 +1407,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_OPEN_TAKE_RECORDER_PANEL,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_open_take_recorder_panel,
                 __buffer,
             )
         };
@@ -1361,7 +1418,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_OPEN_TAKE_RECORDER_PANEL,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_open_take_recorder_panel,
                 __buffer,
             )
         };
@@ -1375,7 +1433,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_TAKE_RECORDER_ENABLED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_is_take_recorder_enabled,
                 __buffer,
             )
         };
@@ -1385,7 +1444,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_TAKE_RECORDER_ENABLED,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_is_take_recorder_enabled,
                 __buffer,
             )
         };
@@ -1399,7 +1459,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_is_recording,
                 __buffer,
             )
         };
@@ -1409,7 +1470,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_IS_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_is_recording,
                 __buffer,
             )
         };
@@ -1423,7 +1485,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_TAKE_RECORDER_PANEL,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_take_recorder_panel,
                 __buffer,
             )
         };
@@ -1433,7 +1496,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_TAKE_RECORDER_PANEL,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_take_recorder_panel,
                 __buffer,
             )
         };
@@ -1447,7 +1511,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_DEFAULT_PARAMETERS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_default_parameters,
                 __buffer,
             )
         };
@@ -1457,7 +1522,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_DEFAULT_PARAMETERS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_default_parameters,
                 __buffer,
             )
         };
@@ -1471,7 +1537,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_ACTIVE_RECORDER,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_active_recorder,
                 __buffer,
             )
         };
@@ -1481,7 +1548,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_GET_ACTIVE_RECORDER,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_get_active_recorder,
                 __buffer,
             )
         };
@@ -1495,7 +1563,8 @@ impl UTakeRecorderBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_CANCEL_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_cancel_recording,
                 __buffer,
             )
         };
@@ -1505,7 +1574,8 @@ impl UTakeRecorderBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_BLUEPRINT_LIBRARY_CANCEL_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_blueprint_library_cancel_recording,
                 __buffer,
             )
         };
@@ -1539,7 +1609,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_STOP_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_stop_recording,
                 __buffer,
             )
         };
@@ -1549,7 +1620,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_STOP_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_stop_recording,
                 __buffer,
             )
         };
@@ -1562,7 +1634,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_start_recording,
                 __buffer,
             )
         };
@@ -1572,7 +1645,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_start_recording,
                 __buffer,
             )
         };
@@ -1588,7 +1662,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_VIEWING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_viewing,
                 __buffer,
             )
         };
@@ -1607,7 +1682,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_VIEWING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_viewing,
                 __buffer,
             )
         };
@@ -1623,7 +1699,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_INTO_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_into_level_sequence,
                 __buffer,
             )
         };
@@ -1642,7 +1719,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_INTO_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_into_level_sequence,
                 __buffer,
             )
         };
@@ -1658,7 +1736,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_TAKE_PRESET,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_take_preset,
                 __buffer,
             )
         };
@@ -1675,7 +1754,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_TAKE_PRESET,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_take_preset,
                 __buffer,
             )
         };
@@ -1691,7 +1771,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_level_sequence,
                 __buffer,
             )
         };
@@ -1710,7 +1791,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_RECORDING_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_recording_level_sequence,
                 __buffer,
             )
         };
@@ -1726,7 +1808,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_EDITING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_editing,
                 __buffer,
             )
         };
@@ -1743,7 +1826,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SETUP_FOR_EDITING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_setup_for_editing,
                 __buffer,
             )
         };
@@ -1756,7 +1840,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_set_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -1773,7 +1858,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_set_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -1789,7 +1875,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_set_frame_rate,
                 __buffer,
             )
         };
@@ -1806,7 +1893,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_SET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_set_frame_rate,
                 __buffer,
             )
         };
@@ -1821,7 +1909,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_TAKE_META_DATA,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_take_meta_data,
                 __buffer,
             )
         };
@@ -1831,7 +1920,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_TAKE_META_DATA,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_take_meta_data,
                 __buffer,
             )
         };
@@ -1852,7 +1942,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_sources,
                 __buffer,
             )
         };
@@ -1862,7 +1953,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_sources,
                 __buffer,
             )
         };
@@ -1881,7 +1973,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_MODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_mode,
                 __buffer,
             )
         };
@@ -1891,7 +1984,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_MODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_mode,
                 __buffer,
             )
         };
@@ -1907,7 +2001,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_level_sequence,
                 __buffer,
             )
         };
@@ -1917,7 +2012,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_level_sequence,
                 __buffer,
             )
         };
@@ -1938,7 +2034,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_LAST_RECORDED_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_last_recorded_level_sequence,
                 __buffer,
             )
         };
@@ -1948,7 +2045,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_LAST_RECORDED_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_last_recorded_level_sequence,
                 __buffer,
             )
         };
@@ -1967,7 +2065,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_frame_rate,
                 __buffer,
             )
         };
@@ -1977,7 +2076,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_GET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_get_frame_rate,
                 __buffer,
             )
         };
@@ -1993,7 +2093,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_CLEAR_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_clear_pending_take,
                 __buffer,
             )
         };
@@ -2003,7 +2104,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_CLEAR_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_clear_pending_take,
                 __buffer,
             )
         };
@@ -2016,7 +2118,8 @@ impl UTakeRecorderPanel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_CAN_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_can_start_recording,
                 __buffer,
             )
         };
@@ -2033,7 +2136,8 @@ impl UTakeRecorderPanel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_PANEL_CAN_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_panel_can_start_recording,
                 __buffer,
             )
         };
@@ -2071,7 +2175,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_TRY_GET_SEQUENCE_COUNTDOWN,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_try_get_sequence_countdown,
                 __buffer,
             )
         };
@@ -2084,7 +2189,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_TRY_GET_SEQUENCE_COUNTDOWN,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_try_get_sequence_countdown,
                 __buffer,
             )
         };
@@ -2101,7 +2207,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_STOP_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_stop_recording,
                 __buffer,
             )
         };
@@ -2111,7 +2218,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_STOP_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_stop_recording,
                 __buffer,
             )
         };
@@ -2128,7 +2236,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_start_recording,
                 __buffer,
             )
         };
@@ -2152,7 +2261,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_START_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_start_recording,
                 __buffer,
             )
         };
@@ -2166,7 +2276,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_TARGET_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_target_sequence,
                 __buffer,
             )
         };
@@ -2183,7 +2294,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_TARGET_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_target_sequence,
                 __buffer,
             )
         };
@@ -2196,7 +2308,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_TAKE_NUMBER,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_take_number,
                 __buffer,
             )
         };
@@ -2220,7 +2333,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_TAKE_NUMBER,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_take_number,
                 __buffer,
             )
         };
@@ -2233,7 +2347,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_SLATE_NAME,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_slate_name,
                 __buffer,
             )
         };
@@ -2257,7 +2372,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_SLATE_NAME,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_slate_name,
                 __buffer,
             )
         };
@@ -2270,7 +2386,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_SEQUENCE_COUNTDOWN,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_sequence_countdown,
                 __buffer,
             )
         };
@@ -2283,7 +2400,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_SEQUENCE_COUNTDOWN,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_sequence_countdown,
                 __buffer,
             )
         };
@@ -2299,7 +2417,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_GLOBAL_RECORD_SETTINGS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_global_record_settings,
                 __buffer,
             )
         };
@@ -2316,7 +2435,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_GLOBAL_RECORD_SETTINGS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_global_record_settings,
                 __buffer,
             )
         };
@@ -2329,7 +2449,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -2339,7 +2460,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE_FROM_TIMECODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_frame_rate_from_timecode,
                 __buffer,
             )
         };
@@ -2355,7 +2477,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_frame_rate,
                 __buffer,
             )
         };
@@ -2372,7 +2495,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_SET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_set_frame_rate,
                 __buffer,
             )
         };
@@ -2385,7 +2509,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REVIEW_LAST_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_review_last_recording,
                 __buffer,
             )
         };
@@ -2395,7 +2520,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REVIEW_LAST_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_review_last_recording,
                 __buffer,
             )
         };
@@ -2409,7 +2535,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REVERT_CHANGES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_revert_changes,
                 __buffer,
             )
         };
@@ -2419,7 +2546,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REVERT_CHANGES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_revert_changes,
                 __buffer,
             )
         };
@@ -2432,7 +2560,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_RESET_TO_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_reset_to_pending_take,
                 __buffer,
             )
         };
@@ -2442,7 +2571,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_RESET_TO_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_reset_to_pending_take,
                 __buffer,
             )
         };
@@ -2458,7 +2588,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REMOVE_SOURCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_remove_source,
                 __buffer,
             )
         };
@@ -2477,7 +2608,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REMOVE_SOURCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_remove_source,
                 __buffer,
             )
         };
@@ -2493,7 +2625,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REMOVE_ACTOR_FROM_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_remove_actor_from_sources,
                 __buffer,
             )
         };
@@ -2510,7 +2643,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_REMOVE_ACTOR_FROM_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_remove_actor_from_sources,
                 __buffer,
             )
         };
@@ -2523,7 +2657,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_MARK_FRAME,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_mark_frame,
                 __buffer,
             )
         };
@@ -2533,7 +2668,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_MARK_FRAME,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_mark_frame,
                 __buffer,
             )
         };
@@ -2547,7 +2683,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_IS_REVIEWING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_is_reviewing,
                 __buffer,
             )
         };
@@ -2557,7 +2694,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_IS_REVIEWING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_is_reviewing,
                 __buffer,
             )
         };
@@ -2571,7 +2709,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_IS_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_is_recording,
                 __buffer,
             )
         };
@@ -2581,7 +2720,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_IS_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_is_recording,
                 __buffer,
             )
         };
@@ -2595,7 +2735,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_RECORDER_MODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_take_recorder_mode,
                 __buffer,
             )
         };
@@ -2605,7 +2746,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_RECORDER_MODE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_take_recorder_mode,
                 __buffer,
             )
         };
@@ -2621,7 +2763,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_META_DATA,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_take_meta_data,
                 __buffer,
             )
         };
@@ -2631,7 +2774,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_TAKE_META_DATA,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_take_meta_data,
                 __buffer,
             )
         };
@@ -2650,7 +2794,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_STATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_state,
                 __buffer,
             )
         };
@@ -2660,7 +2805,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_STATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_state,
                 __buffer,
             )
         };
@@ -2676,7 +2822,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_sources,
                 __buffer,
             )
         };
@@ -2686,7 +2833,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_sources,
                 __buffer,
             )
         };
@@ -2708,7 +2856,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_RECORD_SETTINGS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_source_record_settings,
                 __buffer,
             )
         };
@@ -2727,7 +2876,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_RECORD_SETTINGS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_source_record_settings,
                 __buffer,
             )
         };
@@ -2749,7 +2899,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_BY_CLASS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_source_by_class,
                 __buffer,
             )
         };
@@ -2770,7 +2921,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_BY_CLASS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_source_by_class,
                 __buffer,
             )
         };
@@ -2792,7 +2944,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_ACTOR,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_source_actor,
                 __buffer,
             )
         };
@@ -2811,7 +2964,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SOURCE_ACTOR,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_source_actor,
                 __buffer,
             )
         };
@@ -2828,7 +2982,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SLATES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_slates,
                 __buffer,
             )
         };
@@ -2845,7 +3000,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_SLATES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_slates,
                 __buffer,
             )
         };
@@ -2864,7 +3020,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_pending_take,
                 __buffer,
             )
         };
@@ -2874,7 +3031,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_pending_take,
                 __buffer,
             )
         };
@@ -2898,7 +3056,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_NUMBER_OF_TAKES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_number_of_takes,
                 __buffer,
             )
         };
@@ -2929,7 +3088,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_NUMBER_OF_TAKES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_number_of_takes,
                 __buffer,
             )
         };
@@ -2948,7 +3108,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_NEXT_TAKE_NUMBER,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_next_take_number,
                 __buffer,
             )
         };
@@ -2965,7 +3126,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_NEXT_TAKE_NUMBER,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_next_take_number,
                 __buffer,
             )
         };
@@ -2981,7 +3143,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_level_sequence,
                 __buffer,
             )
         };
@@ -2991,7 +3154,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_level_sequence,
                 __buffer,
             )
         };
@@ -3012,7 +3176,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_LAST_RECORDED_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_last_recorded_level_sequence,
                 __buffer,
             )
         };
@@ -3022,7 +3187,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_LAST_RECORDED_LEVEL_SEQUENCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_last_recorded_level_sequence,
                 __buffer,
             )
         };
@@ -3041,7 +3207,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_GLOBAL_RECORD_SETTINGS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_global_record_settings,
                 __buffer,
             )
         };
@@ -3051,7 +3218,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_GLOBAL_RECORD_SETTINGS,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_global_record_settings,
                 __buffer,
             )
         };
@@ -3065,7 +3233,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_frame_rate,
                 __buffer,
             )
         };
@@ -3075,7 +3244,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_FRAME_RATE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_frame_rate,
                 __buffer,
             )
         };
@@ -3093,7 +3263,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_ALL_SOURCES_COPY,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_all_sources_copy,
                 __buffer,
             )
         };
@@ -3103,7 +3274,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_GET_ALL_SOURCES_COPY,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_get_all_sources_copy,
                 __buffer,
             )
         };
@@ -3122,7 +3294,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CLEAR_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_clear_sources,
                 __buffer,
             )
         };
@@ -3132,7 +3305,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CLEAR_SOURCES,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_clear_sources,
                 __buffer,
             )
         };
@@ -3145,7 +3319,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CLEAR_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_clear_pending_take,
                 __buffer,
             )
         };
@@ -3155,7 +3330,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CLEAR_PENDING_TAKE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_clear_pending_take,
                 __buffer,
             )
         };
@@ -3168,7 +3344,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CAN_REVIEW_LAST_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_can_review_last_recording,
                 __buffer,
             )
         };
@@ -3178,7 +3355,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CAN_REVIEW_LAST_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_can_review_last_recording,
                 __buffer,
             )
         };
@@ -3192,7 +3370,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CANCEL_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_cancel_recording,
                 __buffer,
             )
         };
@@ -3209,7 +3388,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_CANCEL_RECORDING,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_cancel_recording,
                 __buffer,
             )
         };
@@ -3227,7 +3407,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE_FOR_ACTOR,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_add_source_for_actor,
                 __buffer,
             )
         };
@@ -3258,7 +3439,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE_FOR_ACTOR,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_add_source_for_actor,
                 __buffer,
             )
         };
@@ -3274,7 +3456,8 @@ impl UTakeRecorderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_add_source,
                 __buffer,
             )
         };
@@ -3295,7 +3478,8 @@ impl UTakeRecorderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder::U_TAKE_RECORDER_SUBSYSTEM_ADD_SOURCE,
+                crate::bindings::take_recorder::__FUNCTION_PTRS
+                    .u_take_recorder_subsystem_add_source,
                 __buffer,
             )
         };

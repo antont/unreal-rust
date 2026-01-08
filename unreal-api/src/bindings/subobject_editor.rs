@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SUBOBJECT_EDITOR_MENU_CONTEXT_GET_SELECTED_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_subobject_editor_menu_context_get_selected_objects: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_subobject_editor_menu_context_get_selected_objects: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedObjects"),
-            &raw mut U_SUBOBJECT_EDITOR_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_editor_menu_context_get_selected_objects,
         );
     }
 }
@@ -52,7 +61,8 @@ impl USubobjectEditorMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_editor::U_SUBOBJECT_EDITOR_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                crate::bindings::subobject_editor::__FUNCTION_PTRS
+                    .u_subobject_editor_menu_context_get_selected_objects,
                 __buffer,
             )
         };
@@ -62,7 +72,8 @@ impl USubobjectEditorMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_editor::U_SUBOBJECT_EDITOR_MENU_CONTEXT_GET_SELECTED_OBJECTS,
+                crate::bindings::subobject_editor::__FUNCTION_PTRS
+                    .u_subobject_editor_menu_context_get_selected_objects,
                 __buffer,
             )
         };

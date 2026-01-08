@@ -1,24 +1,33 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut UUV_EDITOR_UDIM_PROPERTIES_SET_UDI_MS_FROM_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_UDIM_PROPERTIES_SET_UDI_MS_FROM_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_UDIM_PROPERTIES_GET_ASSET_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_UDIM_PROPERTIES_ASSET_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_UV_CHANNEL_PROPERTIES_GET_UV_CHANNEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_UV_CHANNEL_PROPERTIES_GET_ASSET_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub uuv_editor_udim_properties_set_udi_ms_from_texture: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_udim_properties_set_udi_ms_from_asset: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_udim_properties_get_asset_names: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_udim_properties_asset_by_index: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_uv_channel_properties_get_uv_channel_names: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_uv_channel_properties_get_asset_names: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            uuv_editor_udim_properties_set_udi_ms_from_texture: std::ptr::null_mut(),
+            uuv_editor_udim_properties_set_udi_ms_from_asset: std::ptr::null_mut(),
+            uuv_editor_udim_properties_get_asset_names: std::ptr::null_mut(),
+            uuv_editor_udim_properties_asset_by_index: std::ptr::null_mut(),
+            uuv_editor_uv_channel_properties_get_uv_channel_names: std::ptr::null_mut(),
+            uuv_editor_uv_channel_properties_get_asset_names: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -28,28 +37,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUDIMsFromTexture"),
-            &raw mut UUV_EDITOR_UDIM_PROPERTIES_SET_UDI_MS_FROM_TEXTURE,
+            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_set_udi_ms_from_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUDIMsFromAsset"),
-            &raw mut UUV_EDITOR_UDIM_PROPERTIES_SET_UDI_MS_FROM_ASSET,
+            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_set_udi_ms_from_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetNames"),
-            &raw mut UUV_EDITOR_UDIM_PROPERTIES_GET_ASSET_NAMES,
+            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_get_asset_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssetByIndex"),
-            &raw mut UUV_EDITOR_UDIM_PROPERTIES_ASSET_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.uuv_editor_udim_properties_asset_by_index,
         );
     }
     unsafe {
@@ -60,14 +69,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVChannelNames"),
-            &raw mut UUV_EDITOR_UV_CHANNEL_PROPERTIES_GET_UV_CHANNEL_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .uuv_editor_uv_channel_properties_get_uv_channel_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetNames"),
-            &raw mut UUV_EDITOR_UV_CHANNEL_PROPERTIES_GET_ASSET_NAMES,
+            &raw mut __FUNCTION_PTRS.uuv_editor_uv_channel_properties_get_asset_names,
         );
     }
 }

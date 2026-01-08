@@ -1,24 +1,33 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_HEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_shared_image_const_ref_blueprint_fns_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_shared_image_const_ref_blueprint_fns_get_width: *mut crate::ffi::UFunctionOpague,
+    pub u_shared_image_const_ref_blueprint_fns_get_size: *mut crate::ffi::UFunctionOpague,
+    pub u_shared_image_const_ref_blueprint_fns_get_pixel_value: *mut crate::ffi::UFunctionOpague,
+    pub u_shared_image_const_ref_blueprint_fns_get_pixel_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_shared_image_const_ref_blueprint_fns_get_height: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_shared_image_const_ref_blueprint_fns_is_valid: std::ptr::null_mut(),
+            u_shared_image_const_ref_blueprint_fns_get_width: std::ptr::null_mut(),
+            u_shared_image_const_ref_blueprint_fns_get_size: std::ptr::null_mut(),
+            u_shared_image_const_ref_blueprint_fns_get_pixel_value: std::ptr::null_mut(),
+            u_shared_image_const_ref_blueprint_fns_get_pixel_linear_color: std::ptr::null_mut(),
+            u_shared_image_const_ref_blueprint_fns_get_height: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -28,42 +37,44 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWidth"),
-            &raw mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_WIDTH,
+            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSize"),
-            &raw mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_SIZE,
+            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPixelValue"),
-            &raw mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_shared_image_const_ref_blueprint_fns_get_pixel_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPixelLinearColor"),
-            &raw mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_shared_image_const_ref_blueprint_fns_get_pixel_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHeight"),
-            &raw mut U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_HEIGHT,
+            &raw mut __FUNCTION_PTRS.u_shared_image_const_ref_blueprint_fns_get_height,
         );
     }
 }
@@ -100,7 +111,8 @@ impl USharedImageConstRefBlueprintFns {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_IS_VALID,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_is_valid,
                 __buffer,
             )
         };
@@ -117,7 +129,8 @@ impl USharedImageConstRefBlueprintFns {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_IS_VALID,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_is_valid,
                 __buffer,
             )
         };
@@ -131,7 +144,8 @@ impl USharedImageConstRefBlueprintFns {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_WIDTH,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_width,
                 __buffer,
             )
         };
@@ -148,7 +162,8 @@ impl USharedImageConstRefBlueprintFns {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_WIDTH,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_width,
                 __buffer,
             )
         };
@@ -164,7 +179,8 @@ impl USharedImageConstRefBlueprintFns {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_SIZE,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_size,
                 __buffer,
             )
         };
@@ -181,7 +197,8 @@ impl USharedImageConstRefBlueprintFns {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_SIZE,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_size,
                 __buffer,
             )
         };
@@ -202,7 +219,8 @@ impl USharedImageConstRefBlueprintFns {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_VALUE,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_pixel_value,
                 __buffer,
             )
         };
@@ -228,7 +246,8 @@ impl USharedImageConstRefBlueprintFns {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_VALUE,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_pixel_value,
                 __buffer,
             )
         };
@@ -253,7 +272,8 @@ impl USharedImageConstRefBlueprintFns {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_LINEAR_COLOR,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_pixel_linear_color,
                 __buffer,
             )
         };
@@ -286,7 +306,8 @@ impl USharedImageConstRefBlueprintFns {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_PIXEL_LINEAR_COLOR,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_pixel_linear_color,
                 __buffer,
             )
         };
@@ -308,7 +329,8 @@ impl USharedImageConstRefBlueprintFns {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_HEIGHT,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_height,
                 __buffer,
             )
         };
@@ -325,7 +347,8 @@ impl USharedImageConstRefBlueprintFns {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::image_core::U_SHARED_IMAGE_CONST_REF_BLUEPRINT_FNS_GET_HEIGHT,
+                crate::bindings::image_core::__FUNCTION_PTRS
+                    .u_shared_image_const_ref_blueprint_fns_get_height,
                 __buffer,
             )
         };

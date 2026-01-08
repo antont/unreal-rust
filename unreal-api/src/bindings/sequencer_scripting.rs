@@ -1,762 +1,771 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_NUM_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_EVALUATE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_COMPUTE_EFFECTIVE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_WEIGHT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_INTERPOLATION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_WEIGHT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_INTERPOLATION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_NUM_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_EVALUATE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_WEIGHT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_INTERPOLATION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_WEIGHT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_INTERPOLATION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_NUM_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_EVALUATE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_COMPUTE_EFFECTIVE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_INTERPOLATE_LINEAR_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_NUM_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_INTERPOLATE_LINEAR_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_EVALUATE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_NUM_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_EVALUATE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_SET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_HAS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_ADD_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SPAWNABLE_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SORTING_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_NOT_EQUAL_MOVIE_SCENE_BINDING_PROXY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_MOVE_BINDING_CONTENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_SORTING_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_POSSESSED_OBJECT_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_OBJECT_TEMPLATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_CHILD_POSSESSABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_EQUAL_EQUAL_MOVIE_SCENE_BINDING_PROXY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EXTENSIONS_ADD_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_GET_BOUND_OBJECT_PROPERTY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_TRIGGER_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_REPEATER_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_OBJECT_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_FOLDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_OBJECT_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_FOLDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_OBJECT_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_FOLDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_PROPERTY_NAME_AND_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_OBJECT_PROPERTY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_BYTE_TRACK_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_UNIQUE_TRACK_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_OBJECT_PROPERTY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_BYTE_TRACK_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_BOUNDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_BOUNDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_PARENT_SEQUENCE_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNELS_BY_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_ALL_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SORT_MARKED_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION_DIRECTLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_RANGE_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAMES_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME_IN_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_EVALUATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_DISPLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_CLOCK_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_RESOLVE_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_ROOT_FOLDER_FROM_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_LOCATE_BOUND_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_READ_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_PLAYBACK_RANGE_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TICK_RESOLUTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_SPAWNABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_ROOT_FOLDERS_IN_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_POSSESSABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PORTABLE_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MOVIE_SCENE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES_FROM_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_EVALUATION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_DISPLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CUSTOM_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CLOCK_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME_IN_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER_IN_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ARE_MARKED_FRAMES_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_ROOT_FOLDER_TO_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_POSSESSABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME_TO_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_TO_FIXED_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_SET_FIXED_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_MAKE_TIME_WARP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_TIME_WARP_VARIANT_TO_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_PLAY_RATE_TO_TIME_WARP_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_BREAK_TIME_WARP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_TRACK_ROW_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SORTING_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SECTION_TO_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_COLOR_TINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_REMOVE_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_TRACK_ROW_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SORTING_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTION_TO_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_COLOR_TINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRACK_EXTENSIONS_ADD_SECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_movie_scene_scripting_actor_reference_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_actor_reference_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_get_num_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_evaluate_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_compute_effective_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_bool_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_byte_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_tangent_weight_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_tangent_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_leave_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_leave_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_interpolation_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_arrive_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_set_arrive_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_tangent_weight_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_tangent_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_leave_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_leave_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_interpolation_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_arrive_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_key_get_arrive_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_set_pre_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_set_post_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_get_pre_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_get_post_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_get_num_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_evaluate_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_compute_effective_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_double_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_event_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_tangent_weight_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_tangent_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_leave_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_leave_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_interpolation_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_arrive_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_set_arrive_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_tangent_weight_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_tangent_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_leave_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_leave_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_interpolation_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_arrive_tangent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_key_get_arrive_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_set_pre_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_set_post_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_get_pre_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_get_post_infinity_extrapolation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_get_num_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_evaluate_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_compute_effective_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_float_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_set_interpolate_linear_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_get_num_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_get_interpolate_linear_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_evaluate_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_integer_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_object_path_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_get_num_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_evaluate_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_compute_effective_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_particle_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_string_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_key_set_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_key_set_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_key_get_value: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_key_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_set_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_remove_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_remove_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_has_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_get_keys_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_get_default: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_scripting_text_channel_add_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_set_spawnable_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_set_sorting_order: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_set_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_set_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_set_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_remove_track: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_remove: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_not_equal_movie_scene_binding_proxy: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_move_binding_contents: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_sorting_order: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_possessed_object_class: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_object_template: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_get_child_possessables: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_find_tracks_by_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_find_tracks_by_exact_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_equal_equal_movie_scene_binding_proxy: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_extensions_add_track: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_event_track_extensions_get_bound_object_property_class: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_event_track_extensions_add_event_trigger_section: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_event_track_extensions_add_event_repeater_section: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_set_folder_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_set_folder_color: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_remove_child_track: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_remove_child_object_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_remove_child_folder: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_get_folder_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_get_folder_color: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_get_child_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_get_child_object_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_get_child_folders: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_add_child_track: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_add_child_object_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_folder_extensions_add_child_folder: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_material_track_extensions_set_material_info: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_material_track_extensions_set_material_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_material_track_extensions_get_material_info: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_material_track_extensions_get_material_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_primitive_material_track_extensions_set_material_info: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_primitive_material_track_extensions_set_material_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_primitive_material_track_extensions_get_material_info: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_primitive_material_track_extensions_get_material_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_set_property_name_and_path: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_set_object_property_class: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_set_byte_track_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_get_unique_track_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_get_property_path: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_get_property_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_get_object_property_class: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_property_track_extensions_get_byte_track_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_start_frame_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_start_frame_bounded: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_range_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_end_frame_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_end_frame_bounded: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_set_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_has_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_has_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_start_frame_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_parent_sequence_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_end_frame_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_channels_by_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_auto_size_start_frame_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_auto_size_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_auto_size_has_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_auto_size_has_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_auto_size_end_frame_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_auto_size_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_extensions_get_all_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_sort_marked_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_work_range_start: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_work_range_end: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_view_range_start: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_view_range_end: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_tick_resolution_directly: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_tick_resolution: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_read_only: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_playback_start_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_playback_start: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_playback_range_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_playback_end_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_playback_end: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_marked_frames_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_marked_frame_in_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_marked_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_evaluation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_display_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_set_clock_source: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_resolve_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_remove_track: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_remove_root_folder_from_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_make_range_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_make_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_locate_bound_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_is_read_only: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_is_playback_range_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_work_range_start: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_work_range_end: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_view_range_start: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_view_range_end: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_tick_resolution: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_spawnables: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_root_folders_in_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_possessables: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_portable_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_playback_start_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_playback_start: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_playback_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_playback_end_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_playback_end: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_movie_scene: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_marked_frames_from_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_marked_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_evaluation_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_display_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_custom_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_clock_source: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_get_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_tracks_by_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_tracks_by_exact_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_next_marked_frame_in_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_next_marked_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_marked_frame_by_label: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number_in_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_binding_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_find_binding_by_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_delete_marked_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_delete_marked_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_are_marked_frames_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_add_track: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_add_spawnable_from_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_add_spawnable_from_class: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_add_root_folder_to_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_add_possessable: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_add_marked_frame_to_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_extensions_add_marked_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_time_warp_extensions_to_fixed_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_time_warp_extensions_set_fixed_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_time_warp_extensions_make_time_warp: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_time_warp_extensions_conv_time_warp_variant_to_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_time_warp_extensions_conv_play_rate_to_time_warp_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_time_warp_extensions_break_time_warp: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_set_track_row_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_set_sorting_order: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_set_section_to_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_set_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_set_color_tint: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_remove_section: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_get_track_row_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_get_sorting_order: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_get_section_to_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_get_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_get_color_tint: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_track_extensions_add_section: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_float_vector_track_extensions_set_num_channels_used: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_float_vector_track_extensions_get_num_channels_used: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_double_vector_track_extensions_set_num_channels_used: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_double_vector_track_extensions_get_num_channels_used: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_set_start_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_set_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_set_end_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_set_end_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_remove_start: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_remove_end: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_has_start: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_has_end: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_get_start_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_get_start_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_get_end_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_scripting_range_extensions_get_end_frame: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_movie_scene_scripting_actor_reference_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_actor_reference_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_get_num_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_evaluate_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_compute_effective_range: std::ptr::null_mut(),
+            u_movie_scene_scripting_bool_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_byte_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_tangent_weight_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_tangent_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_leave_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_leave_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_interpolation_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_arrive_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_set_arrive_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_tangent_weight_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_tangent_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_leave_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_leave_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_interpolation_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_arrive_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_key_get_arrive_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_set_pre_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_set_post_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_get_pre_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_get_post_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_get_num_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_evaluate_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_compute_effective_range: std::ptr::null_mut(),
+            u_movie_scene_scripting_double_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_event_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_tangent_weight_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_tangent_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_leave_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_leave_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_interpolation_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_arrive_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_set_arrive_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_tangent_weight_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_tangent_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_leave_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_leave_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_interpolation_mode: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_arrive_tangent_weight: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_key_get_arrive_tangent: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_set_pre_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_set_post_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_get_pre_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_get_post_infinity_extrapolation: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_get_num_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_evaluate_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_compute_effective_range: std::ptr::null_mut(),
+            u_movie_scene_scripting_float_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_set_interpolate_linear_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_get_num_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_get_interpolate_linear_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_evaluate_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_integer_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_object_path_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_get_num_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_evaluate_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_compute_effective_range: std::ptr::null_mut(),
+            u_movie_scene_scripting_particle_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_string_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_key_set_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_key_set_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_key_get_value: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_key_get_time: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_transform: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_set_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_remove_key: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_remove_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_has_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_get_keys_by_index: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_get_keys: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_get_default: std::ptr::null_mut(),
+            u_movie_scene_scripting_text_channel_add_key: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_set_spawnable_binding_id: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_set_sorting_order: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_set_parent: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_set_name: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_set_display_name: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_remove_track: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_remove: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_not_equal_movie_scene_binding_proxy: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_move_binding_contents: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_is_valid: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_tracks: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_sorting_order: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_possessed_object_class: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_parent: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_object_template: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_name: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_id: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_display_name: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_get_child_possessables: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_find_tracks_by_type: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_find_tracks_by_exact_type: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_equal_equal_movie_scene_binding_proxy: std::ptr::null_mut(),
+            u_movie_scene_binding_extensions_add_track: std::ptr::null_mut(),
+            u_movie_scene_event_track_extensions_get_bound_object_property_class: std::ptr::null_mut(),
+            u_movie_scene_event_track_extensions_add_event_trigger_section: std::ptr::null_mut(),
+            u_movie_scene_event_track_extensions_add_event_repeater_section: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_set_folder_name: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_set_folder_color: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_remove_child_track: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_remove_child_object_binding: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_remove_child_folder: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_get_folder_name: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_get_folder_color: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_get_child_tracks: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_get_child_object_bindings: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_get_child_folders: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_add_child_track: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_add_child_object_binding: std::ptr::null_mut(),
+            u_movie_scene_folder_extensions_add_child_folder: std::ptr::null_mut(),
+            u_movie_scene_material_track_extensions_set_material_info: std::ptr::null_mut(),
+            u_movie_scene_material_track_extensions_set_material_index: std::ptr::null_mut(),
+            u_movie_scene_material_track_extensions_get_material_info: std::ptr::null_mut(),
+            u_movie_scene_material_track_extensions_get_material_index: std::ptr::null_mut(),
+            u_movie_scene_primitive_material_track_extensions_set_material_info: std::ptr::null_mut(),
+            u_movie_scene_primitive_material_track_extensions_set_material_index: std::ptr::null_mut(),
+            u_movie_scene_primitive_material_track_extensions_get_material_info: std::ptr::null_mut(),
+            u_movie_scene_primitive_material_track_extensions_get_material_index: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_set_property_name_and_path: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_set_object_property_class: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_set_byte_track_enum: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_get_unique_track_name: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_get_property_path: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_get_property_name: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_get_object_property_class: std::ptr::null_mut(),
+            u_movie_scene_property_track_extensions_get_byte_track_enum: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_start_frame_seconds: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_start_frame_bounded: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_start_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_range_seconds: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_range: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_end_frame_seconds: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_end_frame_bounded: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_set_end_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_has_start_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_has_end_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_start_frame_seconds: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_start_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_parent_sequence_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_end_frame_seconds: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_end_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_channels_by_type: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_channel: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_auto_size_start_frame_seconds: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_auto_size_start_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_auto_size_has_start_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_auto_size_has_end_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_auto_size_end_frame_seconds: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_auto_size_end_frame: std::ptr::null_mut(),
+            u_movie_scene_section_extensions_get_all_channels: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_sort_marked_frames: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_work_range_start: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_work_range_end: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_view_range_start: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_view_range_end: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_tick_resolution_directly: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_tick_resolution: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_read_only: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_playback_start_seconds: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_playback_start: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_playback_range_locked: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_playback_end_seconds: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_playback_end: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_marked_frames_locked: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_marked_frame_in_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_marked_frame: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_evaluation_type: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_display_rate: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_set_clock_source: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_resolve_binding_id: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_remove_track: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_remove_root_folder_from_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_make_range_seconds: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_make_range: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_locate_bound_objects: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_is_read_only: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_is_playback_range_locked: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_work_range_start: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_work_range_end: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_view_range_start: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_view_range_end: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_tracks: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_tick_resolution: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_spawnables: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_root_folders_in_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_possessables: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_portable_binding_id: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_playback_start_seconds: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_playback_start: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_playback_range: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_playback_end_seconds: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_playback_end: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_movie_scene: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_marked_frames_from_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_marked_frames: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_evaluation_type: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_display_rate: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_custom_clock: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_clock_source: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_bindings: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_get_binding_id: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_tracks_by_type: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_tracks_by_exact_type: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_next_marked_frame_in_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_next_marked_frame: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_marked_frame_by_label: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number_in_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_binding_by_name: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_find_binding_by_id: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_delete_marked_frames: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_delete_marked_frame: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_are_marked_frames_locked: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_add_track: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_add_spawnable_from_instance: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_add_spawnable_from_class: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_add_root_folder_to_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_add_possessable: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_add_marked_frame_to_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_extensions_add_marked_frame: std::ptr::null_mut(),
+            u_movie_scene_time_warp_extensions_to_fixed_play_rate: std::ptr::null_mut(),
+            u_movie_scene_time_warp_extensions_set_fixed_play_rate: std::ptr::null_mut(),
+            u_movie_scene_time_warp_extensions_make_time_warp: std::ptr::null_mut(),
+            u_movie_scene_time_warp_extensions_conv_time_warp_variant_to_play_rate: std::ptr::null_mut(),
+            u_movie_scene_time_warp_extensions_conv_play_rate_to_time_warp_variant: std::ptr::null_mut(),
+            u_movie_scene_time_warp_extensions_break_time_warp: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_set_track_row_display_name: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_set_sorting_order: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_set_section_to_key: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_set_display_name: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_set_color_tint: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_remove_section: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_get_track_row_display_name: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_get_sorting_order: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_get_section_to_key: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_get_sections: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_get_display_name: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_get_color_tint: std::ptr::null_mut(),
+            u_movie_scene_track_extensions_add_section: std::ptr::null_mut(),
+            u_movie_scene_float_vector_track_extensions_set_num_channels_used: std::ptr::null_mut(),
+            u_movie_scene_float_vector_track_extensions_get_num_channels_used: std::ptr::null_mut(),
+            u_movie_scene_double_vector_track_extensions_set_num_channels_used: std::ptr::null_mut(),
+            u_movie_scene_double_vector_track_extensions_get_num_channels_used: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_set_start_seconds: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_set_start_frame: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_set_end_seconds: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_set_end_frame: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_remove_start: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_remove_end: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_has_start: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_has_end: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_get_start_seconds: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_get_start_frame: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_get_end_seconds: std::ptr::null_mut(),
+            u_sequencer_scripting_range_extensions_get_end_frame: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -766,28 +775,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_actor_reference_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_actor_reference_key_get_time,
         );
     }
     unsafe {
@@ -798,63 +809,72 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_actor_reference_channel_add_key,
         );
     }
     unsafe {
@@ -865,28 +885,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_key_get_time,
         );
     }
     unsafe {
@@ -897,84 +917,86 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_NUM_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_num_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_bool_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_EVALUATE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_evaluate_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_bool_channel_compute_effective_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_bool_channel_add_key,
         );
     }
     unsafe {
@@ -985,28 +1007,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_key_get_time,
         );
     }
     unsafe {
@@ -1017,63 +1039,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_byte_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_byte_channel_add_key,
         );
     }
     unsafe {
@@ -1084,126 +1107,136 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTangentWeightMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_WEIGHT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_set_tangent_weight_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTangentMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_MODE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_tangent_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLeaveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_set_leave_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLeaveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_set_leave_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInterpolationMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_INTERPOLATION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_set_interpolation_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetArriveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_set_arrive_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetArriveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_set_arrive_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTangentWeightMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_WEIGHT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_get_tangent_weight_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTangentMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_MODE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_tangent_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLeaveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_get_leave_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLeaveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_key_get_leave_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInterpolationMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_INTERPOLATION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_get_interpolation_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetArriveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_get_arrive_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetArriveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_key_get_arrive_tangent,
         );
     }
     unsafe {
@@ -1214,112 +1247,119 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_channel_set_pre_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPostInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_channel_set_post_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_channel_get_pre_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPostInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_channel_get_post_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_NUM_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_get_num_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_EVALUATE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_evaluate_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_double_channel_compute_effective_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_double_channel_add_key,
         );
     }
     unsafe {
@@ -1330,28 +1370,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_key_get_time,
         );
     }
     unsafe {
@@ -1362,35 +1402,36 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_event_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_event_channel_add_key,
         );
     }
     unsafe {
@@ -1401,126 +1442,134 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTangentWeightMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_WEIGHT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_set_tangent_weight_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTangentMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_MODE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_tangent_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLeaveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_set_leave_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLeaveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_leave_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInterpolationMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_INTERPOLATION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_set_interpolation_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetArriveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_set_arrive_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetArriveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_set_arrive_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTangentWeightMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_WEIGHT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_get_tangent_weight_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTangentMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_MODE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_tangent_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLeaveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_get_leave_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLeaveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_leave_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInterpolationMode"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_INTERPOLATION_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_get_interpolation_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetArriveTangentWeight"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_key_get_arrive_tangent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetArriveTangent"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_key_get_arrive_tangent,
         );
     }
     unsafe {
@@ -1531,112 +1580,118 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_channel_set_pre_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPostInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_channel_set_post_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_channel_get_pre_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPostInfinityExtrapolation"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_channel_get_post_infinity_extrapolation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_NUM_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_get_num_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_EVALUATE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_evaluate_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_float_channel_compute_effective_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_float_channel_add_key,
         );
     }
     unsafe {
@@ -1647,28 +1702,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_key_get_time,
         );
     }
     unsafe {
@@ -1679,91 +1734,96 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInterpolateLinearKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_INTERPOLATE_LINEAR_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_integer_channel_set_interpolate_linear_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_integer_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_NUM_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_get_num_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_integer_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInterpolateLinearKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_INTERPOLATE_LINEAR_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_integer_channel_get_interpolate_linear_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_EVALUATE_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_integer_channel_evaluate_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_integer_channel_add_key,
         );
     }
     unsafe {
@@ -1774,28 +1834,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_key_get_time,
         );
     }
     unsafe {
@@ -1806,63 +1866,70 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_object_path_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_object_path_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_object_path_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_object_path_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_object_path_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_object_path_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_object_path_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_object_path_channel_add_key,
         );
     }
     unsafe {
@@ -1873,28 +1940,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_key_get_time,
         );
     }
     unsafe {
@@ -1905,84 +1972,89 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_particle_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_NUM_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_particle_channel_get_num_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_particle_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EvaluateKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_EVALUATE_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_particle_channel_evaluate_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ComputeEffectiveRange"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_particle_channel_compute_effective_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_particle_channel_add_key,
         );
     }
     unsafe {
@@ -1993,28 +2065,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_key_get_time,
         );
     }
     unsafe {
@@ -2025,63 +2097,65 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_string_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_string_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_string_channel_add_key,
         );
     }
     unsafe {
@@ -2092,28 +2166,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_set_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_set_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValue"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_VALUE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_get_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_key_get_time,
         );
     }
     unsafe {
@@ -2124,63 +2198,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Transform"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_SET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_set_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_remove_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_remove_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_HAS_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_has_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysByIndex"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_scripting_text_channel_get_keys_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefault"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_get_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddKey"),
-            &raw mut U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_ADD_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_scripting_text_channel_add_key,
         );
     }
     unsafe {
@@ -2191,161 +2266,168 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpawnableBindingID"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SPAWNABLE_BINDING_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_extensions_set_spawnable_binding_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSortingOrder"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SORTING_ORDER,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_sorting_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetParent"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_PARENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetName"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_set_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTrack"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE_TRACK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_remove_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Remove"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_remove,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotEqual_MovieSceneBindingProxy"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_NOT_EQUAL_MOVIE_SCENE_BINDING_PROXY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_extensions_not_equal_movie_scene_binding_proxy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveBindingContents"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_MOVE_BINDING_CONTENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_extensions_move_binding_contents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTracks"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_TRACKS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSortingOrder"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_SORTING_ORDER,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_sorting_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPossessedObjectClass"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_POSSESSED_OBJECT_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_extensions_get_possessed_object_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParent"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_PARENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectTemplate"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_OBJECT_TEMPLATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_object_template,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetName"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetId"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_ID,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_get_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildPossessables"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_CHILD_POSSESSABLES,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_extensions_get_child_possessables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindTracksByType"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_TYPE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_find_tracks_by_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindTracksByExactType"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_extensions_find_tracks_by_exact_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EqualEqual_MovieSceneBindingProxy"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_EQUAL_EQUAL_MOVIE_SCENE_BINDING_PROXY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_extensions_equal_equal_movie_scene_binding_proxy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTrack"),
-            &raw mut U_MOVIE_SCENE_BINDING_EXTENSIONS_ADD_TRACK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_binding_extensions_add_track,
         );
     }
     unsafe {
@@ -2356,21 +2438,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundObjectPropertyClass"),
-            &raw mut U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_GET_BOUND_OBJECT_PROPERTY_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_event_track_extensions_get_bound_object_property_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddEventTriggerSection"),
-            &raw mut U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_TRIGGER_SECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_event_track_extensions_add_event_trigger_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddEventRepeaterSection"),
-            &raw mut U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_REPEATER_SECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_event_track_extensions_add_event_repeater_section,
         );
     }
     unsafe {
@@ -2381,91 +2466,94 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFolderName"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_set_folder_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFolderColor"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_COLOR,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_set_folder_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveChildTrack"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_TRACK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_remove_child_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveChildObjectBinding"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_OBJECT_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_folder_extensions_remove_child_object_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveChildFolder"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_FOLDER,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_remove_child_folder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFolderName"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_folder_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFolderColor"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_COLOR,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_folder_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildTracks"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_TRACKS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_child_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildObjectBindings"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_OBJECT_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_folder_extensions_get_child_object_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildFolders"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_FOLDERS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_get_child_folders,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddChildTrack"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_TRACK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_add_child_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddChildObjectBinding"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_OBJECT_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_folder_extensions_add_child_object_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddChildFolder"),
-            &raw mut U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_FOLDER,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_folder_extensions_add_child_folder,
         );
     }
     unsafe {
@@ -2476,28 +2564,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialInfo"),
-            &raw mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_material_track_extensions_set_material_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialIndex"),
-            &raw mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_material_track_extensions_set_material_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialInfo"),
-            &raw mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_material_track_extensions_get_material_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialIndex"),
-            &raw mut U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_material_track_extensions_get_material_index,
         );
     }
     unsafe {
@@ -2508,28 +2600,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialInfo"),
-            &raw mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_primitive_material_track_extensions_set_material_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialIndex"),
-            &raw mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_primitive_material_track_extensions_set_material_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialInfo"),
-            &raw mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_primitive_material_track_extensions_get_material_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialIndex"),
-            &raw mut U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_primitive_material_track_extensions_get_material_index,
         );
     }
     unsafe {
@@ -2540,56 +2636,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPropertyNameAndPath"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_PROPERTY_NAME_AND_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_set_property_name_and_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetObjectPropertyClass"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_OBJECT_PROPERTY_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_set_object_property_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetByteTrackEnum"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_BYTE_TRACK_ENUM,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_set_byte_track_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUniqueTrackName"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_UNIQUE_TRACK_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_get_unique_track_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertyPath"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_get_property_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertyName"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_get_property_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectPropertyClass"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_OBJECT_PROPERTY_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_get_object_property_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetByteTrackEnum"),
-            &raw mut U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_BYTE_TRACK_ENUM,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_property_track_extensions_get_byte_track_enum,
         );
     }
     unsafe {
@@ -2600,168 +2704,182 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartFrameSeconds"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_set_start_frame_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartFrameBounded"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_BOUNDED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_set_start_frame_bounded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRangeSeconds"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE_SECONDS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_range_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRange"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEndFrameSeconds"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_set_end_frame_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEndFrameBounded"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_BOUNDED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_set_end_frame_bounded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEndFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_set_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasStartFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_START_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_has_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasEndFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_END_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_has_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartFrameSeconds"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_start_frame_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentSequenceFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_PARENT_SEQUENCE_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_parent_sequence_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEndFrameSeconds"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_end_frame_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEndFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannelsByType"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNELS_BY_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_channels_by_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannel"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNEL,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAutoSizeStartFrameSeconds"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_auto_size_start_frame_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAutoSizeStartFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_auto_size_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAutoSizeHasStartFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_auto_size_has_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAutoSizeHasEndFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_END_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_auto_size_has_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAutoSizeEndFrameSeconds"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_auto_size_end_frame_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAutoSizeEndFrame"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_section_extensions_get_auto_size_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllChannels"),
-            &raw mut U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_ALL_CHANNELS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_extensions_get_all_channels,
         );
     }
     unsafe {
@@ -2772,490 +2890,527 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortMarkedFrames"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SORT_MARKED_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_sort_marked_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWorkRangeStart"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_work_range_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWorkRangeEnd"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_END,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_work_range_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetViewRangeStart"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_view_range_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetViewRangeEnd"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_END,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_view_range_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTickResolutionDirectly"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION_DIRECTLY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_tick_resolution_directly,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTickResolution"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_tick_resolution,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReadOnly"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_READ_ONLY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_read_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackStartSeconds"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_playback_start_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackStart"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_playback_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackRangeLocked"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_RANGE_LOCKED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_playback_range_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackEndSeconds"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_playback_end_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackEnd"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_playback_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMarkedFramesLocked"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAMES_LOCKED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_marked_frames_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMarkedFrameInSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME_IN_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_marked_frame_in_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMarkedFrame"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_marked_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEvaluationType"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_EVALUATION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_set_evaluation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayRate"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_DISPLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_display_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetClockSource"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_CLOCK_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_set_clock_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResolveBindingID"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_RESOLVE_BINDING_ID,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_resolve_binding_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTrack"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_TRACK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_remove_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveRootFolderFromSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_ROOT_FOLDER_FROM_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_remove_root_folder_from_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeRangeSeconds"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE_SECONDS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_make_range_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeRange"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_make_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LocateBoundObjects"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_LOCATE_BOUND_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_locate_bound_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReadOnly"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_READ_ONLY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_is_read_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlaybackRangeLocked"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_PLAYBACK_RANGE_LOCKED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_is_playback_range_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorkRangeStart"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_work_range_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorkRangeEnd"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_END,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_work_range_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetViewRangeStart"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_view_range_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetViewRangeEnd"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_END,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_view_range_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTracks"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TRACKS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTickResolution"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TICK_RESOLUTION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_tick_resolution,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpawnables"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_SPAWNABLES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_spawnables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootFoldersInSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_ROOT_FOLDERS_IN_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_root_folders_in_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPossessables"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_POSSESSABLES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_possessables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPortableBindingID"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PORTABLE_BINDING_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_portable_binding_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackStartSeconds"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_playback_start_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackStart"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_playback_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackRange"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_RANGE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_playback_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackEndSeconds"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_playback_end_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackEnd"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_playback_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMovieScene"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MOVIE_SCENE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_movie_scene,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMarkedFramesFromSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES_FROM_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_marked_frames_from_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMarkedFrames"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_marked_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEvaluationType"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_EVALUATION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_get_evaluation_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayRate"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_DISPLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_display_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomClock"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CUSTOM_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_custom_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetClockSource"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CLOCK_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_clock_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBindings"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDINGS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBindingID"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDING_ID,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_get_binding_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindTracksByType"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_tracks_by_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindTracksByExactType"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_tracks_by_exact_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNextMarkedFrameInSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME_IN_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_next_marked_frame_in_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNextMarkedFrame"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_next_marked_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindMarkedFrameByLabel"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_LABEL,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_marked_frame_by_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindMarkedFrameByFrameNumberInSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER_IN_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number_in_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindMarkedFrameByFrameNumber"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBindingByName"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_find_binding_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBindingById"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_ID,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_find_binding_by_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteMarkedFrames"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_delete_marked_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteMarkedFrame"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_delete_marked_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AreMarkedFramesLocked"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ARE_MARKED_FRAMES_LOCKED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_are_marked_frames_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTrack"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_TRACK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_add_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSpawnableFromInstance"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_add_spawnable_from_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSpawnableFromClass"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_add_spawnable_from_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddRootFolderToSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_ROOT_FOLDER_TO_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_add_root_folder_to_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddPossessable"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_POSSESSABLE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_add_possessable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMarkedFrameToSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME_TO_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_extensions_add_marked_frame_to_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMarkedFrame"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_extensions_add_marked_frame,
         );
     }
     unsafe {
@@ -3266,42 +3421,46 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ToFixedPlayRate"),
-            &raw mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_TO_FIXED_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_time_warp_extensions_to_fixed_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFixedPlayRate"),
-            &raw mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_SET_FIXED_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_time_warp_extensions_set_fixed_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeTimeWarp"),
-            &raw mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_MAKE_TIME_WARP,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_time_warp_extensions_make_time_warp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_TimeWarpVariantToPlayRate"),
-            &raw mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_TIME_WARP_VARIANT_TO_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_time_warp_extensions_conv_time_warp_variant_to_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_PlayRateToTimeWarpVariant"),
-            &raw mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_PLAY_RATE_TO_TIME_WARP_VARIANT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_time_warp_extensions_conv_play_rate_to_time_warp_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakTimeWarp"),
-            &raw mut U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_BREAK_TIME_WARP,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_time_warp_extensions_break_time_warp,
         );
     }
     unsafe {
@@ -3312,91 +3471,93 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrackRowDisplayName"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_TRACK_ROW_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_track_extensions_set_track_row_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSortingOrder"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SORTING_ORDER,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_sorting_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionToKey"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SECTION_TO_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_section_to_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetColorTint"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_COLOR_TINT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_set_color_tint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSection"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_REMOVE_SECTION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_remove_section,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrackRowDisplayName"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_TRACK_ROW_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_track_extensions_get_track_row_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSortingOrder"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SORTING_ORDER,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_sorting_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionToKey"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTION_TO_KEY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_section_to_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSections"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetColorTint"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_COLOR_TINT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_get_color_tint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSection"),
-            &raw mut U_MOVIE_SCENE_TRACK_EXTENSIONS_ADD_SECTION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_track_extensions_add_section,
         );
     }
     unsafe {
@@ -3407,14 +3568,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNumChannelsUsed"),
-            &raw mut U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_float_vector_track_extensions_set_num_channels_used,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumChannelsUsed"),
-            &raw mut U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_float_vector_track_extensions_get_num_channels_used,
         );
     }
     unsafe {
@@ -3425,14 +3588,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNumChannelsUsed"),
-            &raw mut U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_double_vector_track_extensions_set_num_channels_used,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumChannelsUsed"),
-            &raw mut U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_double_vector_track_extensions_get_num_channels_used,
         );
     }
     unsafe {
@@ -3443,84 +3608,90 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartSeconds"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_scripting_range_extensions_set_start_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartFrame"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_scripting_range_extensions_set_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEndSeconds"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_scripting_range_extensions_set_end_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEndFrame"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_FRAME,
+            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_set_end_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveStart"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_START,
+            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_remove_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveEnd"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_END,
+            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_remove_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasStart"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_START,
+            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_has_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasEnd"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_END,
+            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_has_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartSeconds"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_scripting_range_extensions_get_start_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartFrame"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_scripting_range_extensions_get_start_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEndSeconds"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_scripting_range_extensions_get_end_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEndFrame"),
-            &raw mut U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_FRAME,
+            &raw mut __FUNCTION_PTRS.u_sequencer_scripting_range_extensions_get_end_frame,
         );
     }
 }
@@ -3584,7 +3755,8 @@ impl UMovieSceneScriptingActorReferenceKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_set_value,
                 __buffer,
             )
         };
@@ -3603,7 +3775,8 @@ impl UMovieSceneScriptingActorReferenceKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_set_value,
                 __buffer,
             )
         };
@@ -3621,7 +3794,8 @@ impl UMovieSceneScriptingActorReferenceKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_set_time,
                 __buffer,
             )
         };
@@ -3650,7 +3824,8 @@ impl UMovieSceneScriptingActorReferenceKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_set_time,
                 __buffer,
             )
         };
@@ -3663,7 +3838,8 @@ impl UMovieSceneScriptingActorReferenceKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_get_value,
                 __buffer,
             )
         };
@@ -3673,7 +3849,8 @@ impl UMovieSceneScriptingActorReferenceKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_get_value,
                 __buffer,
             )
         };
@@ -3695,7 +3872,8 @@ impl UMovieSceneScriptingActorReferenceKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_get_time,
                 __buffer,
             )
         };
@@ -3714,7 +3892,8 @@ impl UMovieSceneScriptingActorReferenceKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_key_get_time,
                 __buffer,
             )
         };
@@ -3781,7 +3960,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_transform,
                 __buffer,
             )
         };
@@ -3824,7 +4004,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_transform,
                 __buffer,
             )
         };
@@ -3840,7 +4021,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_set_default,
                 __buffer,
             )
         };
@@ -3859,7 +4041,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_set_default,
                 __buffer,
             )
         };
@@ -3872,7 +4055,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_remove_key,
                 __buffer,
             )
         };
@@ -3889,7 +4073,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_remove_key,
                 __buffer,
             )
         };
@@ -3902,7 +4087,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_remove_default,
                 __buffer,
             )
         };
@@ -3912,7 +4098,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_remove_default,
                 __buffer,
             )
         };
@@ -3925,7 +4112,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_has_default,
                 __buffer,
             )
         };
@@ -3935,7 +4123,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_has_default,
                 __buffer,
             )
         };
@@ -3952,7 +4141,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -3969,7 +4159,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -3985,7 +4176,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_keys,
                 __buffer,
             )
         };
@@ -3995,7 +4187,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_keys,
                 __buffer,
             )
         };
@@ -4011,7 +4204,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_default,
                 __buffer,
             )
         };
@@ -4021,7 +4215,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_get_default,
                 __buffer,
             )
         };
@@ -4046,7 +4241,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_add_key,
                 __buffer,
             )
         };
@@ -4084,7 +4280,8 @@ impl UMovieSceneScriptingActorReferenceChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_ACTOR_REFERENCE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_actor_reference_channel_add_key,
                 __buffer,
             )
         };
@@ -4121,7 +4318,8 @@ impl UMovieSceneScriptingBoolKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_set_value,
                 __buffer,
             )
         };
@@ -4138,7 +4336,8 @@ impl UMovieSceneScriptingBoolKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_set_value,
                 __buffer,
             )
         };
@@ -4156,7 +4355,8 @@ impl UMovieSceneScriptingBoolKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_set_time,
                 __buffer,
             )
         };
@@ -4185,7 +4385,8 @@ impl UMovieSceneScriptingBoolKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_set_time,
                 __buffer,
             )
         };
@@ -4198,7 +4399,8 @@ impl UMovieSceneScriptingBoolKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_get_value,
                 __buffer,
             )
         };
@@ -4208,7 +4410,8 @@ impl UMovieSceneScriptingBoolKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_get_value,
                 __buffer,
             )
         };
@@ -4225,7 +4428,8 @@ impl UMovieSceneScriptingBoolKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_get_time,
                 __buffer,
             )
         };
@@ -4244,7 +4448,8 @@ impl UMovieSceneScriptingBoolKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_key_get_time,
                 __buffer,
             )
         };
@@ -4288,7 +4493,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_transform,
                 __buffer,
             )
         };
@@ -4331,7 +4537,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_transform,
                 __buffer,
             )
         };
@@ -4344,7 +4551,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_set_default,
                 __buffer,
             )
         };
@@ -4361,7 +4569,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_set_default,
                 __buffer,
             )
         };
@@ -4374,7 +4583,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_remove_key,
                 __buffer,
             )
         };
@@ -4391,7 +4601,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_remove_key,
                 __buffer,
             )
         };
@@ -4404,7 +4615,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_remove_default,
                 __buffer,
             )
         };
@@ -4414,7 +4626,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_remove_default,
                 __buffer,
             )
         };
@@ -4427,7 +4640,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_has_default,
                 __buffer,
             )
         };
@@ -4437,7 +4651,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_has_default,
                 __buffer,
             )
         };
@@ -4451,7 +4666,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -4461,7 +4677,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -4478,7 +4695,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -4495,7 +4713,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -4511,7 +4730,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_keys,
                 __buffer,
             )
         };
@@ -4521,7 +4741,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_keys,
                 __buffer,
             )
         };
@@ -4535,7 +4756,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_default,
                 __buffer,
             )
         };
@@ -4545,7 +4767,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_get_default,
                 __buffer,
             )
         };
@@ -4563,7 +4786,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -4587,7 +4811,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -4601,7 +4826,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -4611,7 +4837,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -4631,7 +4858,8 @@ impl UMovieSceneScriptingBoolChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_add_key,
                 __buffer,
             )
         };
@@ -4663,7 +4891,8 @@ impl UMovieSceneScriptingBoolChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BOOL_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_bool_channel_add_key,
                 __buffer,
             )
         };
@@ -4698,7 +4927,8 @@ impl UMovieSceneScriptingByteKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_set_value,
                 __buffer,
             )
         };
@@ -4715,7 +4945,8 @@ impl UMovieSceneScriptingByteKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_set_value,
                 __buffer,
             )
         };
@@ -4733,7 +4964,8 @@ impl UMovieSceneScriptingByteKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_set_time,
                 __buffer,
             )
         };
@@ -4762,7 +4994,8 @@ impl UMovieSceneScriptingByteKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_set_time,
                 __buffer,
             )
         };
@@ -4775,7 +5008,8 @@ impl UMovieSceneScriptingByteKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_get_value,
                 __buffer,
             )
         };
@@ -4785,7 +5019,8 @@ impl UMovieSceneScriptingByteKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_get_value,
                 __buffer,
             )
         };
@@ -4802,7 +5037,8 @@ impl UMovieSceneScriptingByteKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_get_time,
                 __buffer,
             )
         };
@@ -4821,7 +5057,8 @@ impl UMovieSceneScriptingByteKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_key_get_time,
                 __buffer,
             )
         };
@@ -4865,7 +5102,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_transform,
                 __buffer,
             )
         };
@@ -4908,7 +5146,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_transform,
                 __buffer,
             )
         };
@@ -4921,7 +5160,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_set_default,
                 __buffer,
             )
         };
@@ -4938,7 +5178,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_set_default,
                 __buffer,
             )
         };
@@ -4951,7 +5192,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_remove_key,
                 __buffer,
             )
         };
@@ -4968,7 +5210,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_remove_key,
                 __buffer,
             )
         };
@@ -4981,7 +5224,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_remove_default,
                 __buffer,
             )
         };
@@ -4991,7 +5235,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_remove_default,
                 __buffer,
             )
         };
@@ -5004,7 +5249,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_has_default,
                 __buffer,
             )
         };
@@ -5014,7 +5260,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_has_default,
                 __buffer,
             )
         };
@@ -5031,7 +5278,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -5048,7 +5296,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -5064,7 +5313,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_get_keys,
                 __buffer,
             )
         };
@@ -5074,7 +5324,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_get_keys,
                 __buffer,
             )
         };
@@ -5088,7 +5339,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_get_default,
                 __buffer,
             )
         };
@@ -5098,7 +5350,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_get_default,
                 __buffer,
             )
         };
@@ -5119,7 +5372,8 @@ impl UMovieSceneScriptingByteChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_add_key,
                 __buffer,
             )
         };
@@ -5160,7 +5414,8 @@ impl UMovieSceneScriptingByteChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_BYTE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_byte_channel_add_key,
                 __buffer,
             )
         };
@@ -5195,7 +5450,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_value,
                 __buffer,
             )
         };
@@ -5212,7 +5468,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_value,
                 __buffer,
             )
         };
@@ -5230,7 +5487,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_time,
                 __buffer,
             )
         };
@@ -5259,7 +5517,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_time,
                 __buffer,
             )
         };
@@ -5275,7 +5534,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -5294,7 +5554,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -5310,7 +5571,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_tangent_mode,
                 __buffer,
             )
         };
@@ -5327,7 +5589,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_tangent_mode,
                 __buffer,
             )
         };
@@ -5340,7 +5603,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -5357,7 +5621,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -5370,7 +5635,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_leave_tangent,
                 __buffer,
             )
         };
@@ -5387,7 +5653,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_leave_tangent,
                 __buffer,
             )
         };
@@ -5403,7 +5670,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_interpolation_mode,
                 __buffer,
             )
         };
@@ -5420,7 +5688,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_interpolation_mode,
                 __buffer,
             )
         };
@@ -5433,7 +5702,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -5450,7 +5720,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -5463,7 +5734,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_arrive_tangent,
                 __buffer,
             )
         };
@@ -5480,7 +5752,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_SET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_set_arrive_tangent,
                 __buffer,
             )
         };
@@ -5493,7 +5766,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_value,
                 __buffer,
             )
         };
@@ -5503,7 +5777,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_value,
                 __buffer,
             )
         };
@@ -5520,7 +5795,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_time,
                 __buffer,
             )
         };
@@ -5539,7 +5815,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_time,
                 __buffer,
             )
         };
@@ -5557,7 +5834,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -5567,7 +5845,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -5586,7 +5865,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_tangent_mode,
                 __buffer,
             )
         };
@@ -5596,7 +5876,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_tangent_mode,
                 __buffer,
             )
         };
@@ -5615,7 +5896,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -5625,7 +5907,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -5639,7 +5922,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_leave_tangent,
                 __buffer,
             )
         };
@@ -5649,7 +5933,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_leave_tangent,
                 __buffer,
             )
         };
@@ -5665,7 +5950,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_interpolation_mode,
                 __buffer,
             )
         };
@@ -5675,7 +5961,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_interpolation_mode,
                 __buffer,
             )
         };
@@ -5694,7 +5981,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -5704,7 +5992,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -5718,7 +6007,8 @@ impl UMovieSceneScriptingDoubleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_arrive_tangent,
                 __buffer,
             )
         };
@@ -5728,7 +6018,8 @@ impl UMovieSceneScriptingDoubleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_KEY_GET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_key_get_arrive_tangent,
                 __buffer,
             )
         };
@@ -5770,7 +6061,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_transform,
                 __buffer,
             )
         };
@@ -5813,7 +6105,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_transform,
                 __buffer,
             )
         };
@@ -5829,7 +6122,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -5848,7 +6142,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -5864,7 +6159,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -5883,7 +6179,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -5896,7 +6193,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_default,
                 __buffer,
             )
         };
@@ -5913,7 +6211,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_set_default,
                 __buffer,
             )
         };
@@ -5926,7 +6225,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_remove_key,
                 __buffer,
             )
         };
@@ -5943,7 +6243,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_remove_key,
                 __buffer,
             )
         };
@@ -5956,7 +6257,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_remove_default,
                 __buffer,
             )
         };
@@ -5966,7 +6268,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_remove_default,
                 __buffer,
             )
         };
@@ -5979,7 +6282,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_has_default,
                 __buffer,
             )
         };
@@ -5989,7 +6293,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_has_default,
                 __buffer,
             )
         };
@@ -6005,7 +6310,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -6015,7 +6321,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -6036,7 +6343,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -6046,7 +6354,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -6065,7 +6374,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -6075,7 +6385,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -6092,7 +6403,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -6109,7 +6421,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -6125,7 +6438,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_keys,
                 __buffer,
             )
         };
@@ -6135,7 +6449,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_keys,
                 __buffer,
             )
         };
@@ -6149,7 +6464,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_default,
                 __buffer,
             )
         };
@@ -6159,7 +6475,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_get_default,
                 __buffer,
             )
         };
@@ -6177,7 +6494,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -6201,7 +6519,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -6215,7 +6534,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -6225,7 +6545,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -6246,7 +6567,8 @@ impl UMovieSceneScriptingDoubleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_add_key,
                 __buffer,
             )
         };
@@ -6287,7 +6609,8 @@ impl UMovieSceneScriptingDoubleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_DOUBLE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_double_channel_add_key,
                 __buffer,
             )
         };
@@ -6325,7 +6648,8 @@ impl UMovieSceneScriptingEventKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_set_value,
                 __buffer,
             )
         };
@@ -6344,7 +6668,8 @@ impl UMovieSceneScriptingEventKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_set_value,
                 __buffer,
             )
         };
@@ -6362,7 +6687,8 @@ impl UMovieSceneScriptingEventKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_set_time,
                 __buffer,
             )
         };
@@ -6391,7 +6717,8 @@ impl UMovieSceneScriptingEventKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_set_time,
                 __buffer,
             )
         };
@@ -6404,7 +6731,8 @@ impl UMovieSceneScriptingEventKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_get_value,
                 __buffer,
             )
         };
@@ -6414,7 +6742,8 @@ impl UMovieSceneScriptingEventKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_get_value,
                 __buffer,
             )
         };
@@ -6436,7 +6765,8 @@ impl UMovieSceneScriptingEventKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_get_time,
                 __buffer,
             )
         };
@@ -6455,7 +6785,8 @@ impl UMovieSceneScriptingEventKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_key_get_time,
                 __buffer,
             )
         };
@@ -6499,7 +6830,8 @@ impl UMovieSceneScriptingEventChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_transform,
                 __buffer,
             )
         };
@@ -6542,7 +6874,8 @@ impl UMovieSceneScriptingEventChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_transform,
                 __buffer,
             )
         };
@@ -6555,7 +6888,8 @@ impl UMovieSceneScriptingEventChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_remove_key,
                 __buffer,
             )
         };
@@ -6572,7 +6906,8 @@ impl UMovieSceneScriptingEventChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_remove_key,
                 __buffer,
             )
         };
@@ -6588,7 +6923,8 @@ impl UMovieSceneScriptingEventChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -6605,7 +6941,8 @@ impl UMovieSceneScriptingEventChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -6621,7 +6958,8 @@ impl UMovieSceneScriptingEventChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_get_keys,
                 __buffer,
             )
         };
@@ -6631,7 +6969,8 @@ impl UMovieSceneScriptingEventChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_get_keys,
                 __buffer,
             )
         };
@@ -6651,7 +6990,8 @@ impl UMovieSceneScriptingEventChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_add_key,
                 __buffer,
             )
         };
@@ -6693,7 +7033,8 @@ impl UMovieSceneScriptingEventChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_EVENT_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_event_channel_add_key,
                 __buffer,
             )
         };
@@ -6728,7 +7069,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_value,
                 __buffer,
             )
         };
@@ -6745,7 +7087,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_value,
                 __buffer,
             )
         };
@@ -6763,7 +7106,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_time,
                 __buffer,
             )
         };
@@ -6792,7 +7136,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_time,
                 __buffer,
             )
         };
@@ -6808,7 +7153,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -6827,7 +7173,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -6843,7 +7190,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_tangent_mode,
                 __buffer,
             )
         };
@@ -6860,7 +7208,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_tangent_mode,
                 __buffer,
             )
         };
@@ -6873,7 +7222,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -6890,7 +7240,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -6903,7 +7254,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_leave_tangent,
                 __buffer,
             )
         };
@@ -6920,7 +7272,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_leave_tangent,
                 __buffer,
             )
         };
@@ -6936,7 +7289,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_interpolation_mode,
                 __buffer,
             )
         };
@@ -6953,7 +7307,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_interpolation_mode,
                 __buffer,
             )
         };
@@ -6966,7 +7321,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -6983,7 +7339,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -6996,7 +7353,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_arrive_tangent,
                 __buffer,
             )
         };
@@ -7013,7 +7371,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_SET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_set_arrive_tangent,
                 __buffer,
             )
         };
@@ -7026,7 +7385,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_value,
                 __buffer,
             )
         };
@@ -7036,7 +7396,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_value,
                 __buffer,
             )
         };
@@ -7053,7 +7414,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_time,
                 __buffer,
             )
         };
@@ -7072,7 +7434,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_time,
                 __buffer,
             )
         };
@@ -7090,7 +7453,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -7100,7 +7464,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_WEIGHT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_tangent_weight_mode,
                 __buffer,
             )
         };
@@ -7119,7 +7484,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_tangent_mode,
                 __buffer,
             )
         };
@@ -7129,7 +7495,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_TANGENT_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_tangent_mode,
                 __buffer,
             )
         };
@@ -7148,7 +7515,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -7158,7 +7526,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_leave_tangent_weight,
                 __buffer,
             )
         };
@@ -7172,7 +7541,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_leave_tangent,
                 __buffer,
             )
         };
@@ -7182,7 +7552,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_LEAVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_leave_tangent,
                 __buffer,
             )
         };
@@ -7198,7 +7569,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_interpolation_mode,
                 __buffer,
             )
         };
@@ -7208,7 +7580,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_INTERPOLATION_MODE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_interpolation_mode,
                 __buffer,
             )
         };
@@ -7227,7 +7600,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -7237,7 +7611,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT_WEIGHT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_arrive_tangent_weight,
                 __buffer,
             )
         };
@@ -7251,7 +7626,8 @@ impl UMovieSceneScriptingFloatKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_arrive_tangent,
                 __buffer,
             )
         };
@@ -7261,7 +7637,8 @@ impl UMovieSceneScriptingFloatKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_KEY_GET_ARRIVE_TANGENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_key_get_arrive_tangent,
                 __buffer,
             )
         };
@@ -7345,7 +7722,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_transform,
                 __buffer,
             )
         };
@@ -7388,7 +7766,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_transform,
                 __buffer,
             )
         };
@@ -7404,7 +7783,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7423,7 +7803,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7439,7 +7820,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7458,7 +7840,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7471,7 +7854,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_default,
                 __buffer,
             )
         };
@@ -7488,7 +7872,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_set_default,
                 __buffer,
             )
         };
@@ -7501,7 +7886,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_remove_key,
                 __buffer,
             )
         };
@@ -7518,7 +7904,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_remove_key,
                 __buffer,
             )
         };
@@ -7531,7 +7918,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_remove_default,
                 __buffer,
             )
         };
@@ -7541,7 +7929,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_remove_default,
                 __buffer,
             )
         };
@@ -7554,7 +7943,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_has_default,
                 __buffer,
             )
         };
@@ -7564,7 +7954,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_has_default,
                 __buffer,
             )
         };
@@ -7580,7 +7971,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7590,7 +7982,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_PRE_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_pre_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7611,7 +8004,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7621,7 +8015,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_POST_INFINITY_EXTRAPOLATION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_post_infinity_extrapolation,
                 __buffer,
             )
         };
@@ -7640,7 +8035,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -7650,7 +8046,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -7667,7 +8064,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -7684,7 +8082,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -7700,7 +8099,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_keys,
                 __buffer,
             )
         };
@@ -7710,7 +8110,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_keys,
                 __buffer,
             )
         };
@@ -7724,7 +8125,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_default,
                 __buffer,
             )
         };
@@ -7734,7 +8136,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_get_default,
                 __buffer,
             )
         };
@@ -7752,7 +8155,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -7776,7 +8180,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -7790,7 +8195,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -7800,7 +8206,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -7821,7 +8228,8 @@ impl UMovieSceneScriptingFloatChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_add_key,
                 __buffer,
             )
         };
@@ -7862,7 +8270,8 @@ impl UMovieSceneScriptingFloatChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_FLOAT_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_float_channel_add_key,
                 __buffer,
             )
         };
@@ -7897,7 +8306,8 @@ impl UMovieSceneScriptingIntegerKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_set_value,
                 __buffer,
             )
         };
@@ -7914,7 +8324,8 @@ impl UMovieSceneScriptingIntegerKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_set_value,
                 __buffer,
             )
         };
@@ -7932,7 +8343,8 @@ impl UMovieSceneScriptingIntegerKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_set_time,
                 __buffer,
             )
         };
@@ -7961,7 +8373,8 @@ impl UMovieSceneScriptingIntegerKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_set_time,
                 __buffer,
             )
         };
@@ -7974,7 +8387,8 @@ impl UMovieSceneScriptingIntegerKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_get_value,
                 __buffer,
             )
         };
@@ -7984,7 +8398,8 @@ impl UMovieSceneScriptingIntegerKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_get_value,
                 __buffer,
             )
         };
@@ -8001,7 +8416,8 @@ impl UMovieSceneScriptingIntegerKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_get_time,
                 __buffer,
             )
         };
@@ -8020,7 +8436,8 @@ impl UMovieSceneScriptingIntegerKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_key_get_time,
                 __buffer,
             )
         };
@@ -8064,7 +8481,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_transform,
                 __buffer,
             )
         };
@@ -8107,7 +8525,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_transform,
                 __buffer,
             )
         };
@@ -8120,7 +8539,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_INTERPOLATE_LINEAR_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_set_interpolate_linear_keys,
                 __buffer,
             )
         };
@@ -8137,7 +8557,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_INTERPOLATE_LINEAR_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_set_interpolate_linear_keys,
                 __buffer,
             )
         };
@@ -8150,7 +8571,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_set_default,
                 __buffer,
             )
         };
@@ -8167,7 +8589,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_set_default,
                 __buffer,
             )
         };
@@ -8180,7 +8603,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_remove_key,
                 __buffer,
             )
         };
@@ -8197,7 +8621,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_remove_key,
                 __buffer,
             )
         };
@@ -8210,7 +8635,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_remove_default,
                 __buffer,
             )
         };
@@ -8220,7 +8646,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_remove_default,
                 __buffer,
             )
         };
@@ -8233,7 +8660,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_has_default,
                 __buffer,
             )
         };
@@ -8243,7 +8671,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_has_default,
                 __buffer,
             )
         };
@@ -8257,7 +8686,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -8267,7 +8697,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -8284,7 +8715,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -8301,7 +8733,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -8317,7 +8750,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_keys,
                 __buffer,
             )
         };
@@ -8327,7 +8761,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_keys,
                 __buffer,
             )
         };
@@ -8341,7 +8776,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_INTERPOLATE_LINEAR_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_interpolate_linear_keys,
                 __buffer,
             )
         };
@@ -8351,7 +8787,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_INTERPOLATE_LINEAR_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_interpolate_linear_keys,
                 __buffer,
             )
         };
@@ -8365,7 +8802,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_default,
                 __buffer,
             )
         };
@@ -8375,7 +8813,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_get_default,
                 __buffer,
             )
         };
@@ -8393,7 +8832,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -8417,7 +8857,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -8437,7 +8878,8 @@ impl UMovieSceneScriptingIntegerChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_add_key,
                 __buffer,
             )
         };
@@ -8469,7 +8911,8 @@ impl UMovieSceneScriptingIntegerChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_INTEGER_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_integer_channel_add_key,
                 __buffer,
             )
         };
@@ -8507,7 +8950,8 @@ impl UMovieSceneScriptingObjectPathKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_set_value,
                 __buffer,
             )
         };
@@ -8524,7 +8968,8 @@ impl UMovieSceneScriptingObjectPathKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_set_value,
                 __buffer,
             )
         };
@@ -8542,7 +8987,8 @@ impl UMovieSceneScriptingObjectPathKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_set_time,
                 __buffer,
             )
         };
@@ -8571,7 +9017,8 @@ impl UMovieSceneScriptingObjectPathKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_set_time,
                 __buffer,
             )
         };
@@ -8584,7 +9031,8 @@ impl UMovieSceneScriptingObjectPathKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_get_value,
                 __buffer,
             )
         };
@@ -8594,7 +9042,8 @@ impl UMovieSceneScriptingObjectPathKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_get_value,
                 __buffer,
             )
         };
@@ -8616,7 +9065,8 @@ impl UMovieSceneScriptingObjectPathKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_get_time,
                 __buffer,
             )
         };
@@ -8635,7 +9085,8 @@ impl UMovieSceneScriptingObjectPathKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_key_get_time,
                 __buffer,
             )
         };
@@ -8679,7 +9130,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_transform,
                 __buffer,
             )
         };
@@ -8722,7 +9174,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_transform,
                 __buffer,
             )
         };
@@ -8738,7 +9191,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_set_default,
                 __buffer,
             )
         };
@@ -8755,7 +9209,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_set_default,
                 __buffer,
             )
         };
@@ -8768,7 +9223,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_remove_key,
                 __buffer,
             )
         };
@@ -8785,7 +9241,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_remove_key,
                 __buffer,
             )
         };
@@ -8798,7 +9255,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_remove_default,
                 __buffer,
             )
         };
@@ -8808,7 +9266,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_remove_default,
                 __buffer,
             )
         };
@@ -8821,7 +9280,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_has_default,
                 __buffer,
             )
         };
@@ -8831,7 +9291,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_has_default,
                 __buffer,
             )
         };
@@ -8848,7 +9309,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -8865,7 +9327,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -8881,7 +9344,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_keys,
                 __buffer,
             )
         };
@@ -8891,7 +9355,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_keys,
                 __buffer,
             )
         };
@@ -8905,7 +9370,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_default,
                 __buffer,
             )
         };
@@ -8915,7 +9381,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_get_default,
                 __buffer,
             )
         };
@@ -8940,7 +9407,8 @@ impl UMovieSceneScriptingObjectPathChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_add_key,
                 __buffer,
             )
         };
@@ -8976,7 +9444,8 @@ impl UMovieSceneScriptingObjectPathChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_OBJECT_PATH_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_object_path_channel_add_key,
                 __buffer,
             )
         };
@@ -9016,7 +9485,8 @@ impl UMovieSceneScriptingParticleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_set_value,
                 __buffer,
             )
         };
@@ -9035,7 +9505,8 @@ impl UMovieSceneScriptingParticleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_set_value,
                 __buffer,
             )
         };
@@ -9053,7 +9524,8 @@ impl UMovieSceneScriptingParticleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_set_time,
                 __buffer,
             )
         };
@@ -9082,7 +9554,8 @@ impl UMovieSceneScriptingParticleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_set_time,
                 __buffer,
             )
         };
@@ -9095,7 +9568,8 @@ impl UMovieSceneScriptingParticleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_get_value,
                 __buffer,
             )
         };
@@ -9105,7 +9579,8 @@ impl UMovieSceneScriptingParticleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_get_value,
                 __buffer,
             )
         };
@@ -9127,7 +9602,8 @@ impl UMovieSceneScriptingParticleKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_get_time,
                 __buffer,
             )
         };
@@ -9146,7 +9622,8 @@ impl UMovieSceneScriptingParticleKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_key_get_time,
                 __buffer,
             )
         };
@@ -9190,7 +9667,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_transform,
                 __buffer,
             )
         };
@@ -9233,7 +9711,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_transform,
                 __buffer,
             )
         };
@@ -9249,7 +9728,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_set_default,
                 __buffer,
             )
         };
@@ -9268,7 +9748,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_set_default,
                 __buffer,
             )
         };
@@ -9281,7 +9762,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_remove_key,
                 __buffer,
             )
         };
@@ -9298,7 +9780,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_remove_key,
                 __buffer,
             )
         };
@@ -9311,7 +9794,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_remove_default,
                 __buffer,
             )
         };
@@ -9321,7 +9805,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_remove_default,
                 __buffer,
             )
         };
@@ -9334,7 +9819,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_has_default,
                 __buffer,
             )
         };
@@ -9344,7 +9830,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_has_default,
                 __buffer,
             )
         };
@@ -9358,7 +9845,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -9368,7 +9856,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_NUM_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_num_keys,
                 __buffer,
             )
         };
@@ -9385,7 +9874,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -9402,7 +9892,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -9418,7 +9909,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_keys,
                 __buffer,
             )
         };
@@ -9428,7 +9920,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_keys,
                 __buffer,
             )
         };
@@ -9442,7 +9935,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_default,
                 __buffer,
             )
         };
@@ -9452,7 +9946,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_get_default,
                 __buffer,
             )
         };
@@ -9475,7 +9970,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -9499,7 +9995,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_EVALUATE_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_evaluate_keys,
                 __buffer,
             )
         };
@@ -9518,7 +10015,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -9528,7 +10026,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_COMPUTE_EFFECTIVE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_compute_effective_range,
                 __buffer,
             )
         };
@@ -9548,7 +10047,8 @@ impl UMovieSceneScriptingParticleChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_add_key,
                 __buffer,
             )
         };
@@ -9586,7 +10086,8 @@ impl UMovieSceneScriptingParticleChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_PARTICLE_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_particle_channel_add_key,
                 __buffer,
             )
         };
@@ -9623,7 +10124,8 @@ impl UMovieSceneScriptingStringKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_set_value,
                 __buffer,
             )
         };
@@ -9640,7 +10142,8 @@ impl UMovieSceneScriptingStringKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_set_value,
                 __buffer,
             )
         };
@@ -9658,7 +10161,8 @@ impl UMovieSceneScriptingStringKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_set_time,
                 __buffer,
             )
         };
@@ -9687,7 +10191,8 @@ impl UMovieSceneScriptingStringKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_set_time,
                 __buffer,
             )
         };
@@ -9700,7 +10205,8 @@ impl UMovieSceneScriptingStringKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_get_value,
                 __buffer,
             )
         };
@@ -9710,7 +10216,8 @@ impl UMovieSceneScriptingStringKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_get_value,
                 __buffer,
             )
         };
@@ -9727,7 +10234,8 @@ impl UMovieSceneScriptingStringKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_get_time,
                 __buffer,
             )
         };
@@ -9746,7 +10254,8 @@ impl UMovieSceneScriptingStringKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_key_get_time,
                 __buffer,
             )
         };
@@ -9790,7 +10299,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_transform,
                 __buffer,
             )
         };
@@ -9833,7 +10343,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_transform,
                 __buffer,
             )
         };
@@ -9846,7 +10357,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_set_default,
                 __buffer,
             )
         };
@@ -9863,7 +10375,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_set_default,
                 __buffer,
             )
         };
@@ -9876,7 +10389,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_remove_key,
                 __buffer,
             )
         };
@@ -9893,7 +10407,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_remove_key,
                 __buffer,
             )
         };
@@ -9906,7 +10421,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_remove_default,
                 __buffer,
             )
         };
@@ -9916,7 +10432,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_remove_default,
                 __buffer,
             )
         };
@@ -9929,7 +10446,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_has_default,
                 __buffer,
             )
         };
@@ -9939,7 +10457,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_has_default,
                 __buffer,
             )
         };
@@ -9956,7 +10475,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -9973,7 +10493,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -9989,7 +10510,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_keys,
                 __buffer,
             )
         };
@@ -9999,7 +10521,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_keys,
                 __buffer,
             )
         };
@@ -10013,7 +10536,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_default,
                 __buffer,
             )
         };
@@ -10023,7 +10547,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_get_default,
                 __buffer,
             )
         };
@@ -10043,7 +10568,8 @@ impl UMovieSceneScriptingStringChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_add_key,
                 __buffer,
             )
         };
@@ -10079,7 +10605,8 @@ impl UMovieSceneScriptingStringChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_STRING_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_string_channel_add_key,
                 __buffer,
             )
         };
@@ -10114,7 +10641,8 @@ impl UMovieSceneScriptingTextKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_set_value,
                 __buffer,
             )
         };
@@ -10131,7 +10659,8 @@ impl UMovieSceneScriptingTextKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_set_value,
                 __buffer,
             )
         };
@@ -10149,7 +10678,8 @@ impl UMovieSceneScriptingTextKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_set_time,
                 __buffer,
             )
         };
@@ -10178,7 +10708,8 @@ impl UMovieSceneScriptingTextKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_SET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_set_time,
                 __buffer,
             )
         };
@@ -10191,7 +10722,8 @@ impl UMovieSceneScriptingTextKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_get_value,
                 __buffer,
             )
         };
@@ -10201,7 +10733,8 @@ impl UMovieSceneScriptingTextKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_VALUE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_get_value,
                 __buffer,
             )
         };
@@ -10218,7 +10751,8 @@ impl UMovieSceneScriptingTextKey {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_get_time,
                 __buffer,
             )
         };
@@ -10237,7 +10771,8 @@ impl UMovieSceneScriptingTextKey {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_KEY_GET_TIME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_key_get_time,
                 __buffer,
             )
         };
@@ -10281,7 +10816,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_transform,
                 __buffer,
             )
         };
@@ -10324,7 +10860,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_TRANSFORM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_transform,
                 __buffer,
             )
         };
@@ -10337,7 +10874,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_set_default,
                 __buffer,
             )
         };
@@ -10354,7 +10892,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_SET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_set_default,
                 __buffer,
             )
         };
@@ -10367,7 +10906,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_remove_key,
                 __buffer,
             )
         };
@@ -10384,7 +10924,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_remove_key,
                 __buffer,
             )
         };
@@ -10397,7 +10938,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_remove_default,
                 __buffer,
             )
         };
@@ -10407,7 +10949,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_REMOVE_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_remove_default,
                 __buffer,
             )
         };
@@ -10420,7 +10963,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_has_default,
                 __buffer,
             )
         };
@@ -10430,7 +10974,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_HAS_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_has_default,
                 __buffer,
             )
         };
@@ -10447,7 +10992,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -10464,7 +11010,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS_BY_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_get_keys_by_index,
                 __buffer,
             )
         };
@@ -10480,7 +11027,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_get_keys,
                 __buffer,
             )
         };
@@ -10490,7 +11038,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_KEYS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_get_keys,
                 __buffer,
             )
         };
@@ -10504,7 +11053,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_get_default,
                 __buffer,
             )
         };
@@ -10514,7 +11064,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_GET_DEFAULT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_get_default,
                 __buffer,
             )
         };
@@ -10534,7 +11085,8 @@ impl UMovieSceneScriptingTextChannel {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_add_key,
                 __buffer,
             )
         };
@@ -10570,7 +11122,8 @@ impl UMovieSceneScriptingTextChannel {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SCRIPTING_TEXT_CHANNEL_ADD_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_scripting_text_channel_add_key,
                 __buffer,
             )
         };
@@ -10608,7 +11161,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SPAWNABLE_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_spawnable_binding_id,
                 __buffer,
             )
         };
@@ -10636,7 +11190,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SPAWNABLE_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_spawnable_binding_id,
                 __buffer,
             )
         };
@@ -10652,7 +11207,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_sorting_order,
                 __buffer,
             )
         };
@@ -10678,7 +11234,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_sorting_order,
                 __buffer,
             )
         };
@@ -10694,7 +11251,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_PARENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_parent,
                 __buffer,
             )
         };
@@ -10722,7 +11280,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_PARENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_parent,
                 __buffer,
             )
         };
@@ -10738,7 +11297,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_name,
                 __buffer,
             )
         };
@@ -10764,7 +11324,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_name,
                 __buffer,
             )
         };
@@ -10780,7 +11341,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_display_name,
                 __buffer,
             )
         };
@@ -10806,7 +11368,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_SET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_set_display_name,
                 __buffer,
             )
         };
@@ -10822,7 +11385,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_remove_track,
                 __buffer,
             )
         };
@@ -10850,7 +11414,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_remove_track,
                 __buffer,
             )
         };
@@ -10863,7 +11428,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_remove,
                 __buffer,
             )
         };
@@ -10882,7 +11448,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_REMOVE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_remove,
                 __buffer,
             )
         };
@@ -10898,7 +11465,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_NOT_EQUAL_MOVIE_SCENE_BINDING_PROXY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_not_equal_movie_scene_binding_proxy,
                 __buffer,
             )
         };
@@ -10926,7 +11494,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_NOT_EQUAL_MOVIE_SCENE_BINDING_PROXY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_not_equal_movie_scene_binding_proxy,
                 __buffer,
             )
         };
@@ -10943,7 +11512,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_MOVE_BINDING_CONTENTS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_move_binding_contents,
                 __buffer,
             )
         };
@@ -10971,7 +11541,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_MOVE_BINDING_CONTENTS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_move_binding_contents,
                 __buffer,
             )
         };
@@ -10986,7 +11557,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_IS_VALID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_is_valid,
                 __buffer,
             )
         };
@@ -11005,7 +11577,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_IS_VALID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_is_valid,
                 __buffer,
             )
         };
@@ -11021,7 +11594,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_TRACKS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_tracks,
                 __buffer,
             )
         };
@@ -11040,7 +11614,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_TRACKS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_tracks,
                 __buffer,
             )
         };
@@ -11061,7 +11636,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_sorting_order,
                 __buffer,
             )
         };
@@ -11080,7 +11656,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_sorting_order,
                 __buffer,
             )
         };
@@ -11096,7 +11673,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_POSSESSED_OBJECT_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_possessed_object_class,
                 __buffer,
             )
         };
@@ -11115,7 +11693,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_POSSESSED_OBJECT_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_possessed_object_class,
                 __buffer,
             )
         };
@@ -11136,7 +11715,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_PARENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_parent,
                 __buffer,
             )
         };
@@ -11155,7 +11735,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_PARENT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_parent,
                 __buffer,
             )
         };
@@ -11176,7 +11757,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_OBJECT_TEMPLATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_object_template,
                 __buffer,
             )
         };
@@ -11195,7 +11777,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_OBJECT_TEMPLATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_object_template,
                 __buffer,
             )
         };
@@ -11216,7 +11799,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_name,
                 __buffer,
             )
         };
@@ -11235,7 +11819,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_name,
                 __buffer,
             )
         };
@@ -11251,7 +11836,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_id,
                 __buffer,
             )
         };
@@ -11270,7 +11856,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_id,
                 __buffer,
             )
         };
@@ -11288,7 +11875,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_display_name,
                 __buffer,
             )
         };
@@ -11307,7 +11895,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_display_name,
                 __buffer,
             )
         };
@@ -11323,7 +11912,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_CHILD_POSSESSABLES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_child_possessables,
                 __buffer,
             )
         };
@@ -11342,7 +11932,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_GET_CHILD_POSSESSABLES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_get_child_possessables,
                 __buffer,
             )
         };
@@ -11364,7 +11955,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_find_tracks_by_type,
                 __buffer,
             )
         };
@@ -11394,7 +11986,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_find_tracks_by_type,
                 __buffer,
             )
         };
@@ -11416,7 +12009,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_find_tracks_by_exact_type,
                 __buffer,
             )
         };
@@ -11446,7 +12040,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_find_tracks_by_exact_type,
                 __buffer,
             )
         };
@@ -11468,7 +12063,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_EQUAL_EQUAL_MOVIE_SCENE_BINDING_PROXY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_equal_equal_movie_scene_binding_proxy,
                 __buffer,
             )
         };
@@ -11496,7 +12092,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_EQUAL_EQUAL_MOVIE_SCENE_BINDING_PROXY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_equal_equal_movie_scene_binding_proxy,
                 __buffer,
             )
         };
@@ -11513,7 +12110,8 @@ impl UMovieSceneBindingExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_ADD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_add_track,
                 __buffer,
             )
         };
@@ -11543,7 +12141,8 @@ impl UMovieSceneBindingExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_BINDING_EXTENSIONS_ADD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_binding_extensions_add_track,
                 __buffer,
             )
         };
@@ -11585,7 +12184,8 @@ impl UMovieSceneEventTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_GET_BOUND_OBJECT_PROPERTY_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_get_bound_object_property_class,
                 __buffer,
             )
         };
@@ -11604,7 +12204,8 @@ impl UMovieSceneEventTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_GET_BOUND_OBJECT_PROPERTY_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_get_bound_object_property_class,
                 __buffer,
             )
         };
@@ -11625,7 +12226,8 @@ impl UMovieSceneEventTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_TRIGGER_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_add_event_trigger_section,
                 __buffer,
             )
         };
@@ -11646,7 +12248,8 @@ impl UMovieSceneEventTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_TRIGGER_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_add_event_trigger_section,
                 __buffer,
             )
         };
@@ -11671,7 +12274,8 @@ impl UMovieSceneEventTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_REPEATER_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_add_event_repeater_section,
                 __buffer,
             )
         };
@@ -11692,7 +12296,8 @@ impl UMovieSceneEventTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_EVENT_TRACK_EXTENSIONS_ADD_EVENT_REPEATER_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_event_track_extensions_add_event_repeater_section,
                 __buffer,
             )
         };
@@ -11739,7 +12344,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_set_folder_name,
                 __buffer,
             )
         };
@@ -11765,7 +12371,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_set_folder_name,
                 __buffer,
             )
         };
@@ -11782,7 +12389,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_COLOR,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_set_folder_color,
                 __buffer,
             )
         };
@@ -11808,7 +12416,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_SET_FOLDER_COLOR,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_set_folder_color,
                 __buffer,
             )
         };
@@ -11825,7 +12434,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_track,
                 __buffer,
             )
         };
@@ -11853,7 +12463,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_track,
                 __buffer,
             )
         };
@@ -11870,7 +12481,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_OBJECT_BINDING,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_object_binding,
                 __buffer,
             )
         };
@@ -11898,7 +12510,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_OBJECT_BINDING,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_object_binding,
                 __buffer,
             )
         };
@@ -11915,7 +12528,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_FOLDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_folder,
                 __buffer,
             )
         };
@@ -11943,7 +12557,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_REMOVE_CHILD_FOLDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_remove_child_folder,
                 __buffer,
             )
         };
@@ -11959,7 +12574,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_folder_name,
                 __buffer,
             )
         };
@@ -11978,7 +12594,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_folder_name,
                 __buffer,
             )
         };
@@ -11994,7 +12611,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_COLOR,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_folder_color,
                 __buffer,
             )
         };
@@ -12013,7 +12631,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_FOLDER_COLOR,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_folder_color,
                 __buffer,
             )
         };
@@ -12031,7 +12650,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_TRACKS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_tracks,
                 __buffer,
             )
         };
@@ -12050,7 +12670,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_TRACKS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_tracks,
                 __buffer,
             )
         };
@@ -12071,7 +12692,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_OBJECT_BINDINGS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_object_bindings,
                 __buffer,
             )
         };
@@ -12090,7 +12712,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_OBJECT_BINDINGS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_object_bindings,
                 __buffer,
             )
         };
@@ -12111,7 +12734,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_FOLDERS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_folders,
                 __buffer,
             )
         };
@@ -12130,7 +12754,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_GET_CHILD_FOLDERS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_get_child_folders,
                 __buffer,
             )
         };
@@ -12152,7 +12777,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_add_child_track,
                 __buffer,
             )
         };
@@ -12180,7 +12806,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_add_child_track,
                 __buffer,
             )
         };
@@ -12197,7 +12824,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_OBJECT_BINDING,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_add_child_object_binding,
                 __buffer,
             )
         };
@@ -12225,7 +12853,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_OBJECT_BINDING,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_add_child_object_binding,
                 __buffer,
             )
         };
@@ -12242,7 +12871,8 @@ impl UMovieSceneFolderExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_FOLDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_add_child_folder,
                 __buffer,
             )
         };
@@ -12270,7 +12900,8 @@ impl UMovieSceneFolderExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FOLDER_EXTENSIONS_ADD_CHILD_FOLDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_folder_extensions_add_child_folder,
                 __buffer,
             )
         };
@@ -12310,7 +12941,8 @@ impl UMovieSceneMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_set_material_info,
                 __buffer,
             )
         };
@@ -12344,7 +12976,8 @@ impl UMovieSceneMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_set_material_info,
                 __buffer,
             )
         };
@@ -12362,7 +12995,8 @@ impl UMovieSceneMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_set_material_index,
                 __buffer,
             )
         };
@@ -12392,7 +13026,8 @@ impl UMovieSceneMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_set_material_index,
                 __buffer,
             )
         };
@@ -12409,7 +13044,8 @@ impl UMovieSceneMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_get_material_info,
                 __buffer,
             )
         };
@@ -12432,7 +13068,8 @@ impl UMovieSceneMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_get_material_info,
                 __buffer,
             )
         };
@@ -12455,7 +13092,8 @@ impl UMovieSceneMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_get_material_index,
                 __buffer,
             )
         };
@@ -12478,7 +13116,8 @@ impl UMovieSceneMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_material_track_extensions_get_material_index,
                 __buffer,
             )
         };
@@ -12518,7 +13157,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_set_material_info,
                 __buffer,
             )
         };
@@ -12552,7 +13192,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_set_material_info,
                 __buffer,
             )
         };
@@ -12570,7 +13211,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_set_material_index,
                 __buffer,
             )
         };
@@ -12600,7 +13242,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_SET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_set_material_index,
                 __buffer,
             )
         };
@@ -12617,7 +13260,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_get_material_info,
                 __buffer,
             )
         };
@@ -12640,7 +13284,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INFO,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_get_material_info,
                 __buffer,
             )
         };
@@ -12663,7 +13308,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_get_material_index,
                 __buffer,
             )
         };
@@ -12686,7 +13332,8 @@ impl UMovieScenePrimitiveMaterialTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PRIMITIVE_MATERIAL_TRACK_EXTENSIONS_GET_MATERIAL_INDEX,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_primitive_material_track_extensions_get_material_index,
                 __buffer,
             )
         };
@@ -12725,7 +13372,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_PROPERTY_NAME_AND_PATH,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_property_name_and_path,
                 __buffer,
             )
         };
@@ -12762,7 +13410,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_PROPERTY_NAME_AND_PATH,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_property_name_and_path,
                 __buffer,
             )
         };
@@ -12779,7 +13428,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_OBJECT_PROPERTY_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_object_property_class,
                 __buffer,
             )
         };
@@ -12818,7 +13468,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_OBJECT_PROPERTY_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_object_property_class,
                 __buffer,
             )
         };
@@ -12834,7 +13485,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_BYTE_TRACK_ENUM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_byte_track_enum,
                 __buffer,
             )
         };
@@ -12862,7 +13514,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_SET_BYTE_TRACK_ENUM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_set_byte_track_enum,
                 __buffer,
             )
         };
@@ -12877,7 +13530,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_UNIQUE_TRACK_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_unique_track_name,
                 __buffer,
             )
         };
@@ -12900,7 +13554,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_UNIQUE_TRACK_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_unique_track_name,
                 __buffer,
             )
         };
@@ -12916,7 +13571,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_PATH,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_property_path,
                 __buffer,
             )
         };
@@ -12939,7 +13595,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_PATH,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_property_path,
                 __buffer,
             )
         };
@@ -12955,7 +13612,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_property_name,
                 __buffer,
             )
         };
@@ -12978,7 +13636,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_PROPERTY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_property_name,
                 __buffer,
             )
         };
@@ -12994,7 +13653,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_OBJECT_PROPERTY_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_object_property_class,
                 __buffer,
             )
         };
@@ -13017,7 +13677,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_OBJECT_PROPERTY_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_object_property_class,
                 __buffer,
             )
         };
@@ -13038,7 +13699,8 @@ impl UMovieScenePropertyTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_BYTE_TRACK_ENUM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_byte_track_enum,
                 __buffer,
             )
         };
@@ -13059,7 +13721,8 @@ impl UMovieScenePropertyTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_PROPERTY_TRACK_EXTENSIONS_GET_BYTE_TRACK_ENUM,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_property_track_extensions_get_byte_track_enum,
                 __buffer,
             )
         };
@@ -13099,7 +13762,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame_seconds,
                 __buffer,
             )
         };
@@ -13121,7 +13785,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame_seconds,
                 __buffer,
             )
         };
@@ -13137,7 +13802,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_BOUNDED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame_bounded,
                 __buffer,
             )
         };
@@ -13163,7 +13829,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME_BOUNDED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame_bounded,
                 __buffer,
             )
         };
@@ -13179,7 +13846,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame,
                 __buffer,
             )
         };
@@ -13205,7 +13873,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_start_frame,
                 __buffer,
             )
         };
@@ -13222,7 +13891,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_range_seconds,
                 __buffer,
             )
         };
@@ -13247,7 +13917,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_range_seconds,
                 __buffer,
             )
         };
@@ -13264,7 +13935,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_range,
                 __buffer,
             )
         };
@@ -13293,7 +13965,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_range,
                 __buffer,
             )
         };
@@ -13309,7 +13982,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame_seconds,
                 __buffer,
             )
         };
@@ -13331,7 +14005,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame_seconds,
                 __buffer,
             )
         };
@@ -13347,7 +14022,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_BOUNDED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame_bounded,
                 __buffer,
             )
         };
@@ -13373,7 +14049,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME_BOUNDED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame_bounded,
                 __buffer,
             )
         };
@@ -13389,7 +14066,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame,
                 __buffer,
             )
         };
@@ -13411,7 +14089,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_SET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_set_end_frame,
                 __buffer,
             )
         };
@@ -13426,7 +14105,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_has_start_frame,
                 __buffer,
             )
         };
@@ -13445,7 +14125,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_has_start_frame,
                 __buffer,
             )
         };
@@ -13461,7 +14142,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_has_end_frame,
                 __buffer,
             )
         };
@@ -13480,7 +14162,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_HAS_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_has_end_frame,
                 __buffer,
             )
         };
@@ -13496,7 +14179,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_start_frame_seconds,
                 __buffer,
             )
         };
@@ -13515,7 +14199,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_start_frame_seconds,
                 __buffer,
             )
         };
@@ -13531,7 +14216,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_start_frame,
                 __buffer,
             )
         };
@@ -13550,7 +14236,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_start_frame,
                 __buffer,
             )
         };
@@ -13568,7 +14255,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_PARENT_SEQUENCE_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_parent_sequence_frame,
                 __buffer,
             )
         };
@@ -13599,7 +14287,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_PARENT_SEQUENCE_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_parent_sequence_frame,
                 __buffer,
             )
         };
@@ -13615,7 +14304,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_end_frame_seconds,
                 __buffer,
             )
         };
@@ -13634,7 +14324,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_end_frame_seconds,
                 __buffer,
             )
         };
@@ -13650,7 +14341,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_end_frame,
                 __buffer,
             )
         };
@@ -13669,7 +14361,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_end_frame,
                 __buffer,
             )
         };
@@ -13686,7 +14379,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNELS_BY_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_channels_by_type,
                 __buffer,
             )
         };
@@ -13712,7 +14406,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNELS_BY_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_channels_by_type,
                 __buffer,
             )
         };
@@ -13731,7 +14426,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNEL,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_channel,
                 __buffer,
             )
         };
@@ -13757,7 +14453,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_CHANNEL,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_channel,
                 __buffer,
             )
         };
@@ -13773,7 +14470,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_start_frame_seconds,
                 __buffer,
             )
         };
@@ -13792,7 +14490,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_start_frame_seconds,
                 __buffer,
             )
         };
@@ -13808,7 +14507,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_start_frame,
                 __buffer,
             )
         };
@@ -13827,7 +14527,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_start_frame,
                 __buffer,
             )
         };
@@ -13843,7 +14544,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_has_start_frame,
                 __buffer,
             )
         };
@@ -13862,7 +14564,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_has_start_frame,
                 __buffer,
             )
         };
@@ -13878,7 +14581,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_has_end_frame,
                 __buffer,
             )
         };
@@ -13897,7 +14601,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_HAS_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_has_end_frame,
                 __buffer,
             )
         };
@@ -13913,7 +14618,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_end_frame_seconds,
                 __buffer,
             )
         };
@@ -13932,7 +14638,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_end_frame_seconds,
                 __buffer,
             )
         };
@@ -13948,7 +14655,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_end_frame,
                 __buffer,
             )
         };
@@ -13967,7 +14675,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_AUTO_SIZE_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_auto_size_end_frame,
                 __buffer,
             )
         };
@@ -13983,7 +14692,8 @@ impl UMovieSceneSectionExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_ALL_CHANNELS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_all_channels,
                 __buffer,
             )
         };
@@ -14002,7 +14712,8 @@ impl UMovieSceneSectionExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SECTION_EXTENSIONS_GET_ALL_CHANNELS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_section_extensions_get_all_channels,
                 __buffer,
             )
         };
@@ -14041,7 +14752,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SORT_MARKED_FRAMES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_sort_marked_frames,
                 __buffer,
             )
         };
@@ -14060,7 +14772,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SORT_MARKED_FRAMES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_sort_marked_frames,
                 __buffer,
             )
         };
@@ -14076,7 +14789,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_work_range_start,
                 __buffer,
             )
         };
@@ -14102,7 +14816,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_work_range_start,
                 __buffer,
             )
         };
@@ -14118,7 +14833,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_work_range_end,
                 __buffer,
             )
         };
@@ -14144,7 +14860,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_WORK_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_work_range_end,
                 __buffer,
             )
         };
@@ -14160,7 +14877,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_view_range_start,
                 __buffer,
             )
         };
@@ -14186,7 +14904,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_view_range_start,
                 __buffer,
             )
         };
@@ -14202,7 +14921,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_view_range_end,
                 __buffer,
             )
         };
@@ -14228,7 +14948,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_VIEW_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_view_range_end,
                 __buffer,
             )
         };
@@ -14244,7 +14965,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION_DIRECTLY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_tick_resolution_directly,
                 __buffer,
             )
         };
@@ -14270,7 +14992,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION_DIRECTLY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_tick_resolution_directly,
                 __buffer,
             )
         };
@@ -14286,7 +15009,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_tick_resolution,
                 __buffer,
             )
         };
@@ -14312,7 +15036,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_TICK_RESOLUTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_tick_resolution,
                 __buffer,
             )
         };
@@ -14328,7 +15053,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_READ_ONLY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_read_only,
                 __buffer,
             )
         };
@@ -14354,7 +15080,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_READ_ONLY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_read_only,
                 __buffer,
             )
         };
@@ -14370,7 +15097,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_start_seconds,
                 __buffer,
             )
         };
@@ -14392,7 +15120,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_start_seconds,
                 __buffer,
             )
         };
@@ -14408,7 +15137,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_start,
                 __buffer,
             )
         };
@@ -14434,7 +15164,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_start,
                 __buffer,
             )
         };
@@ -14450,7 +15181,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_RANGE_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_range_locked,
                 __buffer,
             )
         };
@@ -14476,7 +15208,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_RANGE_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_range_locked,
                 __buffer,
             )
         };
@@ -14492,7 +15225,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_end_seconds,
                 __buffer,
             )
         };
@@ -14514,7 +15248,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_end_seconds,
                 __buffer,
             )
         };
@@ -14530,7 +15265,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_end,
                 __buffer,
             )
         };
@@ -14552,7 +15288,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_PLAYBACK_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_playback_end,
                 __buffer,
             )
         };
@@ -14568,7 +15305,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAMES_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frames_locked,
                 __buffer,
             )
         };
@@ -14594,7 +15332,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAMES_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frames_locked,
                 __buffer,
             )
         };
@@ -14612,7 +15351,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frame_in_sequence,
                 __buffer,
             )
         };
@@ -14654,7 +15394,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frame_in_sequence,
                 __buffer,
             )
         };
@@ -14671,7 +15412,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frame,
                 __buffer,
             )
         };
@@ -14704,7 +15446,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_marked_frame,
                 __buffer,
             )
         };
@@ -14720,7 +15463,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_EVALUATION_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_evaluation_type,
                 __buffer,
             )
         };
@@ -14748,7 +15492,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_EVALUATION_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_evaluation_type,
                 __buffer,
             )
         };
@@ -14764,7 +15509,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_DISPLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_display_rate,
                 __buffer,
             )
         };
@@ -14790,7 +15536,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_DISPLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_display_rate,
                 __buffer,
             )
         };
@@ -14806,7 +15553,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_CLOCK_SOURCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_clock_source,
                 __buffer,
             )
         };
@@ -14834,7 +15582,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_SET_CLOCK_SOURCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_set_clock_source,
                 __buffer,
             )
         };
@@ -14850,7 +15599,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_RESOLVE_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_resolve_binding_id,
                 __buffer,
             )
         };
@@ -14878,7 +15628,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_RESOLVE_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_resolve_binding_id,
                 __buffer,
             )
         };
@@ -14900,7 +15651,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_remove_track,
                 __buffer,
             )
         };
@@ -14928,7 +15680,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_remove_track,
                 __buffer,
             )
         };
@@ -14945,7 +15698,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_ROOT_FOLDER_FROM_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_remove_root_folder_from_sequence,
                 __buffer,
             )
         };
@@ -14973,7 +15727,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_REMOVE_ROOT_FOLDER_FROM_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_remove_root_folder_from_sequence,
                 __buffer,
             )
         };
@@ -14990,7 +15745,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_make_range_seconds,
                 __buffer,
             )
         };
@@ -15015,7 +15771,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_make_range_seconds,
                 __buffer,
             )
         };
@@ -15033,7 +15790,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_make_range,
                 __buffer,
             )
         };
@@ -15062,7 +15820,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_MAKE_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_make_range,
                 __buffer,
             )
         };
@@ -15080,7 +15839,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_LOCATE_BOUND_OBJECTS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_locate_bound_objects,
                 __buffer,
             )
         };
@@ -15115,7 +15875,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_LOCATE_BOUND_OBJECTS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_locate_bound_objects,
                 __buffer,
             )
         };
@@ -15136,7 +15897,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_READ_ONLY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_is_read_only,
                 __buffer,
             )
         };
@@ -15155,7 +15917,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_READ_ONLY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_is_read_only,
                 __buffer,
             )
         };
@@ -15171,7 +15934,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_PLAYBACK_RANGE_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_is_playback_range_locked,
                 __buffer,
             )
         };
@@ -15190,7 +15954,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_IS_PLAYBACK_RANGE_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_is_playback_range_locked,
                 __buffer,
             )
         };
@@ -15206,7 +15971,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_work_range_start,
                 __buffer,
             )
         };
@@ -15225,7 +15991,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_work_range_start,
                 __buffer,
             )
         };
@@ -15241,7 +16008,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_work_range_end,
                 __buffer,
             )
         };
@@ -15260,7 +16028,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_WORK_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_work_range_end,
                 __buffer,
             )
         };
@@ -15276,7 +16045,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_view_range_start,
                 __buffer,
             )
         };
@@ -15295,7 +16065,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_view_range_start,
                 __buffer,
             )
         };
@@ -15311,7 +16082,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_view_range_end,
                 __buffer,
             )
         };
@@ -15330,7 +16102,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_VIEW_RANGE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_view_range_end,
                 __buffer,
             )
         };
@@ -15346,7 +16119,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TRACKS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_tracks,
                 __buffer,
             )
         };
@@ -15365,7 +16139,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TRACKS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_tracks,
                 __buffer,
             )
         };
@@ -15386,7 +16161,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TICK_RESOLUTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_tick_resolution,
                 __buffer,
             )
         };
@@ -15405,7 +16181,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_TICK_RESOLUTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_tick_resolution,
                 __buffer,
             )
         };
@@ -15423,7 +16200,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_SPAWNABLES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_spawnables,
                 __buffer,
             )
         };
@@ -15442,7 +16220,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_SPAWNABLES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_spawnables,
                 __buffer,
             )
         };
@@ -15463,7 +16242,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_ROOT_FOLDERS_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_root_folders_in_sequence,
                 __buffer,
             )
         };
@@ -15482,7 +16262,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_ROOT_FOLDERS_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_root_folders_in_sequence,
                 __buffer,
             )
         };
@@ -15503,7 +16284,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_POSSESSABLES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_possessables,
                 __buffer,
             )
         };
@@ -15522,7 +16304,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_POSSESSABLES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_possessables,
                 __buffer,
             )
         };
@@ -15545,7 +16328,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PORTABLE_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_portable_binding_id,
                 __buffer,
             )
         };
@@ -15582,7 +16366,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PORTABLE_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_portable_binding_id,
                 __buffer,
             )
         };
@@ -15603,7 +16388,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_start_seconds,
                 __buffer,
             )
         };
@@ -15622,7 +16408,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_start_seconds,
                 __buffer,
             )
         };
@@ -15638,7 +16425,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_start,
                 __buffer,
             )
         };
@@ -15657,7 +16445,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_start,
                 __buffer,
             )
         };
@@ -15673,7 +16462,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_range,
                 __buffer,
             )
         };
@@ -15692,7 +16482,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_RANGE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_range,
                 __buffer,
             )
         };
@@ -15708,7 +16499,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_end_seconds,
                 __buffer,
             )
         };
@@ -15727,7 +16519,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_end_seconds,
                 __buffer,
             )
         };
@@ -15743,7 +16536,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_end,
                 __buffer,
             )
         };
@@ -15762,7 +16556,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_PLAYBACK_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_playback_end,
                 __buffer,
             )
         };
@@ -15778,7 +16573,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MOVIE_SCENE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_movie_scene,
                 __buffer,
             )
         };
@@ -15797,7 +16593,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MOVIE_SCENE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_movie_scene,
                 __buffer,
             )
         };
@@ -15819,7 +16616,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES_FROM_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_marked_frames_from_sequence,
                 __buffer,
             )
         };
@@ -15847,7 +16645,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES_FROM_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_marked_frames_from_sequence,
                 __buffer,
             )
         };
@@ -15868,7 +16667,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_marked_frames,
                 __buffer,
             )
         };
@@ -15887,7 +16687,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_MARKED_FRAMES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_marked_frames,
                 __buffer,
             )
         };
@@ -15908,7 +16709,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_EVALUATION_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_evaluation_type,
                 __buffer,
             )
         };
@@ -15927,7 +16729,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_EVALUATION_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_evaluation_type,
                 __buffer,
             )
         };
@@ -15948,7 +16751,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_DISPLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_display_rate,
                 __buffer,
             )
         };
@@ -15967,7 +16771,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_DISPLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_display_rate,
                 __buffer,
             )
         };
@@ -15985,7 +16790,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CUSTOM_CLOCK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_custom_clock,
                 __buffer,
             )
         };
@@ -16004,7 +16810,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CUSTOM_CLOCK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_custom_clock,
                 __buffer,
             )
         };
@@ -16025,7 +16832,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CLOCK_SOURCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_clock_source,
                 __buffer,
             )
         };
@@ -16044,7 +16852,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_CLOCK_SOURCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_clock_source,
                 __buffer,
             )
         };
@@ -16065,7 +16874,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDINGS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_bindings,
                 __buffer,
             )
         };
@@ -16084,7 +16894,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDINGS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_bindings,
                 __buffer,
             )
         };
@@ -16106,7 +16917,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_binding_id,
                 __buffer,
             )
         };
@@ -16134,7 +16946,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_GET_BINDING_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_get_binding_id,
                 __buffer,
             )
         };
@@ -16156,7 +16969,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_tracks_by_type,
                 __buffer,
             )
         };
@@ -16186,7 +17000,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_tracks_by_type,
                 __buffer,
             )
         };
@@ -16208,7 +17023,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_tracks_by_exact_type,
                 __buffer,
             )
         };
@@ -16238,7 +17054,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_TRACKS_BY_EXACT_TYPE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_tracks_by_exact_type,
                 __buffer,
             )
         };
@@ -16262,7 +17079,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_next_marked_frame_in_sequence,
                 __buffer,
             )
         };
@@ -16304,7 +17122,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_next_marked_frame_in_sequence,
                 __buffer,
             )
         };
@@ -16322,7 +17141,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_next_marked_frame,
                 __buffer,
             )
         };
@@ -16355,7 +17175,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_NEXT_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_next_marked_frame,
                 __buffer,
             )
         };
@@ -16372,7 +17193,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_LABEL,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_label,
                 __buffer,
             )
         };
@@ -16398,7 +17220,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_LABEL,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_label,
                 __buffer,
             )
         };
@@ -16416,7 +17239,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number_in_sequence,
                 __buffer,
             )
         };
@@ -16451,7 +17275,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER_IN_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number_in_sequence,
                 __buffer,
             )
         };
@@ -16468,7 +17293,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number,
                 __buffer,
             )
         };
@@ -16494,7 +17320,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_MARKED_FRAME_BY_FRAME_NUMBER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_marked_frame_by_frame_number,
                 __buffer,
             )
         };
@@ -16511,7 +17338,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_binding_by_name,
                 __buffer,
             )
         };
@@ -16533,7 +17361,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_binding_by_name,
                 __buffer,
             )
         };
@@ -16555,7 +17384,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_binding_by_id,
                 __buffer,
             )
         };
@@ -16581,7 +17411,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_FIND_BINDING_BY_ID,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_find_binding_by_id,
                 __buffer,
             )
         };
@@ -16602,7 +17433,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAMES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_delete_marked_frames,
                 __buffer,
             )
         };
@@ -16621,7 +17453,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAMES,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_delete_marked_frames,
                 __buffer,
             )
         };
@@ -16637,7 +17470,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_delete_marked_frame,
                 __buffer,
             )
         };
@@ -16663,7 +17497,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_DELETE_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_delete_marked_frame,
                 __buffer,
             )
         };
@@ -16678,7 +17513,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ARE_MARKED_FRAMES_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_are_marked_frames_locked,
                 __buffer,
             )
         };
@@ -16697,7 +17533,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ARE_MARKED_FRAMES_LOCKED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_are_marked_frames_locked,
                 __buffer,
             )
         };
@@ -16714,7 +17551,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_track,
                 __buffer,
             )
         };
@@ -16744,7 +17582,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_TRACK,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_track,
                 __buffer,
             )
         };
@@ -16766,7 +17605,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_INSTANCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_spawnable_from_instance,
                 __buffer,
             )
         };
@@ -16792,7 +17632,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_INSTANCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_spawnable_from_instance,
                 __buffer,
             )
         };
@@ -16814,7 +17655,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_spawnable_from_class,
                 __buffer,
             )
         };
@@ -16842,7 +17684,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_SPAWNABLE_FROM_CLASS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_spawnable_from_class,
                 __buffer,
             )
         };
@@ -16864,7 +17707,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_ROOT_FOLDER_TO_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_root_folder_to_sequence,
                 __buffer,
             )
         };
@@ -16890,7 +17734,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_ROOT_FOLDER_TO_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_root_folder_to_sequence,
                 __buffer,
             )
         };
@@ -16912,7 +17757,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_POSSESSABLE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_possessable,
                 __buffer,
             )
         };
@@ -16938,7 +17784,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_POSSESSABLE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_possessable,
                 __buffer,
             )
         };
@@ -16961,7 +17808,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME_TO_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_marked_frame_to_sequence,
                 __buffer,
             )
         };
@@ -16998,7 +17846,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME_TO_SEQUENCE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_marked_frame_to_sequence,
                 __buffer,
             )
         };
@@ -17015,7 +17864,8 @@ impl UMovieSceneSequenceExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_marked_frame,
                 __buffer,
             )
         };
@@ -17043,7 +17893,8 @@ impl UMovieSceneSequenceExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_SEQUENCE_EXTENSIONS_ADD_MARKED_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_extensions_add_marked_frame,
                 __buffer,
             )
         };
@@ -17080,7 +17931,8 @@ impl UMovieSceneTimeWarpExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_TO_FIXED_PLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_to_fixed_play_rate,
                 __buffer,
             )
         };
@@ -17099,7 +17951,8 @@ impl UMovieSceneTimeWarpExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_TO_FIXED_PLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_to_fixed_play_rate,
                 __buffer,
             )
         };
@@ -17116,7 +17969,8 @@ impl UMovieSceneTimeWarpExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_SET_FIXED_PLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_set_fixed_play_rate,
                 __buffer,
             )
         };
@@ -17142,7 +17996,8 @@ impl UMovieSceneTimeWarpExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_SET_FIXED_PLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_set_fixed_play_rate,
                 __buffer,
             )
         };
@@ -17163,7 +18018,8 @@ impl UMovieSceneTimeWarpExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_MAKE_TIME_WARP,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_make_time_warp,
                 __buffer,
             )
         };
@@ -17180,7 +18036,8 @@ impl UMovieSceneTimeWarpExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_MAKE_TIME_WARP,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_make_time_warp,
                 __buffer,
             )
         };
@@ -17201,7 +18058,8 @@ impl UMovieSceneTimeWarpExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_TIME_WARP_VARIANT_TO_PLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_conv_time_warp_variant_to_play_rate,
                 __buffer,
             )
         };
@@ -17220,7 +18078,8 @@ impl UMovieSceneTimeWarpExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_TIME_WARP_VARIANT_TO_PLAY_RATE,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_conv_time_warp_variant_to_play_rate,
                 __buffer,
             )
         };
@@ -17236,7 +18095,8 @@ impl UMovieSceneTimeWarpExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_PLAY_RATE_TO_TIME_WARP_VARIANT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_conv_play_rate_to_time_warp_variant,
                 __buffer,
             )
         };
@@ -17253,7 +18113,8 @@ impl UMovieSceneTimeWarpExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_CONV_PLAY_RATE_TO_TIME_WARP_VARIANT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_conv_play_rate_to_time_warp_variant,
                 __buffer,
             )
         };
@@ -17275,7 +18136,8 @@ impl UMovieSceneTimeWarpExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_BREAK_TIME_WARP,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_break_time_warp,
                 __buffer,
             )
         };
@@ -17301,7 +18163,8 @@ impl UMovieSceneTimeWarpExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TIME_WARP_EXTENSIONS_BREAK_TIME_WARP,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_time_warp_extensions_break_time_warp,
                 __buffer,
             )
         };
@@ -17342,7 +18205,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_TRACK_ROW_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_track_row_display_name,
                 __buffer,
             )
         };
@@ -17367,7 +18231,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_TRACK_ROW_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_track_row_display_name,
                 __buffer,
             )
         };
@@ -17383,7 +18248,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_sorting_order,
                 __buffer,
             )
         };
@@ -17409,7 +18275,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_sorting_order,
                 __buffer,
             )
         };
@@ -17425,7 +18292,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SECTION_TO_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_section_to_key,
                 __buffer,
             )
         };
@@ -17453,7 +18321,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_SECTION_TO_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_section_to_key,
                 __buffer,
             )
         };
@@ -17469,7 +18338,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_display_name,
                 __buffer,
             )
         };
@@ -17491,7 +18361,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_display_name,
                 __buffer,
             )
         };
@@ -17507,7 +18378,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_COLOR_TINT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_color_tint,
                 __buffer,
             )
         };
@@ -17533,7 +18405,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_SET_COLOR_TINT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_set_color_tint,
                 __buffer,
             )
         };
@@ -17549,7 +18422,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_REMOVE_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_remove_section,
                 __buffer,
             )
         };
@@ -17577,7 +18451,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_REMOVE_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_remove_section,
                 __buffer,
             )
         };
@@ -17593,7 +18468,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_TRACK_ROW_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_track_row_display_name,
                 __buffer,
             )
         };
@@ -17615,7 +18491,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_TRACK_ROW_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_track_row_display_name,
                 __buffer,
             )
         };
@@ -17631,7 +18508,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_sorting_order,
                 __buffer,
             )
         };
@@ -17650,7 +18528,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SORTING_ORDER,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_sorting_order,
                 __buffer,
             )
         };
@@ -17666,7 +18545,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTION_TO_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_section_to_key,
                 __buffer,
             )
         };
@@ -17685,7 +18565,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTION_TO_KEY,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_section_to_key,
                 __buffer,
             )
         };
@@ -17706,7 +18587,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTIONS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_sections,
                 __buffer,
             )
         };
@@ -17725,7 +18607,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_SECTIONS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_sections,
                 __buffer,
             )
         };
@@ -17746,7 +18629,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_display_name,
                 __buffer,
             )
         };
@@ -17765,7 +18649,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_DISPLAY_NAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_display_name,
                 __buffer,
             )
         };
@@ -17781,7 +18666,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_COLOR_TINT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_color_tint,
                 __buffer,
             )
         };
@@ -17800,7 +18686,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_GET_COLOR_TINT,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_get_color_tint,
                 __buffer,
             )
         };
@@ -17818,7 +18705,8 @@ impl UMovieSceneTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_ADD_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_add_section,
                 __buffer,
             )
         };
@@ -17837,7 +18725,8 @@ impl UMovieSceneTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_TRACK_EXTENSIONS_ADD_SECTION,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_track_extensions_add_section,
                 __buffer,
             )
         };
@@ -17880,7 +18769,8 @@ impl UMovieSceneFloatVectorTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_float_vector_track_extensions_set_num_channels_used,
                 __buffer,
             )
         };
@@ -17910,7 +18800,8 @@ impl UMovieSceneFloatVectorTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_float_vector_track_extensions_set_num_channels_used,
                 __buffer,
             )
         };
@@ -17925,7 +18816,8 @@ impl UMovieSceneFloatVectorTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_float_vector_track_extensions_get_num_channels_used,
                 __buffer,
             )
         };
@@ -17948,7 +18840,8 @@ impl UMovieSceneFloatVectorTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_FLOAT_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_float_vector_track_extensions_get_num_channels_used,
                 __buffer,
             )
         };
@@ -17986,7 +18879,8 @@ impl UMovieSceneDoubleVectorTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_double_vector_track_extensions_set_num_channels_used,
                 __buffer,
             )
         };
@@ -18016,7 +18910,8 @@ impl UMovieSceneDoubleVectorTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_SET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_double_vector_track_extensions_set_num_channels_used,
                 __buffer,
             )
         };
@@ -18031,7 +18926,8 @@ impl UMovieSceneDoubleVectorTrackExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_double_vector_track_extensions_get_num_channels_used,
                 __buffer,
             )
         };
@@ -18054,7 +18950,8 @@ impl UMovieSceneDoubleVectorTrackExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_MOVIE_SCENE_DOUBLE_VECTOR_TRACK_EXTENSIONS_GET_NUM_CHANNELS_USED,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_movie_scene_double_vector_track_extensions_get_num_channels_used,
                 __buffer,
             )
         };
@@ -18089,7 +18986,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_start_seconds,
                 __buffer,
             )
         };
@@ -18109,7 +19007,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_start_seconds,
                 __buffer,
             )
         };
@@ -18125,7 +19024,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_start_frame,
                 __buffer,
             )
         };
@@ -18145,7 +19045,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_start_frame,
                 __buffer,
             )
         };
@@ -18161,7 +19062,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_end_seconds,
                 __buffer,
             )
         };
@@ -18181,7 +19083,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_end_seconds,
                 __buffer,
             )
         };
@@ -18197,7 +19100,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_end_frame,
                 __buffer,
             )
         };
@@ -18217,7 +19121,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_SET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_set_end_frame,
                 __buffer,
             )
         };
@@ -18233,7 +19138,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_remove_start,
                 __buffer,
             )
         };
@@ -18250,7 +19156,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_remove_start,
                 __buffer,
             )
         };
@@ -18266,7 +19173,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_remove_end,
                 __buffer,
             )
         };
@@ -18283,7 +19191,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_REMOVE_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_remove_end,
                 __buffer,
             )
         };
@@ -18299,7 +19208,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_has_start,
                 __buffer,
             )
         };
@@ -18316,7 +19226,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_START,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_has_start,
                 __buffer,
             )
         };
@@ -18330,7 +19241,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_has_end,
                 __buffer,
             )
         };
@@ -18347,7 +19259,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_HAS_END,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_has_end,
                 __buffer,
             )
         };
@@ -18361,7 +19274,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_start_seconds,
                 __buffer,
             )
         };
@@ -18378,7 +19292,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_start_seconds,
                 __buffer,
             )
         };
@@ -18392,7 +19307,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_start_frame,
                 __buffer,
             )
         };
@@ -18409,7 +19325,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_START_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_start_frame,
                 __buffer,
             )
         };
@@ -18423,7 +19340,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_end_seconds,
                 __buffer,
             )
         };
@@ -18440,7 +19358,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_SECONDS,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_end_seconds,
                 __buffer,
             )
         };
@@ -18454,7 +19373,8 @@ impl USequencerScriptingRangeExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_end_frame,
                 __buffer,
             )
         };
@@ -18471,7 +19391,8 @@ impl USequencerScriptingRangeExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_scripting::U_SEQUENCER_SCRIPTING_RANGE_EXTENSIONS_GET_END_FRAME,
+                crate::bindings::sequencer_scripting::__FUNCTION_PTRS
+                    .u_sequencer_scripting_range_extensions_get_end_frame,
                 __buffer,
             )
         };

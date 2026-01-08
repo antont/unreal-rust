@@ -1,22 +1,31 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CABLE_COMPONENT_SET_ATTACH_END_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CABLE_COMPONENT_GET_ATTACHED_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_cable_component_set_attach_end_to_component: *mut crate::ffi::UFunctionOpague,
+    pub u_cable_component_set_attach_end_to: *mut crate::ffi::UFunctionOpague,
+    pub u_cable_component_get_cable_particle_locations: *mut crate::ffi::UFunctionOpague,
+    pub u_cable_component_get_attached_component: *mut crate::ffi::UFunctionOpague,
+    pub u_cable_component_get_attached_actor: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_cable_component_set_attach_end_to_component: std::ptr::null_mut(),
+            u_cable_component_set_attach_end_to: std::ptr::null_mut(),
+            u_cable_component_get_cable_particle_locations: std::ptr::null_mut(),
+            u_cable_component_get_attached_component: std::ptr::null_mut(),
+            u_cable_component_get_attached_actor: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -26,35 +35,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAttachEndToComponent"),
-            &raw mut U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_cable_component_set_attach_end_to_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAttachEndTo"),
-            &raw mut U_CABLE_COMPONENT_SET_ATTACH_END_TO,
+            &raw mut __FUNCTION_PTRS.u_cable_component_set_attach_end_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCableParticleLocations"),
-            &raw mut U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS,
+            &raw mut __FUNCTION_PTRS.u_cable_component_get_cable_particle_locations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttachedComponent"),
-            &raw mut U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_cable_component_get_attached_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttachedActor"),
-            &raw mut U_CABLE_COMPONENT_GET_ATTACHED_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_cable_component_get_attached_actor,
         );
     }
 }
@@ -139,7 +148,8 @@ impl UCableComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_set_attach_end_to_component,
                 __buffer,
             )
         };
@@ -163,7 +173,8 @@ impl UCableComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO_COMPONENT,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_set_attach_end_to_component,
                 __buffer,
             )
         };
@@ -181,7 +192,8 @@ impl UCableComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_set_attach_end_to,
                 __buffer,
             )
         };
@@ -212,7 +224,8 @@ impl UCableComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cable_component::U_CABLE_COMPONENT_SET_ATTACH_END_TO,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_set_attach_end_to,
                 __buffer,
             )
         };
@@ -228,7 +241,8 @@ impl UCableComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_get_cable_particle_locations,
                 __buffer,
             )
         };
@@ -247,7 +261,8 @@ impl UCableComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_CABLE_PARTICLE_LOCATIONS,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_get_cable_particle_locations,
                 __buffer,
             )
         };
@@ -268,7 +283,8 @@ impl UCableComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_get_attached_component,
                 __buffer,
             )
         };
@@ -278,7 +294,8 @@ impl UCableComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_COMPONENT,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_get_attached_component,
                 __buffer,
             )
         };
@@ -297,7 +314,8 @@ impl UCableComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_ACTOR,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_get_attached_actor,
                 __buffer,
             )
         };
@@ -307,7 +325,8 @@ impl UCableComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cable_component::U_CABLE_COMPONENT_GET_ATTACHED_ACTOR,
+                crate::bindings::cable_component::__FUNCTION_PTRS
+                    .u_cable_component_get_attached_actor,
                 __buffer,
             )
         };

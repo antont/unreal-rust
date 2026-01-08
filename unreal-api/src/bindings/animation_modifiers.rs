@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIMATION_MODIFIER_ON_REVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_MODIFIER_ON_APPLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_MODIFIERS_ASSET_USER_DATA_ADD_ANIMATION_MODIFIER_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_animation_modifier_on_revert: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_modifier_on_apply: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_modifiers_asset_user_data_add_animation_modifier_of_class: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_animation_modifier_on_revert: std::ptr::null_mut(),
+            u_animation_modifier_on_apply: std::ptr::null_mut(),
+            u_animation_modifiers_asset_user_data_add_animation_modifier_of_class: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,14 +31,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRevert"),
-            &raw mut U_ANIMATION_MODIFIER_ON_REVERT,
+            &raw mut __FUNCTION_PTRS.u_animation_modifier_on_revert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnApply"),
-            &raw mut U_ANIMATION_MODIFIER_ON_APPLY,
+            &raw mut __FUNCTION_PTRS.u_animation_modifier_on_apply,
         );
     }
     unsafe {
@@ -40,7 +49,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationModifierOfClass"),
-            &raw mut U_ANIMATION_MODIFIERS_ASSET_USER_DATA_ADD_ANIMATION_MODIFIER_OF_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_modifiers_asset_user_data_add_animation_modifier_of_class,
         );
     }
 }
@@ -85,6 +95,76 @@ impl UAnimationModifier {
             cdo
         }
     }
+    pub fn on_revert(
+        &mut self,
+        animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_modifiers::__FUNCTION_PTRS
+                    .u_animation_modifier_on_revert,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation_sequence,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAnimSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_modifiers::__FUNCTION_PTRS
+                    .u_animation_modifier_on_revert,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_apply(
+        &mut self,
+        animation_sequence: UPtr<crate::bindings::engine::UAnimSequence>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_modifiers::__FUNCTION_PTRS
+                    .u_animation_modifier_on_apply,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &animation_sequence,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::UAnimSequence>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_modifiers::__FUNCTION_PTRS
+                    .u_animation_modifier_on_apply,
+                __buffer,
+            )
+        };
+    }
 }
 #[repr(C, align(8))]
 pub struct UAnimationModifiersAssetUserData {
@@ -123,7 +203,8 @@ impl UAnimationModifiersAssetUserData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_modifiers::U_ANIMATION_MODIFIERS_ASSET_USER_DATA_ADD_ANIMATION_MODIFIER_OF_CLASS,
+                crate::bindings::animation_modifiers::__FUNCTION_PTRS
+                    .u_animation_modifiers_asset_user_data_add_animation_modifier_of_class,
                 __buffer,
             )
         };
@@ -149,7 +230,8 @@ impl UAnimationModifiersAssetUserData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_modifiers::U_ANIMATION_MODIFIERS_ASSET_USER_DATA_ADD_ANIMATION_MODIFIER_OF_CLASS,
+                crate::bindings::animation_modifiers::__FUNCTION_PTRS
+                    .u_animation_modifiers_asset_user_data_add_animation_modifier_of_class,
                 __buffer,
             )
         };

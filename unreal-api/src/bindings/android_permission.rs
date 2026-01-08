@@ -1,16 +1,25 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANDROID_PERMISSION_FUNCTION_LIBRARY_CHECK_PERMISSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANDROID_PERMISSION_FUNCTION_LIBRARY_ACQUIRE_PERMISSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_android_permission_function_library_check_permission: *mut crate::ffi::UFunctionOpague,
+    pub u_android_permission_function_library_acquire_permissions: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_android_permission_function_library_check_permission: std::ptr::null_mut(),
+            u_android_permission_function_library_acquire_permissions: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -20,14 +29,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckPermission"),
-            &raw mut U_ANDROID_PERMISSION_FUNCTION_LIBRARY_CHECK_PERMISSION,
+            &raw mut __FUNCTION_PTRS
+                .u_android_permission_function_library_check_permission,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AcquirePermissions"),
-            &raw mut U_ANDROID_PERMISSION_FUNCTION_LIBRARY_ACQUIRE_PERMISSIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_android_permission_function_library_acquire_permissions,
         );
     }
 }
@@ -80,7 +91,8 @@ impl UAndroidPermissionFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_CHECK_PERMISSION,
+                crate::bindings::android_permission::__FUNCTION_PTRS
+                    .u_android_permission_function_library_check_permission,
                 __buffer,
             )
         };
@@ -97,7 +109,8 @@ impl UAndroidPermissionFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_CHECK_PERMISSION,
+                crate::bindings::android_permission::__FUNCTION_PTRS
+                    .u_android_permission_function_library_check_permission,
                 __buffer,
             )
         };
@@ -113,7 +126,8 @@ impl UAndroidPermissionFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_ACQUIRE_PERMISSIONS,
+                crate::bindings::android_permission::__FUNCTION_PTRS
+                    .u_android_permission_function_library_acquire_permissions,
                 __buffer,
             )
         };
@@ -130,7 +144,8 @@ impl UAndroidPermissionFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::android_permission::U_ANDROID_PERMISSION_FUNCTION_LIBRARY_ACQUIRE_PERMISSIONS,
+                crate::bindings::android_permission::__FUNCTION_PTRS
+                    .u_android_permission_function_library_acquire_permissions,
                 __buffer,
             )
         };

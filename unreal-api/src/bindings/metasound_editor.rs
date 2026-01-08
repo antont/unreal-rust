@@ -1,36 +1,45 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_CONSTRUCTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_AUDITION_STATE_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_PRESET_WIDGET_INTERFACE_GET_SUPPORTED_META_SOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_EDITOR_BUILDER_LISTENER_REMOVE_ALL_DELEGATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_EDITOR_SETTINGS_GET_AUDITION_PLATFORM_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_EDITOR_SETTINGS_GET_AUDITION_PAGE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_EDITOR_SUBSYSTEM_SET_NODE_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_EDITOR_SUBSYSTEM_SET_FOCUSED_PAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_CREATE_GRAPH_INPUT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_BEGIN_BUILDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_EDITOR_SUBSYSTEM_BUILD_TO_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_EDITOR_SUBSYSTEM_ADD_BUILDER_DELEGATE_LISTENER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_meta_sound_preset_widget_interface_on_constructed: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_preset_widget_interface_on_audition_state_changed: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_preset_widget_interface_get_supported_meta_sounds: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_editor_builder_listener_remove_all_delegates: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_editor_settings_get_audition_platform_names: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_editor_settings_get_audition_page_names: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_editor_subsystem_set_node_location: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_editor_subsystem_set_focused_page: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_editor_subsystem_find_or_create_graph_input_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_editor_subsystem_find_or_begin_building: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_editor_subsystem_build_to_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_editor_subsystem_add_builder_delegate_listener: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_meta_sound_preset_widget_interface_on_constructed: std::ptr::null_mut(),
+            u_meta_sound_preset_widget_interface_on_audition_state_changed: std::ptr::null_mut(),
+            u_meta_sound_preset_widget_interface_get_supported_meta_sounds: std::ptr::null_mut(),
+            u_meta_sound_editor_builder_listener_remove_all_delegates: std::ptr::null_mut(),
+            u_metasound_editor_settings_get_audition_platform_names: std::ptr::null_mut(),
+            u_metasound_editor_settings_get_audition_page_names: std::ptr::null_mut(),
+            u_meta_sound_editor_subsystem_set_node_location: std::ptr::null_mut(),
+            u_meta_sound_editor_subsystem_set_focused_page: std::ptr::null_mut(),
+            u_meta_sound_editor_subsystem_find_or_create_graph_input_metadata: std::ptr::null_mut(),
+            u_meta_sound_editor_subsystem_find_or_begin_building: std::ptr::null_mut(),
+            u_meta_sound_editor_subsystem_build_to_asset: std::ptr::null_mut(),
+            u_meta_sound_editor_subsystem_add_builder_delegate_listener: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -40,21 +49,23 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnConstructed"),
-            &raw mut U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_CONSTRUCTED,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_preset_widget_interface_on_constructed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnAuditionStateChanged"),
-            &raw mut U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_AUDITION_STATE_CHANGED,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_preset_widget_interface_on_audition_state_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedMetaSounds"),
-            &raw mut U_META_SOUND_PRESET_WIDGET_INTERFACE_GET_SUPPORTED_META_SOUNDS,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_preset_widget_interface_get_supported_meta_sounds,
         );
     }
     unsafe {
@@ -65,7 +76,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllDelegates"),
-            &raw mut U_META_SOUND_EDITOR_BUILDER_LISTENER_REMOVE_ALL_DELEGATES,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_editor_builder_listener_remove_all_delegates,
         );
     }
     unsafe {
@@ -76,14 +88,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAuditionPlatformNames"),
-            &raw mut U_METASOUND_EDITOR_SETTINGS_GET_AUDITION_PLATFORM_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_editor_settings_get_audition_platform_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAuditionPageNames"),
-            &raw mut U_METASOUND_EDITOR_SETTINGS_GET_AUDITION_PAGE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_metasound_editor_settings_get_audition_page_names,
         );
     }
     unsafe {
@@ -94,42 +107,44 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeLocation"),
-            &raw mut U_META_SOUND_EDITOR_SUBSYSTEM_SET_NODE_LOCATION,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_set_node_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFocusedPage"),
-            &raw mut U_META_SOUND_EDITOR_SUBSYSTEM_SET_FOCUSED_PAGE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_set_focused_page,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindOrCreateGraphInputMetadata"),
-            &raw mut U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_CREATE_GRAPH_INPUT_METADATA,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_editor_subsystem_find_or_create_graph_input_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindOrBeginBuilding"),
-            &raw mut U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_BEGIN_BUILDING,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_find_or_begin_building,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BuildToAsset"),
-            &raw mut U_META_SOUND_EDITOR_SUBSYSTEM_BUILD_TO_ASSET,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_editor_subsystem_build_to_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBuilderDelegateListener"),
-            &raw mut U_META_SOUND_EDITOR_SUBSYSTEM_ADD_BUILDER_DELEGATE_LISTENER,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_editor_subsystem_add_builder_delegate_listener,
         );
     }
 }
@@ -154,6 +169,45 @@ impl UMetaSoundPresetWidgetInterface {
             cdo
         }
     }
+    pub fn on_constructed(
+        &mut self,
+        builder: UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_on_constructed,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &builder,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        UPtr<crate::bindings::metasound_engine::UMetaSoundBuilderBase>,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_on_constructed,
+                __buffer,
+            )
+        };
+    }
     pub fn on_audition_state_changed(
         &mut self,
         audio_component: UPtr<crate::bindings::engine::UAudioComponent>,
@@ -166,7 +220,8 @@ impl UMetaSoundPresetWidgetInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_AUDITION_STATE_CHANGED,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_on_audition_state_changed,
                 __buffer,
             )
         };
@@ -190,10 +245,113 @@ impl UMetaSoundPresetWidgetInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_PRESET_WIDGET_INTERFACE_ON_AUDITION_STATE_CHANGED,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_on_audition_state_changed,
                 __buffer,
             )
         };
+    }
+    pub fn get_supported_meta_sounds(
+        &self,
+        b_support_all_presets: &mut bool,
+        excluded_meta_sounds: &mut TArray<
+            TScriptInterface<
+                crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+            >,
+        >,
+        included_meta_sounds: &mut TArray<
+            TScriptInterface<
+                crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+            >,
+        >,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_get_supported_meta_sounds,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_support_all_presets,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                excluded_meta_sounds,
+                __buffer
+                    .add(8)
+                    .cast::<
+                        TArray<
+                            TScriptInterface<
+                                crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+                            >,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                included_meta_sounds,
+                __buffer
+                    .add(24)
+                    .cast::<
+                        TArray<
+                            TScriptInterface<
+                                crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+                            >,
+                        >,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_preset_widget_interface_get_supported_meta_sounds,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<bool>().swap(b_support_all_presets);
+        }
+        unsafe {
+            __buffer
+                .add(8)
+                .cast::<
+                    TArray<
+                        TScriptInterface<
+                            crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+                        >,
+                    >,
+                >()
+                .swap(excluded_meta_sounds);
+        }
+        unsafe {
+            __buffer
+                .add(24)
+                .cast::<
+                    TArray<
+                        TScriptInterface<
+                            crate::bindings::metasound_frontend::UMetaSoundDocumentInterface,
+                        >,
+                    >,
+                >()
+                .swap(included_meta_sounds);
+        }
     }
 }
 #[repr(C, align(8))]
@@ -329,7 +487,8 @@ impl UMetaSoundEditorBuilderListener {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_BUILDER_LISTENER_REMOVE_ALL_DELEGATES,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_builder_listener_remove_all_delegates,
                 __buffer,
             )
         };
@@ -339,7 +498,8 @@ impl UMetaSoundEditorBuilderListener {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_BUILDER_LISTENER_REMOVE_ALL_DELEGATES,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_builder_listener_remove_all_delegates,
                 __buffer,
             )
         };
@@ -928,7 +1088,8 @@ impl UMetaSoundEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_NODE_LOCATION,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_set_node_location,
                 __buffer,
             )
         };
@@ -976,7 +1137,8 @@ impl UMetaSoundEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_NODE_LOCATION,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_set_node_location,
                 __buffer,
             )
         };
@@ -1001,7 +1163,8 @@ impl UMetaSoundEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_FOCUSED_PAGE,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_set_focused_page,
                 __buffer,
             )
         };
@@ -1047,7 +1210,8 @@ impl UMetaSoundEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_SET_FOCUSED_PAGE,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_set_focused_page,
                 __buffer,
             )
         };
@@ -1071,7 +1235,8 @@ impl UMetaSoundEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_CREATE_GRAPH_INPUT_METADATA,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_find_or_create_graph_input_metadata,
                 __buffer,
             )
         };
@@ -1110,7 +1275,8 @@ impl UMetaSoundEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_CREATE_GRAPH_INPUT_METADATA,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_find_or_create_graph_input_metadata,
                 __buffer,
             )
         };
@@ -1145,7 +1311,8 @@ impl UMetaSoundEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_BEGIN_BUILDING,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_find_or_begin_building,
                 __buffer,
             )
         };
@@ -1179,7 +1346,8 @@ impl UMetaSoundEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_FIND_OR_BEGIN_BUILDING,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_find_or_begin_building,
                 __buffer,
             )
         };
@@ -1214,7 +1382,8 @@ impl UMetaSoundEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_BUILD_TO_ASSET,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_build_to_asset,
                 __buffer,
             )
         };
@@ -1270,7 +1439,8 @@ impl UMetaSoundEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_BUILD_TO_ASSET,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_build_to_asset,
                 __buffer,
             )
         };
@@ -1303,7 +1473,8 @@ impl UMetaSoundEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_ADD_BUILDER_DELEGATE_LISTENER,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_add_builder_delegate_listener,
                 __buffer,
             )
         };
@@ -1335,7 +1506,8 @@ impl UMetaSoundEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_editor::U_META_SOUND_EDITOR_SUBSYSTEM_ADD_BUILDER_DELEGATE_LISTENER,
+                crate::bindings::metasound_editor::__FUNCTION_PTRS
+                    .u_meta_sound_editor_subsystem_add_builder_delegate_listener,
                 __buffer,
             )
         };

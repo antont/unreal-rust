@@ -1,24 +1,33 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMG_MEDIA_SOURCE_GET_PROXIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_img_media_source_set_tokenized_sequence_path: *mut crate::ffi::UFunctionOpague,
+    pub u_img_media_source_set_sequence_path: *mut crate::ffi::UFunctionOpague,
+    pub u_img_media_source_remove_target_object: *mut crate::ffi::UFunctionOpague,
+    pub u_img_media_source_get_sequence_path: *mut crate::ffi::UFunctionOpague,
+    pub u_img_media_source_get_proxies: *mut crate::ffi::UFunctionOpague,
+    pub u_img_media_source_add_target_object: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_img_media_source_set_tokenized_sequence_path: std::ptr::null_mut(),
+            u_img_media_source_set_sequence_path: std::ptr::null_mut(),
+            u_img_media_source_remove_target_object: std::ptr::null_mut(),
+            u_img_media_source_get_sequence_path: std::ptr::null_mut(),
+            u_img_media_source_get_proxies: std::ptr::null_mut(),
+            u_img_media_source_add_target_object: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -28,42 +37,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTokenizedSequencePath"),
-            &raw mut U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH,
+            &raw mut __FUNCTION_PTRS.u_img_media_source_set_tokenized_sequence_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequencePath"),
-            &raw mut U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH,
+            &raw mut __FUNCTION_PTRS.u_img_media_source_set_sequence_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTargetObject"),
-            &raw mut U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_img_media_source_remove_target_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequencePath"),
-            &raw mut U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH,
+            &raw mut __FUNCTION_PTRS.u_img_media_source_get_sequence_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetProxies"),
-            &raw mut U_IMG_MEDIA_SOURCE_GET_PROXIES,
+            &raw mut __FUNCTION_PTRS.u_img_media_source_get_proxies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTargetObject"),
-            &raw mut U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_img_media_source_add_target_object,
         );
     }
 }
@@ -114,7 +123,8 @@ impl UImgMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_set_tokenized_sequence_path,
                 __buffer,
             )
         };
@@ -127,7 +137,8 @@ impl UImgMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_TOKENIZED_SEQUENCE_PATH,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_set_tokenized_sequence_path,
                 __buffer,
             )
         };
@@ -140,7 +151,8 @@ impl UImgMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_set_sequence_path,
                 __buffer,
             )
         };
@@ -153,7 +165,8 @@ impl UImgMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_SET_SEQUENCE_PATH,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_set_sequence_path,
                 __buffer,
             )
         };
@@ -169,7 +182,8 @@ impl UImgMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_remove_target_object,
                 __buffer,
             )
         };
@@ -186,7 +200,8 @@ impl UImgMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_REMOVE_TARGET_OBJECT,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_remove_target_object,
                 __buffer,
             )
         };
@@ -199,7 +214,8 @@ impl UImgMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_get_sequence_path,
                 __buffer,
             )
         };
@@ -209,7 +225,8 @@ impl UImgMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_SEQUENCE_PATH,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_get_sequence_path,
                 __buffer,
             )
         };
@@ -223,7 +240,8 @@ impl UImgMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_PROXIES,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_get_proxies,
                 __buffer,
             )
         };
@@ -240,7 +258,8 @@ impl UImgMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_GET_PROXIES,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_get_proxies,
                 __buffer,
             )
         };
@@ -259,7 +278,8 @@ impl UImgMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_add_target_object,
                 __buffer,
             )
         };
@@ -276,7 +296,8 @@ impl UImgMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::img_media::U_IMG_MEDIA_SOURCE_ADD_TARGET_OBJECT,
+                crate::bindings::img_media::__FUNCTION_PTRS
+                    .u_img_media_source_add_target_object,
                 __buffer,
             )
         };

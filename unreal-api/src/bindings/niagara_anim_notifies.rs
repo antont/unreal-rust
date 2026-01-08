@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_anim_notify_state_timed_niagara_effect_get_spawned_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_notify_state_timed_niagara_effect_advanced_get_notify_progress: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_notify_play_niagara_effect_get_spawned_effect: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_anim_notify_state_timed_niagara_effect_get_spawned_effect: std::ptr::null_mut(),
+            u_anim_notify_state_timed_niagara_effect_advanced_get_notify_progress: std::ptr::null_mut(),
+            u_anim_notify_play_niagara_effect_get_spawned_effect: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,7 +31,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
-            &raw mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_notify_state_timed_niagara_effect_get_spawned_effect,
         );
     }
     unsafe {
@@ -33,7 +43,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNotifyProgress"),
-            &raw mut U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_notify_state_timed_niagara_effect_advanced_get_notify_progress,
         );
     }
     unsafe {
@@ -44,7 +55,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpawnedEffect"),
-            &raw mut U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_anim_notify_play_niagara_effect_get_spawned_effect,
         );
     }
 }
@@ -94,7 +105,8 @@ impl UAnimNotifyState_TimedNiagaraEffect {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                crate::bindings::niagara_anim_notifies::__FUNCTION_PTRS
+                    .u_anim_notify_state_timed_niagara_effect_get_spawned_effect,
                 __buffer,
             )
         };
@@ -111,7 +123,8 @@ impl UAnimNotifyState_TimedNiagaraEffect {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                crate::bindings::niagara_anim_notifies::__FUNCTION_PTRS
+                    .u_anim_notify_state_timed_niagara_effect_get_spawned_effect,
                 __buffer,
             )
         };
@@ -157,7 +170,8 @@ impl UAnimNotifyState_TimedNiagaraEffectAdvanced {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS,
+                crate::bindings::niagara_anim_notifies::__FUNCTION_PTRS
+                    .u_anim_notify_state_timed_niagara_effect_advanced_get_notify_progress,
                 __buffer,
             )
         };
@@ -174,7 +188,8 @@ impl UAnimNotifyState_TimedNiagaraEffectAdvanced {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_STATE_TIMED_NIAGARA_EFFECT_ADVANCED_GET_NOTIFY_PROGRESS,
+                crate::bindings::niagara_anim_notifies::__FUNCTION_PTRS
+                    .u_anim_notify_state_timed_niagara_effect_advanced_get_notify_progress,
                 __buffer,
             )
         };
@@ -219,7 +234,8 @@ impl UAnimNotify_PlayNiagaraEffect {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                crate::bindings::niagara_anim_notifies::__FUNCTION_PTRS
+                    .u_anim_notify_play_niagara_effect_get_spawned_effect,
                 __buffer,
             )
         };
@@ -229,7 +245,8 @@ impl UAnimNotify_PlayNiagaraEffect {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara_anim_notifies::U_ANIM_NOTIFY_PLAY_NIAGARA_EFFECT_GET_SPAWNED_EFFECT,
+                crate::bindings::niagara_anim_notifies::__FUNCTION_PTRS
+                    .u_anim_notify_play_niagara_effect_get_spawned_effect,
                 __buffer,
             )
         };

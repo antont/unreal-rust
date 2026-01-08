@@ -1,82 +1,91 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_IS_STRING_PULLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_IS_PARTIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_GET_PATH_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_GET_PATH_COST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_GET_DEBUG_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_ENABLE_RECALCULATION_ON_INVALIDATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_PATH_ENABLE_DEBUG_DRAWING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_UNREGISTER_NAVIGATION_INVOKER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_SET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_SET_GEOMETRY_GATHERING_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_RESET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_REGISTER_NAVIGATION_INVOKER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_ON_NAVIGATION_BOUNDS_UPDATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_NAVIGATION_RAYCAST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_K2_REPLACE_AREA_IN_OCTREE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_K2_PROJECT_POINT_TO_NAVIGATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_REACHABLE_POINT_IN_RADIUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_POINT_IN_NAVIGABLE_RADIUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_LOCATION_IN_NAVIGABLE_RADIUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT_OR_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_GET_PATH_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_GET_PATH_COST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_GET_NAVIGATION_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_LOCATION_SYNCHRONOUSLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_ACTOR_SYNCHRONOUSLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_RELEVANT_COMPONENT_SET_NAVIGATION_RELEVANCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_RECAST_NAV_MESH_K2_REPLACE_AREA_IN_TILE_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS_TO_REPLACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS_TO_REPLACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NAV_SYSTEM_CONFIG_OVERRIDE_APPLY_CHANGES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SPLINE_NAV_MODIFIER_COMPONENT_UPDATE_NAVIGATION_WITH_COMPONENT_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_navigation_path_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_path_is_string_pulled: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_path_is_partial: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_path_get_path_length: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_path_get_path_cost: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_path_get_debug_string: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_path_enable_recalculation_on_invalidation: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_path_enable_debug_drawing: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_unregister_navigation_invoker: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_set_max_simultaneous_tile_generation_jobs_count: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_set_geometry_gathering_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_reset_max_simultaneous_tile_generation_jobs_count: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_register_navigation_invoker: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_on_navigation_bounds_updated: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_navigation_raycast: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_k2_replace_area_in_octree_data: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_k2_project_point_to_navigation: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_k2_get_random_reachable_point_in_radius: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_k2_get_random_point_in_navigable_radius: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_k2_get_random_location_in_navigable_radius: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_is_navigation_being_built_or_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_is_navigation_being_built: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_get_path_length: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_get_path_cost: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_get_navigation_system: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_find_path_to_location_synchronously: *mut crate::ffi::UFunctionOpague,
+    pub u_navigation_system_v1_find_path_to_actor_synchronously: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_relevant_component_set_navigation_relevancy: *mut crate::ffi::UFunctionOpague,
+    pub a_recast_nav_mesh_k2_replace_area_in_tile_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_modifier_component_set_area_class_to_replace: *mut crate::ffi::UFunctionOpague,
+    pub u_nav_modifier_component_set_area_class: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_modifier_volume_set_area_class_to_replace: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_modifier_volume_set_area_class: *mut crate::ffi::UFunctionOpague,
+    pub a_nav_system_config_override_apply_changes: *mut crate::ffi::UFunctionOpague,
+    pub u_spline_nav_modifier_component_update_navigation_with_component_data: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_navigation_path_is_valid: std::ptr::null_mut(),
+            u_navigation_path_is_string_pulled: std::ptr::null_mut(),
+            u_navigation_path_is_partial: std::ptr::null_mut(),
+            u_navigation_path_get_path_length: std::ptr::null_mut(),
+            u_navigation_path_get_path_cost: std::ptr::null_mut(),
+            u_navigation_path_get_debug_string: std::ptr::null_mut(),
+            u_navigation_path_enable_recalculation_on_invalidation: std::ptr::null_mut(),
+            u_navigation_path_enable_debug_drawing: std::ptr::null_mut(),
+            u_navigation_system_v1_unregister_navigation_invoker: std::ptr::null_mut(),
+            u_navigation_system_v1_set_max_simultaneous_tile_generation_jobs_count: std::ptr::null_mut(),
+            u_navigation_system_v1_set_geometry_gathering_mode: std::ptr::null_mut(),
+            u_navigation_system_v1_reset_max_simultaneous_tile_generation_jobs_count: std::ptr::null_mut(),
+            u_navigation_system_v1_register_navigation_invoker: std::ptr::null_mut(),
+            u_navigation_system_v1_on_navigation_bounds_updated: std::ptr::null_mut(),
+            u_navigation_system_v1_navigation_raycast: std::ptr::null_mut(),
+            u_navigation_system_v1_k2_replace_area_in_octree_data: std::ptr::null_mut(),
+            u_navigation_system_v1_k2_project_point_to_navigation: std::ptr::null_mut(),
+            u_navigation_system_v1_k2_get_random_reachable_point_in_radius: std::ptr::null_mut(),
+            u_navigation_system_v1_k2_get_random_point_in_navigable_radius: std::ptr::null_mut(),
+            u_navigation_system_v1_k2_get_random_location_in_navigable_radius: std::ptr::null_mut(),
+            u_navigation_system_v1_is_navigation_being_built_or_locked: std::ptr::null_mut(),
+            u_navigation_system_v1_is_navigation_being_built: std::ptr::null_mut(),
+            u_navigation_system_v1_get_path_length: std::ptr::null_mut(),
+            u_navigation_system_v1_get_path_cost: std::ptr::null_mut(),
+            u_navigation_system_v1_get_navigation_system: std::ptr::null_mut(),
+            u_navigation_system_v1_find_path_to_location_synchronously: std::ptr::null_mut(),
+            u_navigation_system_v1_find_path_to_actor_synchronously: std::ptr::null_mut(),
+            u_nav_relevant_component_set_navigation_relevancy: std::ptr::null_mut(),
+            a_recast_nav_mesh_k2_replace_area_in_tile_bounds: std::ptr::null_mut(),
+            u_nav_modifier_component_set_area_class_to_replace: std::ptr::null_mut(),
+            u_nav_modifier_component_set_area_class: std::ptr::null_mut(),
+            a_nav_modifier_volume_set_area_class_to_replace: std::ptr::null_mut(),
+            a_nav_modifier_volume_set_area_class: std::ptr::null_mut(),
+            a_nav_system_config_override_apply_changes: std::ptr::null_mut(),
+            u_spline_nav_modifier_component_update_navigation_with_component_data: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -86,56 +95,57 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_NAVIGATION_PATH_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_navigation_path_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsStringPulled"),
-            &raw mut U_NAVIGATION_PATH_IS_STRING_PULLED,
+            &raw mut __FUNCTION_PTRS.u_navigation_path_is_string_pulled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPartial"),
-            &raw mut U_NAVIGATION_PATH_IS_PARTIAL,
+            &raw mut __FUNCTION_PTRS.u_navigation_path_is_partial,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathLength"),
-            &raw mut U_NAVIGATION_PATH_GET_PATH_LENGTH,
+            &raw mut __FUNCTION_PTRS.u_navigation_path_get_path_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathCost"),
-            &raw mut U_NAVIGATION_PATH_GET_PATH_COST,
+            &raw mut __FUNCTION_PTRS.u_navigation_path_get_path_cost,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDebugString"),
-            &raw mut U_NAVIGATION_PATH_GET_DEBUG_STRING,
+            &raw mut __FUNCTION_PTRS.u_navigation_path_get_debug_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableRecalculationOnInvalidation"),
-            &raw mut U_NAVIGATION_PATH_ENABLE_RECALCULATION_ON_INVALIDATION,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_path_enable_recalculation_on_invalidation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableDebugDrawing"),
-            &raw mut U_NAVIGATION_PATH_ENABLE_DEBUG_DRAWING,
+            &raw mut __FUNCTION_PTRS.u_navigation_path_enable_debug_drawing,
         );
     }
     unsafe {
@@ -146,133 +156,143 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterNavigationInvoker"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_UNREGISTER_NAVIGATION_INVOKER,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_unregister_navigation_invoker,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaxSimultaneousTileGenerationJobsCount"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_SET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_set_max_simultaneous_tile_generation_jobs_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGeometryGatheringMode"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_SET_GEOMETRY_GATHERING_MODE,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_set_geometry_gathering_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetMaxSimultaneousTileGenerationJobsCount"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_RESET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_reset_max_simultaneous_tile_generation_jobs_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterNavigationInvoker"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_REGISTER_NAVIGATION_INVOKER,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_register_navigation_invoker,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnNavigationBoundsUpdated"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_ON_NAVIGATION_BOUNDS_UPDATED,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_on_navigation_bounds_updated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NavigationRaycast"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_NAVIGATION_RAYCAST,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_navigation_raycast,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_ReplaceAreaInOctreeData"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_K2_REPLACE_AREA_IN_OCTREE_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_k2_replace_area_in_octree_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_ProjectPointToNavigation"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_K2_PROJECT_POINT_TO_NAVIGATION,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_k2_project_point_to_navigation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetRandomReachablePointInRadius"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_REACHABLE_POINT_IN_RADIUS,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_k2_get_random_reachable_point_in_radius,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetRandomPointInNavigableRadius"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_POINT_IN_NAVIGABLE_RADIUS,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_k2_get_random_point_in_navigable_radius,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetRandomLocationInNavigableRadius"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_LOCATION_IN_NAVIGABLE_RADIUS,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_k2_get_random_location_in_navigable_radius,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNavigationBeingBuiltOrLocked"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT_OR_LOCKED,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_is_navigation_being_built_or_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNavigationBeingBuilt"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_is_navigation_being_built,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathLength"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_GET_PATH_LENGTH,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_path_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPathCost"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_GET_PATH_COST,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_path_cost,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNavigationSystem"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_GET_NAVIGATION_SYSTEM,
+            &raw mut __FUNCTION_PTRS.u_navigation_system_v1_get_navigation_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPathToLocationSynchronously"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_LOCATION_SYNCHRONOUSLY,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_find_path_to_location_synchronously,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPathToActorSynchronously"),
-            &raw mut U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_ACTOR_SYNCHRONOUSLY,
+            &raw mut __FUNCTION_PTRS
+                .u_navigation_system_v1_find_path_to_actor_synchronously,
         );
     }
     unsafe {
@@ -283,7 +303,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNavigationRelevancy"),
-            &raw mut U_NAV_RELEVANT_COMPONENT_SET_NAVIGATION_RELEVANCY,
+            &raw mut __FUNCTION_PTRS.u_nav_relevant_component_set_navigation_relevancy,
         );
     }
     unsafe {
@@ -294,7 +314,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_ReplaceAreaInTileBounds"),
-            &raw mut A_RECAST_NAV_MESH_K2_REPLACE_AREA_IN_TILE_BOUNDS,
+            &raw mut __FUNCTION_PTRS.a_recast_nav_mesh_k2_replace_area_in_tile_bounds,
         );
     }
     unsafe {
@@ -305,14 +325,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAreaClassToReplace"),
-            &raw mut U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS_TO_REPLACE,
+            &raw mut __FUNCTION_PTRS.u_nav_modifier_component_set_area_class_to_replace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAreaClass"),
-            &raw mut U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS,
+            &raw mut __FUNCTION_PTRS.u_nav_modifier_component_set_area_class,
         );
     }
     unsafe {
@@ -323,14 +343,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAreaClassToReplace"),
-            &raw mut A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS_TO_REPLACE,
+            &raw mut __FUNCTION_PTRS.a_nav_modifier_volume_set_area_class_to_replace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAreaClass"),
-            &raw mut A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS,
+            &raw mut __FUNCTION_PTRS.a_nav_modifier_volume_set_area_class,
         );
     }
     unsafe {
@@ -341,7 +361,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyChanges"),
-            &raw mut A_NAV_SYSTEM_CONFIG_OVERRIDE_APPLY_CHANGES,
+            &raw mut __FUNCTION_PTRS.a_nav_system_config_override_apply_changes,
         );
     }
     unsafe {
@@ -352,7 +372,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateNavigationWithComponentData"),
-            &raw mut U_SPLINE_NAV_MODIFIER_COMPONENT_UPDATE_NAVIGATION_WITH_COMPONENT_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_spline_nav_modifier_component_update_navigation_with_component_data,
         );
     }
 }
@@ -896,7 +917,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_VALID,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_is_valid,
                 __buffer,
             )
         };
@@ -906,7 +928,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_VALID,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_is_valid,
                 __buffer,
             )
         };
@@ -920,7 +943,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_STRING_PULLED,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_is_string_pulled,
                 __buffer,
             )
         };
@@ -930,7 +954,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_STRING_PULLED,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_is_string_pulled,
                 __buffer,
             )
         };
@@ -944,7 +969,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_PARTIAL,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_is_partial,
                 __buffer,
             )
         };
@@ -954,7 +980,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_IS_PARTIAL,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_is_partial,
                 __buffer,
             )
         };
@@ -968,7 +995,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_LENGTH,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_get_path_length,
                 __buffer,
             )
         };
@@ -978,7 +1006,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_LENGTH,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_get_path_length,
                 __buffer,
             )
         };
@@ -992,7 +1021,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_COST,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_get_path_cost,
                 __buffer,
             )
         };
@@ -1002,7 +1032,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_PATH_COST,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_get_path_cost,
                 __buffer,
             )
         };
@@ -1016,7 +1047,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_DEBUG_STRING,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_get_debug_string,
                 __buffer,
             )
         };
@@ -1026,7 +1058,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_GET_DEBUG_STRING,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_get_debug_string,
                 __buffer,
             )
         };
@@ -1043,7 +1076,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_RECALCULATION_ON_INVALIDATION,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_enable_recalculation_on_invalidation,
                 __buffer,
             )
         };
@@ -1060,7 +1094,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_RECALCULATION_ON_INVALIDATION,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_enable_recalculation_on_invalidation,
                 __buffer,
             )
         };
@@ -1077,7 +1112,8 @@ impl UNavigationPath {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_DEBUG_DRAWING,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_enable_debug_drawing,
                 __buffer,
             )
         };
@@ -1101,7 +1137,8 @@ impl UNavigationPath {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_PATH_ENABLE_DEBUG_DRAWING,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_path_enable_debug_drawing,
                 __buffer,
             )
         };
@@ -1142,7 +1179,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_UNREGISTER_NAVIGATION_INVOKER,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_unregister_navigation_invoker,
                 __buffer,
             )
         };
@@ -1159,7 +1197,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_UNREGISTER_NAVIGATION_INVOKER,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_unregister_navigation_invoker,
                 __buffer,
             )
         };
@@ -1175,7 +1214,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_set_max_simultaneous_tile_generation_jobs_count,
                 __buffer,
             )
         };
@@ -1192,7 +1232,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_set_max_simultaneous_tile_generation_jobs_count,
                 __buffer,
             )
         };
@@ -1208,7 +1249,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_GEOMETRY_GATHERING_MODE,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_set_geometry_gathering_mode,
                 __buffer,
             )
         };
@@ -1227,7 +1269,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_SET_GEOMETRY_GATHERING_MODE,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_set_geometry_gathering_mode,
                 __buffer,
             )
         };
@@ -1240,7 +1283,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_RESET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_reset_max_simultaneous_tile_generation_jobs_count,
                 __buffer,
             )
         };
@@ -1250,7 +1294,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_RESET_MAX_SIMULTANEOUS_TILE_GENERATION_JOBS_COUNT,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_reset_max_simultaneous_tile_generation_jobs_count,
                 __buffer,
             )
         };
@@ -1268,7 +1313,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_REGISTER_NAVIGATION_INVOKER,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_register_navigation_invoker,
                 __buffer,
             )
         };
@@ -1299,7 +1345,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_REGISTER_NAVIGATION_INVOKER,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_register_navigation_invoker,
                 __buffer,
             )
         };
@@ -1315,7 +1362,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_ON_NAVIGATION_BOUNDS_UPDATED,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_on_navigation_bounds_updated,
                 __buffer,
             )
         };
@@ -1332,7 +1380,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_ON_NAVIGATION_BOUNDS_UPDATED,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_on_navigation_bounds_updated,
                 __buffer,
             )
         };
@@ -1352,7 +1401,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_NAVIGATION_RAYCAST,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_navigation_raycast,
                 __buffer,
             )
         };
@@ -1404,7 +1454,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_NAVIGATION_RAYCAST,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_navigation_raycast,
                 __buffer,
             )
         };
@@ -1429,7 +1480,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_REPLACE_AREA_IN_OCTREE_DATA,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_replace_area_in_octree_data,
                 __buffer,
             )
         };
@@ -1460,7 +1512,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_REPLACE_AREA_IN_OCTREE_DATA,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_replace_area_in_octree_data,
                 __buffer,
             )
         };
@@ -1481,7 +1534,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_PROJECT_POINT_TO_NAVIGATION,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_project_point_to_navigation,
                 __buffer,
             )
         };
@@ -1533,7 +1587,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_PROJECT_POINT_TO_NAVIGATION,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_project_point_to_navigation,
                 __buffer,
             )
         };
@@ -1560,7 +1615,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_REACHABLE_POINT_IN_RADIUS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_reachable_point_in_radius,
                 __buffer,
             )
         };
@@ -1608,7 +1664,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_REACHABLE_POINT_IN_RADIUS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_reachable_point_in_radius,
                 __buffer,
             )
         };
@@ -1635,7 +1692,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_POINT_IN_NAVIGABLE_RADIUS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_point_in_navigable_radius,
                 __buffer,
             )
         };
@@ -1683,7 +1741,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_POINT_IN_NAVIGABLE_RADIUS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_point_in_navigable_radius,
                 __buffer,
             )
         };
@@ -1710,7 +1769,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_LOCATION_IN_NAVIGABLE_RADIUS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_location_in_navigable_radius,
                 __buffer,
             )
         };
@@ -1758,7 +1818,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_K2_GET_RANDOM_LOCATION_IN_NAVIGABLE_RADIUS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_k2_get_random_location_in_navigable_radius,
                 __buffer,
             )
         };
@@ -1780,7 +1841,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT_OR_LOCKED,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_is_navigation_being_built_or_locked,
                 __buffer,
             )
         };
@@ -1797,7 +1859,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT_OR_LOCKED,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_is_navigation_being_built_or_locked,
                 __buffer,
             )
         };
@@ -1813,7 +1876,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_is_navigation_being_built,
                 __buffer,
             )
         };
@@ -1830,7 +1894,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_IS_NAVIGATION_BEING_BUILT,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_is_navigation_being_built,
                 __buffer,
             )
         };
@@ -1851,7 +1916,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_LENGTH,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_get_path_length,
                 __buffer,
             )
         };
@@ -1903,7 +1969,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_LENGTH,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_get_path_length,
                 __buffer,
             )
         };
@@ -1932,7 +1999,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_COST,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_get_path_cost,
                 __buffer,
             )
         };
@@ -1980,7 +2048,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_PATH_COST,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_get_path_cost,
                 __buffer,
             )
         };
@@ -2004,7 +2073,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_NAVIGATION_SYSTEM,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_get_navigation_system,
                 __buffer,
             )
         };
@@ -2021,7 +2091,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_GET_NAVIGATION_SYSTEM,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_get_navigation_system,
                 __buffer,
             )
         };
@@ -2041,7 +2112,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_LOCATION_SYNCHRONOUSLY,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_find_path_to_location_synchronously,
                 __buffer,
             )
         };
@@ -2086,7 +2158,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_LOCATION_SYNCHRONOUSLY,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_find_path_to_location_synchronously,
                 __buffer,
             )
         };
@@ -2107,7 +2180,8 @@ impl UNavigationSystemV1 {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_ACTOR_SYNCHRONOUSLY,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_find_path_to_actor_synchronously,
                 __buffer,
             )
         };
@@ -2159,7 +2233,8 @@ impl UNavigationSystemV1 {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAVIGATION_SYSTEM_V1_FIND_PATH_TO_ACTOR_SYNCHRONOUSLY,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_navigation_system_v1_find_path_to_actor_synchronously,
                 __buffer,
             )
         };
@@ -2269,7 +2344,8 @@ impl UNavRelevantComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAV_RELEVANT_COMPONENT_SET_NAVIGATION_RELEVANCY,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_nav_relevant_component_set_navigation_relevancy,
                 __buffer,
             )
         };
@@ -2286,7 +2362,8 @@ impl UNavRelevantComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAV_RELEVANT_COMPONENT_SET_NAVIGATION_RELEVANCY,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_nav_relevant_component_set_navigation_relevancy,
                 __buffer,
             )
         };
@@ -2431,7 +2508,8 @@ impl ARecastNavMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::A_RECAST_NAV_MESH_K2_REPLACE_AREA_IN_TILE_BOUNDS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .a_recast_nav_mesh_k2_replace_area_in_tile_bounds,
                 __buffer,
             )
         };
@@ -2469,7 +2547,8 @@ impl ARecastNavMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::A_RECAST_NAV_MESH_K2_REPLACE_AREA_IN_TILE_BOUNDS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .a_recast_nav_mesh_k2_replace_area_in_tile_bounds,
                 __buffer,
             )
         };
@@ -2532,7 +2611,8 @@ impl UNavModifierComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS_TO_REPLACE,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_nav_modifier_component_set_area_class_to_replace,
                 __buffer,
             )
         };
@@ -2549,7 +2629,8 @@ impl UNavModifierComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS_TO_REPLACE,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_nav_modifier_component_set_area_class_to_replace,
                 __buffer,
             )
         };
@@ -2562,7 +2643,8 @@ impl UNavModifierComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_nav_modifier_component_set_area_class,
                 __buffer,
             )
         };
@@ -2579,7 +2661,8 @@ impl UNavModifierComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::U_NAV_MODIFIER_COMPONENT_SET_AREA_CLASS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .u_nav_modifier_component_set_area_class,
                 __buffer,
             )
         };
@@ -2620,7 +2703,8 @@ impl ANavModifierVolume {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS_TO_REPLACE,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .a_nav_modifier_volume_set_area_class_to_replace,
                 __buffer,
             )
         };
@@ -2637,7 +2721,8 @@ impl ANavModifierVolume {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS_TO_REPLACE,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .a_nav_modifier_volume_set_area_class_to_replace,
                 __buffer,
             )
         };
@@ -2650,7 +2735,8 @@ impl ANavModifierVolume {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .a_nav_modifier_volume_set_area_class,
                 __buffer,
             )
         };
@@ -2667,7 +2753,8 @@ impl ANavModifierVolume {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::navigation_system::A_NAV_MODIFIER_VOLUME_SET_AREA_CLASS,
+                crate::bindings::navigation_system::__FUNCTION_PTRS
+                    .a_nav_modifier_volume_set_area_class,
                 __buffer,
             )
         };

@@ -1,92 +1,101 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_OCTREE_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LINE_SET_COMPONENT_SET_LINE_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LINE_SET_COMPONENT_CLEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LINE_SET_COMPONENT_ADD_LINES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_SET_POINT_SET_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_SET_POINT_SET_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_SET_LINE_SET_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_SET_LINE_SET_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_SET_ALL_POINT_SETS_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_SET_ALL_LINE_SETS_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_REMOVE_TRIANGLE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_REMOVE_POINT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_REMOVE_LINE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_REMOVE_ALL_TRIANGLE_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_REMOVE_ALL_POINT_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_REMOVE_ALL_LINE_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_GET_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_FIND_TRIANGLE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_FIND_POINT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_FIND_LINE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_DISCONNECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_CREATE_IN_WORLD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_ADD_TRIANGLE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_ADD_POINT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PREVIEW_GEOMETRY_ADD_LINE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_POINT_SET_COMPONENT_SET_POINT_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_POINT_SET_COMPONENT_CLEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_POINT_SET_COMPONENT_ADD_POINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODELING_OBJECTS_CREATION_API_CREATE_TEXTURE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_COMPONENT_ON_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODELING_OBJECTS_CREATION_API_CREATE_MESH_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODELING_OBJECTS_CREATION_API_CREATE_MATERIAL_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CREATE_MESH_OBJECT_TYPE_PROPERTIES_SHOULD_SHOW_PROPERTY_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CREATE_MESH_OBJECT_TYPE_PROPERTIES_GET_OUTPUT_TYPE_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CREATE_MESH_OBJECT_TYPE_PROPERTIES_GET_CURRENT_CREATE_MESH_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_POLYGROUP_LAYERS_PROPERTIES_GET_GROUP_LAYERS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_WEIGHT_MAP_SET_PROPERTIES_GET_WEIGHT_MAPS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_TOPOLOGY_SELECTION_MECHANIC_PROPERTIES_SELECT_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_TOPOLOGY_SELECTION_MECHANIC_PROPERTIES_INVERT_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_octree_dynamic_mesh_component_set_dynamic_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_line_set_component_set_line_material: *mut crate::ffi::UFunctionOpague,
+    pub u_line_set_component_clear: *mut crate::ffi::UFunctionOpague,
+    pub u_line_set_component_add_lines: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_set_point_set_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_set_point_set_material: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_set_line_set_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_set_line_set_material: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_set_all_point_sets_material: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_set_all_line_sets_material: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_remove_triangle_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_remove_point_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_remove_line_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_remove_all_triangle_sets: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_remove_all_point_sets: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_remove_all_line_sets: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_get_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_find_triangle_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_find_point_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_find_line_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_disconnect: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_create_in_world: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_add_triangle_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_add_point_set: *mut crate::ffi::UFunctionOpague,
+    pub u_preview_geometry_add_line_set: *mut crate::ffi::UFunctionOpague,
+    pub u_point_set_component_set_point_material: *mut crate::ffi::UFunctionOpague,
+    pub u_point_set_component_clear: *mut crate::ffi::UFunctionOpague,
+    pub u_point_set_component_add_points: *mut crate::ffi::UFunctionOpague,
+    pub u_modeling_objects_creation_api_create_texture_object: *mut crate::ffi::UFunctionOpague,
+    pub u_modeling_objects_creation_api_create_new_component_on_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_modeling_objects_creation_api_create_new_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_modeling_objects_creation_api_create_mesh_object: *mut crate::ffi::UFunctionOpague,
+    pub u_modeling_objects_creation_api_create_material_object: *mut crate::ffi::UFunctionOpague,
+    pub u_create_mesh_object_type_properties_should_show_property_set: *mut crate::ffi::UFunctionOpague,
+    pub u_create_mesh_object_type_properties_get_output_type_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_create_mesh_object_type_properties_get_current_create_mesh_type: *mut crate::ffi::UFunctionOpague,
+    pub u_polygroup_layers_properties_get_group_layers_func: *mut crate::ffi::UFunctionOpague,
+    pub u_weight_map_set_properties_get_weight_maps_func: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_topology_selection_mechanic_properties_select_all: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_topology_selection_mechanic_properties_invert_selection: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_octree_dynamic_mesh_component_set_dynamic_mesh: std::ptr::null_mut(),
+            u_line_set_component_set_line_material: std::ptr::null_mut(),
+            u_line_set_component_clear: std::ptr::null_mut(),
+            u_line_set_component_add_lines: std::ptr::null_mut(),
+            u_preview_geometry_set_point_set_visibility: std::ptr::null_mut(),
+            u_preview_geometry_set_point_set_material: std::ptr::null_mut(),
+            u_preview_geometry_set_line_set_visibility: std::ptr::null_mut(),
+            u_preview_geometry_set_line_set_material: std::ptr::null_mut(),
+            u_preview_geometry_set_all_point_sets_material: std::ptr::null_mut(),
+            u_preview_geometry_set_all_line_sets_material: std::ptr::null_mut(),
+            u_preview_geometry_remove_triangle_set: std::ptr::null_mut(),
+            u_preview_geometry_remove_point_set: std::ptr::null_mut(),
+            u_preview_geometry_remove_line_set: std::ptr::null_mut(),
+            u_preview_geometry_remove_all_triangle_sets: std::ptr::null_mut(),
+            u_preview_geometry_remove_all_point_sets: std::ptr::null_mut(),
+            u_preview_geometry_remove_all_line_sets: std::ptr::null_mut(),
+            u_preview_geometry_get_actor: std::ptr::null_mut(),
+            u_preview_geometry_find_triangle_set: std::ptr::null_mut(),
+            u_preview_geometry_find_point_set: std::ptr::null_mut(),
+            u_preview_geometry_find_line_set: std::ptr::null_mut(),
+            u_preview_geometry_disconnect: std::ptr::null_mut(),
+            u_preview_geometry_create_in_world: std::ptr::null_mut(),
+            u_preview_geometry_add_triangle_set: std::ptr::null_mut(),
+            u_preview_geometry_add_point_set: std::ptr::null_mut(),
+            u_preview_geometry_add_line_set: std::ptr::null_mut(),
+            u_point_set_component_set_point_material: std::ptr::null_mut(),
+            u_point_set_component_clear: std::ptr::null_mut(),
+            u_point_set_component_add_points: std::ptr::null_mut(),
+            u_modeling_objects_creation_api_create_texture_object: std::ptr::null_mut(),
+            u_modeling_objects_creation_api_create_new_component_on_actor: std::ptr::null_mut(),
+            u_modeling_objects_creation_api_create_new_actor: std::ptr::null_mut(),
+            u_modeling_objects_creation_api_create_mesh_object: std::ptr::null_mut(),
+            u_modeling_objects_creation_api_create_material_object: std::ptr::null_mut(),
+            u_create_mesh_object_type_properties_should_show_property_set: std::ptr::null_mut(),
+            u_create_mesh_object_type_properties_get_output_type_names_func: std::ptr::null_mut(),
+            u_create_mesh_object_type_properties_get_current_create_mesh_type: std::ptr::null_mut(),
+            u_polygroup_layers_properties_get_group_layers_func: std::ptr::null_mut(),
+            u_weight_map_set_properties_get_weight_maps_func: std::ptr::null_mut(),
+            u_mesh_topology_selection_mechanic_properties_select_all: std::ptr::null_mut(),
+            u_mesh_topology_selection_mechanic_properties_invert_selection: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -96,7 +105,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDynamicMesh"),
-            &raw mut U_OCTREE_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+            &raw mut __FUNCTION_PTRS.u_octree_dynamic_mesh_component_set_dynamic_mesh,
         );
     }
     unsafe {
@@ -107,21 +116,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLineMaterial"),
-            &raw mut U_LINE_SET_COMPONENT_SET_LINE_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_line_set_component_set_line_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut U_LINE_SET_COMPONENT_CLEAR,
+            &raw mut __FUNCTION_PTRS.u_line_set_component_clear,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLines"),
-            &raw mut U_LINE_SET_COMPONENT_ADD_LINES,
+            &raw mut __FUNCTION_PTRS.u_line_set_component_add_lines,
         );
     }
     unsafe {
@@ -132,147 +141,147 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPointSetVisibility"),
-            &raw mut U_PREVIEW_GEOMETRY_SET_POINT_SET_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_set_point_set_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPointSetMaterial"),
-            &raw mut U_PREVIEW_GEOMETRY_SET_POINT_SET_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_set_point_set_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLineSetVisibility"),
-            &raw mut U_PREVIEW_GEOMETRY_SET_LINE_SET_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_set_line_set_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLineSetMaterial"),
-            &raw mut U_PREVIEW_GEOMETRY_SET_LINE_SET_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_set_line_set_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllPointSetsMaterial"),
-            &raw mut U_PREVIEW_GEOMETRY_SET_ALL_POINT_SETS_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_set_all_point_sets_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllLineSetsMaterial"),
-            &raw mut U_PREVIEW_GEOMETRY_SET_ALL_LINE_SETS_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_set_all_line_sets_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTriangleSet"),
-            &raw mut U_PREVIEW_GEOMETRY_REMOVE_TRIANGLE_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_remove_triangle_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemovePointSet"),
-            &raw mut U_PREVIEW_GEOMETRY_REMOVE_POINT_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_remove_point_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLineSet"),
-            &raw mut U_PREVIEW_GEOMETRY_REMOVE_LINE_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_remove_line_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllTriangleSets"),
-            &raw mut U_PREVIEW_GEOMETRY_REMOVE_ALL_TRIANGLE_SETS,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_remove_all_triangle_sets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllPointSets"),
-            &raw mut U_PREVIEW_GEOMETRY_REMOVE_ALL_POINT_SETS,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_remove_all_point_sets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllLineSets"),
-            &raw mut U_PREVIEW_GEOMETRY_REMOVE_ALL_LINE_SETS,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_remove_all_line_sets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActor"),
-            &raw mut U_PREVIEW_GEOMETRY_GET_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_get_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindTriangleSet"),
-            &raw mut U_PREVIEW_GEOMETRY_FIND_TRIANGLE_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_find_triangle_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPointSet"),
-            &raw mut U_PREVIEW_GEOMETRY_FIND_POINT_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_find_point_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindLineSet"),
-            &raw mut U_PREVIEW_GEOMETRY_FIND_LINE_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_find_line_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Disconnect"),
-            &raw mut U_PREVIEW_GEOMETRY_DISCONNECT,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_disconnect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateInWorld"),
-            &raw mut U_PREVIEW_GEOMETRY_CREATE_IN_WORLD,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_create_in_world,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTriangleSet"),
-            &raw mut U_PREVIEW_GEOMETRY_ADD_TRIANGLE_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_add_triangle_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddPointSet"),
-            &raw mut U_PREVIEW_GEOMETRY_ADD_POINT_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_add_point_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLineSet"),
-            &raw mut U_PREVIEW_GEOMETRY_ADD_LINE_SET,
+            &raw mut __FUNCTION_PTRS.u_preview_geometry_add_line_set,
         );
     }
     unsafe {
@@ -283,21 +292,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPointMaterial"),
-            &raw mut U_POINT_SET_COMPONENT_SET_POINT_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_point_set_component_set_point_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut U_POINT_SET_COMPONENT_CLEAR,
+            &raw mut __FUNCTION_PTRS.u_point_set_component_clear,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddPoints"),
-            &raw mut U_POINT_SET_COMPONENT_ADD_POINTS,
+            &raw mut __FUNCTION_PTRS.u_point_set_component_add_points,
         );
     }
     unsafe {
@@ -308,35 +317,38 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateTextureObject"),
-            &raw mut U_MODELING_OBJECTS_CREATION_API_CREATE_TEXTURE_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_modeling_objects_creation_api_create_texture_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewComponentOnActor"),
-            &raw mut U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_COMPONENT_ON_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_modeling_objects_creation_api_create_new_component_on_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewActor"),
-            &raw mut U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_modeling_objects_creation_api_create_new_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMeshObject"),
-            &raw mut U_MODELING_OBJECTS_CREATION_API_CREATE_MESH_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_modeling_objects_creation_api_create_mesh_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMaterialObject"),
-            &raw mut U_MODELING_OBJECTS_CREATION_API_CREATE_MATERIAL_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_modeling_objects_creation_api_create_material_object,
         );
     }
     unsafe {
@@ -347,21 +359,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldShowPropertySet"),
-            &raw mut U_CREATE_MESH_OBJECT_TYPE_PROPERTIES_SHOULD_SHOW_PROPERTY_SET,
+            &raw mut __FUNCTION_PTRS
+                .u_create_mesh_object_type_properties_should_show_property_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOutputTypeNamesFunc"),
-            &raw mut U_CREATE_MESH_OBJECT_TYPE_PROPERTIES_GET_OUTPUT_TYPE_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_create_mesh_object_type_properties_get_output_type_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentCreateMeshType"),
-            &raw mut U_CREATE_MESH_OBJECT_TYPE_PROPERTIES_GET_CURRENT_CREATE_MESH_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_create_mesh_object_type_properties_get_current_create_mesh_type,
         );
     }
     unsafe {
@@ -372,7 +387,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGroupLayersFunc"),
-            &raw mut U_POLYGROUP_LAYERS_PROPERTIES_GET_GROUP_LAYERS_FUNC,
+            &raw mut __FUNCTION_PTRS.u_polygroup_layers_properties_get_group_layers_func,
         );
     }
     unsafe {
@@ -383,7 +398,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWeightMapsFunc"),
-            &raw mut U_WEIGHT_MAP_SET_PROPERTIES_GET_WEIGHT_MAPS_FUNC,
+            &raw mut __FUNCTION_PTRS.u_weight_map_set_properties_get_weight_maps_func,
         );
     }
     unsafe {
@@ -394,14 +409,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectAll"),
-            &raw mut U_MESH_TOPOLOGY_SELECTION_MECHANIC_PROPERTIES_SELECT_ALL,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_topology_selection_mechanic_properties_select_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InvertSelection"),
-            &raw mut U_MESH_TOPOLOGY_SELECTION_MECHANIC_PROPERTIES_INVERT_SELECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_topology_selection_mechanic_properties_invert_selection,
         );
     }
 }
@@ -1217,7 +1234,8 @@ impl UOctreeDynamicMeshComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_OCTREE_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_octree_dynamic_mesh_component_set_dynamic_mesh,
                 __buffer,
             )
         };
@@ -1236,7 +1254,8 @@ impl UOctreeDynamicMeshComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_OCTREE_DYNAMIC_MESH_COMPONENT_SET_DYNAMIC_MESH,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_octree_dynamic_mesh_component_set_dynamic_mesh,
                 __buffer,
             )
         };
@@ -1273,7 +1292,8 @@ impl ULineSetComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_SET_LINE_MATERIAL,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_line_set_component_set_line_material,
                 __buffer,
             )
         };
@@ -1292,7 +1312,8 @@ impl ULineSetComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_SET_LINE_MATERIAL,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_line_set_component_set_line_material,
                 __buffer,
             )
         };
@@ -1305,7 +1326,8 @@ impl ULineSetComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_CLEAR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_line_set_component_clear,
                 __buffer,
             )
         };
@@ -1315,7 +1337,8 @@ impl ULineSetComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_CLEAR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_line_set_component_clear,
                 __buffer,
             )
         };
@@ -1335,7 +1358,8 @@ impl ULineSetComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_ADD_LINES,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_line_set_component_add_lines,
                 __buffer,
             )
         };
@@ -1384,7 +1408,8 @@ impl ULineSetComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_LINE_SET_COMPONENT_ADD_LINES,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_line_set_component_add_lines,
                 __buffer,
             )
         };
@@ -1506,7 +1531,8 @@ impl UPointSetComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_SET_POINT_MATERIAL,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_point_set_component_set_point_material,
                 __buffer,
             )
         };
@@ -1525,7 +1551,8 @@ impl UPointSetComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_SET_POINT_MATERIAL,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_point_set_component_set_point_material,
                 __buffer,
             )
         };
@@ -1538,7 +1565,8 @@ impl UPointSetComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_CLEAR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_point_set_component_clear,
                 __buffer,
             )
         };
@@ -1548,7 +1576,8 @@ impl UPointSetComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_CLEAR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_point_set_component_clear,
                 __buffer,
             )
         };
@@ -1567,7 +1596,8 @@ impl UPointSetComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_ADD_POINTS,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_point_set_component_add_points,
                 __buffer,
             )
         };
@@ -1603,7 +1633,8 @@ impl UPointSetComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_POINT_SET_COMPONENT_ADD_POINTS,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_point_set_component_add_points,
                 __buffer,
             )
         };
@@ -2124,7 +2155,8 @@ impl UModelingObjectsCreationAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_TEXTURE_OBJECT,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_texture_object,
                 __buffer,
             )
         };
@@ -2141,7 +2173,8 @@ impl UModelingObjectsCreationAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_TEXTURE_OBJECT,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_texture_object,
                 __buffer,
             )
         };
@@ -2158,7 +2191,8 @@ impl UModelingObjectsCreationAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_COMPONENT_ON_ACTOR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_new_component_on_actor,
                 __buffer,
             )
         };
@@ -2175,7 +2209,8 @@ impl UModelingObjectsCreationAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_COMPONENT_ON_ACTOR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_new_component_on_actor,
                 __buffer,
             )
         };
@@ -2192,7 +2227,8 @@ impl UModelingObjectsCreationAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_ACTOR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_new_actor,
                 __buffer,
             )
         };
@@ -2209,7 +2245,8 @@ impl UModelingObjectsCreationAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_NEW_ACTOR,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_new_actor,
                 __buffer,
             )
         };
@@ -2226,7 +2263,8 @@ impl UModelingObjectsCreationAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MESH_OBJECT,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_mesh_object,
                 __buffer,
             )
         };
@@ -2243,7 +2281,8 @@ impl UModelingObjectsCreationAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MESH_OBJECT,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_mesh_object,
                 __buffer,
             )
         };
@@ -2260,7 +2299,8 @@ impl UModelingObjectsCreationAPI {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MATERIAL_OBJECT,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_material_object,
                 __buffer,
             )
         };
@@ -2277,7 +2317,8 @@ impl UModelingObjectsCreationAPI {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::modeling_components::U_MODELING_OBJECTS_CREATION_API_CREATE_MATERIAL_OBJECT,
+                crate::bindings::modeling_components::__FUNCTION_PTRS
+                    .u_modeling_objects_creation_api_create_material_object,
                 __buffer,
             )
         };

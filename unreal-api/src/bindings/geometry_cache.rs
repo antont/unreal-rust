@@ -1,80 +1,89 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_GEOMETRY_CACHE_ACTOR_GET_GEOMETRY_CACHE_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_TICK_AT_THIS_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_WIREFRAME_OVERRIDE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_START_TIME_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_PLAYBACK_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_OVERRIDE_WIREFRAME_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_MOTION_VECTOR_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_SET_EXTRAPOLATE_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED_FROM_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_PLAY_FROM_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_PAUSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING_REVERSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_IS_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_IS_EXTRAPOLATING_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_WIREFRAME_OVERRIDE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_START_TIME_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_OVERRIDE_WIREFRAME_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_MOTION_VECTOR_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_ELAPSED_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GEOMETRY_CACHE_COMPONENT_GET_ANIMATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GEOMETRY_CACHE_TRACK_FLIPBOOK_ANIMATION_ADD_MESH_SAMPLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GEOMETRY_CACHE_TRACK_TRANSFORM_ANIMATION_SET_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_GEOMETRY_CACHE_TRACK_TRANSFORM_GROUP_ANIMATION_SET_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_geometry_cache_actor_get_geometry_cache_component: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_tick_at_this_time: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_stop: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_wireframe_override_color: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_start_time_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_playback_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_override_wireframe_color: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_motion_vector_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_geometry_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_set_extrapolate_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_play_reversed_from_end: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_play_reversed: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_play_from_start: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_play: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_pause: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_is_playing_reversed: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_is_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_is_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_is_extrapolating_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_wireframe_override_color: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_start_time_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_playback_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_playback_direction: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_override_wireframe_color: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_number_of_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_number_of_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_motion_vector_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_elapsed_time: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_geometry_cache_component_get_animation_time: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_geometry_cache_track_flipbook_animation_add_mesh_sample: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_geometry_cache_track_transform_animation_set_mesh: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_geometry_cache_track_transform_group_animation_set_mesh: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_geometry_cache_actor_get_geometry_cache_component: std::ptr::null_mut(),
+            u_geometry_cache_component_tick_at_this_time: std::ptr::null_mut(),
+            u_geometry_cache_component_stop: std::ptr::null_mut(),
+            u_geometry_cache_component_set_wireframe_override_color: std::ptr::null_mut(),
+            u_geometry_cache_component_set_start_time_offset: std::ptr::null_mut(),
+            u_geometry_cache_component_set_playback_speed: std::ptr::null_mut(),
+            u_geometry_cache_component_set_override_wireframe_color: std::ptr::null_mut(),
+            u_geometry_cache_component_set_motion_vector_scale: std::ptr::null_mut(),
+            u_geometry_cache_component_set_looping: std::ptr::null_mut(),
+            u_geometry_cache_component_set_geometry_cache: std::ptr::null_mut(),
+            u_geometry_cache_component_set_extrapolate_frames: std::ptr::null_mut(),
+            u_geometry_cache_component_play_reversed_from_end: std::ptr::null_mut(),
+            u_geometry_cache_component_play_reversed: std::ptr::null_mut(),
+            u_geometry_cache_component_play_from_start: std::ptr::null_mut(),
+            u_geometry_cache_component_play: std::ptr::null_mut(),
+            u_geometry_cache_component_pause: std::ptr::null_mut(),
+            u_geometry_cache_component_is_playing_reversed: std::ptr::null_mut(),
+            u_geometry_cache_component_is_playing: std::ptr::null_mut(),
+            u_geometry_cache_component_is_looping: std::ptr::null_mut(),
+            u_geometry_cache_component_is_extrapolating_frames: std::ptr::null_mut(),
+            u_geometry_cache_component_get_wireframe_override_color: std::ptr::null_mut(),
+            u_geometry_cache_component_get_start_time_offset: std::ptr::null_mut(),
+            u_geometry_cache_component_get_playback_speed: std::ptr::null_mut(),
+            u_geometry_cache_component_get_playback_direction: std::ptr::null_mut(),
+            u_geometry_cache_component_get_override_wireframe_color: std::ptr::null_mut(),
+            u_geometry_cache_component_get_number_of_tracks: std::ptr::null_mut(),
+            u_geometry_cache_component_get_number_of_frames: std::ptr::null_mut(),
+            u_geometry_cache_component_get_motion_vector_scale: std::ptr::null_mut(),
+            u_geometry_cache_component_get_elapsed_time: std::ptr::null_mut(),
+            u_geometry_cache_component_get_duration: std::ptr::null_mut(),
+            u_geometry_cache_component_get_animation_time: std::ptr::null_mut(),
+            udeprecated_geometry_cache_track_flipbook_animation_add_mesh_sample: std::ptr::null_mut(),
+            udeprecated_geometry_cache_track_transform_animation_set_mesh: std::ptr::null_mut(),
+            udeprecated_geometry_cache_track_transform_group_animation_set_mesh: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -84,7 +93,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGeometryCacheComponent"),
-            &raw mut A_GEOMETRY_CACHE_ACTOR_GET_GEOMETRY_CACHE_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_geometry_cache_actor_get_geometry_cache_component,
         );
     }
     unsafe {
@@ -95,210 +104,214 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TickAtThisTime"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_TICK_AT_THIS_TIME,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_tick_at_this_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_STOP,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWireframeOverrideColor"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_WIREFRAME_OVERRIDE_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_cache_component_set_wireframe_override_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartTimeOffset"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_START_TIME_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_start_time_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_PLAYBACK_SPEED,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_playback_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOverrideWireframeColor"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_OVERRIDE_WIREFRAME_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_cache_component_set_override_wireframe_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMotionVectorScale"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_MOTION_VECTOR_SCALE,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_motion_vector_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLooping"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGeometryCache"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_GEOMETRY_CACHE,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_geometry_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExtrapolateFrames"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_SET_EXTRAPOLATE_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_set_extrapolate_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayReversedFromEnd"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED_FROM_END,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_reversed_from_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayReversed"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_reversed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayFromStart"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_PLAY_FROM_START,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play_from_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Play"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_PLAY,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_PAUSE,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_pause,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlayingReversed"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING_REVERSED,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_playing_reversed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLooping"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_IS_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsExtrapolatingFrames"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_IS_EXTRAPOLATING_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_is_extrapolating_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWireframeOverrideColor"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_WIREFRAME_OVERRIDE_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_cache_component_get_wireframe_override_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartTimeOffset"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_START_TIME_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_start_time_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackSpeed"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_SPEED,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_playback_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackDirection"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_DIRECTION,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_playback_direction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOverrideWireframeColor"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_OVERRIDE_WIREFRAME_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_geometry_cache_component_get_override_wireframe_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberOfTracks"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_TRACKS,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_number_of_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberOfFrames"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_number_of_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMotionVectorScale"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_MOTION_VECTOR_SCALE,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_motion_vector_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetElapsedTime"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_ELAPSED_TIME,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_elapsed_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDuration"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_DURATION,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationTime"),
-            &raw mut U_GEOMETRY_CACHE_COMPONENT_GET_ANIMATION_TIME,
+            &raw mut __FUNCTION_PTRS.u_geometry_cache_component_get_animation_time,
         );
     }
     unsafe {
@@ -309,7 +322,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMeshSample"),
-            &raw mut UDEPRECATED_GEOMETRY_CACHE_TRACK_FLIPBOOK_ANIMATION_ADD_MESH_SAMPLE,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_geometry_cache_track_flipbook_animation_add_mesh_sample,
         );
     }
     unsafe {
@@ -320,7 +334,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMesh"),
-            &raw mut UDEPRECATED_GEOMETRY_CACHE_TRACK_TRANSFORM_ANIMATION_SET_MESH,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_geometry_cache_track_transform_animation_set_mesh,
         );
     }
     unsafe {
@@ -331,7 +346,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMesh"),
-            &raw mut UDEPRECATED_GEOMETRY_CACHE_TRACK_TRANSFORM_GROUP_ANIMATION_SET_MESH,
+            &raw mut __FUNCTION_PTRS
+                .udeprecated_geometry_cache_track_transform_group_animation_set_mesh,
         );
     }
 }
@@ -394,7 +410,8 @@ impl AGeometryCacheActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::A_GEOMETRY_CACHE_ACTOR_GET_GEOMETRY_CACHE_COMPONENT,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .a_geometry_cache_actor_get_geometry_cache_component,
                 __buffer,
             )
         };
@@ -404,7 +421,8 @@ impl AGeometryCacheActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::A_GEOMETRY_CACHE_ACTOR_GET_GEOMETRY_CACHE_COMPONENT,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .a_geometry_cache_actor_get_geometry_cache_component,
                 __buffer,
             )
         };
@@ -519,7 +537,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_TICK_AT_THIS_TIME,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_tick_at_this_time,
                 __buffer,
             )
         };
@@ -553,7 +572,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_TICK_AT_THIS_TIME,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_tick_at_this_time,
                 __buffer,
             )
         };
@@ -566,7 +586,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_STOP,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_stop,
                 __buffer,
             )
         };
@@ -576,7 +597,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_STOP,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_stop,
                 __buffer,
             )
         };
@@ -592,7 +614,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_WIREFRAME_OVERRIDE_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_wireframe_override_color,
                 __buffer,
             )
         };
@@ -609,7 +632,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_WIREFRAME_OVERRIDE_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_wireframe_override_color,
                 __buffer,
             )
         };
@@ -622,7 +646,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_START_TIME_OFFSET,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_start_time_offset,
                 __buffer,
             )
         };
@@ -639,7 +664,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_START_TIME_OFFSET,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_start_time_offset,
                 __buffer,
             )
         };
@@ -652,7 +678,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_PLAYBACK_SPEED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_playback_speed,
                 __buffer,
             )
         };
@@ -669,7 +696,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_PLAYBACK_SPEED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_playback_speed,
                 __buffer,
             )
         };
@@ -682,7 +710,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_OVERRIDE_WIREFRAME_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_override_wireframe_color,
                 __buffer,
             )
         };
@@ -699,7 +728,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_OVERRIDE_WIREFRAME_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_override_wireframe_color,
                 __buffer,
             )
         };
@@ -712,7 +742,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_MOTION_VECTOR_SCALE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_motion_vector_scale,
                 __buffer,
             )
         };
@@ -729,7 +760,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_MOTION_VECTOR_SCALE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_motion_vector_scale,
                 __buffer,
             )
         };
@@ -742,7 +774,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_LOOPING,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_looping,
                 __buffer,
             )
         };
@@ -759,7 +792,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_LOOPING,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_looping,
                 __buffer,
             )
         };
@@ -772,7 +806,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_GEOMETRY_CACHE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_geometry_cache,
                 __buffer,
             )
         };
@@ -789,7 +824,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_GEOMETRY_CACHE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_geometry_cache,
                 __buffer,
             )
         };
@@ -803,7 +839,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_EXTRAPOLATE_FRAMES,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_extrapolate_frames,
                 __buffer,
             )
         };
@@ -820,7 +857,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_SET_EXTRAPOLATE_FRAMES,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_set_extrapolate_frames,
                 __buffer,
             )
         };
@@ -833,7 +871,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED_FROM_END,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play_reversed_from_end,
                 __buffer,
             )
         };
@@ -843,7 +882,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED_FROM_END,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play_reversed_from_end,
                 __buffer,
             )
         };
@@ -856,7 +896,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play_reversed,
                 __buffer,
             )
         };
@@ -866,7 +907,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY_REVERSED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play_reversed,
                 __buffer,
             )
         };
@@ -879,7 +921,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY_FROM_START,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play_from_start,
                 __buffer,
             )
         };
@@ -889,7 +932,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY_FROM_START,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play_from_start,
                 __buffer,
             )
         };
@@ -902,7 +946,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play,
                 __buffer,
             )
         };
@@ -912,7 +957,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PLAY,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_play,
                 __buffer,
             )
         };
@@ -925,7 +971,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PAUSE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_pause,
                 __buffer,
             )
         };
@@ -935,7 +982,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_PAUSE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_pause,
                 __buffer,
             )
         };
@@ -948,7 +996,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING_REVERSED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_playing_reversed,
                 __buffer,
             )
         };
@@ -958,7 +1007,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING_REVERSED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_playing_reversed,
                 __buffer,
             )
         };
@@ -972,7 +1022,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_playing,
                 __buffer,
             )
         };
@@ -982,7 +1033,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_PLAYING,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_playing,
                 __buffer,
             )
         };
@@ -996,7 +1048,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_LOOPING,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_looping,
                 __buffer,
             )
         };
@@ -1006,7 +1059,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_LOOPING,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_looping,
                 __buffer,
             )
         };
@@ -1020,7 +1074,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_EXTRAPOLATING_FRAMES,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_extrapolating_frames,
                 __buffer,
             )
         };
@@ -1030,7 +1085,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_IS_EXTRAPOLATING_FRAMES,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_is_extrapolating_frames,
                 __buffer,
             )
         };
@@ -1046,7 +1102,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_WIREFRAME_OVERRIDE_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_wireframe_override_color,
                 __buffer,
             )
         };
@@ -1056,7 +1113,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_WIREFRAME_OVERRIDE_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_wireframe_override_color,
                 __buffer,
             )
         };
@@ -1072,7 +1130,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_START_TIME_OFFSET,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_start_time_offset,
                 __buffer,
             )
         };
@@ -1082,7 +1141,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_START_TIME_OFFSET,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_start_time_offset,
                 __buffer,
             )
         };
@@ -1096,7 +1156,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_SPEED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_playback_speed,
                 __buffer,
             )
         };
@@ -1106,7 +1167,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_SPEED,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_playback_speed,
                 __buffer,
             )
         };
@@ -1120,7 +1182,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_DIRECTION,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_playback_direction,
                 __buffer,
             )
         };
@@ -1130,7 +1193,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_PLAYBACK_DIRECTION,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_playback_direction,
                 __buffer,
             )
         };
@@ -1144,7 +1208,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_OVERRIDE_WIREFRAME_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_override_wireframe_color,
                 __buffer,
             )
         };
@@ -1154,7 +1219,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_OVERRIDE_WIREFRAME_COLOR,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_override_wireframe_color,
                 __buffer,
             )
         };
@@ -1168,7 +1234,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_TRACKS,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_number_of_tracks,
                 __buffer,
             )
         };
@@ -1178,7 +1245,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_TRACKS,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_number_of_tracks,
                 __buffer,
             )
         };
@@ -1192,7 +1260,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_FRAMES,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_number_of_frames,
                 __buffer,
             )
         };
@@ -1202,7 +1271,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_NUMBER_OF_FRAMES,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_number_of_frames,
                 __buffer,
             )
         };
@@ -1216,7 +1286,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_MOTION_VECTOR_SCALE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_motion_vector_scale,
                 __buffer,
             )
         };
@@ -1226,7 +1297,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_MOTION_VECTOR_SCALE,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_motion_vector_scale,
                 __buffer,
             )
         };
@@ -1240,7 +1312,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_ELAPSED_TIME,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_elapsed_time,
                 __buffer,
             )
         };
@@ -1250,7 +1323,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_ELAPSED_TIME,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_elapsed_time,
                 __buffer,
             )
         };
@@ -1264,7 +1338,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_DURATION,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_duration,
                 __buffer,
             )
         };
@@ -1274,7 +1349,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_DURATION,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_duration,
                 __buffer,
             )
         };
@@ -1288,7 +1364,8 @@ impl UGeometryCacheComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_ANIMATION_TIME,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_animation_time,
                 __buffer,
             )
         };
@@ -1298,7 +1375,8 @@ impl UGeometryCacheComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::geometry_cache::U_GEOMETRY_CACHE_COMPONENT_GET_ANIMATION_TIME,
+                crate::bindings::geometry_cache::__FUNCTION_PTRS
+                    .u_geometry_cache_component_get_animation_time,
                 __buffer,
             )
         };

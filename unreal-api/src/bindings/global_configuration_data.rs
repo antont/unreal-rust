@@ -1,36 +1,45 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT_WITH_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING_WITH_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT_WITH_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT_WITH_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL_WITH_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_global_configuration_data_blueprint_library_get_config_data_text_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_text: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_string_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_string: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_object: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_int_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_int: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_float_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_float: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_bool_with_default: *mut crate::ffi::UFunctionOpague,
+    pub u_global_configuration_data_blueprint_library_get_config_data_bool: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_global_configuration_data_blueprint_library_get_config_data_text_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_text: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_struct: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_string_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_string: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_object: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_int_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_int: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_float_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_float: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_bool_with_default: std::ptr::null_mut(),
+            u_global_configuration_data_blueprint_library_get_config_data_bool: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -40,84 +49,96 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataTextWithDefault"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT_WITH_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataText"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataStruct"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRUCT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataStringWithDefault"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING_WITH_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataString"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataObject"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataIntWithDefault"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT_WITH_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataInt"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataFloatWithDefault"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT_WITH_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataFloat"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataBoolWithDefault"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL_WITH_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigDataBool"),
-            &raw mut U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_global_configuration_data_blueprint_library_get_config_data_bool,
         );
     }
 }
@@ -152,7 +173,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
                 __buffer,
             )
         };
@@ -176,7 +198,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text_with_default,
                 __buffer,
             )
         };
@@ -190,7 +213,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text,
                 __buffer,
             )
         };
@@ -214,7 +238,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_TEXT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_text,
                 __buffer,
             )
         };
@@ -235,7 +260,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRUCT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_struct,
                 __buffer,
             )
         };
@@ -270,7 +296,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRUCT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_struct,
                 __buffer,
             )
         };
@@ -293,7 +320,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
                 __buffer,
             )
         };
@@ -317,7 +345,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string_with_default,
                 __buffer,
             )
         };
@@ -331,7 +360,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string,
                 __buffer,
             )
         };
@@ -355,7 +385,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_STRING,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_string,
                 __buffer,
             )
         };
@@ -375,7 +406,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_OBJECT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_object,
                 __buffer,
             )
         };
@@ -399,7 +431,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_OBJECT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_object,
                 __buffer,
             )
         };
@@ -416,7 +449,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
                 __buffer,
             )
         };
@@ -440,7 +474,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int_with_default,
                 __buffer,
             )
         };
@@ -454,7 +489,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int,
                 __buffer,
             )
         };
@@ -474,7 +510,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_INT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_int,
                 __buffer,
             )
         };
@@ -494,7 +531,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
                 __buffer,
             )
         };
@@ -518,7 +556,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float_with_default,
                 __buffer,
             )
         };
@@ -532,7 +571,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float,
                 __buffer,
             )
         };
@@ -552,7 +592,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_FLOAT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_float,
                 __buffer,
             )
         };
@@ -572,7 +613,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
                 __buffer,
             )
         };
@@ -596,7 +638,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL_WITH_DEFAULT,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool_with_default,
                 __buffer,
             )
         };
@@ -610,7 +653,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool,
                 __buffer,
             )
         };
@@ -634,7 +678,8 @@ impl UGlobalConfigurationDataBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::global_configuration_data::U_GLOBAL_CONFIGURATION_DATA_BLUEPRINT_LIBRARY_GET_CONFIG_DATA_BOOL,
+                crate::bindings::global_configuration_data::__FUNCTION_PTRS
+                    .u_global_configuration_data_blueprint_library_get_config_data_bool,
                 __buffer,
             )
         };

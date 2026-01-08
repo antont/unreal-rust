@@ -1,108 +1,117 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT_POINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_RECORD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT_POINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_PROPERTY_TYPE_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURED_PROPERTIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURABLE_PROPERTIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_DELETE_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CAPTURE_PROPERTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_APPLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_ACTOR_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_variant_manager_blueprint_library_set_value_vector4: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_string: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_object: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_int_point: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_int: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_float: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_color: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_value_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_set_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_variant_set_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_variant_set: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_variant_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_captured_property_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_captured_property: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_actor_binding_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_remove_actor_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_record: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_vector4: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_string: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_object: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_int_point: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_int: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_float: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_color: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_value_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_property_type_string: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_captured_properties: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_get_capturable_properties: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_delete_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_create_level_variant_sets_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_create_level_variant_sets_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_capture_property: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_apply: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_add_variant_set: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_add_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_add_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_manager_blueprint_library_add_actor_binding: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_variant_manager_blueprint_library_set_value_vector4: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_vector2_d: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_vector: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_string: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_rotator: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_quat: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_object: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_linear_color: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_int_point: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_int: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_float: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_color: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_value_bool: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_set_dependency: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_variant_set_by_name: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_variant_set: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_variant_by_name: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_variant: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_captured_property_by_name: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_captured_property: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_actor_binding_by_name: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_remove_actor_binding: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_record: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_vector4: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_vector2_d: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_vector: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_string: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_rotator: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_quat: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_object: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_linear_color: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_int_point: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_int: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_float: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_color: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_value_bool: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_property_type_string: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_captured_properties: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_get_capturable_properties: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_delete_dependency: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_create_level_variant_sets_asset: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_create_level_variant_sets_actor: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_capture_property: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_apply: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_add_variant_set: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_add_variant: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_add_dependency: std::ptr::null_mut(),
+            u_variant_manager_blueprint_library_add_actor_binding: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -112,336 +121,360 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueVector4"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR4,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_set_value_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueVector2D"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_set_value_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueVector"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueString"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_STRING,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueRotator"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_ROTATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_set_value_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueQuat"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_QUAT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueObject"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueLinearColor"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_set_value_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueIntPoint"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT_POINT,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_set_value_int_point,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueInt"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueFloat"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueColor"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetValueBool"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_BOOL,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_value_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDependency"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_set_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVariantSetByName"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_remove_variant_set_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVariantSet"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_remove_variant_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVariantByName"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_remove_variant_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVariant"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_remove_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCapturedPropertyByName"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_remove_captured_property_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCapturedProperty"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_remove_captured_property,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorBindingByName"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_remove_actor_binding_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorBinding"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_remove_actor_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Record"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_RECORD,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_record,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueVector4"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR4,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_value_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueVector2D"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_value_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueVector"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueString"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_STRING,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueRotator"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_ROTATOR,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_value_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueQuat"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_QUAT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueObject"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueLinearColor"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_value_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueIntPoint"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT_POINT,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_value_int_point,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueInt"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueFloat"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueColor"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetValueBool"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_BOOL,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_get_value_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertyTypeString"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_PROPERTY_TYPE_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_property_type_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCapturedProperties"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURED_PROPERTIES,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_captured_properties,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCapturableProperties"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURABLE_PROPERTIES,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_get_capturable_properties,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteDependency"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_DELETE_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_delete_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateLevelVariantSetsAsset"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_create_level_variant_sets_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateLevelVariantSetsActor"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_create_level_variant_sets_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureProperty"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CAPTURE_PROPERTY,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_capture_property,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Apply"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_APPLY,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_apply,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVariantSet"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT_SET,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_add_variant_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVariant"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_add_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDependency"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_variant_manager_blueprint_library_add_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorBinding"),
-            &raw mut U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_ACTOR_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_variant_manager_blueprint_library_add_actor_binding,
         );
     }
 }
@@ -503,7 +536,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR4,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector4,
                 __buffer,
             )
         };
@@ -531,7 +565,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR4,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector4,
                 __buffer,
             )
         };
@@ -547,7 +582,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR2_D,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector2_d,
                 __buffer,
             )
         };
@@ -575,7 +611,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR2_D,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector2_d,
                 __buffer,
             )
         };
@@ -591,7 +628,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector,
                 __buffer,
             )
         };
@@ -619,7 +657,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_VECTOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_vector,
                 __buffer,
             )
         };
@@ -635,7 +674,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_STRING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_string,
                 __buffer,
             )
         };
@@ -663,7 +703,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_STRING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_string,
                 __buffer,
             )
         };
@@ -679,7 +720,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_ROTATOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_rotator,
                 __buffer,
             )
         };
@@ -707,7 +749,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_ROTATOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_rotator,
                 __buffer,
             )
         };
@@ -723,7 +766,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_QUAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_quat,
                 __buffer,
             )
         };
@@ -751,7 +795,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_QUAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_quat,
                 __buffer,
             )
         };
@@ -767,7 +812,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_OBJECT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_object,
                 __buffer,
             )
         };
@@ -795,7 +841,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_OBJECT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_object,
                 __buffer,
             )
         };
@@ -811,7 +858,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_LINEAR_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_linear_color,
                 __buffer,
             )
         };
@@ -839,7 +887,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_LINEAR_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_linear_color,
                 __buffer,
             )
         };
@@ -855,7 +904,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT_POINT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_int_point,
                 __buffer,
             )
         };
@@ -883,7 +933,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT_POINT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_int_point,
                 __buffer,
             )
         };
@@ -899,7 +950,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_int,
                 __buffer,
             )
         };
@@ -923,7 +975,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_INT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_int,
                 __buffer,
             )
         };
@@ -939,7 +992,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_FLOAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_float,
                 __buffer,
             )
         };
@@ -963,7 +1017,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_FLOAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_float,
                 __buffer,
             )
         };
@@ -979,7 +1034,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_color,
                 __buffer,
             )
         };
@@ -1007,7 +1063,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_color,
                 __buffer,
             )
         };
@@ -1023,7 +1080,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_BOOL,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_bool,
                 __buffer,
             )
         };
@@ -1047,7 +1105,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_VALUE_BOOL,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_value_bool,
                 __buffer,
             )
         };
@@ -1064,7 +1123,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_DEPENDENCY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_dependency,
                 __buffer,
             )
         };
@@ -1097,7 +1157,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_SET_DEPENDENCY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_set_dependency,
                 __buffer,
             )
         };
@@ -1121,7 +1182,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_set_by_name,
                 __buffer,
             )
         };
@@ -1149,7 +1211,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_set_by_name,
                 __buffer,
             )
         };
@@ -1167,7 +1230,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_set,
                 __buffer,
             )
         };
@@ -1199,7 +1263,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_SET,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_set,
                 __buffer,
             )
         };
@@ -1215,7 +1280,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_by_name,
                 __buffer,
             )
         };
@@ -1243,7 +1309,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant_by_name,
                 __buffer,
             )
         };
@@ -1259,7 +1326,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant,
                 __buffer,
             )
         };
@@ -1289,7 +1357,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_VARIANT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_variant,
                 __buffer,
             )
         };
@@ -1306,7 +1375,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_captured_property_by_name,
                 __buffer,
             )
         };
@@ -1339,7 +1409,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_captured_property_by_name,
                 __buffer,
             )
         };
@@ -1356,7 +1427,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_captured_property,
                 __buffer,
             )
         };
@@ -1393,7 +1465,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_CAPTURED_PROPERTY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_captured_property,
                 __buffer,
             )
         };
@@ -1409,7 +1482,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_actor_binding_by_name,
                 __buffer,
             )
         };
@@ -1435,7 +1509,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING_BY_NAME,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_actor_binding_by_name,
                 __buffer,
             )
         };
@@ -1451,7 +1526,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_actor_binding,
                 __buffer,
             )
         };
@@ -1477,7 +1553,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_REMOVE_ACTOR_BINDING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_remove_actor_binding,
                 __buffer,
             )
         };
@@ -1492,7 +1569,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_RECORD,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_record,
                 __buffer,
             )
         };
@@ -1513,7 +1591,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_RECORD,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_record,
                 __buffer,
             )
         };
@@ -1528,7 +1607,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR4,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector4,
                 __buffer,
             )
         };
@@ -1549,7 +1629,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR4,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector4,
                 __buffer,
             )
         };
@@ -1567,7 +1648,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR2_D,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector2_d,
                 __buffer,
             )
         };
@@ -1588,7 +1670,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR2_D,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector2_d,
                 __buffer,
             )
         };
@@ -1606,7 +1689,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector,
                 __buffer,
             )
         };
@@ -1627,7 +1711,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_VECTOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_vector,
                 __buffer,
             )
         };
@@ -1645,7 +1730,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_STRING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_string,
                 __buffer,
             )
         };
@@ -1666,7 +1752,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_STRING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_string,
                 __buffer,
             )
         };
@@ -1682,7 +1769,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_ROTATOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_rotator,
                 __buffer,
             )
         };
@@ -1703,7 +1791,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_ROTATOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_rotator,
                 __buffer,
             )
         };
@@ -1721,7 +1810,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_QUAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_quat,
                 __buffer,
             )
         };
@@ -1742,7 +1832,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_QUAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_quat,
                 __buffer,
             )
         };
@@ -1760,7 +1851,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_OBJECT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_object,
                 __buffer,
             )
         };
@@ -1781,7 +1873,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_OBJECT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_object,
                 __buffer,
             )
         };
@@ -1802,7 +1895,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_LINEAR_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_linear_color,
                 __buffer,
             )
         };
@@ -1823,7 +1917,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_LINEAR_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_linear_color,
                 __buffer,
             )
         };
@@ -1841,7 +1936,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT_POINT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_int_point,
                 __buffer,
             )
         };
@@ -1862,7 +1958,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT_POINT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_int_point,
                 __buffer,
             )
         };
@@ -1880,7 +1977,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_int,
                 __buffer,
             )
         };
@@ -1901,7 +1999,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_INT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_int,
                 __buffer,
             )
         };
@@ -1917,7 +2016,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_FLOAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_float,
                 __buffer,
             )
         };
@@ -1938,7 +2038,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_FLOAT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_float,
                 __buffer,
             )
         };
@@ -1954,7 +2055,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_color,
                 __buffer,
             )
         };
@@ -1975,7 +2077,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_COLOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_color,
                 __buffer,
             )
         };
@@ -1993,7 +2096,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_BOOL,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_bool,
                 __buffer,
             )
         };
@@ -2014,7 +2118,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_VALUE_BOOL,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_value_bool,
                 __buffer,
             )
         };
@@ -2030,7 +2135,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_PROPERTY_TYPE_STRING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_property_type_string,
                 __buffer,
             )
         };
@@ -2051,7 +2157,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_PROPERTY_TYPE_STRING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_property_type_string,
                 __buffer,
             )
         };
@@ -2068,7 +2175,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURED_PROPERTIES,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_captured_properties,
                 __buffer,
             )
         };
@@ -2094,7 +2202,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURED_PROPERTIES,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_captured_properties,
                 __buffer,
             )
         };
@@ -2119,7 +2228,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURABLE_PROPERTIES,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_capturable_properties,
                 __buffer,
             )
         };
@@ -2136,7 +2246,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_GET_CAPTURABLE_PROPERTIES,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_get_capturable_properties,
                 __buffer,
             )
         };
@@ -2153,7 +2264,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_DELETE_DEPENDENCY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_delete_dependency,
                 __buffer,
             )
         };
@@ -2175,7 +2287,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_DELETE_DEPENDENCY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_delete_dependency,
                 __buffer,
             )
         };
@@ -2191,7 +2304,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ASSET,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_create_level_variant_sets_asset,
                 __buffer,
             )
         };
@@ -2215,7 +2329,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ASSET,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_create_level_variant_sets_asset,
                 __buffer,
             )
         };
@@ -2240,7 +2355,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ACTOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_create_level_variant_sets_actor,
                 __buffer,
             )
         };
@@ -2261,7 +2377,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CREATE_LEVEL_VARIANT_SETS_ACTOR,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_create_level_variant_sets_actor,
                 __buffer,
             )
         };
@@ -2288,7 +2405,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CAPTURE_PROPERTY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_capture_property,
                 __buffer,
             )
         };
@@ -2321,7 +2439,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_CAPTURE_PROPERTY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_capture_property,
                 __buffer,
             )
         };
@@ -2342,7 +2461,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_APPLY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_apply,
                 __buffer,
             )
         };
@@ -2363,7 +2483,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_APPLY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_apply,
                 __buffer,
             )
         };
@@ -2381,7 +2502,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT_SET,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_variant_set,
                 __buffer,
             )
         };
@@ -2413,7 +2535,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT_SET,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_variant_set,
                 __buffer,
             )
         };
@@ -2429,7 +2552,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_variant,
                 __buffer,
             )
         };
@@ -2459,7 +2583,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_VARIANT,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_variant,
                 __buffer,
             )
         };
@@ -2475,7 +2600,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_DEPENDENCY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_dependency,
                 __buffer,
             )
         };
@@ -2505,7 +2631,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_DEPENDENCY,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_dependency,
                 __buffer,
             )
         };
@@ -2528,7 +2655,8 @@ impl UVariantManagerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_ACTOR_BINDING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_actor_binding,
                 __buffer,
             )
         };
@@ -2554,7 +2682,8 @@ impl UVariantManagerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager::U_VARIANT_MANAGER_BLUEPRINT_LIBRARY_ADD_ACTOR_BINDING,
+                crate::bindings::variant_manager::__FUNCTION_PTRS
+                    .u_variant_manager_blueprint_library_add_actor_binding,
                 __buffer,
             )
         };

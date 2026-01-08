@@ -1,224 +1,233 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_COMPONENT_GET_BOUND_ACTION_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_REQUEST_REBUILD_CONTROL_MAPPINGS_USING_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_MAKE_INPUT_ACTION_VALUE_OF_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_IS_ACTION_KEY_MAPPING_PLAYER_MAPPABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_GET_PLAYER_MAPPABLE_KEY_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_GET_MAPPING_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_GET_BOUND_ACTION_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_FLUSH_PLAYER_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_CONV_TRIGGER_EVENT_VALUE_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS3_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS1_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LIBRARY_BREAK_INPUT_ACTION_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_PLATFORM_DATA_GET_CONTEXT_REDIRECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_SET_INPUT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REQUEST_REBUILD_CONTROL_MAPPINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAGS_FROM_INPUT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAG_FROM_INPUT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_MAPPING_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_CONTEXT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_ACTIVE_CONTEXT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_KEYS_MAPPED_TO_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ON_USER_SETTINGS_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ON_USER_KEY_PROFILE_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_PLAYER_MAPPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_PLAYER_MAPPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_HAS_MAPPING_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_USER_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_INPUT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_ALL_PLAYER_MAPPABLE_ACTION_KEY_MAPPINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_CLEAR_ALL_MAPPINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_APPEND_TAGS_TO_INPUT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_TAG_TO_INPUT_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_MAPPING_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_USER_SETTINGS_POST_INITIALIZED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_MAPPING_CONTEXT_REMOVED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_MAPPING_CONTEXT_ADDED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_CONTROL_MAPPINGS_REBUILT_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_WORLD_SUBSYSTEM_REMOVE_ACTOR_INPUT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_WORLD_SUBSYSTEM_ADD_ACTOR_INPUT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_MAPPING_CONTEXT_UNMAP_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_MAPPING_CONTEXT_UNMAP_ALL_KEYS_FROM_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_MAPPING_CONTEXT_UNMAP_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_MAPPING_CONTEXT_SHOULD_SHOW_INPUT_MODE_QUERY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_MAPPING_CONTEXT_MAP_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_MODIFIER_MODIFY_RAW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_MODIFIER_GET_VISUALIZATION_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_TRIGGER_UPDATE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_TRIGGER_IS_ACTUATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_INPUT_TRIGGER_GET_TRIGGER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_IS_DEPRECATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_PLAYER_MAPPABLE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_CONTEXTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_KEYS_BOUND_TO_ACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_CONFIG_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLAYER_MAPPABLE_KEY_SETTINGS_GET_KNOWN_MAPPING_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_SET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_MAPPING_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_QUERY_PLAYER_MAPPED_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_K2_FIND_KEY_MAPPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_ID_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PLAYER_MAPPING_ROWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPING_NAMES_FOR_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPED_KEYS_IN_ROW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DUMP_PROFILE_TO_LOG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DOES_MAPPING_PASS_QUERY_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_UN_MAP_PLAYER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_SET_ACTIVE_KEY_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_SAVE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_ID_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_RESET_ALL_PLAYER_KEYS_IN_ROW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_MAP_PLAYER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_MAPPING_CONTEXT_REGISTERED_WITH_SETTINGS_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_MAPPABLE_KEY_PROFILE_CHANGED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_IS_MAPPING_CONTEXT_REGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_GET_KEY_PROFILE_WITH_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_FIND_MAPPINGS_IN_ROW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_ENHANCED_INPUT_USER_SETTINGS_CHANGED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_ENHANCED_INPUT_USER_SETTINGS_APPLIED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_CREATE_NEW_KEY_PROFILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_ASYNC_SAVE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_USER_SETTINGS_APPLY_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_enhanced_input_component_get_bound_action_value: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_request_rebuild_control_mappings_using_context: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_make_input_action_value_of_type: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_is_action_key_mapping_player_mappable: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_get_player_mappable_key_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_get_mapping_name: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_get_bound_action_value: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_flush_player_input: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_conv_trigger_event_value_to_string: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_conv_input_action_value_to_string: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_conv_input_action_value_to_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_conv_input_action_value_to_axis3_d: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_conv_input_action_value_to_axis2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_conv_input_action_value_to_axis1_d: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_library_break_input_action_value: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_platform_data_get_context_redirect: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_player_mapping: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_action: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_player_mapping: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_action: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_player_mapping: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_action: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_set_input_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_request_rebuild_control_mappings: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_remove_tags_from_input_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_remove_tag_from_input_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_remove_mapping_context: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_query_map_key_in_context_set: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_query_map_key_in_active_context_set: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_query_keys_mapped_to_action: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_on_user_settings_changed: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_on_user_key_profile_changed: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_inject_input_vector_for_player_mapping: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_inject_input_vector_for_action: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_inject_input_for_player_mapping: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_inject_input_for_action: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_has_mapping_context: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_get_user_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_get_input_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_get_all_player_mappable_action_key_mappings: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_clear_all_mappings: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_append_tags_to_input_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_add_tag_to_input_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_subsystem_interface_add_mapping_context: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_local_player_subsystem_on_user_settings_post_initialized_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_local_player_subsystem_on_mapping_context_removed_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_local_player_subsystem_on_mapping_context_added_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_local_player_subsystem_on_control_mappings_rebuilt_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_world_subsystem_remove_actor_input_component: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_world_subsystem_add_actor_input_component: *mut crate::ffi::UFunctionOpague,
+    pub u_input_mapping_context_unmap_key: *mut crate::ffi::UFunctionOpague,
+    pub u_input_mapping_context_unmap_all_keys_from_action: *mut crate::ffi::UFunctionOpague,
+    pub u_input_mapping_context_unmap_all: *mut crate::ffi::UFunctionOpague,
+    pub u_input_mapping_context_should_show_input_mode_query: *mut crate::ffi::UFunctionOpague,
+    pub u_input_mapping_context_map_key: *mut crate::ffi::UFunctionOpague,
+    pub u_input_modifier_modify_raw: *mut crate::ffi::UFunctionOpague,
+    pub u_input_modifier_get_visualization_color: *mut crate::ffi::UFunctionOpague,
+    pub u_input_trigger_update_state: *mut crate::ffi::UFunctionOpague,
+    pub u_input_trigger_is_actuated: *mut crate::ffi::UFunctionOpague,
+    pub u_input_trigger_get_trigger_type: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_reset_to_default: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_is_deprecated: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_get_player_mappable_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_get_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_get_mapping_contexts: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_get_mapping_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_get_keys_bound_to_action: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_input_config_get_config_name: *mut crate::ffi::UFunctionOpague,
+    pub u_player_mappable_key_settings_get_known_mapping_names: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_to_string: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_set_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_reset_to_default: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_reset_mapping_to_default: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_query_player_mapped_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_k2_find_key_mapping: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_get_profile_id_string: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_get_profile_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_get_player_mapping_rows: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_get_mapping_names_for_key: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_get_mapped_keys_in_row: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_dump_profile_to_log: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_player_mappable_key_profile_does_mapping_pass_query_options: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_unregister_input_mapping_contexts: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_unregister_input_mapping_context: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_un_map_player_key: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_set_active_key_profile: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_save_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_reset_key_profile_to_default: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_reset_key_profile_id_to_default: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_reset_all_player_keys_in_row: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_register_input_mapping_contexts: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_register_input_mapping_context: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_map_player_key: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_mapping_context_registered_with_settings_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_mappable_key_profile_changed_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_is_mapping_context_registered: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_get_key_profile_with_id: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_get_active_key_profile_id: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_get_active_key_profile: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_find_mappings_in_row: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_enhanced_input_user_settings_changed_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_enhanced_input_user_settings_applied_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_create_new_key_profile: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_async_save_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_user_settings_apply_settings: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_enhanced_input_component_get_bound_action_value: std::ptr::null_mut(),
+            u_enhanced_input_library_request_rebuild_control_mappings_using_context: std::ptr::null_mut(),
+            u_enhanced_input_library_make_input_action_value_of_type: std::ptr::null_mut(),
+            u_enhanced_input_library_is_action_key_mapping_player_mappable: std::ptr::null_mut(),
+            u_enhanced_input_library_get_player_mappable_key_settings: std::ptr::null_mut(),
+            u_enhanced_input_library_get_mapping_name: std::ptr::null_mut(),
+            u_enhanced_input_library_get_bound_action_value: std::ptr::null_mut(),
+            u_enhanced_input_library_flush_player_input: std::ptr::null_mut(),
+            u_enhanced_input_library_conv_trigger_event_value_to_string: std::ptr::null_mut(),
+            u_enhanced_input_library_conv_input_action_value_to_string: std::ptr::null_mut(),
+            u_enhanced_input_library_conv_input_action_value_to_bool: std::ptr::null_mut(),
+            u_enhanced_input_library_conv_input_action_value_to_axis3_d: std::ptr::null_mut(),
+            u_enhanced_input_library_conv_input_action_value_to_axis2_d: std::ptr::null_mut(),
+            u_enhanced_input_library_conv_input_action_value_to_axis1_d: std::ptr::null_mut(),
+            u_enhanced_input_library_break_input_action_value: std::ptr::null_mut(),
+            u_enhanced_input_platform_data_get_context_redirect: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_player_mapping: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_action: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_player_mapping: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_action: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_player_mapping: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_action: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_set_input_mode: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_request_rebuild_control_mappings: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_remove_tags_from_input_mode: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_remove_tag_from_input_mode: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_remove_mapping_context: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_query_map_key_in_context_set: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_query_map_key_in_active_context_set: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_query_keys_mapped_to_action: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_on_user_settings_changed: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_on_user_key_profile_changed: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_inject_input_vector_for_player_mapping: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_inject_input_vector_for_action: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_inject_input_for_player_mapping: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_inject_input_for_action: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_has_mapping_context: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_get_user_settings: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_get_input_mode: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_get_all_player_mappable_action_key_mappings: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_clear_all_mappings: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_append_tags_to_input_mode: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_add_tag_to_input_mode: std::ptr::null_mut(),
+            u_enhanced_input_subsystem_interface_add_mapping_context: std::ptr::null_mut(),
+            u_enhanced_input_local_player_subsystem_on_user_settings_post_initialized_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_local_player_subsystem_on_mapping_context_removed_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_local_player_subsystem_on_mapping_context_added_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_local_player_subsystem_on_control_mappings_rebuilt_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_world_subsystem_remove_actor_input_component: std::ptr::null_mut(),
+            u_enhanced_input_world_subsystem_add_actor_input_component: std::ptr::null_mut(),
+            u_input_mapping_context_unmap_key: std::ptr::null_mut(),
+            u_input_mapping_context_unmap_all_keys_from_action: std::ptr::null_mut(),
+            u_input_mapping_context_unmap_all: std::ptr::null_mut(),
+            u_input_mapping_context_should_show_input_mode_query: std::ptr::null_mut(),
+            u_input_mapping_context_map_key: std::ptr::null_mut(),
+            u_input_modifier_modify_raw: std::ptr::null_mut(),
+            u_input_modifier_get_visualization_color: std::ptr::null_mut(),
+            u_input_trigger_update_state: std::ptr::null_mut(),
+            u_input_trigger_is_actuated: std::ptr::null_mut(),
+            u_input_trigger_get_trigger_type: std::ptr::null_mut(),
+            u_player_mappable_input_config_reset_to_default: std::ptr::null_mut(),
+            u_player_mappable_input_config_is_deprecated: std::ptr::null_mut(),
+            u_player_mappable_input_config_get_player_mappable_keys: std::ptr::null_mut(),
+            u_player_mappable_input_config_get_metadata: std::ptr::null_mut(),
+            u_player_mappable_input_config_get_mapping_contexts: std::ptr::null_mut(),
+            u_player_mappable_input_config_get_mapping_by_name: std::ptr::null_mut(),
+            u_player_mappable_input_config_get_keys_bound_to_action: std::ptr::null_mut(),
+            u_player_mappable_input_config_get_display_name: std::ptr::null_mut(),
+            u_player_mappable_input_config_get_config_name: std::ptr::null_mut(),
+            u_player_mappable_key_settings_get_known_mapping_names: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_to_string: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_set_display_name: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_reset_to_default: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_reset_mapping_to_default: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_query_player_mapped_keys: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_k2_find_key_mapping: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_get_profile_id_string: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_get_profile_display_name: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_get_player_mapping_rows: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_get_mapping_names_for_key: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_get_mapped_keys_in_row: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_dump_profile_to_log: std::ptr::null_mut(),
+            u_enhanced_player_mappable_key_profile_does_mapping_pass_query_options: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_unregister_input_mapping_contexts: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_unregister_input_mapping_context: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_un_map_player_key: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_set_active_key_profile: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_save_settings: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_reset_key_profile_to_default: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_reset_key_profile_id_to_default: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_reset_all_player_keys_in_row: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_register_input_mapping_contexts: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_register_input_mapping_context: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_map_player_key: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_mapping_context_registered_with_settings_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_mappable_key_profile_changed_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_is_mapping_context_registered: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_get_key_profile_with_id: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_get_active_key_profile_id: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_get_active_key_profile: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_find_mappings_in_row: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_enhanced_input_user_settings_changed_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_enhanced_input_user_settings_applied_delegate_signature: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_create_new_key_profile: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_async_save_settings: std::ptr::null_mut(),
+            u_enhanced_input_user_settings_apply_settings: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -228,7 +237,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundActionValue"),
-            &raw mut U_ENHANCED_INPUT_COMPONENT_GET_BOUND_ACTION_VALUE,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_component_get_bound_action_value,
         );
     }
     unsafe {
@@ -239,98 +248,108 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestRebuildControlMappingsUsingContext"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_REQUEST_REBUILD_CONTROL_MAPPINGS_USING_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_request_rebuild_control_mappings_using_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeInputActionValueOfType"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_MAKE_INPUT_ACTION_VALUE_OF_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_make_input_action_value_of_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActionKeyMappingPlayerMappable"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_IS_ACTION_KEY_MAPPING_PLAYER_MAPPABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_is_action_key_mapping_player_mappable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayerMappableKeySettings"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_GET_PLAYER_MAPPABLE_KEY_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_get_player_mappable_key_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMappingName"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_GET_MAPPING_NAME,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_get_mapping_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundActionValue"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_GET_BOUND_ACTION_VALUE,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_get_bound_action_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FlushPlayerInput"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_FLUSH_PLAYER_INPUT,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_flush_player_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_TriggerEventValueToString"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_CONV_TRIGGER_EVENT_VALUE_TO_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_conv_trigger_event_value_to_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_InputActionValueToString"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_conv_input_action_value_to_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_InputActionValueToBool"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_conv_input_action_value_to_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis3D"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS3_D,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_conv_input_action_value_to_axis3_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis2D"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_conv_input_action_value_to_axis2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_InputActionValueToAxis1D"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS1_D,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_library_conv_input_action_value_to_axis1_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakInputActionValue"),
-            &raw mut U_ENHANCED_INPUT_LIBRARY_BREAK_INPUT_ACTION_VALUE,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_library_break_input_action_value,
         );
     }
     unsafe {
@@ -341,7 +360,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetContextRedirect"),
-            &raw mut U_ENHANCED_INPUT_PLATFORM_DATA_GET_CONTEXT_REDIRECT,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_platform_data_get_context_redirect,
         );
     }
     unsafe {
@@ -354,196 +373,222 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "UpdateValueOfContinuousInputInjectionForPlayerMapping",
             ),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_player_mapping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateValueOfContinuousInputInjectionForAction"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopContinuousInputInjectionForPlayerMapping"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_player_mapping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopContinuousInputInjectionForAction"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartContinuousInputInjectionForPlayerMapping"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_player_mapping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartContinuousInputInjectionForAction"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInputMode"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_SET_INPUT_MODE,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_subsystem_interface_set_input_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestRebuildControlMappings"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REQUEST_REBUILD_CONTROL_MAPPINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_request_rebuild_control_mappings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTagsFromInputMode"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAGS_FROM_INPUT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_remove_tags_from_input_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTagFromInputMode"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAG_FROM_INPUT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_remove_tag_from_input_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMappingContext"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_MAPPING_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_remove_mapping_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueryMapKeyInContextSet"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_CONTEXT_SET,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_query_map_key_in_context_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueryMapKeyInActiveContextSet"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_ACTIVE_CONTEXT_SET,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_query_map_key_in_active_context_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueryKeysMappedToAction"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_KEYS_MAPPED_TO_ACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_query_keys_mapped_to_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnUserSettingsChanged"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ON_USER_SETTINGS_CHANGED,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_on_user_settings_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnUserKeyProfileChanged"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ON_USER_KEY_PROFILE_CHANGED,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_on_user_key_profile_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InjectInputVectorForPlayerMapping"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_PLAYER_MAPPING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_inject_input_vector_for_player_mapping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InjectInputVectorForAction"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_ACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_inject_input_vector_for_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InjectInputForPlayerMapping"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_PLAYER_MAPPING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_inject_input_for_player_mapping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InjectInputForAction"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_ACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_inject_input_for_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasMappingContext"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_HAS_MAPPING_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_has_mapping_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUserSettings"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_USER_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_get_user_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInputMode"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_INPUT_MODE,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_subsystem_interface_get_input_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllPlayerMappableActionKeyMappings"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_ALL_PLAYER_MAPPABLE_ACTION_KEY_MAPPINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_get_all_player_mappable_action_key_mappings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAllMappings"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_CLEAR_ALL_MAPPINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_clear_all_mappings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AppendTagsToInputMode"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_APPEND_TAGS_TO_INPUT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_append_tags_to_input_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTagToInputMode"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_TAG_TO_INPUT_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_add_tag_to_input_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMappingContext"),
-            &raw mut U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_MAPPING_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_subsystem_interface_add_mapping_context,
         );
     }
     unsafe {
@@ -556,28 +601,32 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "OnUserSettingsPostInitialized__DelegateSignature",
             ),
-            &raw mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_USER_SETTINGS_POST_INITIALIZED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_local_player_subsystem_on_user_settings_post_initialized_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMappingContextRemoved__DelegateSignature"),
-            &raw mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_MAPPING_CONTEXT_REMOVED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_local_player_subsystem_on_mapping_context_removed_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMappingContextAdded__DelegateSignature"),
-            &raw mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_MAPPING_CONTEXT_ADDED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_local_player_subsystem_on_mapping_context_added_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnControlMappingsRebuilt__DelegateSignature"),
-            &raw mut U_ENHANCED_INPUT_LOCAL_PLAYER_SUBSYSTEM_ON_CONTROL_MAPPINGS_REBUILT_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_local_player_subsystem_on_control_mappings_rebuilt_delegate_signature,
         );
     }
     unsafe {
@@ -588,14 +637,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorInputComponent"),
-            &raw mut U_ENHANCED_INPUT_WORLD_SUBSYSTEM_REMOVE_ACTOR_INPUT_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_world_subsystem_remove_actor_input_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorInputComponent"),
-            &raw mut U_ENHANCED_INPUT_WORLD_SUBSYSTEM_ADD_ACTOR_INPUT_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_world_subsystem_add_actor_input_component,
         );
     }
     unsafe {
@@ -606,35 +657,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnmapKey"),
-            &raw mut U_INPUT_MAPPING_CONTEXT_UNMAP_KEY,
+            &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnmapAllKeysFromAction"),
-            &raw mut U_INPUT_MAPPING_CONTEXT_UNMAP_ALL_KEYS_FROM_ACTION,
+            &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_all_keys_from_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnmapAll"),
-            &raw mut U_INPUT_MAPPING_CONTEXT_UNMAP_ALL,
+            &raw mut __FUNCTION_PTRS.u_input_mapping_context_unmap_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldShowInputModeQuery"),
-            &raw mut U_INPUT_MAPPING_CONTEXT_SHOULD_SHOW_INPUT_MODE_QUERY,
+            &raw mut __FUNCTION_PTRS.u_input_mapping_context_should_show_input_mode_query,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MapKey"),
-            &raw mut U_INPUT_MAPPING_CONTEXT_MAP_KEY,
+            &raw mut __FUNCTION_PTRS.u_input_mapping_context_map_key,
         );
     }
     unsafe {
@@ -645,14 +696,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ModifyRaw"),
-            &raw mut U_INPUT_MODIFIER_MODIFY_RAW,
+            &raw mut __FUNCTION_PTRS.u_input_modifier_modify_raw,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVisualizationColor"),
-            &raw mut U_INPUT_MODIFIER_GET_VISUALIZATION_COLOR,
+            &raw mut __FUNCTION_PTRS.u_input_modifier_get_visualization_color,
         );
     }
     unsafe {
@@ -663,21 +714,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateState"),
-            &raw mut U_INPUT_TRIGGER_UPDATE_STATE,
+            &raw mut __FUNCTION_PTRS.u_input_trigger_update_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActuated"),
-            &raw mut U_INPUT_TRIGGER_IS_ACTUATED,
+            &raw mut __FUNCTION_PTRS.u_input_trigger_is_actuated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTriggerType"),
-            &raw mut U_INPUT_TRIGGER_GET_TRIGGER_TYPE,
+            &raw mut __FUNCTION_PTRS.u_input_trigger_get_trigger_type,
         );
     }
     unsafe {
@@ -688,63 +739,65 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_RESET_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_reset_to_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDeprecated"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_IS_DEPRECATED,
+            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_is_deprecated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayerMappableKeys"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_PLAYER_MAPPABLE_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_player_mappable_input_config_get_player_mappable_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetadata"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_METADATA,
+            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMappingContexts"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_CONTEXTS,
+            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_mapping_contexts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMappingByName"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_mapping_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeysBoundToAction"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_KEYS_BOUND_TO_ACTION,
+            &raw mut __FUNCTION_PTRS
+                .u_player_mappable_input_config_get_keys_bound_to_action,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConfigName"),
-            &raw mut U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_CONFIG_NAME,
+            &raw mut __FUNCTION_PTRS.u_player_mappable_input_config_get_config_name,
         );
     }
     unsafe {
@@ -755,7 +808,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKnownMappingNames"),
-            &raw mut U_PLAYER_MAPPABLE_KEY_SETTINGS_GET_KNOWN_MAPPING_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_player_mappable_key_settings_get_known_mapping_names,
         );
     }
     unsafe {
@@ -766,91 +820,103 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ToString"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_TO_STRING,
+            &raw mut __FUNCTION_PTRS.u_enhanced_player_mappable_key_profile_to_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_SET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_set_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_reset_to_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetMappingToDefault"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_MAPPING_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_reset_mapping_to_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("QueryPlayerMappedKeys"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_QUERY_PLAYER_MAPPED_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_query_player_mapped_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_FindKeyMapping"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_K2_FIND_KEY_MAPPING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_k2_find_key_mapping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetProfileIdString"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_ID_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_get_profile_id_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetProfileDisplayName"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_get_profile_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayerMappingRows"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PLAYER_MAPPING_ROWS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_get_player_mapping_rows,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMappingNamesForKey"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPING_NAMES_FOR_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_get_mapping_names_for_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMappedKeysInRow"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPED_KEYS_IN_ROW,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_get_mapped_keys_in_row,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DumpProfileToLog"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DUMP_PROFILE_TO_LOG,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_dump_profile_to_log,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesMappingPassQueryOptions"),
-            &raw mut U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DOES_MAPPING_PASS_QUERY_OPTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_player_mappable_key_profile_does_mapping_pass_query_options,
         );
     }
     unsafe {
@@ -861,77 +927,85 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterInputMappingContexts"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXTS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_unregister_input_mapping_contexts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterInputMappingContext"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_unregister_input_mapping_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnMapPlayerKey"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_UN_MAP_PLAYER_KEY,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_un_map_player_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActiveKeyProfile"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_SET_ACTIVE_KEY_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_set_active_key_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveSettings"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_SAVE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_save_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetKeyProfileToDefault"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_reset_key_profile_to_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetKeyProfileIdToDefault"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_ID_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_reset_key_profile_id_to_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetAllPlayerKeysInRow"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_RESET_ALL_PLAYER_KEYS_IN_ROW,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_reset_all_player_keys_in_row,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterInputMappingContexts"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXTS,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_register_input_mapping_contexts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterInputMappingContext"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_register_input_mapping_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MapPlayerKey"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_MAP_PLAYER_KEY,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_map_player_key,
         );
         (bindings
             .core_fns
@@ -940,49 +1014,55 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "MappingContextRegisteredWithSettings__DelegateSignature",
             ),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_MAPPING_CONTEXT_REGISTERED_WITH_SETTINGS_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_mapping_context_registered_with_settings_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MappableKeyProfileChanged__DelegateSignature"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_MAPPABLE_KEY_PROFILE_CHANGED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_mappable_key_profile_changed_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsMappingContextRegistered"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_IS_MAPPING_CONTEXT_REGISTERED,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_is_mapping_context_registered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeyProfileWithId"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_GET_KEY_PROFILE_WITH_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_get_key_profile_with_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveKeyProfileId"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_get_active_key_profile_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveKeyProfile"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_get_active_key_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindMappingsInRow"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_FIND_MAPPINGS_IN_ROW,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_find_mappings_in_row,
         );
         (bindings
             .core_fns
@@ -991,7 +1071,8 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "EnhancedInputUserSettingsChanged__DelegateSignature",
             ),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_ENHANCED_INPUT_USER_SETTINGS_CHANGED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_enhanced_input_user_settings_changed_delegate_signature,
         );
         (bindings
             .core_fns
@@ -1000,28 +1081,30 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "EnhancedInputUserSettingsApplied__DelegateSignature",
             ),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_ENHANCED_INPUT_USER_SETTINGS_APPLIED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_enhanced_input_user_settings_applied_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewKeyProfile"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_CREATE_NEW_KEY_PROFILE,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_user_settings_create_new_key_profile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AsyncSaveSettings"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_ASYNC_SAVE_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_async_save_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplySettings"),
-            &raw mut U_ENHANCED_INPUT_USER_SETTINGS_APPLY_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_user_settings_apply_settings,
         );
     }
 }
@@ -1209,7 +1292,8 @@ impl UEnhancedInputComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_COMPONENT_GET_BOUND_ACTION_VALUE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_component_get_bound_action_value,
                 __buffer,
             )
         };
@@ -1226,7 +1310,8 @@ impl UEnhancedInputComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_COMPONENT_GET_BOUND_ACTION_VALUE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_component_get_bound_action_value,
                 __buffer,
             )
         };
@@ -1285,7 +1370,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_REQUEST_REBUILD_CONTROL_MAPPINGS_USING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_request_rebuild_control_mappings_using_context,
                 __buffer,
             )
         };
@@ -1309,7 +1395,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_REQUEST_REBUILD_CONTROL_MAPPINGS_USING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_request_rebuild_control_mappings_using_context,
                 __buffer,
             )
         };
@@ -1327,7 +1414,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_MAKE_INPUT_ACTION_VALUE_OF_TYPE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_make_input_action_value_of_type,
                 __buffer,
             )
         };
@@ -1353,7 +1441,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_MAKE_INPUT_ACTION_VALUE_OF_TYPE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_make_input_action_value_of_type,
                 __buffer,
             )
         };
@@ -1369,7 +1458,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_IS_ACTION_KEY_MAPPING_PLAYER_MAPPABLE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_is_action_key_mapping_player_mappable,
                 __buffer,
             )
         };
@@ -1386,7 +1476,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_IS_ACTION_KEY_MAPPING_PLAYER_MAPPABLE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_is_action_key_mapping_player_mappable,
                 __buffer,
             )
         };
@@ -1402,7 +1493,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_PLAYER_MAPPABLE_KEY_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_get_player_mappable_key_settings,
                 __buffer,
             )
         };
@@ -1419,7 +1511,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_PLAYER_MAPPABLE_KEY_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_get_player_mappable_key_settings,
                 __buffer,
             )
         };
@@ -1433,7 +1526,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_MAPPING_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_get_mapping_name,
                 __buffer,
             )
         };
@@ -1450,7 +1544,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_MAPPING_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_get_mapping_name,
                 __buffer,
             )
         };
@@ -1467,7 +1562,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_BOUND_ACTION_VALUE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_get_bound_action_value,
                 __buffer,
             )
         };
@@ -1491,7 +1587,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_GET_BOUND_ACTION_VALUE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_get_bound_action_value,
                 __buffer,
             )
         };
@@ -1507,7 +1604,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_FLUSH_PLAYER_INPUT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_flush_player_input,
                 __buffer,
             )
         };
@@ -1526,7 +1624,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_FLUSH_PLAYER_INPUT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_flush_player_input,
                 __buffer,
             )
         };
@@ -1539,7 +1638,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_TRIGGER_EVENT_VALUE_TO_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_trigger_event_value_to_string,
                 __buffer,
             )
         };
@@ -1556,7 +1656,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_TRIGGER_EVENT_VALUE_TO_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_trigger_event_value_to_string,
                 __buffer,
             )
         };
@@ -1572,7 +1673,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_string,
                 __buffer,
             )
         };
@@ -1589,7 +1691,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_string,
                 __buffer,
             )
         };
@@ -1603,7 +1706,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_BOOL,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_bool,
                 __buffer,
             )
         };
@@ -1620,7 +1724,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_BOOL,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_bool,
                 __buffer,
             )
         };
@@ -1636,7 +1741,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS3_D,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis3_d,
                 __buffer,
             )
         };
@@ -1653,7 +1759,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS3_D,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis3_d,
                 __buffer,
             )
         };
@@ -1671,7 +1778,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS2_D,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis2_d,
                 __buffer,
             )
         };
@@ -1688,7 +1796,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS2_D,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis2_d,
                 __buffer,
             )
         };
@@ -1704,7 +1813,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS1_D,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis1_d,
                 __buffer,
             )
         };
@@ -1721,7 +1831,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_CONV_INPUT_ACTION_VALUE_TO_AXIS1_D,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_conv_input_action_value_to_axis1_d,
                 __buffer,
             )
         };
@@ -1741,7 +1852,8 @@ impl UEnhancedInputLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_BREAK_INPUT_ACTION_VALUE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_break_input_action_value,
                 __buffer,
             )
         };
@@ -1774,7 +1886,8 @@ impl UEnhancedInputLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_LIBRARY_BREAK_INPUT_ACTION_VALUE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_library_break_input_action_value,
                 __buffer,
             )
         };
@@ -1828,7 +1941,8 @@ impl UEnhancedInputPlatformData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_PLATFORM_DATA_GET_CONTEXT_REDIRECT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_platform_data_get_context_redirect,
                 __buffer,
             )
         };
@@ -1845,7 +1959,8 @@ impl UEnhancedInputPlatformData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_PLATFORM_DATA_GET_CONTEXT_REDIRECT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_platform_data_get_context_redirect,
                 __buffer,
             )
         };
@@ -1906,7 +2021,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_player_mapping,
                 __buffer,
             )
         };
@@ -1930,7 +2046,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_player_mapping,
                 __buffer,
             )
         };
@@ -1947,7 +2064,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_action,
                 __buffer,
             )
         };
@@ -1971,7 +2089,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_UPDATE_VALUE_OF_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_update_value_of_continuous_input_injection_for_action,
                 __buffer,
             )
         };
@@ -1987,7 +2106,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_player_mapping,
                 __buffer,
             )
         };
@@ -2004,7 +2124,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_player_mapping,
                 __buffer,
             )
         };
@@ -2020,7 +2141,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_action,
                 __buffer,
             )
         };
@@ -2037,7 +2159,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_STOP_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_stop_continuous_input_injection_for_action,
                 __buffer,
             )
         };
@@ -2056,7 +2179,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_player_mapping,
                 __buffer,
             )
         };
@@ -2094,7 +2218,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_player_mapping,
                 __buffer,
             )
         };
@@ -2113,7 +2238,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_action,
                 __buffer,
             )
         };
@@ -2151,7 +2277,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_START_CONTINUOUS_INPUT_INJECTION_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_start_continuous_input_injection_for_action,
                 __buffer,
             )
         };
@@ -2168,7 +2295,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_SET_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_set_input_mode,
                 __buffer,
             )
         };
@@ -2194,7 +2322,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_SET_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_set_input_mode,
                 __buffer,
             )
         };
@@ -2211,7 +2340,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REQUEST_REBUILD_CONTROL_MAPPINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_request_rebuild_control_mappings,
                 __buffer,
             )
         };
@@ -2235,7 +2365,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REQUEST_REBUILD_CONTROL_MAPPINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_request_rebuild_control_mappings,
                 __buffer,
             )
         };
@@ -2252,7 +2383,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAGS_FROM_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_tags_from_input_mode,
                 __buffer,
             )
         };
@@ -2278,7 +2410,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAGS_FROM_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_tags_from_input_mode,
                 __buffer,
             )
         };
@@ -2295,7 +2428,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAG_FROM_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_tag_from_input_mode,
                 __buffer,
             )
         };
@@ -2319,7 +2453,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_TAG_FROM_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_tag_from_input_mode,
                 __buffer,
             )
         };
@@ -2336,7 +2471,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_mapping_context,
                 __buffer,
             )
         };
@@ -2360,7 +2496,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_REMOVE_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_remove_mapping_context,
                 __buffer,
             )
         };
@@ -2381,7 +2518,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_CONTEXT_SET,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_map_key_in_context_set,
                 __buffer,
             )
         };
@@ -2433,7 +2571,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_CONTEXT_SET,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_map_key_in_context_set,
                 __buffer,
             )
         };
@@ -2457,7 +2596,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_ACTIVE_CONTEXT_SET,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_map_key_in_active_context_set,
                 __buffer,
             )
         };
@@ -2502,7 +2642,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_MAP_KEY_IN_ACTIVE_CONTEXT_SET,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_map_key_in_active_context_set,
                 __buffer,
             )
         };
@@ -2522,7 +2663,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_KEYS_MAPPED_TO_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_keys_mapped_to_action,
                 __buffer,
             )
         };
@@ -2539,7 +2681,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_QUERY_KEYS_MAPPED_TO_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_query_keys_mapped_to_action,
                 __buffer,
             )
         };
@@ -2561,7 +2704,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_vector_for_player_mapping,
                 __buffer,
             )
         };
@@ -2599,7 +2743,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_vector_for_player_mapping,
                 __buffer,
             )
         };
@@ -2618,7 +2763,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_vector_for_action,
                 __buffer,
             )
         };
@@ -2656,7 +2802,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_VECTOR_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_vector_for_action,
                 __buffer,
             )
         };
@@ -2675,7 +2822,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_for_player_mapping,
                 __buffer,
             )
         };
@@ -2713,7 +2861,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_PLAYER_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_for_player_mapping,
                 __buffer,
             )
         };
@@ -2732,7 +2881,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_for_action,
                 __buffer,
             )
         };
@@ -2770,7 +2920,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_INJECT_INPUT_FOR_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_inject_input_for_action,
                 __buffer,
             )
         };
@@ -2787,7 +2938,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_HAS_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_has_mapping_context,
                 __buffer,
             )
         };
@@ -2811,7 +2963,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_HAS_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_has_mapping_context,
                 __buffer,
             )
         };
@@ -2828,7 +2981,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_USER_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_user_settings,
                 __buffer,
             )
         };
@@ -2838,7 +2992,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_USER_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_user_settings,
                 __buffer,
             )
         };
@@ -2854,7 +3009,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_input_mode,
                 __buffer,
             )
         };
@@ -2864,7 +3020,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_input_mode,
                 __buffer,
             )
         };
@@ -2885,7 +3042,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_ALL_PLAYER_MAPPABLE_ACTION_KEY_MAPPINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_all_player_mappable_action_key_mappings,
                 __buffer,
             )
         };
@@ -2895,7 +3053,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_GET_ALL_PLAYER_MAPPABLE_ACTION_KEY_MAPPINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_get_all_player_mappable_action_key_mappings,
                 __buffer,
             )
         };
@@ -2909,7 +3068,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_CLEAR_ALL_MAPPINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_clear_all_mappings,
                 __buffer,
             )
         };
@@ -2919,7 +3079,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_CLEAR_ALL_MAPPINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_clear_all_mappings,
                 __buffer,
             )
         };
@@ -2936,7 +3097,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_APPEND_TAGS_TO_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_append_tags_to_input_mode,
                 __buffer,
             )
         };
@@ -2962,7 +3124,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_APPEND_TAGS_TO_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_append_tags_to_input_mode,
                 __buffer,
             )
         };
@@ -2979,7 +3142,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_TAG_TO_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_add_tag_to_input_mode,
                 __buffer,
             )
         };
@@ -3003,7 +3167,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_TAG_TO_INPUT_MODE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_add_tag_to_input_mode,
                 __buffer,
             )
         };
@@ -3021,7 +3186,8 @@ impl UEnhancedInputSubsystemInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_add_mapping_context,
                 __buffer,
             )
         };
@@ -3048,7 +3214,8 @@ impl UEnhancedInputSubsystemInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_SUBSYSTEM_INTERFACE_ADD_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_subsystem_interface_add_mapping_context,
                 __buffer,
             )
         };
@@ -3106,7 +3273,8 @@ impl UEnhancedInputWorldSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_REMOVE_ACTOR_INPUT_COMPONENT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_world_subsystem_remove_actor_input_component,
                 __buffer,
             )
         };
@@ -3123,7 +3291,8 @@ impl UEnhancedInputWorldSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_REMOVE_ACTOR_INPUT_COMPONENT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_world_subsystem_remove_actor_input_component,
                 __buffer,
             )
         };
@@ -3140,7 +3309,8 @@ impl UEnhancedInputWorldSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_ADD_ACTOR_INPUT_COMPONENT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_world_subsystem_add_actor_input_component,
                 __buffer,
             )
         };
@@ -3157,7 +3327,8 @@ impl UEnhancedInputWorldSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_WORLD_SUBSYSTEM_ADD_ACTOR_INPUT_COMPONENT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_world_subsystem_add_actor_input_component,
                 __buffer,
             )
         };
@@ -3278,7 +3449,8 @@ impl UInputMappingContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_unmap_key,
                 __buffer,
             )
         };
@@ -3302,7 +3474,8 @@ impl UInputMappingContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_unmap_key,
                 __buffer,
             )
         };
@@ -3315,7 +3488,8 @@ impl UInputMappingContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL_KEYS_FROM_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_unmap_all_keys_from_action,
                 __buffer,
             )
         };
@@ -3332,7 +3506,8 @@ impl UInputMappingContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL_KEYS_FROM_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_unmap_all_keys_from_action,
                 __buffer,
             )
         };
@@ -3345,7 +3520,8 @@ impl UInputMappingContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_unmap_all,
                 __buffer,
             )
         };
@@ -3355,7 +3531,8 @@ impl UInputMappingContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_UNMAP_ALL,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_unmap_all,
                 __buffer,
             )
         };
@@ -3372,7 +3549,8 @@ impl UInputMappingContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_MAP_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_map_key,
                 __buffer,
             )
         };
@@ -3396,7 +3574,8 @@ impl UInputMappingContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_MAPPING_CONTEXT_MAP_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_mapping_context_map_key,
                 __buffer,
             )
         };
@@ -3436,7 +3615,8 @@ impl UInputModifier {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_MODIFIER_MODIFY_RAW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_modifier_modify_raw,
                 __buffer,
             )
         };
@@ -3467,11 +3647,61 @@ impl UInputModifier {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_MODIFIER_MODIFY_RAW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_modifier_modify_raw,
                 __buffer,
             )
         };
         unsafe { __buffer.add(48).cast::<FInputActionValue>().read() }
+    }
+    pub fn get_visualization_color(
+        &self,
+        sample_value: FInputActionValue,
+        final_value: FInputActionValue,
+    ) -> crate::bindings::core_u_object::FLinearColor {
+        let mut __stack = crate::core_data::StackAlloc::<80>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_modifier_get_visualization_color,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &sample_value,
+                __buffer.add(0).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &final_value,
+                __buffer.add(32).cast::<FInputActionValue>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_modifier_get_visualization_color,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(64)
+                .cast::<crate::bindings::core_u_object::FLinearColor>()
+                .read()
+        }
     }
 }
 #[repr(C, align(8))]
@@ -3768,7 +3998,8 @@ impl UInputTrigger {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_TRIGGER_UPDATE_STATE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_trigger_update_state,
                 __buffer,
             )
         };
@@ -3799,7 +4030,8 @@ impl UInputTrigger {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_TRIGGER_UPDATE_STATE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_trigger_update_state,
                 __buffer,
             )
         };
@@ -3813,7 +4045,8 @@ impl UInputTrigger {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_TRIGGER_IS_ACTUATED,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_trigger_is_actuated,
                 __buffer,
             )
         };
@@ -3830,7 +4063,8 @@ impl UInputTrigger {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_TRIGGER_IS_ACTUATED,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_trigger_is_actuated,
                 __buffer,
             )
         };
@@ -3844,7 +4078,8 @@ impl UInputTrigger {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_INPUT_TRIGGER_GET_TRIGGER_TYPE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_trigger_get_trigger_type,
                 __buffer,
             )
         };
@@ -3854,7 +4089,8 @@ impl UInputTrigger {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_INPUT_TRIGGER_GET_TRIGGER_TYPE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_input_trigger_get_trigger_type,
                 __buffer,
             )
         };
@@ -4175,7 +4411,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_RESET_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_reset_to_default,
                 __buffer,
             )
         };
@@ -4185,7 +4422,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_RESET_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_reset_to_default,
                 __buffer,
             )
         };
@@ -4198,7 +4436,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_IS_DEPRECATED,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_is_deprecated,
                 __buffer,
             )
         };
@@ -4208,7 +4447,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_IS_DEPRECATED,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_is_deprecated,
                 __buffer,
             )
         };
@@ -4222,7 +4462,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_PLAYER_MAPPABLE_KEYS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_player_mappable_keys,
                 __buffer,
             )
         };
@@ -4232,7 +4473,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_PLAYER_MAPPABLE_KEYS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_player_mappable_keys,
                 __buffer,
             )
         };
@@ -4246,7 +4488,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_METADATA,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_metadata,
                 __buffer,
             )
         };
@@ -4256,7 +4499,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_METADATA,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_metadata,
                 __buffer,
             )
         };
@@ -4275,7 +4519,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_CONTEXTS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_mapping_contexts,
                 __buffer,
             )
         };
@@ -4285,7 +4530,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_CONTEXTS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_mapping_contexts,
                 __buffer,
             )
         };
@@ -4299,7 +4545,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_BY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_mapping_by_name,
                 __buffer,
             )
         };
@@ -4316,7 +4563,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_MAPPING_BY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_mapping_by_name,
                 __buffer,
             )
         };
@@ -4333,7 +4581,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_KEYS_BOUND_TO_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_keys_bound_to_action,
                 __buffer,
             )
         };
@@ -4350,7 +4599,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_KEYS_BOUND_TO_ACTION,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_keys_bound_to_action,
                 __buffer,
             )
         };
@@ -4364,7 +4614,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_DISPLAY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_display_name,
                 __buffer,
             )
         };
@@ -4374,7 +4625,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_DISPLAY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_display_name,
                 __buffer,
             )
         };
@@ -4388,7 +4640,8 @@ impl UPlayerMappableInputConfig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_CONFIG_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_config_name,
                 __buffer,
             )
         };
@@ -4398,7 +4651,8 @@ impl UPlayerMappableInputConfig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_PLAYER_MAPPABLE_INPUT_CONFIG_GET_CONFIG_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_player_mappable_input_config_get_config_name,
                 __buffer,
             )
         };
@@ -4467,7 +4721,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_TO_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_to_string,
                 __buffer,
             )
         };
@@ -4477,7 +4732,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_TO_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_to_string,
                 __buffer,
             )
         };
@@ -4491,7 +4747,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_SET_DISPLAY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_set_display_name,
                 __buffer,
             )
         };
@@ -4508,7 +4765,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_SET_DISPLAY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_set_display_name,
                 __buffer,
             )
         };
@@ -4521,7 +4779,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_reset_to_default,
                 __buffer,
             )
         };
@@ -4531,7 +4790,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_reset_to_default,
                 __buffer,
             )
         };
@@ -4544,7 +4804,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_MAPPING_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_reset_mapping_to_default,
                 __buffer,
             )
         };
@@ -4561,7 +4822,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_RESET_MAPPING_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_reset_mapping_to_default,
                 __buffer,
             )
         };
@@ -4578,7 +4840,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_QUERY_PLAYER_MAPPED_KEYS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_query_player_mapped_keys,
                 __buffer,
             )
         };
@@ -4602,7 +4865,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_QUERY_PLAYER_MAPPED_KEYS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_query_player_mapped_keys,
                 __buffer,
             )
         };
@@ -4626,7 +4890,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_K2_FIND_KEY_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_k2_find_key_mapping,
                 __buffer,
             )
         };
@@ -4650,7 +4915,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_K2_FIND_KEY_MAPPING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_k2_find_key_mapping,
                 __buffer,
             )
         };
@@ -4666,7 +4932,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_ID_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_profile_id_string,
                 __buffer,
             )
         };
@@ -4676,7 +4943,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_ID_STRING,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_profile_id_string,
                 __buffer,
             )
         };
@@ -4690,7 +4958,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_DISPLAY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_profile_display_name,
                 __buffer,
             )
         };
@@ -4700,7 +4969,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PROFILE_DISPLAY_NAME,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_profile_display_name,
                 __buffer,
             )
         };
@@ -4714,7 +4984,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PLAYER_MAPPING_ROWS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_player_mapping_rows,
                 __buffer,
             )
         };
@@ -4724,7 +4995,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_PLAYER_MAPPING_ROWS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_player_mapping_rows,
                 __buffer,
             )
         };
@@ -4742,7 +5014,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPING_NAMES_FOR_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_mapping_names_for_key,
                 __buffer,
             )
         };
@@ -4766,7 +5039,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPING_NAMES_FOR_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_mapping_names_for_key,
                 __buffer,
             )
         };
@@ -4787,7 +5061,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPED_KEYS_IN_ROW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_mapped_keys_in_row,
                 __buffer,
             )
         };
@@ -4811,7 +5086,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_GET_MAPPED_KEYS_IN_ROW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_get_mapped_keys_in_row,
                 __buffer,
             )
         };
@@ -4831,7 +5107,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DUMP_PROFILE_TO_LOG,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_dump_profile_to_log,
                 __buffer,
             )
         };
@@ -4841,7 +5118,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DUMP_PROFILE_TO_LOG,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_dump_profile_to_log,
                 __buffer,
             )
         };
@@ -4858,7 +5136,8 @@ impl UEnhancedPlayerMappableKeyProfile {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DOES_MAPPING_PASS_QUERY_OPTIONS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_does_mapping_pass_query_options,
                 __buffer,
             )
         };
@@ -4882,7 +5161,8 @@ impl UEnhancedPlayerMappableKeyProfile {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_PLAYER_MAPPABLE_KEY_PROFILE_DOES_MAPPING_PASS_QUERY_OPTIONS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_player_mappable_key_profile_does_mapping_pass_query_options,
                 __buffer,
             )
         };
@@ -4920,7 +5200,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXTS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_unregister_input_mapping_contexts,
                 __buffer,
             )
         };
@@ -4937,7 +5218,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXTS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_unregister_input_mapping_contexts,
                 __buffer,
             )
         };
@@ -4954,7 +5236,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_unregister_input_mapping_context,
                 __buffer,
             )
         };
@@ -4971,7 +5254,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UNREGISTER_INPUT_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_unregister_input_mapping_context,
                 __buffer,
             )
         };
@@ -4989,7 +5273,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UN_MAP_PLAYER_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_un_map_player_key,
                 __buffer,
             )
         };
@@ -5015,7 +5300,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_UN_MAP_PLAYER_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_un_map_player_key,
                 __buffer,
             )
         };
@@ -5034,7 +5320,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SET_ACTIVE_KEY_PROFILE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_set_active_key_profile,
                 __buffer,
             )
         };
@@ -5051,7 +5338,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SET_ACTIVE_KEY_PROFILE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_set_active_key_profile,
                 __buffer,
             )
         };
@@ -5065,7 +5353,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SAVE_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_save_settings,
                 __buffer,
             )
         };
@@ -5075,7 +5364,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_SAVE_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_save_settings,
                 __buffer,
             )
         };
@@ -5092,7 +5382,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_key_profile_to_default,
                 __buffer,
             )
         };
@@ -5118,7 +5409,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_key_profile_to_default,
                 __buffer,
             )
         };
@@ -5141,7 +5433,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_ID_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_key_profile_id_to_default,
                 __buffer,
             )
         };
@@ -5167,7 +5460,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_KEY_PROFILE_ID_TO_DEFAULT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_key_profile_id_to_default,
                 __buffer,
             )
         };
@@ -5190,7 +5484,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_ALL_PLAYER_KEYS_IN_ROW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_all_player_keys_in_row,
                 __buffer,
             )
         };
@@ -5216,7 +5511,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_RESET_ALL_PLAYER_KEYS_IN_ROW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_reset_all_player_keys_in_row,
                 __buffer,
             )
         };
@@ -5238,7 +5534,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXTS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_register_input_mapping_contexts,
                 __buffer,
             )
         };
@@ -5255,7 +5552,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXTS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_register_input_mapping_contexts,
                 __buffer,
             )
         };
@@ -5272,7 +5570,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_register_input_mapping_context,
                 __buffer,
             )
         };
@@ -5289,7 +5588,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_REGISTER_INPUT_MAPPING_CONTEXT,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_register_input_mapping_context,
                 __buffer,
             )
         };
@@ -5307,7 +5607,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_MAP_PLAYER_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_map_player_key,
                 __buffer,
             )
         };
@@ -5333,7 +5634,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_MAP_PLAYER_KEY,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_map_player_key,
                 __buffer,
             )
         };
@@ -5355,7 +5657,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_IS_MAPPING_CONTEXT_REGISTERED,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_is_mapping_context_registered,
                 __buffer,
             )
         };
@@ -5372,7 +5675,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_IS_MAPPING_CONTEXT_REGISTERED,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_is_mapping_context_registered,
                 __buffer,
             )
         };
@@ -5389,7 +5693,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_KEY_PROFILE_WITH_ID,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_key_profile_with_id,
                 __buffer,
             )
         };
@@ -5406,7 +5711,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_KEY_PROFILE_WITH_ID,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_key_profile_with_id,
                 __buffer,
             )
         };
@@ -5422,7 +5728,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE_ID,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_active_key_profile_id,
                 __buffer,
             )
         };
@@ -5432,7 +5739,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE_ID,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_active_key_profile_id,
                 __buffer,
             )
         };
@@ -5446,7 +5754,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_active_key_profile,
                 __buffer,
             )
         };
@@ -5456,7 +5765,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_GET_ACTIVE_KEY_PROFILE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_get_active_key_profile,
                 __buffer,
             )
         };
@@ -5472,7 +5782,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_FIND_MAPPINGS_IN_ROW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_find_mappings_in_row,
                 __buffer,
             )
         };
@@ -5489,7 +5800,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_FIND_MAPPINGS_IN_ROW,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_find_mappings_in_row,
                 __buffer,
             )
         };
@@ -5506,7 +5818,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_CREATE_NEW_KEY_PROFILE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_create_new_key_profile,
                 __buffer,
             )
         };
@@ -5523,7 +5836,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_CREATE_NEW_KEY_PROFILE,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_create_new_key_profile,
                 __buffer,
             )
         };
@@ -5539,7 +5853,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_ASYNC_SAVE_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_async_save_settings,
                 __buffer,
             )
         };
@@ -5549,7 +5864,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_ASYNC_SAVE_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_async_save_settings,
                 __buffer,
             )
         };
@@ -5562,7 +5878,8 @@ impl UEnhancedInputUserSettings {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_APPLY_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_apply_settings,
                 __buffer,
             )
         };
@@ -5572,7 +5889,8 @@ impl UEnhancedInputUserSettings {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::enhanced_input::U_ENHANCED_INPUT_USER_SETTINGS_APPLY_SETTINGS,
+                crate::bindings::enhanced_input::__FUNCTION_PTRS
+                    .u_enhanced_input_user_settings_apply_settings,
                 __buffer,
             )
         };

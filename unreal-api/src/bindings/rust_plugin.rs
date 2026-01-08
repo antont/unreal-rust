@@ -1,38 +1,47 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ENTITY_COMPONENT_GET_ENTITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_RUST_ACTOR_GET_ENTITY_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_RUST_ACTOR_GET_ENTITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RUST_EXTENSION_F_HIT_RESULT_NEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_RUST_GAME_MODE_BASE_ON_ACTOR_HIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_RUST_GAME_MODE_BASE_ON_ACTOR_END_OVERLAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_RUST_GAME_MODE_BASE_ON_ACTOR_DESTROYED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_RUST_GAME_MODE_BASE_ON_ACTOR_BEGIN_OVERLAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RUST_REFLECTION_LIBRARY_K2_HAS_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_VECTOR3: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_entity_component_get_entity: *mut crate::ffi::UFunctionOpague,
+    pub a_rust_actor_get_entity_component: *mut crate::ffi::UFunctionOpague,
+    pub a_rust_actor_get_entity: *mut crate::ffi::UFunctionOpague,
+    pub u_rust_extension_f_hit_result_new: *mut crate::ffi::UFunctionOpague,
+    pub a_rust_game_mode_base_on_actor_hit: *mut crate::ffi::UFunctionOpague,
+    pub a_rust_game_mode_base_on_actor_end_overlap: *mut crate::ffi::UFunctionOpague,
+    pub a_rust_game_mode_base_on_actor_destroyed: *mut crate::ffi::UFunctionOpague,
+    pub a_rust_game_mode_base_on_actor_begin_overlap: *mut crate::ffi::UFunctionOpague,
+    pub u_rust_reflection_library_k2_has_component: *mut crate::ffi::UFunctionOpague,
+    pub u_rust_reflection_library_k2_get_reflection_vector3: *mut crate::ffi::UFunctionOpague,
+    pub u_rust_reflection_library_k2_get_reflection_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_rust_reflection_library_k2_get_reflection_float: *mut crate::ffi::UFunctionOpague,
+    pub u_rust_reflection_library_k2_get_reflection_bool: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_entity_component_get_entity: std::ptr::null_mut(),
+            a_rust_actor_get_entity_component: std::ptr::null_mut(),
+            a_rust_actor_get_entity: std::ptr::null_mut(),
+            u_rust_extension_f_hit_result_new: std::ptr::null_mut(),
+            a_rust_game_mode_base_on_actor_hit: std::ptr::null_mut(),
+            a_rust_game_mode_base_on_actor_end_overlap: std::ptr::null_mut(),
+            a_rust_game_mode_base_on_actor_destroyed: std::ptr::null_mut(),
+            a_rust_game_mode_base_on_actor_begin_overlap: std::ptr::null_mut(),
+            u_rust_reflection_library_k2_has_component: std::ptr::null_mut(),
+            u_rust_reflection_library_k2_get_reflection_vector3: std::ptr::null_mut(),
+            u_rust_reflection_library_k2_get_reflection_quat: std::ptr::null_mut(),
+            u_rust_reflection_library_k2_get_reflection_float: std::ptr::null_mut(),
+            u_rust_reflection_library_k2_get_reflection_bool: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -42,7 +51,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEntity"),
-            &raw mut U_ENTITY_COMPONENT_GET_ENTITY,
+            &raw mut __FUNCTION_PTRS.u_entity_component_get_entity,
         );
     }
     unsafe {
@@ -53,14 +62,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEntityComponent"),
-            &raw mut A_RUST_ACTOR_GET_ENTITY_COMPONENT,
+            &raw mut __FUNCTION_PTRS.a_rust_actor_get_entity_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEntity"),
-            &raw mut A_RUST_ACTOR_GET_ENTITY,
+            &raw mut __FUNCTION_PTRS.a_rust_actor_get_entity,
         );
     }
     unsafe {
@@ -71,7 +80,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("New"),
-            &raw mut U_RUST_EXTENSION_F_HIT_RESULT_NEW,
+            &raw mut __FUNCTION_PTRS.u_rust_extension_f_hit_result_new,
         );
     }
     unsafe {
@@ -82,28 +91,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorHit"),
-            &raw mut A_RUST_GAME_MODE_BASE_ON_ACTOR_HIT,
+            &raw mut __FUNCTION_PTRS.a_rust_game_mode_base_on_actor_hit,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorEndOverlap"),
-            &raw mut A_RUST_GAME_MODE_BASE_ON_ACTOR_END_OVERLAP,
+            &raw mut __FUNCTION_PTRS.a_rust_game_mode_base_on_actor_end_overlap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorDestroyed"),
-            &raw mut A_RUST_GAME_MODE_BASE_ON_ACTOR_DESTROYED,
+            &raw mut __FUNCTION_PTRS.a_rust_game_mode_base_on_actor_destroyed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnActorBeginOverlap"),
-            &raw mut A_RUST_GAME_MODE_BASE_ON_ACTOR_BEGIN_OVERLAP,
+            &raw mut __FUNCTION_PTRS.a_rust_game_mode_base_on_actor_begin_overlap,
         );
     }
     unsafe {
@@ -114,35 +123,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_HasComponent"),
-            &raw mut U_RUST_REFLECTION_LIBRARY_K2_HAS_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_rust_reflection_library_k2_has_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetReflectionVector3"),
-            &raw mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_VECTOR3,
+            &raw mut __FUNCTION_PTRS.u_rust_reflection_library_k2_get_reflection_vector3,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetReflectionQuat"),
-            &raw mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_QUAT,
+            &raw mut __FUNCTION_PTRS.u_rust_reflection_library_k2_get_reflection_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetReflectionFloat"),
-            &raw mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_rust_reflection_library_k2_get_reflection_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetReflectionBool"),
-            &raw mut U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_BOOL,
+            &raw mut __FUNCTION_PTRS.u_rust_reflection_library_k2_get_reflection_bool,
         );
     }
 }
@@ -217,7 +226,8 @@ impl UEntityComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::U_ENTITY_COMPONENT_GET_ENTITY,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_entity_component_get_entity,
                 __buffer,
             )
         };
@@ -227,7 +237,8 @@ impl UEntityComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::U_ENTITY_COMPONENT_GET_ENTITY,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_entity_component_get_entity,
                 __buffer,
             )
         };
@@ -283,7 +294,8 @@ impl ARustActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY_COMPONENT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .a_rust_actor_get_entity_component,
                 __buffer,
             )
         };
@@ -293,7 +305,8 @@ impl ARustActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY_COMPONENT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .a_rust_actor_get_entity_component,
                 __buffer,
             )
         };
@@ -307,7 +320,7 @@ impl ARustActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS.a_rust_actor_get_entity,
                 __buffer,
             )
         };
@@ -317,7 +330,7 @@ impl ARustActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::A_RUST_ACTOR_GET_ENTITY,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS.a_rust_actor_get_entity,
                 __buffer,
             )
         };
@@ -394,7 +407,8 @@ impl URustExtension_FHitResult {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::U_RUST_EXTENSION_F_HIT_RESULT_NEW,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_extension_f_hit_result_new,
                 __buffer,
             )
         };
@@ -404,13 +418,13 @@ impl URustExtension_FHitResult {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::U_RUST_EXTENSION_F_HIT_RESULT_NEW,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_extension_f_hit_result_new,
                 __buffer,
             )
         };
         unsafe { __buffer.add(0).cast::<crate::bindings::engine::FHitResult>().read() }
     }
-    pub fn verify_layout() {}
 }
 #[repr(C, align(8))]
 pub struct ARustGameModeBase {
@@ -482,7 +496,8 @@ impl URustReflectionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_HAS_COMPONENT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_has_component,
                 __buffer,
             )
         };
@@ -502,7 +517,8 @@ impl URustReflectionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_HAS_COMPONENT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_has_component,
                 __buffer,
             )
         };
@@ -521,7 +537,8 @@ impl URustReflectionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_VECTOR3,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_vector3,
                 __buffer,
             )
         };
@@ -551,7 +568,8 @@ impl URustReflectionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_VECTOR3,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_vector3,
                 __buffer,
             )
         };
@@ -572,7 +590,8 @@ impl URustReflectionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_QUAT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_quat,
                 __buffer,
             )
         };
@@ -602,7 +621,8 @@ impl URustReflectionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_QUAT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_quat,
                 __buffer,
             )
         };
@@ -623,7 +643,8 @@ impl URustReflectionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_FLOAT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_float,
                 __buffer,
             )
         };
@@ -649,7 +670,8 @@ impl URustReflectionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_FLOAT,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_float,
                 __buffer,
             )
         };
@@ -670,7 +692,8 @@ impl URustReflectionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_BOOL,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_bool,
                 __buffer,
             )
         };
@@ -696,7 +719,8 @@ impl URustReflectionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rust_plugin::U_RUST_REFLECTION_LIBRARY_K2_GET_REFLECTION_BOOL,
+                crate::bindings::rust_plugin::__FUNCTION_PTRS
+                    .u_rust_reflection_library_k2_get_reflection_bool,
                 __buffer,
             )
         };

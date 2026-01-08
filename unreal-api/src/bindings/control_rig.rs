@@ -1,792 +1,801 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SET_INTERACTION_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SELECT_CONTROL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REQUEST_CONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_ON_CONTROL_SELECTED_BP_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_IS_CONTROL_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_GET_INTERACTION_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_GET_HOSTING_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_GET_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_FIND_CONTROL_RIGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CURRENT_CONTROL_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_CLEAR_CONTROL_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ON_PRE_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ON_PRE_FORWARDS_SOLVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ON_PRE_CONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ON_POST_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ON_POST_FORWARDS_SOLVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ON_POST_CONSTRUCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_CAN_EXECUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_CONTROL_ACTOR_REFRESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_CONTROL_ACTOR_CLEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_TRANSFORM_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_SELECTION_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_MANIPULATING_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_HOVERED_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_ON_ENABLED_CHANGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_STOP_REPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_STOP_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_START_REPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_START_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_PAUSE_REPLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_IS_REPLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_IS_RECORDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_IS_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_GET_TIME_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_MODULE_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_MODULE_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_MODULE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_SELECT_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_REORDER_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_RENAME_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_DELETE_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MODULAR_RIG_CONTROLLER_ADD_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SWITCH_TO_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SORT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_VECTOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_TRANSFORM_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_ROTATOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_QUAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_NAME_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_INT32_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_FLOAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_BOOL_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_RESET_TO_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_RESET_CURVE_VALUES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_RESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_REMOVE_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_REMOVE_ALL_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_NUM_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_VALID_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_PROCEDURAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_PARENTED_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_IS_COMPONENT_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_HAS_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_VECTOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_SOCKET_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_SOCKET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_SELECTED_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_RULE_MANAGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_ROTATOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_REFERENCE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_QUAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_PARENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_NULL_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_NAME_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_NAME_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_MODULE_PREFIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_MODULE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_MODULE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_MODULE_F_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_METADATA_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_METADATA_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_INT32_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_FLOAT_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_FIRST_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_DEFAULT_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CURVE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CURVE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONTROL_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONNECTOR_STATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CONNECTOR_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_COMPONENT_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_COMPONENT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_COMPONENT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_COMPONENT_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_COMPONENT_CONTENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_CHILDREN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_BOOL_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_BONE_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_COPY_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_COPY_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_NULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_SAVE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_PASTE_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_TRANSFORM_WORKFLOW_OPTIONS_PROVIDE_WORKFLOWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_anim_node_control_rig_library_set_control_rig_class: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_node_control_rig_library_convert_to_control_rig_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_node_control_rig_library_convert_to_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_supports_backwards_solve: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_set_interaction_rig_class: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_set_interaction_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_select_control: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_request_construction: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_on_control_selected_bp_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_is_control_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_get_interaction_rig_class: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_get_interaction_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_get_hosting_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_get_hierarchy: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_find_control_rigs: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_current_control_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_create_transformable_control_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_clear_control_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_shape_library_link_set_shape_library: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_shape_library_link_get_shape_library: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_update: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_object_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_mapped_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_initial_space_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_initial_bone_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_rig_class: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_position: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_int: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_float: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_control_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_bone_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_set_bone_initial_transforms_from_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_on_pre_initialize: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_on_pre_forwards_solve: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_on_pre_construction: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_on_post_initialize: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_on_post_forwards_solve: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_on_post_construction: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_initialize: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_space_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_initial_space_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_initial_bone_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_element_names: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_position: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_int: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_float: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_control_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_bone_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_get_absolute_time: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_does_element_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_clear_mapped_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_can_execute: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_add_mapped_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_add_mapped_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_add_mapped_components: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_component_add_mapped_complete_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_control_actor_reset_control_actor: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_control_actor_refresh: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_control_actor_clear: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_set_selected: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_set_selectable: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_set_hovered: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_set_global_transform: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_set_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_on_transform_changed: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_on_selection_changed: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_on_manipulating_changed: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_on_hovered_changed: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_on_enabled_changed: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_is_selected_in_editor: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_is_hovered: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_is_enabled: *mut crate::ffi::UFunctionOpague,
+    pub a_control_rig_shape_actor_get_global_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_stop_replay: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_stop_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_start_replay: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_start_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_set_playback_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_pause_replay: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_is_replaying: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_is_recording: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_is_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_get_time_range: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_get_playback_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_replay_create_new_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_test_data_get_frame_index_for_time: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_parent_path_for_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_parent_module_name_for_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_module_rig_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_module_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_module_paths: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_module_names: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_events_for_module_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_events_for_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_get_events_for_all_modules: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_execute_event_on_module_for_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_execute_event_on_module_by_name_for_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_execute_event_on_all_modules: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_un_bind_module_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_swap_modules_of_class: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_swap_module_class: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_set_module_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_set_config_value_in_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_select_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_reset_config_value_in_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_reparent_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_reorder_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_rename_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_mirror_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_import_module_settings_from_string: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_get_selected_modules: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_get_module_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_get_connectors_for_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_get_all_modules: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_export_module_settings_to_string: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_disconnect_cyclic_connectors: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_disconnect_connector: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_deselect_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_delete_module: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_connect_connector_to_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_connect_connector_to_element: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_can_connect_connector_to_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_can_connect_connector_to_element: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_bind_module_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_auto_connect_secondary_connectors: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_auto_connect_modules: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_add_target_to_array_connector: *mut crate::ffi::UFunctionOpague,
+    pub u_modular_rig_controller_add_module: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_unset_curve_value_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_unset_curve_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_switch_to_world_space: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_switch_to_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_switch_to_default_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_sort_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_vector_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_vector_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_transform_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_transform_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_rotator_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_rotator_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_rig_element_key_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_rig_element_key_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_quat_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_quat_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_pose_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_parent_weight_array: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_parent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_name_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_name_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_local_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_linear_color_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_linear_color_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_int32_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_int32_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_global_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_global_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_float_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_float_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_curve_value_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_curve_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_visibility_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_value_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_shape_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_shape_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_settings_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_preferred_rotator_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_preferred_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_preferred_rotation_order_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_preferred_rotation_order: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_preferred_euler_angles_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_preferred_euler_angles: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_offset_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_control_offset_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_connector_settings_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_connector_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_bool_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_set_bool_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_send_auto_key_event: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_restore_sockets_from_states: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_restore_connectors_from_states: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_reset_to_default: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_reset_pose_to_initial: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_reset_curve_values: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_reset: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_remove_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_remove_all_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_num_components: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_num: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_transform_no_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_int: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_float: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_euler_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_make_control_value_from_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_valid_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_selected_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_procedural: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_parented_to: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_curve_value_set_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_curve_value_set: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_controller_available: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_is_component_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_has_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_vector_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_vector_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_vector_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_vector2_d_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_transform_no_scale_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_transform_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_transform_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_transform_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_socket_states: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_socket_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_selected_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_selected_hierarchy_keys_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_rule_manager: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_rotator_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_rotator_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_rotator_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_root_element_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_rig_element_key_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_rig_element_key_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_reference_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_quat_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_quat_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_previous_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_previous_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_previous_hierarchy_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_previous_hierarchy_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_parent_weight_array: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_parent_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_parent_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_parent_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_parents: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_number_of_parents: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_null_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_name_space_f_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_name_space: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_name_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_name_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_module_prefix: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_module_path_f_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_module_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_module_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_module_f_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_metadata_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_metadata_names: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_local_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_local_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_local_index_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_local_control_shape_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_local_control_shape_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_linear_color_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_linear_color_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_key: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_int_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_int32_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_int32_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_index_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_global_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_global_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_global_control_shape_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_global_control_shape_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_global_control_offset_transform_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_global_control_offset_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_float_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_float_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_float_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_first_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_euler_transform_from_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_default_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_curve_value_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_curve_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_curve_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_value_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_preferred_rotator_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_preferred_rotator: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_preferred_euler_rotation_order_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_preferred_euler_rotation_order: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_preferred_euler_angles_by_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_preferred_euler_angles: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_control_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_connector_states: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_connector_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_component_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_component_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_component_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_component_key: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_component_content: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_children: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_bool_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_bool_array_metadata: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_bone_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_all_keys_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_get_all_component_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_find_null_for_blueprint_only: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_find_control_for_blueprint_only: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_find_bone_for_blueprint_only: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_copy_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_copy_hierarchy: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_contains_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_hierarchy_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_hierarchy: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_control_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_component_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_component_content: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_available_space_label: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_set_available_space_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_select_hierarchy_key: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_select_element: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_select_component: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_reparent_component: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_reorder_element: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_rename_element: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_rename_component: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_remove_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_remove_element: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_remove_component: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_remove_channel_host: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_remove_available_space: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_remove_all_parents: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_mirror_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_sockets_from_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_preview_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_from_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_curves_from_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_curves_from_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_curves: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_bones_from_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_bones_from_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_import_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_get_hierarchy: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_get_control_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_generate_python_commands: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_export_to_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_export_selection_to_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_duplicate_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_deselect_hierarchy_key: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_deselect_element: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_deselect_component: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_clear_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_socket: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_null: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_curve: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_control_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_connector: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_component: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_channel_host: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_available_space: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_hierarchy_controller_add_animation_channel_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_set_up_mirror_match_table: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_select_controls: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_save_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_replace_control_name: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_paste_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_get_current_pose: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_get_control_names: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_pose_asset_does_mirror_match: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_workflow_options_ensure_at_least_one_rig_element_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_transform_workflow_options_provide_workflows: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_anim_node_control_rig_library_set_control_rig_class: std::ptr::null_mut(),
+            u_anim_node_control_rig_library_convert_to_control_rig_pure: std::ptr::null_mut(),
+            u_anim_node_control_rig_library_convert_to_control_rig: std::ptr::null_mut(),
+            u_control_rig_supports_backwards_solve: std::ptr::null_mut(),
+            u_control_rig_set_interaction_rig_class: std::ptr::null_mut(),
+            u_control_rig_set_interaction_rig: std::ptr::null_mut(),
+            u_control_rig_select_control: std::ptr::null_mut(),
+            u_control_rig_request_construction: std::ptr::null_mut(),
+            u_control_rig_on_control_selected_bp_delegate_signature: std::ptr::null_mut(),
+            u_control_rig_is_control_selected: std::ptr::null_mut(),
+            u_control_rig_get_interaction_rig_class: std::ptr::null_mut(),
+            u_control_rig_get_interaction_rig: std::ptr::null_mut(),
+            u_control_rig_get_hosting_actor: std::ptr::null_mut(),
+            u_control_rig_get_hierarchy: std::ptr::null_mut(),
+            u_control_rig_find_control_rigs: std::ptr::null_mut(),
+            u_control_rig_current_control_selection: std::ptr::null_mut(),
+            u_control_rig_create_transformable_control_handle: std::ptr::null_mut(),
+            u_control_rig_clear_control_selection: std::ptr::null_mut(),
+            u_control_rig_shape_library_link_set_shape_library: std::ptr::null_mut(),
+            u_control_rig_shape_library_link_get_shape_library: std::ptr::null_mut(),
+            u_control_rig_component_update: std::ptr::null_mut(),
+            u_control_rig_component_set_object_binding: std::ptr::null_mut(),
+            u_control_rig_component_set_mapped_elements: std::ptr::null_mut(),
+            u_control_rig_component_set_initial_space_transform: std::ptr::null_mut(),
+            u_control_rig_component_set_initial_bone_transform: std::ptr::null_mut(),
+            u_control_rig_component_set_control_vector2_d: std::ptr::null_mut(),
+            u_control_rig_component_set_control_transform: std::ptr::null_mut(),
+            u_control_rig_component_set_control_scale: std::ptr::null_mut(),
+            u_control_rig_component_set_control_rotator: std::ptr::null_mut(),
+            u_control_rig_component_set_control_rig_class: std::ptr::null_mut(),
+            u_control_rig_component_set_control_position: std::ptr::null_mut(),
+            u_control_rig_component_set_control_offset: std::ptr::null_mut(),
+            u_control_rig_component_set_control_int: std::ptr::null_mut(),
+            u_control_rig_component_set_control_float: std::ptr::null_mut(),
+            u_control_rig_component_set_control_bool: std::ptr::null_mut(),
+            u_control_rig_component_set_bone_transform: std::ptr::null_mut(),
+            u_control_rig_component_set_bone_initial_transforms_from_skeletal_mesh: std::ptr::null_mut(),
+            u_control_rig_component_on_pre_initialize: std::ptr::null_mut(),
+            u_control_rig_component_on_pre_forwards_solve: std::ptr::null_mut(),
+            u_control_rig_component_on_pre_construction: std::ptr::null_mut(),
+            u_control_rig_component_on_post_initialize: std::ptr::null_mut(),
+            u_control_rig_component_on_post_forwards_solve: std::ptr::null_mut(),
+            u_control_rig_component_on_post_construction: std::ptr::null_mut(),
+            u_control_rig_component_initialize: std::ptr::null_mut(),
+            u_control_rig_component_get_space_transform: std::ptr::null_mut(),
+            u_control_rig_component_get_initial_space_transform: std::ptr::null_mut(),
+            u_control_rig_component_get_initial_bone_transform: std::ptr::null_mut(),
+            u_control_rig_component_get_element_names: std::ptr::null_mut(),
+            u_control_rig_component_get_control_vector2_d: std::ptr::null_mut(),
+            u_control_rig_component_get_control_transform: std::ptr::null_mut(),
+            u_control_rig_component_get_control_scale: std::ptr::null_mut(),
+            u_control_rig_component_get_control_rotator: std::ptr::null_mut(),
+            u_control_rig_component_get_control_rig: std::ptr::null_mut(),
+            u_control_rig_component_get_control_position: std::ptr::null_mut(),
+            u_control_rig_component_get_control_offset: std::ptr::null_mut(),
+            u_control_rig_component_get_control_int: std::ptr::null_mut(),
+            u_control_rig_component_get_control_float: std::ptr::null_mut(),
+            u_control_rig_component_get_control_bool: std::ptr::null_mut(),
+            u_control_rig_component_get_bone_transform: std::ptr::null_mut(),
+            u_control_rig_component_get_absolute_time: std::ptr::null_mut(),
+            u_control_rig_component_does_element_exist: std::ptr::null_mut(),
+            u_control_rig_component_clear_mapped_elements: std::ptr::null_mut(),
+            u_control_rig_component_can_execute: std::ptr::null_mut(),
+            u_control_rig_component_add_mapped_skeletal_mesh: std::ptr::null_mut(),
+            u_control_rig_component_add_mapped_elements: std::ptr::null_mut(),
+            u_control_rig_component_add_mapped_components: std::ptr::null_mut(),
+            u_control_rig_component_add_mapped_complete_skeletal_mesh: std::ptr::null_mut(),
+            a_control_rig_control_actor_reset_control_actor: std::ptr::null_mut(),
+            a_control_rig_control_actor_refresh: std::ptr::null_mut(),
+            a_control_rig_control_actor_clear: std::ptr::null_mut(),
+            a_control_rig_shape_actor_set_selected: std::ptr::null_mut(),
+            a_control_rig_shape_actor_set_selectable: std::ptr::null_mut(),
+            a_control_rig_shape_actor_set_hovered: std::ptr::null_mut(),
+            a_control_rig_shape_actor_set_global_transform: std::ptr::null_mut(),
+            a_control_rig_shape_actor_set_enabled: std::ptr::null_mut(),
+            a_control_rig_shape_actor_on_transform_changed: std::ptr::null_mut(),
+            a_control_rig_shape_actor_on_selection_changed: std::ptr::null_mut(),
+            a_control_rig_shape_actor_on_manipulating_changed: std::ptr::null_mut(),
+            a_control_rig_shape_actor_on_hovered_changed: std::ptr::null_mut(),
+            a_control_rig_shape_actor_on_enabled_changed: std::ptr::null_mut(),
+            a_control_rig_shape_actor_is_selected_in_editor: std::ptr::null_mut(),
+            a_control_rig_shape_actor_is_hovered: std::ptr::null_mut(),
+            a_control_rig_shape_actor_is_enabled: std::ptr::null_mut(),
+            a_control_rig_shape_actor_get_global_transform: std::ptr::null_mut(),
+            u_control_rig_replay_stop_replay: std::ptr::null_mut(),
+            u_control_rig_replay_stop_recording: std::ptr::null_mut(),
+            u_control_rig_replay_start_replay: std::ptr::null_mut(),
+            u_control_rig_replay_start_recording: std::ptr::null_mut(),
+            u_control_rig_replay_set_playback_mode: std::ptr::null_mut(),
+            u_control_rig_replay_pause_replay: std::ptr::null_mut(),
+            u_control_rig_replay_is_replaying: std::ptr::null_mut(),
+            u_control_rig_replay_is_recording: std::ptr::null_mut(),
+            u_control_rig_replay_is_paused: std::ptr::null_mut(),
+            u_control_rig_replay_get_time_range: std::ptr::null_mut(),
+            u_control_rig_replay_get_playback_mode: std::ptr::null_mut(),
+            u_control_rig_replay_create_new_asset: std::ptr::null_mut(),
+            u_control_rig_test_data_get_frame_index_for_time: std::ptr::null_mut(),
+            u_modular_rig_get_parent_path_for_bp: std::ptr::null_mut(),
+            u_modular_rig_get_parent_module_name_for_bp: std::ptr::null_mut(),
+            u_modular_rig_get_module_rig_by_name: std::ptr::null_mut(),
+            u_modular_rig_get_module_rig: std::ptr::null_mut(),
+            u_modular_rig_get_module_paths: std::ptr::null_mut(),
+            u_modular_rig_get_module_names: std::ptr::null_mut(),
+            u_modular_rig_get_events_for_module_by_name: std::ptr::null_mut(),
+            u_modular_rig_get_events_for_module: std::ptr::null_mut(),
+            u_modular_rig_get_events_for_all_modules: std::ptr::null_mut(),
+            u_modular_rig_execute_event_on_module_for_bp: std::ptr::null_mut(),
+            u_modular_rig_execute_event_on_module_by_name_for_bp: std::ptr::null_mut(),
+            u_modular_rig_execute_event_on_all_modules: std::ptr::null_mut(),
+            u_modular_rig_controller_un_bind_module_variable: std::ptr::null_mut(),
+            u_modular_rig_controller_swap_modules_of_class: std::ptr::null_mut(),
+            u_modular_rig_controller_swap_module_class: std::ptr::null_mut(),
+            u_modular_rig_controller_set_module_selection: std::ptr::null_mut(),
+            u_modular_rig_controller_set_config_value_in_module: std::ptr::null_mut(),
+            u_modular_rig_controller_select_module: std::ptr::null_mut(),
+            u_modular_rig_controller_reset_config_value_in_module: std::ptr::null_mut(),
+            u_modular_rig_controller_reparent_module: std::ptr::null_mut(),
+            u_modular_rig_controller_reorder_module: std::ptr::null_mut(),
+            u_modular_rig_controller_rename_module: std::ptr::null_mut(),
+            u_modular_rig_controller_mirror_module: std::ptr::null_mut(),
+            u_modular_rig_controller_import_module_settings_from_string: std::ptr::null_mut(),
+            u_modular_rig_controller_get_selected_modules: std::ptr::null_mut(),
+            u_modular_rig_controller_get_module_reference: std::ptr::null_mut(),
+            u_modular_rig_controller_get_connectors_for_module: std::ptr::null_mut(),
+            u_modular_rig_controller_get_all_modules: std::ptr::null_mut(),
+            u_modular_rig_controller_export_module_settings_to_string: std::ptr::null_mut(),
+            u_modular_rig_controller_disconnect_cyclic_connectors: std::ptr::null_mut(),
+            u_modular_rig_controller_disconnect_connector: std::ptr::null_mut(),
+            u_modular_rig_controller_deselect_module: std::ptr::null_mut(),
+            u_modular_rig_controller_delete_module: std::ptr::null_mut(),
+            u_modular_rig_controller_connect_connector_to_elements: std::ptr::null_mut(),
+            u_modular_rig_controller_connect_connector_to_element: std::ptr::null_mut(),
+            u_modular_rig_controller_can_connect_connector_to_elements: std::ptr::null_mut(),
+            u_modular_rig_controller_can_connect_connector_to_element: std::ptr::null_mut(),
+            u_modular_rig_controller_bind_module_variable: std::ptr::null_mut(),
+            u_modular_rig_controller_auto_connect_secondary_connectors: std::ptr::null_mut(),
+            u_modular_rig_controller_auto_connect_modules: std::ptr::null_mut(),
+            u_modular_rig_controller_add_target_to_array_connector: std::ptr::null_mut(),
+            u_modular_rig_controller_add_module: std::ptr::null_mut(),
+            u_rig_hierarchy_unset_curve_value_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_unset_curve_value: std::ptr::null_mut(),
+            u_rig_hierarchy_switch_to_world_space: std::ptr::null_mut(),
+            u_rig_hierarchy_switch_to_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_switch_to_default_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_sort_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_set_vector_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_vector_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_transform_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_transform_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_tag: std::ptr::null_mut(),
+            u_rig_hierarchy_set_rotator_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_rotator_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_rig_element_key_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_rig_element_key_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_quat_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_quat_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_pose_for_blueprint: std::ptr::null_mut(),
+            u_rig_hierarchy_set_parent_weight_array: std::ptr::null_mut(),
+            u_rig_hierarchy_set_parent_weight: std::ptr::null_mut(),
+            u_rig_hierarchy_set_name_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_name_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_local_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_local_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_set_linear_color_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_linear_color_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_int32_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_int32_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_global_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_global_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_set_float_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_float_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_curve_value_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_curve_value: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_visibility_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_visibility: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_value_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_shape_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_shape_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_settings_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_settings: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_preferred_rotator_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_preferred_rotator: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_preferred_rotation_order_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_preferred_rotation_order: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_preferred_euler_angles_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_preferred_euler_angles: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_offset_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_control_offset_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_set_connector_settings_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_set_connector_settings: std::ptr::null_mut(),
+            u_rig_hierarchy_set_bool_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_set_bool_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_send_auto_key_event: std::ptr::null_mut(),
+            u_rig_hierarchy_restore_sockets_from_states: std::ptr::null_mut(),
+            u_rig_hierarchy_restore_connectors_from_states: std::ptr::null_mut(),
+            u_rig_hierarchy_reset_to_default: std::ptr::null_mut(),
+            u_rig_hierarchy_reset_pose_to_initial: std::ptr::null_mut(),
+            u_rig_hierarchy_reset_curve_values: std::ptr::null_mut(),
+            u_rig_hierarchy_reset: std::ptr::null_mut(),
+            u_rig_hierarchy_remove_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_remove_all_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_num_components: std::ptr::null_mut(),
+            u_rig_hierarchy_num: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_vector2_d: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_vector: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_transform_no_scale: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_rotator: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_int: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_float: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_euler_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_make_control_value_from_bool: std::ptr::null_mut(),
+            u_rig_hierarchy_is_valid_index: std::ptr::null_mut(),
+            u_rig_hierarchy_is_selected_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_is_selected: std::ptr::null_mut(),
+            u_rig_hierarchy_is_procedural: std::ptr::null_mut(),
+            u_rig_hierarchy_is_parented_to: std::ptr::null_mut(),
+            u_rig_hierarchy_is_curve_value_set_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_is_curve_value_set: std::ptr::null_mut(),
+            u_rig_hierarchy_is_controller_available: std::ptr::null_mut(),
+            u_rig_hierarchy_is_component_selected: std::ptr::null_mut(),
+            u_rig_hierarchy_has_tag: std::ptr::null_mut(),
+            u_rig_hierarchy_get_vector_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_vector_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_vector_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_vector2_d_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_transform_no_scale_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_transform_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_transform_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_transform_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_tags: std::ptr::null_mut(),
+            u_rig_hierarchy_get_socket_states: std::ptr::null_mut(),
+            u_rig_hierarchy_get_socket_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_selected_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_selected_hierarchy_keys_for_blueprint: std::ptr::null_mut(),
+            u_rig_hierarchy_get_rule_manager: std::ptr::null_mut(),
+            u_rig_hierarchy_get_rotator_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_rotator_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_rotator_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_root_element_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_rig_element_key_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_rig_element_key_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_reference_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_quat_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_quat_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_previous_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_get_previous_name: std::ptr::null_mut(),
+            u_rig_hierarchy_get_previous_hierarchy_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_get_previous_hierarchy_name: std::ptr::null_mut(),
+            u_rig_hierarchy_get_pose: std::ptr::null_mut(),
+            u_rig_hierarchy_get_parent_weight_array: std::ptr::null_mut(),
+            u_rig_hierarchy_get_parent_weight: std::ptr::null_mut(),
+            u_rig_hierarchy_get_parent_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_parent_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_get_parents: std::ptr::null_mut(),
+            u_rig_hierarchy_get_number_of_parents: std::ptr::null_mut(),
+            u_rig_hierarchy_get_null_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_name_space_f_name: std::ptr::null_mut(),
+            u_rig_hierarchy_get_name_space: std::ptr::null_mut(),
+            u_rig_hierarchy_get_name_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_name_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_module_prefix: std::ptr::null_mut(),
+            u_rig_hierarchy_get_module_path_f_name: std::ptr::null_mut(),
+            u_rig_hierarchy_get_module_path: std::ptr::null_mut(),
+            u_rig_hierarchy_get_module_name: std::ptr::null_mut(),
+            u_rig_hierarchy_get_module_f_name: std::ptr::null_mut(),
+            u_rig_hierarchy_get_metadata_type: std::ptr::null_mut(),
+            u_rig_hierarchy_get_metadata_names: std::ptr::null_mut(),
+            u_rig_hierarchy_get_local_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_local_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_get_local_index_for_blueprint: std::ptr::null_mut(),
+            u_rig_hierarchy_get_local_control_shape_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_local_control_shape_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_get_linear_color_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_linear_color_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_key: std::ptr::null_mut(),
+            u_rig_hierarchy_get_int_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_int32_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_int32_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_index_for_blueprint: std::ptr::null_mut(),
+            u_rig_hierarchy_get_global_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_global_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_get_global_control_shape_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_global_control_shape_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_get_global_control_offset_transform_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_global_control_offset_transform: std::ptr::null_mut(),
+            u_rig_hierarchy_get_float_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_float_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_float_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_first_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_get_euler_transform_from_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_default_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_get_curve_value_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_curve_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_curve_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_value_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_value: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_preferred_rotator_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_preferred_rotator: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_preferred_euler_rotation_order_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_preferred_euler_rotation_order: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_preferred_euler_angles_by_index: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_preferred_euler_angles: std::ptr::null_mut(),
+            u_rig_hierarchy_get_controller: std::ptr::null_mut(),
+            u_rig_hierarchy_get_control_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_connector_states: std::ptr::null_mut(),
+            u_rig_hierarchy_get_connector_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_component_type: std::ptr::null_mut(),
+            u_rig_hierarchy_get_component_name: std::ptr::null_mut(),
+            u_rig_hierarchy_get_component_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_component_key: std::ptr::null_mut(),
+            u_rig_hierarchy_get_component_content: std::ptr::null_mut(),
+            u_rig_hierarchy_get_children: std::ptr::null_mut(),
+            u_rig_hierarchy_get_bool_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_bool_array_metadata: std::ptr::null_mut(),
+            u_rig_hierarchy_get_bone_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_get_all_keys_for_blueprint: std::ptr::null_mut(),
+            u_rig_hierarchy_get_all_component_keys: std::ptr::null_mut(),
+            u_rig_hierarchy_find_null_for_blueprint_only: std::ptr::null_mut(),
+            u_rig_hierarchy_find_control_for_blueprint_only: std::ptr::null_mut(),
+            u_rig_hierarchy_find_bone_for_blueprint_only: std::ptr::null_mut(),
+            u_rig_hierarchy_copy_pose: std::ptr::null_mut(),
+            u_rig_hierarchy_copy_hierarchy: std::ptr::null_mut(),
+            u_rig_hierarchy_contains_for_blueprint: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_selection: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_hierarchy_selection: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_hierarchy: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_display_name: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_control_settings: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_component_selection: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_component_content: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_available_space_label: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_set_available_space_index: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_select_hierarchy_key: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_select_element: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_select_component: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_reparent_component: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_reorder_element: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_rename_element: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_rename_component: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_remove_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_remove_element: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_remove_component: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_remove_channel_host: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_remove_available_space: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_remove_all_parents: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_mirror_elements: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_sockets_from_skeletal_mesh: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_preview_skeletal_mesh: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_from_text: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_curves_from_skeletal_mesh: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_curves_from_asset: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_curves: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_bones_from_skeletal_mesh: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_bones_from_asset: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_import_bones: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_get_hierarchy: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_get_control_settings: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_generate_python_commands: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_export_to_text: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_export_selection_to_text: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_duplicate_elements: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_deselect_hierarchy_key: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_deselect_element: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_deselect_component: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_clear_selection: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_socket: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_parent: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_null: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_curve: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_control_for_blueprint: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_connector: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_component: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_channel_host: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_bone: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_available_space: std::ptr::null_mut(),
+            u_rig_hierarchy_controller_add_animation_channel_for_blueprint: std::ptr::null_mut(),
+            u_control_rig_pose_asset_set_up_mirror_match_table: std::ptr::null_mut(),
+            u_control_rig_pose_asset_select_controls: std::ptr::null_mut(),
+            u_control_rig_pose_asset_save_pose: std::ptr::null_mut(),
+            u_control_rig_pose_asset_replace_control_name: std::ptr::null_mut(),
+            u_control_rig_pose_asset_paste_pose: std::ptr::null_mut(),
+            u_control_rig_pose_asset_get_current_pose: std::ptr::null_mut(),
+            u_control_rig_pose_asset_get_control_names: std::ptr::null_mut(),
+            u_control_rig_pose_asset_does_mirror_match: std::ptr::null_mut(),
+            u_control_rig_workflow_options_ensure_at_least_one_rig_element_selected: std::ptr::null_mut(),
+            u_control_rig_transform_workflow_options_provide_workflows: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -796,21 +805,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigClass"),
-            &raw mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_node_control_rig_library_set_control_rig_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToControlRigPure"),
-            &raw mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_node_control_rig_library_convert_to_control_rig_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToControlRig"),
-            &raw mut U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS
+                .u_anim_node_control_rig_library_convert_to_control_rig,
         );
     }
     unsafe {
@@ -821,105 +833,106 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SupportsBackwardsSolve"),
-            &raw mut U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_supports_backwards_solve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInteractionRigClass"),
-            &raw mut U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_set_interaction_rig_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInteractionRig"),
-            &raw mut U_CONTROL_RIG_SET_INTERACTION_RIG,
+            &raw mut __FUNCTION_PTRS.u_control_rig_set_interaction_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectControl"),
-            &raw mut U_CONTROL_RIG_SELECT_CONTROL,
+            &raw mut __FUNCTION_PTRS.u_control_rig_select_control,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestConstruction"),
-            &raw mut U_CONTROL_RIG_REQUEST_CONSTRUCTION,
+            &raw mut __FUNCTION_PTRS.u_control_rig_request_construction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnControlSelectedBP__DelegateSignature"),
-            &raw mut U_CONTROL_RIG_ON_CONTROL_SELECTED_BP_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_on_control_selected_bp_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsControlSelected"),
-            &raw mut U_CONTROL_RIG_IS_CONTROL_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_control_rig_is_control_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInteractionRigClass"),
-            &raw mut U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_get_interaction_rig_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInteractionRig"),
-            &raw mut U_CONTROL_RIG_GET_INTERACTION_RIG,
+            &raw mut __FUNCTION_PTRS.u_control_rig_get_interaction_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHostingActor"),
-            &raw mut U_CONTROL_RIG_GET_HOSTING_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_control_rig_get_hosting_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHierarchy"),
-            &raw mut U_CONTROL_RIG_GET_HIERARCHY,
+            &raw mut __FUNCTION_PTRS.u_control_rig_get_hierarchy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindControlRigs"),
-            &raw mut U_CONTROL_RIG_FIND_CONTROL_RIGS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_find_control_rigs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CurrentControlSelection"),
-            &raw mut U_CONTROL_RIG_CURRENT_CONTROL_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_control_rig_current_control_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateTransformableControlHandle"),
-            &raw mut U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_create_transformable_control_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearControlSelection"),
-            &raw mut U_CONTROL_RIG_CLEAR_CONTROL_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_control_rig_clear_control_selection,
         );
     }
     unsafe {
@@ -930,14 +943,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShapeLibrary"),
-            &raw mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_control_rig_shape_library_link_set_shape_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetShapeLibrary"),
-            &raw mut U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_control_rig_shape_library_link_get_shape_library,
         );
     }
     unsafe {
@@ -948,329 +961,331 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Update"),
-            &raw mut U_CONTROL_RIG_COMPONENT_UPDATE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetObjectBinding"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_object_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMappedElements"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_mapped_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInitialSpaceTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_initial_space_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInitialBoneTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_initial_bone_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlVector2D"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlScale"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRotator"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlRigClass"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_rig_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlPosition"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlOffset"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlInt"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlFloat"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlBool"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_control_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoneTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_set_bone_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoneInitialTransformsFromSkeletalMesh"),
-            &raw mut U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_component_set_bone_initial_transforms_from_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPreInitialize"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ON_PRE_INITIALIZE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_on_pre_initialize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPreForwardsSolve"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ON_PRE_FORWARDS_SOLVE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_on_pre_forwards_solve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPreConstruction"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ON_PRE_CONSTRUCTION,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_on_pre_construction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPostInitialize"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ON_POST_INITIALIZE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_on_post_initialize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPostForwardsSolve"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ON_POST_FORWARDS_SOLVE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_on_post_forwards_solve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPostConstruction"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ON_POST_CONSTRUCTION,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_on_post_construction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Initialize"),
-            &raw mut U_CONTROL_RIG_COMPONENT_INITIALIZE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_initialize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpaceTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_space_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInitialSpaceTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_initial_space_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInitialBoneTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_initial_bone_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetElementNames"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_element_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlVector2D"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlScale"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRotator"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRig"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlPosition"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlOffset"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlInt"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlFloat"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlBool"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_control_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoneTransform"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_bone_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAbsoluteTime"),
-            &raw mut U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_get_absolute_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesElementExist"),
-            &raw mut U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_does_element_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearMappedElements"),
-            &raw mut U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_clear_mapped_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanExecute"),
-            &raw mut U_CONTROL_RIG_COMPONENT_CAN_EXECUTE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_can_execute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMappedSkeletalMesh"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_add_mapped_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMappedElements"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_add_mapped_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMappedComponents"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_component_add_mapped_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMappedCompleteSkeletalMesh"),
-            &raw mut U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_component_add_mapped_complete_skeletal_mesh,
         );
     }
     unsafe {
@@ -1281,21 +1296,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetControlActor"),
-            &raw mut A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR,
+            &raw mut __FUNCTION_PTRS.a_control_rig_control_actor_reset_control_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Refresh"),
-            &raw mut A_CONTROL_RIG_CONTROL_ACTOR_REFRESH,
+            &raw mut __FUNCTION_PTRS.a_control_rig_control_actor_refresh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut A_CONTROL_RIG_CONTROL_ACTOR_CLEAR,
+            &raw mut __FUNCTION_PTRS.a_control_rig_control_actor_clear,
         );
     }
     unsafe {
@@ -1306,98 +1321,98 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelected"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_set_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelectable"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_set_selectable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHovered"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_set_hovered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalTransform"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_set_global_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnabled"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_set_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnTransformChanged"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_TRANSFORM_CHANGED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_on_transform_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnSelectionChanged"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_SELECTION_CHANGED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_on_selection_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnManipulatingChanged"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_MANIPULATING_CHANGED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_on_manipulating_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnHoveredChanged"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_HOVERED_CHANGED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_on_hovered_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnEnabledChanged"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_ON_ENABLED_CHANGED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_on_enabled_changed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSelectedInEditor"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_is_selected_in_editor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsHovered"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_is_hovered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEnabled"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_is_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalTransform"),
-            &raw mut A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.a_control_rig_shape_actor_get_global_transform,
         );
     }
     unsafe {
@@ -1408,84 +1423,84 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopReplay"),
-            &raw mut U_CONTROL_RIG_REPLAY_STOP_REPLAY,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_stop_replay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopRecording"),
-            &raw mut U_CONTROL_RIG_REPLAY_STOP_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_stop_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartReplay"),
-            &raw mut U_CONTROL_RIG_REPLAY_START_REPLAY,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_start_replay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartRecording"),
-            &raw mut U_CONTROL_RIG_REPLAY_START_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_start_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackMode"),
-            &raw mut U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_set_playback_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PauseReplay"),
-            &raw mut U_CONTROL_RIG_REPLAY_PAUSE_REPLAY,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_pause_replay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReplaying"),
-            &raw mut U_CONTROL_RIG_REPLAY_IS_REPLAYING,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_is_replaying,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRecording"),
-            &raw mut U_CONTROL_RIG_REPLAY_IS_RECORDING,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_is_recording,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut U_CONTROL_RIG_REPLAY_IS_PAUSED,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_is_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimeRange"),
-            &raw mut U_CONTROL_RIG_REPLAY_GET_TIME_RANGE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_get_time_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackMode"),
-            &raw mut U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_get_playback_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewAsset"),
-            &raw mut U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET,
+            &raw mut __FUNCTION_PTRS.u_control_rig_replay_create_new_asset,
         );
     }
     unsafe {
@@ -1496,7 +1511,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameIndexForTime"),
-            &raw mut U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME,
+            &raw mut __FUNCTION_PTRS.u_control_rig_test_data_get_frame_index_for_time,
         );
     }
     unsafe {
@@ -1507,84 +1522,84 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentPathForBP"),
-            &raw mut U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_parent_path_for_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentModuleNameForBP"),
-            &raw mut U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_parent_module_name_for_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModuleRigByName"),
-            &raw mut U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_module_rig_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModuleRig"),
-            &raw mut U_MODULAR_RIG_GET_MODULE_RIG,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_module_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModulePaths"),
-            &raw mut U_MODULAR_RIG_GET_MODULE_PATHS,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_module_paths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModuleNames"),
-            &raw mut U_MODULAR_RIG_GET_MODULE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_module_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEventsForModuleByName"),
-            &raw mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_events_for_module_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEventsForModule"),
-            &raw mut U_MODULAR_RIG_GET_EVENTS_FOR_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_events_for_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEventsForAllModules"),
-            &raw mut U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_get_events_for_all_modules,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExecuteEventOnModuleForBP"),
-            &raw mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_execute_event_on_module_for_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExecuteEventOnModuleByNameForBP"),
-            &raw mut U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_execute_event_on_module_by_name_for_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExecuteEventOnAllModules"),
-            &raw mut U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_execute_event_on_all_modules,
         );
     }
     unsafe {
@@ -1595,210 +1610,220 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnBindModuleVariable"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_un_bind_module_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwapModulesOfClass"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_swap_modules_of_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwapModuleClass"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_swap_module_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModuleSelection"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_set_module_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConfigValueInModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_set_config_value_in_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_SELECT_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_select_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetConfigValueInModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_reset_config_value_in_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReparentModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_reparent_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReorderModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_REORDER_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_reorder_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_RENAME_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_rename_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MirrorModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_mirror_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportModuleSettingsFromString"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_import_module_settings_from_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedModules"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_get_selected_modules,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModuleReference"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_get_module_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConnectorsForModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_get_connectors_for_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllModules"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_get_all_modules,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportModuleSettingsToString"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_export_module_settings_to_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectCyclicConnectors"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_disconnect_cyclic_connectors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectConnector"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_disconnect_connector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_deselect_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_DELETE_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_delete_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectConnectorToElements"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_connect_connector_to_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectConnectorToElement"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_connect_connector_to_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanConnectConnectorToElements"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_can_connect_connector_to_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanConnectConnectorToElement"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_can_connect_connector_to_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BindModuleVariable"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_bind_module_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AutoConnectSecondaryConnectors"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_auto_connect_secondary_connectors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AutoConnectModules"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_auto_connect_modules,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTargetToArrayConnector"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_modular_rig_controller_add_target_to_array_connector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddModule"),
-            &raw mut U_MODULAR_RIG_CONTROLLER_ADD_MODULE,
+            &raw mut __FUNCTION_PTRS.u_modular_rig_controller_add_module,
         );
     }
     unsafe {
@@ -1809,1309 +1834,1325 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsetCurveValueByIndex"),
-            &raw mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_unset_curve_value_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsetCurveValue"),
-            &raw mut U_RIG_HIERARCHY_UNSET_CURVE_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_unset_curve_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwitchToWorldSpace"),
-            &raw mut U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_switch_to_world_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwitchToParent"),
-            &raw mut U_RIG_HIERARCHY_SWITCH_TO_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_switch_to_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwitchToDefaultParent"),
-            &raw mut U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_switch_to_default_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortKeys"),
-            &raw mut U_RIG_HIERARCHY_SORT_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_sort_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVectorMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_VECTOR_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_vector_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVectorArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_vector_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTransformMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_TRANSFORM_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_transform_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTransformArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_transform_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTag"),
-            &raw mut U_RIG_HIERARCHY_SET_TAG,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRotatorMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_ROTATOR_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_rotator_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRotatorArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_rotator_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRigElementKeyMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_rig_element_key_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRigElementKeyArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_rig_element_key_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuatMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_QUAT_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_quat_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuatArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_quat_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPose_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_pose_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetParentWeightArray"),
-            &raw mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_parent_weight_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetParentWeight"),
-            &raw mut U_RIG_HIERARCHY_SET_PARENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_parent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNameMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_NAME_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_name_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNameArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_name_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_local_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalTransform"),
-            &raw mut U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLinearColorMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_linear_color_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLinearColorArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_linear_color_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt32Metadata"),
-            &raw mut U_RIG_HIERARCHY_SET_INT32_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_int32_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetInt32ArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_int32_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_global_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalTransform"),
-            &raw mut U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_global_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_FLOAT_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_float_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_float_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveValueByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_curve_value_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurveValue"),
-            &raw mut U_RIG_HIERARCHY_SET_CURVE_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_curve_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlVisibilityByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_visibility_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlVisibility"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlValueByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_value_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlValue"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlShapeTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_shape_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlShapeTransform"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_shape_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlSettingsByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_settings_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlSettings"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlPreferredRotatorByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_set_control_preferred_rotator_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlPreferredRotator"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_preferred_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlPreferredRotationOrderByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_set_control_preferred_rotation_order_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlPreferredRotationOrder"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_preferred_rotation_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlPreferredEulerAnglesByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_set_control_preferred_euler_angles_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlPreferredEulerAngles"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_preferred_euler_angles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlOffsetTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_set_control_offset_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlOffsetTransform"),
-            &raw mut U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_control_offset_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConnectorSettingsByIndex"),
-            &raw mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_connector_settings_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConnectorSettings"),
-            &raw mut U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_connector_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_BOOL_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_bool_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_set_bool_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SendAutoKeyEvent"),
-            &raw mut U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_send_auto_key_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RestoreSocketsFromStates"),
-            &raw mut U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_restore_sockets_from_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RestoreConnectorsFromStates"),
-            &raw mut U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_restore_connectors_from_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetToDefault"),
-            &raw mut U_RIG_HIERARCHY_RESET_TO_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_reset_to_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetPoseToInitial"),
-            &raw mut U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_reset_pose_to_initial,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetCurveValues"),
-            &raw mut U_RIG_HIERARCHY_RESET_CURVE_VALUES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_reset_curve_values,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut U_RIG_HIERARCHY_RESET,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_reset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMetadata"),
-            &raw mut U_RIG_HIERARCHY_REMOVE_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_remove_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllMetadata"),
-            &raw mut U_RIG_HIERARCHY_REMOVE_ALL_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_remove_all_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NumComponents"),
-            &raw mut U_RIG_HIERARCHY_NUM_COMPONENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_num_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Num"),
-            &raw mut U_RIG_HIERARCHY_NUM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_num,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromVector2D"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_make_control_value_from_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromVector"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_make_control_value_from_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromTransformNoScale"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_make_control_value_from_transform_no_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromTransform"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_make_control_value_from_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromRotator"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_make_control_value_from_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromInt"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_make_control_value_from_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromFloat"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_make_control_value_from_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromEulerTransform"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_make_control_value_from_euler_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeControlValueFromBool"),
-            &raw mut U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_make_control_value_from_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidIndex"),
-            &raw mut U_RIG_HIERARCHY_IS_VALID_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_valid_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSelectedByIndex"),
-            &raw mut U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_selected_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSelected"),
-            &raw mut U_RIG_HIERARCHY_IS_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsProcedural"),
-            &raw mut U_RIG_HIERARCHY_IS_PROCEDURAL,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_procedural,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsParentedTo"),
-            &raw mut U_RIG_HIERARCHY_IS_PARENTED_TO,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_parented_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCurveValueSetByIndex"),
-            &raw mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_curve_value_set_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCurveValueSet"),
-            &raw mut U_RIG_HIERARCHY_IS_CURVE_VALUE_SET,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_curve_value_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsControllerAvailable"),
-            &raw mut U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_controller_available,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsComponentSelected"),
-            &raw mut U_RIG_HIERARCHY_IS_COMPONENT_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_is_component_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasTag"),
-            &raw mut U_RIG_HIERARCHY_HAS_TAG,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_has_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_VECTOR_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_vector_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_vector_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_vector_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector2DFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_vector2_d_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformNoScaleFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_transform_no_scale_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_transform_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_transform_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_transform_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTags"),
-            &raw mut U_RIG_HIERARCHY_GET_TAGS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSocketStates"),
-            &raw mut U_RIG_HIERARCHY_GET_SOCKET_STATES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_socket_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSocketKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_SOCKET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_socket_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_SELECTED_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_selected_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedHierarchyKeys_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_selected_hierarchy_keys_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRuleManager"),
-            &raw mut U_RIG_HIERARCHY_GET_RULE_MANAGER,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_rule_manager,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRotatorMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_ROTATOR_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_rotator_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRotatorFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_rotator_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRotatorArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_rotator_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootElementKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_root_element_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigElementKeyMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_rig_element_key_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigElementKeyArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_rig_element_key_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReferenceKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_REFERENCE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_reference_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQuatMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_QUAT_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_quat_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQuatArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_quat_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviousParent"),
-            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_previous_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviousName"),
-            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_previous_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviousHierarchyParent"),
-            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_previous_hierarchy_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviousHierarchyName"),
-            &raw mut U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_previous_hierarchy_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPose"),
-            &raw mut U_RIG_HIERARCHY_GET_POSE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentWeightArray"),
-            &raw mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_parent_weight_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentWeight"),
-            &raw mut U_RIG_HIERARCHY_GET_PARENT_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_parent_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_parent_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentTransform"),
-            &raw mut U_RIG_HIERARCHY_GET_PARENT_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_parent_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParents"),
-            &raw mut U_RIG_HIERARCHY_GET_PARENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_parents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberOfParents"),
-            &raw mut U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_number_of_parents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNullKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_NULL_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_null_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNameSpaceFName"),
-            &raw mut U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_name_space_f_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNameSpace"),
-            &raw mut U_RIG_HIERARCHY_GET_NAME_SPACE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_name_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNameMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_NAME_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_name_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNameArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_name_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModulePrefix"),
-            &raw mut U_RIG_HIERARCHY_GET_MODULE_PREFIX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_module_prefix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModulePathFName"),
-            &raw mut U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_module_path_f_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModulePath"),
-            &raw mut U_RIG_HIERARCHY_GET_MODULE_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_module_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModuleName"),
-            &raw mut U_RIG_HIERARCHY_GET_MODULE_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_module_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModuleFName"),
-            &raw mut U_RIG_HIERARCHY_GET_MODULE_F_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_module_f_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetadataType"),
-            &raw mut U_RIG_HIERARCHY_GET_METADATA_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_metadata_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetadataNames"),
-            &raw mut U_RIG_HIERARCHY_GET_METADATA_NAMES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_metadata_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_local_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalTransform"),
-            &raw mut U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_local_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalIndex_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_local_index_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlShapeTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_local_control_shape_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalControlShapeTransform"),
-            &raw mut U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_local_control_shape_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinearColorMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_linear_color_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinearColorArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_linear_color_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKey"),
-            &raw mut U_RIG_HIERARCHY_GET_KEY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIntFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_int_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInt32Metadata"),
-            &raw mut U_RIG_HIERARCHY_GET_INT32_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_int32_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInt32ArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_int32_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIndex_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_index_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_global_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalTransform"),
-            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_global_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalControlShapeTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_global_control_shape_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalControlShapeTransform"),
-            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_global_control_shape_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalControlOffsetTransformByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_global_control_offset_transform_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalControlOffsetTransform"),
-            &raw mut U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_global_control_offset_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_FLOAT_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_float_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_float_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_float_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFirstParent"),
-            &raw mut U_RIG_HIERARCHY_GET_FIRST_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_first_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEulerTransformFromControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_euler_transform_from_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultParent"),
-            &raw mut U_RIG_HIERARCHY_GET_DEFAULT_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_default_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveValueByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_curve_value_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveValue"),
-            &raw mut U_RIG_HIERARCHY_GET_CURVE_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_curve_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_CURVE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_curve_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlValueByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_control_value_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlValue"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_control_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlPreferredRotatorByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_control_preferred_rotator_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlPreferredRotator"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_control_preferred_rotator,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlPreferredEulerRotationOrderByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_control_preferred_euler_rotation_order_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlPreferredEulerRotationOrder"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_control_preferred_euler_rotation_order,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlPreferredEulerAnglesByIndex"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_get_control_preferred_euler_angles_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlPreferredEulerAngles"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_control_preferred_euler_angles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetController"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROLLER,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_CONTROL_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_control_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConnectorStates"),
-            &raw mut U_RIG_HIERARCHY_GET_CONNECTOR_STATES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_connector_states,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConnectorKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_CONNECTOR_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_connector_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentType"),
-            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_component_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentName"),
-            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_component_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_component_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentKey"),
-            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_KEY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_component_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetComponentContent"),
-            &raw mut U_RIG_HIERARCHY_GET_COMPONENT_CONTENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_component_content,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildren"),
-            &raw mut U_RIG_HIERARCHY_GET_CHILDREN,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_children,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoolMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_BOOL_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_bool_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoolArrayMetadata"),
-            &raw mut U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_bool_array_metadata,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoneKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_BONE_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_bone_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllKeys_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_all_keys_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllComponentKeys"),
-            &raw mut U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_get_all_component_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNull_ForBlueprintOnly"),
-            &raw mut U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_find_null_for_blueprint_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindControl_ForBlueprintOnly"),
-            &raw mut U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_find_control_for_blueprint_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBone_ForBlueprintOnly"),
-            &raw mut U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_find_bone_for_blueprint_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyPose"),
-            &raw mut U_RIG_HIERARCHY_COPY_POSE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_copy_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyHierarchy"),
-            &raw mut U_RIG_HIERARCHY_COPY_HIERARCHY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_copy_hierarchy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Contains_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_contains_for_blueprint,
         );
     }
     unsafe {
@@ -3122,378 +3163,383 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelection"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetParent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHierarchySelection"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_hierarchy_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHierarchy"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_hierarchy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayName"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControlSettings"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_control_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetComponentSelection"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_component_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetComponentContent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_component_content,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAvailableSpaceLabel"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_available_space_label,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAvailableSpaceIndex"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_set_available_space_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectHierarchyKey"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_select_hierarchy_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectElement"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_select_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectComponent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_select_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReparentComponent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_reparent_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReorderElement"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_reorder_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameElement"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_rename_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameComponent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_rename_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveParent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_remove_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveElement"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_remove_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveComponent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_remove_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveChannelHost"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_remove_channel_host,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAvailableSpace"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_remove_available_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllParents"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_remove_all_parents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MirrorElements"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_mirror_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportSocketsFromSkeletalMesh"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_controller_import_sockets_from_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportPreviewSkeletalMesh"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_controller_import_preview_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportFromText"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_import_from_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportCurvesFromSkeletalMesh"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_controller_import_curves_from_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportCurvesFromAsset"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_import_curves_from_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportCurves"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_import_curves,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportBonesFromSkeletalMesh"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_controller_import_bones_from_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportBonesFromAsset"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_import_bones_from_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportBones"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_import_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHierarchy"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_get_hierarchy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlSettings"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_get_control_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_generate_python_commands,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportToText"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_export_to_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportSelectionToText"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_export_selection_to_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateElements"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_duplicate_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectHierarchyKey"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_deselect_hierarchy_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectElement"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_deselect_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectComponent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_deselect_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSelection"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_clear_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSocket"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_socket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddParent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNull"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_NULL,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_null,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCurve"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_curve,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddControl_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_control_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddConnector"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_connector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddComponent"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddChannelHost"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_channel_host,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBone"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_BONE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAvailableSpace"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE,
+            &raw mut __FUNCTION_PTRS.u_rig_hierarchy_controller_add_available_space,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAnimationChannel_ForBlueprint"),
-            &raw mut U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_hierarchy_controller_add_animation_channel_for_blueprint,
         );
     }
     unsafe {
@@ -3504,56 +3550,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUpMirrorMatchTable"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_set_up_mirror_match_table,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectControls"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_select_controls,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SavePose"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_SAVE_POSE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_save_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceControlName"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_replace_control_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PastePose"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_PASTE_POSE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_paste_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentPose"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_get_current_pose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlNames"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_get_control_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesMirrorMatch"),
-            &raw mut U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH,
+            &raw mut __FUNCTION_PTRS.u_control_rig_pose_asset_does_mirror_match,
         );
     }
     unsafe {
@@ -3564,7 +3610,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnsureAtLeastOneRigElementSelected"),
-            &raw mut U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_workflow_options_ensure_at_least_one_rig_element_selected,
         );
     }
     unsafe {
@@ -3575,7 +3622,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProvideWorkflows"),
-            &raw mut U_CONTROL_RIG_TRANSFORM_WORKFLOW_OPTIONS_PROVIDE_WORKFLOWS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_transform_workflow_options_provide_workflows,
         );
     }
 }
@@ -8525,7 +8573,8 @@ impl UAnimNodeControlRigLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_anim_node_control_rig_library_set_control_rig_class,
                 __buffer,
             )
         };
@@ -8549,7 +8598,8 @@ impl UAnimNodeControlRigLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_SET_CONTROL_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_anim_node_control_rig_library_set_control_rig_class,
                 __buffer,
             )
         };
@@ -8567,7 +8617,8 @@ impl UAnimNodeControlRigLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_anim_node_control_rig_library_convert_to_control_rig_pure,
                 __buffer,
             )
         };
@@ -8594,7 +8645,8 @@ impl UAnimNodeControlRigLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG_PURE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_anim_node_control_rig_library_convert_to_control_rig_pure,
                 __buffer,
             )
         };
@@ -8616,7 +8668,8 @@ impl UAnimNodeControlRigLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_anim_node_control_rig_library_convert_to_control_rig,
                 __buffer,
             )
         };
@@ -8644,7 +8697,8 @@ impl UAnimNodeControlRigLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_ANIM_NODE_CONTROL_RIG_LIBRARY_CONVERT_TO_CONTROL_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_anim_node_control_rig_library_convert_to_control_rig,
                 __buffer,
             )
         };
@@ -8710,7 +8764,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_supports_backwards_solve,
                 __buffer,
             )
         };
@@ -8720,7 +8775,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_SUPPORTS_BACKWARDS_SOLVE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_supports_backwards_solve,
                 __buffer,
             )
         };
@@ -8737,7 +8793,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_set_interaction_rig_class,
                 __buffer,
             )
         };
@@ -8754,7 +8811,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_set_interaction_rig_class,
                 __buffer,
             )
         };
@@ -8767,7 +8825,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_set_interaction_rig,
                 __buffer,
             )
         };
@@ -8784,7 +8843,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_SET_INTERACTION_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_set_interaction_rig,
                 __buffer,
             )
         };
@@ -8802,7 +8862,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_SELECT_CONTROL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_select_control,
                 __buffer,
             )
         };
@@ -8829,7 +8890,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_SELECT_CONTROL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_select_control,
                 __buffer,
             )
         };
@@ -8842,7 +8904,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REQUEST_CONSTRUCTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_request_construction,
                 __buffer,
             )
         };
@@ -8852,7 +8915,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REQUEST_CONSTRUCTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_request_construction,
                 __buffer,
             )
         };
@@ -8865,7 +8929,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_IS_CONTROL_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_is_control_selected,
                 __buffer,
             )
         };
@@ -8882,7 +8947,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_IS_CONTROL_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_is_control_selected,
                 __buffer,
             )
         };
@@ -8896,7 +8962,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_interaction_rig_class,
                 __buffer,
             )
         };
@@ -8906,7 +8973,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_interaction_rig_class,
                 __buffer,
             )
         };
@@ -8920,7 +8988,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_interaction_rig,
                 __buffer,
             )
         };
@@ -8930,7 +8999,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_INTERACTION_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_interaction_rig,
                 __buffer,
             )
         };
@@ -8944,7 +9014,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_HOSTING_ACTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_hosting_actor,
                 __buffer,
             )
         };
@@ -8954,7 +9025,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_HOSTING_ACTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_hosting_actor,
                 __buffer,
             )
         };
@@ -8968,7 +9040,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_hierarchy,
                 __buffer,
             )
         };
@@ -8978,7 +9051,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_GET_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_get_hierarchy,
                 __buffer,
             )
         };
@@ -8995,7 +9069,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_FIND_CONTROL_RIGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_find_control_rigs,
                 __buffer,
             )
         };
@@ -9019,7 +9094,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_FIND_CONTROL_RIGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_find_control_rigs,
                 __buffer,
             )
         };
@@ -9033,7 +9109,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_CURRENT_CONTROL_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_current_control_selection,
                 __buffer,
             )
         };
@@ -9043,7 +9120,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_CURRENT_CONTROL_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_current_control_selection,
                 __buffer,
             )
         };
@@ -9060,7 +9138,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_create_transformable_control_handle,
                 __buffer,
             )
         };
@@ -9077,7 +9156,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_CREATE_TRANSFORMABLE_CONTROL_HANDLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_create_transformable_control_handle,
                 __buffer,
             )
         };
@@ -9091,7 +9171,8 @@ impl UControlRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_CLEAR_CONTROL_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_clear_control_selection,
                 __buffer,
             )
         };
@@ -9108,7 +9189,8 @@ impl UControlRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_CLEAR_CONTROL_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_clear_control_selection,
                 __buffer,
             )
         };
@@ -9170,7 +9252,8 @@ impl UControlRigShapeLibraryLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_shape_library_link_set_shape_library,
                 __buffer,
             )
         };
@@ -9187,7 +9270,8 @@ impl UControlRigShapeLibraryLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_SET_SHAPE_LIBRARY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_shape_library_link_set_shape_library,
                 __buffer,
             )
         };
@@ -9200,7 +9284,8 @@ impl UControlRigShapeLibraryLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_shape_library_link_get_shape_library,
                 __buffer,
             )
         };
@@ -9210,7 +9295,8 @@ impl UControlRigShapeLibraryLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_SHAPE_LIBRARY_LINK_GET_SHAPE_LIBRARY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_shape_library_link_get_shape_library,
                 __buffer,
             )
         };
@@ -9271,7 +9357,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_UPDATE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_update,
                 __buffer,
             )
         };
@@ -9284,7 +9371,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_UPDATE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_update,
                 __buffer,
             )
         };
@@ -9300,7 +9388,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_object_binding,
                 __buffer,
             )
         };
@@ -9317,7 +9406,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_OBJECT_BINDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_object_binding,
                 __buffer,
             )
         };
@@ -9333,7 +9423,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_mapped_elements,
                 __buffer,
             )
         };
@@ -9350,7 +9441,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_MAPPED_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_mapped_elements,
                 __buffer,
             )
         };
@@ -9368,7 +9460,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_initial_space_transform,
                 __buffer,
             )
         };
@@ -9399,7 +9492,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_SPACE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_initial_space_transform,
                 __buffer,
             )
         };
@@ -9418,7 +9512,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_initial_bone_transform,
                 __buffer,
             )
         };
@@ -9456,7 +9551,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_INITIAL_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_initial_bone_transform,
                 __buffer,
             )
         };
@@ -9473,7 +9569,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_vector2_d,
                 __buffer,
             )
         };
@@ -9497,7 +9594,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_VECTOR2_D,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_vector2_d,
                 __buffer,
             )
         };
@@ -9515,7 +9613,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_transform,
                 __buffer,
             )
         };
@@ -9546,7 +9645,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_transform,
                 __buffer,
             )
         };
@@ -9564,7 +9664,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_scale,
                 __buffer,
             )
         };
@@ -9595,7 +9696,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_SCALE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_scale,
                 __buffer,
             )
         };
@@ -9613,7 +9715,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_rotator,
                 __buffer,
             )
         };
@@ -9644,7 +9747,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_rotator,
                 __buffer,
             )
         };
@@ -9660,7 +9764,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_rig_class,
                 __buffer,
             )
         };
@@ -9677,7 +9782,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_RIG_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_rig_class,
                 __buffer,
             )
         };
@@ -9695,7 +9801,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_position,
                 __buffer,
             )
         };
@@ -9726,7 +9833,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_POSITION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_position,
                 __buffer,
             )
         };
@@ -9744,7 +9852,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_offset,
                 __buffer,
             )
         };
@@ -9775,7 +9884,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_OFFSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_offset,
                 __buffer,
             )
         };
@@ -9788,7 +9898,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_int,
                 __buffer,
             )
         };
@@ -9808,7 +9919,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_INT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_int,
                 __buffer,
             )
         };
@@ -9821,7 +9933,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_float,
                 __buffer,
             )
         };
@@ -9841,7 +9954,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_FLOAT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_float,
                 __buffer,
             )
         };
@@ -9854,7 +9968,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_bool,
                 __buffer,
             )
         };
@@ -9874,7 +9989,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_CONTROL_BOOL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_control_bool,
                 __buffer,
             )
         };
@@ -9894,7 +10010,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_bone_transform,
                 __buffer,
             )
         };
@@ -9935,7 +10052,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_bone_transform,
                 __buffer,
             )
         };
@@ -9951,7 +10069,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_bone_initial_transforms_from_skeletal_mesh,
                 __buffer,
             )
         };
@@ -9968,7 +10087,200 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_SET_BONE_INITIAL_TRANSFORMS_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_set_bone_initial_transforms_from_skeletal_mesh,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_pre_initialize(&mut self, component: UPtr<UControlRigComponent>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_pre_initialize,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UControlRigComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_pre_initialize,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_pre_forwards_solve(&mut self, component: UPtr<UControlRigComponent>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_pre_forwards_solve,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UControlRigComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_pre_forwards_solve,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_pre_construction(&mut self, component: UPtr<UControlRigComponent>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_pre_construction,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UControlRigComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_pre_construction,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_post_initialize(&mut self, component: UPtr<UControlRigComponent>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_post_initialize,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UControlRigComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_post_initialize,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_post_forwards_solve(&mut self, component: UPtr<UControlRigComponent>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_post_forwards_solve,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UControlRigComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_post_forwards_solve,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_post_construction(&mut self, component: UPtr<UControlRigComponent>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_post_construction,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &component,
+                __buffer.add(0).cast::<UPtr<UControlRigComponent>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_on_post_construction,
                 __buffer,
             )
         };
@@ -9981,7 +10293,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_INITIALIZE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_initialize,
                 __buffer,
             )
         };
@@ -9991,7 +10304,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_INITIALIZE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_initialize,
                 __buffer,
             )
         };
@@ -10008,7 +10322,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_space_transform,
                 __buffer,
             )
         };
@@ -10032,7 +10347,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_SPACE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_space_transform,
                 __buffer,
             )
         };
@@ -10052,7 +10368,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_initial_space_transform,
                 __buffer,
             )
         };
@@ -10076,7 +10393,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_SPACE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_initial_space_transform,
                 __buffer,
             )
         };
@@ -10096,7 +10414,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_initial_bone_transform,
                 __buffer,
             )
         };
@@ -10120,7 +10439,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_INITIAL_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_initial_bone_transform,
                 __buffer,
             )
         };
@@ -10136,7 +10456,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_element_names,
                 __buffer,
             )
         };
@@ -10153,7 +10474,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ELEMENT_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_element_names,
                 __buffer,
             )
         };
@@ -10170,7 +10492,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_vector2_d,
                 __buffer,
             )
         };
@@ -10187,7 +10510,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_VECTOR2_D,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_vector2_d,
                 __buffer,
             )
         };
@@ -10207,7 +10531,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_transform,
                 __buffer,
             )
         };
@@ -10231,7 +10556,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_transform,
                 __buffer,
             )
         };
@@ -10251,7 +10577,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_scale,
                 __buffer,
             )
         };
@@ -10275,7 +10602,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_SCALE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_scale,
                 __buffer,
             )
         };
@@ -10295,7 +10623,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_rotator,
                 __buffer,
             )
         };
@@ -10319,7 +10648,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_rotator,
                 __buffer,
             )
         };
@@ -10335,7 +10665,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_rig,
                 __buffer,
             )
         };
@@ -10345,7 +10676,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_rig,
                 __buffer,
             )
         };
@@ -10363,7 +10695,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_position,
                 __buffer,
             )
         };
@@ -10387,7 +10720,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_POSITION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_position,
                 __buffer,
             )
         };
@@ -10407,7 +10741,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_offset,
                 __buffer,
             )
         };
@@ -10431,7 +10766,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_OFFSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_offset,
                 __buffer,
             )
         };
@@ -10447,7 +10783,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_int,
                 __buffer,
             )
         };
@@ -10464,7 +10801,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_INT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_int,
                 __buffer,
             )
         };
@@ -10478,7 +10816,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_float,
                 __buffer,
             )
         };
@@ -10495,7 +10834,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_FLOAT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_float,
                 __buffer,
             )
         };
@@ -10509,7 +10849,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_bool,
                 __buffer,
             )
         };
@@ -10526,7 +10867,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_CONTROL_BOOL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_control_bool,
                 __buffer,
             )
         };
@@ -10544,7 +10886,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_bone_transform,
                 __buffer,
             )
         };
@@ -10568,7 +10911,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_BONE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_bone_transform,
                 __buffer,
             )
         };
@@ -10584,7 +10928,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_absolute_time,
                 __buffer,
             )
         };
@@ -10594,7 +10939,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_GET_ABSOLUTE_TIME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_get_absolute_time,
                 __buffer,
             )
         };
@@ -10612,7 +10958,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_does_element_exist,
                 __buffer,
             )
         };
@@ -10632,7 +10979,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_DOES_ELEMENT_EXIST,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_does_element_exist,
                 __buffer,
             )
         };
@@ -10646,7 +10994,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_clear_mapped_elements,
                 __buffer,
             )
         };
@@ -10656,7 +11005,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CLEAR_MAPPED_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_clear_mapped_elements,
                 __buffer,
             )
         };
@@ -10669,7 +11019,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CAN_EXECUTE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_can_execute,
                 __buffer,
             )
         };
@@ -10679,7 +11030,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_CAN_EXECUTE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_can_execute,
                 __buffer,
             )
         };
@@ -10699,7 +11051,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_skeletal_mesh,
                 __buffer,
             )
         };
@@ -10739,7 +11092,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_skeletal_mesh,
                 __buffer,
             )
         };
@@ -10755,7 +11109,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_elements,
                 __buffer,
             )
         };
@@ -10772,7 +11127,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_elements,
                 __buffer,
             )
         };
@@ -10788,7 +11144,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_components,
                 __buffer,
             )
         };
@@ -10805,7 +11162,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPONENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_components,
                 __buffer,
             )
         };
@@ -10822,7 +11180,8 @@ impl UControlRigComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_complete_skeletal_mesh,
                 __buffer,
             )
         };
@@ -10848,7 +11207,8 @@ impl UControlRigComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_COMPONENT_ADD_MAPPED_COMPLETE_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_component_add_mapped_complete_skeletal_mesh,
                 __buffer,
             )
         };
@@ -10891,7 +11251,8 @@ impl AControlRigControlActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_control_actor_reset_control_actor,
                 __buffer,
             )
         };
@@ -10901,7 +11262,8 @@ impl AControlRigControlActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_RESET_CONTROL_ACTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_control_actor_reset_control_actor,
                 __buffer,
             )
         };
@@ -10914,7 +11276,8 @@ impl AControlRigControlActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_REFRESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_control_actor_refresh,
                 __buffer,
             )
         };
@@ -10924,7 +11287,8 @@ impl AControlRigControlActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_REFRESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_control_actor_refresh,
                 __buffer,
             )
         };
@@ -10937,7 +11301,8 @@ impl AControlRigControlActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_CLEAR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_control_actor_clear,
                 __buffer,
             )
         };
@@ -10947,7 +11312,8 @@ impl AControlRigControlActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_CONTROL_ACTOR_CLEAR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_control_actor_clear,
                 __buffer,
             )
         };
@@ -10987,7 +11353,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_selected,
                 __buffer,
             )
         };
@@ -11004,7 +11371,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_selected,
                 __buffer,
             )
         };
@@ -11017,7 +11385,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_selectable,
                 __buffer,
             )
         };
@@ -11034,7 +11403,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_SELECTABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_selectable,
                 __buffer,
             )
         };
@@ -11047,7 +11417,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_hovered,
                 __buffer,
             )
         };
@@ -11064,7 +11435,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_HOVERED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_hovered,
                 __buffer,
             )
         };
@@ -11080,7 +11452,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_global_transform,
                 __buffer,
             )
         };
@@ -11097,7 +11470,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_global_transform,
                 __buffer,
             )
         };
@@ -11110,7 +11484,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_enabled,
                 __buffer,
             )
         };
@@ -11127,7 +11502,171 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_SET_ENABLED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_set_enabled,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_transform_changed(
+        &mut self,
+        new_transform: &crate::bindings::core_u_object::FTransform,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<96>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_transform_changed,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                new_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_transform_changed,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_selection_changed(&mut self, b_is_selected: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_selection_changed,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_selected,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_selection_changed,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_manipulating_changed(&mut self, b_is_manipulating: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_manipulating_changed,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_manipulating,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_manipulating_changed,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_hovered_changed(&mut self, b_is_selected: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_hovered_changed,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_selected,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_hovered_changed,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_enabled_changed(&mut self, b_is_enabled: bool) {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_enabled_changed,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_enabled,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_on_enabled_changed,
                 __buffer,
             )
         };
@@ -11140,7 +11679,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_is_selected_in_editor,
                 __buffer,
             )
         };
@@ -11150,7 +11690,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_SELECTED_IN_EDITOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_is_selected_in_editor,
                 __buffer,
             )
         };
@@ -11164,7 +11705,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_is_hovered,
                 __buffer,
             )
         };
@@ -11174,7 +11716,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_HOVERED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_is_hovered,
                 __buffer,
             )
         };
@@ -11188,7 +11731,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_is_enabled,
                 __buffer,
             )
         };
@@ -11198,7 +11742,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_IS_ENABLED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_is_enabled,
                 __buffer,
             )
         };
@@ -11212,7 +11757,8 @@ impl AControlRigShapeActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_get_global_transform,
                 __buffer,
             )
         };
@@ -11222,7 +11768,8 @@ impl AControlRigShapeActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::A_CONTROL_RIG_SHAPE_ACTOR_GET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .a_control_rig_shape_actor_get_global_transform,
                 __buffer,
             )
         };
@@ -11315,7 +11862,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_REPLAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_stop_replay,
                 __buffer,
             )
         };
@@ -11325,7 +11873,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_REPLAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_stop_replay,
                 __buffer,
             )
         };
@@ -11339,7 +11888,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_RECORDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_stop_recording,
                 __buffer,
             )
         };
@@ -11349,7 +11899,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_STOP_RECORDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_stop_recording,
                 __buffer,
             )
         };
@@ -11367,7 +11918,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_REPLAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_start_replay,
                 __buffer,
             )
         };
@@ -11391,7 +11943,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_REPLAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_start_replay,
                 __buffer,
             )
         };
@@ -11405,7 +11958,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_RECORDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_start_recording,
                 __buffer,
             )
         };
@@ -11422,7 +11976,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_START_RECORDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_start_recording,
                 __buffer,
             )
         };
@@ -11436,7 +11991,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_set_playback_mode,
                 __buffer,
             )
         };
@@ -11453,7 +12009,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_SET_PLAYBACK_MODE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_set_playback_mode,
                 __buffer,
             )
         };
@@ -11466,7 +12023,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_PAUSE_REPLAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_pause_replay,
                 __buffer,
             )
         };
@@ -11476,7 +12034,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_PAUSE_REPLAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_pause_replay,
                 __buffer,
             )
         };
@@ -11490,7 +12049,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_REPLAYING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_is_replaying,
                 __buffer,
             )
         };
@@ -11500,7 +12060,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_REPLAYING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_is_replaying,
                 __buffer,
             )
         };
@@ -11514,7 +12075,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_RECORDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_is_recording,
                 __buffer,
             )
         };
@@ -11524,7 +12086,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_RECORDING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_is_recording,
                 __buffer,
             )
         };
@@ -11538,7 +12101,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_PAUSED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_is_paused,
                 __buffer,
             )
         };
@@ -11548,7 +12112,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_IS_PAUSED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_is_paused,
                 __buffer,
             )
         };
@@ -11562,7 +12127,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_TIME_RANGE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_get_time_range,
                 __buffer,
             )
         };
@@ -11572,7 +12138,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_TIME_RANGE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_get_time_range,
                 __buffer,
             )
         };
@@ -11588,7 +12155,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_get_playback_mode,
                 __buffer,
             )
         };
@@ -11598,7 +12166,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_GET_PLAYBACK_MODE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_get_playback_mode,
                 __buffer,
             )
         };
@@ -11616,7 +12185,8 @@ impl UControlRigReplay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_create_new_asset,
                 __buffer,
             )
         };
@@ -11649,7 +12219,8 @@ impl UControlRigReplay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_REPLAY_CREATE_NEW_ASSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_replay_create_new_asset,
                 __buffer,
             )
         };
@@ -11690,7 +12261,8 @@ impl UControlRigTestData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_test_data_get_frame_index_for_time,
                 __buffer,
             )
         };
@@ -11706,7 +12278,8 @@ impl UControlRigTestData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_TEST_DATA_GET_FRAME_INDEX_FOR_TIME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_test_data_get_frame_index_for_time,
                 __buffer,
             )
         };
@@ -11783,7 +12356,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_parent_path_for_bp,
                 __buffer,
             )
         };
@@ -11800,7 +12374,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_PATH_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_parent_path_for_bp,
                 __buffer,
             )
         };
@@ -11814,7 +12389,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_parent_module_name_for_bp,
                 __buffer,
             )
         };
@@ -11831,7 +12407,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_PARENT_MODULE_NAME_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_parent_module_name_for_bp,
                 __buffer,
             )
         };
@@ -11848,7 +12425,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_rig_by_name,
                 __buffer,
             )
         };
@@ -11865,7 +12443,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG_BY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_rig_by_name,
                 __buffer,
             )
         };
@@ -11879,7 +12458,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_rig,
                 __buffer,
             )
         };
@@ -11896,7 +12476,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_RIG,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_rig,
                 __buffer,
             )
         };
@@ -11910,7 +12491,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_PATHS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_paths,
                 __buffer,
             )
         };
@@ -11920,7 +12502,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_PATHS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_paths,
                 __buffer,
             )
         };
@@ -11934,7 +12517,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_names,
                 __buffer,
             )
         };
@@ -11944,7 +12528,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_MODULE_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_module_names,
                 __buffer,
             )
         };
@@ -11958,7 +12543,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_events_for_module_by_name,
                 __buffer,
             )
         };
@@ -11975,7 +12561,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE_BY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_events_for_module_by_name,
                 __buffer,
             )
         };
@@ -11989,7 +12576,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_events_for_module,
                 __buffer,
             )
         };
@@ -12006,7 +12594,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_events_for_module,
                 __buffer,
             )
         };
@@ -12020,7 +12609,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_events_for_all_modules,
                 __buffer,
             )
         };
@@ -12030,7 +12620,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_GET_EVENTS_FOR_ALL_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_get_events_for_all_modules,
                 __buffer,
             )
         };
@@ -12048,7 +12639,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_execute_event_on_module_for_bp,
                 __buffer,
             )
         };
@@ -12068,7 +12660,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_execute_event_on_module_for_bp,
                 __buffer,
             )
         };
@@ -12086,7 +12679,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_execute_event_on_module_by_name_for_bp,
                 __buffer,
             )
         };
@@ -12106,7 +12700,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_MODULE_BY_NAME_FOR_BP,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_execute_event_on_module_by_name_for_bp,
                 __buffer,
             )
         };
@@ -12120,7 +12715,8 @@ impl UModularRig {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_execute_event_on_all_modules,
                 __buffer,
             )
         };
@@ -12133,7 +12729,8 @@ impl UModularRig {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_EXECUTE_EVENT_ON_ALL_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_execute_event_on_all_modules,
                 __buffer,
             )
         };
@@ -12173,7 +12770,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_un_bind_module_variable,
                 __buffer,
             )
         };
@@ -12204,7 +12802,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_UN_BIND_MODULE_VARIABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_un_bind_module_variable,
                 __buffer,
             )
         };
@@ -12223,7 +12822,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_swap_modules_of_class,
                 __buffer,
             )
         };
@@ -12254,7 +12854,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULES_OF_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_swap_modules_of_class,
                 __buffer,
             )
         };
@@ -12273,7 +12874,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_swap_module_class,
                 __buffer,
             )
         };
@@ -12304,7 +12906,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SWAP_MODULE_CLASS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_swap_module_class,
                 __buffer,
             )
         };
@@ -12318,7 +12921,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_set_module_selection,
                 __buffer,
             )
         };
@@ -12335,7 +12939,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_MODULE_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_set_module_selection,
                 __buffer,
             )
         };
@@ -12355,7 +12960,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_set_config_value_in_module,
                 __buffer,
             )
         };
@@ -12393,7 +12999,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SET_CONFIG_VALUE_IN_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_set_config_value_in_module,
                 __buffer,
             )
         };
@@ -12407,7 +13014,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SELECT_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_select_module,
                 __buffer,
             )
         };
@@ -12431,7 +13039,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_SELECT_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_select_module,
                 __buffer,
             )
         };
@@ -12451,7 +13060,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_reset_config_value_in_module,
                 __buffer,
             )
         };
@@ -12489,7 +13099,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RESET_CONFIG_VALUE_IN_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_reset_config_value_in_module,
                 __buffer,
             )
         };
@@ -12508,7 +13119,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_reparent_module,
                 __buffer,
             )
         };
@@ -12539,7 +13151,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REPARENT_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_reparent_module,
                 __buffer,
             )
         };
@@ -12558,7 +13171,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REORDER_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_reorder_module,
                 __buffer,
             )
         };
@@ -12589,7 +13203,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_REORDER_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_reorder_module,
                 __buffer,
             )
         };
@@ -12608,7 +13223,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RENAME_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_rename_module,
                 __buffer,
             )
         };
@@ -12639,7 +13255,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_RENAME_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_rename_module,
                 __buffer,
             )
         };
@@ -12658,7 +13275,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_mirror_module,
                 __buffer,
             )
         };
@@ -12689,7 +13307,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_MIRROR_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_mirror_module,
                 __buffer,
             )
         };
@@ -12708,7 +13327,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_import_module_settings_from_string,
                 __buffer,
             )
         };
@@ -12739,7 +13359,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_IMPORT_MODULE_SETTINGS_FROM_STRING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_import_module_settings_from_string,
                 __buffer,
             )
         };
@@ -12753,7 +13374,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_selected_modules,
                 __buffer,
             )
         };
@@ -12763,7 +13385,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_SELECTED_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_selected_modules,
                 __buffer,
             )
         };
@@ -12777,7 +13400,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_module_reference,
                 __buffer,
             )
         };
@@ -12794,7 +13418,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_MODULE_REFERENCE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_module_reference,
                 __buffer,
             )
         };
@@ -12811,7 +13436,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_connectors_for_module,
                 __buffer,
             )
         };
@@ -12828,7 +13454,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_CONNECTORS_FOR_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_connectors_for_module,
                 __buffer,
             )
         };
@@ -12842,7 +13469,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_all_modules,
                 __buffer,
             )
         };
@@ -12852,7 +13480,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_GET_ALL_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_get_all_modules,
                 __buffer,
             )
         };
@@ -12869,7 +13498,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_export_module_settings_to_string,
                 __buffer,
             )
         };
@@ -12886,7 +13516,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_EXPORT_MODULE_SETTINGS_TO_STRING,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_export_module_settings_to_string,
                 __buffer,
             )
         };
@@ -12903,7 +13534,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_disconnect_cyclic_connectors,
                 __buffer,
             )
         };
@@ -12920,7 +13552,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CYCLIC_CONNECTORS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_disconnect_cyclic_connectors,
                 __buffer,
             )
         };
@@ -12939,7 +13572,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_disconnect_connector,
                 __buffer,
             )
         };
@@ -12970,7 +13604,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DISCONNECT_CONNECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_disconnect_connector,
                 __buffer,
             )
         };
@@ -12984,7 +13619,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_deselect_module,
                 __buffer,
             )
         };
@@ -13001,7 +13637,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DESELECT_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_deselect_module,
                 __buffer,
             )
         };
@@ -13015,7 +13652,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DELETE_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_delete_module,
                 __buffer,
             )
         };
@@ -13039,7 +13677,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_DELETE_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_delete_module,
                 __buffer,
             )
         };
@@ -13060,7 +13699,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_connect_connector_to_elements,
                 __buffer,
             )
         };
@@ -13105,7 +13745,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_connect_connector_to_elements,
                 __buffer,
             )
         };
@@ -13126,7 +13767,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_connect_connector_to_element,
                 __buffer,
             )
         };
@@ -13171,7 +13813,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CONNECT_CONNECTOR_TO_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_connect_connector_to_element,
                 __buffer,
             )
         };
@@ -13190,7 +13833,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_can_connect_connector_to_elements,
                 __buffer,
             )
         };
@@ -13221,7 +13865,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_can_connect_connector_to_elements,
                 __buffer,
             )
         };
@@ -13243,7 +13888,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_can_connect_connector_to_element,
                 __buffer,
             )
         };
@@ -13274,7 +13920,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_CAN_CONNECT_CONNECTOR_TO_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_can_connect_connector_to_element,
                 __buffer,
             )
         };
@@ -13297,7 +13944,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_bind_module_variable,
                 __buffer,
             )
         };
@@ -13335,7 +13983,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_BIND_MODULE_VARIABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_bind_module_variable,
                 __buffer,
             )
         };
@@ -13354,7 +14003,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_auto_connect_secondary_connectors,
                 __buffer,
             )
         };
@@ -13385,7 +14035,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_SECONDARY_CONNECTORS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_auto_connect_secondary_connectors,
                 __buffer,
             )
         };
@@ -13404,7 +14055,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_auto_connect_modules,
                 __buffer,
             )
         };
@@ -13435,7 +14087,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_AUTO_CONNECT_MODULES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_auto_connect_modules,
                 __buffer,
             )
         };
@@ -13456,7 +14109,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_add_target_to_array_connector,
                 __buffer,
             )
         };
@@ -13501,7 +14155,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_TARGET_TO_ARRAY_CONNECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_add_target_to_array_connector,
                 __buffer,
             )
         };
@@ -13521,7 +14176,8 @@ impl UModularRigController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_add_module,
                 __buffer,
             )
         };
@@ -13559,7 +14215,8 @@ impl UModularRigController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_MODULAR_RIG_CONTROLLER_ADD_MODULE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_modular_rig_controller_add_module,
                 __buffer,
             )
         };
@@ -13664,7 +14321,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_unset_curve_value_by_index,
                 __buffer,
             )
         };
@@ -13688,7 +14346,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_unset_curve_value_by_index,
                 __buffer,
             )
         };
@@ -13701,7 +14360,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_unset_curve_value,
                 __buffer,
             )
         };
@@ -13725,7 +14385,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_UNSET_CURVE_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_unset_curve_value,
                 __buffer,
             )
         };
@@ -13743,7 +14404,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_switch_to_world_space,
                 __buffer,
             )
         };
@@ -13774,7 +14436,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_WORLD_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_switch_to_world_space,
                 __buffer,
             )
         };
@@ -13794,7 +14457,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_switch_to_parent,
                 __buffer,
             )
         };
@@ -13832,7 +14496,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_switch_to_parent,
                 __buffer,
             )
         };
@@ -13851,7 +14516,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_switch_to_default_parent,
                 __buffer,
             )
         };
@@ -13882,7 +14548,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SWITCH_TO_DEFAULT_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_switch_to_default_parent,
                 __buffer,
             )
         };
@@ -13896,7 +14563,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SORT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_sort_keys,
                 __buffer,
             )
         };
@@ -13913,7 +14580,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SORT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_sort_keys,
                 __buffer,
             )
         };
@@ -13932,7 +14599,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_vector_metadata,
                 __buffer,
             )
         };
@@ -13963,7 +14631,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_vector_metadata,
                 __buffer,
             )
         };
@@ -13982,7 +14651,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_vector_array_metadata,
                 __buffer,
             )
         };
@@ -14015,7 +14685,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_VECTOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_vector_array_metadata,
                 __buffer,
             )
         };
@@ -14034,7 +14705,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_transform_metadata,
                 __buffer,
             )
         };
@@ -14065,7 +14737,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_transform_metadata,
                 __buffer,
             )
         };
@@ -14084,7 +14757,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_transform_array_metadata,
                 __buffer,
             )
         };
@@ -14117,7 +14791,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TRANSFORM_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_transform_array_metadata,
                 __buffer,
             )
         };
@@ -14131,7 +14806,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TAG,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_set_tag,
                 __buffer,
             )
         };
@@ -14151,7 +14826,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_TAG,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_set_tag,
                 __buffer,
             )
         };
@@ -14170,7 +14845,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rotator_metadata,
                 __buffer,
             )
         };
@@ -14201,7 +14877,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rotator_metadata,
                 __buffer,
             )
         };
@@ -14220,7 +14897,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rotator_array_metadata,
                 __buffer,
             )
         };
@@ -14253,7 +14931,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_ROTATOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rotator_array_metadata,
                 __buffer,
             )
         };
@@ -14272,7 +14951,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rig_element_key_metadata,
                 __buffer,
             )
         };
@@ -14303,7 +14983,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rig_element_key_metadata,
                 __buffer,
             )
         };
@@ -14322,7 +15003,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rig_element_key_array_metadata,
                 __buffer,
             )
         };
@@ -14353,7 +15035,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_rig_element_key_array_metadata,
                 __buffer,
             )
         };
@@ -14372,7 +15055,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_quat_metadata,
                 __buffer,
             )
         };
@@ -14403,7 +15087,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_quat_metadata,
                 __buffer,
             )
         };
@@ -14422,7 +15107,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_quat_array_metadata,
                 __buffer,
             )
         };
@@ -14453,7 +15139,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_QUAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_quat_array_metadata,
                 __buffer,
             )
         };
@@ -14467,7 +15154,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_pose_for_blueprint,
                 __buffer,
             )
         };
@@ -14484,7 +15172,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_POSE_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_pose_for_blueprint,
                 __buffer,
             )
         };
@@ -14503,7 +15192,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_parent_weight_array,
                 __buffer,
             )
         };
@@ -14541,7 +15231,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT_ARRAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_parent_weight_array,
                 __buffer,
             )
         };
@@ -14562,7 +15253,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_parent_weight,
                 __buffer,
             )
         };
@@ -14607,7 +15299,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_PARENT_WEIGHT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_parent_weight,
                 __buffer,
             )
         };
@@ -14626,7 +15319,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_name_metadata,
                 __buffer,
             )
         };
@@ -14657,7 +15351,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_name_metadata,
                 __buffer,
             )
         };
@@ -14676,7 +15371,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_name_array_metadata,
                 __buffer,
             )
         };
@@ -14707,7 +15403,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_NAME_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_name_array_metadata,
                 __buffer,
             )
         };
@@ -14729,7 +15426,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_local_transform_by_index,
                 __buffer,
             )
         };
@@ -14781,7 +15479,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_local_transform_by_index,
                 __buffer,
             )
         };
@@ -14802,7 +15501,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_local_transform,
                 __buffer,
             )
         };
@@ -14854,7 +15554,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LOCAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_local_transform,
                 __buffer,
             )
         };
@@ -14872,7 +15573,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_linear_color_metadata,
                 __buffer,
             )
         };
@@ -14903,7 +15605,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_linear_color_metadata,
                 __buffer,
             )
         };
@@ -14922,7 +15625,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_linear_color_array_metadata,
                 __buffer,
             )
         };
@@ -14955,7 +15659,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_LINEAR_COLOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_linear_color_array_metadata,
                 __buffer,
             )
         };
@@ -14974,7 +15679,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_int32_metadata,
                 __buffer,
             )
         };
@@ -15001,7 +15707,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_int32_metadata,
                 __buffer,
             )
         };
@@ -15020,7 +15727,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_int32_array_metadata,
                 __buffer,
             )
         };
@@ -15051,7 +15759,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_INT32_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_int32_array_metadata,
                 __buffer,
             )
         };
@@ -15073,7 +15782,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_global_transform_by_index,
                 __buffer,
             )
         };
@@ -15125,7 +15835,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_global_transform_by_index,
                 __buffer,
             )
         };
@@ -15146,7 +15857,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_global_transform,
                 __buffer,
             )
         };
@@ -15198,7 +15910,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_global_transform,
                 __buffer,
             )
         };
@@ -15216,7 +15929,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_float_metadata,
                 __buffer,
             )
         };
@@ -15243,7 +15957,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_float_metadata,
                 __buffer,
             )
         };
@@ -15262,7 +15977,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_float_array_metadata,
                 __buffer,
             )
         };
@@ -15293,7 +16009,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_FLOAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_float_array_metadata,
                 __buffer,
             )
         };
@@ -15312,7 +16029,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_curve_value_by_index,
                 __buffer,
             )
         };
@@ -15339,7 +16057,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_curve_value_by_index,
                 __buffer,
             )
         };
@@ -15357,7 +16076,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_curve_value,
                 __buffer,
             )
         };
@@ -15384,7 +16104,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CURVE_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_curve_value,
                 __buffer,
             )
         };
@@ -15401,7 +16122,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_visibility_by_index,
                 __buffer,
             )
         };
@@ -15425,7 +16147,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_visibility_by_index,
                 __buffer,
             )
         };
@@ -15442,7 +16165,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_visibility,
                 __buffer,
             )
         };
@@ -15466,7 +16190,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VISIBILITY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_visibility,
                 __buffer,
             )
         };
@@ -15486,7 +16211,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_value_by_index,
                 __buffer,
             )
         };
@@ -15531,7 +16257,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_value_by_index,
                 __buffer,
             )
         };
@@ -15551,7 +16278,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_value,
                 __buffer,
             )
         };
@@ -15596,7 +16324,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_value,
                 __buffer,
             )
         };
@@ -15615,7 +16344,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_shape_transform_by_index,
                 __buffer,
             )
         };
@@ -15653,7 +16383,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_shape_transform_by_index,
                 __buffer,
             )
         };
@@ -15672,7 +16403,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_shape_transform,
                 __buffer,
             )
         };
@@ -15710,7 +16442,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SHAPE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_shape_transform,
                 __buffer,
             )
         };
@@ -15730,7 +16463,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_settings_by_index,
                 __buffer,
             )
         };
@@ -15771,7 +16505,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_settings_by_index,
                 __buffer,
             )
         };
@@ -15791,7 +16526,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_settings,
                 __buffer,
             )
         };
@@ -15832,7 +16568,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_settings,
                 __buffer,
             )
         };
@@ -15851,7 +16588,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotator_by_index,
                 __buffer,
             )
         };
@@ -15889,7 +16627,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotator_by_index,
                 __buffer,
             )
         };
@@ -15908,7 +16647,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotator,
                 __buffer,
             )
         };
@@ -15946,7 +16686,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotator,
                 __buffer,
             )
         };
@@ -15963,7 +16704,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotation_order_by_index,
                 __buffer,
             )
         };
@@ -15989,7 +16731,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotation_order_by_index,
                 __buffer,
             )
         };
@@ -16006,7 +16749,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotation_order,
                 __buffer,
             )
         };
@@ -16032,7 +16776,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_ROTATION_ORDER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_rotation_order,
                 __buffer,
             )
         };
@@ -16052,7 +16797,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_euler_angles_by_index,
                 __buffer,
             )
         };
@@ -16099,7 +16845,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_euler_angles_by_index,
                 __buffer,
             )
         };
@@ -16119,7 +16866,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_euler_angles,
                 __buffer,
             )
         };
@@ -16166,7 +16914,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_PREFERRED_EULER_ANGLES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_preferred_euler_angles,
                 __buffer,
             )
         };
@@ -16187,7 +16936,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_offset_transform_by_index,
                 __buffer,
             )
         };
@@ -16239,7 +16989,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_offset_transform_by_index,
                 __buffer,
             )
         };
@@ -16260,7 +17011,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_offset_transform,
                 __buffer,
             )
         };
@@ -16312,7 +17064,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONTROL_OFFSET_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_control_offset_transform,
                 __buffer,
             )
         };
@@ -16332,7 +17085,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_connector_settings_by_index,
                 __buffer,
             )
         };
@@ -16373,7 +17127,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_connector_settings_by_index,
                 __buffer,
             )
         };
@@ -16393,7 +17148,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_connector_settings,
                 __buffer,
             )
         };
@@ -16434,7 +17190,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_CONNECTOR_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_connector_settings,
                 __buffer,
             )
         };
@@ -16452,7 +17209,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_bool_metadata,
                 __buffer,
             )
         };
@@ -16479,7 +17237,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_bool_metadata,
                 __buffer,
             )
         };
@@ -16498,7 +17257,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_bool_array_metadata,
                 __buffer,
             )
         };
@@ -16529,7 +17289,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SET_BOOL_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_set_bool_array_metadata,
                 __buffer,
             )
         };
@@ -16548,7 +17309,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_send_auto_key_event,
                 __buffer,
             )
         };
@@ -16579,7 +17341,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_SEND_AUTO_KEY_EVENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_send_auto_key_event,
                 __buffer,
             )
         };
@@ -16596,7 +17359,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_restore_sockets_from_states,
                 __buffer,
             )
         };
@@ -16620,7 +17384,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_SOCKETS_FROM_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_restore_sockets_from_states,
                 __buffer,
             )
         };
@@ -16638,7 +17403,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_restore_connectors_from_states,
                 __buffer,
             )
         };
@@ -16662,7 +17428,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESTORE_CONNECTORS_FROM_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_restore_connectors_from_states,
                 __buffer,
             )
         };
@@ -16676,7 +17443,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_TO_DEFAULT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_reset_to_default,
                 __buffer,
             )
         };
@@ -16686,7 +17454,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_TO_DEFAULT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_reset_to_default,
                 __buffer,
             )
         };
@@ -16699,7 +17468,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_reset_pose_to_initial,
                 __buffer,
             )
         };
@@ -16716,7 +17486,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_POSE_TO_INITIAL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_reset_pose_to_initial,
                 __buffer,
             )
         };
@@ -16729,7 +17500,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_CURVE_VALUES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_reset_curve_values,
                 __buffer,
             )
         };
@@ -16739,7 +17511,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET_CURVE_VALUES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_reset_curve_values,
                 __buffer,
             )
         };
@@ -16752,7 +17525,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_reset,
                 __buffer,
             )
         };
@@ -16762,7 +17535,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_RESET,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_reset,
                 __buffer,
             )
         };
@@ -16779,7 +17552,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_remove_metadata,
                 __buffer,
             )
         };
@@ -16803,7 +17577,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_remove_metadata,
                 __buffer,
             )
         };
@@ -16817,7 +17592,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_ALL_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_remove_all_metadata,
                 __buffer,
             )
         };
@@ -16834,7 +17610,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_REMOVE_ALL_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_remove_all_metadata,
                 __buffer,
             )
         };
@@ -16848,7 +17625,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM_COMPONENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_num_components,
                 __buffer,
             )
         };
@@ -16865,7 +17643,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM_COMPONENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_num_components,
                 __buffer,
             )
         };
@@ -16879,7 +17658,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_num,
                 __buffer,
             )
         };
@@ -16889,7 +17668,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_NUM,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_num,
                 __buffer,
             )
         };
@@ -16905,7 +17684,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_vector2_d,
                 __buffer,
             )
         };
@@ -16922,7 +17702,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR2_D,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_vector2_d,
                 __buffer,
             )
         };
@@ -16938,7 +17719,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_vector,
                 __buffer,
             )
         };
@@ -16955,7 +17737,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_VECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_vector,
                 __buffer,
             )
         };
@@ -16971,7 +17754,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_transform_no_scale,
                 __buffer,
             )
         };
@@ -16990,7 +17774,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM_NO_SCALE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_transform_no_scale,
                 __buffer,
             )
         };
@@ -17006,7 +17791,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_transform,
                 __buffer,
             )
         };
@@ -17023,7 +17809,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_transform,
                 __buffer,
             )
         };
@@ -17039,7 +17826,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_rotator,
                 __buffer,
             )
         };
@@ -17056,7 +17844,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_rotator,
                 __buffer,
             )
         };
@@ -17070,7 +17859,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_int,
                 __buffer,
             )
         };
@@ -17083,7 +17873,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_INT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_int,
                 __buffer,
             )
         };
@@ -17097,7 +17888,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_float,
                 __buffer,
             )
         };
@@ -17110,7 +17902,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_FLOAT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_float,
                 __buffer,
             )
         };
@@ -17126,7 +17919,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_euler_transform,
                 __buffer,
             )
         };
@@ -17145,7 +17939,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_EULER_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_euler_transform,
                 __buffer,
             )
         };
@@ -17159,7 +17954,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_bool,
                 __buffer,
             )
         };
@@ -17172,7 +17968,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_MAKE_CONTROL_VALUE_FROM_BOOL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_make_control_value_from_bool,
                 __buffer,
             )
         };
@@ -17186,7 +17983,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_VALID_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_valid_index,
                 __buffer,
             )
         };
@@ -17203,7 +18001,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_VALID_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_valid_index,
                 __buffer,
             )
         };
@@ -17217,7 +18016,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_selected_by_index,
                 __buffer,
             )
         };
@@ -17230,7 +18030,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_selected_by_index,
                 __buffer,
             )
         };
@@ -17244,7 +18045,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_selected,
                 __buffer,
             )
         };
@@ -17261,7 +18063,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_selected,
                 __buffer,
             )
         };
@@ -17275,7 +18078,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PROCEDURAL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_procedural,
                 __buffer,
             )
         };
@@ -17292,7 +18096,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PROCEDURAL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_procedural,
                 __buffer,
             )
         };
@@ -17310,7 +18115,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PARENTED_TO,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_parented_to,
                 __buffer,
             )
         };
@@ -17334,7 +18140,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_PARENTED_TO,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_parented_to,
                 __buffer,
             )
         };
@@ -17348,7 +18155,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_curve_value_set_by_index,
                 __buffer,
             )
         };
@@ -17365,7 +18173,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_curve_value_set_by_index,
                 __buffer,
             )
         };
@@ -17379,7 +18188,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_curve_value_set,
                 __buffer,
             )
         };
@@ -17396,7 +18206,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CURVE_VALUE_SET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_curve_value_set,
                 __buffer,
             )
         };
@@ -17410,7 +18221,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_controller_available,
                 __buffer,
             )
         };
@@ -17420,7 +18232,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_CONTROLLER_AVAILABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_controller_available,
                 __buffer,
             )
         };
@@ -17434,7 +18247,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_COMPONENT_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_component_selected,
                 __buffer,
             )
         };
@@ -17451,7 +18265,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_IS_COMPONENT_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_is_component_selected,
                 __buffer,
             )
         };
@@ -17465,7 +18280,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_HAS_TAG,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_has_tag,
                 __buffer,
             )
         };
@@ -17485,7 +18300,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_HAS_TAG,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_has_tag,
                 __buffer,
             )
         };
@@ -17504,7 +18319,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector_metadata,
                 __buffer,
             )
         };
@@ -17535,7 +18351,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector_metadata,
                 __buffer,
             )
         };
@@ -17553,7 +18370,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector_from_control_value,
                 __buffer,
             )
         };
@@ -17570,7 +18388,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector_from_control_value,
                 __buffer,
             )
         };
@@ -17590,7 +18409,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector_array_metadata,
                 __buffer,
             )
         };
@@ -17614,7 +18434,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector_array_metadata,
                 __buffer,
             )
         };
@@ -17635,7 +18456,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector2_d_from_control_value,
                 __buffer,
             )
         };
@@ -17652,7 +18474,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_VECTOR2_D_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_vector2_d_from_control_value,
                 __buffer,
             )
         };
@@ -17670,7 +18493,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_no_scale_from_control_value,
                 __buffer,
             )
         };
@@ -17687,7 +18511,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_NO_SCALE_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_no_scale_from_control_value,
                 __buffer,
             )
         };
@@ -17711,7 +18536,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_metadata,
                 __buffer,
             )
         };
@@ -17742,7 +18568,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_metadata,
                 __buffer,
             )
         };
@@ -17760,7 +18587,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_from_control_value,
                 __buffer,
             )
         };
@@ -17777,7 +18605,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_from_control_value,
                 __buffer,
             )
         };
@@ -17797,7 +18626,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_array_metadata,
                 __buffer,
             )
         };
@@ -17821,7 +18651,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TRANSFORM_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_transform_array_metadata,
                 __buffer,
             )
         };
@@ -17840,7 +18671,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TAGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_tags,
                 __buffer,
             )
         };
@@ -17857,7 +18688,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_TAGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_tags,
                 __buffer,
             )
         };
@@ -17871,7 +18702,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_socket_states,
                 __buffer,
             )
         };
@@ -17881,7 +18713,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_socket_states,
                 __buffer,
             )
         };
@@ -17895,7 +18728,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_socket_keys,
                 __buffer,
             )
         };
@@ -17912,7 +18746,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SOCKET_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_socket_keys,
                 __buffer,
             )
         };
@@ -17929,7 +18764,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_selected_keys,
                 __buffer,
             )
         };
@@ -17946,7 +18782,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_selected_keys,
                 __buffer,
             )
         };
@@ -17960,7 +18797,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_selected_hierarchy_keys_for_blueprint,
                 __buffer,
             )
         };
@@ -17970,7 +18808,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_SELECTED_HIERARCHY_KEYS_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_selected_hierarchy_keys_for_blueprint,
                 __buffer,
             )
         };
@@ -17987,7 +18826,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RULE_MANAGER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rule_manager,
                 __buffer,
             )
         };
@@ -18004,7 +18844,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RULE_MANAGER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rule_manager,
                 __buffer,
             )
         };
@@ -18023,7 +18864,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rotator_metadata,
                 __buffer,
             )
         };
@@ -18054,7 +18896,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rotator_metadata,
                 __buffer,
             )
         };
@@ -18072,7 +18915,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rotator_from_control_value,
                 __buffer,
             )
         };
@@ -18089,7 +18933,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rotator_from_control_value,
                 __buffer,
             )
         };
@@ -18109,7 +18954,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rotator_array_metadata,
                 __buffer,
             )
         };
@@ -18133,7 +18979,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROTATOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rotator_array_metadata,
                 __buffer,
             )
         };
@@ -18152,7 +18999,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_root_element_keys,
                 __buffer,
             )
         };
@@ -18162,7 +19010,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ROOT_ELEMENT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_root_element_keys,
                 __buffer,
             )
         };
@@ -18181,7 +19030,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rig_element_key_metadata,
                 __buffer,
             )
         };
@@ -18212,7 +19062,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rig_element_key_metadata,
                 __buffer,
             )
         };
@@ -18230,7 +19081,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rig_element_key_array_metadata,
                 __buffer,
             )
         };
@@ -18254,7 +19106,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_RIG_ELEMENT_KEY_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_rig_element_key_array_metadata,
                 __buffer,
             )
         };
@@ -18268,7 +19121,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_REFERENCE_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_reference_keys,
                 __buffer,
             )
         };
@@ -18285,7 +19139,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_REFERENCE_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_reference_keys,
                 __buffer,
             )
         };
@@ -18304,7 +19159,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_quat_metadata,
                 __buffer,
             )
         };
@@ -18335,7 +19191,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_quat_metadata,
                 __buffer,
             )
         };
@@ -18355,7 +19212,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_quat_array_metadata,
                 __buffer,
             )
         };
@@ -18379,7 +19237,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_QUAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_quat_array_metadata,
                 __buffer,
             )
         };
@@ -18398,7 +19257,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_parent,
                 __buffer,
             )
         };
@@ -18415,7 +19275,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_parent,
                 __buffer,
             )
         };
@@ -18429,7 +19290,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_name,
                 __buffer,
             )
         };
@@ -18446,7 +19308,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_name,
                 __buffer,
             )
         };
@@ -18463,7 +19326,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_hierarchy_parent,
                 __buffer,
             )
         };
@@ -18480,7 +19344,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_hierarchy_parent,
                 __buffer,
             )
         };
@@ -18494,7 +19359,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_hierarchy_name,
                 __buffer,
             )
         };
@@ -18511,7 +19377,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PREVIOUS_HIERARCHY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_previous_hierarchy_name,
                 __buffer,
             )
         };
@@ -18529,7 +19396,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_pose,
                 __buffer,
             )
         };
@@ -18549,7 +19416,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_pose,
                 __buffer,
             )
         };
@@ -18567,7 +19434,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_weight_array,
                 __buffer,
             )
         };
@@ -18591,7 +19459,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT_ARRAY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_weight_array,
                 __buffer,
             )
         };
@@ -18610,7 +19479,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_weight,
                 __buffer,
             )
         };
@@ -18641,7 +19511,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_WEIGHT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_weight,
                 __buffer,
             )
         };
@@ -18659,7 +19530,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_transform_by_index,
                 __buffer,
             )
         };
@@ -18679,7 +19551,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_transform_by_index,
                 __buffer,
             )
         };
@@ -18699,7 +19572,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_transform,
                 __buffer,
             )
         };
@@ -18723,7 +19597,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENT_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parent_transform,
                 __buffer,
             )
         };
@@ -18743,7 +19618,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parents,
                 __buffer,
             )
         };
@@ -18767,7 +19643,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_PARENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_parents,
                 __buffer,
             )
         };
@@ -18781,7 +19658,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_number_of_parents,
                 __buffer,
             )
         };
@@ -18798,7 +19676,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NUMBER_OF_PARENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_number_of_parents,
                 __buffer,
             )
         };
@@ -18812,7 +19691,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NULL_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_null_keys,
                 __buffer,
             )
         };
@@ -18829,7 +19709,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NULL_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_null_keys,
                 __buffer,
             )
         };
@@ -18843,7 +19724,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_space_f_name,
                 __buffer,
             )
         };
@@ -18860,7 +19742,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE_F_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_space_f_name,
                 __buffer,
             )
         };
@@ -18874,7 +19757,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_space,
                 __buffer,
             )
         };
@@ -18891,7 +19775,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_space,
                 __buffer,
             )
         };
@@ -18910,7 +19795,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_metadata,
                 __buffer,
             )
         };
@@ -18941,7 +19827,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_metadata,
                 __buffer,
             )
         };
@@ -18959,7 +19846,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_array_metadata,
                 __buffer,
             )
         };
@@ -18983,7 +19871,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_NAME_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_name_array_metadata,
                 __buffer,
             )
         };
@@ -18997,7 +19886,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PREFIX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_prefix,
                 __buffer,
             )
         };
@@ -19014,7 +19904,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PREFIX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_prefix,
                 __buffer,
             )
         };
@@ -19028,7 +19919,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_path_f_name,
                 __buffer,
             )
         };
@@ -19045,7 +19937,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH_F_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_path_f_name,
                 __buffer,
             )
         };
@@ -19059,7 +19952,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_path,
                 __buffer,
             )
         };
@@ -19076,7 +19970,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_PATH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_path,
                 __buffer,
             )
         };
@@ -19090,7 +19985,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_name,
                 __buffer,
             )
         };
@@ -19107,7 +20003,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_name,
                 __buffer,
             )
         };
@@ -19121,7 +20018,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_F_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_f_name,
                 __buffer,
             )
         };
@@ -19138,7 +20036,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_MODULE_F_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_module_f_name,
                 __buffer,
             )
         };
@@ -19156,7 +20055,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_TYPE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_metadata_type,
                 __buffer,
             )
         };
@@ -19180,7 +20080,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_TYPE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_metadata_type,
                 __buffer,
             )
         };
@@ -19194,7 +20095,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_metadata_names,
                 __buffer,
             )
         };
@@ -19211,7 +20113,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_METADATA_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_metadata_names,
                 __buffer,
             )
         };
@@ -19229,7 +20132,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_transform_by_index,
                 __buffer,
             )
         };
@@ -19249,7 +20153,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_transform_by_index,
                 __buffer,
             )
         };
@@ -19269,7 +20174,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_transform,
                 __buffer,
             )
         };
@@ -19293,7 +20199,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_transform,
                 __buffer,
             )
         };
@@ -19309,7 +20216,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_index_for_blueprint,
                 __buffer,
             )
         };
@@ -19326,7 +20234,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_INDEX_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_index_for_blueprint,
                 __buffer,
             )
         };
@@ -19344,7 +20253,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_control_shape_transform_by_index,
                 __buffer,
             )
         };
@@ -19364,7 +20274,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_control_shape_transform_by_index,
                 __buffer,
             )
         };
@@ -19384,7 +20295,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_control_shape_transform,
                 __buffer,
             )
         };
@@ -19408,7 +20320,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LOCAL_CONTROL_SHAPE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_local_control_shape_transform,
                 __buffer,
             )
         };
@@ -19429,7 +20342,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_linear_color_metadata,
                 __buffer,
             )
         };
@@ -19460,7 +20374,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_linear_color_metadata,
                 __buffer,
             )
         };
@@ -19483,7 +20398,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_linear_color_array_metadata,
                 __buffer,
             )
         };
@@ -19507,7 +20423,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_LINEAR_COLOR_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_linear_color_array_metadata,
                 __buffer,
             )
         };
@@ -19526,7 +20443,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_keys,
                 __buffer,
             )
         };
@@ -19543,7 +20460,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_keys,
                 __buffer,
             )
         };
@@ -19557,7 +20474,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_key,
                 __buffer,
             )
         };
@@ -19574,7 +20491,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_get_key,
                 __buffer,
             )
         };
@@ -19588,7 +20505,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_int_from_control_value,
                 __buffer,
             )
         };
@@ -19605,7 +20523,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_int_from_control_value,
                 __buffer,
             )
         };
@@ -19624,7 +20543,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_int32_metadata,
                 __buffer,
             )
         };
@@ -19655,7 +20575,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_int32_metadata,
                 __buffer,
             )
         };
@@ -19673,7 +20594,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_int32_array_metadata,
                 __buffer,
             )
         };
@@ -19697,7 +20619,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INT32_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_int32_array_metadata,
                 __buffer,
             )
         };
@@ -19711,7 +20634,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_index_for_blueprint,
                 __buffer,
             )
         };
@@ -19728,7 +20652,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_INDEX_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_index_for_blueprint,
                 __buffer,
             )
         };
@@ -19746,7 +20671,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_transform_by_index,
                 __buffer,
             )
         };
@@ -19766,7 +20692,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_transform_by_index,
                 __buffer,
             )
         };
@@ -19786,7 +20713,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_transform,
                 __buffer,
             )
         };
@@ -19810,7 +20738,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_transform,
                 __buffer,
             )
         };
@@ -19830,7 +20759,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_shape_transform_by_index,
                 __buffer,
             )
         };
@@ -19850,7 +20780,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_shape_transform_by_index,
                 __buffer,
             )
         };
@@ -19870,7 +20801,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_shape_transform,
                 __buffer,
             )
         };
@@ -19894,7 +20826,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_SHAPE_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_shape_transform,
                 __buffer,
             )
         };
@@ -19914,7 +20847,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_offset_transform_by_index,
                 __buffer,
             )
         };
@@ -19934,7 +20868,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_offset_transform_by_index,
                 __buffer,
             )
         };
@@ -19954,7 +20889,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_offset_transform,
                 __buffer,
             )
         };
@@ -19978,7 +20914,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_GLOBAL_CONTROL_OFFSET_TRANSFORM,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_global_control_offset_transform,
                 __buffer,
             )
         };
@@ -19999,7 +20936,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_float_metadata,
                 __buffer,
             )
         };
@@ -20030,7 +20968,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_float_metadata,
                 __buffer,
             )
         };
@@ -20044,7 +20983,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_float_from_control_value,
                 __buffer,
             )
         };
@@ -20061,7 +21001,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_float_from_control_value,
                 __buffer,
             )
         };
@@ -20079,7 +21020,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_float_array_metadata,
                 __buffer,
             )
         };
@@ -20103,7 +21045,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FLOAT_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_float_array_metadata,
                 __buffer,
             )
         };
@@ -20117,7 +21060,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FIRST_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_first_parent,
                 __buffer,
             )
         };
@@ -20134,7 +21078,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_FIRST_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_first_parent,
                 __buffer,
             )
         };
@@ -20150,7 +21095,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_euler_transform_from_control_value,
                 __buffer,
             )
         };
@@ -20167,7 +21113,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_EULER_TRANSFORM_FROM_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_euler_transform_from_control_value,
                 __buffer,
             )
         };
@@ -20186,7 +21133,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_DEFAULT_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_default_parent,
                 __buffer,
             )
         };
@@ -20203,7 +21151,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_DEFAULT_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_default_parent,
                 __buffer,
             )
         };
@@ -20217,7 +21166,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_curve_value_by_index,
                 __buffer,
             )
         };
@@ -20234,7 +21184,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_curve_value_by_index,
                 __buffer,
             )
         };
@@ -20248,7 +21199,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_curve_value,
                 __buffer,
             )
         };
@@ -20265,7 +21217,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_curve_value,
                 __buffer,
             )
         };
@@ -20279,7 +21232,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_curve_keys,
                 __buffer,
             )
         };
@@ -20289,7 +21243,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CURVE_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_curve_keys,
                 __buffer,
             )
         };
@@ -20307,7 +21262,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_value_by_index,
                 __buffer,
             )
         };
@@ -20331,7 +21287,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_value_by_index,
                 __buffer,
             )
         };
@@ -20349,7 +21306,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_value,
                 __buffer,
             )
         };
@@ -20373,7 +21331,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_VALUE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_value,
                 __buffer,
             )
         };
@@ -20391,7 +21350,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_rotator_by_index,
                 __buffer,
             )
         };
@@ -20411,7 +21371,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_rotator_by_index,
                 __buffer,
             )
         };
@@ -20431,7 +21392,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_rotator,
                 __buffer,
             )
         };
@@ -20455,7 +21417,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_ROTATOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_rotator,
                 __buffer,
             )
         };
@@ -20475,7 +21438,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_rotation_order_by_index,
                 __buffer,
             )
         };
@@ -20499,7 +21463,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_rotation_order_by_index,
                 __buffer,
             )
         };
@@ -20522,7 +21487,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_rotation_order,
                 __buffer,
             )
         };
@@ -20546,7 +21512,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ROTATION_ORDER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_rotation_order,
                 __buffer,
             )
         };
@@ -20570,7 +21537,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_angles_by_index,
                 __buffer,
             )
         };
@@ -20599,7 +21567,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES_BY_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_angles_by_index,
                 __buffer,
             )
         };
@@ -20620,7 +21589,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_angles,
                 __buffer,
             )
         };
@@ -20653,7 +21623,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_PREFERRED_EULER_ANGLES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_preferred_euler_angles,
                 __buffer,
             )
         };
@@ -20672,7 +21643,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROLLER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_controller,
                 __buffer,
             )
         };
@@ -20689,7 +21661,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROLLER,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_controller,
                 __buffer,
             )
         };
@@ -20703,7 +21676,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_keys,
                 __buffer,
             )
         };
@@ -20720,7 +21694,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONTROL_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_control_keys,
                 __buffer,
             )
         };
@@ -20734,7 +21709,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_connector_states,
                 __buffer,
             )
         };
@@ -20744,7 +21720,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_STATES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_connector_states,
                 __buffer,
             )
         };
@@ -20758,7 +21735,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_connector_keys,
                 __buffer,
             )
         };
@@ -20775,7 +21753,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CONNECTOR_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_connector_keys,
                 __buffer,
             )
         };
@@ -20793,7 +21772,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_TYPE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_type,
                 __buffer,
             )
         };
@@ -20817,7 +21797,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_TYPE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_type,
                 __buffer,
             )
         };
@@ -20840,7 +21821,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_name,
                 __buffer,
             )
         };
@@ -20864,7 +21846,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_name,
                 __buffer,
             )
         };
@@ -20881,7 +21864,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_keys,
                 __buffer,
             )
         };
@@ -20898,7 +21882,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_keys,
                 __buffer,
             )
         };
@@ -20916,7 +21901,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_key,
                 __buffer,
             )
         };
@@ -20940,7 +21926,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_key,
                 __buffer,
             )
         };
@@ -20958,7 +21945,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_CONTENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_content,
                 __buffer,
             )
         };
@@ -20982,7 +21970,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_COMPONENT_CONTENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_component_content,
                 __buffer,
             )
         };
@@ -21000,7 +21989,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CHILDREN,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_children,
                 __buffer,
             )
         };
@@ -21024,7 +22014,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_CHILDREN,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_children,
                 __buffer,
             )
         };
@@ -21043,7 +22034,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_bool_metadata,
                 __buffer,
             )
         };
@@ -21074,7 +22066,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_bool_metadata,
                 __buffer,
             )
         };
@@ -21092,7 +22085,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_bool_array_metadata,
                 __buffer,
             )
         };
@@ -21116,7 +22110,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BOOL_ARRAY_METADATA,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_bool_array_metadata,
                 __buffer,
             )
         };
@@ -21130,7 +22125,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BONE_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_bone_keys,
                 __buffer,
             )
         };
@@ -21147,7 +22143,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_BONE_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_bone_keys,
                 __buffer,
             )
         };
@@ -21161,7 +22158,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_all_keys_for_blueprint,
                 __buffer,
             )
         };
@@ -21178,7 +22176,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_KEYS_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_all_keys_for_blueprint,
                 __buffer,
             )
         };
@@ -21192,7 +22191,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_all_component_keys,
                 __buffer,
             )
         };
@@ -21202,7 +22202,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_GET_ALL_COMPONENT_KEYS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_get_all_component_keys,
                 __buffer,
             )
         };
@@ -21216,7 +22217,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_find_null_for_blueprint_only,
                 __buffer,
             )
         };
@@ -21233,7 +22235,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_NULL_FOR_BLUEPRINT_ONLY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_find_null_for_blueprint_only,
                 __buffer,
             )
         };
@@ -21247,7 +22250,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_find_control_for_blueprint_only,
                 __buffer,
             )
         };
@@ -21264,7 +22268,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_CONTROL_FOR_BLUEPRINT_ONLY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_find_control_for_blueprint_only,
                 __buffer,
             )
         };
@@ -21278,7 +22283,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_find_bone_for_blueprint_only,
                 __buffer,
             )
         };
@@ -21295,7 +22301,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_FIND_BONE_FOR_BLUEPRINT_ONLY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_find_bone_for_blueprint_only,
                 __buffer,
             )
         };
@@ -21316,7 +22323,7 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_copy_pose,
                 __buffer,
             )
         };
@@ -21353,7 +22360,7 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS.u_rig_hierarchy_copy_pose,
                 __buffer,
             )
         };
@@ -21366,7 +22373,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_copy_hierarchy,
                 __buffer,
             )
         };
@@ -21383,7 +22391,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_COPY_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_copy_hierarchy,
                 __buffer,
             )
         };
@@ -21396,7 +22405,8 @@ impl URigHierarchy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_contains_for_blueprint,
                 __buffer,
             )
         };
@@ -21413,7 +22423,8 @@ impl URigHierarchy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTAINS_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_contains_for_blueprint,
                 __buffer,
             )
         };
@@ -21475,7 +22486,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_selection,
                 __buffer,
             )
         };
@@ -21506,7 +22518,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_selection,
                 __buffer,
             )
         };
@@ -21527,7 +22540,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_parent,
                 __buffer,
             )
         };
@@ -21572,7 +22586,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_parent,
                 __buffer,
             )
         };
@@ -21591,7 +22606,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_hierarchy_selection,
                 __buffer,
             )
         };
@@ -21622,7 +22638,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_hierarchy_selection,
                 __buffer,
             )
         };
@@ -21636,7 +22653,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_hierarchy,
                 __buffer,
             )
         };
@@ -21653,7 +22671,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_hierarchy,
                 __buffer,
             )
         };
@@ -21673,7 +22692,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_display_name,
                 __buffer,
             )
         };
@@ -21718,7 +22738,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_DISPLAY_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_display_name,
                 __buffer,
             )
         };
@@ -21737,7 +22758,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_control_settings,
                 __buffer,
             )
         };
@@ -21768,7 +22790,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_CONTROL_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_control_settings,
                 __buffer,
             )
         };
@@ -21786,7 +22809,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_component_selection,
                 __buffer,
             )
         };
@@ -21810,7 +22834,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_component_selection,
                 __buffer,
             )
         };
@@ -21830,7 +22855,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_component_content,
                 __buffer,
             )
         };
@@ -21868,7 +22894,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_COMPONENT_CONTENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_component_content,
                 __buffer,
             )
         };
@@ -21889,7 +22916,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_available_space_label,
                 __buffer,
             )
         };
@@ -21934,7 +22962,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_LABEL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_available_space_label,
                 __buffer,
             )
         };
@@ -21955,7 +22984,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_available_space_index,
                 __buffer,
             )
         };
@@ -21996,7 +23026,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SET_AVAILABLE_SPACE_INDEX,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_set_available_space_index,
                 __buffer,
             )
         };
@@ -22016,7 +23047,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_select_hierarchy_key,
                 __buffer,
             )
         };
@@ -22050,7 +23082,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_HIERARCHY_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_select_hierarchy_key,
                 __buffer,
             )
         };
@@ -22070,7 +23103,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_select_element,
                 __buffer,
             )
         };
@@ -22104,7 +23138,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_select_element,
                 __buffer,
             )
         };
@@ -22124,7 +23159,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_select_component,
                 __buffer,
             )
         };
@@ -22158,7 +23194,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_SELECT_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_select_component,
                 __buffer,
             )
         };
@@ -22179,7 +23216,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_reparent_component,
                 __buffer,
             )
         };
@@ -22224,7 +23262,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REPARENT_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_reparent_component,
                 __buffer,
             )
         };
@@ -22244,7 +23283,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_reorder_element,
                 __buffer,
             )
         };
@@ -22278,7 +23318,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REORDER_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_reorder_element,
                 __buffer,
             )
         };
@@ -22299,7 +23340,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_rename_element,
                 __buffer,
             )
         };
@@ -22340,7 +23382,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_rename_element,
                 __buffer,
             )
         };
@@ -22361,7 +23404,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_rename_component,
                 __buffer,
             )
         };
@@ -22402,7 +23446,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_RENAME_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_rename_component,
                 __buffer,
             )
         };
@@ -22423,7 +23468,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_parent,
                 __buffer,
             )
         };
@@ -22468,7 +23514,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_parent,
                 __buffer,
             )
         };
@@ -22487,7 +23534,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_element,
                 __buffer,
             )
         };
@@ -22518,7 +23566,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_element,
                 __buffer,
             )
         };
@@ -22537,7 +23586,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_component,
                 __buffer,
             )
         };
@@ -22568,7 +23618,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_component,
                 __buffer,
             )
         };
@@ -22588,7 +23639,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_channel_host,
                 __buffer,
             )
         };
@@ -22626,7 +23678,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_CHANNEL_HOST,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_channel_host,
                 __buffer,
             )
         };
@@ -22646,7 +23699,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_available_space,
                 __buffer,
             )
         };
@@ -22684,7 +23738,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_AVAILABLE_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_available_space,
                 __buffer,
             )
         };
@@ -22704,7 +23759,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_all_parents,
                 __buffer,
             )
         };
@@ -22742,7 +23798,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_REMOVE_ALL_PARENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_remove_all_parents,
                 __buffer,
             )
         };
@@ -22763,7 +23820,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_mirror_elements,
                 __buffer,
             )
         };
@@ -22808,7 +23866,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_MIRROR_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_mirror_elements,
                 __buffer,
             )
         };
@@ -22831,7 +23890,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_sockets_from_skeletal_mesh,
                 __buffer,
             )
         };
@@ -22890,7 +23950,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_SOCKETS_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_sockets_from_skeletal_mesh,
                 __buffer,
             )
         };
@@ -22911,7 +23972,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_preview_skeletal_mesh,
                 __buffer,
             )
         };
@@ -22956,7 +24018,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_PREVIEW_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_preview_skeletal_mesh,
                 __buffer,
             )
         };
@@ -22977,7 +24040,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_from_text,
                 __buffer,
             )
         };
@@ -23022,7 +24086,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_FROM_TEXT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_from_text,
                 __buffer,
             )
         };
@@ -23043,7 +24108,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_curves_from_skeletal_mesh,
                 __buffer,
             )
         };
@@ -23088,7 +24154,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_curves_from_skeletal_mesh,
                 __buffer,
             )
         };
@@ -23108,7 +24175,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_curves_from_asset,
                 __buffer,
             )
         };
@@ -23146,7 +24214,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES_FROM_ASSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_curves_from_asset,
                 __buffer,
             )
         };
@@ -23167,7 +24236,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_curves,
                 __buffer,
             )
         };
@@ -23212,7 +24282,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_CURVES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_curves,
                 __buffer,
             )
         };
@@ -23235,7 +24306,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_bones_from_skeletal_mesh,
                 __buffer,
             )
         };
@@ -23294,7 +24366,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_SKELETAL_MESH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_bones_from_skeletal_mesh,
                 __buffer,
             )
         };
@@ -23316,7 +24389,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_bones_from_asset,
                 __buffer,
             )
         };
@@ -23368,7 +24442,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES_FROM_ASSET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_bones_from_asset,
                 __buffer,
             )
         };
@@ -23391,7 +24466,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_bones,
                 __buffer,
             )
         };
@@ -23450,7 +24526,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_IMPORT_BONES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_import_bones,
                 __buffer,
             )
         };
@@ -23464,7 +24541,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_get_hierarchy,
                 __buffer,
             )
         };
@@ -23474,7 +24552,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_HIERARCHY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_get_hierarchy,
                 __buffer,
             )
         };
@@ -23488,7 +24567,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_get_control_settings,
                 __buffer,
             )
         };
@@ -23505,7 +24585,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GET_CONTROL_SETTINGS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_get_control_settings,
                 __buffer,
             )
         };
@@ -23519,7 +24600,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_generate_python_commands,
                 __buffer,
             )
         };
@@ -23529,7 +24611,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_generate_python_commands,
                 __buffer,
             )
         };
@@ -23543,7 +24626,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_export_to_text,
                 __buffer,
             )
         };
@@ -23560,7 +24644,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_TO_TEXT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_export_to_text,
                 __buffer,
             )
         };
@@ -23574,7 +24659,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_export_selection_to_text,
                 __buffer,
             )
         };
@@ -23584,7 +24670,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_EXPORT_SELECTION_TO_TEXT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_export_selection_to_text,
                 __buffer,
             )
         };
@@ -23604,7 +24691,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_duplicate_elements,
                 __buffer,
             )
         };
@@ -23642,7 +24730,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DUPLICATE_ELEMENTS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_duplicate_elements,
                 __buffer,
             )
         };
@@ -23660,7 +24749,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_deselect_hierarchy_key,
                 __buffer,
             )
         };
@@ -23684,7 +24774,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_HIERARCHY_KEY,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_deselect_hierarchy_key,
                 __buffer,
             )
         };
@@ -23698,7 +24789,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_deselect_element,
                 __buffer,
             )
         };
@@ -23715,7 +24807,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_ELEMENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_deselect_element,
                 __buffer,
             )
         };
@@ -23729,7 +24822,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_deselect_component,
                 __buffer,
             )
         };
@@ -23746,7 +24840,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_DESELECT_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_deselect_component,
                 __buffer,
             )
         };
@@ -23760,7 +24855,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_clear_selection,
                 __buffer,
             )
         };
@@ -23777,7 +24873,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_CLEAR_SELECTION,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_clear_selection,
                 __buffer,
             )
         };
@@ -23801,7 +24898,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_socket,
                 __buffer,
             )
         };
@@ -23863,7 +24961,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_SOCKET,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_socket,
                 __buffer,
             )
         };
@@ -23885,7 +24984,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_parent,
                 __buffer,
             )
         };
@@ -23933,7 +25033,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_PARENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_parent,
                 __buffer,
             )
         };
@@ -23955,7 +25056,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_NULL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_null,
                 __buffer,
             )
         };
@@ -24003,7 +25105,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_NULL,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_null,
                 __buffer,
             )
         };
@@ -24023,7 +25126,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_curve,
                 __buffer,
             )
         };
@@ -24053,7 +25157,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CURVE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_curve,
                 __buffer,
             )
         };
@@ -24075,7 +25180,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_control_for_blueprint,
                 __buffer,
             )
         };
@@ -24123,7 +25229,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONTROL_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_control_for_blueprint,
                 __buffer,
             )
         };
@@ -24143,7 +25250,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_connector,
                 __buffer,
             )
         };
@@ -24177,7 +25285,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CONNECTOR,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_connector,
                 __buffer,
             )
         };
@@ -24199,7 +25308,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_component,
                 __buffer,
             )
         };
@@ -24249,7 +25359,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_COMPONENT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_component,
                 __buffer,
             )
         };
@@ -24269,7 +25380,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_channel_host,
                 __buffer,
             )
         };
@@ -24307,7 +25419,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_CHANNEL_HOST,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_channel_host,
                 __buffer,
             )
         };
@@ -24330,7 +25443,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_BONE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_bone,
                 __buffer,
             )
         };
@@ -24385,7 +25499,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_BONE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_bone,
                 __buffer,
             )
         };
@@ -24406,7 +25521,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_available_space,
                 __buffer,
             )
         };
@@ -24451,7 +25567,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_AVAILABLE_SPACE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_available_space,
                 __buffer,
             )
         };
@@ -24472,7 +25589,8 @@ impl URigHierarchyController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_animation_channel_for_blueprint,
                 __buffer,
             )
         };
@@ -24513,7 +25631,8 @@ impl URigHierarchyController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_RIG_HIERARCHY_CONTROLLER_ADD_ANIMATION_CHANNEL_FOR_BLUEPRINT,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_rig_hierarchy_controller_add_animation_channel_for_blueprint,
                 __buffer,
             )
         };
@@ -24677,7 +25796,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_set_up_mirror_match_table,
                 __buffer,
             )
         };
@@ -24694,7 +25814,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SET_UP_MIRROR_MATCH_TABLE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_set_up_mirror_match_table,
                 __buffer,
             )
         };
@@ -24712,7 +25833,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_select_controls,
                 __buffer,
             )
         };
@@ -24743,7 +25865,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SELECT_CONTROLS,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_select_controls,
                 __buffer,
             )
         };
@@ -24756,7 +25879,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SAVE_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_save_pose,
                 __buffer,
             )
         };
@@ -24776,7 +25900,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_SAVE_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_save_pose,
                 __buffer,
             )
         };
@@ -24789,7 +25914,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_replace_control_name,
                 __buffer,
             )
         };
@@ -24809,7 +25935,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_REPLACE_CONTROL_NAME,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_replace_control_name,
                 __buffer,
             )
         };
@@ -24828,7 +25955,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_PASTE_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_paste_pose,
                 __buffer,
             )
         };
@@ -24862,7 +25990,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_PASTE_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_paste_pose,
                 __buffer,
             )
         };
@@ -24879,7 +26008,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_get_current_pose,
                 __buffer,
             )
         };
@@ -24903,7 +26033,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CURRENT_POSE,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_get_current_pose,
                 __buffer,
             )
         };
@@ -24919,7 +26050,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_get_control_names,
                 __buffer,
             )
         };
@@ -24929,7 +26061,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_GET_CONTROL_NAMES,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_get_control_names,
                 __buffer,
             )
         };
@@ -24947,7 +26080,8 @@ impl UControlRigPoseAsset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_does_mirror_match,
                 __buffer,
             )
         };
@@ -24971,7 +26105,8 @@ impl UControlRigPoseAsset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_POSE_ASSET_DOES_MIRROR_MATCH,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_pose_asset_does_mirror_match,
                 __buffer,
             )
         };
@@ -25057,7 +26192,8 @@ impl UControlRigWorkflowOptions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig::U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_workflow_options_ensure_at_least_one_rig_element_selected,
                 __buffer,
             )
         };
@@ -25067,7 +26203,8 @@ impl UControlRigWorkflowOptions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig::U_CONTROL_RIG_WORKFLOW_OPTIONS_ENSURE_AT_LEAST_ONE_RIG_ELEMENT_SELECTED,
+                crate::bindings::control_rig::__FUNCTION_PTRS
+                    .u_control_rig_workflow_options_ensure_at_least_one_rig_element_selected,
                 __buffer,
             )
         };

@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_TIFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_PNG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_JPEG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_HEIF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_tiff: *mut crate::ffi::UFunctionOpague,
+    pub u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_png: *mut crate::ffi::UFunctionOpague,
+    pub u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_jpeg: *mut crate::ffi::UFunctionOpague,
+    pub u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_heif: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_tiff: std::ptr::null_mut(),
+            u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_png: std::ptr::null_mut(),
+            u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_jpeg: std::ptr::null_mut(),
+            u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_heif: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,28 +33,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToTIFF"),
-            &raw mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_TIFF,
+            &raw mut __FUNCTION_PTRS
+                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_tiff,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToPNG"),
-            &raw mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_PNG,
+            &raw mut __FUNCTION_PTRS
+                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_png,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToJPEG"),
-            &raw mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_JPEG,
+            &raw mut __FUNCTION_PTRS
+                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_jpeg,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateProxyObjectForConvertToHEIF"),
-            &raw mut U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_HEIF,
+            &raw mut __FUNCTION_PTRS
+                .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_heif,
         );
     }
 }
@@ -114,7 +127,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_TIFF,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_tiff,
                 __buffer,
             )
         };
@@ -151,7 +165,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_TIFF,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_tiff,
                 __buffer,
             )
         };
@@ -176,7 +191,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_PNG,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_png,
                 __buffer,
             )
         };
@@ -213,7 +229,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_PNG,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_png,
                 __buffer,
             )
         };
@@ -239,7 +256,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_JPEG,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_jpeg,
                 __buffer,
             )
         };
@@ -283,7 +301,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_JPEG,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_jpeg,
                 __buffer,
             )
         };
@@ -309,7 +328,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_HEIF,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_heif,
                 __buffer,
             )
         };
@@ -353,7 +373,8 @@ impl UAppleImageUtilsBaseAsyncTaskBlueprintProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::apple_image_utils::U_APPLE_IMAGE_UTILS_BASE_ASYNC_TASK_BLUEPRINT_PROXY_CREATE_PROXY_OBJECT_FOR_CONVERT_TO_HEIF,
+                crate::bindings::apple_image_utils::__FUNCTION_PTRS
+                    .u_apple_image_utils_base_async_task_blueprint_proxy_create_proxy_object_for_convert_to_heif,
                 __buffer,
             )
         };

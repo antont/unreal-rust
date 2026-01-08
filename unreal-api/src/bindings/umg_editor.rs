@@ -1,22 +1,31 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ASSET_THUMBNAIL_WIDGET_SET_THUMBNAIL_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_THUMBNAIL_WIDGET_SET_RESOLUTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_THUMBNAIL_WIDGET_SET_ASSET_BY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_THUMBNAIL_WIDGET_SET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_THUMBNAIL_WIDGET_GET_RESOLUTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_asset_thumbnail_widget_set_thumbnail_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_thumbnail_widget_set_resolution: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_thumbnail_widget_set_asset_by_object: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_thumbnail_widget_set_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_thumbnail_widget_get_resolution: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_asset_thumbnail_widget_set_thumbnail_settings: std::ptr::null_mut(),
+            u_asset_thumbnail_widget_set_resolution: std::ptr::null_mut(),
+            u_asset_thumbnail_widget_set_asset_by_object: std::ptr::null_mut(),
+            u_asset_thumbnail_widget_set_asset: std::ptr::null_mut(),
+            u_asset_thumbnail_widget_get_resolution: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -26,35 +35,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailSettings"),
-            &raw mut U_ASSET_THUMBNAIL_WIDGET_SET_THUMBNAIL_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_asset_thumbnail_widget_set_thumbnail_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetResolution"),
-            &raw mut U_ASSET_THUMBNAIL_WIDGET_SET_RESOLUTION,
+            &raw mut __FUNCTION_PTRS.u_asset_thumbnail_widget_set_resolution,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAssetByObject"),
-            &raw mut U_ASSET_THUMBNAIL_WIDGET_SET_ASSET_BY_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_asset_thumbnail_widget_set_asset_by_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAsset"),
-            &raw mut U_ASSET_THUMBNAIL_WIDGET_SET_ASSET,
+            &raw mut __FUNCTION_PTRS.u_asset_thumbnail_widget_set_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetResolution"),
-            &raw mut U_ASSET_THUMBNAIL_WIDGET_GET_RESOLUTION,
+            &raw mut __FUNCTION_PTRS.u_asset_thumbnail_widget_get_resolution,
         );
     }
 }
@@ -256,7 +265,8 @@ impl UAssetThumbnailWidget {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_THUMBNAIL_SETTINGS,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_thumbnail_settings,
                 __buffer,
             )
         };
@@ -273,7 +283,8 @@ impl UAssetThumbnailWidget {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_THUMBNAIL_SETTINGS,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_thumbnail_settings,
                 __buffer,
             )
         };
@@ -289,7 +300,8 @@ impl UAssetThumbnailWidget {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_RESOLUTION,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_resolution,
                 __buffer,
             )
         };
@@ -306,7 +318,8 @@ impl UAssetThumbnailWidget {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_RESOLUTION,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_resolution,
                 __buffer,
             )
         };
@@ -322,7 +335,8 @@ impl UAssetThumbnailWidget {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET_BY_OBJECT,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_asset_by_object,
                 __buffer,
             )
         };
@@ -339,7 +353,8 @@ impl UAssetThumbnailWidget {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET_BY_OBJECT,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_asset_by_object,
                 __buffer,
             )
         };
@@ -355,7 +370,8 @@ impl UAssetThumbnailWidget {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_asset,
                 __buffer,
             )
         };
@@ -372,7 +388,8 @@ impl UAssetThumbnailWidget {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_SET_ASSET,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_set_asset,
                 __buffer,
             )
         };
@@ -385,7 +402,8 @@ impl UAssetThumbnailWidget {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_GET_RESOLUTION,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_get_resolution,
                 __buffer,
             )
         };
@@ -395,7 +413,8 @@ impl UAssetThumbnailWidget {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::umg_editor::U_ASSET_THUMBNAIL_WIDGET_GET_RESOLUTION,
+                crate::bindings::umg_editor::__FUNCTION_PTRS
+                    .u_asset_thumbnail_widget_get_resolution,
                 __buffer,
             )
         };

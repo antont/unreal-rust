@@ -1,246 +1,255 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_UNREGISTER_AUDIO_BUS_FROM_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_TRIM_AUDIO_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SWAP_AUDIO_OUTPUT_DEVICE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_ANALYZING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_ANALYZING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_SUBMIX_EFFECT_CHAIN_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_BYPASS_SOURCE_EFFECT_CHAIN_ENTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_RESUME_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SOUND_EFFECT_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET_AT_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_AT_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SOURCE_EFFECT_FROM_PRESET_CHAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_MASTER_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REGISTER_AUDIO_BUS_TO_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_FOR_PLAYBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_CUE_FOR_PLAYBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PAUSE_RECORDING_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_PRESET_SPECTRAL_ANALYSIS_BAND_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_MUSICAL_SPECTRAL_ANALYSIS_BAND_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_FULL_SPECTRUM_SPECTRAL_ANALYSIS_BAND_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_IS_AUDIO_BUS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_PHASE_FOR_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_NUMBER_OF_ENTRIES_IN_SOURCE_EFFECT_CHAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_MAGNITUDE_FOR_FREQUENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_CURRENT_AUDIO_OUTPUT_DEVICE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_OUTPUT_DEVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CONV_AUDIO_OUTPUT_DEVICE_INFO_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECT_CHAIN_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_MASTER_SUBMIX_EFFECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SOURCE_EFFECT_TO_PRESET_CHAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_MASTER_SUBMIX_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_VOLUME_MULTIPLIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_SUBMIX_SEND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_PRE_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_POST_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_OUTPUT_TO_BUS_ONLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_MODULATION_ROUTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_PRE_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_POST_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_GET_MODULATORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_FADE_OUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_FADE_IN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SYNTH_COMPONENT_ADJUST_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_EXTERNAL_SUBMIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_AUDIO_BUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_RESET_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_SUBMIX_EQ_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS_WITH_REVERB_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SCRUBBED_SOUND_SET_SOUND_WAVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SCRUBBED_SOUND_SET_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING_WHILE_STATIONARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SCRUBBED_SOUND_SET_GRAIN_DURATION_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SCRUBBED_SOUND_GET_PLAYHEAD_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_TIME_DIVISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_ALL_TIME_DIVISIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_QUANTIZATION_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_ALL_QUANTIZATION_EVENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_STOP_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_START_OTHER_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_START_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_SET_TICKS_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_SET_THIRTY_SECOND_NOTES_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_SET_SECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_SET_MILLISECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_SET_BEATS_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_RESUME_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT_QUANTIZED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_PAUSE_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_NOTIFY_ON_QUANTIZATION_BOUNDARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_IS_CLOCK_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_TICKS_PER_SECOND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_THIRTY_SECOND_NOTES_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_SECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_MILLISECONDS_PER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_ESTIMATED_RUN_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_CURRENT_TIMESTAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_BEATS_PER_MINUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_CLOCK_HANDLE_GET_BEAT_PROGRESS_PERCENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_SET_QUARTZ_SUBSYSTEM_TICKABLE_WHEN_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_IS_QUARTZ_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_IS_CLOCK_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MIN_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MAX_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_AVERAGE_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_HANDLE_FOR_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MIN_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MAX_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_AVERAGE_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_ESTIMATED_CLOCK_RUN_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_CURRENT_CLOCK_TIMESTAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MIN_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MAX_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_AVERAGE_LATENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_DOES_CLOCK_EXIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_QUARTZ_SUBSYSTEM_CREATE_NEW_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_audio_mixer_blueprint_library_unregister_audio_bus_from_submix: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_trim_audio_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_swap_audio_output_device: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_stop_recording_output: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_stop_audio_bus: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_stop_analyzing_output: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_start_recording_output: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_start_audio_bus: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_start_analyzing_output: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_set_submix_effect_chain_override: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_set_bypass_source_effect_chain_entry: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_resume_recording_output: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_replace_submix_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_replace_sound_effect_submix: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_remove_submix_effect_preset_at_index: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_remove_submix_effect_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_remove_submix_effect_at_index: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_remove_submix_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_remove_source_effect_from_preset_chain: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_remove_master_submix_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_register_audio_bus_to_submix: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_prime_sound_for_playback: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_prime_sound_cue_for_playback: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_pause_recording_output: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_make_preset_spectral_analysis_band_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_make_musical_spectral_analysis_band_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_make_full_spectrum_spectral_analysis_band_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_is_audio_bus_active: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_get_phase_for_frequencies: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_get_number_of_entries_in_source_effect_chain: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_get_magnitude_for_frequencies: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_get_current_audio_output_device_name: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_get_available_audio_output_devices: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_conv_audio_output_device_info_to_string: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_clear_submix_effects: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_clear_submix_effect_chain_override: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_clear_master_submix_effects: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_add_submix_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_add_source_effect_to_preset_chain: *mut crate::ffi::UFunctionOpague,
+    pub u_audio_mixer_blueprint_library_add_master_submix_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_stop: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_start: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_volume_multiplier: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_submix_send: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_source_bus_send_pre_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_source_bus_send_post_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_output_to_bus_only: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_modulation_routing: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_low_pass_filter_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_low_pass_filter_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_audio_bus_send_pre_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_set_audio_bus_send_post_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_is_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_get_modulators: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_fade_out: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_fade_in: *mut crate::ffi::UFunctionOpague,
+    pub u_synth_component_adjust_volume: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_dynamics_processor_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_dynamics_processor_preset_set_external_submix: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_dynamics_processor_preset_set_audio_bus: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_dynamics_processor_preset_reset_key: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_submix_eq_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_reverb_preset_set_settings_with_reverb_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_submix_effect_reverb_preset_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_scrubbed_sound_set_sound_wave: *mut crate::ffi::UFunctionOpague,
+    pub u_scrubbed_sound_set_playhead_time: *mut crate::ffi::UFunctionOpague,
+    pub u_scrubbed_sound_set_is_scrubbing_while_stationary: *mut crate::ffi::UFunctionOpague,
+    pub u_scrubbed_sound_set_is_scrubbing: *mut crate::ffi::UFunctionOpague,
+    pub u_scrubbed_sound_set_grain_duration_range: *mut crate::ffi::UFunctionOpague,
+    pub u_scrubbed_sound_get_playhead_time: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_unsubscribe_from_time_division: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_unsubscribe_from_all_time_divisions: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_subscribe_to_quantization_event: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_subscribe_to_all_quantization_events: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_stop_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_start_other_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_start_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_set_ticks_per_second: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_set_thirty_second_notes_per_minute: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_set_seconds_per_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_set_milliseconds_per_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_set_beats_per_minute: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_resume_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_reset_transport_quantized: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_reset_transport: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_pause_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_notify_on_quantization_boundary: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_is_clock_running: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_ticks_per_second: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_thirty_second_notes_per_minute: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_seconds_per_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_milliseconds_per_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_estimated_run_time: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_duration_of_quantization_type_in_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_current_timestamp: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_beats_per_minute: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_clock_handle_get_beat_progress_percent: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_set_quartz_subsystem_tickable_when_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_is_quartz_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_is_clock_running: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_round_trip_min_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_round_trip_max_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_round_trip_average_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_handle_for_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_game_thread_to_audio_render_thread_min_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_game_thread_to_audio_render_thread_max_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_game_thread_to_audio_render_thread_average_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_estimated_clock_run_time: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_duration_of_quantization_type_in_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_current_clock_timestamp: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_audio_render_thread_to_game_thread_min_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_audio_render_thread_to_game_thread_max_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_get_audio_render_thread_to_game_thread_average_latency: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_does_clock_exist: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_delete_clock_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_delete_clock_by_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_quartz_subsystem_create_new_clock: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_audio_mixer_blueprint_library_unregister_audio_bus_from_submix: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_trim_audio_cache: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_swap_audio_output_device: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_stop_recording_output: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_stop_audio_bus: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_stop_analyzing_output: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_start_recording_output: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_start_audio_bus: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_start_analyzing_output: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_set_submix_effect_chain_override: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_set_bypass_source_effect_chain_entry: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_resume_recording_output: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_replace_submix_effect: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_replace_sound_effect_submix: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_remove_submix_effect_preset_at_index: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_remove_submix_effect_preset: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_remove_submix_effect_at_index: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_remove_submix_effect: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_remove_source_effect_from_preset_chain: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_remove_master_submix_effect: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_register_audio_bus_to_submix: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_prime_sound_for_playback: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_prime_sound_cue_for_playback: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_pause_recording_output: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_make_preset_spectral_analysis_band_settings: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_make_musical_spectral_analysis_band_settings: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_make_full_spectrum_spectral_analysis_band_settings: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_is_audio_bus_active: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_get_phase_for_frequencies: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_get_number_of_entries_in_source_effect_chain: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_get_magnitude_for_frequencies: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_get_current_audio_output_device_name: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_get_available_audio_output_devices: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_conv_audio_output_device_info_to_string: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_clear_submix_effects: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_clear_submix_effect_chain_override: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_clear_master_submix_effects: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_add_submix_effect: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_add_source_effect_to_preset_chain: std::ptr::null_mut(),
+            u_audio_mixer_blueprint_library_add_master_submix_effect: std::ptr::null_mut(),
+            u_synth_component_stop: std::ptr::null_mut(),
+            u_synth_component_start: std::ptr::null_mut(),
+            u_synth_component_set_volume_multiplier: std::ptr::null_mut(),
+            u_synth_component_set_submix_send: std::ptr::null_mut(),
+            u_synth_component_set_source_bus_send_pre_effect: std::ptr::null_mut(),
+            u_synth_component_set_source_bus_send_post_effect: std::ptr::null_mut(),
+            u_synth_component_set_output_to_bus_only: std::ptr::null_mut(),
+            u_synth_component_set_modulation_routing: std::ptr::null_mut(),
+            u_synth_component_set_low_pass_filter_frequency: std::ptr::null_mut(),
+            u_synth_component_set_low_pass_filter_enabled: std::ptr::null_mut(),
+            u_synth_component_set_audio_bus_send_pre_effect: std::ptr::null_mut(),
+            u_synth_component_set_audio_bus_send_post_effect: std::ptr::null_mut(),
+            u_synth_component_is_playing: std::ptr::null_mut(),
+            u_synth_component_get_modulators: std::ptr::null_mut(),
+            u_synth_component_fade_out: std::ptr::null_mut(),
+            u_synth_component_fade_in: std::ptr::null_mut(),
+            u_synth_component_adjust_volume: std::ptr::null_mut(),
+            u_submix_effect_dynamics_processor_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_dynamics_processor_preset_set_external_submix: std::ptr::null_mut(),
+            u_submix_effect_dynamics_processor_preset_set_audio_bus: std::ptr::null_mut(),
+            u_submix_effect_dynamics_processor_preset_reset_key: std::ptr::null_mut(),
+            u_submix_effect_submix_eq_preset_set_settings: std::ptr::null_mut(),
+            u_submix_effect_reverb_preset_set_settings_with_reverb_effect: std::ptr::null_mut(),
+            u_submix_effect_reverb_preset_set_settings: std::ptr::null_mut(),
+            u_scrubbed_sound_set_sound_wave: std::ptr::null_mut(),
+            u_scrubbed_sound_set_playhead_time: std::ptr::null_mut(),
+            u_scrubbed_sound_set_is_scrubbing_while_stationary: std::ptr::null_mut(),
+            u_scrubbed_sound_set_is_scrubbing: std::ptr::null_mut(),
+            u_scrubbed_sound_set_grain_duration_range: std::ptr::null_mut(),
+            u_scrubbed_sound_get_playhead_time: std::ptr::null_mut(),
+            u_quartz_clock_handle_unsubscribe_from_time_division: std::ptr::null_mut(),
+            u_quartz_clock_handle_unsubscribe_from_all_time_divisions: std::ptr::null_mut(),
+            u_quartz_clock_handle_subscribe_to_quantization_event: std::ptr::null_mut(),
+            u_quartz_clock_handle_subscribe_to_all_quantization_events: std::ptr::null_mut(),
+            u_quartz_clock_handle_stop_clock: std::ptr::null_mut(),
+            u_quartz_clock_handle_start_other_clock: std::ptr::null_mut(),
+            u_quartz_clock_handle_start_clock: std::ptr::null_mut(),
+            u_quartz_clock_handle_set_ticks_per_second: std::ptr::null_mut(),
+            u_quartz_clock_handle_set_thirty_second_notes_per_minute: std::ptr::null_mut(),
+            u_quartz_clock_handle_set_seconds_per_tick: std::ptr::null_mut(),
+            u_quartz_clock_handle_set_milliseconds_per_tick: std::ptr::null_mut(),
+            u_quartz_clock_handle_set_beats_per_minute: std::ptr::null_mut(),
+            u_quartz_clock_handle_resume_clock: std::ptr::null_mut(),
+            u_quartz_clock_handle_reset_transport_quantized: std::ptr::null_mut(),
+            u_quartz_clock_handle_reset_transport: std::ptr::null_mut(),
+            u_quartz_clock_handle_pause_clock: std::ptr::null_mut(),
+            u_quartz_clock_handle_notify_on_quantization_boundary: std::ptr::null_mut(),
+            u_quartz_clock_handle_is_clock_running: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_ticks_per_second: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_thirty_second_notes_per_minute: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_seconds_per_tick: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_milliseconds_per_tick: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_estimated_run_time: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_duration_of_quantization_type_in_seconds: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_current_timestamp: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_beats_per_minute: std::ptr::null_mut(),
+            u_quartz_clock_handle_get_beat_progress_percent: std::ptr::null_mut(),
+            u_quartz_subsystem_set_quartz_subsystem_tickable_when_paused: std::ptr::null_mut(),
+            u_quartz_subsystem_is_quartz_enabled: std::ptr::null_mut(),
+            u_quartz_subsystem_is_clock_running: std::ptr::null_mut(),
+            u_quartz_subsystem_get_round_trip_min_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_round_trip_max_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_round_trip_average_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_handle_for_clock: std::ptr::null_mut(),
+            u_quartz_subsystem_get_game_thread_to_audio_render_thread_min_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_game_thread_to_audio_render_thread_max_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_game_thread_to_audio_render_thread_average_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_estimated_clock_run_time: std::ptr::null_mut(),
+            u_quartz_subsystem_get_duration_of_quantization_type_in_seconds: std::ptr::null_mut(),
+            u_quartz_subsystem_get_current_clock_timestamp: std::ptr::null_mut(),
+            u_quartz_subsystem_get_audio_render_thread_to_game_thread_min_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_audio_render_thread_to_game_thread_max_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_get_audio_render_thread_to_game_thread_average_latency: std::ptr::null_mut(),
+            u_quartz_subsystem_does_clock_exist: std::ptr::null_mut(),
+            u_quartz_subsystem_delete_clock_by_name: std::ptr::null_mut(),
+            u_quartz_subsystem_delete_clock_by_handle: std::ptr::null_mut(),
+            u_quartz_subsystem_create_new_clock: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -250,280 +259,313 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterAudioBusFromSubmix"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_UNREGISTER_AUDIO_BUS_FROM_SUBMIX,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_unregister_audio_bus_from_submix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TrimAudioCache"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_TRIM_AUDIO_CACHE,
+            &raw mut __FUNCTION_PTRS.u_audio_mixer_blueprint_library_trim_audio_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwapAudioOutputDevice"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SWAP_AUDIO_OUTPUT_DEVICE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_swap_audio_output_device,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopRecordingOutput"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_RECORDING_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_stop_recording_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAudioBus"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_AUDIO_BUS,
+            &raw mut __FUNCTION_PTRS.u_audio_mixer_blueprint_library_stop_audio_bus,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAnalyzingOutput"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_ANALYZING_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_stop_analyzing_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartRecordingOutput"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_RECORDING_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_start_recording_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartAudioBus"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_AUDIO_BUS,
+            &raw mut __FUNCTION_PTRS.u_audio_mixer_blueprint_library_start_audio_bus,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartAnalyzingOutput"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_ANALYZING_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_start_analyzing_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSubmixEffectChainOverride"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_set_submix_effect_chain_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBypassSourceEffectChainEntry"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_BYPASS_SOURCE_EFFECT_CHAIN_ENTRY,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_set_bypass_source_effect_chain_entry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResumeRecordingOutput"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_RESUME_RECORDING_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_resume_recording_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceSubmixEffect"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SUBMIX_EFFECT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_replace_submix_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceSoundEffectSubmix"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SOUND_EFFECT_SUBMIX,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_replace_sound_effect_submix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSubmixEffectPresetAtIndex"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET_AT_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_remove_submix_effect_preset_at_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSubmixEffectPreset"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_remove_submix_effect_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSubmixEffectAtIndex"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_AT_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_remove_submix_effect_at_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSubmixEffect"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_audio_mixer_blueprint_library_remove_submix_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveSourceEffectFromPresetChain"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SOURCE_EFFECT_FROM_PRESET_CHAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_remove_source_effect_from_preset_chain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMasterSubmixEffect"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_MASTER_SUBMIX_EFFECT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_remove_master_submix_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterAudioBusToSubmix"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REGISTER_AUDIO_BUS_TO_SUBMIX,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_register_audio_bus_to_submix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PrimeSoundForPlayback"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_FOR_PLAYBACK,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_prime_sound_for_playback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PrimeSoundCueForPlayback"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_CUE_FOR_PLAYBACK,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_prime_sound_cue_for_playback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PauseRecordingOutput"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PAUSE_RECORDING_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_pause_recording_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakePresetSpectralAnalysisBandSettings"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_PRESET_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_make_preset_spectral_analysis_band_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeMusicalSpectralAnalysisBandSettings"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_MUSICAL_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_make_musical_spectral_analysis_band_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeFullSpectrumSpectralAnalysisBandSettings"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_FULL_SPECTRUM_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_make_full_spectrum_spectral_analysis_band_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAudioBusActive"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_IS_AUDIO_BUS_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_audio_mixer_blueprint_library_is_audio_bus_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPhaseForFrequencies"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_PHASE_FOR_FREQUENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_get_phase_for_frequencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumberOfEntriesInSourceEffectChain"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_NUMBER_OF_ENTRIES_IN_SOURCE_EFFECT_CHAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_get_number_of_entries_in_source_effect_chain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMagnitudeForFrequencies"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_MAGNITUDE_FOR_FREQUENCIES,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_get_magnitude_for_frequencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentAudioOutputDeviceName"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_CURRENT_AUDIO_OUTPUT_DEVICE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_get_current_audio_output_device_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAvailableAudioOutputDevices"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_OUTPUT_DEVICES,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_get_available_audio_output_devices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_AudioOutputDeviceInfoToString"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CONV_AUDIO_OUTPUT_DEVICE_INFO_TO_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_conv_audio_output_device_info_to_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSubmixEffects"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECTS,
+            &raw mut __FUNCTION_PTRS.u_audio_mixer_blueprint_library_clear_submix_effects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSubmixEffectChainOverride"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_clear_submix_effect_chain_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearMasterSubmixEffects"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_MASTER_SUBMIX_EFFECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_clear_master_submix_effects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSubmixEffect"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SUBMIX_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_audio_mixer_blueprint_library_add_submix_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSourceEffectToPresetChain"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SOURCE_EFFECT_TO_PRESET_CHAIN,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_add_source_effect_to_preset_chain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMasterSubmixEffect"),
-            &raw mut U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_MASTER_SUBMIX_EFFECT,
+            &raw mut __FUNCTION_PTRS
+                .u_audio_mixer_blueprint_library_add_master_submix_effect,
         );
     }
     unsafe {
@@ -534,119 +576,119 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut U_SYNTH_COMPONENT_STOP,
+            &raw mut __FUNCTION_PTRS.u_synth_component_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Start"),
-            &raw mut U_SYNTH_COMPONENT_START,
+            &raw mut __FUNCTION_PTRS.u_synth_component_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVolumeMultiplier"),
-            &raw mut U_SYNTH_COMPONENT_SET_VOLUME_MULTIPLIER,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_volume_multiplier,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSubmixSend"),
-            &raw mut U_SYNTH_COMPONENT_SET_SUBMIX_SEND,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_submix_send,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceBusSendPreEffect"),
-            &raw mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_PRE_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_source_bus_send_pre_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceBusSendPostEffect"),
-            &raw mut U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_POST_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_source_bus_send_post_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOutputToBusOnly"),
-            &raw mut U_SYNTH_COMPONENT_SET_OUTPUT_TO_BUS_ONLY,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_output_to_bus_only,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetModulationRouting"),
-            &raw mut U_SYNTH_COMPONENT_SET_MODULATION_ROUTING,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_modulation_routing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLowPassFilterFrequency"),
-            &raw mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_low_pass_filter_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLowPassFilterEnabled"),
-            &raw mut U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_low_pass_filter_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAudioBusSendPreEffect"),
-            &raw mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_PRE_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_audio_bus_send_pre_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAudioBusSendPostEffect"),
-            &raw mut U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_POST_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_synth_component_set_audio_bus_send_post_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut U_SYNTH_COMPONENT_IS_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_synth_component_is_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModulators"),
-            &raw mut U_SYNTH_COMPONENT_GET_MODULATORS,
+            &raw mut __FUNCTION_PTRS.u_synth_component_get_modulators,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FadeOut"),
-            &raw mut U_SYNTH_COMPONENT_FADE_OUT,
+            &raw mut __FUNCTION_PTRS.u_synth_component_fade_out,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FadeIn"),
-            &raw mut U_SYNTH_COMPONENT_FADE_IN,
+            &raw mut __FUNCTION_PTRS.u_synth_component_fade_in,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AdjustVolume"),
-            &raw mut U_SYNTH_COMPONENT_ADJUST_VOLUME,
+            &raw mut __FUNCTION_PTRS.u_synth_component_adjust_volume,
         );
     }
     unsafe {
@@ -657,28 +699,31 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_dynamics_processor_preset_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExternalSubmix"),
-            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_dynamics_processor_preset_set_external_submix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAudioBus"),
-            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_AUDIO_BUS,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_dynamics_processor_preset_set_audio_bus,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetKey"),
-            &raw mut U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_RESET_KEY,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_dynamics_processor_preset_reset_key,
         );
     }
     unsafe {
@@ -689,7 +734,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_SUBMIX_EQ_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_submix_eq_preset_set_settings,
         );
     }
     unsafe {
@@ -700,14 +745,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettingsWithReverbEffect"),
-            &raw mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS_WITH_REVERB_EFFECT,
+            &raw mut __FUNCTION_PTRS
+                .u_submix_effect_reverb_preset_set_settings_with_reverb_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_submix_effect_reverb_preset_set_settings,
         );
     }
     unsafe {
@@ -718,42 +764,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSoundWave"),
-            &raw mut U_SCRUBBED_SOUND_SET_SOUND_WAVE,
+            &raw mut __FUNCTION_PTRS.u_scrubbed_sound_set_sound_wave,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlayheadTime"),
-            &raw mut U_SCRUBBED_SOUND_SET_PLAYHEAD_TIME,
+            &raw mut __FUNCTION_PTRS.u_scrubbed_sound_set_playhead_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsScrubbingWhileStationary"),
-            &raw mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING_WHILE_STATIONARY,
+            &raw mut __FUNCTION_PTRS.u_scrubbed_sound_set_is_scrubbing_while_stationary,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsScrubbing"),
-            &raw mut U_SCRUBBED_SOUND_SET_IS_SCRUBBING,
+            &raw mut __FUNCTION_PTRS.u_scrubbed_sound_set_is_scrubbing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGrainDurationRange"),
-            &raw mut U_SCRUBBED_SOUND_SET_GRAIN_DURATION_RANGE,
+            &raw mut __FUNCTION_PTRS.u_scrubbed_sound_set_grain_duration_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayheadTime"),
-            &raw mut U_SCRUBBED_SOUND_GET_PLAYHEAD_TIME,
+            &raw mut __FUNCTION_PTRS.u_scrubbed_sound_get_playhead_time,
         );
     }
     unsafe {
@@ -764,189 +810,196 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsubscribeFromTimeDivision"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_TIME_DIVISION,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_unsubscribe_from_time_division,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsubscribeFromAllTimeDivisions"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_ALL_TIME_DIVISIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_clock_handle_unsubscribe_from_all_time_divisions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SubscribeToQuantizationEvent"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_QUANTIZATION_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_clock_handle_subscribe_to_quantization_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SubscribeToAllQuantizationEvents"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_ALL_QUANTIZATION_EVENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_clock_handle_subscribe_to_all_quantization_events,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopClock"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_STOP_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_stop_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartOtherClock"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_START_OTHER_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_start_other_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartClock"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_START_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_start_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTicksPerSecond"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_TICKS_PER_SECOND,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_set_ticks_per_second,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThirtySecondNotesPerMinute"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_THIRTY_SECOND_NOTES_PER_MINUTE,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_clock_handle_set_thirty_second_notes_per_minute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSecondsPerTick"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_SECONDS_PER_TICK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_set_seconds_per_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMillisecondsPerTick"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_MILLISECONDS_PER_TICK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_set_milliseconds_per_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBeatsPerMinute"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_SET_BEATS_PER_MINUTE,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_set_beats_per_minute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResumeClock"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_RESUME_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_resume_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetTransportQuantized"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT_QUANTIZED,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_reset_transport_quantized,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetTransport"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_reset_transport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PauseClock"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_PAUSE_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_pause_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NotifyOnQuantizationBoundary"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_NOTIFY_ON_QUANTIZATION_BOUNDARY,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_clock_handle_notify_on_quantization_boundary,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsClockRunning"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_IS_CLOCK_RUNNING,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_is_clock_running,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTicksPerSecond"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_TICKS_PER_SECOND,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_get_ticks_per_second,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetThirtySecondNotesPerMinute"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_THIRTY_SECOND_NOTES_PER_MINUTE,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_clock_handle_get_thirty_second_notes_per_minute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSecondsPerTick"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_SECONDS_PER_TICK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_get_seconds_per_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMillisecondsPerTick"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_MILLISECONDS_PER_TICK,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_get_milliseconds_per_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEstimatedRunTime"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_ESTIMATED_RUN_TIME,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_get_estimated_run_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDurationOfQuantizationTypeInSeconds"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_clock_handle_get_duration_of_quantization_type_in_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentTimestamp"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_CURRENT_TIMESTAMP,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_get_current_timestamp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBeatsPerMinute"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_BEATS_PER_MINUTE,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_get_beats_per_minute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBeatProgressPercent"),
-            &raw mut U_QUARTZ_CLOCK_HANDLE_GET_BEAT_PROGRESS_PERCENT,
+            &raw mut __FUNCTION_PTRS.u_quartz_clock_handle_get_beat_progress_percent,
         );
     }
     unsafe {
@@ -957,140 +1010,148 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuartzSubsystemTickableWhenPaused"),
-            &raw mut U_QUARTZ_SUBSYSTEM_SET_QUARTZ_SUBSYSTEM_TICKABLE_WHEN_PAUSED,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_set_quartz_subsystem_tickable_when_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsQuartzEnabled"),
-            &raw mut U_QUARTZ_SUBSYSTEM_IS_QUARTZ_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_is_quartz_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsClockRunning"),
-            &raw mut U_QUARTZ_SUBSYSTEM_IS_CLOCK_RUNNING,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_is_clock_running,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRoundTripMinLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MIN_LATENCY,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_get_round_trip_min_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRoundTripMaxLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MAX_LATENCY,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_get_round_trip_max_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRoundTripAverageLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_AVERAGE_LATENCY,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_get_round_trip_average_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHandleForClock"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_HANDLE_FOR_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_get_handle_for_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGameThreadToAudioRenderThreadMinLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MIN_LATENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_get_game_thread_to_audio_render_thread_min_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGameThreadToAudioRenderThreadMaxLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MAX_LATENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_get_game_thread_to_audio_render_thread_max_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGameThreadToAudioRenderThreadAverageLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_AVERAGE_LATENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_get_game_thread_to_audio_render_thread_average_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEstimatedClockRunTime"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_ESTIMATED_CLOCK_RUN_TIME,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_get_estimated_clock_run_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDurationOfQuantizationTypeInSeconds"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_get_duration_of_quantization_type_in_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentClockTimestamp"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_CURRENT_CLOCK_TIMESTAMP,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_get_current_clock_timestamp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioRenderThreadToGameThreadMinLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MIN_LATENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_get_audio_render_thread_to_game_thread_min_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioRenderThreadToGameThreadMaxLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MAX_LATENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_get_audio_render_thread_to_game_thread_max_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioRenderThreadToGameThreadAverageLatency"),
-            &raw mut U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_AVERAGE_LATENCY,
+            &raw mut __FUNCTION_PTRS
+                .u_quartz_subsystem_get_audio_render_thread_to_game_thread_average_latency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoesClockExist"),
-            &raw mut U_QUARTZ_SUBSYSTEM_DOES_CLOCK_EXIST,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_does_clock_exist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteClockByName"),
-            &raw mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_delete_clock_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteClockByHandle"),
-            &raw mut U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_HANDLE,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_delete_clock_by_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewClock"),
-            &raw mut U_QUARTZ_SUBSYSTEM_CREATE_NEW_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_quartz_subsystem_create_new_clock,
         );
     }
 }
@@ -1248,7 +1309,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_UNREGISTER_AUDIO_BUS_FROM_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_unregister_audio_bus_from_submix,
                 __buffer,
             )
         };
@@ -1279,7 +1341,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_UNREGISTER_AUDIO_BUS_FROM_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_unregister_audio_bus_from_submix,
                 __buffer,
             )
         };
@@ -1292,7 +1355,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_TRIM_AUDIO_CACHE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_trim_audio_cache,
                 __buffer,
             )
         };
@@ -1309,7 +1373,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_TRIM_AUDIO_CACHE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_trim_audio_cache,
                 __buffer,
             )
         };
@@ -1327,7 +1392,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SWAP_AUDIO_OUTPUT_DEVICE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_swap_audio_output_device,
                 __buffer,
             )
         };
@@ -1358,7 +1424,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SWAP_AUDIO_OUTPUT_DEVICE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_swap_audio_output_device,
                 __buffer,
             )
         };
@@ -1378,7 +1445,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_stop_recording_output,
                 __buffer,
             )
         };
@@ -1424,7 +1492,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_stop_recording_output,
                 __buffer,
             )
         };
@@ -1443,7 +1512,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_AUDIO_BUS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_stop_audio_bus,
                 __buffer,
             )
         };
@@ -1467,7 +1537,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_AUDIO_BUS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_stop_audio_bus,
                 __buffer,
             )
         };
@@ -1483,7 +1554,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_ANALYZING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_stop_analyzing_output,
                 __buffer,
             )
         };
@@ -1507,7 +1579,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_STOP_ANALYZING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_stop_analyzing_output,
                 __buffer,
             )
         };
@@ -1524,7 +1597,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_start_recording_output,
                 __buffer,
             )
         };
@@ -1555,7 +1629,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_start_recording_output,
                 __buffer,
             )
         };
@@ -1571,7 +1646,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_AUDIO_BUS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_start_audio_bus,
                 __buffer,
             )
         };
@@ -1595,7 +1671,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_AUDIO_BUS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_start_audio_bus,
                 __buffer,
             )
         };
@@ -1616,7 +1693,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_ANALYZING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_start_analyzing_output,
                 __buffer,
             )
         };
@@ -1673,7 +1751,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_START_ANALYZING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_start_analyzing_output,
                 __buffer,
             )
         };
@@ -1693,7 +1772,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_set_submix_effect_chain_override,
                 __buffer,
             )
         };
@@ -1735,7 +1815,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_set_submix_effect_chain_override,
                 __buffer,
             )
         };
@@ -1753,7 +1834,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_BYPASS_SOURCE_EFFECT_CHAIN_ENTRY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_set_bypass_source_effect_chain_entry,
                 __buffer,
             )
         };
@@ -1795,7 +1877,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_SET_BYPASS_SOURCE_EFFECT_CHAIN_ENTRY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_set_bypass_source_effect_chain_entry,
                 __buffer,
             )
         };
@@ -1811,7 +1894,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_RESUME_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_resume_recording_output,
                 __buffer,
             )
         };
@@ -1835,7 +1919,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_RESUME_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_resume_recording_output,
                 __buffer,
             )
         };
@@ -1853,7 +1938,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_replace_submix_effect,
                 __buffer,
             )
         };
@@ -1893,7 +1979,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_replace_submix_effect,
                 __buffer,
             )
         };
@@ -1911,7 +1998,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SOUND_EFFECT_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_replace_sound_effect_submix,
                 __buffer,
             )
         };
@@ -1951,7 +2039,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REPLACE_SOUND_EFFECT_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_replace_sound_effect_submix,
                 __buffer,
             )
         };
@@ -1968,7 +2057,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET_AT_INDEX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect_preset_at_index,
                 __buffer,
             )
         };
@@ -1999,7 +2089,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET_AT_INDEX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect_preset_at_index,
                 __buffer,
             )
         };
@@ -2016,7 +2107,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect_preset,
                 __buffer,
             )
         };
@@ -2049,7 +2141,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_PRESET,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect_preset,
                 __buffer,
             )
         };
@@ -2066,7 +2159,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_AT_INDEX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect_at_index,
                 __buffer,
             )
         };
@@ -2097,7 +2191,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT_AT_INDEX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect_at_index,
                 __buffer,
             )
         };
@@ -2114,7 +2209,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect,
                 __buffer,
             )
         };
@@ -2147,7 +2243,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_submix_effect,
                 __buffer,
             )
         };
@@ -2164,7 +2261,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SOURCE_EFFECT_FROM_PRESET_CHAIN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_source_effect_from_preset_chain,
                 __buffer,
             )
         };
@@ -2199,7 +2297,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_SOURCE_EFFECT_FROM_PRESET_CHAIN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_source_effect_from_preset_chain,
                 __buffer,
             )
         };
@@ -2215,7 +2314,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_MASTER_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_master_submix_effect,
                 __buffer,
             )
         };
@@ -2241,7 +2341,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REMOVE_MASTER_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_remove_master_submix_effect,
                 __buffer,
             )
         };
@@ -2258,7 +2359,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REGISTER_AUDIO_BUS_TO_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_register_audio_bus_to_submix,
                 __buffer,
             )
         };
@@ -2289,7 +2391,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_REGISTER_AUDIO_BUS_TO_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_register_audio_bus_to_submix,
                 __buffer,
             )
         };
@@ -2305,7 +2408,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_FOR_PLAYBACK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_prime_sound_for_playback,
                 __buffer,
             )
         };
@@ -2329,7 +2433,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_FOR_PLAYBACK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_prime_sound_for_playback,
                 __buffer,
             )
         };
@@ -2344,7 +2449,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_CUE_FOR_PLAYBACK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_prime_sound_cue_for_playback,
                 __buffer,
             )
         };
@@ -2361,7 +2467,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PRIME_SOUND_CUE_FOR_PLAYBACK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_prime_sound_cue_for_playback,
                 __buffer,
             )
         };
@@ -2377,7 +2484,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PAUSE_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_pause_recording_output,
                 __buffer,
             )
         };
@@ -2401,7 +2509,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_PAUSE_RECORDING_OUTPUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_pause_recording_output,
                 __buffer,
             )
         };
@@ -2419,7 +2528,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_PRESET_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_make_preset_spectral_analysis_band_settings,
                 __buffer,
             )
         };
@@ -2459,7 +2569,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_PRESET_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_make_preset_spectral_analysis_band_settings,
                 __buffer,
             )
         };
@@ -2488,7 +2599,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_MUSICAL_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_make_musical_spectral_analysis_band_settings,
                 __buffer,
             )
         };
@@ -2533,7 +2645,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_MUSICAL_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_make_musical_spectral_analysis_band_settings,
                 __buffer,
             )
         };
@@ -2562,7 +2675,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_FULL_SPECTRUM_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_make_full_spectrum_spectral_analysis_band_settings,
                 __buffer,
             )
         };
@@ -2607,7 +2721,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_MAKE_FULL_SPECTRUM_SPECTRAL_ANALYSIS_BAND_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_make_full_spectrum_spectral_analysis_band_settings,
                 __buffer,
             )
         };
@@ -2633,7 +2748,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_IS_AUDIO_BUS_ACTIVE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_is_audio_bus_active,
                 __buffer,
             )
         };
@@ -2657,7 +2773,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_IS_AUDIO_BUS_ACTIVE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_is_audio_bus_active,
                 __buffer,
             )
         };
@@ -2676,7 +2793,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_PHASE_FOR_FREQUENCIES,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_phase_for_frequencies,
                 __buffer,
             )
         };
@@ -2714,7 +2832,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_PHASE_FOR_FREQUENCIES,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_phase_for_frequencies,
                 __buffer,
             )
         };
@@ -2733,7 +2852,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_NUMBER_OF_ENTRIES_IN_SOURCE_EFFECT_CHAIN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_number_of_entries_in_source_effect_chain,
                 __buffer,
             )
         };
@@ -2761,7 +2881,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_NUMBER_OF_ENTRIES_IN_SOURCE_EFFECT_CHAIN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_number_of_entries_in_source_effect_chain,
                 __buffer,
             )
         };
@@ -2780,7 +2901,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_MAGNITUDE_FOR_FREQUENCIES,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_magnitude_for_frequencies,
                 __buffer,
             )
         };
@@ -2818,7 +2940,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_MAGNITUDE_FOR_FREQUENCIES,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_magnitude_for_frequencies,
                 __buffer,
             )
         };
@@ -2837,7 +2960,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_CURRENT_AUDIO_OUTPUT_DEVICE_NAME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_current_audio_output_device_name,
                 __buffer,
             )
         };
@@ -2865,7 +2989,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_CURRENT_AUDIO_OUTPUT_DEVICE_NAME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_current_audio_output_device_name,
                 __buffer,
             )
         };
@@ -2881,7 +3006,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_OUTPUT_DEVICES,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_available_audio_output_devices,
                 __buffer,
             )
         };
@@ -2907,7 +3033,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_GET_AVAILABLE_AUDIO_OUTPUT_DEVICES,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_get_available_audio_output_devices,
                 __buffer,
             )
         };
@@ -2922,7 +3049,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CONV_AUDIO_OUTPUT_DEVICE_INFO_TO_STRING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_conv_audio_output_device_info_to_string,
                 __buffer,
             )
         };
@@ -2939,7 +3067,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CONV_AUDIO_OUTPUT_DEVICE_INFO_TO_STRING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_conv_audio_output_device_info_to_string,
                 __buffer,
             )
         };
@@ -2956,7 +3085,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECTS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_clear_submix_effects,
                 __buffer,
             )
         };
@@ -2980,7 +3110,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECTS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_clear_submix_effects,
                 __buffer,
             )
         };
@@ -2997,7 +3128,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_clear_submix_effect_chain_override,
                 __buffer,
             )
         };
@@ -3028,7 +3160,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_SUBMIX_EFFECT_CHAIN_OVERRIDE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_clear_submix_effect_chain_override,
                 __buffer,
             )
         };
@@ -3043,7 +3176,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_MASTER_SUBMIX_EFFECTS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_clear_master_submix_effects,
                 __buffer,
             )
         };
@@ -3060,7 +3194,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_CLEAR_MASTER_SUBMIX_EFFECTS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_clear_master_submix_effects,
                 __buffer,
             )
         };
@@ -3077,7 +3212,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_add_submix_effect,
                 __buffer,
             )
         };
@@ -3110,7 +3246,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_add_submix_effect,
                 __buffer,
             )
         };
@@ -3128,7 +3265,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SOURCE_EFFECT_TO_PRESET_CHAIN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_add_source_effect_to_preset_chain,
                 __buffer,
             )
         };
@@ -3165,7 +3303,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_SOURCE_EFFECT_TO_PRESET_CHAIN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_add_source_effect_to_preset_chain,
                 __buffer,
             )
         };
@@ -3181,7 +3320,8 @@ impl UAudioMixerBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_MASTER_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_add_master_submix_effect,
                 __buffer,
             )
         };
@@ -3207,7 +3347,8 @@ impl UAudioMixerBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_AUDIO_MIXER_BLUEPRINT_LIBRARY_ADD_MASTER_SUBMIX_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_audio_mixer_blueprint_library_add_master_submix_effect,
                 __buffer,
             )
         };
@@ -3282,7 +3423,7 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_STOP,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_stop,
                 __buffer,
             )
         };
@@ -3292,7 +3433,7 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_STOP,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_stop,
                 __buffer,
             )
         };
@@ -3305,7 +3446,7 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_START,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_start,
                 __buffer,
             )
         };
@@ -3315,7 +3456,7 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_START,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_start,
                 __buffer,
             )
         };
@@ -3328,7 +3469,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_VOLUME_MULTIPLIER,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_volume_multiplier,
                 __buffer,
             )
         };
@@ -3345,7 +3487,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_VOLUME_MULTIPLIER,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_volume_multiplier,
                 __buffer,
             )
         };
@@ -3362,7 +3505,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_SUBMIX_SEND,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_submix_send,
                 __buffer,
             )
         };
@@ -3384,7 +3528,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_SUBMIX_SEND,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_submix_send,
                 __buffer,
             )
         };
@@ -3401,7 +3546,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_PRE_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_source_bus_send_pre_effect,
                 __buffer,
             )
         };
@@ -3425,7 +3571,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_PRE_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_source_bus_send_pre_effect,
                 __buffer,
             )
         };
@@ -3442,7 +3589,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_POST_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_source_bus_send_post_effect,
                 __buffer,
             )
         };
@@ -3466,7 +3614,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_SOURCE_BUS_SEND_POST_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_source_bus_send_post_effect,
                 __buffer,
             )
         };
@@ -3479,7 +3628,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_OUTPUT_TO_BUS_ONLY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_output_to_bus_only,
                 __buffer,
             )
         };
@@ -3496,7 +3646,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_OUTPUT_TO_BUS_ONLY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_output_to_bus_only,
                 __buffer,
             )
         };
@@ -3514,7 +3665,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_MODULATION_ROUTING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_modulation_routing,
                 __buffer,
             )
         };
@@ -3553,7 +3705,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_MODULATION_ROUTING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_modulation_routing,
                 __buffer,
             )
         };
@@ -3566,7 +3719,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_FREQUENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_low_pass_filter_frequency,
                 __buffer,
             )
         };
@@ -3583,7 +3737,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_FREQUENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_low_pass_filter_frequency,
                 __buffer,
             )
         };
@@ -3596,7 +3751,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_ENABLED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_low_pass_filter_enabled,
                 __buffer,
             )
         };
@@ -3613,7 +3769,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_LOW_PASS_FILTER_ENABLED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_low_pass_filter_enabled,
                 __buffer,
             )
         };
@@ -3630,7 +3787,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_PRE_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_audio_bus_send_pre_effect,
                 __buffer,
             )
         };
@@ -3654,7 +3812,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_PRE_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_audio_bus_send_pre_effect,
                 __buffer,
             )
         };
@@ -3671,7 +3830,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_POST_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_audio_bus_send_post_effect,
                 __buffer,
             )
         };
@@ -3695,7 +3855,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_SET_AUDIO_BUS_SEND_POST_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_set_audio_bus_send_post_effect,
                 __buffer,
             )
         };
@@ -3708,7 +3869,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_IS_PLAYING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_is_playing,
                 __buffer,
             )
         };
@@ -3718,7 +3880,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_IS_PLAYING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_is_playing,
                 __buffer,
             )
         };
@@ -3735,7 +3898,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_GET_MODULATORS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_get_modulators,
                 __buffer,
             )
         };
@@ -3754,7 +3918,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_GET_MODULATORS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_get_modulators,
                 __buffer,
             )
         };
@@ -3780,7 +3945,7 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_FADE_OUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_fade_out,
                 __buffer,
             )
         };
@@ -3811,7 +3976,7 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_FADE_OUT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_fade_out,
                 __buffer,
             )
         };
@@ -3830,7 +3995,7 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_FADE_IN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_fade_in,
                 __buffer,
             )
         };
@@ -3864,7 +4029,7 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_FADE_IN,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS.u_synth_component_fade_in,
                 __buffer,
             )
         };
@@ -3882,7 +4047,8 @@ impl USynthComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_ADJUST_VOLUME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_adjust_volume,
                 __buffer,
             )
         };
@@ -3913,7 +4079,8 @@ impl USynthComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SYNTH_COMPONENT_ADJUST_VOLUME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_synth_component_adjust_volume,
                 __buffer,
             )
         };
@@ -3949,7 +4116,8 @@ impl USubmixEffectDynamicsProcessorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_set_settings,
                 __buffer,
             )
         };
@@ -3966,7 +4134,8 @@ impl USubmixEffectDynamicsProcessorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_set_settings,
                 __buffer,
             )
         };
@@ -3982,7 +4151,8 @@ impl USubmixEffectDynamicsProcessorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_set_external_submix,
                 __buffer,
             )
         };
@@ -3999,7 +4169,8 @@ impl USubmixEffectDynamicsProcessorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_EXTERNAL_SUBMIX,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_set_external_submix,
                 __buffer,
             )
         };
@@ -4015,7 +4186,8 @@ impl USubmixEffectDynamicsProcessorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_AUDIO_BUS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_set_audio_bus,
                 __buffer,
             )
         };
@@ -4032,7 +4204,8 @@ impl USubmixEffectDynamicsProcessorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_SET_AUDIO_BUS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_set_audio_bus,
                 __buffer,
             )
         };
@@ -4045,7 +4218,8 @@ impl USubmixEffectDynamicsProcessorPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_RESET_KEY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_reset_key,
                 __buffer,
             )
         };
@@ -4055,7 +4229,8 @@ impl USubmixEffectDynamicsProcessorPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_DYNAMICS_PROCESSOR_PRESET_RESET_KEY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_dynamics_processor_preset_reset_key,
                 __buffer,
             )
         };
@@ -4091,7 +4266,8 @@ impl USubmixEffectSubmixEQPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_SUBMIX_EQ_PRESET_SET_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_submix_eq_preset_set_settings,
                 __buffer,
             )
         };
@@ -4108,7 +4284,8 @@ impl USubmixEffectSubmixEQPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_SUBMIX_EQ_PRESET_SET_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_submix_eq_preset_set_settings,
                 __buffer,
             )
         };
@@ -4149,7 +4326,8 @@ impl USubmixEffectReverbPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS_WITH_REVERB_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_reverb_preset_set_settings_with_reverb_effect,
                 __buffer,
             )
         };
@@ -4172,7 +4350,8 @@ impl USubmixEffectReverbPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS_WITH_REVERB_EFFECT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_reverb_preset_set_settings_with_reverb_effect,
                 __buffer,
             )
         };
@@ -4185,7 +4364,8 @@ impl USubmixEffectReverbPreset {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_reverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -4202,7 +4382,8 @@ impl USubmixEffectReverbPreset {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SUBMIX_EFFECT_REVERB_PRESET_SET_SETTINGS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_submix_effect_reverb_preset_set_settings,
                 __buffer,
             )
         };
@@ -4260,7 +4441,8 @@ impl UScrubbedSound {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_SOUND_WAVE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_sound_wave,
                 __buffer,
             )
         };
@@ -4277,7 +4459,8 @@ impl UScrubbedSound {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_SOUND_WAVE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_sound_wave,
                 __buffer,
             )
         };
@@ -4290,7 +4473,8 @@ impl UScrubbedSound {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_PLAYHEAD_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_playhead_time,
                 __buffer,
             )
         };
@@ -4307,7 +4491,8 @@ impl UScrubbedSound {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_PLAYHEAD_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_playhead_time,
                 __buffer,
             )
         };
@@ -4323,7 +4508,8 @@ impl UScrubbedSound {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_IS_SCRUBBING_WHILE_STATIONARY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_is_scrubbing_while_stationary,
                 __buffer,
             )
         };
@@ -4340,7 +4526,8 @@ impl UScrubbedSound {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_IS_SCRUBBING_WHILE_STATIONARY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_is_scrubbing_while_stationary,
                 __buffer,
             )
         };
@@ -4353,7 +4540,8 @@ impl UScrubbedSound {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_IS_SCRUBBING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_is_scrubbing,
                 __buffer,
             )
         };
@@ -4370,7 +4558,8 @@ impl UScrubbedSound {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_IS_SCRUBBING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_is_scrubbing,
                 __buffer,
             )
         };
@@ -4386,7 +4575,8 @@ impl UScrubbedSound {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_GRAIN_DURATION_RANGE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_grain_duration_range,
                 __buffer,
             )
         };
@@ -4403,7 +4593,8 @@ impl UScrubbedSound {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_SET_GRAIN_DURATION_RANGE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_set_grain_duration_range,
                 __buffer,
             )
         };
@@ -4416,7 +4607,8 @@ impl UScrubbedSound {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_GET_PLAYHEAD_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_get_playhead_time,
                 __buffer,
             )
         };
@@ -4426,7 +4618,8 @@ impl UScrubbedSound {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_SCRUBBED_SOUND_GET_PLAYHEAD_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_scrubbed_sound_get_playhead_time,
                 __buffer,
             )
         };
@@ -4466,7 +4659,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_TIME_DIVISION,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_unsubscribe_from_time_division,
                 __buffer,
             )
         };
@@ -4499,7 +4693,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_TIME_DIVISION,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_unsubscribe_from_time_division,
                 __buffer,
             )
         };
@@ -4519,7 +4714,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_ALL_TIME_DIVISIONS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_unsubscribe_from_all_time_divisions,
                 __buffer,
             )
         };
@@ -4543,7 +4739,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_UNSUBSCRIBE_FROM_ALL_TIME_DIVISIONS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_unsubscribe_from_all_time_divisions,
                 __buffer,
             )
         };
@@ -4565,7 +4762,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_QUANTIZATION_EVENT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_subscribe_to_quantization_event,
                 __buffer,
             )
         };
@@ -4607,7 +4805,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_QUANTIZATION_EVENT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_subscribe_to_quantization_event,
                 __buffer,
             )
         };
@@ -4628,7 +4827,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_ALL_QUANTIZATION_EVENTS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_subscribe_to_all_quantization_events,
                 __buffer,
             )
         };
@@ -4661,7 +4861,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SUBSCRIBE_TO_ALL_QUANTIZATION_EVENTS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_subscribe_to_all_quantization_events,
                 __buffer,
             )
         };
@@ -4682,7 +4883,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_STOP_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_stop_clock,
                 __buffer,
             )
         };
@@ -4713,7 +4915,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_STOP_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_stop_clock,
                 __buffer,
             )
         };
@@ -4735,7 +4938,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_START_OTHER_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_start_other_clock,
                 __buffer,
             )
         };
@@ -4775,7 +4979,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_START_OTHER_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_start_other_clock,
                 __buffer,
             )
         };
@@ -4792,7 +4997,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_START_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_start_clock,
                 __buffer,
             )
         };
@@ -4816,7 +5022,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_START_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_start_clock,
                 __buffer,
             )
         };
@@ -4839,7 +5046,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_TICKS_PER_SECOND,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_ticks_per_second,
                 __buffer,
             )
         };
@@ -4886,7 +5094,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_TICKS_PER_SECOND,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_ticks_per_second,
                 __buffer,
             )
         };
@@ -4909,7 +5118,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_THIRTY_SECOND_NOTES_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_thirty_second_notes_per_minute,
                 __buffer,
             )
         };
@@ -4956,7 +5166,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_THIRTY_SECOND_NOTES_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_thirty_second_notes_per_minute,
                 __buffer,
             )
         };
@@ -4979,7 +5190,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_SECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_seconds_per_tick,
                 __buffer,
             )
         };
@@ -5026,7 +5238,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_SECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_seconds_per_tick,
                 __buffer,
             )
         };
@@ -5049,7 +5262,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_MILLISECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_milliseconds_per_tick,
                 __buffer,
             )
         };
@@ -5096,7 +5310,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_MILLISECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_milliseconds_per_tick,
                 __buffer,
             )
         };
@@ -5119,7 +5334,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_BEATS_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_beats_per_minute,
                 __buffer,
             )
         };
@@ -5166,7 +5382,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_SET_BEATS_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_set_beats_per_minute,
                 __buffer,
             )
         };
@@ -5186,7 +5403,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_RESUME_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_resume_clock,
                 __buffer,
             )
         };
@@ -5210,7 +5428,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_RESUME_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_resume_clock,
                 __buffer,
             )
         };
@@ -5232,7 +5451,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT_QUANTIZED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_reset_transport_quantized,
                 __buffer,
             )
         };
@@ -5272,7 +5492,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT_QUANTIZED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_reset_transport_quantized,
                 __buffer,
             )
         };
@@ -5292,7 +5513,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_reset_transport,
                 __buffer,
             )
         };
@@ -5316,7 +5538,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_RESET_TRANSPORT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_reset_transport,
                 __buffer,
             )
         };
@@ -5333,7 +5556,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_PAUSE_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_pause_clock,
                 __buffer,
             )
         };
@@ -5357,7 +5581,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_PAUSE_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_pause_clock,
                 __buffer,
             )
         };
@@ -5379,7 +5604,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_NOTIFY_ON_QUANTIZATION_BOUNDARY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_notify_on_quantization_boundary,
                 __buffer,
             )
         };
@@ -5419,7 +5645,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_NOTIFY_ON_QUANTIZATION_BOUNDARY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_notify_on_quantization_boundary,
                 __buffer,
             )
         };
@@ -5435,7 +5662,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_IS_CLOCK_RUNNING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_is_clock_running,
                 __buffer,
             )
         };
@@ -5452,7 +5680,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_IS_CLOCK_RUNNING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_is_clock_running,
                 __buffer,
             )
         };
@@ -5469,7 +5698,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_TICKS_PER_SECOND,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_ticks_per_second,
                 __buffer,
             )
         };
@@ -5486,7 +5716,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_TICKS_PER_SECOND,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_ticks_per_second,
                 __buffer,
             )
         };
@@ -5503,7 +5734,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_THIRTY_SECOND_NOTES_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_thirty_second_notes_per_minute,
                 __buffer,
             )
         };
@@ -5520,7 +5752,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_THIRTY_SECOND_NOTES_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_thirty_second_notes_per_minute,
                 __buffer,
             )
         };
@@ -5537,7 +5770,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_SECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_seconds_per_tick,
                 __buffer,
             )
         };
@@ -5554,7 +5788,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_SECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_seconds_per_tick,
                 __buffer,
             )
         };
@@ -5571,7 +5806,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_MILLISECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_milliseconds_per_tick,
                 __buffer,
             )
         };
@@ -5588,7 +5824,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_MILLISECONDS_PER_TICK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_milliseconds_per_tick,
                 __buffer,
             )
         };
@@ -5605,7 +5842,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_ESTIMATED_RUN_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_estimated_run_time,
                 __buffer,
             )
         };
@@ -5622,7 +5860,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_ESTIMATED_RUN_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_estimated_run_time,
                 __buffer,
             )
         };
@@ -5641,7 +5880,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_duration_of_quantization_type_in_seconds,
                 __buffer,
             )
         };
@@ -5674,7 +5914,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_duration_of_quantization_type_in_seconds,
                 __buffer,
             )
         };
@@ -5691,7 +5932,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_CURRENT_TIMESTAMP,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_current_timestamp,
                 __buffer,
             )
         };
@@ -5708,7 +5950,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_CURRENT_TIMESTAMP,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_current_timestamp,
                 __buffer,
             )
         };
@@ -5730,7 +5973,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_BEATS_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_beats_per_minute,
                 __buffer,
             )
         };
@@ -5747,7 +5991,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_BEATS_PER_MINUTE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_beats_per_minute,
                 __buffer,
             )
         };
@@ -5766,7 +6011,8 @@ impl UQuartzClockHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_BEAT_PROGRESS_PERCENT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_beat_progress_percent,
                 __buffer,
             )
         };
@@ -5795,7 +6041,8 @@ impl UQuartzClockHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_CLOCK_HANDLE_GET_BEAT_PROGRESS_PERCENT,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_clock_handle_get_beat_progress_percent,
                 __buffer,
             )
         };
@@ -5833,7 +6080,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_SET_QUARTZ_SUBSYSTEM_TICKABLE_WHEN_PAUSED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_set_quartz_subsystem_tickable_when_paused,
                 __buffer,
             )
         };
@@ -5850,7 +6098,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_SET_QUARTZ_SUBSYSTEM_TICKABLE_WHEN_PAUSED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_set_quartz_subsystem_tickable_when_paused,
                 __buffer,
             )
         };
@@ -5863,7 +6112,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_IS_QUARTZ_ENABLED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_is_quartz_enabled,
                 __buffer,
             )
         };
@@ -5873,7 +6123,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_IS_QUARTZ_ENABLED,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_is_quartz_enabled,
                 __buffer,
             )
         };
@@ -5891,7 +6142,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_IS_CLOCK_RUNNING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_is_clock_running,
                 __buffer,
             )
         };
@@ -5915,7 +6167,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_IS_CLOCK_RUNNING,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_is_clock_running,
                 __buffer,
             )
         };
@@ -5932,7 +6185,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MIN_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_round_trip_min_latency,
                 __buffer,
             )
         };
@@ -5949,7 +6203,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MIN_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_round_trip_min_latency,
                 __buffer,
             )
         };
@@ -5966,7 +6221,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MAX_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_round_trip_max_latency,
                 __buffer,
             )
         };
@@ -5983,7 +6239,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_MAX_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_round_trip_max_latency,
                 __buffer,
             )
         };
@@ -6000,7 +6257,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_AVERAGE_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_round_trip_average_latency,
                 __buffer,
             )
         };
@@ -6017,7 +6275,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ROUND_TRIP_AVERAGE_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_round_trip_average_latency,
                 __buffer,
             )
         };
@@ -6035,7 +6294,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_HANDLE_FOR_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_handle_for_clock,
                 __buffer,
             )
         };
@@ -6059,7 +6319,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_HANDLE_FOR_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_handle_for_clock,
                 __buffer,
             )
         };
@@ -6076,7 +6337,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MIN_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_game_thread_to_audio_render_thread_min_latency,
                 __buffer,
             )
         };
@@ -6093,7 +6355,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MIN_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_game_thread_to_audio_render_thread_min_latency,
                 __buffer,
             )
         };
@@ -6110,7 +6373,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MAX_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_game_thread_to_audio_render_thread_max_latency,
                 __buffer,
             )
         };
@@ -6127,7 +6391,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_MAX_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_game_thread_to_audio_render_thread_max_latency,
                 __buffer,
             )
         };
@@ -6144,7 +6409,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_AVERAGE_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_game_thread_to_audio_render_thread_average_latency,
                 __buffer,
             )
         };
@@ -6161,7 +6427,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_GAME_THREAD_TO_AUDIO_RENDER_THREAD_AVERAGE_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_game_thread_to_audio_render_thread_average_latency,
                 __buffer,
             )
         };
@@ -6179,7 +6446,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ESTIMATED_CLOCK_RUN_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_estimated_clock_run_time,
                 __buffer,
             )
         };
@@ -6203,7 +6471,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_ESTIMATED_CLOCK_RUN_TIME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_estimated_clock_run_time,
                 __buffer,
             )
         };
@@ -6223,7 +6492,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_duration_of_quantization_type_in_seconds,
                 __buffer,
             )
         };
@@ -6263,7 +6533,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_DURATION_OF_QUANTIZATION_TYPE_IN_SECONDS,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_duration_of_quantization_type_in_seconds,
                 __buffer,
             )
         };
@@ -6281,7 +6552,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_CURRENT_CLOCK_TIMESTAMP,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_current_clock_timestamp,
                 __buffer,
             )
         };
@@ -6305,7 +6577,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_CURRENT_CLOCK_TIMESTAMP,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_current_clock_timestamp,
                 __buffer,
             )
         };
@@ -6324,7 +6597,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MIN_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_audio_render_thread_to_game_thread_min_latency,
                 __buffer,
             )
         };
@@ -6334,7 +6608,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MIN_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_audio_render_thread_to_game_thread_min_latency,
                 __buffer,
             )
         };
@@ -6348,7 +6623,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MAX_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_audio_render_thread_to_game_thread_max_latency,
                 __buffer,
             )
         };
@@ -6358,7 +6634,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_MAX_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_audio_render_thread_to_game_thread_max_latency,
                 __buffer,
             )
         };
@@ -6372,7 +6649,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_AVERAGE_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_audio_render_thread_to_game_thread_average_latency,
                 __buffer,
             )
         };
@@ -6382,7 +6660,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_GET_AUDIO_RENDER_THREAD_TO_GAME_THREAD_AVERAGE_LATENCY,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_get_audio_render_thread_to_game_thread_average_latency,
                 __buffer,
             )
         };
@@ -6400,7 +6679,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_DOES_CLOCK_EXIST,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_does_clock_exist,
                 __buffer,
             )
         };
@@ -6424,7 +6704,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_DOES_CLOCK_EXIST,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_does_clock_exist,
                 __buffer,
             )
         };
@@ -6442,7 +6723,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_NAME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_delete_clock_by_name,
                 __buffer,
             )
         };
@@ -6466,7 +6748,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_NAME,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_delete_clock_by_name,
                 __buffer,
             )
         };
@@ -6483,7 +6766,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_HANDLE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_delete_clock_by_handle,
                 __buffer,
             )
         };
@@ -6507,7 +6791,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_DELETE_CLOCK_BY_HANDLE,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_delete_clock_by_handle,
                 __buffer,
             )
         };
@@ -6530,7 +6815,8 @@ impl UQuartzSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_CREATE_NEW_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_create_new_clock,
                 __buffer,
             )
         };
@@ -6575,7 +6861,8 @@ impl UQuartzSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::audio_mixer::U_QUARTZ_SUBSYSTEM_CREATE_NEW_CLOCK,
+                crate::bindings::audio_mixer::__FUNCTION_PTRS
+                    .u_quartz_subsystem_create_new_clock,
                 __buffer,
             )
         };

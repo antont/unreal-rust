@@ -1,58 +1,67 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_FRACTURE_CONVEX_SETTINGS_DELETE_FROM_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CONVEX_SETTINGS_CLEAR_CUSTOM_CONVEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CONVEX_ACTIONS_SET_FROM_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CONVEX_ACTIONS_SAVE_AS_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_UNFREEZE_SITES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_REGENERATE_LIVE_SITES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_FREEZE_LIVE_SITES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_CLEAR_FROZEN_SITES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_CUTTER_SETTINGS_GET_MATERIAL_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_MATERIALS_SETTINGS_USE_ASSET_MATERIALS_ON_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_MATERIALS_SETTINGS_REMOVE_MATERIAL_SLOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_MATERIALS_SETTINGS_GET_MATERIAL_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_MATERIALS_SETTINGS_ADD_MATERIAL_SLOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_REMOVE_ON_BREAK_SETTINGS_DELETE_REMOVE_ON_BREAK_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_PROXIMITY_ACTIONS_SET_FROM_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_PROXIMITY_ACTIONS_SAVE_AS_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_AUTO_UV_SETTINGS_LAYOUT_U_VS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_AUTO_UV_SETTINGS_GET_UV_CHANNEL_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_AUTO_UV_SETTINGS_DISABLE_BONE_COLORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_AUTO_UV_SETTINGS_DELETE_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_AUTO_UV_SETTINGS_BOX_PROJECT_U_VS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_AUTO_UV_SETTINGS_BAKE_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FRACTURE_AUTO_UV_SETTINGS_ADD_UV_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_fracture_convex_settings_delete_from_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_convex_settings_clear_custom_convex: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_convex_actions_set_from_defaults: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_convex_actions_save_as_defaults: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_custom_voronoi_settings_unfreeze_sites: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_custom_voronoi_settings_regenerate_live_sites: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_custom_voronoi_settings_freeze_live_sites: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_custom_voronoi_settings_clear_frozen_sites: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_cutter_settings_get_material_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_materials_settings_use_asset_materials_on_components: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_materials_settings_remove_material_slot: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_materials_settings_get_material_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_materials_settings_add_material_slot: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_remove_on_break_settings_delete_remove_on_break_data: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_proximity_actions_set_from_defaults: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_proximity_actions_save_as_defaults: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_auto_uv_settings_layout_u_vs: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_auto_uv_settings_get_uv_channel_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_auto_uv_settings_disable_bone_colors: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_auto_uv_settings_delete_uv_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_auto_uv_settings_box_project_u_vs: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_auto_uv_settings_bake_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_fracture_auto_uv_settings_add_uv_channel: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_fracture_convex_settings_delete_from_selected: std::ptr::null_mut(),
+            u_fracture_convex_settings_clear_custom_convex: std::ptr::null_mut(),
+            u_fracture_convex_actions_set_from_defaults: std::ptr::null_mut(),
+            u_fracture_convex_actions_save_as_defaults: std::ptr::null_mut(),
+            u_fracture_custom_voronoi_settings_unfreeze_sites: std::ptr::null_mut(),
+            u_fracture_custom_voronoi_settings_regenerate_live_sites: std::ptr::null_mut(),
+            u_fracture_custom_voronoi_settings_freeze_live_sites: std::ptr::null_mut(),
+            u_fracture_custom_voronoi_settings_clear_frozen_sites: std::ptr::null_mut(),
+            u_fracture_cutter_settings_get_material_names_func: std::ptr::null_mut(),
+            u_fracture_materials_settings_use_asset_materials_on_components: std::ptr::null_mut(),
+            u_fracture_materials_settings_remove_material_slot: std::ptr::null_mut(),
+            u_fracture_materials_settings_get_material_names_func: std::ptr::null_mut(),
+            u_fracture_materials_settings_add_material_slot: std::ptr::null_mut(),
+            u_fracture_remove_on_break_settings_delete_remove_on_break_data: std::ptr::null_mut(),
+            u_fracture_proximity_actions_set_from_defaults: std::ptr::null_mut(),
+            u_fracture_proximity_actions_save_as_defaults: std::ptr::null_mut(),
+            u_fracture_auto_uv_settings_layout_u_vs: std::ptr::null_mut(),
+            u_fracture_auto_uv_settings_get_uv_channel_names_func: std::ptr::null_mut(),
+            u_fracture_auto_uv_settings_disable_bone_colors: std::ptr::null_mut(),
+            u_fracture_auto_uv_settings_delete_uv_channel: std::ptr::null_mut(),
+            u_fracture_auto_uv_settings_box_project_u_vs: std::ptr::null_mut(),
+            u_fracture_auto_uv_settings_bake_texture: std::ptr::null_mut(),
+            u_fracture_auto_uv_settings_add_uv_channel: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -62,14 +71,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteFromSelected"),
-            &raw mut U_FRACTURE_CONVEX_SETTINGS_DELETE_FROM_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_fracture_convex_settings_delete_from_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearCustomConvex"),
-            &raw mut U_FRACTURE_CONVEX_SETTINGS_CLEAR_CUSTOM_CONVEX,
+            &raw mut __FUNCTION_PTRS.u_fracture_convex_settings_clear_custom_convex,
         );
     }
     unsafe {
@@ -80,14 +89,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFromDefaults"),
-            &raw mut U_FRACTURE_CONVEX_ACTIONS_SET_FROM_DEFAULTS,
+            &raw mut __FUNCTION_PTRS.u_fracture_convex_actions_set_from_defaults,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveAsDefaults"),
-            &raw mut U_FRACTURE_CONVEX_ACTIONS_SAVE_AS_DEFAULTS,
+            &raw mut __FUNCTION_PTRS.u_fracture_convex_actions_save_as_defaults,
         );
     }
     unsafe {
@@ -98,28 +107,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnfreezeSites"),
-            &raw mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_UNFREEZE_SITES,
+            &raw mut __FUNCTION_PTRS.u_fracture_custom_voronoi_settings_unfreeze_sites,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegenerateLiveSites"),
-            &raw mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_REGENERATE_LIVE_SITES,
+            &raw mut __FUNCTION_PTRS
+                .u_fracture_custom_voronoi_settings_regenerate_live_sites,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FreezeLiveSites"),
-            &raw mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_FREEZE_LIVE_SITES,
+            &raw mut __FUNCTION_PTRS.u_fracture_custom_voronoi_settings_freeze_live_sites,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearFrozenSites"),
-            &raw mut U_FRACTURE_CUSTOM_VORONOI_SETTINGS_CLEAR_FROZEN_SITES,
+            &raw mut __FUNCTION_PTRS
+                .u_fracture_custom_voronoi_settings_clear_frozen_sites,
         );
     }
     unsafe {
@@ -130,7 +141,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialNamesFunc"),
-            &raw mut U_FRACTURE_CUTTER_SETTINGS_GET_MATERIAL_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS.u_fracture_cutter_settings_get_material_names_func,
         );
     }
     unsafe {
@@ -141,28 +152,30 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UseAssetMaterialsOnComponents"),
-            &raw mut U_FRACTURE_MATERIALS_SETTINGS_USE_ASSET_MATERIALS_ON_COMPONENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_fracture_materials_settings_use_asset_materials_on_components,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMaterialSlot"),
-            &raw mut U_FRACTURE_MATERIALS_SETTINGS_REMOVE_MATERIAL_SLOT,
+            &raw mut __FUNCTION_PTRS.u_fracture_materials_settings_remove_material_slot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialNamesFunc"),
-            &raw mut U_FRACTURE_MATERIALS_SETTINGS_GET_MATERIAL_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_fracture_materials_settings_get_material_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMaterialSlot"),
-            &raw mut U_FRACTURE_MATERIALS_SETTINGS_ADD_MATERIAL_SLOT,
+            &raw mut __FUNCTION_PTRS.u_fracture_materials_settings_add_material_slot,
         );
     }
     unsafe {
@@ -173,7 +186,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteRemoveOnBreakData"),
-            &raw mut U_FRACTURE_REMOVE_ON_BREAK_SETTINGS_DELETE_REMOVE_ON_BREAK_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_fracture_remove_on_break_settings_delete_remove_on_break_data,
         );
     }
     unsafe {
@@ -184,14 +198,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFromDefaults"),
-            &raw mut U_FRACTURE_PROXIMITY_ACTIONS_SET_FROM_DEFAULTS,
+            &raw mut __FUNCTION_PTRS.u_fracture_proximity_actions_set_from_defaults,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveAsDefaults"),
-            &raw mut U_FRACTURE_PROXIMITY_ACTIONS_SAVE_AS_DEFAULTS,
+            &raw mut __FUNCTION_PTRS.u_fracture_proximity_actions_save_as_defaults,
         );
     }
     unsafe {
@@ -202,49 +216,50 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LayoutUVs"),
-            &raw mut U_FRACTURE_AUTO_UV_SETTINGS_LAYOUT_U_VS,
+            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_layout_u_vs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
-            &raw mut U_FRACTURE_AUTO_UV_SETTINGS_GET_UV_CHANNEL_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_fracture_auto_uv_settings_get_uv_channel_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisableBoneColors"),
-            &raw mut U_FRACTURE_AUTO_UV_SETTINGS_DISABLE_BONE_COLORS,
+            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_disable_bone_colors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteUVChannel"),
-            &raw mut U_FRACTURE_AUTO_UV_SETTINGS_DELETE_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_delete_uv_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BoxProjectUVs"),
-            &raw mut U_FRACTURE_AUTO_UV_SETTINGS_BOX_PROJECT_U_VS,
+            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_box_project_u_vs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BakeTexture"),
-            &raw mut U_FRACTURE_AUTO_UV_SETTINGS_BAKE_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_bake_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddUVChannel"),
-            &raw mut U_FRACTURE_AUTO_UV_SETTINGS_ADD_UV_CHANNEL,
+            &raw mut __FUNCTION_PTRS.u_fracture_auto_uv_settings_add_uv_channel,
         );
     }
 }

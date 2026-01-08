@@ -1,140 +1,149 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_SUPPORTS_BINDING_CREATION_FROM_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_RESOLVE_RUNTIME_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_INIT_REPLACEABLE_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_HAS_PRE_ROLL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_SET_SWAP_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_GET_SWAP_ROOT_BONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_movie_scene_transform_origin_bp_get_transform_origin: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_replaceable_actor_binding_bp_base_bp_supports_binding_creation_from_object: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_replaceable_actor_binding_bp_base_bp_resolve_runtime_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_replaceable_actor_binding_bp_base_bp_init_replaceable_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene3_d_constraint_section_set_constraint_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene3_d_constraint_section_get_constraint_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_set_suppress_subtitles: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_set_start_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_set_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_set_override_attenuation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_set_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_set_attenuation_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_get_suppress_subtitles: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_get_start_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_get_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_get_playback_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_get_override_attenuation: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_get_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_audio_section_get_attenuation_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_camera_cut_section_set_camera_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_camera_cut_section_get_camera_binding_id: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_cinematic_shot_section_set_shot_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_cinematic_shot_section_get_shot_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_component_material_parameter_section_remove_scalar_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_component_material_parameter_section_remove_color_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_component_material_parameter_section_add_scalar_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_component_material_parameter_section_add_color_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_remove_vector_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_remove_vector2_d_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_remove_transform_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_remove_scalar_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_remove_color_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_remove_bool_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_get_parameter_names: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_add_vector_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_add_vector2_d_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_add_transform_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_add_scalar_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_add_color_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_parameter_section_add_bool_parameter_key: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_c_var_section_set_from_string: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_c_var_section_get_string: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_set_preroll_state: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_set_flush_on_unload: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_set_flush_on_activated: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_set_desired_state: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_set_data_layer_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_has_pre_roll: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_get_preroll_state: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_get_flush_on_unload: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_get_flush_on_activated: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_get_desired_state: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_data_layer_section_get_data_layer_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_level_visibility_section_set_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_level_visibility_section_set_level_names: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_level_visibility_section_get_visibility: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_level_visibility_section_get_level_names: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_fade_track_test_library_get_manual_fade_amount: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_skeletal_animation_track_set_swap_root_bone: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_skeletal_animation_track_get_swap_root_bone: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_movie_scene_transform_origin_bp_get_transform_origin: std::ptr::null_mut(),
+            u_movie_scene_replaceable_actor_binding_bp_base_bp_supports_binding_creation_from_object: std::ptr::null_mut(),
+            u_movie_scene_replaceable_actor_binding_bp_base_bp_resolve_runtime_binding: std::ptr::null_mut(),
+            u_movie_scene_replaceable_actor_binding_bp_base_bp_init_replaceable_binding: std::ptr::null_mut(),
+            u_movie_scene3_d_constraint_section_set_constraint_binding_id: std::ptr::null_mut(),
+            u_movie_scene3_d_constraint_section_get_constraint_binding_id: std::ptr::null_mut(),
+            u_movie_scene_audio_section_set_suppress_subtitles: std::ptr::null_mut(),
+            u_movie_scene_audio_section_set_start_offset: std::ptr::null_mut(),
+            u_movie_scene_audio_section_set_sound: std::ptr::null_mut(),
+            u_movie_scene_audio_section_set_override_attenuation: std::ptr::null_mut(),
+            u_movie_scene_audio_section_set_looping: std::ptr::null_mut(),
+            u_movie_scene_audio_section_set_attenuation_settings: std::ptr::null_mut(),
+            u_movie_scene_audio_section_get_suppress_subtitles: std::ptr::null_mut(),
+            u_movie_scene_audio_section_get_start_offset: std::ptr::null_mut(),
+            u_movie_scene_audio_section_get_sound: std::ptr::null_mut(),
+            u_movie_scene_audio_section_get_playback_sound: std::ptr::null_mut(),
+            u_movie_scene_audio_section_get_override_attenuation: std::ptr::null_mut(),
+            u_movie_scene_audio_section_get_looping: std::ptr::null_mut(),
+            u_movie_scene_audio_section_get_attenuation_settings: std::ptr::null_mut(),
+            u_movie_scene_camera_cut_section_set_camera_binding_id: std::ptr::null_mut(),
+            u_movie_scene_camera_cut_section_get_camera_binding_id: std::ptr::null_mut(),
+            u_movie_scene_cinematic_shot_section_set_shot_display_name: std::ptr::null_mut(),
+            u_movie_scene_cinematic_shot_section_get_shot_display_name: std::ptr::null_mut(),
+            u_movie_scene_component_material_parameter_section_remove_scalar_parameter: std::ptr::null_mut(),
+            u_movie_scene_component_material_parameter_section_remove_color_parameter: std::ptr::null_mut(),
+            u_movie_scene_component_material_parameter_section_add_scalar_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_component_material_parameter_section_add_color_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_remove_vector_parameter: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_remove_vector2_d_parameter: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_remove_transform_parameter: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_remove_scalar_parameter: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_remove_color_parameter: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_remove_bool_parameter: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_get_parameter_names: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_add_vector_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_add_vector2_d_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_add_transform_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_add_scalar_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_add_color_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_parameter_section_add_bool_parameter_key: std::ptr::null_mut(),
+            u_movie_scene_c_var_section_set_from_string: std::ptr::null_mut(),
+            u_movie_scene_c_var_section_get_string: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_set_preroll_state: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_set_flush_on_unload: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_set_flush_on_activated: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_set_desired_state: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_set_data_layer_assets: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_has_pre_roll: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_get_preroll_state: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_get_flush_on_unload: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_get_flush_on_activated: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_get_desired_state: std::ptr::null_mut(),
+            u_movie_scene_data_layer_section_get_data_layer_assets: std::ptr::null_mut(),
+            u_movie_scene_level_visibility_section_set_visibility: std::ptr::null_mut(),
+            u_movie_scene_level_visibility_section_set_level_names: std::ptr::null_mut(),
+            u_movie_scene_level_visibility_section_get_visibility: std::ptr::null_mut(),
+            u_movie_scene_level_visibility_section_get_level_names: std::ptr::null_mut(),
+            u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_time: std::ptr::null_mut(),
+            u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_frame: std::ptr::null_mut(),
+            u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_time: std::ptr::null_mut(),
+            u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_frame: std::ptr::null_mut(),
+            u_movie_scene_fade_track_test_library_get_manual_fade_amount: std::ptr::null_mut(),
+            u_movie_scene_skeletal_animation_track_set_swap_root_bone: std::ptr::null_mut(),
+            u_movie_scene_skeletal_animation_track_get_swap_root_bone: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -144,7 +153,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_GetTransformOrigin"),
-            &raw mut U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_transform_origin_bp_get_transform_origin,
         );
     }
     unsafe {
@@ -155,21 +165,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_SupportsBindingCreationFromObject"),
-            &raw mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_SUPPORTS_BINDING_CREATION_FROM_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_replaceable_actor_binding_bp_base_bp_supports_binding_creation_from_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_ResolveRuntimeBinding"),
-            &raw mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_RESOLVE_RUNTIME_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_replaceable_actor_binding_bp_base_bp_resolve_runtime_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_InitReplaceableBinding"),
-            &raw mut U_MOVIE_SCENE_REPLACEABLE_ACTOR_BINDING_BP_BASE_BP_INIT_REPLACEABLE_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_replaceable_actor_binding_bp_base_bp_init_replaceable_binding,
         );
     }
     unsafe {
@@ -180,14 +193,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetConstraintBindingID"),
-            &raw mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene3_d_constraint_section_set_constraint_binding_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConstraintBindingID"),
-            &raw mut U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene3_d_constraint_section_get_constraint_binding_id,
         );
     }
     unsafe {
@@ -198,91 +213,91 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSuppressSubtitles"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_set_suppress_subtitles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStartOffset"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_set_start_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSound"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_set_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOverrideAttenuation"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_set_override_attenuation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLooping"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_set_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAttenuationSettings"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_set_attenuation_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSuppressSubtitles"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_get_suppress_subtitles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartOffset"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_get_start_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSound"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_get_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackSound"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_get_playback_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOverrideAttenuation"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_get_override_attenuation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLooping"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_get_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttenuationSettings"),
-            &raw mut U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_audio_section_get_attenuation_settings,
         );
     }
     unsafe {
@@ -293,14 +308,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCameraBindingID"),
-            &raw mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_camera_cut_section_set_camera_binding_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraBindingID"),
-            &raw mut U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_camera_cut_section_get_camera_binding_id,
         );
     }
     unsafe {
@@ -311,14 +328,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetShotDisplayName"),
-            &raw mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_cinematic_shot_section_set_shot_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetShotDisplayName"),
-            &raw mut U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_cinematic_shot_section_get_shot_display_name,
         );
     }
     unsafe {
@@ -329,28 +348,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveScalarParameter"),
-            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_component_material_parameter_section_remove_scalar_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveColorParameter"),
-            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_component_material_parameter_section_remove_color_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddScalarParameterKey"),
-            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_component_material_parameter_section_add_scalar_parameter_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddColorParameterKey"),
-            &raw mut U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_component_material_parameter_section_add_color_parameter_key,
         );
     }
     unsafe {
@@ -361,91 +384,103 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVectorParameter"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_remove_vector_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveVector2DParameter"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_remove_vector2_d_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTransformParameter"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_remove_transform_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveScalarParameter"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_remove_scalar_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveColorParameter"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_remove_color_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBoolParameter"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_remove_bool_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParameterNames"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_parameter_section_get_parameter_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVectorParameterKey"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_add_vector_parameter_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVector2DParameterKey"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_add_vector2_d_parameter_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTransformParameterKey"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_add_transform_parameter_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddScalarParameterKey"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_add_scalar_parameter_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddColorParameterKey"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_add_color_parameter_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBoolParameterKey"),
-            &raw mut U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_parameter_section_add_bool_parameter_key,
         );
     }
     unsafe {
@@ -456,14 +491,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFromString"),
-            &raw mut U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_c_var_section_set_from_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetString"),
-            &raw mut U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_c_var_section_get_string,
         );
     }
     unsafe {
@@ -474,77 +509,81 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPrerollState"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_data_layer_section_set_preroll_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFlushOnUnload"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_data_layer_section_set_flush_on_unload,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFlushOnActivated"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_data_layer_section_set_flush_on_activated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDesiredState"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_data_layer_section_set_desired_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDataLayerAssets"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_data_layer_section_set_data_layer_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasPreRoll"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_HAS_PRE_ROLL,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_data_layer_section_has_pre_roll,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPrerollState"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_data_layer_section_get_preroll_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFlushOnUnload"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_data_layer_section_get_flush_on_unload,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFlushOnActivated"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_data_layer_section_get_flush_on_activated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDesiredState"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_data_layer_section_get_desired_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDataLayerAssets"),
-            &raw mut U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_data_layer_section_get_data_layer_assets,
         );
     }
     unsafe {
@@ -555,28 +594,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVisibility"),
-            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_level_visibility_section_set_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelNames"),
-            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_level_visibility_section_set_level_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVisibility"),
-            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_level_visibility_section_get_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelNames"),
-            &raw mut U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_level_visibility_section_get_level_names,
         );
     }
     unsafe {
@@ -587,28 +630,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PredictWorldTransformAtTime"),
-            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PredictWorldTransformAtFrame"),
-            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PredictLocalTransformAtTime"),
-            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PredictLocalTransformAtFrame"),
-            &raw mut U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_frame,
         );
     }
     unsafe {
@@ -619,7 +666,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetManualFadeAmount"),
-            &raw mut U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_fade_track_test_library_get_manual_fade_amount,
         );
     }
     unsafe {
@@ -630,14 +678,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSwapRootBone"),
-            &raw mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_SET_SWAP_ROOT_BONE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_skeletal_animation_track_set_swap_root_bone,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSwapRootBone"),
-            &raw mut U_MOVIE_SCENE_SKELETAL_ANIMATION_TRACK_GET_SWAP_ROOT_BONE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_skeletal_animation_track_get_swap_root_bone,
         );
     }
 }
@@ -798,7 +848,8 @@ impl UMovieSceneTransformOrigin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_transform_origin_bp_get_transform_origin,
                 __buffer,
             )
         };
@@ -808,7 +859,8 @@ impl UMovieSceneTransformOrigin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_TRANSFORM_ORIGIN_BP_GET_TRANSFORM_ORIGIN,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_transform_origin_bp_get_transform_origin,
                 __buffer,
             )
         };
@@ -886,6 +938,132 @@ impl UMovieSceneReplaceableActorBinding_BPBase {
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
         }
+    }
+    pub fn bp_supports_binding_creation_from_object(
+        &self,
+        source_object: UPtr<crate::bindings::core_u_object::UObject>,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<9>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_replaceable_actor_binding_bp_base_bp_supports_binding_creation_from_object,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_replaceable_actor_binding_bp_base_bp_supports_binding_creation_from_object,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(8).cast::<bool>().read() }
+    }
+    pub fn bp_resolve_runtime_binding(
+        &self,
+        resolve_context: &crate::bindings::movie_scene::FMovieSceneBindingResolveContext,
+    ) -> crate::bindings::movie_scene::FMovieSceneBindingResolveResult {
+        let mut __stack = crate::core_data::StackAlloc::<56>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_replaceable_actor_binding_bp_base_bp_resolve_runtime_binding,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                resolve_context,
+                __buffer
+                    .add(0)
+                    .cast::<
+                        crate::bindings::movie_scene::FMovieSceneBindingResolveContext,
+                    >(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_replaceable_actor_binding_bp_base_bp_resolve_runtime_binding,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<crate::bindings::movie_scene::FMovieSceneBindingResolveResult>()
+                .read()
+        }
+    }
+    pub fn bp_init_replaceable_binding(
+        &mut self,
+        source_object: UPtr<crate::bindings::core_u_object::UObject>,
+        owner_movie_scene: UPtr<crate::bindings::movie_scene::UMovieScene>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_replaceable_actor_binding_bp_base_bp_init_replaceable_binding,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &source_object,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owner_movie_scene,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::movie_scene::UMovieScene>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_replaceable_actor_binding_bp_base_bp_init_replaceable_binding,
+                __buffer,
+            )
+        };
     }
 }
 #[repr(C, align(8))]
@@ -1157,7 +1335,8 @@ impl UMovieScene3DConstraintSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene3_d_constraint_section_set_constraint_binding_id,
                 __buffer,
             )
         };
@@ -1176,7 +1355,8 @@ impl UMovieScene3DConstraintSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_SET_CONSTRAINT_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene3_d_constraint_section_set_constraint_binding_id,
                 __buffer,
             )
         };
@@ -1191,7 +1371,8 @@ impl UMovieScene3DConstraintSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene3_d_constraint_section_get_constraint_binding_id,
                 __buffer,
             )
         };
@@ -1201,7 +1382,8 @@ impl UMovieScene3DConstraintSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE3_D_CONSTRAINT_SECTION_GET_CONSTRAINT_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene3_d_constraint_section_get_constraint_binding_id,
                 __buffer,
             )
         };
@@ -1366,7 +1548,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_suppress_subtitles,
                 __buffer,
             )
         };
@@ -1383,7 +1566,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SUPPRESS_SUBTITLES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_suppress_subtitles,
                 __buffer,
             )
         };
@@ -1399,7 +1583,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_start_offset,
                 __buffer,
             )
         };
@@ -1416,7 +1601,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_START_OFFSET,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_start_offset,
                 __buffer,
             )
         };
@@ -1429,7 +1615,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_sound,
                 __buffer,
             )
         };
@@ -1446,7 +1633,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_SOUND,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_sound,
                 __buffer,
             )
         };
@@ -1459,7 +1647,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_override_attenuation,
                 __buffer,
             )
         };
@@ -1476,7 +1665,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_OVERRIDE_ATTENUATION,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_override_attenuation,
                 __buffer,
             )
         };
@@ -1489,7 +1679,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_looping,
                 __buffer,
             )
         };
@@ -1506,7 +1697,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_LOOPING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_looping,
                 __buffer,
             )
         };
@@ -1522,7 +1714,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_attenuation_settings,
                 __buffer,
             )
         };
@@ -1541,7 +1734,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_SET_ATTENUATION_SETTINGS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_set_attenuation_settings,
                 __buffer,
             )
         };
@@ -1554,7 +1748,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_suppress_subtitles,
                 __buffer,
             )
         };
@@ -1564,7 +1759,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SUPPRESS_SUBTITLES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_suppress_subtitles,
                 __buffer,
             )
         };
@@ -1578,7 +1774,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_start_offset,
                 __buffer,
             )
         };
@@ -1588,7 +1785,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_START_OFFSET,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_start_offset,
                 __buffer,
             )
         };
@@ -1604,7 +1802,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_sound,
                 __buffer,
             )
         };
@@ -1614,7 +1813,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_SOUND,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_sound,
                 __buffer,
             )
         };
@@ -1630,7 +1830,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_playback_sound,
                 __buffer,
             )
         };
@@ -1640,7 +1841,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_PLAYBACK_SOUND,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_playback_sound,
                 __buffer,
             )
         };
@@ -1656,7 +1858,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_override_attenuation,
                 __buffer,
             )
         };
@@ -1666,7 +1869,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_OVERRIDE_ATTENUATION,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_override_attenuation,
                 __buffer,
             )
         };
@@ -1680,7 +1884,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_looping,
                 __buffer,
             )
         };
@@ -1690,7 +1895,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_LOOPING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_looping,
                 __buffer,
             )
         };
@@ -1706,7 +1912,8 @@ impl UMovieSceneAudioSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_attenuation_settings,
                 __buffer,
             )
         };
@@ -1716,7 +1923,8 @@ impl UMovieSceneAudioSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_AUDIO_SECTION_GET_ATTENUATION_SETTINGS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_audio_section_get_attenuation_settings,
                 __buffer,
             )
         };
@@ -1801,7 +2009,8 @@ impl UMovieSceneCameraCutSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_camera_cut_section_set_camera_binding_id,
                 __buffer,
             )
         };
@@ -1820,7 +2029,8 @@ impl UMovieSceneCameraCutSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_SET_CAMERA_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_camera_cut_section_set_camera_binding_id,
                 __buffer,
             )
         };
@@ -1835,7 +2045,8 @@ impl UMovieSceneCameraCutSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_camera_cut_section_get_camera_binding_id,
                 __buffer,
             )
         };
@@ -1845,7 +2056,8 @@ impl UMovieSceneCameraCutSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CAMERA_CUT_SECTION_GET_CAMERA_BINDING_ID,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_camera_cut_section_get_camera_binding_id,
                 __buffer,
             )
         };
@@ -1948,7 +2160,8 @@ impl UMovieSceneCinematicShotSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_cinematic_shot_section_set_shot_display_name,
                 __buffer,
             )
         };
@@ -1965,7 +2178,8 @@ impl UMovieSceneCinematicShotSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_SET_SHOT_DISPLAY_NAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_cinematic_shot_section_set_shot_display_name,
                 __buffer,
             )
         };
@@ -1978,7 +2192,8 @@ impl UMovieSceneCinematicShotSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_cinematic_shot_section_get_shot_display_name,
                 __buffer,
             )
         };
@@ -1988,7 +2203,8 @@ impl UMovieSceneCinematicShotSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_CINEMATIC_SHOT_SECTION_GET_SHOT_DISPLAY_NAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_cinematic_shot_section_get_shot_display_name,
                 __buffer,
             )
         };
@@ -2047,7 +2263,8 @@ impl UMovieSceneComponentMaterialParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_remove_scalar_parameter,
                 __buffer,
             )
         };
@@ -2066,7 +2283,8 @@ impl UMovieSceneComponentMaterialParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_remove_scalar_parameter,
                 __buffer,
             )
         };
@@ -2083,7 +2301,8 @@ impl UMovieSceneComponentMaterialParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_remove_color_parameter,
                 __buffer,
             )
         };
@@ -2102,7 +2321,8 @@ impl UMovieSceneComponentMaterialParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_remove_color_parameter,
                 __buffer,
             )
         };
@@ -2124,7 +2344,8 @@ impl UMovieSceneComponentMaterialParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_add_scalar_parameter_key,
                 __buffer,
             )
         };
@@ -2176,7 +2397,8 @@ impl UMovieSceneComponentMaterialParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_add_scalar_parameter_key,
                 __buffer,
             )
         };
@@ -2198,7 +2420,8 @@ impl UMovieSceneComponentMaterialParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_add_color_parameter_key,
                 __buffer,
             )
         };
@@ -2263,7 +2486,8 @@ impl UMovieSceneComponentMaterialParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_COMPONENT_MATERIAL_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_component_material_parameter_section_add_color_parameter_key,
                 __buffer,
             )
         };
@@ -2319,7 +2543,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_vector_parameter,
                 __buffer,
             )
         };
@@ -2336,7 +2561,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_vector_parameter,
                 __buffer,
             )
         };
@@ -2350,7 +2576,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_vector2_d_parameter,
                 __buffer,
             )
         };
@@ -2367,7 +2594,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_VECTOR2_D_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_vector2_d_parameter,
                 __buffer,
             )
         };
@@ -2381,7 +2609,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_transform_parameter,
                 __buffer,
             )
         };
@@ -2398,7 +2627,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_TRANSFORM_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_transform_parameter,
                 __buffer,
             )
         };
@@ -2412,7 +2642,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_scalar_parameter,
                 __buffer,
             )
         };
@@ -2429,7 +2660,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_SCALAR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_scalar_parameter,
                 __buffer,
             )
         };
@@ -2443,7 +2675,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_color_parameter,
                 __buffer,
             )
         };
@@ -2460,7 +2693,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_COLOR_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_color_parameter,
                 __buffer,
             )
         };
@@ -2474,7 +2708,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_bool_parameter,
                 __buffer,
             )
         };
@@ -2491,7 +2726,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_REMOVE_BOOL_PARAMETER,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_remove_bool_parameter,
                 __buffer,
             )
         };
@@ -2505,7 +2741,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_get_parameter_names,
                 __buffer,
             )
         };
@@ -2522,7 +2759,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_GET_PARAMETER_NAMES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_get_parameter_names,
                 __buffer,
             )
         };
@@ -2544,7 +2782,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_vector_parameter_key,
                 __buffer,
             )
         };
@@ -2584,7 +2823,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_vector_parameter_key,
                 __buffer,
             )
         };
@@ -2603,7 +2843,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_vector2_d_parameter_key,
                 __buffer,
             )
         };
@@ -2643,7 +2884,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_VECTOR2_D_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_vector2_d_parameter_key,
                 __buffer,
             )
         };
@@ -2662,7 +2904,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_transform_parameter_key,
                 __buffer,
             )
         };
@@ -2702,7 +2945,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_TRANSFORM_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_transform_parameter_key,
                 __buffer,
             )
         };
@@ -2721,7 +2965,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_scalar_parameter_key,
                 __buffer,
             )
         };
@@ -2757,7 +3002,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_SCALAR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_scalar_parameter_key,
                 __buffer,
             )
         };
@@ -2776,7 +3022,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_color_parameter_key,
                 __buffer,
             )
         };
@@ -2816,7 +3063,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_COLOR_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_color_parameter_key,
                 __buffer,
             )
         };
@@ -2834,7 +3082,8 @@ impl UMovieSceneParameterSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_bool_parameter_key,
                 __buffer,
             )
         };
@@ -2861,7 +3110,8 @@ impl UMovieSceneParameterSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_PARAMETER_SECTION_ADD_BOOL_PARAMETER_KEY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_parameter_section_add_bool_parameter_key,
                 __buffer,
             )
         };
@@ -2916,7 +3166,8 @@ impl UMovieSceneCVarSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_c_var_section_set_from_string,
                 __buffer,
             )
         };
@@ -2933,7 +3184,8 @@ impl UMovieSceneCVarSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_SET_FROM_STRING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_c_var_section_set_from_string,
                 __buffer,
             )
         };
@@ -2946,7 +3198,8 @@ impl UMovieSceneCVarSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_c_var_section_get_string,
                 __buffer,
             )
         };
@@ -2956,7 +3209,8 @@ impl UMovieSceneCVarSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_C_VAR_SECTION_GET_STRING,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_c_var_section_get_string,
                 __buffer,
             )
         };
@@ -2994,7 +3248,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_preroll_state,
                 __buffer,
             )
         };
@@ -3013,7 +3268,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_PREROLL_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_preroll_state,
                 __buffer,
             )
         };
@@ -3026,7 +3282,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_flush_on_unload,
                 __buffer,
             )
         };
@@ -3043,7 +3300,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_UNLOAD,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_flush_on_unload,
                 __buffer,
             )
         };
@@ -3056,7 +3314,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_flush_on_activated,
                 __buffer,
             )
         };
@@ -3073,7 +3332,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_FLUSH_ON_ACTIVATED,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_flush_on_activated,
                 __buffer,
             )
         };
@@ -3089,7 +3349,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_desired_state,
                 __buffer,
             )
         };
@@ -3108,7 +3369,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DESIRED_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_desired_state,
                 __buffer,
             )
         };
@@ -3124,7 +3386,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_data_layer_assets,
                 __buffer,
             )
         };
@@ -3143,7 +3406,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_SET_DATA_LAYER_ASSETS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_set_data_layer_assets,
                 __buffer,
             )
         };
@@ -3156,7 +3420,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_preroll_state,
                 __buffer,
             )
         };
@@ -3166,7 +3431,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_PREROLL_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_preroll_state,
                 __buffer,
             )
         };
@@ -3185,7 +3451,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_flush_on_unload,
                 __buffer,
             )
         };
@@ -3195,7 +3462,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_UNLOAD,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_flush_on_unload,
                 __buffer,
             )
         };
@@ -3209,7 +3477,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_flush_on_activated,
                 __buffer,
             )
         };
@@ -3219,7 +3488,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_FLUSH_ON_ACTIVATED,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_flush_on_activated,
                 __buffer,
             )
         };
@@ -3233,7 +3503,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_desired_state,
                 __buffer,
             )
         };
@@ -3243,7 +3514,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DESIRED_STATE,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_desired_state,
                 __buffer,
             )
         };
@@ -3264,7 +3536,8 @@ impl UMovieSceneDataLayerSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_data_layer_assets,
                 __buffer,
             )
         };
@@ -3274,7 +3547,8 @@ impl UMovieSceneDataLayerSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_DATA_LAYER_SECTION_GET_DATA_LAYER_ASSETS,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_data_layer_section_get_data_layer_assets,
                 __buffer,
             )
         };
@@ -3503,7 +3777,8 @@ impl UMovieSceneLevelVisibilitySection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_set_visibility,
                 __buffer,
             )
         };
@@ -3520,7 +3795,8 @@ impl UMovieSceneLevelVisibilitySection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_VISIBILITY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_set_visibility,
                 __buffer,
             )
         };
@@ -3533,7 +3809,8 @@ impl UMovieSceneLevelVisibilitySection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_set_level_names,
                 __buffer,
             )
         };
@@ -3550,7 +3827,8 @@ impl UMovieSceneLevelVisibilitySection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_SET_LEVEL_NAMES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_set_level_names,
                 __buffer,
             )
         };
@@ -3563,7 +3841,8 @@ impl UMovieSceneLevelVisibilitySection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_get_visibility,
                 __buffer,
             )
         };
@@ -3573,7 +3852,8 @@ impl UMovieSceneLevelVisibilitySection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_VISIBILITY,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_get_visibility,
                 __buffer,
             )
         };
@@ -3587,7 +3867,8 @@ impl UMovieSceneLevelVisibilitySection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_get_level_names,
                 __buffer,
             )
         };
@@ -3597,7 +3878,8 @@ impl UMovieSceneLevelVisibilitySection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_LEVEL_VISIBILITY_SECTION_GET_LEVEL_NAMES,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_level_visibility_section_get_level_names,
                 __buffer,
             )
         };
@@ -4867,7 +5149,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_time,
                 __buffer,
             )
         };
@@ -4902,7 +5185,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_TIME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_time,
                 __buffer,
             )
         };
@@ -4925,7 +5209,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_frame,
                 __buffer,
             )
         };
@@ -4960,7 +5245,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_WORLD_TRANSFORM_AT_FRAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_world_transform_at_frame,
                 __buffer,
             )
         };
@@ -4983,7 +5269,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_time,
                 __buffer,
             )
         };
@@ -5018,7 +5305,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_TIME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_time,
                 __buffer,
             )
         };
@@ -5041,7 +5329,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_frame,
                 __buffer,
             )
         };
@@ -5076,7 +5365,8 @@ impl UMovieSceneAsyncAction_SequencePrediction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_ASYNC_ACTION_SEQUENCE_PREDICTION_PREDICT_LOCAL_TRANSFORM_AT_FRAME,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_async_action_sequence_prediction_predict_local_transform_at_frame,
                 __buffer,
             )
         };
@@ -5580,7 +5870,8 @@ impl UMovieSceneFadeTrackTestLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_fade_track_test_library_get_manual_fade_amount,
                 __buffer,
             )
         };
@@ -5599,7 +5890,8 @@ impl UMovieSceneFadeTrackTestLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene_tracks::U_MOVIE_SCENE_FADE_TRACK_TEST_LIBRARY_GET_MANUAL_FADE_AMOUNT,
+                crate::bindings::movie_scene_tracks::__FUNCTION_PTRS
+                    .u_movie_scene_fade_track_test_library_get_manual_fade_amount,
                 __buffer,
             )
         };

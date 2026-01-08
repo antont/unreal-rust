@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_motion_extractor_utility_library_get_stopped_ranges_from_root_motion: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_extractor_utility_library_get_moving_ranges_from_root_motion: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_extractor_utility_library_get_desired_value: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_extractor_utility_library_generate_curve_name: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_motion_extractor_utility_library_get_stopped_ranges_from_root_motion: std::ptr::null_mut(),
+            u_motion_extractor_utility_library_get_moving_ranges_from_root_motion: std::ptr::null_mut(),
+            u_motion_extractor_utility_library_get_desired_value: std::ptr::null_mut(),
+            u_motion_extractor_utility_library_generate_curve_name: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,28 +33,31 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStoppedRangesFromRootMotion"),
-            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_extractor_utility_library_get_stopped_ranges_from_root_motion,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMovingRangesFromRootMotion"),
-            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_extractor_utility_library_get_moving_ranges_from_root_motion,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDesiredValue"),
-            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE,
+            &raw mut __FUNCTION_PTRS.u_motion_extractor_utility_library_get_desired_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateCurveName"),
-            &raw mut U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_extractor_utility_library_generate_curve_name,
         );
     }
 }
@@ -227,7 +239,8 @@ impl UMotionExtractorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_stopped_ranges_from_root_motion,
                 __buffer,
             )
         };
@@ -258,7 +271,8 @@ impl UMotionExtractorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_STOPPED_RANGES_FROM_ROOT_MOTION,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_stopped_ranges_from_root_motion,
                 __buffer,
             )
         };
@@ -281,7 +295,8 @@ impl UMotionExtractorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_moving_ranges_from_root_motion,
                 __buffer,
             )
         };
@@ -312,7 +327,8 @@ impl UMotionExtractorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_MOVING_RANGES_FROM_ROOT_MOTION,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_moving_ranges_from_root_motion,
                 __buffer,
             )
         };
@@ -337,7 +353,8 @@ impl UMotionExtractorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_desired_value,
                 __buffer,
             )
         };
@@ -382,7 +399,8 @@ impl UMotionExtractorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GET_DESIRED_VALUE,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_get_desired_value,
                 __buffer,
             )
         };
@@ -400,7 +418,8 @@ impl UMotionExtractorUtilityLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_generate_curve_name,
                 __buffer,
             )
         };
@@ -431,7 +450,8 @@ impl UMotionExtractorUtilityLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_modifier_library::U_MOTION_EXTRACTOR_UTILITY_LIBRARY_GENERATE_CURVE_NAME,
+                crate::bindings::animation_modifier_library::__FUNCTION_PTRS
+                    .u_motion_extractor_utility_library_generate_curve_name,
                 __buffer,
             )
         };

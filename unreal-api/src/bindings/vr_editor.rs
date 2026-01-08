@@ -1,106 +1,115 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_TELEPORT_DONE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_STOP_AIMING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_START_TELEPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_START_AIMING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_SHUTDOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_SET_VISIBILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_SET_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_IS_TELEPORTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_IS_AIMING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_INIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_GET_VR_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_GET_SLIDE_DELTA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_GET_INTERACTOR_TRYING_TELEPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut AVR_EDITOR_TELEPORTER_DO_TELEPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_UPDATE_HAND_MESH_RELATIVE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_TRY_OVERRIDE_CONTROLLER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_SETUP_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_SET_FORCE_SHOW_LASER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_SET_FORCE_LASER_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_SET_CONTROLLER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_SET_CONTROLLER_HAND_SIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_REPLACE_HAND_MESH_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_IS_TOUCHING_TRACKPAD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_IS_HOVERING_OVER_UI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_IS_CLICKING_ON_UI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_INIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_TRACKPAD_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_TELEPORT_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_SLIDE_DELTA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_SELECT_AND_MOVE_TRIGGER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_MOTION_CONTROLLER_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_LAST_TRACKPAD_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_LASER_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_LASER_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_HMD_DEVICE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_CONTROLLER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_CONTROLLER_SIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_INTERACTOR_GET_CONTROLLER_HAND_SIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_MODE_SET_GAME_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_MODE_IS_IN_GAME_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_EDITOR_MODE_GET_WORLD_SCALE_FACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_SCOUTING_INTERACTOR_SET_RECEIVES_EDITOR_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_SCOUTING_INTERACTOR_SET_GIZMO_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_SCOUTING_INTERACTOR_GET_SELECTED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_SCOUTING_INTERACTOR_GET_RECEIVES_EDITOR_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_SCOUTING_INTERACTOR_GET_INPUT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UVR_SCOUTING_INTERACTOR_GET_GIZMO_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub avr_editor_teleporter_teleport_done: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_stop_aiming: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_start_teleport: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_start_aiming: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_shutdown: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_set_visibility: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_set_color: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_is_teleporting: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_is_aiming: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_init: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_get_vr_mode: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_get_slide_delta: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_get_interactor_trying_teleport: *mut crate::ffi::UFunctionOpague,
+    pub avr_editor_teleporter_do_teleport: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_update_hand_mesh_relative_transform: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_try_override_controller_type: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_setup_component: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_set_force_show_laser: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_set_force_laser_color: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_set_controller_type: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_set_controller_hand_side: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_replace_hand_mesh_component: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_is_touching_trackpad: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_is_hovering_over_ui: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_is_clicking_on_ui: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_init: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_trackpad_position: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_teleport_actor: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_slide_delta: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_select_and_move_trigger_value: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_motion_controller_component: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_last_trackpad_position: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_laser_start: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_laser_end: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_hmd_device_type: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_controller_type: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_controller_side: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_interactor_get_controller_hand_side: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_mode_set_game_view: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_mode_is_in_game_view: *mut crate::ffi::UFunctionOpague,
+    pub uvr_editor_mode_get_world_scale_factor: *mut crate::ffi::UFunctionOpague,
+    pub uvr_scouting_interactor_set_receives_editor_input: *mut crate::ffi::UFunctionOpague,
+    pub uvr_scouting_interactor_set_gizmo_mode: *mut crate::ffi::UFunctionOpague,
+    pub uvr_scouting_interactor_get_selected_actors: *mut crate::ffi::UFunctionOpague,
+    pub uvr_scouting_interactor_get_receives_editor_input: *mut crate::ffi::UFunctionOpague,
+    pub uvr_scouting_interactor_get_input_component: *mut crate::ffi::UFunctionOpague,
+    pub uvr_scouting_interactor_get_gizmo_mode: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            avr_editor_teleporter_teleport_done: std::ptr::null_mut(),
+            avr_editor_teleporter_stop_aiming: std::ptr::null_mut(),
+            avr_editor_teleporter_start_teleport: std::ptr::null_mut(),
+            avr_editor_teleporter_start_aiming: std::ptr::null_mut(),
+            avr_editor_teleporter_shutdown: std::ptr::null_mut(),
+            avr_editor_teleporter_set_visibility: std::ptr::null_mut(),
+            avr_editor_teleporter_set_color: std::ptr::null_mut(),
+            avr_editor_teleporter_is_teleporting: std::ptr::null_mut(),
+            avr_editor_teleporter_is_aiming: std::ptr::null_mut(),
+            avr_editor_teleporter_init: std::ptr::null_mut(),
+            avr_editor_teleporter_get_vr_mode: std::ptr::null_mut(),
+            avr_editor_teleporter_get_slide_delta: std::ptr::null_mut(),
+            avr_editor_teleporter_get_interactor_trying_teleport: std::ptr::null_mut(),
+            avr_editor_teleporter_do_teleport: std::ptr::null_mut(),
+            uvr_editor_interactor_update_hand_mesh_relative_transform: std::ptr::null_mut(),
+            uvr_editor_interactor_try_override_controller_type: std::ptr::null_mut(),
+            uvr_editor_interactor_setup_component: std::ptr::null_mut(),
+            uvr_editor_interactor_set_force_show_laser: std::ptr::null_mut(),
+            uvr_editor_interactor_set_force_laser_color: std::ptr::null_mut(),
+            uvr_editor_interactor_set_controller_type: std::ptr::null_mut(),
+            uvr_editor_interactor_set_controller_hand_side: std::ptr::null_mut(),
+            uvr_editor_interactor_replace_hand_mesh_component: std::ptr::null_mut(),
+            uvr_editor_interactor_is_touching_trackpad: std::ptr::null_mut(),
+            uvr_editor_interactor_is_hovering_over_ui: std::ptr::null_mut(),
+            uvr_editor_interactor_is_clicking_on_ui: std::ptr::null_mut(),
+            uvr_editor_interactor_init: std::ptr::null_mut(),
+            uvr_editor_interactor_get_trackpad_position: std::ptr::null_mut(),
+            uvr_editor_interactor_get_teleport_actor: std::ptr::null_mut(),
+            uvr_editor_interactor_get_slide_delta: std::ptr::null_mut(),
+            uvr_editor_interactor_get_select_and_move_trigger_value: std::ptr::null_mut(),
+            uvr_editor_interactor_get_motion_controller_component: std::ptr::null_mut(),
+            uvr_editor_interactor_get_last_trackpad_position: std::ptr::null_mut(),
+            uvr_editor_interactor_get_laser_start: std::ptr::null_mut(),
+            uvr_editor_interactor_get_laser_end: std::ptr::null_mut(),
+            uvr_editor_interactor_get_hmd_device_type: std::ptr::null_mut(),
+            uvr_editor_interactor_get_controller_type: std::ptr::null_mut(),
+            uvr_editor_interactor_get_controller_side: std::ptr::null_mut(),
+            uvr_editor_interactor_get_controller_hand_side: std::ptr::null_mut(),
+            uvr_editor_mode_set_game_view: std::ptr::null_mut(),
+            uvr_editor_mode_is_in_game_view: std::ptr::null_mut(),
+            uvr_editor_mode_get_world_scale_factor: std::ptr::null_mut(),
+            uvr_scouting_interactor_set_receives_editor_input: std::ptr::null_mut(),
+            uvr_scouting_interactor_set_gizmo_mode: std::ptr::null_mut(),
+            uvr_scouting_interactor_get_selected_actors: std::ptr::null_mut(),
+            uvr_scouting_interactor_get_receives_editor_input: std::ptr::null_mut(),
+            uvr_scouting_interactor_get_input_component: std::ptr::null_mut(),
+            uvr_scouting_interactor_get_gizmo_mode: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -110,98 +119,98 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TeleportDone"),
-            &raw mut AVR_EDITOR_TELEPORTER_TELEPORT_DONE,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_teleport_done,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAiming"),
-            &raw mut AVR_EDITOR_TELEPORTER_STOP_AIMING,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_stop_aiming,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartTeleport"),
-            &raw mut AVR_EDITOR_TELEPORTER_START_TELEPORT,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_start_teleport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartAiming"),
-            &raw mut AVR_EDITOR_TELEPORTER_START_AIMING,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_start_aiming,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Shutdown"),
-            &raw mut AVR_EDITOR_TELEPORTER_SHUTDOWN,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_shutdown,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVisibility"),
-            &raw mut AVR_EDITOR_TELEPORTER_SET_VISIBILITY,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_set_visibility,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetColor"),
-            &raw mut AVR_EDITOR_TELEPORTER_SET_COLOR,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_set_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTeleporting"),
-            &raw mut AVR_EDITOR_TELEPORTER_IS_TELEPORTING,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_is_teleporting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAiming"),
-            &raw mut AVR_EDITOR_TELEPORTER_IS_AIMING,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_is_aiming,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Init"),
-            &raw mut AVR_EDITOR_TELEPORTER_INIT,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_init,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVRMode"),
-            &raw mut AVR_EDITOR_TELEPORTER_GET_VR_MODE,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_vr_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlideDelta"),
-            &raw mut AVR_EDITOR_TELEPORTER_GET_SLIDE_DELTA,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_slide_delta,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInteractorTryingTeleport"),
-            &raw mut AVR_EDITOR_TELEPORTER_GET_INTERACTOR_TRYING_TELEPORT,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_get_interactor_trying_teleport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DoTeleport"),
-            &raw mut AVR_EDITOR_TELEPORTER_DO_TELEPORT,
+            &raw mut __FUNCTION_PTRS.avr_editor_teleporter_do_teleport,
         );
     }
     unsafe {
@@ -212,168 +221,171 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateHandMeshRelativeTransform"),
-            &raw mut UVR_EDITOR_INTERACTOR_UPDATE_HAND_MESH_RELATIVE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .uvr_editor_interactor_update_hand_mesh_relative_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TryOverrideControllerType"),
-            &raw mut UVR_EDITOR_INTERACTOR_TRY_OVERRIDE_CONTROLLER_TYPE,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_try_override_controller_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetupComponent"),
-            &raw mut UVR_EDITOR_INTERACTOR_SETUP_COMPONENT,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_setup_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetForceShowLaser"),
-            &raw mut UVR_EDITOR_INTERACTOR_SET_FORCE_SHOW_LASER,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_force_show_laser,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetForceLaserColor"),
-            &raw mut UVR_EDITOR_INTERACTOR_SET_FORCE_LASER_COLOR,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_force_laser_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControllerType"),
-            &raw mut UVR_EDITOR_INTERACTOR_SET_CONTROLLER_TYPE,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_controller_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetControllerHandSide"),
-            &raw mut UVR_EDITOR_INTERACTOR_SET_CONTROLLER_HAND_SIDE,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_set_controller_hand_side,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceHandMeshComponent"),
-            &raw mut UVR_EDITOR_INTERACTOR_REPLACE_HAND_MESH_COMPONENT,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_replace_hand_mesh_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTouchingTrackpad"),
-            &raw mut UVR_EDITOR_INTERACTOR_IS_TOUCHING_TRACKPAD,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_touching_trackpad,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsHoveringOverUI"),
-            &raw mut UVR_EDITOR_INTERACTOR_IS_HOVERING_OVER_UI,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_hovering_over_ui,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsClickingOnUI"),
-            &raw mut UVR_EDITOR_INTERACTOR_IS_CLICKING_ON_UI,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_is_clicking_on_ui,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Init"),
-            &raw mut UVR_EDITOR_INTERACTOR_INIT,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_init,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrackpadPosition"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_TRACKPAD_POSITION,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_trackpad_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTeleportActor"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_TELEPORT_ACTOR,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_teleport_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSlideDelta"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_SLIDE_DELTA,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_slide_delta,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectAndMoveTriggerValue"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_SELECT_AND_MOVE_TRIGGER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .uvr_editor_interactor_get_select_and_move_trigger_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMotionControllerComponent"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_MOTION_CONTROLLER_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .uvr_editor_interactor_get_motion_controller_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLastTrackpadPosition"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_LAST_TRACKPAD_POSITION,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_last_trackpad_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLaserStart"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_LASER_START,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_laser_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLaserEnd"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_LASER_END,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_laser_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHMDDeviceType"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_HMD_DEVICE_TYPE,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_hmd_device_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControllerType"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_CONTROLLER_TYPE,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControllerSide"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_CONTROLLER_SIDE,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_side,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControllerHandSide"),
-            &raw mut UVR_EDITOR_INTERACTOR_GET_CONTROLLER_HAND_SIDE,
+            &raw mut __FUNCTION_PTRS.uvr_editor_interactor_get_controller_hand_side,
         );
     }
     unsafe {
@@ -384,21 +396,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGameView"),
-            &raw mut UVR_EDITOR_MODE_SET_GAME_VIEW,
+            &raw mut __FUNCTION_PTRS.uvr_editor_mode_set_game_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInGameView"),
-            &raw mut UVR_EDITOR_MODE_IS_IN_GAME_VIEW,
+            &raw mut __FUNCTION_PTRS.uvr_editor_mode_is_in_game_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorldScaleFactor"),
-            &raw mut UVR_EDITOR_MODE_GET_WORLD_SCALE_FACTOR,
+            &raw mut __FUNCTION_PTRS.uvr_editor_mode_get_world_scale_factor,
         );
     }
     unsafe {
@@ -409,42 +421,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReceivesEditorInput"),
-            &raw mut UVR_SCOUTING_INTERACTOR_SET_RECEIVES_EDITOR_INPUT,
+            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_set_receives_editor_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGizmoMode"),
-            &raw mut UVR_SCOUTING_INTERACTOR_SET_GIZMO_MODE,
+            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_set_gizmo_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedActors"),
-            &raw mut UVR_SCOUTING_INTERACTOR_GET_SELECTED_ACTORS,
+            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_selected_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReceivesEditorInput"),
-            &raw mut UVR_SCOUTING_INTERACTOR_GET_RECEIVES_EDITOR_INPUT,
+            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_receives_editor_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInputComponent"),
-            &raw mut UVR_SCOUTING_INTERACTOR_GET_INPUT_COMPONENT,
+            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_input_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGizmoMode"),
-            &raw mut UVR_SCOUTING_INTERACTOR_GET_GIZMO_MODE,
+            &raw mut __FUNCTION_PTRS.uvr_scouting_interactor_get_gizmo_mode,
         );
     }
 }
@@ -524,7 +536,7 @@ impl AVREditorTeleporter {
             cdo
         }
     }
-    pub fn stop_aiming(&mut self) {
+    pub fn teleport_done(&mut self) {
         let mut __stack = crate::core_data::StackAlloc::<0>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
@@ -532,7 +544,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_STOP_AIMING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_teleport_done,
                 __buffer,
             )
         };
@@ -542,7 +555,58 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_STOP_AIMING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_teleport_done,
+                __buffer,
+            )
+        };
+    }
+    pub fn stop_aiming(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_stop_aiming,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_stop_aiming,
+                __buffer,
+            )
+        };
+    }
+    pub fn start_teleport(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_start_teleport,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_start_teleport,
                 __buffer,
             )
         };
@@ -558,7 +622,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_START_AIMING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_start_aiming,
                 __buffer,
             )
         };
@@ -579,7 +644,33 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_START_AIMING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_start_aiming,
+                __buffer,
+            )
+        };
+    }
+    pub fn shutdown(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_shutdown,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_shutdown,
                 __buffer,
             )
         };
@@ -592,7 +683,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_VISIBILITY,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_set_visibility,
                 __buffer,
             )
         };
@@ -605,7 +697,8 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_VISIBILITY,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_set_visibility,
                 __buffer,
             )
         };
@@ -618,7 +711,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_COLOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_set_color,
                 __buffer,
             )
         };
@@ -635,7 +729,8 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_SET_COLOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_set_color,
                 __buffer,
             )
         };
@@ -648,7 +743,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_TELEPORTING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_is_teleporting,
                 __buffer,
             )
         };
@@ -658,7 +754,8 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_TELEPORTING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_is_teleporting,
                 __buffer,
             )
         };
@@ -672,7 +769,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_AIMING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_is_aiming,
                 __buffer,
             )
         };
@@ -682,11 +780,42 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_IS_AIMING,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_is_aiming,
                 __buffer,
             )
         };
         unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn init(&mut self, in_mode: UPtr<UVREditorMode>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS.avr_editor_teleporter_init,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_mode,
+                __buffer.add(0).cast::<UPtr<UVREditorMode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS.avr_editor_teleporter_init,
+                __buffer,
+            )
+        };
     }
     pub fn get_vr_mode(&self) -> UPtr<UVREditorMode> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -696,7 +825,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_VR_MODE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_get_vr_mode,
                 __buffer,
             )
         };
@@ -706,11 +836,52 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_VR_MODE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_get_vr_mode,
                 __buffer,
             )
         };
         unsafe { __buffer.add(0).cast::<UPtr<UVREditorMode>>().read() }
+    }
+    pub fn get_slide_delta(
+        &mut self,
+        interactor: UPtr<UVREditorInteractor>,
+        axis: bool,
+    ) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_get_slide_delta,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &interactor,
+                __buffer.add(0).cast::<UPtr<UVREditorInteractor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&axis, __buffer.add(8).cast::<bool>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_get_slide_delta,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(12).cast::<f32>().read() }
     }
     pub fn get_interactor_trying_teleport(
         &self,
@@ -722,7 +893,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_INTERACTOR_TRYING_TELEPORT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_get_interactor_trying_teleport,
                 __buffer,
             )
         };
@@ -732,7 +904,8 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_GET_INTERACTOR_TRYING_TELEPORT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_get_interactor_trying_teleport,
                 __buffer,
             )
         };
@@ -753,7 +926,8 @@ impl AVREditorTeleporter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_DO_TELEPORT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_do_teleport,
                 __buffer,
             )
         };
@@ -763,7 +937,8 @@ impl AVREditorTeleporter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::AVR_EDITOR_TELEPORTER_DO_TELEPORT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .avr_editor_teleporter_do_teleport,
                 __buffer,
             )
         };
@@ -1086,6 +1261,31 @@ impl UVREditorInteractor {
             cdo
         }
     }
+    pub fn update_hand_mesh_relative_transform(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_update_hand_mesh_relative_transform,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_update_hand_mesh_relative_transform,
+                __buffer,
+            )
+        };
+    }
     pub fn try_override_controller_type(
         &mut self,
         in_controller_type: EControllerType,
@@ -1097,7 +1297,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_TRY_OVERRIDE_CONTROLLER_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_try_override_controller_type,
                 __buffer,
             )
         };
@@ -1114,11 +1315,47 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_TRY_OVERRIDE_CONTROLLER_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_try_override_controller_type,
                 __buffer,
             )
         };
         unsafe { __buffer.add(1).cast::<bool>().read() }
+    }
+    pub fn setup_component(
+        &mut self,
+        owning_actor: UPtr<crate::bindings::engine::AActor>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_setup_component,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &owning_actor,
+                __buffer.add(0).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_setup_component,
+                __buffer,
+            )
+        };
     }
     pub fn set_force_show_laser(&mut self, b_in_force_show: bool) {
         let mut __stack = crate::core_data::StackAlloc::<1>::new();
@@ -1128,7 +1365,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_SHOW_LASER,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_force_show_laser,
                 __buffer,
             )
         };
@@ -1145,7 +1383,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_SHOW_LASER,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_force_show_laser,
                 __buffer,
             )
         };
@@ -1161,7 +1400,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_LASER_COLOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_force_laser_color,
                 __buffer,
             )
         };
@@ -1178,7 +1418,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_FORCE_LASER_COLOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_force_laser_color,
                 __buffer,
             )
         };
@@ -1191,7 +1432,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_controller_type,
                 __buffer,
             )
         };
@@ -1208,7 +1450,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_controller_type,
                 __buffer,
             )
         };
@@ -1221,7 +1464,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_HAND_SIDE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_controller_hand_side,
                 __buffer,
             )
         };
@@ -1238,7 +1482,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_SET_CONTROLLER_HAND_SIDE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_set_controller_hand_side,
                 __buffer,
             )
         };
@@ -1255,7 +1500,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_REPLACE_HAND_MESH_COMPONENT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_replace_hand_mesh_component,
                 __buffer,
             )
         };
@@ -1279,7 +1525,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_REPLACE_HAND_MESH_COMPONENT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_replace_hand_mesh_component,
                 __buffer,
             )
         };
@@ -1292,7 +1539,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_TOUCHING_TRACKPAD,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_is_touching_trackpad,
                 __buffer,
             )
         };
@@ -1302,7 +1550,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_TOUCHING_TRACKPAD,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_is_touching_trackpad,
                 __buffer,
             )
         };
@@ -1316,7 +1565,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_HOVERING_OVER_UI,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_is_hovering_over_ui,
                 __buffer,
             )
         };
@@ -1326,7 +1576,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_HOVERING_OVER_UI,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_is_hovering_over_ui,
                 __buffer,
             )
         };
@@ -1340,7 +1591,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_CLICKING_ON_UI,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_is_clicking_on_ui,
                 __buffer,
             )
         };
@@ -1350,11 +1602,42 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_IS_CLICKING_ON_UI,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_is_clicking_on_ui,
                 __buffer,
             )
         };
         unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn init(&mut self, in_vr_mode: UPtr<UVREditorMode>) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS.uvr_editor_interactor_init,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_vr_mode,
+                __buffer.add(0).cast::<UPtr<UVREditorMode>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS.uvr_editor_interactor_init,
+                __buffer,
+            )
+        };
     }
     pub fn get_trackpad_position(&self) -> crate::bindings::core_u_object::FVector2D {
         let mut __stack = crate::core_data::StackAlloc::<16>::new();
@@ -1364,7 +1647,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TRACKPAD_POSITION,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_trackpad_position,
                 __buffer,
             )
         };
@@ -1374,7 +1658,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TRACKPAD_POSITION,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_trackpad_position,
                 __buffer,
             )
         };
@@ -1390,7 +1675,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TELEPORT_ACTOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_teleport_actor,
                 __buffer,
             )
         };
@@ -1400,11 +1686,38 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_TELEPORT_ACTOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_teleport_actor,
                 __buffer,
             )
         };
         unsafe { __buffer.add(0).cast::<UPtr<AVREditorTeleporter>>().read() }
+    }
+    pub fn get_slide_delta(&self) -> f32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_slide_delta,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_slide_delta,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<f32>().read() }
     }
     pub fn get_select_and_move_trigger_value(&self) -> f32 {
         let mut __stack = crate::core_data::StackAlloc::<4>::new();
@@ -1414,7 +1727,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_SELECT_AND_MOVE_TRIGGER_VALUE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_select_and_move_trigger_value,
                 __buffer,
             )
         };
@@ -1424,7 +1738,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_SELECT_AND_MOVE_TRIGGER_VALUE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_select_and_move_trigger_value,
                 __buffer,
             )
         };
@@ -1440,7 +1755,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_MOTION_CONTROLLER_COMPONENT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_motion_controller_component,
                 __buffer,
             )
         };
@@ -1450,7 +1766,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_MOTION_CONTROLLER_COMPONENT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_motion_controller_component,
                 __buffer,
             )
         };
@@ -1475,7 +1792,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LAST_TRACKPAD_POSITION,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_last_trackpad_position,
                 __buffer,
             )
         };
@@ -1485,7 +1803,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LAST_TRACKPAD_POSITION,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_last_trackpad_position,
                 __buffer,
             )
         };
@@ -1501,7 +1820,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_START,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_laser_start,
                 __buffer,
             )
         };
@@ -1511,7 +1831,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_START,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_laser_start,
                 __buffer,
             )
         };
@@ -1527,7 +1848,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_END,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_laser_end,
                 __buffer,
             )
         };
@@ -1537,7 +1859,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_LASER_END,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_laser_end,
                 __buffer,
             )
         };
@@ -1553,7 +1876,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_HMD_DEVICE_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_hmd_device_type,
                 __buffer,
             )
         };
@@ -1563,7 +1887,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_HMD_DEVICE_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_hmd_device_type,
                 __buffer,
             )
         };
@@ -1577,7 +1902,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_controller_type,
                 __buffer,
             )
         };
@@ -1587,7 +1913,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_TYPE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_controller_type,
                 __buffer,
             )
         };
@@ -1601,7 +1928,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_SIDE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_controller_side,
                 __buffer,
             )
         };
@@ -1611,7 +1939,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_SIDE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_controller_side,
                 __buffer,
             )
         };
@@ -1627,7 +1956,8 @@ impl UVREditorInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_HAND_SIDE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_controller_hand_side,
                 __buffer,
             )
         };
@@ -1637,7 +1967,8 @@ impl UVREditorInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_INTERACTOR_GET_CONTROLLER_HAND_SIDE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_interactor_get_controller_hand_side,
                 __buffer,
             )
         };
@@ -1697,7 +2028,8 @@ impl UVREditorMode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_MODE_SET_GAME_VIEW,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_mode_set_game_view,
                 __buffer,
             )
         };
@@ -1714,7 +2046,8 @@ impl UVREditorMode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_MODE_SET_GAME_VIEW,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_mode_set_game_view,
                 __buffer,
             )
         };
@@ -1727,7 +2060,8 @@ impl UVREditorMode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_MODE_IS_IN_GAME_VIEW,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_mode_is_in_game_view,
                 __buffer,
             )
         };
@@ -1737,7 +2071,8 @@ impl UVREditorMode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_MODE_IS_IN_GAME_VIEW,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_mode_is_in_game_view,
                 __buffer,
             )
         };
@@ -1751,7 +2086,8 @@ impl UVREditorMode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_EDITOR_MODE_GET_WORLD_SCALE_FACTOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_mode_get_world_scale_factor,
                 __buffer,
             )
         };
@@ -1761,7 +2097,8 @@ impl UVREditorMode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_EDITOR_MODE_GET_WORLD_SCALE_FACTOR,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_editor_mode_get_world_scale_factor,
                 __buffer,
             )
         };
@@ -1843,7 +2180,8 @@ impl UVRScoutingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_set_receives_editor_input,
                 __buffer,
             )
         };
@@ -1860,7 +2198,8 @@ impl UVRScoutingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_set_receives_editor_input,
                 __buffer,
             )
         };
@@ -1876,7 +2215,8 @@ impl UVRScoutingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_GIZMO_MODE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_set_gizmo_mode,
                 __buffer,
             )
         };
@@ -1895,7 +2235,8 @@ impl UVRScoutingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_SET_GIZMO_MODE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_set_gizmo_mode,
                 __buffer,
             )
         };
@@ -1908,7 +2249,8 @@ impl UVRScoutingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_SELECTED_ACTORS,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_selected_actors,
                 __buffer,
             )
         };
@@ -1918,7 +2260,8 @@ impl UVRScoutingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_SELECTED_ACTORS,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_selected_actors,
                 __buffer,
             )
         };
@@ -1937,7 +2280,8 @@ impl UVRScoutingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_receives_editor_input,
                 __buffer,
             )
         };
@@ -1947,7 +2291,8 @@ impl UVRScoutingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_RECEIVES_EDITOR_INPUT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_receives_editor_input,
                 __buffer,
             )
         };
@@ -1961,7 +2306,8 @@ impl UVRScoutingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_INPUT_COMPONENT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_input_component,
                 __buffer,
             )
         };
@@ -1971,7 +2317,8 @@ impl UVRScoutingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_INPUT_COMPONENT,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_input_component,
                 __buffer,
             )
         };
@@ -1992,7 +2339,8 @@ impl UVRScoutingInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_GIZMO_MODE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_gizmo_mode,
                 __buffer,
             )
         };
@@ -2002,7 +2350,8 @@ impl UVRScoutingInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::vr_editor::UVR_SCOUTING_INTERACTOR_GET_GIZMO_MODE,
+                crate::bindings::vr_editor::__FUNCTION_PTRS
+                    .uvr_scouting_interactor_get_gizmo_mode,
                 __buffer,
             )
         };

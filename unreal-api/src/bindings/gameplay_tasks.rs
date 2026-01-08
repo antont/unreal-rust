@@ -1,38 +1,47 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_READY_FOR_ACTIVATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_GENERIC_GAMEPLAY_TASK_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_END_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASKS_COMPONENT_ON_REP_SIMULATED_TASKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASKS_COMPONENT_K2_RUN_GAMEPLAY_TASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_SPAWN_ACTOR_SPAWN_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_SPAWN_ACTOR_FINISH_SPAWNING_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_SPAWN_ACTOR_BEGIN_SPAWNING_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_TIME_LIMITED_EXECUTION_TASK_FINISH_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_WAIT_DELAY_TASK_WAIT_DELAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_GAMEPLAY_TASK_WAIT_DELAY_TASK_DELAY_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_gameplay_task_ready_for_activation: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_generic_gameplay_task_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_end_task: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_tasks_component_on_rep_simulated_tasks: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_tasks_component_k2_run_gameplay_task: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_claim_resource_claim_resources: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_claim_resource_claim_resource: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_spawn_actor_spawn_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_spawn_actor_finish_spawning_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_spawn_actor_begin_spawning_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_time_limited_execution_task_finish_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_wait_delay_task_wait_delay: *mut crate::ffi::UFunctionOpague,
+    pub u_gameplay_task_wait_delay_task_delay_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_gameplay_task_ready_for_activation: std::ptr::null_mut(),
+            u_gameplay_task_generic_gameplay_task_delegate_delegate_signature: std::ptr::null_mut(),
+            u_gameplay_task_end_task: std::ptr::null_mut(),
+            u_gameplay_tasks_component_on_rep_simulated_tasks: std::ptr::null_mut(),
+            u_gameplay_tasks_component_k2_run_gameplay_task: std::ptr::null_mut(),
+            u_gameplay_task_claim_resource_claim_resources: std::ptr::null_mut(),
+            u_gameplay_task_claim_resource_claim_resource: std::ptr::null_mut(),
+            u_gameplay_task_spawn_actor_spawn_actor: std::ptr::null_mut(),
+            u_gameplay_task_spawn_actor_finish_spawning_actor: std::ptr::null_mut(),
+            u_gameplay_task_spawn_actor_begin_spawning_actor: std::ptr::null_mut(),
+            u_gameplay_task_time_limited_execution_task_finish_delegate_delegate_signature: std::ptr::null_mut(),
+            u_gameplay_task_wait_delay_task_wait_delay: std::ptr::null_mut(),
+            u_gameplay_task_wait_delay_task_delay_delegate_delegate_signature: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -42,21 +51,22 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadyForActivation"),
-            &raw mut U_GAMEPLAY_TASK_READY_FOR_ACTIVATION,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_ready_for_activation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenericGameplayTaskDelegate__DelegateSignature"),
-            &raw mut U_GAMEPLAY_TASK_GENERIC_GAMEPLAY_TASK_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_task_generic_gameplay_task_delegate_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EndTask"),
-            &raw mut U_GAMEPLAY_TASK_END_TASK,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_end_task,
         );
     }
     unsafe {
@@ -67,14 +77,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRep_SimulatedTasks"),
-            &raw mut U_GAMEPLAY_TASKS_COMPONENT_ON_REP_SIMULATED_TASKS,
+            &raw mut __FUNCTION_PTRS.u_gameplay_tasks_component_on_rep_simulated_tasks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_RunGameplayTask"),
-            &raw mut U_GAMEPLAY_TASKS_COMPONENT_K2_RUN_GAMEPLAY_TASK,
+            &raw mut __FUNCTION_PTRS.u_gameplay_tasks_component_k2_run_gameplay_task,
         );
     }
     unsafe {
@@ -85,14 +95,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClaimResources"),
-            &raw mut U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCES,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_claim_resource_claim_resources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClaimResource"),
-            &raw mut U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCE,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_claim_resource_claim_resource,
         );
     }
     unsafe {
@@ -103,21 +113,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnActor"),
-            &raw mut U_GAMEPLAY_TASK_SPAWN_ACTOR_SPAWN_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_spawn_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FinishSpawningActor"),
-            &raw mut U_GAMEPLAY_TASK_SPAWN_ACTOR_FINISH_SPAWNING_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_finish_spawning_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BeginSpawningActor"),
-            &raw mut U_GAMEPLAY_TASK_SPAWN_ACTOR_BEGIN_SPAWNING_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_spawn_actor_begin_spawning_actor,
         );
     }
     unsafe {
@@ -128,7 +138,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TaskFinishDelegate__DelegateSignature"),
-            &raw mut U_GAMEPLAY_TASK_TIME_LIMITED_EXECUTION_TASK_FINISH_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_task_time_limited_execution_task_finish_delegate_delegate_signature,
         );
     }
     unsafe {
@@ -139,14 +150,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TaskWaitDelay"),
-            &raw mut U_GAMEPLAY_TASK_WAIT_DELAY_TASK_WAIT_DELAY,
+            &raw mut __FUNCTION_PTRS.u_gameplay_task_wait_delay_task_wait_delay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TaskDelayDelegate__DelegateSignature"),
-            &raw mut U_GAMEPLAY_TASK_WAIT_DELAY_TASK_DELAY_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_gameplay_task_wait_delay_task_delay_delegate_delegate_signature,
         );
     }
 }
@@ -183,7 +195,8 @@ impl UGameplayTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_READY_FOR_ACTIVATION,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_ready_for_activation,
                 __buffer,
             )
         };
@@ -193,7 +206,8 @@ impl UGameplayTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_READY_FOR_ACTIVATION,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_ready_for_activation,
                 __buffer,
             )
         };
@@ -206,7 +220,8 @@ impl UGameplayTask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_END_TASK,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_end_task,
                 __buffer,
             )
         };
@@ -216,7 +231,8 @@ impl UGameplayTask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_END_TASK,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_end_task,
                 __buffer,
             )
         };
@@ -305,7 +321,8 @@ impl UGameplayTasksComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASKS_COMPONENT_K2_RUN_GAMEPLAY_TASK,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_tasks_component_k2_run_gameplay_task,
                 __buffer,
             )
         };
@@ -346,7 +363,8 @@ impl UGameplayTasksComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASKS_COMPONENT_K2_RUN_GAMEPLAY_TASK,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_tasks_component_k2_run_gameplay_task,
                 __buffer,
             )
         };
@@ -386,7 +404,8 @@ impl UGameplayTask_ClaimResource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCES,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_claim_resource_claim_resources,
                 __buffer,
             )
         };
@@ -420,7 +439,8 @@ impl UGameplayTask_ClaimResource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCES,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_claim_resource_claim_resources,
                 __buffer,
             )
         };
@@ -439,7 +459,8 @@ impl UGameplayTask_ClaimResource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCE,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_claim_resource_claim_resource,
                 __buffer,
             )
         };
@@ -473,7 +494,8 @@ impl UGameplayTask_ClaimResource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_CLAIM_RESOURCE_CLAIM_RESOURCE,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_claim_resource_claim_resource,
                 __buffer,
             )
         };
@@ -514,7 +536,8 @@ impl UGameplayTask_SpawnActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_SPAWN_ACTOR,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_spawn_actor_spawn_actor,
                 __buffer,
             )
         };
@@ -559,7 +582,8 @@ impl UGameplayTask_SpawnActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_SPAWN_ACTOR,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_spawn_actor_spawn_actor,
                 __buffer,
             )
         };
@@ -577,7 +601,8 @@ impl UGameplayTask_SpawnActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_FINISH_SPAWNING_ACTOR,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_spawn_actor_finish_spawning_actor,
                 __buffer,
             )
         };
@@ -601,7 +626,8 @@ impl UGameplayTask_SpawnActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_FINISH_SPAWNING_ACTOR,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_spawn_actor_finish_spawning_actor,
                 __buffer,
             )
         };
@@ -618,7 +644,8 @@ impl UGameplayTask_SpawnActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_BEGIN_SPAWNING_ACTOR,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_spawn_actor_begin_spawning_actor,
                 __buffer,
             )
         };
@@ -642,7 +669,8 @@ impl UGameplayTask_SpawnActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_SPAWN_ACTOR_BEGIN_SPAWNING_ACTOR,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_spawn_actor_begin_spawning_actor,
                 __buffer,
             )
         };
@@ -708,7 +736,8 @@ impl UGameplayTask_WaitDelay {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_WAIT_DELAY_TASK_WAIT_DELAY,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_wait_delay_task_wait_delay,
                 __buffer,
             )
         };
@@ -731,7 +760,8 @@ impl UGameplayTask_WaitDelay {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::gameplay_tasks::U_GAMEPLAY_TASK_WAIT_DELAY_TASK_WAIT_DELAY,
+                crate::bindings::gameplay_tasks::__FUNCTION_PTRS
+                    .u_gameplay_task_wait_delay_task_wait_delay,
                 __buffer,
             )
         };

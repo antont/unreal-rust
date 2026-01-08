@@ -1,32 +1,41 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_INVERT_CURRENT_SURFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_INVERT_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_FLOOD_FILL_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_CLEAR_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_SET_DATAFLOW_NODE_PROPERTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_CONNECT_DATAFLOW_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_FROM_CLIPBOARD_CONTENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_SIMULATION_SCENE_DESCRIPTION_NEW_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_SIMULATION_SCENE_DESCRIPTION_GENERATE_GEOMETRY_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current_surface: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_editor_mesh_weight_map_paint_tool_actions_flood_fill_current: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_editor_mesh_weight_map_paint_tool_actions_clear_all: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_editor_blueprint_library_set_dataflow_node_property: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_editor_blueprint_library_connect_dataflow_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_editor_blueprint_library_add_dataflow_node: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_editor_blueprint_library_add_dataflow_from_clipboard_content: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_simulation_scene_description_new_geometry_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_simulation_scene_description_generate_geometry_cache: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current_surface: std::ptr::null_mut(),
+            u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current: std::ptr::null_mut(),
+            u_dataflow_editor_mesh_weight_map_paint_tool_actions_flood_fill_current: std::ptr::null_mut(),
+            u_dataflow_editor_mesh_weight_map_paint_tool_actions_clear_all: std::ptr::null_mut(),
+            u_dataflow_editor_blueprint_library_set_dataflow_node_property: std::ptr::null_mut(),
+            u_dataflow_editor_blueprint_library_connect_dataflow_nodes: std::ptr::null_mut(),
+            u_dataflow_editor_blueprint_library_add_dataflow_node: std::ptr::null_mut(),
+            u_dataflow_editor_blueprint_library_add_dataflow_from_clipboard_content: std::ptr::null_mut(),
+            u_dataflow_simulation_scene_description_new_geometry_cache: std::ptr::null_mut(),
+            u_dataflow_simulation_scene_description_generate_geometry_cache: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -36,28 +45,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InvertCurrentSurface"),
-            &raw mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_INVERT_CURRENT_SURFACE,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current_surface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InvertCurrent"),
-            &raw mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_INVERT_CURRENT,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_invert_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FloodFillCurrent"),
-            &raw mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_FLOOD_FILL_CURRENT,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_flood_fill_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAll"),
-            &raw mut U_DATAFLOW_EDITOR_MESH_WEIGHT_MAP_PAINT_TOOL_ACTIONS_CLEAR_ALL,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_mesh_weight_map_paint_tool_actions_clear_all,
         );
     }
     unsafe {
@@ -68,28 +81,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDataflowNodeProperty"),
-            &raw mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_SET_DATAFLOW_NODE_PROPERTY,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_blueprint_library_set_dataflow_node_property,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectDataflowNodes"),
-            &raw mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_CONNECT_DATAFLOW_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_blueprint_library_connect_dataflow_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDataflowNode"),
-            &raw mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_blueprint_library_add_dataflow_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDataflowFromClipboardContent"),
-            &raw mut U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_FROM_CLIPBOARD_CONTENT,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_editor_blueprint_library_add_dataflow_from_clipboard_content,
         );
     }
     unsafe {
@@ -100,14 +117,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NewGeometryCache"),
-            &raw mut U_DATAFLOW_SIMULATION_SCENE_DESCRIPTION_NEW_GEOMETRY_CACHE,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_simulation_scene_description_new_geometry_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateGeometryCache"),
-            &raw mut U_DATAFLOW_SIMULATION_SCENE_DESCRIPTION_GENERATE_GEOMETRY_CACHE,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_simulation_scene_description_generate_geometry_cache,
         );
     }
 }
@@ -754,7 +773,8 @@ impl UDataflowEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_SET_DATAFLOW_NODE_PROPERTY,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_set_dataflow_node_property,
                 __buffer,
             )
         };
@@ -794,7 +814,8 @@ impl UDataflowEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_SET_DATAFLOW_NODE_PROPERTY,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_set_dataflow_node_property,
                 __buffer,
             )
         };
@@ -814,7 +835,8 @@ impl UDataflowEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_CONNECT_DATAFLOW_NODES,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_connect_dataflow_nodes,
                 __buffer,
             )
         };
@@ -861,7 +883,8 @@ impl UDataflowEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_CONNECT_DATAFLOW_NODES,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_connect_dataflow_nodes,
                 __buffer,
             )
         };
@@ -880,7 +903,8 @@ impl UDataflowEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_NODE,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_add_dataflow_node,
                 __buffer,
             )
         };
@@ -920,7 +944,8 @@ impl UDataflowEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_NODE,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_add_dataflow_node,
                 __buffer,
             )
         };
@@ -938,7 +963,8 @@ impl UDataflowEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_FROM_CLIPBOARD_CONTENT,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_add_dataflow_from_clipboard_content,
                 __buffer,
             )
         };
@@ -971,7 +997,8 @@ impl UDataflowEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_editor::U_DATAFLOW_EDITOR_BLUEPRINT_LIBRARY_ADD_DATAFLOW_FROM_CLIPBOARD_CONTENT,
+                crate::bindings::dataflow_editor::__FUNCTION_PTRS
+                    .u_dataflow_editor_blueprint_library_add_dataflow_from_clipboard_content,
                 __buffer,
             )
         };

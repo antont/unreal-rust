@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_svg_distance_field_generator_generate_texture_from_svg_file: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_svg_distance_field_generator_generate_texture_from_svg_file: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GenerateTextureFromSvgFile"),
-            &raw mut U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE,
+            &raw mut __FUNCTION_PTRS
+                .u_svg_distance_field_generator_generate_texture_from_svg_file,
         );
     }
 }
@@ -68,7 +78,8 @@ impl USvgDistanceFieldGenerator {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::svg_distance_field::U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE,
+                crate::bindings::svg_distance_field::__FUNCTION_PTRS
+                    .u_svg_distance_field_generator_generate_texture_from_svg_file,
                 __buffer,
             )
         };
@@ -92,7 +103,8 @@ impl USvgDistanceFieldGenerator {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::svg_distance_field::U_SVG_DISTANCE_FIELD_GENERATOR_GENERATE_TEXTURE_FROM_SVG_FILE,
+                crate::bindings::svg_distance_field::__FUNCTION_PTRS
+                    .u_svg_distance_field_generator_generate_texture_from_svg_file,
                 __buffer,
             )
         };

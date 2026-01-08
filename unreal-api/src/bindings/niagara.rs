@@ -1,624 +1,633 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_DISTRIBUTION_INT_SET_NIAGARA_ARRAY_DISTRIBUTION_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH_SM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_SCENE_CAPTURE2_D_SET_SCENE_CAPTURE2_D_MANAGED_SHOW_ONLY_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_STATIC_MESH_SET_NIAGARA_STATIC_MESH_DI_INSTANCE_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_STATIC_MESH_ON_SOURCE_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_U_OBJECT_PROPERTY_READER_SET_U_OBJECT_READER_PROPERTY_REMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_START_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_EVALUATE_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_END_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_ALLOW_SCALABILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_AGE_UPDATE_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_START_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_EVALUATE_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_END_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_ALLOW_SCALABILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_AGE_UPDATE_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_ACTOR_SET_DESTROY_ON_SYSTEM_FINISH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_ACTOR_ON_NIAGARA_SYSTEM_FINISHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_ACTOR_GET_DESTROY_ON_SYSTEM_FINISH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_VEC4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_VEC3: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_VEC2: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_VARIABLE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_TICK_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_SYSTEM_FIXED_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_SIM_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_SEEK_DELTA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_RENDERING_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_RANDOM_SEED_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_PREVIEW_LOD_DISTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_OCCLUSION_QUERY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC3: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC2: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_MAX_SIM_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_GPU_COMPUTE_DEBUG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_FORCE_SOLO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_FORCE_LOCAL_PLAYER_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_EMITTER_FIXED_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_DESIRED_AGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_CUSTOM_TIME_DILATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_CAN_RENDER_WHILE_SEEKING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_AUTO_DESTROY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_ALLOW_SCALABILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SET_AGE_UPDATE_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_SEEK_TO_DESIRED_AGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_RESET_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_REINITIALIZE_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_IS_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_INIT_FOR_PERFORMANCE_BASELINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_VEC4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_VEC3: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_VEC2: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_VARIABLE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_TICK_BEHAVIOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_SYSTEM_FIXED_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_SIM_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_SEEK_DELTA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_RANDOM_SEED_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_OCCLUSION_QUERY_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_MAX_SIM_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_FORCE_SOLO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_FORCE_LOCAL_PLAYER_EFFECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_EMITTER_FIXED_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_DESIRED_AGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_DATA_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_CUSTOM_TIME_DILATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_ALLOW_SCALABILITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_GET_AGE_UPDATE_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_CLEAR_SYSTEM_FIXED_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_CLEAR_SIM_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_CLEAR_EMITTER_FIXED_BOUNDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_ADVANCE_SIMULATION_BY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_COMPONENT_ADVANCE_SIMULATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_SPAWN_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_READ_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_READER_INIT_ACCESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_SPAWN_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_LINEAR_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_WRITER_INIT_WRITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_SINGLE_WITH_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_SINGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_UNSUBSCRIBE_FROM_NIAGARA_DATA_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_SINGLE_WITH_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_SINGLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_WITH_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_PREPARE_ACCESS_CONTEXT_FROM_NDC_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_MAKE_NDC_ACCESS_CONTEXT_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_NIAGARA_DATA_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT_WITH_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_HANDLER_UNSUBSCRIBE_FROM_DATA_CHANNEL_UPDATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES_WITH_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_WRITER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_READER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARTICLE_CALLBACK_HANDLER_RECEIVE_PARTICLE_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_TEXTURE_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_RAW_TEXTURE_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_TEXTURE2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_RAW_TEXTURE2_D: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_TEXTURE_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_RAW_TEXTURE_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_VOLUME_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_RAW_VOLUME_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DI_RIGID_MESH_COLLISION_FUNCTION_LIBRARY_SET_SOURCE_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_DATA_INTERFACE_SKELETAL_MESH_ON_SOURCE_END_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED_WITH_PARAMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION_WITH_PARAMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_VOLUME_TEXTURE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE2_D_ARRAY_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_SAMPLING_REGIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_SOCKETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_BONES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_SCENE_CAPTURE2_D_DATA_INTERFACE_MANAGED_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_COMPONENT_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_SET_ACTOR_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_RELEASE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_SKELETAL_MESH_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_GET_NIAGARA_PARAMETER_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_FUNCTION_LIBRARY_ACQUIRE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR4_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR2_D_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_QUAT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_INT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_FLOAT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_COLOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_BOOL_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR4_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR2_D_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_QUAT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_INT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_FLOAT_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_COLOR_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_BOOL_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_BASELINE_CONTROLLER_ON_TICK_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_BASELINE_CONTROLLER_ON_OWNER_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_BASELINE_CONTROLLER_ON_END_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_BASELINE_CONTROLLER_ON_BEGIN_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_BASELINE_CONTROLLER_GET_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_PREVIEW_BASE_SET_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_PREVIEW_BASE_SET_LABEL_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PREVIEW_AXIS_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_PREVIEW_AXIS_APPLY_TO_PREVIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_PREVIEW_GRID_SET_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_PREVIEW_GRID_GET_PREVIEWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_PREVIEW_GRID_DEACTIVATE_PREVIEWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_NIAGARA_PREVIEW_GRID_ACTIVATE_PREVIEWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SCRIPT_RAISE_ON_GPU_COMPILATION_COMPLETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_VECTOR_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_VECTOR4_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_VECTOR2_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE_WITH_REBASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE_WITH_REBASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_INT_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_ID_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_FLOAT_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_DATA_INTERFACE_AS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_READ_COLOR_ATTRIBUTE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_IS_EMPTY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_IS_CACHE_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_GET_START_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_GET_NUM_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_GET_NUM_EMITTERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_GET_EMITTER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_GET_EMITTER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_GET_ATTRIBUTE_CAPTURE_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_ON_CAPTURE_COMPLETE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_UNTIL_COMPLETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_MULTI_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CREATE_NIAGARA_SIM_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CAPTURE_NIAGARA_SIM_CACHE_IMMEDIATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SYSTEM_COLLECTION_RELEASE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SYSTEM_COLLECTION_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SYSTEM_COLLECTION_LOAD_SYNCHRONOUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SYSTEM_COLLECTION_LOAD_ASYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_SYSTEM_COLLECTION_GET_SYSTEMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_STATELESS_MODULE_DECAL_ATTRIBUTES_IS_ORIENTATION_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_STATELESS_MODULE_MESH_INDEX_NEEDS_MESH_INDEX_WEIGHTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_STATELESS_MODULE_SCALE_MESH_SIZE_USE_SCALE_CURVE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_STATELESS_MODULE_SCALE_RIBBON_WIDTH_USE_SCALE_CURVE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NIAGARA_STATELESS_MODULE_SCALE_SPRITE_SIZE_USE_SCALE_CURVE_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_niagara_data_interface_array_distribution_int_set_niagara_array_distribution_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_mesh_set_niagara_array_mesh_sm: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_mesh_set_niagara_array_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_scene_capture2_d_set_scene_capture2_d_managed_show_only_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_static_mesh_set_niagara_static_mesh_di_instance_index: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_static_mesh_on_source_end_play: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_u_object_property_reader_set_u_object_reader_property_remap: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_set_section_start_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_set_section_evaluate_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_set_section_end_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_set_allow_scalability: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_set_age_update_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_get_section_start_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_get_section_evaluate_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_get_section_end_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_get_allow_scalability: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_niagara_system_spawn_section_get_age_update_mode: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_actor_set_destroy_on_system_finish: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_actor_on_niagara_system_finished: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_actor_get_destroy_on_system_finish: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_vec4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_vec3: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_vec2: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_texture_render_target: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_position: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_object: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_matrix: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_material: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_variable_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_tick_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_system_fixed_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_sim_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_seek_delta: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_rendering_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_random_seed_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_preview_lod_distance: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_occlusion_query_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_vec4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_vec3: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_vec2: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_position: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_object: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_matrix: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_niagara_variable_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_max_sim_time: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_lock_desired_age_delta_time_to_seek_delta: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_gpu_compute_debug: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_force_solo: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_force_local_player_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_emitter_fixed_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_desired_age: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_custom_time_dilation: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_can_render_while_seeking: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_auto_destroy: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_allow_scalability: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_set_age_update_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_seek_to_desired_age: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_reset_system: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_reinitialize_system: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_is_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_init_for_performance_baseline: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_vec4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_vec3: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_vec2: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_position: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_matrix: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_variable_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_tick_behavior: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_system_fixed_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_sim_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_seek_delta: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_random_seed_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_preview_lod_distance_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_preview_lod_distance: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_occlusion_query_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_max_sim_time: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_lock_desired_age_delta_time_to_seek_delta: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_force_solo: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_force_local_player_effect: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_emitter_fixed_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_desired_age: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_data_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_custom_time_dilation: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_allow_scalability: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_get_age_update_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_clear_system_fixed_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_clear_sim_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_clear_emitter_fixed_bounds: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_advance_simulation_by_time: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_component_advance_simulation: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_vector4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_spawn_info: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_position: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_id: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_read_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_num: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_reader_init_access: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_vector4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_spawn_info: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_position: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_linear_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_int: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_id: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_write_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_num: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_writer_init_write: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_write_to_niagara_data_channel_single_with_context: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_write_to_niagara_data_channel_single: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_write_to_niagara_data_channel_with_context: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_write_to_niagara_data_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_unsubscribe_from_niagara_data_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_subscribe_to_niagara_data_channel_with_context: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_subscribe_to_niagara_data_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_set_single_property_in_ndc_access_context_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_set_members_in_ndc_access_context_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_read_from_niagara_data_channel_single_with_context: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_read_from_niagara_data_channel_single: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_read_from_niagara_data_channel_with_context: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_read_from_niagara_data_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_prepare_access_context_from_ndc_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_make_ndc_access_context_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_get_usable_access_context_from_ndc_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_get_usable_access_context_from_ndc: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_get_single_property_in_ndc_access_context_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_get_niagara_data_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_get_members_in_ndc_access_context_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_get_data_channel_element_count_with_context: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_library_get_data_channel_element_count: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_handler_unsubscribe_from_data_channel_updates: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_handler_subscribe_to_data_channel_updates_with_context: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_handler_subscribe_to_data_channel_updates: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_handler_get_data_channel_writer: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_channel_handler_get_data_channel_reader: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_vector_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_vector4_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_vector4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_u_int8_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_u_int8: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_quat_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_position_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_position: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_matrix_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_matrix: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_int32_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_float_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_color_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_bool_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_set_niagara_array_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_vector_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_vector4_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_vector4: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_u_int8_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_u_int8: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_quat_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_quat: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_position_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_position: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_matrix_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_matrix: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_int32_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_float_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_float: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_color_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_color: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_bool_value: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_array_function_library_get_niagara_array_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_particle_callback_handler_receive_particle_data: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid2_d_collection_get_texture_size: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid2_d_collection_get_raw_texture_size: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid2_d_collection_fill_texture2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid2_d_collection_fill_raw_texture2_d: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid3_d_collection_get_texture_size: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid3_d_collection_get_raw_texture_size: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid3_d_collection_fill_volume_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_grid3_d_collection_fill_raw_volume_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_di_rigid_mesh_collision_function_library_set_source_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_data_interface_skeletal_mesh_on_source_end_play: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_editor_preview_actor_calculate_rotation: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_editor_preview_actor_calculate_location: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_spawn_system_attached_with_params: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_spawn_system_attached: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_spawn_system_at_location_with_params: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_spawn_system_at_location: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_volume_texture_object: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_texture_object: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_texture2_d_array_object: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_skeletal_mesh_data_interface_sampling_regions: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_sockets: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_bones: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_scene_capture2_d_data_interface_managed_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_component_niagara_gpu_ray_traced_collision_group: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_set_actor_niagara_gpu_ray_traced_collision_group: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_release_niagara_gpu_ray_traced_collision_group: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_override_system_user_variable_static_mesh_component: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_override_system_user_variable_static_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_override_system_user_variable_skeletal_mesh_component: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_get_niagara_parameter_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_function_library_acquire_niagara_gpu_ray_traced_collision_group: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_vector_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_vector4_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_vector2_d_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_quat_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_int_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_float_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_color_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_set_bool_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_vector_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_vector4_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_vector2_d_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_quat_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_int_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_float_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_color_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_parameter_collection_instance_get_bool_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_baseline_controller_on_tick_test: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_baseline_controller_on_owner_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_baseline_controller_on_end_test: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_baseline_controller_on_begin_test: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_baseline_controller_get_system: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_preview_base_set_system: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_preview_base_set_label_text: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_preview_axis_num: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_preview_axis_apply_to_preview: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_preview_grid_set_paused: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_preview_grid_get_previews: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_preview_grid_deactivate_previews: *mut crate::ffi::UFunctionOpague,
+    pub a_niagara_preview_grid_activate_previews: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_script_raise_on_gpu_compilation_complete: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_vector_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_vector4_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_vector2_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_quat_attribute_with_rebase: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_quat_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_position_attribute_with_rebase: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_position_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_int_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_id_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_float_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_data_interface_as: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_read_color_attribute: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_is_empty: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_is_cache_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_get_start_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_get_num_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_get_num_emitters: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_get_emitter_names: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_get_emitter_name: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_get_attribute_capture_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_async_niagara_capture_sim_cache_on_capture_complete_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_until_complete: *mut crate::ffi::UFunctionOpague,
+    pub u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_multi_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_async_niagara_capture_sim_cache_capture_niagara_sim_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_function_library_create_niagara_sim_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_sim_cache_function_library_capture_niagara_sim_cache_immediate: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_system_collection_release: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_system_collection_num: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_system_collection_load_synchronous: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_system_collection_load_async: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_system_collection_get_systems: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_stateless_module_decal_attributes_is_orientation_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_stateless_module_mesh_index_needs_mesh_index_weights: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_stateless_module_scale_mesh_size_use_scale_curve_range: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_stateless_module_scale_ribbon_width_use_scale_curve_range: *mut crate::ffi::UFunctionOpague,
+    pub u_niagara_stateless_module_scale_sprite_size_use_scale_curve_range: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_niagara_data_interface_array_distribution_int_set_niagara_array_distribution_int: std::ptr::null_mut(),
+            u_niagara_data_interface_array_mesh_set_niagara_array_mesh_sm: std::ptr::null_mut(),
+            u_niagara_data_interface_array_mesh_set_niagara_array_mesh: std::ptr::null_mut(),
+            u_niagara_data_interface_scene_capture2_d_set_scene_capture2_d_managed_show_only_actors: std::ptr::null_mut(),
+            u_niagara_data_interface_static_mesh_set_niagara_static_mesh_di_instance_index: std::ptr::null_mut(),
+            u_niagara_data_interface_static_mesh_on_source_end_play: std::ptr::null_mut(),
+            u_niagara_data_interface_u_object_property_reader_set_u_object_reader_property_remap: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_set_section_start_behavior: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_set_section_evaluate_behavior: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_set_section_end_behavior: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_set_allow_scalability: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_set_age_update_mode: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_get_section_start_behavior: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_get_section_evaluate_behavior: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_get_section_end_behavior: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_get_allow_scalability: std::ptr::null_mut(),
+            u_movie_scene_niagara_system_spawn_section_get_age_update_mode: std::ptr::null_mut(),
+            a_niagara_actor_set_destroy_on_system_finish: std::ptr::null_mut(),
+            a_niagara_actor_on_niagara_system_finished: std::ptr::null_mut(),
+            a_niagara_actor_get_destroy_on_system_finish: std::ptr::null_mut(),
+            u_niagara_component_set_variable_vec4: std::ptr::null_mut(),
+            u_niagara_component_set_variable_vec3: std::ptr::null_mut(),
+            u_niagara_component_set_variable_vec2: std::ptr::null_mut(),
+            u_niagara_component_set_variable_texture_render_target: std::ptr::null_mut(),
+            u_niagara_component_set_variable_texture: std::ptr::null_mut(),
+            u_niagara_component_set_variable_static_mesh: std::ptr::null_mut(),
+            u_niagara_component_set_variable_quat: std::ptr::null_mut(),
+            u_niagara_component_set_variable_position: std::ptr::null_mut(),
+            u_niagara_component_set_variable_object: std::ptr::null_mut(),
+            u_niagara_component_set_variable_matrix: std::ptr::null_mut(),
+            u_niagara_component_set_variable_material: std::ptr::null_mut(),
+            u_niagara_component_set_variable_linear_color: std::ptr::null_mut(),
+            u_niagara_component_set_variable_int: std::ptr::null_mut(),
+            u_niagara_component_set_variable_float: std::ptr::null_mut(),
+            u_niagara_component_set_variable_bool: std::ptr::null_mut(),
+            u_niagara_component_set_variable_actor: std::ptr::null_mut(),
+            u_niagara_component_set_tick_behavior: std::ptr::null_mut(),
+            u_niagara_component_set_system_fixed_bounds: std::ptr::null_mut(),
+            u_niagara_component_set_sim_cache: std::ptr::null_mut(),
+            u_niagara_component_set_seek_delta: std::ptr::null_mut(),
+            u_niagara_component_set_rendering_enabled: std::ptr::null_mut(),
+            u_niagara_component_set_random_seed_offset: std::ptr::null_mut(),
+            u_niagara_component_set_preview_lod_distance: std::ptr::null_mut(),
+            u_niagara_component_set_paused: std::ptr::null_mut(),
+            u_niagara_component_set_occlusion_query_mode: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_vec4: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_vec3: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_vec2: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_quat: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_position: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_object: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_matrix: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_linear_color: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_int: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_float: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_bool: std::ptr::null_mut(),
+            u_niagara_component_set_niagara_variable_actor: std::ptr::null_mut(),
+            u_niagara_component_set_max_sim_time: std::ptr::null_mut(),
+            u_niagara_component_set_lock_desired_age_delta_time_to_seek_delta: std::ptr::null_mut(),
+            u_niagara_component_set_gpu_compute_debug: std::ptr::null_mut(),
+            u_niagara_component_set_force_solo: std::ptr::null_mut(),
+            u_niagara_component_set_force_local_player_effect: std::ptr::null_mut(),
+            u_niagara_component_set_emitter_fixed_bounds: std::ptr::null_mut(),
+            u_niagara_component_set_desired_age: std::ptr::null_mut(),
+            u_niagara_component_set_custom_time_dilation: std::ptr::null_mut(),
+            u_niagara_component_set_can_render_while_seeking: std::ptr::null_mut(),
+            u_niagara_component_set_auto_destroy: std::ptr::null_mut(),
+            u_niagara_component_set_asset: std::ptr::null_mut(),
+            u_niagara_component_set_allow_scalability: std::ptr::null_mut(),
+            u_niagara_component_set_age_update_mode: std::ptr::null_mut(),
+            u_niagara_component_seek_to_desired_age: std::ptr::null_mut(),
+            u_niagara_component_reset_system: std::ptr::null_mut(),
+            u_niagara_component_reinitialize_system: std::ptr::null_mut(),
+            u_niagara_component_is_paused: std::ptr::null_mut(),
+            u_niagara_component_init_for_performance_baseline: std::ptr::null_mut(),
+            u_niagara_component_get_variable_vec4: std::ptr::null_mut(),
+            u_niagara_component_get_variable_vec3: std::ptr::null_mut(),
+            u_niagara_component_get_variable_vec2: std::ptr::null_mut(),
+            u_niagara_component_get_variable_quat: std::ptr::null_mut(),
+            u_niagara_component_get_variable_position: std::ptr::null_mut(),
+            u_niagara_component_get_variable_matrix: std::ptr::null_mut(),
+            u_niagara_component_get_variable_int: std::ptr::null_mut(),
+            u_niagara_component_get_variable_float: std::ptr::null_mut(),
+            u_niagara_component_get_variable_color: std::ptr::null_mut(),
+            u_niagara_component_get_variable_bool: std::ptr::null_mut(),
+            u_niagara_component_get_tick_behavior: std::ptr::null_mut(),
+            u_niagara_component_get_system_fixed_bounds: std::ptr::null_mut(),
+            u_niagara_component_get_sim_cache: std::ptr::null_mut(),
+            u_niagara_component_get_seek_delta: std::ptr::null_mut(),
+            u_niagara_component_get_random_seed_offset: std::ptr::null_mut(),
+            u_niagara_component_get_preview_lod_distance_enabled: std::ptr::null_mut(),
+            u_niagara_component_get_preview_lod_distance: std::ptr::null_mut(),
+            u_niagara_component_get_occlusion_query_mode: std::ptr::null_mut(),
+            u_niagara_component_get_max_sim_time: std::ptr::null_mut(),
+            u_niagara_component_get_lock_desired_age_delta_time_to_seek_delta: std::ptr::null_mut(),
+            u_niagara_component_get_force_solo: std::ptr::null_mut(),
+            u_niagara_component_get_force_local_player_effect: std::ptr::null_mut(),
+            u_niagara_component_get_emitter_fixed_bounds: std::ptr::null_mut(),
+            u_niagara_component_get_desired_age: std::ptr::null_mut(),
+            u_niagara_component_get_data_interface: std::ptr::null_mut(),
+            u_niagara_component_get_custom_time_dilation: std::ptr::null_mut(),
+            u_niagara_component_get_asset: std::ptr::null_mut(),
+            u_niagara_component_get_allow_scalability: std::ptr::null_mut(),
+            u_niagara_component_get_age_update_mode: std::ptr::null_mut(),
+            u_niagara_component_clear_system_fixed_bounds: std::ptr::null_mut(),
+            u_niagara_component_clear_sim_cache: std::ptr::null_mut(),
+            u_niagara_component_clear_emitter_fixed_bounds: std::ptr::null_mut(),
+            u_niagara_component_advance_simulation_by_time: std::ptr::null_mut(),
+            u_niagara_component_advance_simulation: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_vector4: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_vector2_d: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_vector: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_spawn_info: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_quat: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_position: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_linear_color: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_int: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_id: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_float: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_enum: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_read_bool: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_num: std::ptr::null_mut(),
+            u_niagara_data_channel_reader_init_access: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_vector4: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_vector2_d: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_vector: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_spawn_info: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_quat: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_position: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_linear_color: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_int: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_id: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_float: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_enum: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_write_bool: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_num: std::ptr::null_mut(),
+            u_niagara_data_channel_writer_init_write: std::ptr::null_mut(),
+            u_niagara_data_channel_library_write_to_niagara_data_channel_single_with_context: std::ptr::null_mut(),
+            u_niagara_data_channel_library_write_to_niagara_data_channel_single: std::ptr::null_mut(),
+            u_niagara_data_channel_library_write_to_niagara_data_channel_with_context: std::ptr::null_mut(),
+            u_niagara_data_channel_library_write_to_niagara_data_channel: std::ptr::null_mut(),
+            u_niagara_data_channel_library_unsubscribe_from_niagara_data_channel: std::ptr::null_mut(),
+            u_niagara_data_channel_library_subscribe_to_niagara_data_channel_with_context: std::ptr::null_mut(),
+            u_niagara_data_channel_library_subscribe_to_niagara_data_channel: std::ptr::null_mut(),
+            u_niagara_data_channel_library_set_single_property_in_ndc_access_context_instance: std::ptr::null_mut(),
+            u_niagara_data_channel_library_set_members_in_ndc_access_context_instance: std::ptr::null_mut(),
+            u_niagara_data_channel_library_read_from_niagara_data_channel_single_with_context: std::ptr::null_mut(),
+            u_niagara_data_channel_library_read_from_niagara_data_channel_single: std::ptr::null_mut(),
+            u_niagara_data_channel_library_read_from_niagara_data_channel_with_context: std::ptr::null_mut(),
+            u_niagara_data_channel_library_read_from_niagara_data_channel: std::ptr::null_mut(),
+            u_niagara_data_channel_library_prepare_access_context_from_ndc_ref: std::ptr::null_mut(),
+            u_niagara_data_channel_library_make_ndc_access_context_instance: std::ptr::null_mut(),
+            u_niagara_data_channel_library_get_usable_access_context_from_ndc_ref: std::ptr::null_mut(),
+            u_niagara_data_channel_library_get_usable_access_context_from_ndc: std::ptr::null_mut(),
+            u_niagara_data_channel_library_get_single_property_in_ndc_access_context_instance: std::ptr::null_mut(),
+            u_niagara_data_channel_library_get_niagara_data_channel: std::ptr::null_mut(),
+            u_niagara_data_channel_library_get_members_in_ndc_access_context_instance: std::ptr::null_mut(),
+            u_niagara_data_channel_library_get_data_channel_element_count_with_context: std::ptr::null_mut(),
+            u_niagara_data_channel_library_get_data_channel_element_count: std::ptr::null_mut(),
+            u_niagara_data_channel_handler_unsubscribe_from_data_channel_updates: std::ptr::null_mut(),
+            u_niagara_data_channel_handler_subscribe_to_data_channel_updates_with_context: std::ptr::null_mut(),
+            u_niagara_data_channel_handler_subscribe_to_data_channel_updates: std::ptr::null_mut(),
+            u_niagara_data_channel_handler_get_data_channel_writer: std::ptr::null_mut(),
+            u_niagara_data_channel_handler_get_data_channel_reader: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_vector_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_vector4_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_vector4: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_vector: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_u_int8_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_u_int8: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_quat_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_quat: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_position_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_position: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_matrix_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_matrix: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_int32_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_int32: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_float_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_float: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_color_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_color: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_bool_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_set_niagara_array_bool: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_vector_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_vector4_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_vector4: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_vector: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_u_int8_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_u_int8: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_quat_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_quat: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_position_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_position: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_matrix_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_matrix: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_int32_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_int32: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_float_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_float: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_color_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_color: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_bool_value: std::ptr::null_mut(),
+            u_niagara_data_interface_array_function_library_get_niagara_array_bool: std::ptr::null_mut(),
+            u_niagara_particle_callback_handler_receive_particle_data: std::ptr::null_mut(),
+            u_niagara_data_interface_grid2_d_collection_get_texture_size: std::ptr::null_mut(),
+            u_niagara_data_interface_grid2_d_collection_get_raw_texture_size: std::ptr::null_mut(),
+            u_niagara_data_interface_grid2_d_collection_fill_texture2_d: std::ptr::null_mut(),
+            u_niagara_data_interface_grid2_d_collection_fill_raw_texture2_d: std::ptr::null_mut(),
+            u_niagara_data_interface_grid3_d_collection_get_texture_size: std::ptr::null_mut(),
+            u_niagara_data_interface_grid3_d_collection_get_raw_texture_size: std::ptr::null_mut(),
+            u_niagara_data_interface_grid3_d_collection_fill_volume_texture: std::ptr::null_mut(),
+            u_niagara_data_interface_grid3_d_collection_fill_raw_volume_texture: std::ptr::null_mut(),
+            u_niagara_di_rigid_mesh_collision_function_library_set_source_actors: std::ptr::null_mut(),
+            u_niagara_data_interface_skeletal_mesh_on_source_end_play: std::ptr::null_mut(),
+            a_niagara_editor_preview_actor_calculate_rotation: std::ptr::null_mut(),
+            a_niagara_editor_preview_actor_calculate_location: std::ptr::null_mut(),
+            u_niagara_function_library_spawn_system_attached_with_params: std::ptr::null_mut(),
+            u_niagara_function_library_spawn_system_attached: std::ptr::null_mut(),
+            u_niagara_function_library_spawn_system_at_location_with_params: std::ptr::null_mut(),
+            u_niagara_function_library_spawn_system_at_location: std::ptr::null_mut(),
+            u_niagara_function_library_set_volume_texture_object: std::ptr::null_mut(),
+            u_niagara_function_library_set_texture_object: std::ptr::null_mut(),
+            u_niagara_function_library_set_texture2_d_array_object: std::ptr::null_mut(),
+            u_niagara_function_library_set_skeletal_mesh_data_interface_sampling_regions: std::ptr::null_mut(),
+            u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_sockets: std::ptr::null_mut(),
+            u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_bones: std::ptr::null_mut(),
+            u_niagara_function_library_set_scene_capture2_d_data_interface_managed_mode: std::ptr::null_mut(),
+            u_niagara_function_library_set_component_niagara_gpu_ray_traced_collision_group: std::ptr::null_mut(),
+            u_niagara_function_library_set_actor_niagara_gpu_ray_traced_collision_group: std::ptr::null_mut(),
+            u_niagara_function_library_release_niagara_gpu_ray_traced_collision_group: std::ptr::null_mut(),
+            u_niagara_function_library_override_system_user_variable_static_mesh_component: std::ptr::null_mut(),
+            u_niagara_function_library_override_system_user_variable_static_mesh: std::ptr::null_mut(),
+            u_niagara_function_library_override_system_user_variable_skeletal_mesh_component: std::ptr::null_mut(),
+            u_niagara_function_library_get_niagara_parameter_collection: std::ptr::null_mut(),
+            u_niagara_function_library_acquire_niagara_gpu_ray_traced_collision_group: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_vector_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_vector4_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_vector2_d_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_quat_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_int_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_float_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_color_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_set_bool_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_vector_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_vector4_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_vector2_d_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_quat_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_int_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_float_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_color_parameter: std::ptr::null_mut(),
+            u_niagara_parameter_collection_instance_get_bool_parameter: std::ptr::null_mut(),
+            u_niagara_baseline_controller_on_tick_test: std::ptr::null_mut(),
+            u_niagara_baseline_controller_on_owner_tick: std::ptr::null_mut(),
+            u_niagara_baseline_controller_on_end_test: std::ptr::null_mut(),
+            u_niagara_baseline_controller_on_begin_test: std::ptr::null_mut(),
+            u_niagara_baseline_controller_get_system: std::ptr::null_mut(),
+            a_niagara_preview_base_set_system: std::ptr::null_mut(),
+            a_niagara_preview_base_set_label_text: std::ptr::null_mut(),
+            u_niagara_preview_axis_num: std::ptr::null_mut(),
+            u_niagara_preview_axis_apply_to_preview: std::ptr::null_mut(),
+            a_niagara_preview_grid_set_paused: std::ptr::null_mut(),
+            a_niagara_preview_grid_get_previews: std::ptr::null_mut(),
+            a_niagara_preview_grid_deactivate_previews: std::ptr::null_mut(),
+            a_niagara_preview_grid_activate_previews: std::ptr::null_mut(),
+            u_niagara_script_raise_on_gpu_compilation_complete: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_vector_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_vector4_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_vector2_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_quat_attribute_with_rebase: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_quat_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_position_attribute_with_rebase: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_position_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_int_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_id_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_float_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_data_interface_as: std::ptr::null_mut(),
+            u_niagara_sim_cache_read_color_attribute: std::ptr::null_mut(),
+            u_niagara_sim_cache_is_empty: std::ptr::null_mut(),
+            u_niagara_sim_cache_is_cache_valid: std::ptr::null_mut(),
+            u_niagara_sim_cache_get_start_seconds: std::ptr::null_mut(),
+            u_niagara_sim_cache_get_num_frames: std::ptr::null_mut(),
+            u_niagara_sim_cache_get_num_emitters: std::ptr::null_mut(),
+            u_niagara_sim_cache_get_emitter_names: std::ptr::null_mut(),
+            u_niagara_sim_cache_get_emitter_name: std::ptr::null_mut(),
+            u_niagara_sim_cache_get_attribute_capture_mode: std::ptr::null_mut(),
+            u_async_niagara_capture_sim_cache_on_capture_complete_delegate_signature: std::ptr::null_mut(),
+            u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_until_complete: std::ptr::null_mut(),
+            u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_multi_frame: std::ptr::null_mut(),
+            u_async_niagara_capture_sim_cache_capture_niagara_sim_cache: std::ptr::null_mut(),
+            u_niagara_sim_cache_function_library_create_niagara_sim_cache: std::ptr::null_mut(),
+            u_niagara_sim_cache_function_library_capture_niagara_sim_cache_immediate: std::ptr::null_mut(),
+            u_niagara_system_collection_release: std::ptr::null_mut(),
+            u_niagara_system_collection_num: std::ptr::null_mut(),
+            u_niagara_system_collection_load_synchronous: std::ptr::null_mut(),
+            u_niagara_system_collection_load_async: std::ptr::null_mut(),
+            u_niagara_system_collection_get_systems: std::ptr::null_mut(),
+            u_niagara_stateless_module_decal_attributes_is_orientation_enabled: std::ptr::null_mut(),
+            u_niagara_stateless_module_mesh_index_needs_mesh_index_weights: std::ptr::null_mut(),
+            u_niagara_stateless_module_scale_mesh_size_use_scale_curve_range: std::ptr::null_mut(),
+            u_niagara_stateless_module_scale_ribbon_width_use_scale_curve_range: std::ptr::null_mut(),
+            u_niagara_stateless_module_scale_sprite_size_use_scale_curve_range: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -628,7 +637,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayDistributionInt"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_DISTRIBUTION_INT_SET_NIAGARA_ARRAY_DISTRIBUTION_INT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_distribution_int_set_niagara_array_distribution_int,
         );
     }
     unsafe {
@@ -639,14 +649,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayMeshSM"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH_SM,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_mesh_set_niagara_array_mesh_sm,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayMesh"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_mesh_set_niagara_array_mesh,
         );
     }
     unsafe {
@@ -657,7 +669,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSceneCapture2DManagedShowOnlyActors"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_SCENE_CAPTURE2_D_SET_SCENE_CAPTURE2_D_MANAGED_SHOW_ONLY_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_scene_capture2_d_set_scene_capture2_d_managed_show_only_actors,
         );
     }
     unsafe {
@@ -668,14 +681,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraStaticMeshDIInstanceIndex"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_STATIC_MESH_SET_NIAGARA_STATIC_MESH_DI_INSTANCE_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_static_mesh_set_niagara_static_mesh_di_instance_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnSourceEndPlay"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_STATIC_MESH_ON_SOURCE_END_PLAY,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_static_mesh_on_source_end_play,
         );
     }
     unsafe {
@@ -686,7 +701,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUObjectReaderPropertyRemap"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_U_OBJECT_PROPERTY_READER_SET_U_OBJECT_READER_PROPERTY_REMAP,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_u_object_property_reader_set_u_object_reader_property_remap,
         );
     }
     unsafe {
@@ -697,70 +713,80 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionStartBehavior"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_START_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_set_section_start_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionEvaluateBehavior"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_EVALUATE_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_set_section_evaluate_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionEndBehavior"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_END_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_set_section_end_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllowScalability"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_ALLOW_SCALABILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_set_allow_scalability,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAgeUpdateMode"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_AGE_UPDATE_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_set_age_update_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionStartBehavior"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_START_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_get_section_start_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionEvaluateBehavior"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_EVALUATE_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_get_section_evaluate_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionEndBehavior"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_END_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_get_section_end_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllowScalability"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_ALLOW_SCALABILITY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_get_allow_scalability,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAgeUpdateMode"),
-            &raw mut U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_AGE_UPDATE_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_niagara_system_spawn_section_get_age_update_mode,
         );
     }
     unsafe {
@@ -771,21 +797,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDestroyOnSystemFinish"),
-            &raw mut A_NIAGARA_ACTOR_SET_DESTROY_ON_SYSTEM_FINISH,
+            &raw mut __FUNCTION_PTRS.a_niagara_actor_set_destroy_on_system_finish,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnNiagaraSystemFinished"),
-            &raw mut A_NIAGARA_ACTOR_ON_NIAGARA_SYSTEM_FINISHED,
+            &raw mut __FUNCTION_PTRS.a_niagara_actor_on_niagara_system_finished,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDestroyOnSystemFinish"),
-            &raw mut A_NIAGARA_ACTOR_GET_DESTROY_ON_SYSTEM_FINISH,
+            &raw mut __FUNCTION_PTRS.a_niagara_actor_get_destroy_on_system_finish,
         );
     }
     unsafe {
@@ -796,623 +822,627 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableVec4"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_VEC4,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableVec3"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_VEC3,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec3,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableVec2"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_VEC2,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_vec2,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableTextureRenderTarget"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE_RENDER_TARGET,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_component_set_variable_texture_render_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableTexture"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableStaticMesh"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_static_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableQuat"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_QUAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariablePosition"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_POSITION,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableObject"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableMatrix"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_MATRIX,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_matrix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableMaterial"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_MATERIAL,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableLinearColor"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableInt"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_INT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableFloat"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableBool"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_BOOL,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVariableActor"),
-            &raw mut U_NIAGARA_COMPONENT_SET_VARIABLE_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_variable_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTickBehavior"),
-            &raw mut U_NIAGARA_COMPONENT_SET_TICK_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_tick_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSystemFixedBounds"),
-            &raw mut U_NIAGARA_COMPONENT_SET_SYSTEM_FIXED_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_system_fixed_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSimCache"),
-            &raw mut U_NIAGARA_COMPONENT_SET_SIM_CACHE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_sim_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSeekDelta"),
-            &raw mut U_NIAGARA_COMPONENT_SET_SEEK_DELTA,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_seek_delta,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRenderingEnabled"),
-            &raw mut U_NIAGARA_COMPONENT_SET_RENDERING_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_rendering_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRandomSeedOffset"),
-            &raw mut U_NIAGARA_COMPONENT_SET_RANDOM_SEED_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_random_seed_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreviewLODDistance"),
-            &raw mut U_NIAGARA_COMPONENT_SET_PREVIEW_LOD_DISTANCE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_preview_lod_distance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPaused"),
-            &raw mut U_NIAGARA_COMPONENT_SET_PAUSED,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOcclusionQueryMode"),
-            &raw mut U_NIAGARA_COMPONENT_SET_OCCLUSION_QUERY_MODE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_occlusion_query_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableVec4"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC4,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableVec3"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC3,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec3,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableVec2"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC2,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_vec2,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableQuat"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_QUAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariablePosition"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_POSITION,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableObject"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableMatrix"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_MATRIX,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_matrix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableLinearColor"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_component_set_niagara_variable_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableInt"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_INT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableFloat"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableBool"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_BOOL,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraVariableActor"),
-            &raw mut U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_niagara_variable_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaxSimTime"),
-            &raw mut U_NIAGARA_COMPONENT_SET_MAX_SIM_TIME,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_max_sim_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLockDesiredAgeDeltaTimeToSeekDelta"),
-            &raw mut U_NIAGARA_COMPONENT_SET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_component_set_lock_desired_age_delta_time_to_seek_delta,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGpuComputeDebug"),
-            &raw mut U_NIAGARA_COMPONENT_SET_GPU_COMPUTE_DEBUG,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_gpu_compute_debug,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetForceSolo"),
-            &raw mut U_NIAGARA_COMPONENT_SET_FORCE_SOLO,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_force_solo,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetForceLocalPlayerEffect"),
-            &raw mut U_NIAGARA_COMPONENT_SET_FORCE_LOCAL_PLAYER_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_force_local_player_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEmitterFixedBounds"),
-            &raw mut U_NIAGARA_COMPONENT_SET_EMITTER_FIXED_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_emitter_fixed_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDesiredAge"),
-            &raw mut U_NIAGARA_COMPONENT_SET_DESIRED_AGE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_desired_age,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomTimeDilation"),
-            &raw mut U_NIAGARA_COMPONENT_SET_CUSTOM_TIME_DILATION,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_custom_time_dilation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCanRenderWhileSeeking"),
-            &raw mut U_NIAGARA_COMPONENT_SET_CAN_RENDER_WHILE_SEEKING,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_can_render_while_seeking,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAutoDestroy"),
-            &raw mut U_NIAGARA_COMPONENT_SET_AUTO_DESTROY,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_auto_destroy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAsset"),
-            &raw mut U_NIAGARA_COMPONENT_SET_ASSET,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAllowScalability"),
-            &raw mut U_NIAGARA_COMPONENT_SET_ALLOW_SCALABILITY,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_allow_scalability,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAgeUpdateMode"),
-            &raw mut U_NIAGARA_COMPONENT_SET_AGE_UPDATE_MODE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_set_age_update_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SeekToDesiredAge"),
-            &raw mut U_NIAGARA_COMPONENT_SEEK_TO_DESIRED_AGE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_seek_to_desired_age,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetSystem"),
-            &raw mut U_NIAGARA_COMPONENT_RESET_SYSTEM,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_reset_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReinitializeSystem"),
-            &raw mut U_NIAGARA_COMPONENT_REINITIALIZE_SYSTEM,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_reinitialize_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut U_NIAGARA_COMPONENT_IS_PAUSED,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_is_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitForPerformanceBaseline"),
-            &raw mut U_NIAGARA_COMPONENT_INIT_FOR_PERFORMANCE_BASELINE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_init_for_performance_baseline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableVec4"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_VEC4,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableVec3"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_VEC3,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec3,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableVec2"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_VEC2,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_vec2,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableQuat"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_QUAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariablePosition"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_POSITION,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableMatrix"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_MATRIX,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_matrix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableInt"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_INT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableFloat"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableColor"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableBool"),
-            &raw mut U_NIAGARA_COMPONENT_GET_VARIABLE_BOOL,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_variable_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTickBehavior"),
-            &raw mut U_NIAGARA_COMPONENT_GET_TICK_BEHAVIOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_tick_behavior,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSystemFixedBounds"),
-            &raw mut U_NIAGARA_COMPONENT_GET_SYSTEM_FIXED_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_system_fixed_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSimCache"),
-            &raw mut U_NIAGARA_COMPONENT_GET_SIM_CACHE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_sim_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSeekDelta"),
-            &raw mut U_NIAGARA_COMPONENT_GET_SEEK_DELTA,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_seek_delta,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRandomSeedOffset"),
-            &raw mut U_NIAGARA_COMPONENT_GET_RANDOM_SEED_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_random_seed_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviewLODDistanceEnabled"),
-            &raw mut U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_preview_lod_distance_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviewLODDistance"),
-            &raw mut U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_preview_lod_distance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOcclusionQueryMode"),
-            &raw mut U_NIAGARA_COMPONENT_GET_OCCLUSION_QUERY_MODE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_occlusion_query_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaxSimTime"),
-            &raw mut U_NIAGARA_COMPONENT_GET_MAX_SIM_TIME,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_max_sim_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLockDesiredAgeDeltaTimeToSeekDelta"),
-            &raw mut U_NIAGARA_COMPONENT_GET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_component_get_lock_desired_age_delta_time_to_seek_delta,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetForceSolo"),
-            &raw mut U_NIAGARA_COMPONENT_GET_FORCE_SOLO,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_force_solo,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetForceLocalPlayerEffect"),
-            &raw mut U_NIAGARA_COMPONENT_GET_FORCE_LOCAL_PLAYER_EFFECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_force_local_player_effect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEmitterFixedBounds"),
-            &raw mut U_NIAGARA_COMPONENT_GET_EMITTER_FIXED_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_emitter_fixed_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDesiredAge"),
-            &raw mut U_NIAGARA_COMPONENT_GET_DESIRED_AGE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_desired_age,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDataInterface"),
-            &raw mut U_NIAGARA_COMPONENT_GET_DATA_INTERFACE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_data_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomTimeDilation"),
-            &raw mut U_NIAGARA_COMPONENT_GET_CUSTOM_TIME_DILATION,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_custom_time_dilation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAsset"),
-            &raw mut U_NIAGARA_COMPONENT_GET_ASSET,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllowScalability"),
-            &raw mut U_NIAGARA_COMPONENT_GET_ALLOW_SCALABILITY,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_allow_scalability,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAgeUpdateMode"),
-            &raw mut U_NIAGARA_COMPONENT_GET_AGE_UPDATE_MODE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_get_age_update_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSystemFixedBounds"),
-            &raw mut U_NIAGARA_COMPONENT_CLEAR_SYSTEM_FIXED_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_clear_system_fixed_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSimCache"),
-            &raw mut U_NIAGARA_COMPONENT_CLEAR_SIM_CACHE,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_clear_sim_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearEmitterFixedBounds"),
-            &raw mut U_NIAGARA_COMPONENT_CLEAR_EMITTER_FIXED_BOUNDS,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_clear_emitter_fixed_bounds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AdvanceSimulationByTime"),
-            &raw mut U_NIAGARA_COMPONENT_ADVANCE_SIMULATION_BY_TIME,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_advance_simulation_by_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AdvanceSimulation"),
-            &raw mut U_NIAGARA_COMPONENT_ADVANCE_SIMULATION,
+            &raw mut __FUNCTION_PTRS.u_niagara_component_advance_simulation,
         );
     }
     unsafe {
@@ -1423,98 +1453,98 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadVector4"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR4,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadVector2D"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadVector"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadSpawnInfo"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_SPAWN_INFO,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_spawn_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadQuat"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_QUAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadPosition"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_POSITION,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadLinearColor"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadInt"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_INT,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadID"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_ID,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadFloat"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadEnum"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_ENUM,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadBool"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_READ_BOOL,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_read_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Num"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_NUM,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_num,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitAccess"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_READER_INIT_ACCESS,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_reader_init_access,
         );
     }
     unsafe {
@@ -1525,98 +1555,98 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteVector4"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR4,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteVector2D"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteVector"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteSpawnInfo"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_SPAWN_INFO,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_spawn_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteQuat"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_QUAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WritePosition"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_POSITION,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteLinearColor"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_LINEAR_COLOR,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_linear_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteInt"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_INT,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteID"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ID,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_id,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteFloat"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteEnum"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ENUM,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteBool"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_BOOL,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_write_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Num"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_NUM,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_num,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InitWrite"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_WRITER_INIT_WRITE,
+            &raw mut __FUNCTION_PTRS.u_niagara_data_channel_writer_init_write,
         );
     }
     unsafe {
@@ -1627,154 +1657,176 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannelSingle_WithContext"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_SINGLE_WITH_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_write_to_niagara_data_channel_single_with_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannelSingle"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_SINGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_write_to_niagara_data_channel_single,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannel_WithContext"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_write_to_niagara_data_channel_with_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteToNiagaraDataChannel"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_write_to_niagara_data_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsubscribeFromNiagaraDataChannel"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_UNSUBSCRIBE_FROM_NIAGARA_DATA_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_unsubscribe_from_niagara_data_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SubscribeToNiagaraDataChannel_WithContext"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_subscribe_to_niagara_data_channel_with_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SubscribeToNiagaraDataChannel"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_subscribe_to_niagara_data_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSinglePropertyInNDCAccessContextInstance"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_set_single_property_in_ndc_access_context_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMembersInNDCAccessContextInstance"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_set_members_in_ndc_access_context_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannelSingle_WithContext"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_SINGLE_WITH_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_read_from_niagara_data_channel_single_with_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannelSingle"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_SINGLE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_read_from_niagara_data_channel_single,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannel_WithContext"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_read_from_niagara_data_channel_with_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadFromNiagaraDataChannel"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_read_from_niagara_data_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PrepareAccessContextFromNDCRef"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_PREPARE_ACCESS_CONTEXT_FROM_NDC_REF,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_prepare_access_context_from_ndc_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeNDCAccessContextInstance"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_MAKE_NDC_ACCESS_CONTEXT_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_make_ndc_access_context_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUsableAccessContextFromNDCRef"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC_REF,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_get_usable_access_context_from_ndc_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUsableAccessContextFromNDC"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_get_usable_access_context_from_ndc,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSinglePropertyInNDCAccessContextInstance"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_get_single_property_in_ndc_access_context_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraDataChannel"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_NIAGARA_DATA_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_get_niagara_data_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMembersInNDCAccessContextInstance"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_get_members_in_ndc_access_context_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDataChannelElementCount_WithContext"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT_WITH_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_get_data_channel_element_count_with_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDataChannelElementCount"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_library_get_data_channel_element_count,
         );
     }
     unsafe {
@@ -1785,35 +1837,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnsubscribeFromDataChannelUpdates"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_HANDLER_UNSUBSCRIBE_FROM_DATA_CHANNEL_UPDATES,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_handler_unsubscribe_from_data_channel_updates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SubscribeToDataChannelUpdates_WithContext"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES_WITH_CONTEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_handler_subscribe_to_data_channel_updates_with_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SubscribeToDataChannelUpdates"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_handler_subscribe_to_data_channel_updates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDataChannelWriter"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_WRITER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_handler_get_data_channel_writer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDataChannelReader"),
-            &raw mut U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_READER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_channel_handler_get_data_channel_reader,
         );
     }
     unsafe {
@@ -1824,308 +1881,352 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayVectorValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_vector_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayVector4Value"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_vector4_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayVector4"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayVector2DValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayVector2D"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayVector"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayUInt8Value"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayUInt8"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayQuatValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_quat_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayQuat"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayPositionValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_position_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayPosition"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayMatrixValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_matrix_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayMatrix"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_matrix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayInt32Value"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_int32_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayInt32"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_int32,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayFloatValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_float_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayFloat"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayColorValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_color_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayColor"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayBoolValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_bool_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNiagaraArrayBool"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_set_niagara_array_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayVectorValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_vector_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayVector4Value"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_vector4_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayVector4"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_vector4,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayVector2DValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayVector2D"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayVector"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayUInt8Value"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayUInt8"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayQuatValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_quat_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayQuat"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_quat,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayPositionValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_position_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayPosition"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayMatrixValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_matrix_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayMatrix"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_matrix,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayInt32Value"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_int32_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayInt32"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_int32,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayFloatValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_float_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayFloat"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayColorValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_color_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayColor"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayBoolValue"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_bool_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraArrayBool"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_array_function_library_get_niagara_array_bool,
         );
     }
     unsafe {
@@ -2136,7 +2237,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReceiveParticleData"),
-            &raw mut U_NIAGARA_PARTICLE_CALLBACK_HANDLER_RECEIVE_PARTICLE_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_particle_callback_handler_receive_particle_data,
         );
     }
     unsafe {
@@ -2147,28 +2249,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTextureSize"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_TEXTURE_SIZE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid2_d_collection_get_texture_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRawTextureSize"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid2_d_collection_get_raw_texture_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillTexture2D"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_TEXTURE2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid2_d_collection_fill_texture2_d,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillRawTexture2D"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_RAW_TEXTURE2_D,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid2_d_collection_fill_raw_texture2_d,
         );
     }
     unsafe {
@@ -2179,28 +2285,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTextureSize"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_TEXTURE_SIZE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid3_d_collection_get_texture_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRawTextureSize"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid3_d_collection_get_raw_texture_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillVolumeTexture"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_VOLUME_TEXTURE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid3_d_collection_fill_volume_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillRawVolumeTexture"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_RAW_VOLUME_TEXTURE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_grid3_d_collection_fill_raw_volume_texture,
         );
     }
     unsafe {
@@ -2211,7 +2321,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceActors"),
-            &raw mut U_NIAGARA_DI_RIGID_MESH_COLLISION_FUNCTION_LIBRARY_SET_SOURCE_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_di_rigid_mesh_collision_function_library_set_source_actors,
         );
     }
     unsafe {
@@ -2222,7 +2333,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnSourceEndPlay"),
-            &raw mut U_NIAGARA_DATA_INTERFACE_SKELETAL_MESH_ON_SOURCE_END_PLAY,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_data_interface_skeletal_mesh_on_source_end_play,
         );
     }
     unsafe {
@@ -2233,14 +2345,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CalculateRotation"),
-            &raw mut A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_ROTATION,
+            &raw mut __FUNCTION_PTRS.a_niagara_editor_preview_actor_calculate_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CalculateLocation"),
-            &raw mut A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_LOCATION,
+            &raw mut __FUNCTION_PTRS.a_niagara_editor_preview_actor_calculate_location,
         );
     }
     unsafe {
@@ -2251,133 +2363,148 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnSystemAttachedWithParams"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED_WITH_PARAMS,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_spawn_system_attached_with_params,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnSystemAttached"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED,
+            &raw mut __FUNCTION_PTRS.u_niagara_function_library_spawn_system_attached,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnSystemAtLocationWithParams"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION_WITH_PARAMS,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_spawn_system_at_location_with_params,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SpawnSystemAtLocation"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION,
+            &raw mut __FUNCTION_PTRS.u_niagara_function_library_spawn_system_at_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVolumeTextureObject"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_VOLUME_TEXTURE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_function_library_set_volume_texture_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTextureObject"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_niagara_function_library_set_texture_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTexture2DArrayObject"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE2_D_ARRAY_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_set_texture2_d_array_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceSamplingRegions"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_SAMPLING_REGIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_set_skeletal_mesh_data_interface_sampling_regions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceFilteredSockets"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_SOCKETS,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_sockets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkeletalMeshDataInterfaceFilteredBones"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_BONES,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_bones,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSceneCapture2DDataInterfaceManagedMode"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_SCENE_CAPTURE2_D_DATA_INTERFACE_MANAGED_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_set_scene_capture2_d_data_interface_managed_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetComponentNiagaraGPURayTracedCollisionGroup"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_COMPONENT_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_set_component_niagara_gpu_ray_traced_collision_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActorNiagaraGPURayTracedCollisionGroup"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_SET_ACTOR_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_set_actor_niagara_gpu_ray_traced_collision_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReleaseNiagaraGPURayTracedCollisionGroup"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_RELEASE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_release_niagara_gpu_ray_traced_collision_group,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideSystemUserVariableStaticMeshComponent"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_override_system_user_variable_static_mesh_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideSystemUserVariableStaticMesh"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_override_system_user_variable_static_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OverrideSystemUserVariableSkeletalMeshComponent"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_SKELETAL_MESH_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_override_system_user_variable_skeletal_mesh_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNiagaraParameterCollection"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_GET_NIAGARA_PARAMETER_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_get_niagara_parameter_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AcquireNiagaraGPURayTracedCollisionGroup"),
-            &raw mut U_NIAGARA_FUNCTION_LIBRARY_ACQUIRE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_function_library_acquire_niagara_gpu_ray_traced_collision_group,
         );
     }
     unsafe {
@@ -2388,112 +2515,128 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVectorParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_vector_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector4Parameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR4_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_vector4_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVector2DParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR2_D_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_vector2_d_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuatParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_QUAT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_quat_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIntParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_INT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_int_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloatParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_FLOAT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_float_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetColorParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_COLOR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_color_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_BOOL_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_set_bool_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVectorParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_vector_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector4Parameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR4_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_vector4_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVector2DParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR2_D_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_vector2_d_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQuatParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_QUAT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_quat_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIntParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_INT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_int_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_FLOAT_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_float_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetColorParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_COLOR_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_color_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoolParameter"),
-            &raw mut U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_BOOL_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_parameter_collection_instance_get_bool_parameter,
         );
     }
     unsafe {
@@ -2504,35 +2647,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnTickTest"),
-            &raw mut U_NIAGARA_BASELINE_CONTROLLER_ON_TICK_TEST,
+            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_tick_test,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnOwnerTick"),
-            &raw mut U_NIAGARA_BASELINE_CONTROLLER_ON_OWNER_TICK,
+            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_owner_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnEndTest"),
-            &raw mut U_NIAGARA_BASELINE_CONTROLLER_ON_END_TEST,
+            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_end_test,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnBeginTest"),
-            &raw mut U_NIAGARA_BASELINE_CONTROLLER_ON_BEGIN_TEST,
+            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_on_begin_test,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSystem"),
-            &raw mut U_NIAGARA_BASELINE_CONTROLLER_GET_SYSTEM,
+            &raw mut __FUNCTION_PTRS.u_niagara_baseline_controller_get_system,
         );
     }
     unsafe {
@@ -2543,14 +2686,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSystem"),
-            &raw mut A_NIAGARA_PREVIEW_BASE_SET_SYSTEM,
+            &raw mut __FUNCTION_PTRS.a_niagara_preview_base_set_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLabelText"),
-            &raw mut A_NIAGARA_PREVIEW_BASE_SET_LABEL_TEXT,
+            &raw mut __FUNCTION_PTRS.a_niagara_preview_base_set_label_text,
         );
     }
     unsafe {
@@ -2561,14 +2704,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Num"),
-            &raw mut U_NIAGARA_PREVIEW_AXIS_NUM,
+            &raw mut __FUNCTION_PTRS.u_niagara_preview_axis_num,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyToPreview"),
-            &raw mut U_NIAGARA_PREVIEW_AXIS_APPLY_TO_PREVIEW,
+            &raw mut __FUNCTION_PTRS.u_niagara_preview_axis_apply_to_preview,
         );
     }
     unsafe {
@@ -2579,28 +2722,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPaused"),
-            &raw mut A_NIAGARA_PREVIEW_GRID_SET_PAUSED,
+            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_set_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviews"),
-            &raw mut A_NIAGARA_PREVIEW_GRID_GET_PREVIEWS,
+            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_get_previews,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeactivatePreviews"),
-            &raw mut A_NIAGARA_PREVIEW_GRID_DEACTIVATE_PREVIEWS,
+            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_deactivate_previews,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ActivatePreviews"),
-            &raw mut A_NIAGARA_PREVIEW_GRID_ACTIVATE_PREVIEWS,
+            &raw mut __FUNCTION_PTRS.a_niagara_preview_grid_activate_previews,
         );
     }
     unsafe {
@@ -2611,7 +2754,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RaiseOnGPUCompilationComplete"),
-            &raw mut U_NIAGARA_SCRIPT_RAISE_ON_GPU_COMPILATION_COMPLETE,
+            &raw mut __FUNCTION_PTRS.u_niagara_script_raise_on_gpu_compilation_complete,
         );
     }
     unsafe {
@@ -2622,140 +2765,141 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadVectorAttribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_VECTOR_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadVector4Attribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_VECTOR4_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector4_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadVector2Attribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_VECTOR2_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_vector2_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadQuatAttributeWithRebase"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE_WITH_REBASE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_quat_attribute_with_rebase,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadQuatAttribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_quat_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadPositionAttributeWithRebase"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE_WITH_REBASE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_sim_cache_read_position_attribute_with_rebase,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadPositionAttribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_position_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadIntAttribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_INT_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_int_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadIDAttribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_ID_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_id_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadFloatAttribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_FLOAT_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_float_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadDataInterfaceAs"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_DATA_INTERFACE_AS,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_data_interface_as,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReadColorAttribute"),
-            &raw mut U_NIAGARA_SIM_CACHE_READ_COLOR_ATTRIBUTE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_read_color_attribute,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEmpty"),
-            &raw mut U_NIAGARA_SIM_CACHE_IS_EMPTY,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_is_empty,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCacheValid"),
-            &raw mut U_NIAGARA_SIM_CACHE_IS_CACHE_VALID,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_is_cache_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartSeconds"),
-            &raw mut U_NIAGARA_SIM_CACHE_GET_START_SECONDS,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_start_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumFrames"),
-            &raw mut U_NIAGARA_SIM_CACHE_GET_NUM_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_num_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumEmitters"),
-            &raw mut U_NIAGARA_SIM_CACHE_GET_NUM_EMITTERS,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_num_emitters,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEmitterNames"),
-            &raw mut U_NIAGARA_SIM_CACHE_GET_EMITTER_NAMES,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_emitter_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEmitterName"),
-            &raw mut U_NIAGARA_SIM_CACHE_GET_EMITTER_NAME,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_emitter_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttributeCaptureMode"),
-            &raw mut U_NIAGARA_SIM_CACHE_GET_ATTRIBUTE_CAPTURE_MODE,
+            &raw mut __FUNCTION_PTRS.u_niagara_sim_cache_get_attribute_capture_mode,
         );
     }
     unsafe {
@@ -2766,28 +2910,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnCaptureComplete__DelegateSignature"),
-            &raw mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_ON_CAPTURE_COMPLETE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_async_niagara_capture_sim_cache_on_capture_complete_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheUntilComplete"),
-            &raw mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_UNTIL_COMPLETE,
+            &raw mut __FUNCTION_PTRS
+                .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_until_complete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheMultiFrame"),
-            &raw mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_MULTI_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_multi_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureNiagaraSimCache"),
-            &raw mut U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE,
+            &raw mut __FUNCTION_PTRS
+                .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache,
         );
     }
     unsafe {
@@ -2798,14 +2946,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNiagaraSimCache"),
-            &raw mut U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CREATE_NIAGARA_SIM_CACHE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_sim_cache_function_library_create_niagara_sim_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CaptureNiagaraSimCacheImmediate"),
-            &raw mut U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CAPTURE_NIAGARA_SIM_CACHE_IMMEDIATE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_sim_cache_function_library_capture_niagara_sim_cache_immediate,
         );
     }
     unsafe {
@@ -2816,35 +2966,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Release"),
-            &raw mut U_NIAGARA_SYSTEM_COLLECTION_RELEASE,
+            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_release,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Num"),
-            &raw mut U_NIAGARA_SYSTEM_COLLECTION_NUM,
+            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_num,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadSynchronous"),
-            &raw mut U_NIAGARA_SYSTEM_COLLECTION_LOAD_SYNCHRONOUS,
+            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_load_synchronous,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadAsync"),
-            &raw mut U_NIAGARA_SYSTEM_COLLECTION_LOAD_ASYNC,
+            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_load_async,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSystems"),
-            &raw mut U_NIAGARA_SYSTEM_COLLECTION_GET_SYSTEMS,
+            &raw mut __FUNCTION_PTRS.u_niagara_system_collection_get_systems,
         );
     }
     unsafe {
@@ -2855,7 +3005,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsOrientationEnabled"),
-            &raw mut U_NIAGARA_STATELESS_MODULE_DECAL_ATTRIBUTES_IS_ORIENTATION_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_stateless_module_decal_attributes_is_orientation_enabled,
         );
     }
     unsafe {
@@ -2866,7 +3017,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NeedsMeshIndexWeights"),
-            &raw mut U_NIAGARA_STATELESS_MODULE_MESH_INDEX_NEEDS_MESH_INDEX_WEIGHTS,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_stateless_module_mesh_index_needs_mesh_index_weights,
         );
     }
     unsafe {
@@ -2877,7 +3029,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
-            &raw mut U_NIAGARA_STATELESS_MODULE_SCALE_MESH_SIZE_USE_SCALE_CURVE_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_stateless_module_scale_mesh_size_use_scale_curve_range,
         );
     }
     unsafe {
@@ -2888,7 +3041,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
-            &raw mut U_NIAGARA_STATELESS_MODULE_SCALE_RIBBON_WIDTH_USE_SCALE_CURVE_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_stateless_module_scale_ribbon_width_use_scale_curve_range,
         );
     }
     unsafe {
@@ -2899,7 +3053,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UseScaleCurveRange"),
-            &raw mut U_NIAGARA_STATELESS_MODULE_SCALE_SPRITE_SIZE_USE_SCALE_CURVE_RANGE,
+            &raw mut __FUNCTION_PTRS
+                .u_niagara_stateless_module_scale_sprite_size_use_scale_curve_range,
         );
     }
 }
@@ -3414,7 +3569,8 @@ impl UNiagaraDataInterfaceArrayDistributionInt {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_DISTRIBUTION_INT_SET_NIAGARA_ARRAY_DISTRIBUTION_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_distribution_int_set_niagara_array_distribution_int,
                 __buffer,
             )
         };
@@ -3445,7 +3601,8 @@ impl UNiagaraDataInterfaceArrayDistributionInt {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_DISTRIBUTION_INT_SET_NIAGARA_ARRAY_DISTRIBUTION_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_distribution_int_set_niagara_array_distribution_int,
                 __buffer,
             )
         };
@@ -3528,7 +3685,8 @@ impl UNiagaraDataInterfaceArrayMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH_SM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_mesh_set_niagara_array_mesh_sm,
                 __buffer,
             )
         };
@@ -3561,7 +3719,8 @@ impl UNiagaraDataInterfaceArrayMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH_SM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_mesh_set_niagara_array_mesh_sm,
                 __buffer,
             )
         };
@@ -3578,7 +3737,8 @@ impl UNiagaraDataInterfaceArrayMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_mesh_set_niagara_array_mesh,
                 __buffer,
             )
         };
@@ -3611,7 +3771,8 @@ impl UNiagaraDataInterfaceArrayMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_MESH_SET_NIAGARA_ARRAY_MESH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_mesh_set_niagara_array_mesh,
                 __buffer,
             )
         };
@@ -3944,7 +4105,8 @@ impl UNiagaraDataInterfaceSceneCapture2D {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_SCENE_CAPTURE2_D_SET_SCENE_CAPTURE2_D_MANAGED_SHOW_ONLY_ACTORS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_scene_capture2_d_set_scene_capture2_d_managed_show_only_actors,
                 __buffer,
             )
         };
@@ -3975,7 +4137,8 @@ impl UNiagaraDataInterfaceSceneCapture2D {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_SCENE_CAPTURE2_D_SET_SCENE_CAPTURE2_D_MANAGED_SHOW_ONLY_ACTORS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_scene_capture2_d_set_scene_capture2_d_managed_show_only_actors,
                 __buffer,
             )
         };
@@ -4097,7 +4260,8 @@ impl UNiagaraDataInterfaceStaticMesh {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_STATIC_MESH_SET_NIAGARA_STATIC_MESH_DI_INSTANCE_INDEX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_static_mesh_set_niagara_static_mesh_di_instance_index,
                 __buffer,
             )
         };
@@ -4128,7 +4292,8 @@ impl UNiagaraDataInterfaceStaticMesh {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_STATIC_MESH_SET_NIAGARA_STATIC_MESH_DI_INSTANCE_INDEX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_static_mesh_set_niagara_static_mesh_di_instance_index,
                 __buffer,
             )
         };
@@ -4167,7 +4332,8 @@ impl UNiagaraDataInterfaceUObjectPropertyReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_U_OBJECT_PROPERTY_READER_SET_U_OBJECT_READER_PROPERTY_REMAP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_u_object_property_reader_set_u_object_reader_property_remap,
                 __buffer,
             )
         };
@@ -4205,7 +4371,8 @@ impl UNiagaraDataInterfaceUObjectPropertyReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_U_OBJECT_PROPERTY_READER_SET_U_OBJECT_READER_PROPERTY_REMAP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_u_object_property_reader_set_u_object_reader_property_remap,
                 __buffer,
             )
         };
@@ -4263,7 +4430,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_START_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_start_behavior,
                 __buffer,
             )
         };
@@ -4280,7 +4448,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_START_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_start_behavior,
                 __buffer,
             )
         };
@@ -4296,7 +4465,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_EVALUATE_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_evaluate_behavior,
                 __buffer,
             )
         };
@@ -4313,7 +4483,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_EVALUATE_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_evaluate_behavior,
                 __buffer,
             )
         };
@@ -4329,7 +4500,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_END_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_end_behavior,
                 __buffer,
             )
         };
@@ -4346,7 +4518,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_SECTION_END_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_section_end_behavior,
                 __buffer,
             )
         };
@@ -4359,7 +4532,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_allow_scalability,
                 __buffer,
             )
         };
@@ -4376,7 +4550,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_allow_scalability,
                 __buffer,
             )
         };
@@ -4389,7 +4564,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_age_update_mode,
                 __buffer,
             )
         };
@@ -4406,7 +4582,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_SET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_set_age_update_mode,
                 __buffer,
             )
         };
@@ -4419,7 +4596,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_START_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_start_behavior,
                 __buffer,
             )
         };
@@ -4429,7 +4607,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_START_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_start_behavior,
                 __buffer,
             )
         };
@@ -4447,7 +4626,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_EVALUATE_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_evaluate_behavior,
                 __buffer,
             )
         };
@@ -4457,7 +4637,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_EVALUATE_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_evaluate_behavior,
                 __buffer,
             )
         };
@@ -4473,7 +4654,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_END_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_end_behavior,
                 __buffer,
             )
         };
@@ -4483,7 +4665,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_SECTION_END_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_section_end_behavior,
                 __buffer,
             )
         };
@@ -4497,7 +4680,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_allow_scalability,
                 __buffer,
             )
         };
@@ -4507,7 +4691,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_allow_scalability,
                 __buffer,
             )
         };
@@ -4521,7 +4706,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_age_update_mode,
                 __buffer,
             )
         };
@@ -4531,7 +4717,8 @@ impl UMovieSceneNiagaraSystemSpawnSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_MOVIE_SCENE_NIAGARA_SYSTEM_SPAWN_SECTION_GET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_movie_scene_niagara_system_spawn_section_get_age_update_mode,
                 __buffer,
             )
         };
@@ -4740,7 +4927,8 @@ impl ANiagaraActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_ACTOR_SET_DESTROY_ON_SYSTEM_FINISH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_actor_set_destroy_on_system_finish,
                 __buffer,
             )
         };
@@ -4757,7 +4945,8 @@ impl ANiagaraActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_ACTOR_SET_DESTROY_ON_SYSTEM_FINISH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_actor_set_destroy_on_system_finish,
                 __buffer,
             )
         };
@@ -4770,7 +4959,8 @@ impl ANiagaraActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_ACTOR_GET_DESTROY_ON_SYSTEM_FINISH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_actor_get_destroy_on_system_finish,
                 __buffer,
             )
         };
@@ -4780,7 +4970,8 @@ impl ANiagaraActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_ACTOR_GET_DESTROY_ON_SYSTEM_FINISH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_actor_get_destroy_on_system_finish,
                 __buffer,
             )
         };
@@ -5003,7 +5194,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_vec4,
                 __buffer,
             )
         };
@@ -5027,7 +5219,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_vec4,
                 __buffer,
             )
         };
@@ -5044,7 +5237,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC3,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_vec3,
                 __buffer,
             )
         };
@@ -5068,7 +5262,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC3,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_vec3,
                 __buffer,
             )
         };
@@ -5085,7 +5280,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC2,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_vec2,
                 __buffer,
             )
         };
@@ -5109,7 +5305,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_VEC2,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_vec2,
                 __buffer,
             )
         };
@@ -5126,7 +5323,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE_RENDER_TARGET,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_texture_render_target,
                 __buffer,
             )
         };
@@ -5152,7 +5350,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE_RENDER_TARGET,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_texture_render_target,
                 __buffer,
             )
         };
@@ -5169,7 +5368,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_texture,
                 __buffer,
             )
         };
@@ -5193,7 +5393,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_TEXTURE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_texture,
                 __buffer,
             )
         };
@@ -5210,7 +5411,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_STATIC_MESH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_static_mesh,
                 __buffer,
             )
         };
@@ -5234,7 +5436,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_STATIC_MESH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_static_mesh,
                 __buffer,
             )
         };
@@ -5251,7 +5454,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_quat,
                 __buffer,
             )
         };
@@ -5275,7 +5479,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_quat,
                 __buffer,
             )
         };
@@ -5292,7 +5497,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_position,
                 __buffer,
             )
         };
@@ -5316,7 +5522,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_position,
                 __buffer,
             )
         };
@@ -5333,7 +5540,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_object,
                 __buffer,
             )
         };
@@ -5357,7 +5565,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_object,
                 __buffer,
             )
         };
@@ -5374,7 +5583,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_matrix,
                 __buffer,
             )
         };
@@ -5398,7 +5608,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_matrix,
                 __buffer,
             )
         };
@@ -5415,7 +5626,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATERIAL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_material,
                 __buffer,
             )
         };
@@ -5441,7 +5653,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_MATERIAL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_material,
                 __buffer,
             )
         };
@@ -5458,7 +5671,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_linear_color,
                 __buffer,
             )
         };
@@ -5482,7 +5696,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_linear_color,
                 __buffer,
             )
         };
@@ -5495,7 +5710,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_int,
                 __buffer,
             )
         };
@@ -5515,7 +5731,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_int,
                 __buffer,
             )
         };
@@ -5528,7 +5745,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_float,
                 __buffer,
             )
         };
@@ -5548,7 +5766,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_float,
                 __buffer,
             )
         };
@@ -5561,7 +5780,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_bool,
                 __buffer,
             )
         };
@@ -5581,7 +5801,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_bool,
                 __buffer,
             )
         };
@@ -5598,7 +5819,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_ACTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_actor,
                 __buffer,
             )
         };
@@ -5622,7 +5844,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_VARIABLE_ACTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_variable_actor,
                 __buffer,
             )
         };
@@ -5635,7 +5858,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_TICK_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_tick_behavior,
                 __buffer,
             )
         };
@@ -5652,7 +5876,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_TICK_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_tick_behavior,
                 __buffer,
             )
         };
@@ -5668,7 +5893,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SYSTEM_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_system_fixed_bounds,
                 __buffer,
             )
         };
@@ -5685,7 +5911,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SYSTEM_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_system_fixed_bounds,
                 __buffer,
             )
         };
@@ -5702,7 +5929,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_sim_cache,
                 __buffer,
             )
         };
@@ -5726,7 +5954,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_sim_cache,
                 __buffer,
             )
         };
@@ -5739,7 +5968,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_seek_delta,
                 __buffer,
             )
         };
@@ -5756,7 +5986,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_seek_delta,
                 __buffer,
             )
         };
@@ -5769,7 +6000,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RENDERING_ENABLED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_rendering_enabled,
                 __buffer,
             )
         };
@@ -5786,7 +6018,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RENDERING_ENABLED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_rendering_enabled,
                 __buffer,
             )
         };
@@ -5799,7 +6032,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RANDOM_SEED_OFFSET,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_random_seed_offset,
                 __buffer,
             )
         };
@@ -5816,7 +6050,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_RANDOM_SEED_OFFSET,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_random_seed_offset,
                 __buffer,
             )
         };
@@ -5834,7 +6069,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PREVIEW_LOD_DISTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_preview_lod_distance,
                 __buffer,
             )
         };
@@ -5865,7 +6101,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PREVIEW_LOD_DISTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_preview_lod_distance,
                 __buffer,
             )
         };
@@ -5878,7 +6115,7 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PAUSED,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_set_paused,
                 __buffer,
             )
         };
@@ -5895,7 +6132,7 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_PAUSED,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_set_paused,
                 __buffer,
             )
         };
@@ -5908,7 +6145,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_OCCLUSION_QUERY_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_occlusion_query_mode,
                 __buffer,
             )
         };
@@ -5925,7 +6163,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_OCCLUSION_QUERY_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_occlusion_query_mode,
                 __buffer,
             )
         };
@@ -5942,7 +6181,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_vec4,
                 __buffer,
             )
         };
@@ -5966,7 +6206,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_vec4,
                 __buffer,
             )
         };
@@ -5983,7 +6224,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC3,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_vec3,
                 __buffer,
             )
         };
@@ -6007,7 +6249,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC3,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_vec3,
                 __buffer,
             )
         };
@@ -6024,7 +6267,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC2,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_vec2,
                 __buffer,
             )
         };
@@ -6048,7 +6292,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_VEC2,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_vec2,
                 __buffer,
             )
         };
@@ -6065,7 +6310,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_quat,
                 __buffer,
             )
         };
@@ -6089,7 +6335,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_quat,
                 __buffer,
             )
         };
@@ -6106,7 +6353,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_position,
                 __buffer,
             )
         };
@@ -6130,7 +6378,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_position,
                 __buffer,
             )
         };
@@ -6147,7 +6396,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_object,
                 __buffer,
             )
         };
@@ -6171,7 +6421,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_object,
                 __buffer,
             )
         };
@@ -6188,7 +6439,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_matrix,
                 __buffer,
             )
         };
@@ -6212,7 +6464,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_matrix,
                 __buffer,
             )
         };
@@ -6229,7 +6482,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_linear_color,
                 __buffer,
             )
         };
@@ -6253,7 +6507,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_linear_color,
                 __buffer,
             )
         };
@@ -6270,7 +6525,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_int,
                 __buffer,
             )
         };
@@ -6290,7 +6546,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_int,
                 __buffer,
             )
         };
@@ -6307,7 +6564,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_float,
                 __buffer,
             )
         };
@@ -6327,7 +6585,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_float,
                 __buffer,
             )
         };
@@ -6344,7 +6603,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_bool,
                 __buffer,
             )
         };
@@ -6364,7 +6624,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_bool,
                 __buffer,
             )
         };
@@ -6381,7 +6642,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_ACTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_actor,
                 __buffer,
             )
         };
@@ -6405,7 +6667,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_NIAGARA_VARIABLE_ACTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_niagara_variable_actor,
                 __buffer,
             )
         };
@@ -6418,7 +6681,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_MAX_SIM_TIME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_max_sim_time,
                 __buffer,
             )
         };
@@ -6435,7 +6699,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_MAX_SIM_TIME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_max_sim_time,
                 __buffer,
             )
         };
@@ -6448,7 +6713,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_lock_desired_age_delta_time_to_seek_delta,
                 __buffer,
             )
         };
@@ -6461,7 +6727,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_lock_desired_age_delta_time_to_seek_delta,
                 __buffer,
             )
         };
@@ -6474,7 +6741,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_GPU_COMPUTE_DEBUG,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_gpu_compute_debug,
                 __buffer,
             )
         };
@@ -6491,7 +6759,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_GPU_COMPUTE_DEBUG,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_gpu_compute_debug,
                 __buffer,
             )
         };
@@ -6504,7 +6773,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_SOLO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_force_solo,
                 __buffer,
             )
         };
@@ -6521,7 +6791,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_SOLO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_force_solo,
                 __buffer,
             )
         };
@@ -6534,7 +6805,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_LOCAL_PLAYER_EFFECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_force_local_player_effect,
                 __buffer,
             )
         };
@@ -6551,7 +6823,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_FORCE_LOCAL_PLAYER_EFFECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_force_local_player_effect,
                 __buffer,
             )
         };
@@ -6568,7 +6841,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_EMITTER_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_emitter_fixed_bounds,
                 __buffer,
             )
         };
@@ -6592,7 +6866,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_EMITTER_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_emitter_fixed_bounds,
                 __buffer,
             )
         };
@@ -6605,7 +6880,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_DESIRED_AGE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_desired_age,
                 __buffer,
             )
         };
@@ -6622,7 +6898,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_DESIRED_AGE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_desired_age,
                 __buffer,
             )
         };
@@ -6635,7 +6912,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CUSTOM_TIME_DILATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_custom_time_dilation,
                 __buffer,
             )
         };
@@ -6648,7 +6926,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CUSTOM_TIME_DILATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_custom_time_dilation,
                 __buffer,
             )
         };
@@ -6661,7 +6940,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CAN_RENDER_WHILE_SEEKING,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_can_render_while_seeking,
                 __buffer,
             )
         };
@@ -6678,7 +6958,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_CAN_RENDER_WHILE_SEEKING,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_can_render_while_seeking,
                 __buffer,
             )
         };
@@ -6691,7 +6972,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AUTO_DESTROY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_auto_destroy,
                 __buffer,
             )
         };
@@ -6708,7 +6990,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AUTO_DESTROY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_auto_destroy,
                 __buffer,
             )
         };
@@ -6725,7 +7008,7 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ASSET,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_set_asset,
                 __buffer,
             )
         };
@@ -6749,7 +7032,7 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ASSET,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_set_asset,
                 __buffer,
             )
         };
@@ -6762,7 +7045,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_allow_scalability,
                 __buffer,
             )
         };
@@ -6775,7 +7059,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_allow_scalability,
                 __buffer,
             )
         };
@@ -6788,7 +7073,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_age_update_mode,
                 __buffer,
             )
         };
@@ -6805,7 +7091,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_set_age_update_mode,
                 __buffer,
             )
         };
@@ -6818,7 +7105,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SEEK_TO_DESIRED_AGE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_seek_to_desired_age,
                 __buffer,
             )
         };
@@ -6835,7 +7123,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_SEEK_TO_DESIRED_AGE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_seek_to_desired_age,
                 __buffer,
             )
         };
@@ -6848,7 +7137,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_RESET_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_reset_system,
                 __buffer,
             )
         };
@@ -6858,7 +7148,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_RESET_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_reset_system,
                 __buffer,
             )
         };
@@ -6871,7 +7162,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_REINITIALIZE_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_reinitialize_system,
                 __buffer,
             )
         };
@@ -6881,7 +7173,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_REINITIALIZE_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_reinitialize_system,
                 __buffer,
             )
         };
@@ -6894,7 +7187,7 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_IS_PAUSED,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_is_paused,
                 __buffer,
             )
         };
@@ -6904,7 +7197,7 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_IS_PAUSED,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_is_paused,
                 __buffer,
             )
         };
@@ -6918,7 +7211,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_INIT_FOR_PERFORMANCE_BASELINE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_init_for_performance_baseline,
                 __buffer,
             )
         };
@@ -6928,7 +7222,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_INIT_FOR_PERFORMANCE_BASELINE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_init_for_performance_baseline,
                 __buffer,
             )
         };
@@ -6945,7 +7240,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_vec4,
                 __buffer,
             )
         };
@@ -6969,7 +7265,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_vec4,
                 __buffer,
             )
         };
@@ -6992,7 +7289,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC3,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_vec3,
                 __buffer,
             )
         };
@@ -7016,7 +7314,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC3,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_vec3,
                 __buffer,
             )
         };
@@ -7039,7 +7338,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC2,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_vec2,
                 __buffer,
             )
         };
@@ -7063,7 +7363,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_VEC2,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_vec2,
                 __buffer,
             )
         };
@@ -7086,7 +7387,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_quat,
                 __buffer,
             )
         };
@@ -7110,7 +7412,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_quat,
                 __buffer,
             )
         };
@@ -7133,7 +7436,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_position,
                 __buffer,
             )
         };
@@ -7157,7 +7461,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_position,
                 __buffer,
             )
         };
@@ -7180,7 +7485,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_matrix,
                 __buffer,
             )
         };
@@ -7204,7 +7510,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_matrix,
                 __buffer,
             )
         };
@@ -7227,7 +7534,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_int,
                 __buffer,
             )
         };
@@ -7251,7 +7559,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_int,
                 __buffer,
             )
         };
@@ -7272,7 +7581,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_float,
                 __buffer,
             )
         };
@@ -7296,7 +7606,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_float,
                 __buffer,
             )
         };
@@ -7317,7 +7628,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_color,
                 __buffer,
             )
         };
@@ -7341,7 +7653,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_color,
                 __buffer,
             )
         };
@@ -7367,7 +7680,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_bool,
                 __buffer,
             )
         };
@@ -7391,7 +7705,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_VARIABLE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_variable_bool,
                 __buffer,
             )
         };
@@ -7408,7 +7723,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_TICK_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_tick_behavior,
                 __buffer,
             )
         };
@@ -7418,7 +7734,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_TICK_BEHAVIOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_tick_behavior,
                 __buffer,
             )
         };
@@ -7432,7 +7749,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SYSTEM_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_system_fixed_bounds,
                 __buffer,
             )
         };
@@ -7442,7 +7760,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SYSTEM_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_system_fixed_bounds,
                 __buffer,
             )
         };
@@ -7456,7 +7775,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_sim_cache,
                 __buffer,
             )
         };
@@ -7466,7 +7786,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_sim_cache,
                 __buffer,
             )
         };
@@ -7480,7 +7801,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_seek_delta,
                 __buffer,
             )
         };
@@ -7490,7 +7812,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_seek_delta,
                 __buffer,
             )
         };
@@ -7504,7 +7827,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_RANDOM_SEED_OFFSET,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_random_seed_offset,
                 __buffer,
             )
         };
@@ -7514,7 +7838,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_RANDOM_SEED_OFFSET,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_random_seed_offset,
                 __buffer,
             )
         };
@@ -7528,7 +7853,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE_ENABLED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_preview_lod_distance_enabled,
                 __buffer,
             )
         };
@@ -7538,7 +7864,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE_ENABLED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_preview_lod_distance_enabled,
                 __buffer,
             )
         };
@@ -7552,7 +7879,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_preview_lod_distance,
                 __buffer,
             )
         };
@@ -7562,7 +7890,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_PREVIEW_LOD_DISTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_preview_lod_distance,
                 __buffer,
             )
         };
@@ -7576,7 +7905,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_OCCLUSION_QUERY_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_occlusion_query_mode,
                 __buffer,
             )
         };
@@ -7586,7 +7916,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_OCCLUSION_QUERY_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_occlusion_query_mode,
                 __buffer,
             )
         };
@@ -7600,7 +7931,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_MAX_SIM_TIME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_max_sim_time,
                 __buffer,
             )
         };
@@ -7610,7 +7942,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_MAX_SIM_TIME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_max_sim_time,
                 __buffer,
             )
         };
@@ -7624,7 +7957,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_lock_desired_age_delta_time_to_seek_delta,
                 __buffer,
             )
         };
@@ -7634,7 +7968,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_LOCK_DESIRED_AGE_DELTA_TIME_TO_SEEK_DELTA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_lock_desired_age_delta_time_to_seek_delta,
                 __buffer,
             )
         };
@@ -7648,7 +7983,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_SOLO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_force_solo,
                 __buffer,
             )
         };
@@ -7658,7 +7994,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_SOLO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_force_solo,
                 __buffer,
             )
         };
@@ -7672,7 +8009,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_LOCAL_PLAYER_EFFECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_force_local_player_effect,
                 __buffer,
             )
         };
@@ -7682,7 +8020,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_FORCE_LOCAL_PLAYER_EFFECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_force_local_player_effect,
                 __buffer,
             )
         };
@@ -7699,7 +8038,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_EMITTER_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_emitter_fixed_bounds,
                 __buffer,
             )
         };
@@ -7716,7 +8056,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_EMITTER_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_emitter_fixed_bounds,
                 __buffer,
             )
         };
@@ -7730,7 +8071,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DESIRED_AGE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_desired_age,
                 __buffer,
             )
         };
@@ -7740,7 +8082,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DESIRED_AGE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_desired_age,
                 __buffer,
             )
         };
@@ -7754,7 +8097,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DATA_INTERFACE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_data_interface,
                 __buffer,
             )
         };
@@ -7767,7 +8111,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_DATA_INTERFACE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_data_interface,
                 __buffer,
             )
         };
@@ -7781,7 +8126,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_CUSTOM_TIME_DILATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_custom_time_dilation,
                 __buffer,
             )
         };
@@ -7791,7 +8137,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_CUSTOM_TIME_DILATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_custom_time_dilation,
                 __buffer,
             )
         };
@@ -7805,7 +8152,7 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ASSET,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_get_asset,
                 __buffer,
             )
         };
@@ -7815,7 +8162,7 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ASSET,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_component_get_asset,
                 __buffer,
             )
         };
@@ -7829,7 +8176,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_allow_scalability,
                 __buffer,
             )
         };
@@ -7839,7 +8187,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_ALLOW_SCALABILITY,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_allow_scalability,
                 __buffer,
             )
         };
@@ -7853,7 +8202,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_age_update_mode,
                 __buffer,
             )
         };
@@ -7863,7 +8213,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_GET_AGE_UPDATE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_get_age_update_mode,
                 __buffer,
             )
         };
@@ -7877,7 +8228,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SYSTEM_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_clear_system_fixed_bounds,
                 __buffer,
             )
         };
@@ -7887,7 +8239,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SYSTEM_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_clear_system_fixed_bounds,
                 __buffer,
             )
         };
@@ -7900,7 +8253,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_clear_sim_cache,
                 __buffer,
             )
         };
@@ -7917,7 +8271,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_clear_sim_cache,
                 __buffer,
             )
         };
@@ -7930,7 +8285,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_EMITTER_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_clear_emitter_fixed_bounds,
                 __buffer,
             )
         };
@@ -7947,7 +8303,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_CLEAR_EMITTER_FIXED_BOUNDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_clear_emitter_fixed_bounds,
                 __buffer,
             )
         };
@@ -7964,7 +8321,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION_BY_TIME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_advance_simulation_by_time,
                 __buffer,
             )
         };
@@ -7988,7 +8346,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION_BY_TIME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_advance_simulation_by_time,
                 __buffer,
             )
         };
@@ -8001,7 +8360,8 @@ impl UNiagaraComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_advance_simulation,
                 __buffer,
             )
         };
@@ -8021,7 +8381,8 @@ impl UNiagaraComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_COMPONENT_ADVANCE_SIMULATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_component_advance_simulation,
                 __buffer,
             )
         };
@@ -8165,7 +8526,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_vector4,
                 __buffer,
             )
         };
@@ -8184,7 +8546,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_vector4,
                 __buffer,
             )
         };
@@ -8208,7 +8571,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_vector2_d,
                 __buffer,
             )
         };
@@ -8227,7 +8591,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_vector2_d,
                 __buffer,
             )
         };
@@ -8251,7 +8616,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_vector,
                 __buffer,
             )
         };
@@ -8270,7 +8636,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_vector,
                 __buffer,
             )
         };
@@ -8294,7 +8661,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_SPAWN_INFO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_spawn_info,
                 __buffer,
             )
         };
@@ -8313,7 +8681,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_SPAWN_INFO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_spawn_info,
                 __buffer,
             )
         };
@@ -8335,7 +8704,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_quat,
                 __buffer,
             )
         };
@@ -8354,7 +8724,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_quat,
                 __buffer,
             )
         };
@@ -8378,7 +8749,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_position,
                 __buffer,
             )
         };
@@ -8397,7 +8769,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_position,
                 __buffer,
             )
         };
@@ -8421,7 +8794,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_linear_color,
                 __buffer,
             )
         };
@@ -8440,7 +8814,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_linear_color,
                 __buffer,
             )
         };
@@ -8462,7 +8837,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_int,
                 __buffer,
             )
         };
@@ -8481,7 +8857,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_int,
                 __buffer,
             )
         };
@@ -8503,7 +8880,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ID,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_id,
                 __buffer,
             )
         };
@@ -8522,7 +8900,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ID,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_id,
                 __buffer,
             )
         };
@@ -8539,7 +8918,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_float,
                 __buffer,
             )
         };
@@ -8558,7 +8938,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_float,
                 __buffer,
             )
         };
@@ -8575,7 +8956,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ENUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_enum,
                 __buffer,
             )
         };
@@ -8594,7 +8976,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_ENUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_enum,
                 __buffer,
             )
         };
@@ -8611,7 +8994,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_bool,
                 __buffer,
             )
         };
@@ -8630,7 +9014,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_READ_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_read_bool,
                 __buffer,
             )
         };
@@ -8647,7 +9032,8 @@ impl UNiagaraDataChannelReader {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_NUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_num,
                 __buffer,
             )
         };
@@ -8657,7 +9043,8 @@ impl UNiagaraDataChannelReader {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_READER_NUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_reader_num,
                 __buffer,
             )
         };
@@ -8697,7 +9084,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_vector4,
                 __buffer,
             )
         };
@@ -8720,7 +9108,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_vector4,
                 __buffer,
             )
         };
@@ -8738,7 +9127,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_vector2_d,
                 __buffer,
             )
         };
@@ -8761,7 +9151,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_vector2_d,
                 __buffer,
             )
         };
@@ -8779,7 +9170,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_vector,
                 __buffer,
             )
         };
@@ -8802,7 +9194,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_vector,
                 __buffer,
             )
         };
@@ -8820,7 +9213,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_SPAWN_INFO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_spawn_info,
                 __buffer,
             )
         };
@@ -8843,7 +9237,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_SPAWN_INFO,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_spawn_info,
                 __buffer,
             )
         };
@@ -8861,7 +9256,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_quat,
                 __buffer,
             )
         };
@@ -8884,7 +9280,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_quat,
                 __buffer,
             )
         };
@@ -8902,7 +9299,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_position,
                 __buffer,
             )
         };
@@ -8925,7 +9323,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_position,
                 __buffer,
             )
         };
@@ -8943,7 +9342,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_linear_color,
                 __buffer,
             )
         };
@@ -8966,7 +9366,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_LINEAR_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_linear_color,
                 __buffer,
             )
         };
@@ -8979,7 +9380,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_int,
                 __buffer,
             )
         };
@@ -8998,7 +9400,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_INT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_int,
                 __buffer,
             )
         };
@@ -9011,7 +9414,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ID,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_id,
                 __buffer,
             )
         };
@@ -9034,7 +9438,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ID,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_id,
                 __buffer,
             )
         };
@@ -9047,7 +9452,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_float,
                 __buffer,
             )
         };
@@ -9066,7 +9472,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_float,
                 __buffer,
             )
         };
@@ -9079,7 +9486,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ENUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_enum,
                 __buffer,
             )
         };
@@ -9098,7 +9506,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_ENUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_enum,
                 __buffer,
             )
         };
@@ -9111,7 +9520,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_bool,
                 __buffer,
             )
         };
@@ -9130,7 +9540,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_WRITE_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_write_bool,
                 __buffer,
             )
         };
@@ -9143,7 +9554,8 @@ impl UNiagaraDataChannelWriter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_NUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_num,
                 __buffer,
             )
         };
@@ -9153,7 +9565,8 @@ impl UNiagaraDataChannelWriter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_WRITER_NUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_writer_num,
                 __buffer,
             )
         };
@@ -9218,7 +9631,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel_with_context,
                 __buffer,
             )
         };
@@ -9280,7 +9694,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel_with_context,
                 __buffer,
             )
         };
@@ -9306,7 +9721,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9368,7 +9784,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_WRITE_TO_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_write_to_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9386,7 +9803,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_UNSUBSCRIBE_FROM_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_unsubscribe_from_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9417,7 +9835,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_UNSUBSCRIBE_FROM_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_unsubscribe_from_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9436,7 +9855,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_subscribe_to_niagara_data_channel_with_context,
                 __buffer,
             )
         };
@@ -9483,7 +9903,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_subscribe_to_niagara_data_channel_with_context,
                 __buffer,
             )
         };
@@ -9508,7 +9929,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_subscribe_to_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9553,7 +9975,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SUBSCRIBE_TO_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_subscribe_to_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9574,7 +9997,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_set_single_property_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9610,7 +10034,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_set_single_property_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9629,7 +10054,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_set_members_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9655,7 +10081,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_SET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_set_members_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9676,7 +10103,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel_with_context,
                 __buffer,
             )
         };
@@ -9714,7 +10142,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel_with_context,
                 __buffer,
             )
         };
@@ -9736,7 +10165,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9774,7 +10204,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_READ_FROM_NIAGARA_DATA_CHANNEL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_read_from_niagara_data_channel,
                 __buffer,
             )
         };
@@ -9790,7 +10221,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_PREPARE_ACCESS_CONTEXT_FROM_NDC_REF,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_prepare_access_context_from_ndc_ref,
                 __buffer,
             )
         };
@@ -9807,7 +10239,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_PREPARE_ACCESS_CONTEXT_FROM_NDC_REF,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_prepare_access_context_from_ndc_ref,
                 __buffer,
             )
         };
@@ -9826,7 +10259,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_MAKE_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_make_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9845,7 +10279,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_MAKE_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_make_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9861,7 +10296,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC_REF,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_usable_access_context_from_ndc_ref,
                 __buffer,
             )
         };
@@ -9878,7 +10314,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC_REF,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_usable_access_context_from_ndc_ref,
                 __buffer,
             )
         };
@@ -9894,7 +10331,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_usable_access_context_from_ndc,
                 __buffer,
             )
         };
@@ -9911,7 +10349,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_USABLE_ACCESS_CONTEXT_FROM_NDC,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_usable_access_context_from_ndc,
                 __buffer,
             )
         };
@@ -9930,7 +10369,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_single_property_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9966,7 +10406,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_SINGLE_PROPERTY_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_single_property_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -9985,7 +10426,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_members_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -10011,7 +10453,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_MEMBERS_IN_NDC_ACCESS_CONTEXT_INSTANCE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_members_in_ndc_access_context_instance,
                 __buffer,
             )
         };
@@ -10029,7 +10472,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_data_channel_element_count_with_context,
                 __buffer,
             )
         };
@@ -10067,7 +10511,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_data_channel_element_count_with_context,
                 __buffer,
             )
         };
@@ -10089,7 +10534,8 @@ impl UNiagaraDataChannelLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_data_channel_element_count,
                 __buffer,
             )
         };
@@ -10127,7 +10573,8 @@ impl UNiagaraDataChannelLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_LIBRARY_GET_DATA_CHANNEL_ELEMENT_COUNT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_library_get_data_channel_element_count,
                 __buffer,
             )
         };
@@ -10162,7 +10609,8 @@ impl UNiagaraDataChannelHandler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_UNSUBSCRIBE_FROM_DATA_CHANNEL_UPDATES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_unsubscribe_from_data_channel_updates,
                 __buffer,
             )
         };
@@ -10179,7 +10627,8 @@ impl UNiagaraDataChannelHandler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_UNSUBSCRIBE_FROM_DATA_CHANNEL_UPDATES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_unsubscribe_from_data_channel_updates,
                 __buffer,
             )
         };
@@ -10197,7 +10646,8 @@ impl UNiagaraDataChannelHandler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_subscribe_to_data_channel_updates_with_context,
                 __buffer,
             )
         };
@@ -10230,7 +10680,8 @@ impl UNiagaraDataChannelHandler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES_WITH_CONTEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_subscribe_to_data_channel_updates_with_context,
                 __buffer,
             )
         };
@@ -10254,7 +10705,8 @@ impl UNiagaraDataChannelHandler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_subscribe_to_data_channel_updates,
                 __buffer,
             )
         };
@@ -10285,7 +10737,8 @@ impl UNiagaraDataChannelHandler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_SUBSCRIBE_TO_DATA_CHANNEL_UPDATES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_subscribe_to_data_channel_updates,
                 __buffer,
             )
         };
@@ -10301,7 +10754,8 @@ impl UNiagaraDataChannelHandler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_WRITER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_get_data_channel_writer,
                 __buffer,
             )
         };
@@ -10311,7 +10765,8 @@ impl UNiagaraDataChannelHandler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_WRITER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_get_data_channel_writer,
                 __buffer,
             )
         };
@@ -10325,7 +10780,8 @@ impl UNiagaraDataChannelHandler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_READER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_get_data_channel_reader,
                 __buffer,
             )
         };
@@ -10335,7 +10791,8 @@ impl UNiagaraDataChannelHandler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_CHANNEL_HANDLER_GET_DATA_CHANNEL_READER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_channel_handler_get_data_channel_reader,
                 __buffer,
             )
         };
@@ -10775,7 +11232,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector_value,
                 __buffer,
             )
         };
@@ -10816,7 +11274,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector_value,
                 __buffer,
             )
         };
@@ -10835,7 +11294,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector4_value,
                 __buffer,
             )
         };
@@ -10876,7 +11336,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector4_value,
                 __buffer,
             )
         };
@@ -10893,7 +11354,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector4,
                 __buffer,
             )
         };
@@ -10926,7 +11388,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector4,
                 __buffer,
             )
         };
@@ -10945,7 +11408,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d_value,
                 __buffer,
             )
         };
@@ -10986,7 +11450,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d_value,
                 __buffer,
             )
         };
@@ -11003,7 +11468,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d,
                 __buffer,
             )
         };
@@ -11036,7 +11502,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector2_d,
                 __buffer,
             )
         };
@@ -11053,7 +11520,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector,
                 __buffer,
             )
         };
@@ -11086,7 +11554,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_vector,
                 __buffer,
             )
         };
@@ -11105,7 +11574,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8_value,
                 __buffer,
             )
         };
@@ -11142,7 +11612,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8_value,
                 __buffer,
             )
         };
@@ -11159,7 +11630,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8,
                 __buffer,
             )
         };
@@ -11190,7 +11662,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_U_INT8,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_u_int8,
                 __buffer,
             )
         };
@@ -11209,7 +11682,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_quat_value,
                 __buffer,
             )
         };
@@ -11250,7 +11724,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_quat_value,
                 __buffer,
             )
         };
@@ -11267,7 +11742,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_quat,
                 __buffer,
             )
         };
@@ -11298,7 +11774,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_quat,
                 __buffer,
             )
         };
@@ -11317,7 +11794,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_position_value,
                 __buffer,
             )
         };
@@ -11358,7 +11836,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_position_value,
                 __buffer,
             )
         };
@@ -11375,7 +11854,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_position,
                 __buffer,
             )
         };
@@ -11408,7 +11888,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_position,
                 __buffer,
             )
         };
@@ -11428,7 +11909,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_matrix_value,
                 __buffer,
             )
         };
@@ -11476,7 +11958,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_matrix_value,
                 __buffer,
             )
         };
@@ -11494,7 +11977,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_matrix,
                 __buffer,
             )
         };
@@ -11534,7 +12018,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_matrix,
                 __buffer,
             )
         };
@@ -11553,7 +12038,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_int32_value,
                 __buffer,
             )
         };
@@ -11590,7 +12076,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_int32_value,
                 __buffer,
             )
         };
@@ -11607,7 +12094,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_int32,
                 __buffer,
             )
         };
@@ -11638,7 +12126,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_INT32,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_int32,
                 __buffer,
             )
         };
@@ -11657,7 +12146,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_float_value,
                 __buffer,
             )
         };
@@ -11694,7 +12184,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_float_value,
                 __buffer,
             )
         };
@@ -11711,7 +12202,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_float,
                 __buffer,
             )
         };
@@ -11742,7 +12234,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_float,
                 __buffer,
             )
         };
@@ -11761,7 +12254,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_color_value,
                 __buffer,
             )
         };
@@ -11802,7 +12296,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_color_value,
                 __buffer,
             )
         };
@@ -11819,7 +12314,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_color,
                 __buffer,
             )
         };
@@ -11852,7 +12348,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_color,
                 __buffer,
             )
         };
@@ -11871,7 +12368,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_bool_value,
                 __buffer,
             )
         };
@@ -11908,7 +12406,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_bool_value,
                 __buffer,
             )
         };
@@ -11925,7 +12424,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_bool,
                 __buffer,
             )
         };
@@ -11956,7 +12456,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_SET_NIAGARA_ARRAY_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_set_niagara_array_bool,
                 __buffer,
             )
         };
@@ -11973,7 +12474,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector_value,
                 __buffer,
             )
         };
@@ -12000,7 +12502,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector_value,
                 __buffer,
             )
         };
@@ -12020,7 +12523,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector4_value,
                 __buffer,
             )
         };
@@ -12047,7 +12551,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector4_value,
                 __buffer,
             )
         };
@@ -12066,7 +12571,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector4,
                 __buffer,
             )
         };
@@ -12090,7 +12596,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR4,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector4,
                 __buffer,
             )
         };
@@ -12113,7 +12620,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d_value,
                 __buffer,
             )
         };
@@ -12140,7 +12648,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d_value,
                 __buffer,
             )
         };
@@ -12159,7 +12668,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d,
                 __buffer,
             )
         };
@@ -12183,7 +12693,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector2_d,
                 __buffer,
             )
         };
@@ -12205,7 +12716,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector,
                 __buffer,
             )
         };
@@ -12229,7 +12741,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_VECTOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_vector,
                 __buffer,
             )
         };
@@ -12252,7 +12765,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8_value,
                 __buffer,
             )
         };
@@ -12279,7 +12793,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8_value,
                 __buffer,
             )
         };
@@ -12296,7 +12811,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8,
                 __buffer,
             )
         };
@@ -12320,7 +12836,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_U_INT8,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_u_int8,
                 __buffer,
             )
         };
@@ -12338,7 +12855,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_quat_value,
                 __buffer,
             )
         };
@@ -12365,7 +12883,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_quat_value,
                 __buffer,
             )
         };
@@ -12384,7 +12903,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_quat,
                 __buffer,
             )
         };
@@ -12408,7 +12928,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_QUAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_quat,
                 __buffer,
             )
         };
@@ -12431,7 +12952,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_position_value,
                 __buffer,
             )
         };
@@ -12458,7 +12980,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_position_value,
                 __buffer,
             )
         };
@@ -12477,7 +13000,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_position,
                 __buffer,
             )
         };
@@ -12501,7 +13025,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_POSITION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_position,
                 __buffer,
             )
         };
@@ -12525,7 +13050,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_matrix_value,
                 __buffer,
             )
         };
@@ -12559,7 +13085,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_matrix_value,
                 __buffer,
             )
         };
@@ -12579,7 +13106,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_matrix,
                 __buffer,
             )
         };
@@ -12610,7 +13138,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_MATRIX,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_matrix,
                 __buffer,
             )
         };
@@ -12633,7 +13162,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_int32_value,
                 __buffer,
             )
         };
@@ -12660,7 +13190,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_int32_value,
                 __buffer,
             )
         };
@@ -12677,7 +13208,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_int32,
                 __buffer,
             )
         };
@@ -12701,7 +13233,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_INT32,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_int32,
                 __buffer,
             )
         };
@@ -12719,7 +13252,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_float_value,
                 __buffer,
             )
         };
@@ -12746,7 +13280,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_float_value,
                 __buffer,
             )
         };
@@ -12763,7 +13298,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_float,
                 __buffer,
             )
         };
@@ -12787,7 +13323,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_FLOAT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_float,
                 __buffer,
             )
         };
@@ -12805,7 +13342,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_color_value,
                 __buffer,
             )
         };
@@ -12832,7 +13370,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_color_value,
                 __buffer,
             )
         };
@@ -12854,7 +13393,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_color,
                 __buffer,
             )
         };
@@ -12878,7 +13418,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_COLOR,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_color,
                 __buffer,
             )
         };
@@ -12901,7 +13442,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_bool_value,
                 __buffer,
             )
         };
@@ -12928,7 +13470,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL_VALUE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_bool_value,
                 __buffer,
             )
         };
@@ -12945,7 +13488,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_bool,
                 __buffer,
             )
         };
@@ -12969,7 +13513,8 @@ impl UNiagaraDataInterfaceArrayFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_ARRAY_FUNCTION_LIBRARY_GET_NIAGARA_ARRAY_BOOL,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_array_function_library_get_niagara_array_bool,
                 __buffer,
             )
         };
@@ -13360,7 +13905,8 @@ impl UNiagaraParticleCallbackHandler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARTICLE_CALLBACK_HANDLER_RECEIVE_PARTICLE_DATA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_particle_callback_handler_receive_particle_data,
                 __buffer,
             )
         };
@@ -13391,7 +13937,8 @@ impl UNiagaraParticleCallbackHandler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARTICLE_CALLBACK_HANDLER_RECEIVE_PARTICLE_DATA,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_particle_callback_handler_receive_particle_data,
                 __buffer,
             )
         };
@@ -13472,7 +14019,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_get_texture_size,
                 __buffer,
             )
         };
@@ -13495,7 +14043,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_get_texture_size,
                 __buffer,
             )
         };
@@ -13519,7 +14068,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_get_raw_texture_size,
                 __buffer,
             )
         };
@@ -13542,7 +14092,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_get_raw_texture_size,
                 __buffer,
             )
         };
@@ -13566,7 +14117,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_TEXTURE2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_fill_texture2_d,
                 __buffer,
             )
         };
@@ -13599,7 +14151,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_TEXTURE2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_fill_texture2_d,
                 __buffer,
             )
         };
@@ -13619,7 +14172,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_RAW_TEXTURE2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_fill_raw_texture2_d,
                 __buffer,
             )
         };
@@ -13651,7 +14205,8 @@ impl UNiagaraDataInterfaceGrid2DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID2_D_COLLECTION_FILL_RAW_TEXTURE2_D,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid2_d_collection_fill_raw_texture2_d,
                 __buffer,
             )
         };
@@ -13740,7 +14295,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_get_texture_size,
                 __buffer,
             )
         };
@@ -13766,7 +14322,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_get_texture_size,
                 __buffer,
             )
         };
@@ -13794,7 +14351,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_get_raw_texture_size,
                 __buffer,
             )
         };
@@ -13820,7 +14378,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_GET_RAW_TEXTURE_SIZE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_get_raw_texture_size,
                 __buffer,
             )
         };
@@ -13847,7 +14406,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_VOLUME_TEXTURE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_fill_volume_texture,
                 __buffer,
             )
         };
@@ -13878,7 +14438,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_VOLUME_TEXTURE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_fill_volume_texture,
                 __buffer,
             )
         };
@@ -13899,7 +14460,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_RAW_VOLUME_TEXTURE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_fill_raw_volume_texture,
                 __buffer,
             )
         };
@@ -13932,7 +14494,8 @@ impl UNiagaraDataInterfaceGrid3DCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DATA_INTERFACE_GRID3_D_COLLECTION_FILL_RAW_VOLUME_TEXTURE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_data_interface_grid3_d_collection_fill_raw_volume_texture,
                 __buffer,
             )
         };
@@ -14316,7 +14879,8 @@ impl UNiagaraDIRigidMeshCollisionFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_DI_RIGID_MESH_COLLISION_FUNCTION_LIBRARY_SET_SOURCE_ACTORS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_di_rigid_mesh_collision_function_library_set_source_actors,
                 __buffer,
             )
         };
@@ -14347,7 +14911,8 @@ impl UNiagaraDIRigidMeshCollisionFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_DI_RIGID_MESH_COLLISION_FUNCTION_LIBRARY_SET_SOURCE_ACTORS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_di_rigid_mesh_collision_function_library_set_source_actors,
                 __buffer,
             )
         };
@@ -14724,7 +15289,8 @@ impl ANiagaraEditorPreviewActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_ROTATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_editor_preview_actor_calculate_rotation,
                 __buffer,
             )
         };
@@ -14748,7 +15314,8 @@ impl ANiagaraEditorPreviewActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_ROTATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_editor_preview_actor_calculate_rotation,
                 __buffer,
             )
         };
@@ -14771,7 +15338,8 @@ impl ANiagaraEditorPreviewActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_LOCATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_editor_preview_actor_calculate_location,
                 __buffer,
             )
         };
@@ -14795,7 +15363,8 @@ impl ANiagaraEditorPreviewActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_EDITOR_PREVIEW_ACTOR_CALCULATE_LOCATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_editor_preview_actor_calculate_location,
                 __buffer,
             )
         };
@@ -15005,7 +15574,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED_WITH_PARAMS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_attached_with_params,
                 __buffer,
             )
         };
@@ -15024,7 +15594,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED_WITH_PARAMS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_attached_with_params,
                 __buffer,
             )
         };
@@ -15049,7 +15620,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_attached,
                 __buffer,
             )
         };
@@ -15129,7 +15701,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_ATTACHED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_attached,
                 __buffer,
             )
         };
@@ -15145,7 +15718,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION_WITH_PARAMS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_at_location_with_params,
                 __buffer,
             )
         };
@@ -15164,7 +15738,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION_WITH_PARAMS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_at_location_with_params,
                 __buffer,
             )
         };
@@ -15188,7 +15763,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_at_location,
                 __buffer,
             )
         };
@@ -15261,7 +15837,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SPAWN_SYSTEM_AT_LOCATION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_spawn_system_at_location,
                 __buffer,
             )
         };
@@ -15279,7 +15856,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_VOLUME_TEXTURE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_volume_texture_object,
                 __buffer,
             )
         };
@@ -15310,7 +15888,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_VOLUME_TEXTURE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_volume_texture_object,
                 __buffer,
             )
         };
@@ -15327,7 +15906,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_texture_object,
                 __buffer,
             )
         };
@@ -15358,7 +15938,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_texture_object,
                 __buffer,
             )
         };
@@ -15375,7 +15956,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE2_D_ARRAY_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_texture2_d_array_object,
                 __buffer,
             )
         };
@@ -15408,7 +15990,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_TEXTURE2_D_ARRAY_OBJECT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_texture2_d_array_object,
                 __buffer,
             )
         };
@@ -15425,7 +16008,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_SAMPLING_REGIONS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_sampling_regions,
                 __buffer,
             )
         };
@@ -15456,7 +16040,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_SAMPLING_REGIONS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_sampling_regions,
                 __buffer,
             )
         };
@@ -15473,7 +16058,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_SOCKETS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_sockets,
                 __buffer,
             )
         };
@@ -15504,7 +16090,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_SOCKETS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_sockets,
                 __buffer,
             )
         };
@@ -15521,7 +16108,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_BONES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_bones,
                 __buffer,
             )
         };
@@ -15552,7 +16140,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SKELETAL_MESH_DATA_INTERFACE_FILTERED_BONES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_skeletal_mesh_data_interface_filtered_bones,
                 __buffer,
             )
         };
@@ -15577,7 +16166,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SCENE_CAPTURE2_D_DATA_INTERFACE_MANAGED_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_scene_capture2_d_data_interface_managed_mode,
                 __buffer,
             )
         };
@@ -15664,7 +16254,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_SCENE_CAPTURE2_D_DATA_INTERFACE_MANAGED_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_scene_capture2_d_data_interface_managed_mode,
                 __buffer,
             )
         };
@@ -15681,7 +16272,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_COMPONENT_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_component_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -15714,7 +16306,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_COMPONENT_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_component_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -15731,7 +16324,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_ACTOR_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_actor_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -15762,7 +16356,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_SET_ACTOR_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_set_actor_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -15778,7 +16373,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_RELEASE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_release_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -15802,7 +16398,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_RELEASE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_release_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -15819,7 +16416,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH_COMPONENT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_static_mesh_component,
                 __buffer,
             )
         };
@@ -15852,7 +16450,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH_COMPONENT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_static_mesh_component,
                 __buffer,
             )
         };
@@ -15869,7 +16468,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_static_mesh,
                 __buffer,
             )
         };
@@ -15900,7 +16500,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_STATIC_MESH,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_static_mesh,
                 __buffer,
             )
         };
@@ -15917,7 +16518,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_SKELETAL_MESH_COMPONENT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_skeletal_mesh_component,
                 __buffer,
             )
         };
@@ -15950,7 +16552,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_OVERRIDE_SYSTEM_USER_VARIABLE_SKELETAL_MESH_COMPONENT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_override_system_user_variable_skeletal_mesh_component,
                 __buffer,
             )
         };
@@ -15966,7 +16569,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_GET_NIAGARA_PARAMETER_COLLECTION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_get_niagara_parameter_collection,
                 __buffer,
             )
         };
@@ -15990,7 +16594,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_GET_NIAGARA_PARAMETER_COLLECTION,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_get_niagara_parameter_collection,
                 __buffer,
             )
         };
@@ -16008,7 +16613,8 @@ impl UNiagaraFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_ACQUIRE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_acquire_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -16025,7 +16631,8 @@ impl UNiagaraFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_FUNCTION_LIBRARY_ACQUIRE_NIAGARA_GPU_RAY_TRACED_COLLISION_GROUP,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_function_library_acquire_niagara_gpu_ray_traced_collision_group,
                 __buffer,
             )
         };
@@ -16151,7 +16758,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector_parameter,
                 __buffer,
             )
         };
@@ -16175,7 +16783,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector_parameter,
                 __buffer,
             )
         };
@@ -16192,7 +16801,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR4_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector4_parameter,
                 __buffer,
             )
         };
@@ -16216,7 +16826,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR4_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector4_parameter,
                 __buffer,
             )
         };
@@ -16233,7 +16844,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR2_D_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector2_d_parameter,
                 __buffer,
             )
         };
@@ -16257,7 +16869,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_VECTOR2_D_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_vector2_d_parameter,
                 __buffer,
             )
         };
@@ -16274,7 +16887,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_QUAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_quat_parameter,
                 __buffer,
             )
         };
@@ -16298,7 +16912,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_QUAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_quat_parameter,
                 __buffer,
             )
         };
@@ -16311,7 +16926,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_INT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_int_parameter,
                 __buffer,
             )
         };
@@ -16331,7 +16947,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_INT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_int_parameter,
                 __buffer,
             )
         };
@@ -16344,7 +16961,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_FLOAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_float_parameter,
                 __buffer,
             )
         };
@@ -16364,7 +16982,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_FLOAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_float_parameter,
                 __buffer,
             )
         };
@@ -16381,7 +17000,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_COLOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_color_parameter,
                 __buffer,
             )
         };
@@ -16405,7 +17025,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_COLOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_color_parameter,
                 __buffer,
             )
         };
@@ -16418,7 +17039,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_BOOL_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_bool_parameter,
                 __buffer,
             )
         };
@@ -16438,7 +17060,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_SET_BOOL_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_set_bool_parameter,
                 __buffer,
             )
         };
@@ -16454,7 +17077,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector_parameter,
                 __buffer,
             )
         };
@@ -16471,7 +17095,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector_parameter,
                 __buffer,
             )
         };
@@ -16490,7 +17115,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR4_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector4_parameter,
                 __buffer,
             )
         };
@@ -16507,7 +17133,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR4_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector4_parameter,
                 __buffer,
             )
         };
@@ -16526,7 +17153,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR2_D_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector2_d_parameter,
                 __buffer,
             )
         };
@@ -16543,7 +17171,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_VECTOR2_D_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_vector2_d_parameter,
                 __buffer,
             )
         };
@@ -16562,7 +17191,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_QUAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_quat_parameter,
                 __buffer,
             )
         };
@@ -16579,7 +17209,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_QUAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_quat_parameter,
                 __buffer,
             )
         };
@@ -16595,7 +17226,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_INT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_int_parameter,
                 __buffer,
             )
         };
@@ -16612,7 +17244,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_INT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_int_parameter,
                 __buffer,
             )
         };
@@ -16626,7 +17259,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_FLOAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_float_parameter,
                 __buffer,
             )
         };
@@ -16643,7 +17277,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_FLOAT_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_float_parameter,
                 __buffer,
             )
         };
@@ -16660,7 +17295,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_COLOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_color_parameter,
                 __buffer,
             )
         };
@@ -16677,7 +17313,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_COLOR_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_color_parameter,
                 __buffer,
             )
         };
@@ -16696,7 +17333,8 @@ impl UNiagaraParameterCollectionInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_BOOL_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_bool_parameter,
                 __buffer,
             )
         };
@@ -16713,7 +17351,8 @@ impl UNiagaraParameterCollectionInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_PARAMETER_COLLECTION_INSTANCE_GET_BOOL_PARAMETER,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_parameter_collection_instance_get_bool_parameter,
                 __buffer,
             )
         };
@@ -16766,15 +17405,16 @@ impl UNiagaraBaselineController {
             cdo
         }
     }
-    pub fn get_system(&mut self) -> UPtr<UNiagaraSystem> {
-        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+    pub fn on_tick_test(&mut self) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
         unsafe {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_BASELINE_CONTROLLER_GET_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_tick_test,
                 __buffer,
             )
         };
@@ -16784,7 +17424,119 @@ impl UNiagaraBaselineController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_BASELINE_CONTROLLER_GET_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_tick_test,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn on_owner_tick(&mut self, delta_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_owner_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_owner_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_end_test(&mut self, stats: FNiagaraPerfBaselineStats) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_end_test,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &stats,
+                __buffer.add(0).cast::<FNiagaraPerfBaselineStats>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_end_test,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_begin_test(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_begin_test,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_on_begin_test,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_system(&mut self) -> UPtr<UNiagaraSystem> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_get_system,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_baseline_controller_get_system,
                 __buffer,
             )
         };
@@ -16882,7 +17634,8 @@ impl ANiagaraPreviewBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_base_set_system,
                 __buffer,
             )
         };
@@ -16899,7 +17652,8 @@ impl ANiagaraPreviewBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_SYSTEM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_base_set_system,
                 __buffer,
             )
         };
@@ -16912,7 +17666,8 @@ impl ANiagaraPreviewBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_LABEL_TEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_base_set_label_text,
                 __buffer,
             )
         };
@@ -16936,7 +17691,8 @@ impl ANiagaraPreviewBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_BASE_SET_LABEL_TEXT,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_base_set_label_text,
                 __buffer,
             )
         };
@@ -16960,6 +17716,92 @@ impl UNiagaraPreviewAxis {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn num(&mut self) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_preview_axis_num,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_preview_axis_num,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<i32>().read() }
+    }
+    pub fn apply_to_preview(
+        &mut self,
+        preview_component: UPtr<UNiagaraComponent>,
+        preview_index: i32,
+        b_is_x_axis: bool,
+        out_label_text: &mut FString,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<32>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_preview_axis_apply_to_preview,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preview_component,
+                __buffer.add(0).cast::<UPtr<UNiagaraComponent>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &preview_index,
+                __buffer.add(8).cast::<i32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &b_is_x_axis,
+                __buffer.add(12).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_label_text,
+                __buffer.add(16).cast::<FString>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_preview_axis_apply_to_preview,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(16).cast::<FString>().swap(out_label_text);
         }
     }
 }
@@ -17138,7 +17980,8 @@ impl ANiagaraPreviewGrid {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_SET_PAUSED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_set_paused,
                 __buffer,
             )
         };
@@ -17151,7 +17994,8 @@ impl ANiagaraPreviewGrid {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_SET_PAUSED,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_set_paused,
                 __buffer,
             )
         };
@@ -17164,7 +18008,8 @@ impl ANiagaraPreviewGrid {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_GET_PREVIEWS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_get_previews,
                 __buffer,
             )
         };
@@ -17181,7 +18026,8 @@ impl ANiagaraPreviewGrid {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_GET_PREVIEWS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_get_previews,
                 __buffer,
             )
         };
@@ -17197,7 +18043,8 @@ impl ANiagaraPreviewGrid {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_DEACTIVATE_PREVIEWS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_deactivate_previews,
                 __buffer,
             )
         };
@@ -17207,7 +18054,8 @@ impl ANiagaraPreviewGrid {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_DEACTIVATE_PREVIEWS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_deactivate_previews,
                 __buffer,
             )
         };
@@ -17220,7 +18068,8 @@ impl ANiagaraPreviewGrid {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_ACTIVATE_PREVIEWS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_activate_previews,
                 __buffer,
             )
         };
@@ -17233,7 +18082,8 @@ impl ANiagaraPreviewGrid {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::A_NIAGARA_PREVIEW_GRID_ACTIVATE_PREVIEWS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .a_niagara_preview_grid_activate_previews,
                 __buffer,
             )
         };
@@ -17361,7 +18211,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_vector_attribute,
                 __buffer,
             )
         };
@@ -17401,7 +18252,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_vector_attribute,
                 __buffer,
             )
         };
@@ -17426,7 +18278,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR4_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_vector4_attribute,
                 __buffer,
             )
         };
@@ -17466,7 +18319,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR4_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_vector4_attribute,
                 __buffer,
             )
         };
@@ -17491,7 +18345,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR2_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_vector2_attribute,
                 __buffer,
             )
         };
@@ -17531,7 +18386,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_VECTOR2_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_vector2_attribute,
                 __buffer,
             )
         };
@@ -17557,7 +18413,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE_WITH_REBASE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_quat_attribute_with_rebase,
                 __buffer,
             )
         };
@@ -17602,7 +18459,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE_WITH_REBASE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_quat_attribute_with_rebase,
                 __buffer,
             )
         };
@@ -17628,7 +18486,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_quat_attribute,
                 __buffer,
             )
         };
@@ -17673,7 +18532,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_QUAT_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_quat_attribute,
                 __buffer,
             )
         };
@@ -17699,7 +18559,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE_WITH_REBASE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_position_attribute_with_rebase,
                 __buffer,
             )
         };
@@ -17746,7 +18607,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE_WITH_REBASE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_position_attribute_with_rebase,
                 __buffer,
             )
         };
@@ -17772,7 +18634,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_position_attribute,
                 __buffer,
             )
         };
@@ -17819,7 +18682,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_POSITION_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_position_attribute,
                 __buffer,
             )
         };
@@ -17844,7 +18708,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_INT_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_int_attribute,
                 __buffer,
             )
         };
@@ -17882,7 +18747,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_INT_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_int_attribute,
                 __buffer,
             )
         };
@@ -17904,7 +18770,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_ID_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_id_attribute,
                 __buffer,
             )
         };
@@ -17942,7 +18809,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_ID_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_id_attribute,
                 __buffer,
             )
         };
@@ -17964,7 +18832,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_FLOAT_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_float_attribute,
                 __buffer,
             )
         };
@@ -18002,7 +18871,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_FLOAT_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_float_attribute,
                 __buffer,
             )
         };
@@ -18023,7 +18893,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_DATA_INTERFACE_AS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_data_interface_as,
                 __buffer,
             )
         };
@@ -18056,7 +18927,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_DATA_INTERFACE_AS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_data_interface_as,
                 __buffer,
             )
         };
@@ -18081,7 +18953,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_COLOR_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_color_attribute,
                 __buffer,
             )
         };
@@ -18121,7 +18994,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_READ_COLOR_ATTRIBUTE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_read_color_attribute,
                 __buffer,
             )
         };
@@ -18140,7 +19014,7 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_EMPTY,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_sim_cache_is_empty,
                 __buffer,
             )
         };
@@ -18150,7 +19024,7 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_EMPTY,
+                crate::bindings::niagara::__FUNCTION_PTRS.u_niagara_sim_cache_is_empty,
                 __buffer,
             )
         };
@@ -18164,7 +19038,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_CACHE_VALID,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_is_cache_valid,
                 __buffer,
             )
         };
@@ -18174,7 +19049,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_IS_CACHE_VALID,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_is_cache_valid,
                 __buffer,
             )
         };
@@ -18188,7 +19064,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_START_SECONDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_start_seconds,
                 __buffer,
             )
         };
@@ -18198,7 +19075,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_START_SECONDS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_start_seconds,
                 __buffer,
             )
         };
@@ -18212,7 +19090,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_FRAMES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_num_frames,
                 __buffer,
             )
         };
@@ -18222,7 +19101,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_FRAMES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_num_frames,
                 __buffer,
             )
         };
@@ -18236,7 +19116,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_EMITTERS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_num_emitters,
                 __buffer,
             )
         };
@@ -18246,7 +19127,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_NUM_EMITTERS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_num_emitters,
                 __buffer,
             )
         };
@@ -18260,7 +19142,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAMES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_emitter_names,
                 __buffer,
             )
         };
@@ -18270,7 +19153,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAMES,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_emitter_names,
                 __buffer,
             )
         };
@@ -18284,7 +19168,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_emitter_name,
                 __buffer,
             )
         };
@@ -18301,7 +19186,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_EMITTER_NAME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_emitter_name,
                 __buffer,
             )
         };
@@ -18315,7 +19201,8 @@ impl UNiagaraSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_ATTRIBUTE_CAPTURE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_attribute_capture_mode,
                 __buffer,
             )
         };
@@ -18325,7 +19212,8 @@ impl UNiagaraSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_GET_ATTRIBUTE_CAPTURE_MODE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_get_attribute_capture_mode,
                 __buffer,
             )
         };
@@ -18389,7 +19277,8 @@ impl UAsyncNiagaraCaptureSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_UNTIL_COMPLETE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_until_complete,
                 __buffer,
             )
         };
@@ -18448,7 +19337,8 @@ impl UAsyncNiagaraCaptureSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_UNTIL_COMPLETE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_until_complete,
                 __buffer,
             )
         };
@@ -18474,7 +19364,8 @@ impl UAsyncNiagaraCaptureSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_MULTI_FRAME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_multi_frame,
                 __buffer,
             )
         };
@@ -18540,7 +19431,8 @@ impl UAsyncNiagaraCaptureSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE_MULTI_FRAME,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache_multi_frame,
                 __buffer,
             )
         };
@@ -18563,7 +19455,8 @@ impl UAsyncNiagaraCaptureSimCache {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache,
                 __buffer,
             )
         };
@@ -18608,7 +19501,8 @@ impl UAsyncNiagaraCaptureSimCache {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_ASYNC_NIAGARA_CAPTURE_SIM_CACHE_CAPTURE_NIAGARA_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_async_niagara_capture_sim_cache_capture_niagara_sim_cache,
                 __buffer,
             )
         };
@@ -18648,7 +19542,8 @@ impl UNiagaraSimCacheFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CREATE_NIAGARA_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_function_library_create_niagara_sim_cache,
                 __buffer,
             )
         };
@@ -18665,7 +19560,8 @@ impl UNiagaraSimCacheFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CREATE_NIAGARA_SIM_CACHE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_function_library_create_niagara_sim_cache,
                 __buffer,
             )
         };
@@ -18686,7 +19582,8 @@ impl UNiagaraSimCacheFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CAPTURE_NIAGARA_SIM_CACHE_IMMEDIATE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_function_library_capture_niagara_sim_cache_immediate,
                 __buffer,
             )
         };
@@ -18738,7 +19635,8 @@ impl UNiagaraSimCacheFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SIM_CACHE_FUNCTION_LIBRARY_CAPTURE_NIAGARA_SIM_CACHE_IMMEDIATE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_sim_cache_function_library_capture_niagara_sim_cache_immediate,
                 __buffer,
             )
         };
@@ -18842,7 +19740,8 @@ impl UNiagaraSystemCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_RELEASE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_release,
                 __buffer,
             )
         };
@@ -18852,7 +19751,8 @@ impl UNiagaraSystemCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_RELEASE,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_release,
                 __buffer,
             )
         };
@@ -18865,7 +19765,8 @@ impl UNiagaraSystemCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_NUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_num,
                 __buffer,
             )
         };
@@ -18875,7 +19776,8 @@ impl UNiagaraSystemCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_NUM,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_num,
                 __buffer,
             )
         };
@@ -18889,7 +19791,8 @@ impl UNiagaraSystemCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_SYNCHRONOUS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_load_synchronous,
                 __buffer,
             )
         };
@@ -18899,7 +19802,8 @@ impl UNiagaraSystemCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_SYNCHRONOUS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_load_synchronous,
                 __buffer,
             )
         };
@@ -18912,7 +19816,8 @@ impl UNiagaraSystemCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_ASYNC,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_load_async,
                 __buffer,
             )
         };
@@ -18922,7 +19827,8 @@ impl UNiagaraSystemCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_LOAD_ASYNC,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_load_async,
                 __buffer,
             )
         };
@@ -18935,7 +19841,8 @@ impl UNiagaraSystemCollection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_GET_SYSTEMS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_get_systems,
                 __buffer,
             )
         };
@@ -18945,7 +19852,8 @@ impl UNiagaraSystemCollection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::niagara::U_NIAGARA_SYSTEM_COLLECTION_GET_SYSTEMS,
+                crate::bindings::niagara::__FUNCTION_PTRS
+                    .u_niagara_system_collection_get_systems,
                 __buffer,
             )
         };

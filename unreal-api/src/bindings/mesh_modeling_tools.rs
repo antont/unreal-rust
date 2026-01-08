@@ -1,188 +1,197 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MESH_CONSTRAINT_PROPERTIES_IS_PREVENT_TINY_TRIANGLES_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_CONSTRAINT_PROPERTIES_IS_PREVENT_NORMAL_FLIPS_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONVERT_TO_POLYGONS_TOOL_PROPERTIES_GET_GROUP_OPTIONS_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DISPLACE_MESH_COMMON_PROPERTIES_GET_WEIGHT_MAPS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SELECTIVE_TESSELLATION_PROPERTIES_GET_MATERIAL_I_DS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DYNAMIC_SCULPT_TOOL_ACTIONS_DISCARD_ATTRIBUTES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_POLY_EDIT_TOPOLOGY_PROPERTIES_REGENERATE_EXTRA_CORNERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_SIMPLIFY_BY_GROUPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_RETRIANGULATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_RECALC_NORMALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_PUSH_PULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_OUTSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_MERGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_INSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_INSERT_EDGE_LOOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_INSERT_EDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_FLIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_EXTRUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DUPLICATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DISCONNECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DECOMPOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_CUT_FACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_BEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_RECALC_NORMALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_PUSH_PULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_POKE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_OUTSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_OFFSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_INSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_FLIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_EXTRUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_DUPLICATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_DISCONNECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_CUT_FACES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_UV_ACTIONS_PLANAR_PROJECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_WELD_CENTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_WELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_STRAIGHTEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_SIMPLIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_FILL_HOLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_EXTRUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_DELETE_EDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_COLLAPSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_BRIDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_BEVEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_WELD_CENTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_WELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_SPLIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_FLIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_FILL_HOLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_EXTRUDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_COLLAPSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_BRIDGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_HOLE_FILL_TOOL_ACTIONS_SELECT_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_HOLE_FILL_TOOL_ACTIONS_CLEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LATTICE_DEFORMER_TOOL_PROPERTIES_CONSTRAIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LATTICE_DEFORMER_TOOL_PROPERTIES_CLEAR_CONSTRAINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_ATTRIBUTE_PAINT_TOOL_PROPERTIES_GET_ATTRIBUTE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_UNFREEZE_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_SHRINK_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_GROW_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_FREEZE_OTHERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_FREEZE_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_FLOOD_FILL_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_CLEAR_CURRENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_CLEAR_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SPACE_DEFORMER_TOOL_ACTION_PROPERTY_SET_SHIFT_TO_CENTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_PAINT_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_FILL_WHITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_FILL_BLACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_ERASE_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_VERTEX_PAINT_TOOL_UTILITY_ACTIONS_GET_WEIGHT_MAPS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_VERTEX_PAINT_TOOL_UTILITY_ACTIONS_GET_LOD_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_VERTEX_PAINT_TOOL_UTILITY_ACTIONS_APPLY_SELECTED_OPERATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EXISTING_MESH_MATERIAL_PROPERTIES_GET_UV_CHANNEL_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SCULPT_LAYER_PROPERTIES_SET_LAYER_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SCULPT_LAYER_PROPERTIES_SET_LAYER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SCULPT_LAYER_PROPERTIES_SET_ACTIVE_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SCULPT_LAYER_PROPERTIES_REMOVE_LAYER_AT_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SCULPT_LAYER_PROPERTIES_MOVE_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SCULPT_LAYER_PROPERTIES_GET_LAYER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_UV_CHANNEL_PROPERTIES_GET_UV_CHANNEL_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_PROJECTION_TOOL_EDIT_ACTIONS_RESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_PROJECTION_TOOL_EDIT_ACTIONS_AUTO_FIT_ALIGN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_PROJECTION_TOOL_EDIT_ACTIONS_AUTO_FIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_mesh_constraint_properties_is_prevent_tiny_triangles_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_constraint_properties_is_prevent_normal_flips_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_convert_to_polygons_tool_properties_get_group_options_list: *mut crate::ffi::UFunctionOpague,
+    pub u_displace_mesh_common_properties_get_weight_maps_func: *mut crate::ffi::UFunctionOpague,
+    pub u_selective_tessellation_properties_get_material_i_ds_func: *mut crate::ffi::UFunctionOpague,
+    pub u_dynamic_sculpt_tool_actions_discard_attributes: *mut crate::ffi::UFunctionOpague,
+    pub u_poly_edit_topology_properties_regenerate_extra_corners: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_simplify_by_groups: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_retriangulate: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_recalc_normals: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_push_pull: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_outset: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_merge: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_inset: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_insert_edge_loop: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_insert_edge: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_flip: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_extrude: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_duplicate: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_disconnect: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_delete: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_decompose: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_cut_faces: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_bevel: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_recalc_normals: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_push_pull: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_poke: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_outset: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_offset: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_inset: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_flip: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_extrude: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_duplicate: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_disconnect: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_delete: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_actions_triangles_cut_faces: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_uv_actions_planar_projection: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_weld_centered: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_weld: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_straighten: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_simplify: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_fill_hole: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_extrude: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_delete_edge: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_collapse: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_bridge: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_bevel: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_weld_centered: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_weld: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_split: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_flip: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_fill_hole: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_extrude: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_collapse: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_polygons_tool_edge_actions_triangles_bridge: *mut crate::ffi::UFunctionOpague,
+    pub u_hole_fill_tool_actions_select_all: *mut crate::ffi::UFunctionOpague,
+    pub u_hole_fill_tool_actions_clear: *mut crate::ffi::UFunctionOpague,
+    pub u_lattice_deformer_tool_properties_constrain: *mut crate::ffi::UFunctionOpague,
+    pub u_lattice_deformer_tool_properties_clear_constraints: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_attribute_paint_tool_properties_get_attribute_names: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_unfreeze_all: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_shrink_current: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_grow_current: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_freeze_others: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_freeze_current: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_flood_fill_current: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_clear_current: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_group_paint_tool_freeze_actions_clear_all: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_space_deformer_tool_action_property_set_shift_to_center: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_vertex_paint_tool_quick_actions_paint_all: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_vertex_paint_tool_quick_actions_fill_white: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_vertex_paint_tool_quick_actions_fill_black: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_vertex_paint_tool_quick_actions_erase_all: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_vertex_paint_tool_utility_actions_get_weight_maps_func: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_vertex_paint_tool_utility_actions_get_lod_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_vertex_paint_tool_utility_actions_apply_selected_operation: *mut crate::ffi::UFunctionOpague,
+    pub u_existing_mesh_material_properties_get_uv_channel_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_sculpt_layer_properties_set_layer_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_sculpt_layer_properties_set_layer_name: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_sculpt_layer_properties_set_active_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_sculpt_layer_properties_remove_layer_at_index: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_sculpt_layer_properties_move_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_sculpt_layer_properties_get_layer_name: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_uv_channel_properties_get_uv_channel_names_func: *mut crate::ffi::UFunctionOpague,
+    pub uuv_projection_tool_edit_actions_reset: *mut crate::ffi::UFunctionOpague,
+    pub uuv_projection_tool_edit_actions_auto_fit_align: *mut crate::ffi::UFunctionOpague,
+    pub uuv_projection_tool_edit_actions_auto_fit: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_mesh_constraint_properties_is_prevent_tiny_triangles_enabled: std::ptr::null_mut(),
+            u_mesh_constraint_properties_is_prevent_normal_flips_enabled: std::ptr::null_mut(),
+            u_convert_to_polygons_tool_properties_get_group_options_list: std::ptr::null_mut(),
+            u_displace_mesh_common_properties_get_weight_maps_func: std::ptr::null_mut(),
+            u_selective_tessellation_properties_get_material_i_ds_func: std::ptr::null_mut(),
+            u_dynamic_sculpt_tool_actions_discard_attributes: std::ptr::null_mut(),
+            u_poly_edit_topology_properties_regenerate_extra_corners: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_simplify_by_groups: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_retriangulate: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_recalc_normals: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_push_pull: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_outset: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_offset: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_merge: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_inset: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_insert_edge_loop: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_insert_edge: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_flip: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_extrude: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_duplicate: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_disconnect: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_delete: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_decompose: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_cut_faces: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_bevel: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_recalc_normals: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_push_pull: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_poke: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_outset: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_offset: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_inset: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_flip: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_extrude: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_duplicate: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_disconnect: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_delete: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_actions_triangles_cut_faces: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_uv_actions_planar_projection: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_weld_centered: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_weld: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_straighten: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_simplify: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_fill_hole: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_extrude: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_delete_edge: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_collapse: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_bridge: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_bevel: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_weld_centered: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_weld: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_split: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_flip: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_fill_hole: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_extrude: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_collapse: std::ptr::null_mut(),
+            u_edit_mesh_polygons_tool_edge_actions_triangles_bridge: std::ptr::null_mut(),
+            u_hole_fill_tool_actions_select_all: std::ptr::null_mut(),
+            u_hole_fill_tool_actions_clear: std::ptr::null_mut(),
+            u_lattice_deformer_tool_properties_constrain: std::ptr::null_mut(),
+            u_lattice_deformer_tool_properties_clear_constraints: std::ptr::null_mut(),
+            u_mesh_attribute_paint_tool_properties_get_attribute_names: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_unfreeze_all: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_shrink_current: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_grow_current: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_freeze_others: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_freeze_current: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_flood_fill_current: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_clear_current: std::ptr::null_mut(),
+            u_mesh_group_paint_tool_freeze_actions_clear_all: std::ptr::null_mut(),
+            u_mesh_space_deformer_tool_action_property_set_shift_to_center: std::ptr::null_mut(),
+            u_mesh_vertex_paint_tool_quick_actions_paint_all: std::ptr::null_mut(),
+            u_mesh_vertex_paint_tool_quick_actions_fill_white: std::ptr::null_mut(),
+            u_mesh_vertex_paint_tool_quick_actions_fill_black: std::ptr::null_mut(),
+            u_mesh_vertex_paint_tool_quick_actions_erase_all: std::ptr::null_mut(),
+            u_mesh_vertex_paint_tool_utility_actions_get_weight_maps_func: std::ptr::null_mut(),
+            u_mesh_vertex_paint_tool_utility_actions_get_lod_names_func: std::ptr::null_mut(),
+            u_mesh_vertex_paint_tool_utility_actions_apply_selected_operation: std::ptr::null_mut(),
+            u_existing_mesh_material_properties_get_uv_channel_names_func: std::ptr::null_mut(),
+            u_mesh_sculpt_layer_properties_set_layer_weight: std::ptr::null_mut(),
+            u_mesh_sculpt_layer_properties_set_layer_name: std::ptr::null_mut(),
+            u_mesh_sculpt_layer_properties_set_active_layer: std::ptr::null_mut(),
+            u_mesh_sculpt_layer_properties_remove_layer_at_index: std::ptr::null_mut(),
+            u_mesh_sculpt_layer_properties_move_layer: std::ptr::null_mut(),
+            u_mesh_sculpt_layer_properties_get_layer_name: std::ptr::null_mut(),
+            u_mesh_uv_channel_properties_get_uv_channel_names_func: std::ptr::null_mut(),
+            uuv_projection_tool_edit_actions_reset: std::ptr::null_mut(),
+            uuv_projection_tool_edit_actions_auto_fit_align: std::ptr::null_mut(),
+            uuv_projection_tool_edit_actions_auto_fit: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -192,14 +201,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPreventTinyTrianglesEnabled"),
-            &raw mut U_MESH_CONSTRAINT_PROPERTIES_IS_PREVENT_TINY_TRIANGLES_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_constraint_properties_is_prevent_tiny_triangles_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPreventNormalFlipsEnabled"),
-            &raw mut U_MESH_CONSTRAINT_PROPERTIES_IS_PREVENT_NORMAL_FLIPS_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_constraint_properties_is_prevent_normal_flips_enabled,
         );
     }
     unsafe {
@@ -210,7 +221,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGroupOptionsList"),
-            &raw mut U_CONVERT_TO_POLYGONS_TOOL_PROPERTIES_GET_GROUP_OPTIONS_LIST,
+            &raw mut __FUNCTION_PTRS
+                .u_convert_to_polygons_tool_properties_get_group_options_list,
         );
     }
     unsafe {
@@ -221,7 +233,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWeightMapsFunc"),
-            &raw mut U_DISPLACE_MESH_COMMON_PROPERTIES_GET_WEIGHT_MAPS_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_displace_mesh_common_properties_get_weight_maps_func,
         );
     }
     unsafe {
@@ -232,7 +245,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialIDsFunc"),
-            &raw mut U_SELECTIVE_TESSELLATION_PROPERTIES_GET_MATERIAL_I_DS_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_selective_tessellation_properties_get_material_i_ds_func,
         );
     }
     unsafe {
@@ -243,7 +257,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DiscardAttributes"),
-            &raw mut U_DYNAMIC_SCULPT_TOOL_ACTIONS_DISCARD_ATTRIBUTES,
+            &raw mut __FUNCTION_PTRS.u_dynamic_sculpt_tool_actions_discard_attributes,
         );
     }
     unsafe {
@@ -254,7 +268,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegenerateExtraCorners"),
-            &raw mut U_POLY_EDIT_TOPOLOGY_PROPERTIES_REGENERATE_EXTRA_CORNERS,
+            &raw mut __FUNCTION_PTRS
+                .u_poly_edit_topology_properties_regenerate_extra_corners,
         );
     }
     unsafe {
@@ -265,126 +280,126 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SimplifyByGroups"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_SIMPLIFY_BY_GROUPS,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_simplify_by_groups,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Retriangulate"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_RETRIANGULATE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_retriangulate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecalcNormals"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_RECALC_NORMALS,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_recalc_normals,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PushPull"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_PUSH_PULL,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_push_pull,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Outset"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_OUTSET,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_outset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Offset"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Merge"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_MERGE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_merge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Inset"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_INSET,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_inset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InsertEdgeLoop"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_INSERT_EDGE_LOOP,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_insert_edge_loop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InsertEdge"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_INSERT_EDGE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_insert_edge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Flip"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_FLIP,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_flip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_EXTRUDE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_extrude,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Duplicate"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DUPLICATE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_duplicate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Disconnect"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DISCONNECT,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_disconnect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DELETE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Decompose"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_DECOMPOSE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_decompose,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CutFaces"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_CUT_FACES,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_cut_faces,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Bevel"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_BEVEL,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_bevel,
         );
     }
     unsafe {
@@ -395,84 +410,89 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecalcNormals"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_RECALC_NORMALS,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_actions_triangles_recalc_normals,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PushPull"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_PUSH_PULL,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_actions_triangles_push_pull,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Poke"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_POKE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_poke,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Outset"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_OUTSET,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_outset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Offset"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_OFFSET,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_offset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Inset"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_INSET,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_inset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Flip"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_FLIP,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_flip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_EXTRUDE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_extrude,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Duplicate"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_DUPLICATE,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_actions_triangles_duplicate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Disconnect"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_DISCONNECT,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_actions_triangles_disconnect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_DELETE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_actions_triangles_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CutFaces"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_ACTIONS_TRIANGLES_CUT_FACES,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_actions_triangles_cut_faces,
         );
     }
     unsafe {
@@ -483,7 +503,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlanarProjection"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_UV_ACTIONS_PLANAR_PROJECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_uv_actions_planar_projection,
         );
     }
     unsafe {
@@ -494,70 +515,70 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WeldCentered"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_WELD_CENTERED,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_weld_centered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Weld"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_WELD,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_weld,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Straighten"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_STRAIGHTEN,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_straighten,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Simplify"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_SIMPLIFY,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_simplify,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillHole"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_FILL_HOLE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_fill_hole,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_EXTRUDE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_extrude,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteEdge"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_DELETE_EDGE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_delete_edge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Collapse"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_COLLAPSE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_collapse,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Bridge"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_BRIDGE,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_bridge,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Bevel"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_BEVEL,
+            &raw mut __FUNCTION_PTRS.u_edit_mesh_polygons_tool_edge_actions_bevel,
         );
     }
     unsafe {
@@ -568,56 +589,64 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WeldCentered"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_WELD_CENTERED,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_weld_centered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Weld"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_WELD,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_weld,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Split"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_SPLIT,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_split,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Flip"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_FLIP,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_flip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillHole"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_FILL_HOLE,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_fill_hole,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Extrude"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_EXTRUDE,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_extrude,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Collapse"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_COLLAPSE,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_collapse,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Bridge"),
-            &raw mut U_EDIT_MESH_POLYGONS_TOOL_EDGE_ACTIONS_TRIANGLES_BRIDGE,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_polygons_tool_edge_actions_triangles_bridge,
         );
     }
     unsafe {
@@ -628,14 +657,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectAll"),
-            &raw mut U_HOLE_FILL_TOOL_ACTIONS_SELECT_ALL,
+            &raw mut __FUNCTION_PTRS.u_hole_fill_tool_actions_select_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut U_HOLE_FILL_TOOL_ACTIONS_CLEAR,
+            &raw mut __FUNCTION_PTRS.u_hole_fill_tool_actions_clear,
         );
     }
     unsafe {
@@ -646,14 +675,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Constrain"),
-            &raw mut U_LATTICE_DEFORMER_TOOL_PROPERTIES_CONSTRAIN,
+            &raw mut __FUNCTION_PTRS.u_lattice_deformer_tool_properties_constrain,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearConstraints"),
-            &raw mut U_LATTICE_DEFORMER_TOOL_PROPERTIES_CLEAR_CONSTRAINTS,
+            &raw mut __FUNCTION_PTRS.u_lattice_deformer_tool_properties_clear_constraints,
         );
     }
     unsafe {
@@ -664,7 +693,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttributeNames"),
-            &raw mut U_MESH_ATTRIBUTE_PAINT_TOOL_PROPERTIES_GET_ATTRIBUTE_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_attribute_paint_tool_properties_get_attribute_names,
         );
     }
     unsafe {
@@ -675,56 +705,59 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnfreezeAll"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_UNFREEZE_ALL,
+            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_unfreeze_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShrinkCurrent"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_SHRINK_CURRENT,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_group_paint_tool_freeze_actions_shrink_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GrowCurrent"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_GROW_CURRENT,
+            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_grow_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FreezeOthers"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_FREEZE_OTHERS,
+            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_freeze_others,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FreezeCurrent"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_FREEZE_CURRENT,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_group_paint_tool_freeze_actions_freeze_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FloodFillCurrent"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_FLOOD_FILL_CURRENT,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_group_paint_tool_freeze_actions_flood_fill_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearCurrent"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_CLEAR_CURRENT,
+            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_clear_current,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAll"),
-            &raw mut U_MESH_GROUP_PAINT_TOOL_FREEZE_ACTIONS_CLEAR_ALL,
+            &raw mut __FUNCTION_PTRS.u_mesh_group_paint_tool_freeze_actions_clear_all,
         );
     }
     unsafe {
@@ -735,7 +768,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShiftToCenter"),
-            &raw mut U_MESH_SPACE_DEFORMER_TOOL_ACTION_PROPERTY_SET_SHIFT_TO_CENTER,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_space_deformer_tool_action_property_set_shift_to_center,
         );
     }
     unsafe {
@@ -746,28 +780,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PaintAll"),
-            &raw mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_PAINT_ALL,
+            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_paint_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillWhite"),
-            &raw mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_FILL_WHITE,
+            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_fill_white,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FillBlack"),
-            &raw mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_FILL_BLACK,
+            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_fill_black,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EraseAll"),
-            &raw mut U_MESH_VERTEX_PAINT_TOOL_QUICK_ACTIONS_ERASE_ALL,
+            &raw mut __FUNCTION_PTRS.u_mesh_vertex_paint_tool_quick_actions_erase_all,
         );
     }
     unsafe {
@@ -778,21 +812,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWeightMapsFunc"),
-            &raw mut U_MESH_VERTEX_PAINT_TOOL_UTILITY_ACTIONS_GET_WEIGHT_MAPS_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_vertex_paint_tool_utility_actions_get_weight_maps_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLODNamesFunc"),
-            &raw mut U_MESH_VERTEX_PAINT_TOOL_UTILITY_ACTIONS_GET_LOD_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_vertex_paint_tool_utility_actions_get_lod_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplySelectedOperation"),
-            &raw mut U_MESH_VERTEX_PAINT_TOOL_UTILITY_ACTIONS_APPLY_SELECTED_OPERATION,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_vertex_paint_tool_utility_actions_apply_selected_operation,
         );
     }
     unsafe {
@@ -803,7 +840,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
-            &raw mut U_EXISTING_MESH_MATERIAL_PROPERTIES_GET_UV_CHANNEL_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_existing_mesh_material_properties_get_uv_channel_names_func,
         );
     }
     unsafe {
@@ -814,42 +852,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLayerWeight"),
-            &raw mut U_MESH_SCULPT_LAYER_PROPERTIES_SET_LAYER_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_layer_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLayerName"),
-            &raw mut U_MESH_SCULPT_LAYER_PROPERTIES_SET_LAYER_NAME,
+            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_layer_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActiveLayer"),
-            &raw mut U_MESH_SCULPT_LAYER_PROPERTIES_SET_ACTIVE_LAYER,
+            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_set_active_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLayerAtIndex"),
-            &raw mut U_MESH_SCULPT_LAYER_PROPERTIES_REMOVE_LAYER_AT_INDEX,
+            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_remove_layer_at_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MoveLayer"),
-            &raw mut U_MESH_SCULPT_LAYER_PROPERTIES_MOVE_LAYER,
+            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_move_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLayerName"),
-            &raw mut U_MESH_SCULPT_LAYER_PROPERTIES_GET_LAYER_NAME,
+            &raw mut __FUNCTION_PTRS.u_mesh_sculpt_layer_properties_get_layer_name,
         );
     }
     unsafe {
@@ -860,7 +898,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
-            &raw mut U_MESH_UV_CHANNEL_PROPERTIES_GET_UV_CHANNEL_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_uv_channel_properties_get_uv_channel_names_func,
         );
     }
     unsafe {
@@ -871,21 +910,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut UUV_PROJECTION_TOOL_EDIT_ACTIONS_RESET,
+            &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_reset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AutoFitAlign"),
-            &raw mut UUV_PROJECTION_TOOL_EDIT_ACTIONS_AUTO_FIT_ALIGN,
+            &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_auto_fit_align,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AutoFit"),
-            &raw mut UUV_PROJECTION_TOOL_EDIT_ACTIONS_AUTO_FIT,
+            &raw mut __FUNCTION_PTRS.uuv_projection_tool_edit_actions_auto_fit,
         );
     }
 }

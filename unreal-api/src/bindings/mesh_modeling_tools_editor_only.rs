@@ -1,50 +1,59 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_NORMALS_ACTIONS_RESET_HARD_NORMALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_NORMALS_ACTIONS_DISCARD_TANGENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_GET_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_DUPLICATE_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_DELETE_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_CLEAR_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_ADD_NEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_LIGHTMAP_UV_ACTIONS_RESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_LIGHTMAP_UV_ACTIONS_ENABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_LIGHTMAP_UV_ACTIONS_DISABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_NEW_ATTRIBUTE_ACTIONS_ADD_WEIGHT_MAP_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_NEW_ATTRIBUTE_ACTIONS_ADD_POLY_GROUP_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_MODIFY_ATTRIBUTE_ACTIONS_GET_ATTRIBUTE_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_MODIFY_ATTRIBUTE_ACTIONS_DELETE_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ATTRIBUTE_EDITOR_COPY_ATTRIBUTE_ACTIONS_COPY_FROM_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_POLYGON_ON_MESH_TOOL_ACTION_PROPERTY_SET_DRAW_POLYGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHTS_PAINT_TOOL_PROPERTIES_GET_TARGET_SKIN_WEIGHT_PROFILES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHTS_PAINT_TOOL_PROPERTIES_GET_SOURCE_SKIN_WEIGHT_PROFILES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKIN_WEIGHTS_PAINT_TOOL_PROPERTIES_GET_SOURCE_LO_DS_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_attribute_editor_normals_actions_reset_hard_normals: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_normals_actions_discard_tangents: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_uv_actions_get_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_uv_actions_duplicate_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_uv_actions_delete_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_uv_actions_clear_all: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_uv_actions_add_new: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_lightmap_uv_actions_reset: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_lightmap_uv_actions_enable: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_lightmap_uv_actions_disable: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_new_attribute_actions_add_weight_map_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_new_attribute_actions_add_poly_group_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_modify_attribute_actions_get_attribute_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_modify_attribute_actions_delete_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_attribute_editor_copy_attribute_actions_copy_from_to: *mut crate::ffi::UFunctionOpague,
+    pub u_polygon_on_mesh_tool_action_property_set_draw_polygon: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weights_paint_tool_properties_get_target_skin_weight_profiles_func: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weights_paint_tool_properties_get_source_skin_weight_profiles_func: *mut crate::ffi::UFunctionOpague,
+    pub u_skin_weights_paint_tool_properties_get_source_lo_ds_func: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_attribute_editor_normals_actions_reset_hard_normals: std::ptr::null_mut(),
+            u_attribute_editor_normals_actions_discard_tangents: std::ptr::null_mut(),
+            u_attribute_editor_uv_actions_get_uv_layer_names_func: std::ptr::null_mut(),
+            u_attribute_editor_uv_actions_duplicate_selected: std::ptr::null_mut(),
+            u_attribute_editor_uv_actions_delete_selected: std::ptr::null_mut(),
+            u_attribute_editor_uv_actions_clear_all: std::ptr::null_mut(),
+            u_attribute_editor_uv_actions_add_new: std::ptr::null_mut(),
+            u_attribute_editor_lightmap_uv_actions_reset: std::ptr::null_mut(),
+            u_attribute_editor_lightmap_uv_actions_enable: std::ptr::null_mut(),
+            u_attribute_editor_lightmap_uv_actions_disable: std::ptr::null_mut(),
+            u_attribute_editor_new_attribute_actions_add_weight_map_layer: std::ptr::null_mut(),
+            u_attribute_editor_new_attribute_actions_add_poly_group_layer: std::ptr::null_mut(),
+            u_attribute_editor_modify_attribute_actions_get_attribute_names_func: std::ptr::null_mut(),
+            u_attribute_editor_modify_attribute_actions_delete_selected: std::ptr::null_mut(),
+            u_attribute_editor_copy_attribute_actions_copy_from_to: std::ptr::null_mut(),
+            u_polygon_on_mesh_tool_action_property_set_draw_polygon: std::ptr::null_mut(),
+            u_skin_weights_paint_tool_properties_get_target_skin_weight_profiles_func: std::ptr::null_mut(),
+            u_skin_weights_paint_tool_properties_get_source_skin_weight_profiles_func: std::ptr::null_mut(),
+            u_skin_weights_paint_tool_properties_get_source_lo_ds_func: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -54,14 +63,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetHardNormals"),
-            &raw mut U_ATTRIBUTE_EDITOR_NORMALS_ACTIONS_RESET_HARD_NORMALS,
+            &raw mut __FUNCTION_PTRS
+                .u_attribute_editor_normals_actions_reset_hard_normals,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DiscardTangents"),
-            &raw mut U_ATTRIBUTE_EDITOR_NORMALS_ACTIONS_DISCARD_TANGENTS,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_normals_actions_discard_tangents,
         );
     }
     unsafe {
@@ -72,35 +82,36 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVLayerNamesFunc"),
-            &raw mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_GET_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_attribute_editor_uv_actions_get_uv_layer_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateSelected"),
-            &raw mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_DUPLICATE_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_uv_actions_duplicate_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteSelected"),
-            &raw mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_DELETE_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_uv_actions_delete_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearAll"),
-            &raw mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_CLEAR_ALL,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_uv_actions_clear_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNew"),
-            &raw mut U_ATTRIBUTE_EDITOR_UV_ACTIONS_ADD_NEW,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_uv_actions_add_new,
         );
     }
     unsafe {
@@ -111,21 +122,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reset"),
-            &raw mut U_ATTRIBUTE_EDITOR_LIGHTMAP_UV_ACTIONS_RESET,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_lightmap_uv_actions_reset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Enable"),
-            &raw mut U_ATTRIBUTE_EDITOR_LIGHTMAP_UV_ACTIONS_ENABLE,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_lightmap_uv_actions_enable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Disable"),
-            &raw mut U_ATTRIBUTE_EDITOR_LIGHTMAP_UV_ACTIONS_DISABLE,
+            &raw mut __FUNCTION_PTRS.u_attribute_editor_lightmap_uv_actions_disable,
         );
     }
     unsafe {
@@ -136,14 +147,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddWeightMapLayer"),
-            &raw mut U_ATTRIBUTE_EDITOR_NEW_ATTRIBUTE_ACTIONS_ADD_WEIGHT_MAP_LAYER,
+            &raw mut __FUNCTION_PTRS
+                .u_attribute_editor_new_attribute_actions_add_weight_map_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddPolyGroupLayer"),
-            &raw mut U_ATTRIBUTE_EDITOR_NEW_ATTRIBUTE_ACTIONS_ADD_POLY_GROUP_LAYER,
+            &raw mut __FUNCTION_PTRS
+                .u_attribute_editor_new_attribute_actions_add_poly_group_layer,
         );
     }
     unsafe {
@@ -154,14 +167,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAttributeNamesFunc"),
-            &raw mut U_ATTRIBUTE_EDITOR_MODIFY_ATTRIBUTE_ACTIONS_GET_ATTRIBUTE_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_attribute_editor_modify_attribute_actions_get_attribute_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteSelected"),
-            &raw mut U_ATTRIBUTE_EDITOR_MODIFY_ATTRIBUTE_ACTIONS_DELETE_SELECTED,
+            &raw mut __FUNCTION_PTRS
+                .u_attribute_editor_modify_attribute_actions_delete_selected,
         );
     }
     unsafe {
@@ -172,7 +187,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyFromTo"),
-            &raw mut U_ATTRIBUTE_EDITOR_COPY_ATTRIBUTE_ACTIONS_COPY_FROM_TO,
+            &raw mut __FUNCTION_PTRS
+                .u_attribute_editor_copy_attribute_actions_copy_from_to,
         );
     }
     unsafe {
@@ -183,7 +199,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DrawPolygon"),
-            &raw mut U_POLYGON_ON_MESH_TOOL_ACTION_PROPERTY_SET_DRAW_POLYGON,
+            &raw mut __FUNCTION_PTRS
+                .u_polygon_on_mesh_tool_action_property_set_draw_polygon,
         );
     }
     unsafe {
@@ -194,21 +211,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetSkinWeightProfilesFunc"),
-            &raw mut U_SKIN_WEIGHTS_PAINT_TOOL_PROPERTIES_GET_TARGET_SKIN_WEIGHT_PROFILES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_skin_weights_paint_tool_properties_get_target_skin_weight_profiles_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceSkinWeightProfilesFunc"),
-            &raw mut U_SKIN_WEIGHTS_PAINT_TOOL_PROPERTIES_GET_SOURCE_SKIN_WEIGHT_PROFILES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_skin_weights_paint_tool_properties_get_source_skin_weight_profiles_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceLODsFunc"),
-            &raw mut U_SKIN_WEIGHTS_PAINT_TOOL_PROPERTIES_GET_SOURCE_LO_DS_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_skin_weights_paint_tool_properties_get_source_lo_ds_func,
         );
     }
 }

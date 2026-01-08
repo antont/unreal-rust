@@ -1,22 +1,31 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_STOP_CONSUMING_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_START_CONSUMING_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_PUSH_INPUT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_POP_INPUT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_IS_CONSUMING_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_enhanced_input_editor_subsystem_stop_consuming_input: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_editor_subsystem_start_consuming_input: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_editor_subsystem_push_input_component: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_editor_subsystem_pop_input_component: *mut crate::ffi::UFunctionOpague,
+    pub u_enhanced_input_editor_subsystem_is_consuming_input: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_enhanced_input_editor_subsystem_stop_consuming_input: std::ptr::null_mut(),
+            u_enhanced_input_editor_subsystem_start_consuming_input: std::ptr::null_mut(),
+            u_enhanced_input_editor_subsystem_push_input_component: std::ptr::null_mut(),
+            u_enhanced_input_editor_subsystem_pop_input_component: std::ptr::null_mut(),
+            u_enhanced_input_editor_subsystem_is_consuming_input: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -26,35 +35,39 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopConsumingInput"),
-            &raw mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_STOP_CONSUMING_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_editor_subsystem_stop_consuming_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartConsumingInput"),
-            &raw mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_START_CONSUMING_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_editor_subsystem_start_consuming_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PushInputComponent"),
-            &raw mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_PUSH_INPUT_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_editor_subsystem_push_input_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PopInputComponent"),
-            &raw mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_POP_INPUT_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_enhanced_input_editor_subsystem_pop_input_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsConsumingInput"),
-            &raw mut U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_IS_CONSUMING_INPUT,
+            &raw mut __FUNCTION_PTRS.u_enhanced_input_editor_subsystem_is_consuming_input,
         );
     }
 }
@@ -128,7 +141,8 @@ impl UEnhancedInputEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_STOP_CONSUMING_INPUT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_stop_consuming_input,
                 __buffer,
             )
         };
@@ -138,7 +152,8 @@ impl UEnhancedInputEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_STOP_CONSUMING_INPUT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_stop_consuming_input,
                 __buffer,
             )
         };
@@ -151,7 +166,8 @@ impl UEnhancedInputEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_START_CONSUMING_INPUT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_start_consuming_input,
                 __buffer,
             )
         };
@@ -161,7 +177,8 @@ impl UEnhancedInputEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_START_CONSUMING_INPUT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_start_consuming_input,
                 __buffer,
             )
         };
@@ -177,7 +194,8 @@ impl UEnhancedInputEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_PUSH_INPUT_COMPONENT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_push_input_component,
                 __buffer,
             )
         };
@@ -194,7 +212,8 @@ impl UEnhancedInputEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_PUSH_INPUT_COMPONENT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_push_input_component,
                 __buffer,
             )
         };
@@ -210,7 +229,8 @@ impl UEnhancedInputEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_POP_INPUT_COMPONENT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_pop_input_component,
                 __buffer,
             )
         };
@@ -227,7 +247,8 @@ impl UEnhancedInputEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_POP_INPUT_COMPONENT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_pop_input_component,
                 __buffer,
             )
         };
@@ -241,7 +262,8 @@ impl UEnhancedInputEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_IS_CONSUMING_INPUT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_is_consuming_input,
                 __buffer,
             )
         };
@@ -251,7 +273,8 @@ impl UEnhancedInputEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::input_editor::U_ENHANCED_INPUT_EDITOR_SUBSYSTEM_IS_CONSUMING_INPUT,
+                crate::bindings::input_editor::__FUNCTION_PTRS
+                    .u_enhanced_input_editor_subsystem_is_consuming_input,
                 __buffer,
             )
         };

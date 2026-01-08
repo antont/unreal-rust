@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_TOOL_MENU_CONTEXT_GET_BLUEPRINT_OBJ: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_PACKAGE_TO_TEMP_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_BLUEPRINT_CLASS_TO_TEMP_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_STRINGIFY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_blueprint_editor_tool_menu_context_get_blueprint_obj: *mut crate::ffi::UFunctionOpague,
+    pub u_json_object_graph_function_library_write_package_to_temp_file: *mut crate::ffi::UFunctionOpague,
+    pub u_json_object_graph_function_library_write_blueprint_class_to_temp_file: *mut crate::ffi::UFunctionOpague,
+    pub u_json_object_graph_function_library_stringify: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_blueprint_editor_tool_menu_context_get_blueprint_obj: std::ptr::null_mut(),
+            u_json_object_graph_function_library_write_package_to_temp_file: std::ptr::null_mut(),
+            u_json_object_graph_function_library_write_blueprint_class_to_temp_file: std::ptr::null_mut(),
+            u_json_object_graph_function_library_stringify: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,7 +33,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlueprintObj"),
-            &raw mut U_BLUEPRINT_EDITOR_TOOL_MENU_CONTEXT_GET_BLUEPRINT_OBJ,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_tool_menu_context_get_blueprint_obj,
         );
     }
     unsafe {
@@ -35,21 +45,23 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WritePackageToTempFile"),
-            &raw mut U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_PACKAGE_TO_TEMP_FILE,
+            &raw mut __FUNCTION_PTRS
+                .u_json_object_graph_function_library_write_package_to_temp_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WriteBlueprintClassToTempFile"),
-            &raw mut U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_BLUEPRINT_CLASS_TO_TEMP_FILE,
+            &raw mut __FUNCTION_PTRS
+                .u_json_object_graph_function_library_write_blueprint_class_to_temp_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Stringify"),
-            &raw mut U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_STRINGIFY,
+            &raw mut __FUNCTION_PTRS.u_json_object_graph_function_library_stringify,
         );
     }
 }
@@ -81,7 +93,8 @@ impl UBlueprintEditorToolMenuContext {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::kismet::U_BLUEPRINT_EDITOR_TOOL_MENU_CONTEXT_GET_BLUEPRINT_OBJ,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_blueprint_editor_tool_menu_context_get_blueprint_obj,
                 __buffer,
             )
         };
@@ -91,7 +104,8 @@ impl UBlueprintEditorToolMenuContext {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::kismet::U_BLUEPRINT_EDITOR_TOOL_MENU_CONTEXT_GET_BLUEPRINT_OBJ,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_blueprint_editor_tool_menu_context_get_blueprint_obj,
                 __buffer,
             )
         };
@@ -196,7 +210,8 @@ impl UJsonObjectGraphFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_PACKAGE_TO_TEMP_FILE,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_json_object_graph_function_library_write_package_to_temp_file,
                 __buffer,
             )
         };
@@ -232,7 +247,8 @@ impl UJsonObjectGraphFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_PACKAGE_TO_TEMP_FILE,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_json_object_graph_function_library_write_package_to_temp_file,
                 __buffer,
             )
         };
@@ -253,7 +269,8 @@ impl UJsonObjectGraphFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_BLUEPRINT_CLASS_TO_TEMP_FILE,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_json_object_graph_function_library_write_blueprint_class_to_temp_file,
                 __buffer,
             )
         };
@@ -289,7 +306,8 @@ impl UJsonObjectGraphFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_WRITE_BLUEPRINT_CLASS_TO_TEMP_FILE,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_json_object_graph_function_library_write_blueprint_class_to_temp_file,
                 __buffer,
             )
         };
@@ -309,7 +327,8 @@ impl UJsonObjectGraphFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_STRINGIFY,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_json_object_graph_function_library_stringify,
                 __buffer,
             )
         };
@@ -344,7 +363,8 @@ impl UJsonObjectGraphFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::kismet::U_JSON_OBJECT_GRAPH_FUNCTION_LIBRARY_STRINGIFY,
+                crate::bindings::kismet::__FUNCTION_PTRS
+                    .u_json_object_graph_function_library_stringify,
                 __buffer,
             )
         };

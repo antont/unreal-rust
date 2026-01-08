@@ -1,16 +1,25 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CACHE_TRACK_RECORDER_GET_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CACHE_TRACK_RECORDER_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_cache_track_recorder_get_state: *mut crate::ffi::UFunctionOpague,
+    pub u_cache_track_recorder_get_sequence: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_cache_track_recorder_get_state: std::ptr::null_mut(),
+            u_cache_track_recorder_get_sequence: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -20,14 +29,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetState"),
-            &raw mut U_CACHE_TRACK_RECORDER_GET_STATE,
+            &raw mut __FUNCTION_PTRS.u_cache_track_recorder_get_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut U_CACHE_TRACK_RECORDER_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_cache_track_recorder_get_sequence,
         );
     }
 }
@@ -59,7 +68,8 @@ impl UCacheTrackRecorder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_STATE,
+                crate::bindings::cache_track_recorder::__FUNCTION_PTRS
+                    .u_cache_track_recorder_get_state,
                 __buffer,
             )
         };
@@ -69,7 +79,8 @@ impl UCacheTrackRecorder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_STATE,
+                crate::bindings::cache_track_recorder::__FUNCTION_PTRS
+                    .u_cache_track_recorder_get_state,
                 __buffer,
             )
         };
@@ -83,7 +94,8 @@ impl UCacheTrackRecorder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_SEQUENCE,
+                crate::bindings::cache_track_recorder::__FUNCTION_PTRS
+                    .u_cache_track_recorder_get_sequence,
                 __buffer,
             )
         };
@@ -93,7 +105,8 @@ impl UCacheTrackRecorder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::cache_track_recorder::U_CACHE_TRACK_RECORDER_GET_SEQUENCE,
+                crate::bindings::cache_track_recorder::__FUNCTION_PTRS
+                    .u_cache_track_recorder_get_sequence,
                 __buffer,
             )
         };

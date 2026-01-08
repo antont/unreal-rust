@@ -1,42 +1,51 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_SUBSTEPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_ITERATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_SET_MAX_NUM_ITERATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_SET_ANIM_DRIVE_SPRING_STIFFNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_PHYSICS_ASSET_UPDATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_GET_SIMULATION_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_SUBSTEPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_KINEMATIC_PARTICLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_ITERATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_DYNAMIC_PARTICLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_CLOTHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_GET_CLOTHING_INTERACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_ENABLE_GRAVITY_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_DISABLE_GRAVITY_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CLOTHING_SIMULATION_INTERACTOR_CLOTH_CONFIG_UPDATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_clothing_simulation_interactor_set_num_substeps: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_set_num_iterations: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_set_max_num_iterations: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_set_anim_drive_spring_stiffness: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_physics_asset_updated: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_get_simulation_time: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_get_num_substeps: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_get_num_kinematic_particles: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_get_num_iterations: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_get_num_dynamic_particles: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_get_num_cloths: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_get_clothing_interactor: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_enable_gravity_override: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_disable_gravity_override: *mut crate::ffi::UFunctionOpague,
+    pub u_clothing_simulation_interactor_cloth_config_updated: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_clothing_simulation_interactor_set_num_substeps: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_set_num_iterations: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_set_max_num_iterations: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_set_anim_drive_spring_stiffness: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_physics_asset_updated: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_get_simulation_time: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_get_num_substeps: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_get_num_kinematic_particles: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_get_num_iterations: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_get_num_dynamic_particles: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_get_num_cloths: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_get_clothing_interactor: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_enable_gravity_override: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_disable_gravity_override: std::ptr::null_mut(),
+            u_clothing_simulation_interactor_cloth_config_updated: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -46,105 +55,114 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNumSubsteps"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_SUBSTEPS,
+            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_set_num_substeps,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNumIterations"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_ITERATIONS,
+            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_set_num_iterations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaxNumIterations"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_SET_MAX_NUM_ITERATIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_set_max_num_iterations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAnimDriveSpringStiffness"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_SET_ANIM_DRIVE_SPRING_STIFFNESS,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_set_anim_drive_spring_stiffness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PhysicsAssetUpdated"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_PHYSICS_ASSET_UPDATED,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_physics_asset_updated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSimulationTime"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_GET_SIMULATION_TIME,
+            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_simulation_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumSubsteps"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_SUBSTEPS,
+            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_num_substeps,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKinematicParticles"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_KINEMATIC_PARTICLES,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_get_num_kinematic_particles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumIterations"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_ITERATIONS,
+            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_num_iterations,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumDynamicParticles"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_DYNAMIC_PARTICLES,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_get_num_dynamic_particles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumCloths"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_CLOTHS,
+            &raw mut __FUNCTION_PTRS.u_clothing_simulation_interactor_get_num_cloths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetClothingInteractor"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_GET_CLOTHING_INTERACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_get_clothing_interactor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableGravityOverride"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_ENABLE_GRAVITY_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_enable_gravity_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisableGravityOverride"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_DISABLE_GRAVITY_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_disable_gravity_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClothConfigUpdated"),
-            &raw mut U_CLOTHING_SIMULATION_INTERACTOR_CLOTH_CONFIG_UPDATED,
+            &raw mut __FUNCTION_PTRS
+                .u_clothing_simulation_interactor_cloth_config_updated,
         );
     }
 }
@@ -281,7 +299,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_SUBSTEPS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_num_substeps,
                 __buffer,
             )
         };
@@ -298,7 +317,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_SUBSTEPS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_num_substeps,
                 __buffer,
             )
         };
@@ -311,7 +331,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_ITERATIONS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_num_iterations,
                 __buffer,
             )
         };
@@ -328,7 +349,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_NUM_ITERATIONS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_num_iterations,
                 __buffer,
             )
         };
@@ -341,7 +363,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_MAX_NUM_ITERATIONS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_max_num_iterations,
                 __buffer,
             )
         };
@@ -358,7 +381,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_MAX_NUM_ITERATIONS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_max_num_iterations,
                 __buffer,
             )
         };
@@ -371,7 +395,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_ANIM_DRIVE_SPRING_STIFFNESS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_anim_drive_spring_stiffness,
                 __buffer,
             )
         };
@@ -388,7 +413,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_SET_ANIM_DRIVE_SPRING_STIFFNESS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_set_anim_drive_spring_stiffness,
                 __buffer,
             )
         };
@@ -401,7 +427,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_PHYSICS_ASSET_UPDATED,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_physics_asset_updated,
                 __buffer,
             )
         };
@@ -411,7 +438,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_PHYSICS_ASSET_UPDATED,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_physics_asset_updated,
                 __buffer,
             )
         };
@@ -424,7 +452,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_SIMULATION_TIME,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_simulation_time,
                 __buffer,
             )
         };
@@ -434,7 +463,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_SIMULATION_TIME,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_simulation_time,
                 __buffer,
             )
         };
@@ -448,7 +478,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_SUBSTEPS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_substeps,
                 __buffer,
             )
         };
@@ -458,7 +489,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_SUBSTEPS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_substeps,
                 __buffer,
             )
         };
@@ -472,7 +504,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_KINEMATIC_PARTICLES,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_kinematic_particles,
                 __buffer,
             )
         };
@@ -482,7 +515,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_KINEMATIC_PARTICLES,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_kinematic_particles,
                 __buffer,
             )
         };
@@ -496,7 +530,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_ITERATIONS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_iterations,
                 __buffer,
             )
         };
@@ -506,7 +541,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_ITERATIONS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_iterations,
                 __buffer,
             )
         };
@@ -520,7 +556,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_DYNAMIC_PARTICLES,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_dynamic_particles,
                 __buffer,
             )
         };
@@ -530,7 +567,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_DYNAMIC_PARTICLES,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_dynamic_particles,
                 __buffer,
             )
         };
@@ -544,7 +582,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_CLOTHS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_cloths,
                 __buffer,
             )
         };
@@ -554,7 +593,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_NUM_CLOTHS,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_num_cloths,
                 __buffer,
             )
         };
@@ -571,7 +611,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_CLOTHING_INTERACTOR,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_clothing_interactor,
                 __buffer,
             )
         };
@@ -588,7 +629,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_GET_CLOTHING_INTERACTOR,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_get_clothing_interactor,
                 __buffer,
             )
         };
@@ -605,7 +647,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_ENABLE_GRAVITY_OVERRIDE,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_enable_gravity_override,
                 __buffer,
             )
         };
@@ -622,7 +665,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_ENABLE_GRAVITY_OVERRIDE,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_enable_gravity_override,
                 __buffer,
             )
         };
@@ -635,7 +679,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_DISABLE_GRAVITY_OVERRIDE,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_disable_gravity_override,
                 __buffer,
             )
         };
@@ -645,7 +690,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_DISABLE_GRAVITY_OVERRIDE,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_disable_gravity_override,
                 __buffer,
             )
         };
@@ -658,7 +704,8 @@ impl UClothingSimulationInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_CLOTH_CONFIG_UPDATED,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_cloth_config_updated,
                 __buffer,
             )
         };
@@ -668,7 +715,8 @@ impl UClothingSimulationInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::clothing_system_runtime_interface::U_CLOTHING_SIMULATION_INTERACTOR_CLOTH_CONFIG_UPDATED,
+                crate::bindings::clothing_system_runtime_interface::__FUNCTION_PTRS
+                    .u_clothing_simulation_interactor_cloth_config_updated,
                 __buffer,
             )
         };

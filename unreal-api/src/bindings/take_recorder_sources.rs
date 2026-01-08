@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_TAKE_RECORDER_ACTOR_SOURCE_SET_SOURCE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_ACTOR_SOURCE_REMOVE_ACTOR_FROM_SOURCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_ACTOR_SOURCE_GET_SOURCE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TAKE_RECORDER_ACTOR_SOURCE_ADD_SOURCE_FOR_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_take_recorder_actor_source_set_source_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_actor_source_remove_actor_from_sources: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_actor_source_get_source_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_take_recorder_actor_source_add_source_for_actor: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_take_recorder_actor_source_set_source_actor: std::ptr::null_mut(),
+            u_take_recorder_actor_source_remove_actor_from_sources: std::ptr::null_mut(),
+            u_take_recorder_actor_source_get_source_actor: std::ptr::null_mut(),
+            u_take_recorder_actor_source_add_source_for_actor: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,28 +33,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSourceActor"),
-            &raw mut U_TAKE_RECORDER_ACTOR_SOURCE_SET_SOURCE_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_set_source_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorFromSources"),
-            &raw mut U_TAKE_RECORDER_ACTOR_SOURCE_REMOVE_ACTOR_FROM_SOURCES,
+            &raw mut __FUNCTION_PTRS
+                .u_take_recorder_actor_source_remove_actor_from_sources,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceActor"),
-            &raw mut U_TAKE_RECORDER_ACTOR_SOURCE_GET_SOURCE_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_get_source_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSourceForActor"),
-            &raw mut U_TAKE_RECORDER_ACTOR_SOURCE_ADD_SOURCE_FOR_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_take_recorder_actor_source_add_source_for_actor,
         );
     }
 }
@@ -91,7 +101,8 @@ impl UTakeRecorderActorSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_SET_SOURCE_ACTOR,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_set_source_actor,
                 __buffer,
             )
         };
@@ -110,7 +121,8 @@ impl UTakeRecorderActorSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_SET_SOURCE_ACTOR,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_set_source_actor,
                 __buffer,
             )
         };
@@ -126,7 +138,8 @@ impl UTakeRecorderActorSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_REMOVE_ACTOR_FROM_SOURCES,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_remove_actor_from_sources,
                 __buffer,
             )
         };
@@ -152,7 +165,8 @@ impl UTakeRecorderActorSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_REMOVE_ACTOR_FROM_SOURCES,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_remove_actor_from_sources,
                 __buffer,
             )
         };
@@ -165,7 +179,8 @@ impl UTakeRecorderActorSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_GET_SOURCE_ACTOR,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_get_source_actor,
                 __buffer,
             )
         };
@@ -175,7 +190,8 @@ impl UTakeRecorderActorSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_GET_SOURCE_ACTOR,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_get_source_actor,
                 __buffer,
             )
         };
@@ -197,7 +213,8 @@ impl UTakeRecorderActorSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_ADD_SOURCE_FOR_ACTOR,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_add_source_for_actor,
                 __buffer,
             )
         };
@@ -223,7 +240,8 @@ impl UTakeRecorderActorSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::take_recorder_sources::U_TAKE_RECORDER_ACTOR_SOURCE_ADD_SOURCE_FOR_ACTOR,
+                crate::bindings::take_recorder_sources::__FUNCTION_PTRS
+                    .u_take_recorder_actor_source_add_source_for_actor,
                 __buffer,
             )
         };

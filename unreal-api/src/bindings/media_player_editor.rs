@@ -1,16 +1,25 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_RENDERER_ON_MEDIA_OPEN_FAILED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_RENDERER_ON_MEDIA_OPENED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_media_source_renderer_on_media_open_failed: *mut crate::ffi::UFunctionOpague,
+    pub u_media_source_renderer_on_media_opened: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_media_source_renderer_on_media_open_failed: std::ptr::null_mut(),
+            u_media_source_renderer_on_media_opened: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -20,14 +29,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMediaOpenFailed"),
-            &raw mut U_MEDIA_SOURCE_RENDERER_ON_MEDIA_OPEN_FAILED,
+            &raw mut __FUNCTION_PTRS.u_media_source_renderer_on_media_open_failed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMediaOpened"),
-            &raw mut U_MEDIA_SOURCE_RENDERER_ON_MEDIA_OPENED,
+            &raw mut __FUNCTION_PTRS.u_media_source_renderer_on_media_opened,
         );
     }
 }

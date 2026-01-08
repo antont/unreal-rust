@@ -1,46 +1,55 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_UPDATE_EXPOSED_MODULE_CONNECTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_TURN_INTO_STANDALONE_RIG_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_TURN_INTO_CONTROL_RIG_MODULE_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_SET_PREVIEW_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_RECOMPILE_MODULAR_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_IS_CONTROL_RIG_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_GET_RIG_MODULE_ICON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_GET_PREVIEW_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_GET_MODULAR_RIG_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_GET_HIERARCHY_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_GET_DEBUGGED_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_GET_CONTROL_RIG_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_FIND_REFERENCES_TO_MODULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_CREATE_CONTROL_RIG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_CONVERT_HIERARCHY_ELEMENTS_TO_SPAWNER_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CONTROL_RIG_BLUEPRINT_CAN_TURN_INTO_STANDALONE_RIG_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_control_rig_blueprint_update_exposed_module_connectors: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_turn_into_standalone_rig_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_turn_into_control_rig_module_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_set_preview_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_recompile_modular_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_is_control_rig_module: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_get_rig_module_icon: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_get_preview_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_get_modular_rig_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_get_hierarchy_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_get_debugged_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_get_currently_open_rig_blueprints: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_get_control_rig_class: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_find_references_to_module: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_create_control_rig: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_convert_hierarchy_elements_to_spawner_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_control_rig_blueprint_can_turn_into_standalone_rig_blueprint: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_control_rig_blueprint_update_exposed_module_connectors: std::ptr::null_mut(),
+            u_control_rig_blueprint_turn_into_standalone_rig_blueprint: std::ptr::null_mut(),
+            u_control_rig_blueprint_turn_into_control_rig_module_blueprint: std::ptr::null_mut(),
+            u_control_rig_blueprint_set_preview_mesh: std::ptr::null_mut(),
+            u_control_rig_blueprint_recompile_modular_rig: std::ptr::null_mut(),
+            u_control_rig_blueprint_is_control_rig_module: std::ptr::null_mut(),
+            u_control_rig_blueprint_get_rig_module_icon: std::ptr::null_mut(),
+            u_control_rig_blueprint_get_preview_mesh: std::ptr::null_mut(),
+            u_control_rig_blueprint_get_modular_rig_controller: std::ptr::null_mut(),
+            u_control_rig_blueprint_get_hierarchy_controller: std::ptr::null_mut(),
+            u_control_rig_blueprint_get_debugged_control_rig: std::ptr::null_mut(),
+            u_control_rig_blueprint_get_currently_open_rig_blueprints: std::ptr::null_mut(),
+            u_control_rig_blueprint_get_control_rig_class: std::ptr::null_mut(),
+            u_control_rig_blueprint_find_references_to_module: std::ptr::null_mut(),
+            u_control_rig_blueprint_create_control_rig: std::ptr::null_mut(),
+            u_control_rig_blueprint_convert_hierarchy_elements_to_spawner_nodes: std::ptr::null_mut(),
+            u_control_rig_blueprint_can_turn_into_standalone_rig_blueprint: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -50,119 +59,125 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateExposedModuleConnectors"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_UPDATE_EXPOSED_MODULE_CONNECTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_update_exposed_module_connectors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TurnIntoStandaloneRig_Blueprint"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_turn_into_standalone_rig_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TurnIntoControlRigModule_Blueprint"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_TURN_INTO_CONTROL_RIG_MODULE_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_turn_into_control_rig_module_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreviewMesh"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_SET_PREVIEW_MESH,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_set_preview_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecompileModularRig"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_RECOMPILE_MODULAR_RIG,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_recompile_modular_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsControlRigModule"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_IS_CONTROL_RIG_MODULE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_is_control_rig_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigModuleIcon"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_GET_RIG_MODULE_ICON,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_rig_module_icon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviewMesh"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_GET_PREVIEW_MESH,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_preview_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModularRigController"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_GET_MODULAR_RIG_CONTROLLER,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_modular_rig_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHierarchyController"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_GET_HIERARCHY_CONTROLLER,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_hierarchy_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDebuggedControlRig"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_GET_DEBUGGED_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_debugged_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentlyOpenRigBlueprints"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_get_currently_open_rig_blueprints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControlRigClass"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_GET_CONTROL_RIG_CLASS,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_get_control_rig_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindReferencesToModule"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_FIND_REFERENCES_TO_MODULE,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_find_references_to_module,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateControlRig"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_CREATE_CONTROL_RIG,
+            &raw mut __FUNCTION_PTRS.u_control_rig_blueprint_create_control_rig,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertHierarchyElementsToSpawnerNodes"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_CONVERT_HIERARCHY_ELEMENTS_TO_SPAWNER_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_convert_hierarchy_elements_to_spawner_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanTurnIntoStandaloneRig_Blueprint"),
-            &raw mut U_CONTROL_RIG_BLUEPRINT_CAN_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_control_rig_blueprint_can_turn_into_standalone_rig_blueprint,
         );
     }
 }
@@ -241,7 +256,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_UPDATE_EXPOSED_MODULE_CONNECTORS,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_update_exposed_module_connectors,
                 __buffer,
             )
         };
@@ -251,7 +267,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_UPDATE_EXPOSED_MODULE_CONNECTORS,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_update_exposed_module_connectors,
                 __buffer,
             )
         };
@@ -264,7 +281,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_turn_into_standalone_rig_blueprint,
                 __buffer,
             )
         };
@@ -274,7 +292,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_turn_into_standalone_rig_blueprint,
                 __buffer,
             )
         };
@@ -288,7 +307,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_CONTROL_RIG_MODULE_BLUEPRINT,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_turn_into_control_rig_module_blueprint,
                 __buffer,
             )
         };
@@ -298,7 +318,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_TURN_INTO_CONTROL_RIG_MODULE_BLUEPRINT,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_turn_into_control_rig_module_blueprint,
                 __buffer,
             )
         };
@@ -316,7 +337,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_SET_PREVIEW_MESH,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_set_preview_mesh,
                 __buffer,
             )
         };
@@ -340,7 +362,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_SET_PREVIEW_MESH,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_set_preview_mesh,
                 __buffer,
             )
         };
@@ -353,7 +376,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_RECOMPILE_MODULAR_RIG,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_recompile_modular_rig,
                 __buffer,
             )
         };
@@ -363,7 +387,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_RECOMPILE_MODULAR_RIG,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_recompile_modular_rig,
                 __buffer,
             )
         };
@@ -376,7 +401,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_IS_CONTROL_RIG_MODULE,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_is_control_rig_module,
                 __buffer,
             )
         };
@@ -386,7 +412,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_IS_CONTROL_RIG_MODULE,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_is_control_rig_module,
                 __buffer,
             )
         };
@@ -400,7 +427,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_RIG_MODULE_ICON,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_rig_module_icon,
                 __buffer,
             )
         };
@@ -410,7 +438,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_RIG_MODULE_ICON,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_rig_module_icon,
                 __buffer,
             )
         };
@@ -426,7 +455,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_PREVIEW_MESH,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_preview_mesh,
                 __buffer,
             )
         };
@@ -436,7 +466,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_PREVIEW_MESH,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_preview_mesh,
                 __buffer,
             )
         };
@@ -454,7 +485,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_MODULAR_RIG_CONTROLLER,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_modular_rig_controller,
                 __buffer,
             )
         };
@@ -464,7 +496,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_MODULAR_RIG_CONTROLLER,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_modular_rig_controller,
                 __buffer,
             )
         };
@@ -485,7 +518,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_HIERARCHY_CONTROLLER,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_hierarchy_controller,
                 __buffer,
             )
         };
@@ -495,7 +529,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_HIERARCHY_CONTROLLER,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_hierarchy_controller,
                 __buffer,
             )
         };
@@ -516,7 +551,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_DEBUGGED_CONTROL_RIG,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_debugged_control_rig,
                 __buffer,
             )
         };
@@ -526,7 +562,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_DEBUGGED_CONTROL_RIG,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_debugged_control_rig,
                 __buffer,
             )
         };
@@ -545,7 +582,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_currently_open_rig_blueprints,
                 __buffer,
             )
         };
@@ -555,7 +593,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CURRENTLY_OPEN_RIG_BLUEPRINTS,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_currently_open_rig_blueprints,
                 __buffer,
             )
         };
@@ -571,7 +610,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CONTROL_RIG_CLASS,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_control_rig_class,
                 __buffer,
             )
         };
@@ -581,7 +621,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_GET_CONTROL_RIG_CLASS,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_get_control_rig_class,
                 __buffer,
             )
         };
@@ -602,7 +643,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_FIND_REFERENCES_TO_MODULE,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_find_references_to_module,
                 __buffer,
             )
         };
@@ -612,7 +654,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_FIND_REFERENCES_TO_MODULE,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_find_references_to_module,
                 __buffer,
             )
         };
@@ -633,7 +676,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CREATE_CONTROL_RIG,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_create_control_rig,
                 __buffer,
             )
         };
@@ -643,7 +687,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CREATE_CONTROL_RIG,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_create_control_rig,
                 __buffer,
             )
         };
@@ -667,7 +712,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CONVERT_HIERARCHY_ELEMENTS_TO_SPAWNER_NODES,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_convert_hierarchy_elements_to_spawner_nodes,
                 __buffer,
             )
         };
@@ -702,7 +748,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CONVERT_HIERARCHY_ELEMENTS_TO_SPAWNER_NODES,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_convert_hierarchy_elements_to_spawner_nodes,
                 __buffer,
             )
         };
@@ -721,7 +768,8 @@ impl UControlRigBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CAN_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_can_turn_into_standalone_rig_blueprint,
                 __buffer,
             )
         };
@@ -731,7 +779,8 @@ impl UControlRigBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::control_rig_developer::U_CONTROL_RIG_BLUEPRINT_CAN_TURN_INTO_STANDALONE_RIG_BLUEPRINT,
+                crate::bindings::control_rig_developer::__FUNCTION_PTRS
+                    .u_control_rig_blueprint_can_turn_into_standalone_rig_blueprint,
                 __buffer,
             )
         };

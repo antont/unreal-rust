@@ -1,26 +1,35 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_datasmith_content_blueprint_library_get_datasmith_user_data_values_for_key: *mut crate::ffi::UFunctionOpague,
+    pub u_datasmith_content_blueprint_library_get_datasmith_user_data_value_for_key: *mut crate::ffi::UFunctionOpague,
+    pub u_datasmith_content_blueprint_library_get_datasmith_user_data_keys_and_values_for_value: *mut crate::ffi::UFunctionOpague,
+    pub u_datasmith_content_blueprint_library_get_datasmith_user_data: *mut crate::ffi::UFunctionOpague,
+    pub u_datasmith_content_blueprint_library_get_all_objects_and_values_for_key: *mut crate::ffi::UFunctionOpague,
+    pub u_datasmith_content_blueprint_library_get_all_datasmith_user_data: *mut crate::ffi::UFunctionOpague,
+    pub a_datasmith_imported_sequences_actor_play_level_sequence: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_datasmith_content_blueprint_library_get_datasmith_user_data_values_for_key: std::ptr::null_mut(),
+            u_datasmith_content_blueprint_library_get_datasmith_user_data_value_for_key: std::ptr::null_mut(),
+            u_datasmith_content_blueprint_library_get_datasmith_user_data_keys_and_values_for_value: std::ptr::null_mut(),
+            u_datasmith_content_blueprint_library_get_datasmith_user_data: std::ptr::null_mut(),
+            u_datasmith_content_blueprint_library_get_all_objects_and_values_for_key: std::ptr::null_mut(),
+            u_datasmith_content_blueprint_library_get_all_datasmith_user_data: std::ptr::null_mut(),
+            a_datasmith_imported_sequences_actor_play_level_sequence: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -30,42 +39,48 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDatasmithUserDataValuesForKey"),
-            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_datasmith_content_blueprint_library_get_datasmith_user_data_values_for_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDatasmithUserDataValueForKey"),
-            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_datasmith_content_blueprint_library_get_datasmith_user_data_value_for_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDatasmithUserDataKeysAndValuesForValue"),
-            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_datasmith_content_blueprint_library_get_datasmith_user_data_keys_and_values_for_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDatasmithUserData"),
-            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_datasmith_content_blueprint_library_get_datasmith_user_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllObjectsAndValuesForKey"),
-            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_datasmith_content_blueprint_library_get_all_objects_and_values_for_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllDatasmithUserData"),
-            &raw mut U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_datasmith_content_blueprint_library_get_all_datasmith_user_data,
         );
     }
     unsafe {
@@ -76,7 +91,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayLevelSequence"),
-            &raw mut A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .a_datasmith_imported_sequences_actor_play_level_sequence,
         );
     }
 }
@@ -541,7 +557,8 @@ impl UDatasmithContentBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_values_for_key,
                 __buffer,
             )
         };
@@ -568,7 +585,8 @@ impl UDatasmithContentBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUES_FOR_KEY,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_values_for_key,
                 __buffer,
             )
         };
@@ -586,7 +604,8 @@ impl UDatasmithContentBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_value_for_key,
                 __buffer,
             )
         };
@@ -613,7 +632,8 @@ impl UDatasmithContentBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_VALUE_FOR_KEY,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_value_for_key,
                 __buffer,
             )
         };
@@ -632,7 +652,8 @@ impl UDatasmithContentBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_keys_and_values_for_value,
                 __buffer,
             )
         };
@@ -670,7 +691,8 @@ impl UDatasmithContentBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA_KEYS_AND_VALUES_FOR_VALUE,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data_keys_and_values_for_value,
                 __buffer,
             )
         };
@@ -691,7 +713,8 @@ impl UDatasmithContentBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data,
                 __buffer,
             )
         };
@@ -708,7 +731,8 @@ impl UDatasmithContentBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_DATASMITH_USER_DATA,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_datasmith_user_data,
                 __buffer,
             )
         };
@@ -727,7 +751,8 @@ impl UDatasmithContentBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_all_objects_and_values_for_key,
                 __buffer,
             )
         };
@@ -765,7 +790,8 @@ impl UDatasmithContentBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_OBJECTS_AND_VALUES_FOR_KEY,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_all_objects_and_values_for_key,
                 __buffer,
             )
         };
@@ -790,7 +816,8 @@ impl UDatasmithContentBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_all_datasmith_user_data,
                 __buffer,
             )
         };
@@ -816,7 +843,8 @@ impl UDatasmithContentBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::datasmith_content::U_DATASMITH_CONTENT_BLUEPRINT_LIBRARY_GET_ALL_DATASMITH_USER_DATA,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .u_datasmith_content_blueprint_library_get_all_datasmith_user_data,
                 __buffer,
             )
         };
@@ -884,7 +912,8 @@ impl ADatasmithImportedSequencesActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::datasmith_content::A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .a_datasmith_imported_sequences_actor_play_level_sequence,
                 __buffer,
             )
         };
@@ -903,7 +932,8 @@ impl ADatasmithImportedSequencesActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::datasmith_content::A_DATASMITH_IMPORTED_SEQUENCES_ACTOR_PLAY_LEVEL_SEQUENCE,
+                crate::bindings::datasmith_content::__FUNCTION_PTRS
+                    .a_datasmith_imported_sequences_actor_play_level_sequence,
                 __buffer,
             )
         };

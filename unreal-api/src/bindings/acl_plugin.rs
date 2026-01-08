@@ -1,16 +1,25 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_animation_compression_library_database_set_visual_fidelity: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_compression_library_database_get_visual_fidelity: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_animation_compression_library_database_set_visual_fidelity: std::ptr::null_mut(),
+            u_animation_compression_library_database_get_visual_fidelity: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -20,14 +29,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVisualFidelity"),
-            &raw mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_compression_library_database_set_visual_fidelity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVisualFidelity"),
-            &raw mut U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_compression_library_database_get_visual_fidelity,
         );
     }
 }
@@ -65,7 +76,8 @@ impl UAnimationCompressionLibraryDatabase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY,
+                crate::bindings::acl_plugin::__FUNCTION_PTRS
+                    .u_animation_compression_library_database_set_visual_fidelity,
                 __buffer,
             )
         };
@@ -110,7 +122,8 @@ impl UAnimationCompressionLibraryDatabase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_SET_VISUAL_FIDELITY,
+                crate::bindings::acl_plugin::__FUNCTION_PTRS
+                    .u_animation_compression_library_database_set_visual_fidelity,
                 __buffer,
             )
         };
@@ -128,7 +141,8 @@ impl UAnimationCompressionLibraryDatabase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY,
+                crate::bindings::acl_plugin::__FUNCTION_PTRS
+                    .u_animation_compression_library_database_get_visual_fidelity,
                 __buffer,
             )
         };
@@ -145,7 +159,8 @@ impl UAnimationCompressionLibraryDatabase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::acl_plugin::U_ANIMATION_COMPRESSION_LIBRARY_DATABASE_GET_VISUAL_FIDELITY,
+                crate::bindings::acl_plugin::__FUNCTION_PTRS
+                    .u_animation_compression_library_database_get_visual_fidelity,
                 __buffer,
             )
         };

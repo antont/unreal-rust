@@ -1,72 +1,81 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_RESET_FIELD_SYSTEM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_REMOVE_PERSISTENT_FIELDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_APPLY_UNIFORM_VECTOR_FALLOFF_FORCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_APPLY_STRAIN_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_APPLY_STAY_DYNAMIC_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_VECTOR_FALLOFF_FORCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_FORCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_APPLY_PHYSICS_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_APPLY_LINEAR_FORCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_ADD_PERSISTENT_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_COMPONENT_ADD_FIELD_COMMAND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_META_DATA_ITERATION_SET_META_DATA_ITERATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_META_DATA_PROCESSING_RESOLUTION_SET_META_DATAA_PROCESSING_RESOLUTION_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FIELD_SYSTEM_META_DATA_FILTER_SET_META_DATA_FILTER_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UNIFORM_INTEGER_SET_UNIFORM_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_INT_MASK_SET_RADIAL_INT_MASK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UNIFORM_SCALAR_SET_UNIFORM_SCALAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_WAVE_SCALAR_SET_WAVE_SCALAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_FALLOFF_SET_RADIAL_FALLOFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLANE_FALLOFF_SET_PLANE_FALLOFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BOX_FALLOFF_SET_BOX_FALLOFF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_NOISE_FIELD_SET_NOISE_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_UNIFORM_VECTOR_SET_UNIFORM_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RADIAL_VECTOR_SET_RADIAL_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RANDOM_VECTOR_SET_RANDOM_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_OPERATOR_FIELD_SET_OPERATOR_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TO_INTEGER_FIELD_SET_TO_INTEGER_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TO_FLOAT_FIELD_SET_TO_FLOAT_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CULLING_FIELD_SET_CULLING_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RETURN_RESULTS_TERMINAL_SET_RETURN_RESULTS_TERMINAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_field_system_component_reset_field_system: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_remove_persistent_fields: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_apply_uniform_vector_falloff_force: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_apply_strain_field: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_apply_stay_dynamic_field: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_apply_radial_vector_falloff_force: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_apply_radial_force: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_apply_physics_field: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_apply_linear_force: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_add_persistent_field: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_component_add_field_command: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_meta_data_iteration_set_meta_data_iteration: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_meta_data_processing_resolution_set_meta_dataa_processing_resolution_type: *mut crate::ffi::UFunctionOpague,
+    pub u_field_system_meta_data_filter_set_meta_data_filter_type: *mut crate::ffi::UFunctionOpague,
+    pub u_uniform_integer_set_uniform_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_int_mask_set_radial_int_mask: *mut crate::ffi::UFunctionOpague,
+    pub u_uniform_scalar_set_uniform_scalar: *mut crate::ffi::UFunctionOpague,
+    pub u_wave_scalar_set_wave_scalar: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_falloff_set_radial_falloff: *mut crate::ffi::UFunctionOpague,
+    pub u_plane_falloff_set_plane_falloff: *mut crate::ffi::UFunctionOpague,
+    pub u_box_falloff_set_box_falloff: *mut crate::ffi::UFunctionOpague,
+    pub u_noise_field_set_noise_field: *mut crate::ffi::UFunctionOpague,
+    pub u_uniform_vector_set_uniform_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_radial_vector_set_radial_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_random_vector_set_random_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_operator_field_set_operator_field: *mut crate::ffi::UFunctionOpague,
+    pub u_to_integer_field_set_to_integer_field: *mut crate::ffi::UFunctionOpague,
+    pub u_to_float_field_set_to_float_field: *mut crate::ffi::UFunctionOpague,
+    pub u_culling_field_set_culling_field: *mut crate::ffi::UFunctionOpague,
+    pub u_return_results_terminal_set_return_results_terminal: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_field_system_component_reset_field_system: std::ptr::null_mut(),
+            u_field_system_component_remove_persistent_fields: std::ptr::null_mut(),
+            u_field_system_component_apply_uniform_vector_falloff_force: std::ptr::null_mut(),
+            u_field_system_component_apply_strain_field: std::ptr::null_mut(),
+            u_field_system_component_apply_stay_dynamic_field: std::ptr::null_mut(),
+            u_field_system_component_apply_radial_vector_falloff_force: std::ptr::null_mut(),
+            u_field_system_component_apply_radial_force: std::ptr::null_mut(),
+            u_field_system_component_apply_physics_field: std::ptr::null_mut(),
+            u_field_system_component_apply_linear_force: std::ptr::null_mut(),
+            u_field_system_component_add_persistent_field: std::ptr::null_mut(),
+            u_field_system_component_add_field_command: std::ptr::null_mut(),
+            u_field_system_meta_data_iteration_set_meta_data_iteration: std::ptr::null_mut(),
+            u_field_system_meta_data_processing_resolution_set_meta_dataa_processing_resolution_type: std::ptr::null_mut(),
+            u_field_system_meta_data_filter_set_meta_data_filter_type: std::ptr::null_mut(),
+            u_uniform_integer_set_uniform_integer: std::ptr::null_mut(),
+            u_radial_int_mask_set_radial_int_mask: std::ptr::null_mut(),
+            u_uniform_scalar_set_uniform_scalar: std::ptr::null_mut(),
+            u_wave_scalar_set_wave_scalar: std::ptr::null_mut(),
+            u_radial_falloff_set_radial_falloff: std::ptr::null_mut(),
+            u_plane_falloff_set_plane_falloff: std::ptr::null_mut(),
+            u_box_falloff_set_box_falloff: std::ptr::null_mut(),
+            u_noise_field_set_noise_field: std::ptr::null_mut(),
+            u_uniform_vector_set_uniform_vector: std::ptr::null_mut(),
+            u_radial_vector_set_radial_vector: std::ptr::null_mut(),
+            u_random_vector_set_random_vector: std::ptr::null_mut(),
+            u_operator_field_set_operator_field: std::ptr::null_mut(),
+            u_to_integer_field_set_to_integer_field: std::ptr::null_mut(),
+            u_to_float_field_set_to_float_field: std::ptr::null_mut(),
+            u_culling_field_set_culling_field: std::ptr::null_mut(),
+            u_return_results_terminal_set_return_results_terminal: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -76,77 +85,79 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetFieldSystem"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_RESET_FIELD_SYSTEM,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_reset_field_system,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemovePersistentFields"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_REMOVE_PERSISTENT_FIELDS,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_remove_persistent_fields,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyUniformVectorFalloffForce"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_APPLY_UNIFORM_VECTOR_FALLOFF_FORCE,
+            &raw mut __FUNCTION_PTRS
+                .u_field_system_component_apply_uniform_vector_falloff_force,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyStrainField"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_APPLY_STRAIN_FIELD,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_strain_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyStayDynamicField"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_APPLY_STAY_DYNAMIC_FIELD,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_stay_dynamic_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyRadialVectorFalloffForce"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_VECTOR_FALLOFF_FORCE,
+            &raw mut __FUNCTION_PTRS
+                .u_field_system_component_apply_radial_vector_falloff_force,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyRadialForce"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_FORCE,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_radial_force,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyPhysicsField"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_APPLY_PHYSICS_FIELD,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_physics_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyLinearForce"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_APPLY_LINEAR_FORCE,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_apply_linear_force,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddPersistentField"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_ADD_PERSISTENT_FIELD,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_add_persistent_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFieldCommand"),
-            &raw mut U_FIELD_SYSTEM_COMPONENT_ADD_FIELD_COMMAND,
+            &raw mut __FUNCTION_PTRS.u_field_system_component_add_field_command,
         );
     }
     unsafe {
@@ -157,7 +168,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMetaDataIteration"),
-            &raw mut U_FIELD_SYSTEM_META_DATA_ITERATION_SET_META_DATA_ITERATION,
+            &raw mut __FUNCTION_PTRS
+                .u_field_system_meta_data_iteration_set_meta_data_iteration,
         );
     }
     unsafe {
@@ -168,7 +180,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMetaDataaProcessingResolutionType"),
-            &raw mut U_FIELD_SYSTEM_META_DATA_PROCESSING_RESOLUTION_SET_META_DATAA_PROCESSING_RESOLUTION_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_field_system_meta_data_processing_resolution_set_meta_dataa_processing_resolution_type,
         );
     }
     unsafe {
@@ -179,7 +192,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMetaDataFilterType"),
-            &raw mut U_FIELD_SYSTEM_META_DATA_FILTER_SET_META_DATA_FILTER_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_field_system_meta_data_filter_set_meta_data_filter_type,
         );
     }
     unsafe {
@@ -190,7 +204,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUniformInteger"),
-            &raw mut U_UNIFORM_INTEGER_SET_UNIFORM_INTEGER,
+            &raw mut __FUNCTION_PTRS.u_uniform_integer_set_uniform_integer,
         );
     }
     unsafe {
@@ -201,7 +215,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRadialIntMask"),
-            &raw mut U_RADIAL_INT_MASK_SET_RADIAL_INT_MASK,
+            &raw mut __FUNCTION_PTRS.u_radial_int_mask_set_radial_int_mask,
         );
     }
     unsafe {
@@ -212,7 +226,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUniformScalar"),
-            &raw mut U_UNIFORM_SCALAR_SET_UNIFORM_SCALAR,
+            &raw mut __FUNCTION_PTRS.u_uniform_scalar_set_uniform_scalar,
         );
     }
     unsafe {
@@ -223,7 +237,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWaveScalar"),
-            &raw mut U_WAVE_SCALAR_SET_WAVE_SCALAR,
+            &raw mut __FUNCTION_PTRS.u_wave_scalar_set_wave_scalar,
         );
     }
     unsafe {
@@ -234,7 +248,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRadialFalloff"),
-            &raw mut U_RADIAL_FALLOFF_SET_RADIAL_FALLOFF,
+            &raw mut __FUNCTION_PTRS.u_radial_falloff_set_radial_falloff,
         );
     }
     unsafe {
@@ -245,7 +259,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaneFalloff"),
-            &raw mut U_PLANE_FALLOFF_SET_PLANE_FALLOFF,
+            &raw mut __FUNCTION_PTRS.u_plane_falloff_set_plane_falloff,
         );
     }
     unsafe {
@@ -256,7 +270,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoxFalloff"),
-            &raw mut U_BOX_FALLOFF_SET_BOX_FALLOFF,
+            &raw mut __FUNCTION_PTRS.u_box_falloff_set_box_falloff,
         );
     }
     unsafe {
@@ -267,7 +281,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNoiseField"),
-            &raw mut U_NOISE_FIELD_SET_NOISE_FIELD,
+            &raw mut __FUNCTION_PTRS.u_noise_field_set_noise_field,
         );
     }
     unsafe {
@@ -278,7 +292,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUniformVector"),
-            &raw mut U_UNIFORM_VECTOR_SET_UNIFORM_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_uniform_vector_set_uniform_vector,
         );
     }
     unsafe {
@@ -289,7 +303,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRadialVector"),
-            &raw mut U_RADIAL_VECTOR_SET_RADIAL_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_radial_vector_set_radial_vector,
         );
     }
     unsafe {
@@ -300,7 +314,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRandomVector"),
-            &raw mut U_RANDOM_VECTOR_SET_RANDOM_VECTOR,
+            &raw mut __FUNCTION_PTRS.u_random_vector_set_random_vector,
         );
     }
     unsafe {
@@ -311,7 +325,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOperatorField"),
-            &raw mut U_OPERATOR_FIELD_SET_OPERATOR_FIELD,
+            &raw mut __FUNCTION_PTRS.u_operator_field_set_operator_field,
         );
     }
     unsafe {
@@ -322,7 +336,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetToIntegerField"),
-            &raw mut U_TO_INTEGER_FIELD_SET_TO_INTEGER_FIELD,
+            &raw mut __FUNCTION_PTRS.u_to_integer_field_set_to_integer_field,
         );
     }
     unsafe {
@@ -333,7 +347,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetToFloatField"),
-            &raw mut U_TO_FLOAT_FIELD_SET_TO_FLOAT_FIELD,
+            &raw mut __FUNCTION_PTRS.u_to_float_field_set_to_float_field,
         );
     }
     unsafe {
@@ -344,7 +358,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCullingField"),
-            &raw mut U_CULLING_FIELD_SET_CULLING_FIELD,
+            &raw mut __FUNCTION_PTRS.u_culling_field_set_culling_field,
         );
     }
     unsafe {
@@ -355,7 +369,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReturnResultsTerminal"),
-            &raw mut U_RETURN_RESULTS_TERMINAL_SET_RETURN_RESULTS_TERMINAL,
+            &raw mut __FUNCTION_PTRS
+                .u_return_results_terminal_set_return_results_terminal,
         );
     }
 }
@@ -441,7 +456,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_RESET_FIELD_SYSTEM,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_reset_field_system,
                 __buffer,
             )
         };
@@ -451,7 +467,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_RESET_FIELD_SYSTEM,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_reset_field_system,
                 __buffer,
             )
         };
@@ -464,7 +481,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_REMOVE_PERSISTENT_FIELDS,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_remove_persistent_fields,
                 __buffer,
             )
         };
@@ -474,7 +492,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_REMOVE_PERSISTENT_FIELDS,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_remove_persistent_fields,
                 __buffer,
             )
         };
@@ -494,7 +513,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_UNIFORM_VECTOR_FALLOFF_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_uniform_vector_falloff_force,
                 __buffer,
             )
         };
@@ -527,7 +547,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_UNIFORM_VECTOR_FALLOFF_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_uniform_vector_falloff_force,
                 __buffer,
             )
         };
@@ -547,7 +568,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STRAIN_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_strain_field,
                 __buffer,
             )
         };
@@ -580,7 +602,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STRAIN_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_strain_field,
                 __buffer,
             )
         };
@@ -598,7 +621,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STAY_DYNAMIC_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_stay_dynamic_field,
                 __buffer,
             )
         };
@@ -621,7 +645,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_STAY_DYNAMIC_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_stay_dynamic_field,
                 __buffer,
             )
         };
@@ -640,7 +665,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_VECTOR_FALLOFF_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_radial_vector_falloff_force,
                 __buffer,
             )
         };
@@ -666,7 +692,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_VECTOR_FALLOFF_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_radial_vector_falloff_force,
                 __buffer,
             )
         };
@@ -684,7 +711,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_radial_force,
                 __buffer,
             )
         };
@@ -707,7 +735,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_RADIAL_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_radial_force,
                 __buffer,
             )
         };
@@ -726,7 +755,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_PHYSICS_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_physics_field,
                 __buffer,
             )
         };
@@ -760,7 +790,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_PHYSICS_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_physics_field,
                 __buffer,
             )
         };
@@ -778,7 +809,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_LINEAR_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_linear_force,
                 __buffer,
             )
         };
@@ -801,7 +833,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_APPLY_LINEAR_FORCE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_apply_linear_force,
                 __buffer,
             )
         };
@@ -820,7 +853,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_PERSISTENT_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_add_persistent_field,
                 __buffer,
             )
         };
@@ -854,7 +888,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_PERSISTENT_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_add_persistent_field,
                 __buffer,
             )
         };
@@ -873,7 +908,8 @@ impl UFieldSystemComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_FIELD_COMMAND,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_add_field_command,
                 __buffer,
             )
         };
@@ -907,7 +943,8 @@ impl UFieldSystemComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_COMPONENT_ADD_FIELD_COMMAND,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_component_add_field_command,
                 __buffer,
             )
         };
@@ -967,7 +1004,8 @@ impl UFieldSystemMetaDataIteration {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_ITERATION_SET_META_DATA_ITERATION,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_meta_data_iteration_set_meta_data_iteration,
                 __buffer,
             )
         };
@@ -980,7 +1018,8 @@ impl UFieldSystemMetaDataIteration {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_ITERATION_SET_META_DATA_ITERATION,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_meta_data_iteration_set_meta_data_iteration,
                 __buffer,
             )
         };
@@ -1020,7 +1059,8 @@ impl UFieldSystemMetaDataProcessingResolution {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_PROCESSING_RESOLUTION_SET_META_DATAA_PROCESSING_RESOLUTION_TYPE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_meta_data_processing_resolution_set_meta_dataa_processing_resolution_type,
                 __buffer,
             )
         };
@@ -1037,7 +1077,8 @@ impl UFieldSystemMetaDataProcessingResolution {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_PROCESSING_RESOLUTION_SET_META_DATAA_PROCESSING_RESOLUTION_TYPE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_meta_data_processing_resolution_set_meta_dataa_processing_resolution_type,
                 __buffer,
             )
         };
@@ -1086,7 +1127,8 @@ impl UFieldSystemMetaDataFilter {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_FILTER_SET_META_DATA_FILTER_TYPE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_meta_data_filter_set_meta_data_filter_type,
                 __buffer,
             )
         };
@@ -1117,7 +1159,8 @@ impl UFieldSystemMetaDataFilter {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_FIELD_SYSTEM_META_DATA_FILTER_SET_META_DATA_FILTER_TYPE,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_field_system_meta_data_filter_set_meta_data_filter_type,
                 __buffer,
             )
         };
@@ -1238,7 +1281,8 @@ impl UUniformInteger {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_UNIFORM_INTEGER_SET_UNIFORM_INTEGER,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_uniform_integer_set_uniform_integer,
                 __buffer,
             )
         };
@@ -1251,7 +1295,8 @@ impl UUniformInteger {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_UNIFORM_INTEGER_SET_UNIFORM_INTEGER,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_uniform_integer_set_uniform_integer,
                 __buffer,
             )
         };
@@ -1299,7 +1344,8 @@ impl URadialIntMask {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_RADIAL_INT_MASK_SET_RADIAL_INT_MASK,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_radial_int_mask_set_radial_int_mask,
                 __buffer,
             )
         };
@@ -1340,7 +1386,8 @@ impl URadialIntMask {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_RADIAL_INT_MASK_SET_RADIAL_INT_MASK,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_radial_int_mask_set_radial_int_mask,
                 __buffer,
             )
         };
@@ -1377,7 +1424,8 @@ impl UUniformScalar {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_UNIFORM_SCALAR_SET_UNIFORM_SCALAR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_uniform_scalar_set_uniform_scalar,
                 __buffer,
             )
         };
@@ -1390,7 +1438,8 @@ impl UUniformScalar {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_UNIFORM_SCALAR_SET_UNIFORM_SCALAR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_uniform_scalar_set_uniform_scalar,
                 __buffer,
             )
         };
@@ -1441,7 +1490,8 @@ impl UWaveScalar {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_WAVE_SCALAR_SET_WAVE_SCALAR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_wave_scalar_set_wave_scalar,
                 __buffer,
             )
         };
@@ -1488,7 +1538,8 @@ impl UWaveScalar {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_WAVE_SCALAR_SET_WAVE_SCALAR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_wave_scalar_set_wave_scalar,
                 __buffer,
             )
         };
@@ -1540,7 +1591,8 @@ impl URadialFalloff {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_RADIAL_FALLOFF_SET_RADIAL_FALLOFF,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_radial_falloff_set_radial_falloff,
                 __buffer,
             )
         };
@@ -1579,7 +1631,8 @@ impl URadialFalloff {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_RADIAL_FALLOFF_SET_RADIAL_FALLOFF,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_radial_falloff_set_radial_falloff,
                 __buffer,
             )
         };
@@ -1633,7 +1686,8 @@ impl UPlaneFalloff {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_PLANE_FALLOFF_SET_PLANE_FALLOFF,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_plane_falloff_set_plane_falloff,
                 __buffer,
             )
         };
@@ -1679,7 +1733,8 @@ impl UPlaneFalloff {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_PLANE_FALLOFF_SET_PLANE_FALLOFF,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_plane_falloff_set_plane_falloff,
                 __buffer,
             )
         };
@@ -1729,7 +1784,8 @@ impl UBoxFalloff {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_BOX_FALLOFF_SET_BOX_FALLOFF,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_box_falloff_set_box_falloff,
                 __buffer,
             )
         };
@@ -1765,7 +1821,8 @@ impl UBoxFalloff {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_BOX_FALLOFF_SET_BOX_FALLOFF,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_box_falloff_set_box_falloff,
                 __buffer,
             )
         };
@@ -1809,7 +1866,8 @@ impl UNoiseField {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_NOISE_FIELD_SET_NOISE_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_noise_field_set_noise_field,
                 __buffer,
             )
         };
@@ -1832,7 +1890,8 @@ impl UNoiseField {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_NOISE_FIELD_SET_NOISE_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_noise_field_set_noise_field,
                 __buffer,
             )
         };
@@ -1874,7 +1933,8 @@ impl UUniformVector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_UNIFORM_VECTOR_SET_UNIFORM_VECTOR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_uniform_vector_set_uniform_vector,
                 __buffer,
             )
         };
@@ -1894,7 +1954,8 @@ impl UUniformVector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_UNIFORM_VECTOR_SET_UNIFORM_VECTOR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_uniform_vector_set_uniform_vector,
                 __buffer,
             )
         };
@@ -1936,7 +1997,8 @@ impl URadialVector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_RADIAL_VECTOR_SET_RADIAL_VECTOR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_radial_vector_set_radial_vector,
                 __buffer,
             )
         };
@@ -1956,7 +2018,8 @@ impl URadialVector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_RADIAL_VECTOR_SET_RADIAL_VECTOR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_radial_vector_set_radial_vector,
                 __buffer,
             )
         };
@@ -1993,7 +2056,8 @@ impl URandomVector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_RANDOM_VECTOR_SET_RANDOM_VECTOR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_random_vector_set_random_vector,
                 __buffer,
             )
         };
@@ -2006,7 +2070,8 @@ impl URandomVector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_RANDOM_VECTOR_SET_RANDOM_VECTOR,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_random_vector_set_random_vector,
                 __buffer,
             )
         };
@@ -2052,7 +2117,8 @@ impl UOperatorField {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_OPERATOR_FIELD_SET_OPERATOR_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_operator_field_set_operator_field,
                 __buffer,
             )
         };
@@ -2086,7 +2152,8 @@ impl UOperatorField {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_OPERATOR_FIELD_SET_OPERATOR_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_operator_field_set_operator_field,
                 __buffer,
             )
         };
@@ -2126,7 +2193,8 @@ impl UToIntegerField {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_TO_INTEGER_FIELD_SET_TO_INTEGER_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_to_integer_field_set_to_integer_field,
                 __buffer,
             )
         };
@@ -2143,7 +2211,8 @@ impl UToIntegerField {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_TO_INTEGER_FIELD_SET_TO_INTEGER_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_to_integer_field_set_to_integer_field,
                 __buffer,
             )
         };
@@ -2183,7 +2252,8 @@ impl UToFloatField {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_TO_FLOAT_FIELD_SET_TO_FLOAT_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_to_float_field_set_to_float_field,
                 __buffer,
             )
         };
@@ -2200,7 +2270,8 @@ impl UToFloatField {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_TO_FLOAT_FIELD_SET_TO_FLOAT_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_to_float_field_set_to_float_field,
                 __buffer,
             )
         };
@@ -2244,7 +2315,8 @@ impl UCullingField {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_CULLING_FIELD_SET_CULLING_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_culling_field_set_culling_field,
                 __buffer,
             )
         };
@@ -2277,7 +2349,8 @@ impl UCullingField {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_CULLING_FIELD_SET_CULLING_FIELD,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_culling_field_set_culling_field,
                 __buffer,
             )
         };
@@ -2312,7 +2385,8 @@ impl UReturnResultsTerminal {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::field_system_engine::U_RETURN_RESULTS_TERMINAL_SET_RETURN_RESULTS_TERMINAL,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_return_results_terminal_set_return_results_terminal,
                 __buffer,
             )
         };
@@ -2322,7 +2396,8 @@ impl UReturnResultsTerminal {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::field_system_engine::U_RETURN_RESULTS_TERMINAL_SET_RETURN_RESULTS_TERMINAL,
+                crate::bindings::field_system_engine::__FUNCTION_PTRS
+                    .u_return_results_terminal_set_return_results_terminal,
                 __buffer,
             )
         };

@@ -1,36 +1,45 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_BAKE_RENDER_CAPTURE_TOOL_PROPERTIES_GET_MAP_PREVIEW_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_RENDER_CAPTURE_INPUT_TOOL_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_RENDER_CAPTURE_INPUT_TOOL_PROPERTIES_GET_TARGET_UV_LAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BSP_CONVERSION_TOOL_ACTION_PROPERTY_SET_SELECT_ALL_VALID_BRUSHES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BSP_CONVERSION_TOOL_ACTION_PROPERTY_SET_DESELECT_VOLUMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BSP_CONVERSION_TOOL_ACTION_PROPERTY_SET_DESELECT_NON_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_MATERIALS_TOOL_PROPERTIES_GET_MATERIAL_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_MESH_MATERIALS_EDIT_ACTIONS_ASSIGN_ACTIVE_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UISM_EDITOR_TOOL_ACTION_PROPERTY_SET_DUPLICATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UISM_EDITOR_TOOL_ACTION_PROPERTY_SET_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UISM_EDITOR_TOOL_ACTION_PROPERTY_SET_CLEAR_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UISM_EDITOR_TOOL_REPLACE_PROPERTY_SET_REPLACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_bake_render_capture_tool_properties_get_map_preview_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_render_capture_input_tool_properties_get_target_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_render_capture_input_tool_properties_get_target_uv_layer_index: *mut crate::ffi::UFunctionOpague,
+    pub u_bsp_conversion_tool_action_property_set_select_all_valid_brushes: *mut crate::ffi::UFunctionOpague,
+    pub u_bsp_conversion_tool_action_property_set_deselect_volumes: *mut crate::ffi::UFunctionOpague,
+    pub u_bsp_conversion_tool_action_property_set_deselect_non_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_materials_tool_properties_get_material_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_mesh_materials_edit_actions_assign_active_material: *mut crate::ffi::UFunctionOpague,
+    pub uism_editor_tool_action_property_set_duplicate: *mut crate::ffi::UFunctionOpague,
+    pub uism_editor_tool_action_property_set_delete: *mut crate::ffi::UFunctionOpague,
+    pub uism_editor_tool_action_property_set_clear_selection: *mut crate::ffi::UFunctionOpague,
+    pub uism_editor_tool_replace_property_set_replace: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_bake_render_capture_tool_properties_get_map_preview_names_func: std::ptr::null_mut(),
+            u_bake_render_capture_input_tool_properties_get_target_uv_layer_names_func: std::ptr::null_mut(),
+            u_bake_render_capture_input_tool_properties_get_target_uv_layer_index: std::ptr::null_mut(),
+            u_bsp_conversion_tool_action_property_set_select_all_valid_brushes: std::ptr::null_mut(),
+            u_bsp_conversion_tool_action_property_set_deselect_volumes: std::ptr::null_mut(),
+            u_bsp_conversion_tool_action_property_set_deselect_non_valid: std::ptr::null_mut(),
+            u_edit_mesh_materials_tool_properties_get_material_names_func: std::ptr::null_mut(),
+            u_edit_mesh_materials_edit_actions_assign_active_material: std::ptr::null_mut(),
+            uism_editor_tool_action_property_set_duplicate: std::ptr::null_mut(),
+            uism_editor_tool_action_property_set_delete: std::ptr::null_mut(),
+            uism_editor_tool_action_property_set_clear_selection: std::ptr::null_mut(),
+            uism_editor_tool_replace_property_set_replace: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -40,7 +49,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMapPreviewNamesFunc"),
-            &raw mut U_BAKE_RENDER_CAPTURE_TOOL_PROPERTIES_GET_MAP_PREVIEW_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_render_capture_tool_properties_get_map_preview_names_func,
         );
     }
     unsafe {
@@ -51,14 +61,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetUVLayerNamesFunc"),
-            &raw mut U_BAKE_RENDER_CAPTURE_INPUT_TOOL_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_render_capture_input_tool_properties_get_target_uv_layer_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetUVLayerIndex"),
-            &raw mut U_BAKE_RENDER_CAPTURE_INPUT_TOOL_PROPERTIES_GET_TARGET_UV_LAYER_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_render_capture_input_tool_properties_get_target_uv_layer_index,
         );
     }
     unsafe {
@@ -69,21 +81,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectAllValidBrushes"),
-            &raw mut U_BSP_CONVERSION_TOOL_ACTION_PROPERTY_SET_SELECT_ALL_VALID_BRUSHES,
+            &raw mut __FUNCTION_PTRS
+                .u_bsp_conversion_tool_action_property_set_select_all_valid_brushes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectVolumes"),
-            &raw mut U_BSP_CONVERSION_TOOL_ACTION_PROPERTY_SET_DESELECT_VOLUMES,
+            &raw mut __FUNCTION_PTRS
+                .u_bsp_conversion_tool_action_property_set_deselect_volumes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectNonValid"),
-            &raw mut U_BSP_CONVERSION_TOOL_ACTION_PROPERTY_SET_DESELECT_NON_VALID,
+            &raw mut __FUNCTION_PTRS
+                .u_bsp_conversion_tool_action_property_set_deselect_non_valid,
         );
     }
     unsafe {
@@ -94,7 +109,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialNamesFunc"),
-            &raw mut U_EDIT_MESH_MATERIALS_TOOL_PROPERTIES_GET_MATERIAL_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_materials_tool_properties_get_material_names_func,
         );
     }
     unsafe {
@@ -105,7 +121,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssignActiveMaterial"),
-            &raw mut U_EDIT_MESH_MATERIALS_EDIT_ACTIONS_ASSIGN_ACTIVE_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_edit_mesh_materials_edit_actions_assign_active_material,
         );
     }
     unsafe {
@@ -116,21 +133,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Duplicate"),
-            &raw mut UISM_EDITOR_TOOL_ACTION_PROPERTY_SET_DUPLICATE,
+            &raw mut __FUNCTION_PTRS.uism_editor_tool_action_property_set_duplicate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut UISM_EDITOR_TOOL_ACTION_PROPERTY_SET_DELETE,
+            &raw mut __FUNCTION_PTRS.uism_editor_tool_action_property_set_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSelection"),
-            &raw mut UISM_EDITOR_TOOL_ACTION_PROPERTY_SET_CLEAR_SELECTION,
+            &raw mut __FUNCTION_PTRS.uism_editor_tool_action_property_set_clear_selection,
         );
     }
     unsafe {
@@ -141,7 +158,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Replace"),
-            &raw mut UISM_EDITOR_TOOL_REPLACE_PROPERTY_SET_REPLACE,
+            &raw mut __FUNCTION_PTRS.uism_editor_tool_replace_property_set_replace,
         );
     }
 }

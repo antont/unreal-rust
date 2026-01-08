@@ -1,24 +1,33 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_PROPERTY_VIEW_BASE_SET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_VIEW_BASE_GET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SINGLE_PROPERTY_VIEW_SET_PROPERTY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SINGLE_PROPERTY_VIEW_SET_NAME_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SINGLE_PROPERTY_VIEW_GET_PROPERTY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SINGLE_PROPERTY_VIEW_GET_NAME_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_property_view_base_set_object: *mut crate::ffi::UFunctionOpague,
+    pub u_property_view_base_get_object: *mut crate::ffi::UFunctionOpague,
+    pub u_single_property_view_set_property_name: *mut crate::ffi::UFunctionOpague,
+    pub u_single_property_view_set_name_override: *mut crate::ffi::UFunctionOpague,
+    pub u_single_property_view_get_property_name: *mut crate::ffi::UFunctionOpague,
+    pub u_single_property_view_get_name_override: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_property_view_base_set_object: std::ptr::null_mut(),
+            u_property_view_base_get_object: std::ptr::null_mut(),
+            u_single_property_view_set_property_name: std::ptr::null_mut(),
+            u_single_property_view_set_name_override: std::ptr::null_mut(),
+            u_single_property_view_get_property_name: std::ptr::null_mut(),
+            u_single_property_view_get_name_override: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -28,14 +37,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetObject"),
-            &raw mut U_PROPERTY_VIEW_BASE_SET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_property_view_base_set_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut U_PROPERTY_VIEW_BASE_GET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_property_view_base_get_object,
         );
     }
     unsafe {
@@ -46,28 +55,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPropertyName"),
-            &raw mut U_SINGLE_PROPERTY_VIEW_SET_PROPERTY_NAME,
+            &raw mut __FUNCTION_PTRS.u_single_property_view_set_property_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNameOverride"),
-            &raw mut U_SINGLE_PROPERTY_VIEW_SET_NAME_OVERRIDE,
+            &raw mut __FUNCTION_PTRS.u_single_property_view_set_name_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertyName"),
-            &raw mut U_SINGLE_PROPERTY_VIEW_GET_PROPERTY_NAME,
+            &raw mut __FUNCTION_PTRS.u_single_property_view_get_property_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNameOverride"),
-            &raw mut U_SINGLE_PROPERTY_VIEW_GET_NAME_OVERRIDE,
+            &raw mut __FUNCTION_PTRS.u_single_property_view_get_name_override,
         );
     }
 }
@@ -102,7 +111,8 @@ impl UPropertyViewBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::scriptable_editor_widgets::U_PROPERTY_VIEW_BASE_SET_OBJECT,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_property_view_base_set_object,
                 __buffer,
             )
         };
@@ -119,7 +129,8 @@ impl UPropertyViewBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::scriptable_editor_widgets::U_PROPERTY_VIEW_BASE_SET_OBJECT,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_property_view_base_set_object,
                 __buffer,
             )
         };
@@ -132,7 +143,8 @@ impl UPropertyViewBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::scriptable_editor_widgets::U_PROPERTY_VIEW_BASE_GET_OBJECT,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_property_view_base_get_object,
                 __buffer,
             )
         };
@@ -142,7 +154,8 @@ impl UPropertyViewBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::scriptable_editor_widgets::U_PROPERTY_VIEW_BASE_GET_OBJECT,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_property_view_base_get_object,
                 __buffer,
             )
         };
@@ -203,7 +216,8 @@ impl USinglePropertyView {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_SET_PROPERTY_NAME,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_set_property_name,
                 __buffer,
             )
         };
@@ -220,7 +234,8 @@ impl USinglePropertyView {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_SET_PROPERTY_NAME,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_set_property_name,
                 __buffer,
             )
         };
@@ -233,7 +248,8 @@ impl USinglePropertyView {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_SET_NAME_OVERRIDE,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_set_name_override,
                 __buffer,
             )
         };
@@ -250,7 +266,8 @@ impl USinglePropertyView {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_SET_NAME_OVERRIDE,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_set_name_override,
                 __buffer,
             )
         };
@@ -263,7 +280,8 @@ impl USinglePropertyView {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_GET_PROPERTY_NAME,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_get_property_name,
                 __buffer,
             )
         };
@@ -273,7 +291,8 @@ impl USinglePropertyView {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_GET_PROPERTY_NAME,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_get_property_name,
                 __buffer,
             )
         };
@@ -287,7 +306,8 @@ impl USinglePropertyView {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_GET_NAME_OVERRIDE,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_get_name_override,
                 __buffer,
             )
         };
@@ -297,7 +317,8 @@ impl USinglePropertyView {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::scriptable_editor_widgets::U_SINGLE_PROPERTY_VIEW_GET_NAME_OVERRIDE,
+                crate::bindings::scriptable_editor_widgets::__FUNCTION_PTRS
+                    .u_single_property_view_get_name_override,
                 __buffer,
             )
         };

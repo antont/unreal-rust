@@ -1,74 +1,83 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_STRIP_LOD_GEOMETRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SKELETAL_MESH_OVERLAY_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_VISIBLE_IN_RAY_TRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_CAST_SHADOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE_FOR_ALL_SKELETAL_MESH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MATERIAL_SLOT_OVERLAY_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_RENAME_SOCKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REMOVE_LO_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REGENERATE_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IS_PHYSICS_ASSET_COMPATIBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETON_CURVE_META_DATA_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETAL_MESH_OVERLAY_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_VISIBLE_IN_RAY_TRACING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_CAST_SHADOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_VERTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MORPH_TARGETS_GENERATED_BY_ENGINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MATERIAL_SLOT_OVERLAY_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_CREATE_PHYSICS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_ASSIGN_PHYSICS_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_skeletal_mesh_editor_subsystem_strip_lod_geometry: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_skeletal_mesh_overlay_material: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_section_visible_in_ray_tracing: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_section_recompute_tangents_vertex_mask_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_section_recompute_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_section_cast_shadow: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_material_slot_overlay_material: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_set_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_rename_socket: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_remove_lo_ds: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_reimport_all_custom_lo_ds: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_regenerate_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_is_physics_asset_compatible: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_import_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_skeleton_curve_meta_data_names: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_skeletal_mesh_overlay_material: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_section_visible_in_ray_tracing: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_section_recompute_tangents_vertex_mask_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_section_recompute_tangent: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_section_cast_shadow: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_num_verts: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_num_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_morph_targets_generated_by_engine: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_material_slot_overlay_material: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_lod_material_slot: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_lod_count: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_get_lod_build_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_create_physics_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_skeletal_mesh_editor_subsystem_assign_physics_asset: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_skeletal_mesh_editor_subsystem_strip_lod_geometry: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_skeletal_mesh_overlay_material: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_section_visible_in_ray_tracing: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_section_recompute_tangents_vertex_mask_channel: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_section_recompute_tangent: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_section_cast_shadow: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_material_slot_overlay_material: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_set_lod_build_settings: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_rename_socket: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_remove_lo_ds: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_reimport_all_custom_lo_ds: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_regenerate_lod: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_is_physics_asset_compatible: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_import_lod: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_skeleton_curve_meta_data_names: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_skeletal_mesh_overlay_material: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_section_visible_in_ray_tracing: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_section_recompute_tangents_vertex_mask_channel: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_section_recompute_tangent: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_section_cast_shadow: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_num_verts: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_num_sections: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_morph_targets_generated_by_engine: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_material_slot_overlay_material: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_lod_material_slot: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_lod_count: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_get_lod_build_settings: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_create_physics_asset: std::ptr::null_mut(),
+            u_skeletal_mesh_editor_subsystem_assign_physics_asset: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -78,42 +87,47 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StripLODGeometry"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_STRIP_LOD_GEOMETRY,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_strip_lod_geometry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSkeletalMeshOverlayMaterial"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SKELETAL_MESH_OVERLAY_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_skeletal_mesh_overlay_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionVisibleInRayTracing"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_VISIBLE_IN_RAY_TRACING,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_section_visible_in_ray_tracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionRecomputeTangentsVertexMaskChannel"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangents_vertex_mask_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionRecomputeTangent"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENT,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSectionCastShadow"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_CAST_SHADOW,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_section_cast_shadow,
         );
         (bindings
             .core_fns
@@ -122,175 +136,193 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "SetMorphTargetsToGeneratedByEngineForAllSkeletalMesh",
             ),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE_FOR_ALL_SKELETAL_MESH,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMorphTargetsToGeneratedByEngine"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMaterialSlotOverlayMaterial"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MATERIAL_SLOT_OVERLAY_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_material_slot_overlay_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLodBuildSettings"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_set_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameSocket"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_RENAME_SOCKET,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_rename_socket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLODs"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REMOVE_LO_DS,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_remove_lo_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReimportAllCustomLODs"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_reimport_all_custom_lo_ds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegenerateLOD"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REGENERATE_LOD,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_regenerate_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPhysicsAssetCompatible"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IS_PHYSICS_ASSET_COMPATIBLE,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_is_physics_asset_compatible,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportLOD"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_import_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletonCurveMetaDataNames"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETON_CURVE_META_DATA_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_skeleton_curve_meta_data_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSkeletalMeshOverlayMaterial"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETAL_MESH_OVERLAY_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_skeletal_mesh_overlay_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionVisibleInRayTracing"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_VISIBLE_IN_RAY_TRACING,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_section_visible_in_ray_tracing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionRecomputeTangentsVertexMaskChannel"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangents_vertex_mask_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionRecomputeTangent"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENT,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSectionCastShadow"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_CAST_SHADOW,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_section_cast_shadow,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVerts"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_VERTS,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_num_verts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumSections"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_num_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMorphTargetsGeneratedByEngine"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MORPH_TARGETS_GENERATED_BY_ENGINE,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_morph_targets_generated_by_engine,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialSlotOverlayMaterial"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MATERIAL_SLOT_OVERLAY_MATERIAL,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_material_slot_overlay_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLODMaterialSlot"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_lod_material_slot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLODCount"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT,
+            &raw mut __FUNCTION_PTRS.u_skeletal_mesh_editor_subsystem_get_lod_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLodBuildSettings"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_get_lod_build_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePhysicsAsset"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_CREATE_PHYSICS_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_create_physics_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssignPhysicsAsset"),
-            &raw mut U_SKELETAL_MESH_EDITOR_SUBSYSTEM_ASSIGN_PHYSICS_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_skeletal_mesh_editor_subsystem_assign_physics_asset,
         );
     }
 }
@@ -369,7 +401,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_STRIP_LOD_GEOMETRY,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_strip_lod_geometry,
                 __buffer,
             )
         };
@@ -399,7 +432,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_STRIP_LOD_GEOMETRY,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_strip_lod_geometry,
                 __buffer,
             )
         };
@@ -417,7 +451,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SKELETAL_MESH_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_skeletal_mesh_overlay_material,
                 __buffer,
             )
         };
@@ -443,7 +478,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SKELETAL_MESH_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_skeletal_mesh_overlay_material,
                 __buffer,
             )
         };
@@ -463,7 +499,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_VISIBLE_IN_RAY_TRACING,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_visible_in_ray_tracing,
                 __buffer,
             )
         };
@@ -497,7 +534,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_VISIBLE_IN_RAY_TRACING,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_visible_in_ray_tracing,
                 __buffer,
             )
         };
@@ -517,7 +555,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangents_vertex_mask_channel,
                 __buffer,
             )
         };
@@ -551,7 +590,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangents_vertex_mask_channel,
                 __buffer,
             )
         };
@@ -571,7 +611,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangent,
                 __buffer,
             )
         };
@@ -605,7 +646,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_RECOMPUTE_TANGENT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_recompute_tangent,
                 __buffer,
             )
         };
@@ -625,7 +667,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_CAST_SHADOW,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_cast_shadow,
                 __buffer,
             )
         };
@@ -659,7 +702,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_SECTION_CAST_SHADOW,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_section_cast_shadow,
                 __buffer,
             )
         };
@@ -676,7 +720,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE_FOR_ALL_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh,
                 __buffer,
             )
         };
@@ -700,7 +745,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE_FOR_ALL_SKELETAL_MESH,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine_for_all_skeletal_mesh,
                 __buffer,
             )
         };
@@ -716,7 +762,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine,
                 __buffer,
             )
         };
@@ -740,7 +787,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MORPH_TARGETS_TO_GENERATED_BY_ENGINE,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_morph_targets_to_generated_by_engine,
                 __buffer,
             )
         };
@@ -759,7 +807,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MATERIAL_SLOT_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_material_slot_overlay_material,
                 __buffer,
             )
         };
@@ -788,7 +837,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_MATERIAL_SLOT_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_material_slot_overlay_material,
                 __buffer,
             )
         };
@@ -806,7 +856,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -835,7 +886,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_SET_LOD_BUILD_SETTINGS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_set_lod_build_settings,
                 __buffer,
             )
         };
@@ -852,7 +904,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_RENAME_SOCKET,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_rename_socket,
                 __buffer,
             )
         };
@@ -879,7 +932,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_RENAME_SOCKET,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_rename_socket,
                 __buffer,
             )
         };
@@ -896,7 +950,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REMOVE_LO_DS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_remove_lo_ds,
                 __buffer,
             )
         };
@@ -920,7 +975,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REMOVE_LO_DS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_remove_lo_ds,
                 __buffer,
             )
         };
@@ -936,7 +992,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -953,7 +1010,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REIMPORT_ALL_CUSTOM_LO_DS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_reimport_all_custom_lo_ds,
                 __buffer,
             )
         };
@@ -972,7 +1030,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REGENERATE_LOD,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_regenerate_lod,
                 __buffer,
             )
         };
@@ -1010,7 +1069,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_REGENERATE_LOD,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_regenerate_lod,
                 __buffer,
             )
         };
@@ -1027,7 +1087,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IS_PHYSICS_ASSET_COMPATIBLE,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_is_physics_asset_compatible,
                 __buffer,
             )
         };
@@ -1051,7 +1112,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IS_PHYSICS_ASSET_COMPATIBLE,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_is_physics_asset_compatible,
                 __buffer,
             )
         };
@@ -1069,7 +1131,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_import_lod,
                 __buffer,
             )
         };
@@ -1096,7 +1159,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_IMPORT_LOD,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_import_lod,
                 __buffer,
             )
         };
@@ -1114,7 +1178,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETON_CURVE_META_DATA_NAMES,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_skeleton_curve_meta_data_names,
                 __buffer,
             )
         };
@@ -1145,7 +1210,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETON_CURVE_META_DATA_NAMES,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_skeleton_curve_meta_data_names,
                 __buffer,
             )
         };
@@ -1164,7 +1230,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETAL_MESH_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_skeletal_mesh_overlay_material,
                 __buffer,
             )
         };
@@ -1181,7 +1248,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SKELETAL_MESH_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_skeletal_mesh_overlay_material,
                 __buffer,
             )
         };
@@ -1206,7 +1274,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_VISIBLE_IN_RAY_TRACING,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_visible_in_ray_tracing,
                 __buffer,
             )
         };
@@ -1240,7 +1309,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_VISIBLE_IN_RAY_TRACING,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_visible_in_ray_tracing,
                 __buffer,
             )
         };
@@ -1263,7 +1333,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangents_vertex_mask_channel,
                 __buffer,
             )
         };
@@ -1297,7 +1368,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENTS_VERTEX_MASK_CHANNEL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangents_vertex_mask_channel,
                 __buffer,
             )
         };
@@ -1323,7 +1395,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangent,
                 __buffer,
             )
         };
@@ -1357,7 +1430,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_RECOMPUTE_TANGENT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_recompute_tangent,
                 __buffer,
             )
         };
@@ -1380,7 +1454,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_CAST_SHADOW,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_cast_shadow,
                 __buffer,
             )
         };
@@ -1414,7 +1489,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_SECTION_CAST_SHADOW,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_section_cast_shadow,
                 __buffer,
             )
         };
@@ -1435,7 +1511,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_VERTS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_num_verts,
                 __buffer,
             )
         };
@@ -1455,7 +1532,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_VERTS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_num_verts,
                 __buffer,
             )
         };
@@ -1473,7 +1551,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_SECTIONS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_num_sections,
                 __buffer,
             )
         };
@@ -1493,7 +1572,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_NUM_SECTIONS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_num_sections,
                 __buffer,
             )
         };
@@ -1510,7 +1590,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MORPH_TARGETS_GENERATED_BY_ENGINE,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_morph_targets_generated_by_engine,
                 __buffer,
             )
         };
@@ -1534,7 +1615,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MORPH_TARGETS_GENERATED_BY_ENGINE,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_morph_targets_generated_by_engine,
                 __buffer,
             )
         };
@@ -1554,7 +1636,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MATERIAL_SLOT_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_material_slot_overlay_material,
                 __buffer,
             )
         };
@@ -1574,7 +1657,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_MATERIAL_SLOT_OVERLAY_MATERIAL,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_material_slot_overlay_material,
                 __buffer,
             )
         };
@@ -1598,7 +1682,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_material_slot,
                 __buffer,
             )
         };
@@ -1625,7 +1710,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_MATERIAL_SLOT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_material_slot,
                 __buffer,
             )
         };
@@ -1641,7 +1727,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_count,
                 __buffer,
             )
         };
@@ -1658,7 +1745,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_COUNT,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_count,
                 __buffer,
             )
         };
@@ -1676,7 +1764,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -1705,7 +1794,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_GET_LOD_BUILD_SETTINGS,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_get_lod_build_settings,
                 __buffer,
             )
         };
@@ -1728,7 +1818,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_CREATE_PHYSICS_ASSET,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_create_physics_asset,
                 __buffer,
             )
         };
@@ -1755,7 +1846,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_CREATE_PHYSICS_ASSET,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_create_physics_asset,
                 __buffer,
             )
         };
@@ -1777,7 +1869,8 @@ impl USkeletalMeshEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_ASSIGN_PHYSICS_ASSET,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_assign_physics_asset,
                 __buffer,
             )
         };
@@ -1801,7 +1894,8 @@ impl USkeletalMeshEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::skeletal_mesh_editor::U_SKELETAL_MESH_EDITOR_SUBSYSTEM_ASSIGN_PHYSICS_ASSET,
+                crate::bindings::skeletal_mesh_editor::__FUNCTION_PTRS
+                    .u_skeletal_mesh_editor_subsystem_assign_physics_asset,
                 __buffer,
             )
         };

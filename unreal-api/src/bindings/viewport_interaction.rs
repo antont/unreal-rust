@@ -1,88 +1,97 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_SHUTDOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_SET_HIT_RESULT_GIZMO_FILTER_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_SET_DRAGGING_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_SET_CAN_CARRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_IS_HOVERING_OVER_GIZMO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_HANDLE_INPUT_KEY_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_HANDLE_INPUT_AXIS_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_WORLD_INTERACTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_TRANSFORM_AND_FORWARD_VECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_ROOM_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_OTHER_INTERACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_LAST_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_LAST_ROOM_SPACE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_LASER_POINTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_HOVER_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_HIT_RESULT_GIZMO_FILTER_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_GET_DRAGGING_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_INTERACTOR_CAN_CARRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_TRANSFORMER_SHUTDOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_TRANSFORMER_SHOULD_CENTER_TRANSFORM_GIZMO_PIVOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_TRANSFORMER_ON_STOP_DRAGGING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_TRANSFORMER_ON_START_DRAGGING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_TRANSFORMER_INIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_TRANSFORMER_CAN_ALIGN_TO_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_SET_WORLD_TO_METERS_SCALE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_SET_ROOM_TRANSFORM_FOR_NEXT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_SET_HEAD_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_REMOVE_INTERACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_GET_WORLD_SCALE_FACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_GET_TRANSFORM_GIZMO_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_SPACE_HEAD_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_GET_INTERACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_GET_HEAD_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_ADD_INTERACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VIEWPORT_WORLD_INTERACTION_ADD_ACTOR_TO_EXCLUDE_FROM_HIT_TESTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_viewport_interactor_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_shutdown: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_set_hit_result_gizmo_filter_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_set_dragging_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_set_can_carry: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_is_hovering_over_gizmo: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_handle_input_key_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_handle_input_axis_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_world_interaction: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_transform_and_forward_vector: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_room_space_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_other_interactor: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_last_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_last_room_space_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_laser_pointer: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_hover_location: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_hit_result_gizmo_filter_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_get_dragging_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_interactor_can_carry: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_transformer_shutdown: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_transformer_should_center_transform_gizmo_pivot: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_transformer_on_stop_dragging: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_transformer_on_start_dragging: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_transformer_init: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_transformer_can_align_to_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_set_world_to_meters_scale: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_set_room_transform_for_next_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_set_head_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_remove_interactor: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_get_world_scale_factor: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_get_transform_gizmo_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_get_room_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_get_room_space_head_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_get_interactors: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_get_head_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_add_interactor: *mut crate::ffi::UFunctionOpague,
+    pub u_viewport_world_interaction_add_actor_to_exclude_from_hit_tests: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_viewport_interactor_tick: std::ptr::null_mut(),
+            u_viewport_interactor_shutdown: std::ptr::null_mut(),
+            u_viewport_interactor_set_hit_result_gizmo_filter_mode: std::ptr::null_mut(),
+            u_viewport_interactor_set_dragging_mode: std::ptr::null_mut(),
+            u_viewport_interactor_set_can_carry: std::ptr::null_mut(),
+            u_viewport_interactor_is_hovering_over_gizmo: std::ptr::null_mut(),
+            u_viewport_interactor_handle_input_key_bp: std::ptr::null_mut(),
+            u_viewport_interactor_handle_input_axis_bp: std::ptr::null_mut(),
+            u_viewport_interactor_get_world_interaction: std::ptr::null_mut(),
+            u_viewport_interactor_get_transform_and_forward_vector: std::ptr::null_mut(),
+            u_viewport_interactor_get_transform: std::ptr::null_mut(),
+            u_viewport_interactor_get_room_space_transform: std::ptr::null_mut(),
+            u_viewport_interactor_get_other_interactor: std::ptr::null_mut(),
+            u_viewport_interactor_get_last_transform: std::ptr::null_mut(),
+            u_viewport_interactor_get_last_room_space_transform: std::ptr::null_mut(),
+            u_viewport_interactor_get_laser_pointer: std::ptr::null_mut(),
+            u_viewport_interactor_get_hover_location: std::ptr::null_mut(),
+            u_viewport_interactor_get_hit_result_gizmo_filter_mode: std::ptr::null_mut(),
+            u_viewport_interactor_get_dragging_mode: std::ptr::null_mut(),
+            u_viewport_interactor_can_carry: std::ptr::null_mut(),
+            u_viewport_transformer_shutdown: std::ptr::null_mut(),
+            u_viewport_transformer_should_center_transform_gizmo_pivot: std::ptr::null_mut(),
+            u_viewport_transformer_on_stop_dragging: std::ptr::null_mut(),
+            u_viewport_transformer_on_start_dragging: std::ptr::null_mut(),
+            u_viewport_transformer_init: std::ptr::null_mut(),
+            u_viewport_transformer_can_align_to_actors: std::ptr::null_mut(),
+            u_viewport_world_interaction_set_world_to_meters_scale: std::ptr::null_mut(),
+            u_viewport_world_interaction_set_room_transform_for_next_frame: std::ptr::null_mut(),
+            u_viewport_world_interaction_set_head_transform: std::ptr::null_mut(),
+            u_viewport_world_interaction_remove_interactor: std::ptr::null_mut(),
+            u_viewport_world_interaction_get_world_scale_factor: std::ptr::null_mut(),
+            u_viewport_world_interaction_get_transform_gizmo_actor: std::ptr::null_mut(),
+            u_viewport_world_interaction_get_room_transform: std::ptr::null_mut(),
+            u_viewport_world_interaction_get_room_space_head_transform: std::ptr::null_mut(),
+            u_viewport_world_interaction_get_interactors: std::ptr::null_mut(),
+            u_viewport_world_interaction_get_head_transform: std::ptr::null_mut(),
+            u_viewport_world_interaction_add_interactor: std::ptr::null_mut(),
+            u_viewport_world_interaction_add_actor_to_exclude_from_hit_tests: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -92,140 +101,143 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Tick"),
-            &raw mut U_VIEWPORT_INTERACTOR_TICK,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Shutdown"),
-            &raw mut U_VIEWPORT_INTERACTOR_SHUTDOWN,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_shutdown,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHitResultGizmoFilterMode"),
-            &raw mut U_VIEWPORT_INTERACTOR_SET_HIT_RESULT_GIZMO_FILTER_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_interactor_set_hit_result_gizmo_filter_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDraggingMode"),
-            &raw mut U_VIEWPORT_INTERACTOR_SET_DRAGGING_MODE,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_set_dragging_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCanCarry"),
-            &raw mut U_VIEWPORT_INTERACTOR_SET_CAN_CARRY,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_set_can_carry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsHoveringOverGizmo"),
-            &raw mut U_VIEWPORT_INTERACTOR_IS_HOVERING_OVER_GIZMO,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_is_hovering_over_gizmo,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HandleInputKey_BP"),
-            &raw mut U_VIEWPORT_INTERACTOR_HANDLE_INPUT_KEY_BP,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_handle_input_key_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HandleInputAxis_BP"),
-            &raw mut U_VIEWPORT_INTERACTOR_HANDLE_INPUT_AXIS_BP,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_handle_input_axis_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorldInteraction"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_WORLD_INTERACTION,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_world_interaction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformAndForwardVector"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_TRANSFORM_AND_FORWARD_VECTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_interactor_get_transform_and_forward_vector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransform"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRoomSpaceTransform"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_ROOM_SPACE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_room_space_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOtherInteractor"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_OTHER_INTERACTOR,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_other_interactor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLastTransform"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_LAST_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_last_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLastRoomSpaceTransform"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_LAST_ROOM_SPACE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_last_room_space_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLaserPointer"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_LASER_POINTER,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_laser_pointer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHoverLocation"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_HOVER_LOCATION,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_hover_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHitResultGizmoFilterMode"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_HIT_RESULT_GIZMO_FILTER_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_interactor_get_hit_result_gizmo_filter_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDraggingMode"),
-            &raw mut U_VIEWPORT_INTERACTOR_GET_DRAGGING_MODE,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_get_dragging_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanCarry"),
-            &raw mut U_VIEWPORT_INTERACTOR_CAN_CARRY,
+            &raw mut __FUNCTION_PTRS.u_viewport_interactor_can_carry,
         );
     }
     unsafe {
@@ -236,42 +248,43 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Shutdown"),
-            &raw mut U_VIEWPORT_TRANSFORMER_SHUTDOWN,
+            &raw mut __FUNCTION_PTRS.u_viewport_transformer_shutdown,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldCenterTransformGizmoPivot"),
-            &raw mut U_VIEWPORT_TRANSFORMER_SHOULD_CENTER_TRANSFORM_GIZMO_PIVOT,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_transformer_should_center_transform_gizmo_pivot,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnStopDragging"),
-            &raw mut U_VIEWPORT_TRANSFORMER_ON_STOP_DRAGGING,
+            &raw mut __FUNCTION_PTRS.u_viewport_transformer_on_stop_dragging,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnStartDragging"),
-            &raw mut U_VIEWPORT_TRANSFORMER_ON_START_DRAGGING,
+            &raw mut __FUNCTION_PTRS.u_viewport_transformer_on_start_dragging,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Init"),
-            &raw mut U_VIEWPORT_TRANSFORMER_INIT,
+            &raw mut __FUNCTION_PTRS.u_viewport_transformer_init,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanAlignToActors"),
-            &raw mut U_VIEWPORT_TRANSFORMER_CAN_ALIGN_TO_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_viewport_transformer_can_align_to_actors,
         );
     }
     unsafe {
@@ -282,84 +295,89 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWorldToMetersScale"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_SET_WORLD_TO_METERS_SCALE,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_world_interaction_set_world_to_meters_scale,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRoomTransformForNextFrame"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_SET_ROOM_TRANSFORM_FOR_NEXT_FRAME,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_world_interaction_set_room_transform_for_next_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHeadTransform"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_SET_HEAD_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_set_head_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveInteractor"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_REMOVE_INTERACTOR,
+            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_remove_interactor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorldScaleFactor"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_GET_WORLD_SCALE_FACTOR,
+            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_world_scale_factor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTransformGizmoActor"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_GET_TRANSFORM_GIZMO_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_world_interaction_get_transform_gizmo_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRoomTransform"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_room_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRoomSpaceHeadTransform"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_SPACE_HEAD_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_world_interaction_get_room_space_head_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInteractors"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_GET_INTERACTORS,
+            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_interactors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHeadTransform"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_GET_HEAD_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_get_head_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInteractor"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_ADD_INTERACTOR,
+            &raw mut __FUNCTION_PTRS.u_viewport_world_interaction_add_interactor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorToExcludeFromHitTests"),
-            &raw mut U_VIEWPORT_WORLD_INTERACTION_ADD_ACTOR_TO_EXCLUDE_FROM_HIT_TESTS,
+            &raw mut __FUNCTION_PTRS
+                .u_viewport_world_interaction_add_actor_to_exclude_from_hit_tests,
         );
     }
 }
@@ -410,6 +428,59 @@ impl UViewportInteractor {
             cdo
         }
     }
+    pub fn tick(&mut self, delta_time: f32) {
+        let mut __stack = crate::core_data::StackAlloc::<4>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_tick,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta_time, __buffer.add(0).cast::<f32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_tick,
+                __buffer,
+            )
+        };
+    }
+    pub fn shutdown(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_shutdown,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_shutdown,
+                __buffer,
+            )
+        };
+    }
     pub fn set_hit_result_gizmo_filter_mode(
         &mut self,
         new_filter: EHitResultGizmoFilterMode,
@@ -421,7 +492,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_HIT_RESULT_GIZMO_FILTER_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_set_hit_result_gizmo_filter_mode,
                 __buffer,
             )
         };
@@ -438,7 +510,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_HIT_RESULT_GIZMO_FILTER_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_set_hit_result_gizmo_filter_mode,
                 __buffer,
             )
         };
@@ -454,7 +527,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_DRAGGING_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_set_dragging_mode,
                 __buffer,
             )
         };
@@ -471,7 +545,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_DRAGGING_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_set_dragging_mode,
                 __buffer,
             )
         };
@@ -484,7 +559,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_CAN_CARRY,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_set_can_carry,
                 __buffer,
             )
         };
@@ -501,7 +577,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_SET_CAN_CARRY,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_set_can_carry,
                 __buffer,
             )
         };
@@ -514,7 +591,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_IS_HOVERING_OVER_GIZMO,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_is_hovering_over_gizmo,
                 __buffer,
             )
         };
@@ -524,11 +602,140 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_IS_HOVERING_OVER_GIZMO,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_is_hovering_over_gizmo,
                 __buffer,
             )
         };
         unsafe { __buffer.add(0).cast::<bool>().read() }
+    }
+    pub fn handle_input_key_bp(
+        &mut self,
+        action: &FViewportActionKeyInput,
+        key: crate::bindings::input_core::FKey,
+        event: crate::bindings::engine::EInputEvent,
+        b_out_was_handled: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<50>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_handle_input_key_bp,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                action,
+                __buffer.add(0).cast::<FViewportActionKeyInput>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(16).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &event,
+                __buffer.add(48).cast::<crate::bindings::engine::EInputEvent>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_was_handled,
+                __buffer.add(49).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_handle_input_key_bp,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(49).cast::<bool>().swap(b_out_was_handled);
+        }
+    }
+    pub fn handle_input_axis_bp(
+        &mut self,
+        action: &FViewportActionKeyInput,
+        key: crate::bindings::input_core::FKey,
+        delta: f32,
+        delta_time: f32,
+        b_out_was_handled: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<57>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_handle_input_axis_bp,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                action,
+                __buffer.add(0).cast::<FViewportActionKeyInput>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &key,
+                __buffer.add(16).cast::<crate::bindings::input_core::FKey>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(&delta, __buffer.add(48).cast::<f32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &delta_time,
+                __buffer.add(52).cast::<f32>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_out_was_handled,
+                __buffer.add(56).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_handle_input_axis_bp,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(56).cast::<bool>().swap(b_out_was_handled);
+        }
     }
     pub fn get_world_interaction(&self) -> UPtr<UViewportWorldInteraction> {
         let mut __stack = crate::core_data::StackAlloc::<8>::new();
@@ -538,7 +745,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_WORLD_INTERACTION,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_world_interaction,
                 __buffer,
             )
         };
@@ -548,7 +756,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_WORLD_INTERACTION,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_world_interaction,
                 __buffer,
             )
         };
@@ -566,7 +775,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM_AND_FORWARD_VECTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_transform_and_forward_vector,
                 __buffer,
             )
         };
@@ -590,7 +800,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM_AND_FORWARD_VECTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_transform_and_forward_vector,
                 __buffer,
             )
         };
@@ -616,7 +827,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_transform,
                 __buffer,
             )
         };
@@ -626,7 +838,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_transform,
                 __buffer,
             )
         };
@@ -644,7 +857,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_ROOM_SPACE_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_room_space_transform,
                 __buffer,
             )
         };
@@ -654,7 +868,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_ROOM_SPACE_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_room_space_transform,
                 __buffer,
             )
         };
@@ -670,7 +885,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_OTHER_INTERACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_other_interactor,
                 __buffer,
             )
         };
@@ -680,7 +896,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_OTHER_INTERACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_other_interactor,
                 __buffer,
             )
         };
@@ -694,7 +911,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_last_transform,
                 __buffer,
             )
         };
@@ -704,7 +922,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_last_transform,
                 __buffer,
             )
         };
@@ -722,7 +941,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_ROOM_SPACE_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_last_room_space_transform,
                 __buffer,
             )
         };
@@ -732,7 +952,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LAST_ROOM_SPACE_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_last_room_space_transform,
                 __buffer,
             )
         };
@@ -754,7 +975,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LASER_POINTER,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_laser_pointer,
                 __buffer,
             )
         };
@@ -792,7 +1014,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_LASER_POINTER,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_laser_pointer,
                 __buffer,
             )
         };
@@ -818,7 +1041,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HOVER_LOCATION,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_hover_location,
                 __buffer,
             )
         };
@@ -828,7 +1052,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HOVER_LOCATION,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_hover_location,
                 __buffer,
             )
         };
@@ -844,7 +1069,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HIT_RESULT_GIZMO_FILTER_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_hit_result_gizmo_filter_mode,
                 __buffer,
             )
         };
@@ -854,7 +1080,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_HIT_RESULT_GIZMO_FILTER_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_hit_result_gizmo_filter_mode,
                 __buffer,
             )
         };
@@ -868,7 +1095,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_DRAGGING_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_dragging_mode,
                 __buffer,
             )
         };
@@ -878,7 +1106,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_GET_DRAGGING_MODE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_get_dragging_mode,
                 __buffer,
             )
         };
@@ -892,7 +1121,8 @@ impl UViewportInteractor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_CAN_CARRY,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_can_carry,
                 __buffer,
             )
         };
@@ -902,7 +1132,8 @@ impl UViewportInteractor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_INTERACTOR_CAN_CARRY,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_interactor_can_carry,
                 __buffer,
             )
         };
@@ -1446,7 +1677,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_WORLD_TO_METERS_SCALE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_world_to_meters_scale,
                 __buffer,
             )
         };
@@ -1470,7 +1702,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_WORLD_TO_METERS_SCALE,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_world_to_meters_scale,
                 __buffer,
             )
         };
@@ -1486,7 +1719,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_ROOM_TRANSFORM_FOR_NEXT_FRAME,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_room_transform_for_next_frame,
                 __buffer,
             )
         };
@@ -1503,7 +1737,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_ROOM_TRANSFORM_FOR_NEXT_FRAME,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_room_transform_for_next_frame,
                 __buffer,
             )
         };
@@ -1519,7 +1754,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_HEAD_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_head_transform,
                 __buffer,
             )
         };
@@ -1536,7 +1772,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_SET_HEAD_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_set_head_transform,
                 __buffer,
             )
         };
@@ -1549,7 +1786,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_REMOVE_INTERACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_remove_interactor,
                 __buffer,
             )
         };
@@ -1566,7 +1804,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_REMOVE_INTERACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_remove_interactor,
                 __buffer,
             )
         };
@@ -1579,7 +1818,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_WORLD_SCALE_FACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_world_scale_factor,
                 __buffer,
             )
         };
@@ -1589,7 +1829,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_WORLD_SCALE_FACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_world_scale_factor,
                 __buffer,
             )
         };
@@ -1603,7 +1844,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_TRANSFORM_GIZMO_ACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_transform_gizmo_actor,
                 __buffer,
             )
         };
@@ -1613,7 +1855,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_TRANSFORM_GIZMO_ACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_transform_gizmo_actor,
                 __buffer,
             )
         };
@@ -1627,7 +1870,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_room_transform,
                 __buffer,
             )
         };
@@ -1637,7 +1881,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_room_transform,
                 __buffer,
             )
         };
@@ -1655,7 +1900,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_SPACE_HEAD_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_room_space_head_transform,
                 __buffer,
             )
         };
@@ -1665,7 +1911,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_ROOM_SPACE_HEAD_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_room_space_head_transform,
                 __buffer,
             )
         };
@@ -1681,7 +1928,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_INTERACTORS,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_interactors,
                 __buffer,
             )
         };
@@ -1691,7 +1939,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_INTERACTORS,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_interactors,
                 __buffer,
             )
         };
@@ -1705,7 +1954,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_HEAD_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_head_transform,
                 __buffer,
             )
         };
@@ -1715,7 +1965,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_GET_HEAD_TRANSFORM,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_get_head_transform,
                 __buffer,
             )
         };
@@ -1731,7 +1982,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_INTERACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_add_interactor,
                 __buffer,
             )
         };
@@ -1748,7 +2000,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_INTERACTOR,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_add_interactor,
                 __buffer,
             )
         };
@@ -1764,7 +2017,8 @@ impl UViewportWorldInteraction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_ACTOR_TO_EXCLUDE_FROM_HIT_TESTS,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_add_actor_to_exclude_from_hit_tests,
                 __buffer,
             )
         };
@@ -1781,7 +2035,8 @@ impl UViewportWorldInteraction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::viewport_interaction::U_VIEWPORT_WORLD_INTERACTION_ADD_ACTOR_TO_EXCLUDE_FROM_HIT_TESTS,
+                crate::bindings::viewport_interaction::__FUNCTION_PTRS
+                    .u_viewport_world_interaction_add_actor_to_exclude_from_hit_tests,
                 __buffer,
             )
         };

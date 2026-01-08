@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_STATE_TREE_EDITOR_DATA_K2_GET_EXTENSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_state_tree_editor_data_k2_get_extension: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_state_tree_editor_data_k2_get_extension: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetExtension"),
-            &raw mut U_STATE_TREE_EDITOR_DATA_K2_GET_EXTENSION,
+            &raw mut __FUNCTION_PTRS.u_state_tree_editor_data_k2_get_extension,
         );
     }
 }
@@ -221,7 +230,8 @@ impl UStateTreeEditorData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::state_tree_editor_module::U_STATE_TREE_EDITOR_DATA_K2_GET_EXTENSION,
+                crate::bindings::state_tree_editor_module::__FUNCTION_PTRS
+                    .u_state_tree_editor_data_k2_get_extension,
                 __buffer,
             )
         };
@@ -238,7 +248,8 @@ impl UStateTreeEditorData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::state_tree_editor_module::U_STATE_TREE_EDITOR_DATA_K2_GET_EXTENSION,
+                crate::bindings::state_tree_editor_module::__FUNCTION_PTRS
+                    .u_state_tree_editor_data_k2_get_extension,
                 __buffer,
             )
         };

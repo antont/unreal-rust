@@ -1,28 +1,37 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_SET_STRUCT_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_SET_STRUCT_CONST_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_SET_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_SET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_GET_STRUCT_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_GET_STRUCT_CONST_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_GET_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_PATH_TEST_OBJECT_GET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_property_path_test_object_set_struct_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_property_path_test_object_set_struct_const_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_property_path_test_object_set_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_property_path_test_object_set_float: *mut crate::ffi::UFunctionOpague,
+    pub u_property_path_test_object_get_struct_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_property_path_test_object_get_struct_const_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_property_path_test_object_get_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_property_path_test_object_get_float: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_property_path_test_object_set_struct_ref: std::ptr::null_mut(),
+            u_property_path_test_object_set_struct_const_ref: std::ptr::null_mut(),
+            u_property_path_test_object_set_struct: std::ptr::null_mut(),
+            u_property_path_test_object_set_float: std::ptr::null_mut(),
+            u_property_path_test_object_get_struct_ref: std::ptr::null_mut(),
+            u_property_path_test_object_get_struct_const_ref: std::ptr::null_mut(),
+            u_property_path_test_object_get_struct: std::ptr::null_mut(),
+            u_property_path_test_object_get_float: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -32,56 +41,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStructRef"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_SET_STRUCT_REF,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStructConstRef"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_SET_STRUCT_CONST_REF,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct_const_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetStruct"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_SET_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFloat"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_SET_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_set_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStructRef"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_GET_STRUCT_REF,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStructConstRef"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_GET_STRUCT_CONST_REF,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct_const_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStruct"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_GET_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut U_PROPERTY_PATH_TEST_OBJECT_GET_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_property_path_test_object_get_float,
         );
     }
 }

@@ -1,76 +1,85 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_WEIGHTMAP_TO_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_RENDER_WEIGHTMAPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_RENDER_WEIGHTMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_RENDER_HEIGHTMAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_GET_TARGET_LAYER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_INITIALIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_GET_BLUEPRINT_RENDER_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_COMPONENT_SET_LOD_BIAS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_COMPONENT_SET_FORCED_LOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_landscape_proxy_set_virtual_texture_render_pass_type: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_set_landscape_material_vector_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_set_landscape_material_texture_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_set_landscape_material_scalar_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_landscape_import_weightmap_from_render_target: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_landscape_import_heightmap_from_render_target: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_landscape_export_weightmap_to_render_target: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_landscape_export_heightmap_to_render_target: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_get_landscape_actor: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_editor_set_landscape_material: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_editor_apply_spline: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_delete_unused_layers: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_change_lod_distance_factor: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_proxy_change_component_screen_size_to_use_sub_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_heightfield_collision_component_get_render_component: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_splines_component_get_spline_mesh_components: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_render_weightmaps: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_render_weightmap: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_render_heightmap: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_get_target_layer_names: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_force_layers_full_update: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_blueprint_brush_base_request_landscape_update: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_blueprint_brush_base_render_layer: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_blueprint_brush_base_render: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_blueprint_brush_base_initialize: *mut crate::ffi::UFunctionOpague,
+    pub a_landscape_blueprint_brush_base_get_blueprint_render_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_component_set_lod_bias: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_component_set_forced_lod: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_component_get_material_instance_dynamic: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_component_get_grass_types_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_component_editor_get_paint_layer_weight_by_name_at_location: *mut crate::ffi::UFunctionOpague,
+    pub u_landscape_component_editor_get_paint_layer_weight_at_location: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_landscape_proxy_set_virtual_texture_render_pass_type: std::ptr::null_mut(),
+            a_landscape_proxy_set_landscape_material_vector_parameter_value: std::ptr::null_mut(),
+            a_landscape_proxy_set_landscape_material_texture_parameter_value: std::ptr::null_mut(),
+            a_landscape_proxy_set_landscape_material_scalar_parameter_value: std::ptr::null_mut(),
+            a_landscape_proxy_landscape_import_weightmap_from_render_target: std::ptr::null_mut(),
+            a_landscape_proxy_landscape_import_heightmap_from_render_target: std::ptr::null_mut(),
+            a_landscape_proxy_landscape_export_weightmap_to_render_target: std::ptr::null_mut(),
+            a_landscape_proxy_landscape_export_heightmap_to_render_target: std::ptr::null_mut(),
+            a_landscape_proxy_get_landscape_actor: std::ptr::null_mut(),
+            a_landscape_proxy_editor_set_landscape_material: std::ptr::null_mut(),
+            a_landscape_proxy_editor_apply_spline: std::ptr::null_mut(),
+            a_landscape_proxy_delete_unused_layers: std::ptr::null_mut(),
+            a_landscape_proxy_change_lod_distance_factor: std::ptr::null_mut(),
+            a_landscape_proxy_change_component_screen_size_to_use_sub_sections: std::ptr::null_mut(),
+            u_landscape_heightfield_collision_component_get_render_component: std::ptr::null_mut(),
+            u_landscape_splines_component_get_spline_mesh_components: std::ptr::null_mut(),
+            a_landscape_render_weightmaps: std::ptr::null_mut(),
+            a_landscape_render_weightmap: std::ptr::null_mut(),
+            a_landscape_render_heightmap: std::ptr::null_mut(),
+            a_landscape_get_target_layer_names: std::ptr::null_mut(),
+            a_landscape_force_layers_full_update: std::ptr::null_mut(),
+            a_landscape_blueprint_brush_base_request_landscape_update: std::ptr::null_mut(),
+            a_landscape_blueprint_brush_base_render_layer: std::ptr::null_mut(),
+            a_landscape_blueprint_brush_base_render: std::ptr::null_mut(),
+            a_landscape_blueprint_brush_base_initialize: std::ptr::null_mut(),
+            a_landscape_blueprint_brush_base_get_blueprint_render_dependencies: std::ptr::null_mut(),
+            u_landscape_component_set_lod_bias: std::ptr::null_mut(),
+            u_landscape_component_set_forced_lod: std::ptr::null_mut(),
+            u_landscape_component_get_material_instance_dynamic: std::ptr::null_mut(),
+            u_landscape_component_get_grass_types_bp: std::ptr::null_mut(),
+            u_landscape_component_editor_get_paint_layer_weight_by_name_at_location: std::ptr::null_mut(),
+            u_landscape_component_editor_get_paint_layer_weight_at_location: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -80,98 +89,107 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVirtualTextureRenderPassType"),
-            &raw mut A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_set_virtual_texture_render_pass_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLandscapeMaterialVectorParameterValue"),
-            &raw mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_set_landscape_material_vector_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLandscapeMaterialTextureParameterValue"),
-            &raw mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_set_landscape_material_texture_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLandscapeMaterialScalarParameterValue"),
-            &raw mut A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_set_landscape_material_scalar_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LandscapeImportWeightmapFromRenderTarget"),
-            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_landscape_import_weightmap_from_render_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LandscapeImportHeightmapFromRenderTarget"),
-            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_landscape_import_heightmap_from_render_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LandscapeExportWeightmapToRenderTarget"),
-            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_WEIGHTMAP_TO_RENDER_TARGET,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_landscape_export_weightmap_to_render_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LandscapeExportHeightmapToRenderTarget"),
-            &raw mut A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_landscape_export_heightmap_to_render_target,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLandscapeActor"),
-            &raw mut A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR,
+            &raw mut __FUNCTION_PTRS.a_landscape_proxy_get_landscape_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorSetLandscapeMaterial"),
-            &raw mut A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL,
+            &raw mut __FUNCTION_PTRS.a_landscape_proxy_editor_set_landscape_material,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorApplySpline"),
-            &raw mut A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE,
+            &raw mut __FUNCTION_PTRS.a_landscape_proxy_editor_apply_spline,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteUnusedLayers"),
-            &raw mut A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS,
+            &raw mut __FUNCTION_PTRS.a_landscape_proxy_delete_unused_layers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ChangeLODDistanceFactor"),
-            &raw mut A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR,
+            &raw mut __FUNCTION_PTRS.a_landscape_proxy_change_lod_distance_factor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ChangeComponentScreenSizeToUseSubSections"),
-            &raw mut A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_proxy_change_component_screen_size_to_use_sub_sections,
         );
     }
     unsafe {
@@ -182,7 +200,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRenderComponent"),
-            &raw mut U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_landscape_heightfield_collision_component_get_render_component,
         );
     }
     unsafe {
@@ -193,7 +212,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSplineMeshComponents"),
-            &raw mut U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_landscape_splines_component_get_spline_mesh_components,
         );
     }
     unsafe {
@@ -204,35 +224,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenderWeightmaps"),
-            &raw mut A_LANDSCAPE_RENDER_WEIGHTMAPS,
+            &raw mut __FUNCTION_PTRS.a_landscape_render_weightmaps,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenderWeightmap"),
-            &raw mut A_LANDSCAPE_RENDER_WEIGHTMAP,
+            &raw mut __FUNCTION_PTRS.a_landscape_render_weightmap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenderHeightmap"),
-            &raw mut A_LANDSCAPE_RENDER_HEIGHTMAP,
+            &raw mut __FUNCTION_PTRS.a_landscape_render_heightmap,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetLayerNames"),
-            &raw mut A_LANDSCAPE_GET_TARGET_LAYER_NAMES,
+            &raw mut __FUNCTION_PTRS.a_landscape_get_target_layer_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForceLayersFullUpdate"),
-            &raw mut A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE,
+            &raw mut __FUNCTION_PTRS.a_landscape_force_layers_full_update,
         );
     }
     unsafe {
@@ -243,35 +263,37 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestLandscapeUpdate"),
-            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_blueprint_brush_base_request_landscape_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenderLayer"),
-            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER_LAYER,
+            &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_render_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Render"),
-            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_RENDER,
+            &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_render,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Initialize"),
-            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_INITIALIZE,
+            &raw mut __FUNCTION_PTRS.a_landscape_blueprint_brush_base_initialize,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlueprintRenderDependencies"),
-            &raw mut A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_GET_BLUEPRINT_RENDER_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS
+                .a_landscape_blueprint_brush_base_get_blueprint_render_dependencies,
         );
     }
     unsafe {
@@ -282,42 +304,44 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLODBias"),
-            &raw mut U_LANDSCAPE_COMPONENT_SET_LOD_BIAS,
+            &raw mut __FUNCTION_PTRS.u_landscape_component_set_lod_bias,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetForcedLOD"),
-            &raw mut U_LANDSCAPE_COMPONENT_SET_FORCED_LOD,
+            &raw mut __FUNCTION_PTRS.u_landscape_component_set_forced_lod,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMaterialInstanceDynamic"),
-            &raw mut U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC,
+            &raw mut __FUNCTION_PTRS.u_landscape_component_get_material_instance_dynamic,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGrassTypesBP"),
-            &raw mut U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP,
+            &raw mut __FUNCTION_PTRS.u_landscape_component_get_grass_types_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightByNameAtLocation"),
-            &raw mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_landscape_component_editor_get_paint_layer_weight_by_name_at_location,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EditorGetPaintLayerWeightAtLocation"),
-            &raw mut U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION,
+            &raw mut __FUNCTION_PTRS
+                .u_landscape_component_editor_get_paint_layer_weight_at_location,
         );
     }
 }
@@ -622,7 +646,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_virtual_texture_render_pass_type,
                 __buffer,
             )
         };
@@ -643,7 +668,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_VIRTUAL_TEXTURE_RENDER_PASS_TYPE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_virtual_texture_render_pass_type,
                 __buffer,
             )
         };
@@ -660,7 +686,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_vector_parameter_value,
                 __buffer,
             )
         };
@@ -684,7 +711,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_VECTOR_PARAMETER_VALUE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_vector_parameter_value,
                 __buffer,
             )
         };
@@ -701,7 +729,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_texture_parameter_value,
                 __buffer,
             )
         };
@@ -725,7 +754,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_TEXTURE_PARAMETER_VALUE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_texture_parameter_value,
                 __buffer,
             )
         };
@@ -742,7 +772,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -762,7 +793,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_SET_LANDSCAPE_MATERIAL_SCALAR_PARAMETER_VALUE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_set_landscape_material_scalar_parameter_value,
                 __buffer,
             )
         };
@@ -780,7 +812,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_import_weightmap_from_render_target,
                 __buffer,
             )
         };
@@ -813,7 +846,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_WEIGHTMAP_FROM_RENDER_TARGET,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_import_weightmap_from_render_target,
                 __buffer,
             )
         };
@@ -832,7 +866,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_import_heightmap_from_render_target,
                 __buffer,
             )
         };
@@ -865,7 +900,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_IMPORT_HEIGHTMAP_FROM_RENDER_TARGET,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_import_heightmap_from_render_target,
                 __buffer,
             )
         };
@@ -884,7 +920,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_export_heightmap_to_render_target,
                 __buffer,
             )
         };
@@ -917,7 +954,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_LANDSCAPE_EXPORT_HEIGHTMAP_TO_RENDER_TARGET,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_landscape_export_heightmap_to_render_target,
                 __buffer,
             )
         };
@@ -931,7 +969,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_get_landscape_actor,
                 __buffer,
             )
         };
@@ -941,7 +980,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_GET_LANDSCAPE_ACTOR,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_get_landscape_actor,
                 __buffer,
             )
         };
@@ -958,7 +998,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_editor_set_landscape_material,
                 __buffer,
             )
         };
@@ -977,7 +1018,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_SET_LANDSCAPE_MATERIAL,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_editor_set_landscape_material,
                 __buffer,
             )
         };
@@ -1004,7 +1046,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_editor_apply_spline,
                 __buffer,
             )
         };
@@ -1092,7 +1135,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_EDITOR_APPLY_SPLINE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_editor_apply_spline,
                 __buffer,
             )
         };
@@ -1105,7 +1149,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_delete_unused_layers,
                 __buffer,
             )
         };
@@ -1115,7 +1160,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_DELETE_UNUSED_LAYERS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_delete_unused_layers,
                 __buffer,
             )
         };
@@ -1128,7 +1174,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_change_lod_distance_factor,
                 __buffer,
             )
         };
@@ -1145,7 +1192,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_LOD_DISTANCE_FACTOR,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_change_lod_distance_factor,
                 __buffer,
             )
         };
@@ -1161,7 +1209,8 @@ impl ALandscapeProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_change_component_screen_size_to_use_sub_sections,
                 __buffer,
             )
         };
@@ -1178,7 +1227,8 @@ impl ALandscapeProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_PROXY_CHANGE_COMPONENT_SCREEN_SIZE_TO_USE_SUB_SECTIONS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_proxy_change_component_screen_size_to_use_sub_sections,
                 __buffer,
             )
         };
@@ -1212,7 +1262,8 @@ impl ULandscapeHeightfieldCollisionComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_heightfield_collision_component_get_render_component,
                 __buffer,
             )
         };
@@ -1222,7 +1273,8 @@ impl ULandscapeHeightfieldCollisionComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_HEIGHTFIELD_COLLISION_COMPONENT_GET_RENDER_COMPONENT,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_heightfield_collision_component_get_render_component,
                 __buffer,
             )
         };
@@ -1345,7 +1397,8 @@ impl ULandscapeSplinesComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_splines_component_get_spline_mesh_components,
                 __buffer,
             )
         };
@@ -1355,7 +1408,8 @@ impl ULandscapeSplinesComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_SPLINES_COMPONENT_GET_SPLINE_MESH_COMPONENTS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_splines_component_get_spline_mesh_components,
                 __buffer,
             )
         };
@@ -1535,7 +1589,8 @@ impl ALandscape {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAPS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_render_weightmaps,
                 __buffer,
             )
         };
@@ -1575,7 +1630,8 @@ impl ALandscape {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAPS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_render_weightmaps,
                 __buffer,
             )
         };
@@ -1595,7 +1651,7 @@ impl ALandscape {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAP,
+                crate::bindings::landscape::__FUNCTION_PTRS.a_landscape_render_weightmap,
                 __buffer,
             )
         };
@@ -1635,7 +1691,7 @@ impl ALandscape {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_RENDER_WEIGHTMAP,
+                crate::bindings::landscape::__FUNCTION_PTRS.a_landscape_render_weightmap,
                 __buffer,
             )
         };
@@ -1654,7 +1710,7 @@ impl ALandscape {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_RENDER_HEIGHTMAP,
+                crate::bindings::landscape::__FUNCTION_PTRS.a_landscape_render_heightmap,
                 __buffer,
             )
         };
@@ -1687,7 +1743,7 @@ impl ALandscape {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_RENDER_HEIGHTMAP,
+                crate::bindings::landscape::__FUNCTION_PTRS.a_landscape_render_heightmap,
                 __buffer,
             )
         };
@@ -1704,7 +1760,8 @@ impl ALandscape {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_GET_TARGET_LAYER_NAMES,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_get_target_layer_names,
                 __buffer,
             )
         };
@@ -1721,7 +1778,8 @@ impl ALandscape {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_GET_TARGET_LAYER_NAMES,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_get_target_layer_names,
                 __buffer,
             )
         };
@@ -1735,7 +1793,8 @@ impl ALandscape {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_force_layers_full_update,
                 __buffer,
             )
         };
@@ -1745,7 +1804,8 @@ impl ALandscape {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_FORCE_LAYERS_FULL_UPDATE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_force_layers_full_update,
                 __buffer,
             )
         };
@@ -1787,7 +1847,8 @@ impl ALandscapeBlueprintBrushBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_request_landscape_update,
                 __buffer,
             )
         };
@@ -1804,10 +1865,205 @@ impl ALandscapeBlueprintBrushBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::A_LANDSCAPE_BLUEPRINT_BRUSH_BASE_REQUEST_LANDSCAPE_UPDATE,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_request_landscape_update,
                 __buffer,
             )
         };
+    }
+    pub fn render_layer(
+        &mut self,
+        in_parameters: &FLandscapeBrushParameters,
+    ) -> UPtr<crate::bindings::engine::UTextureRenderTarget2D> {
+        let mut __stack = crate::core_data::StackAlloc::<136>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_render_layer,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_parameters,
+                __buffer.add(0).cast::<FLandscapeBrushParameters>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_render_layer,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(128)
+                .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>()
+                .read()
+        }
+    }
+    pub fn render(
+        &mut self,
+        in_is_heightmap: bool,
+        in_combined_result: UPtr<crate::bindings::engine::UTextureRenderTarget2D>,
+        in_weightmap_layer_name: &FName,
+    ) -> UPtr<crate::bindings::engine::UTextureRenderTarget2D> {
+        let mut __stack = crate::core_data::StackAlloc::<40>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_render,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_is_heightmap,
+                __buffer.add(0).cast::<bool>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_combined_result,
+                __buffer
+                    .add(8)
+                    .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_weightmap_layer_name,
+                __buffer.add(16).cast::<FName>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_render,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(32)
+                .cast::<UPtr<crate::bindings::engine::UTextureRenderTarget2D>>()
+                .read()
+        }
+    }
+    pub fn initialize(
+        &mut self,
+        in_landscape_transform: &crate::bindings::core_u_object::FTransform,
+        in_landscape_size: &crate::bindings::core_u_object::FIntPoint,
+        in_landscape_render_target_size: &crate::bindings::core_u_object::FIntPoint,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<112>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_initialize,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_landscape_transform,
+                __buffer.add(0).cast::<crate::bindings::core_u_object::FTransform>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_landscape_size,
+                __buffer.add(96).cast::<crate::bindings::core_u_object::FIntPoint>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_landscape_render_target_size,
+                __buffer.add(104).cast::<crate::bindings::core_u_object::FIntPoint>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_initialize,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_blueprint_render_dependencies(
+        &mut self,
+        out_streamable_assets: &mut TArray<UPtr<crate::bindings::core_u_object::UObject>>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<16>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_get_blueprint_render_dependencies,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                out_streamable_assets,
+                __buffer
+                    .add(0)
+                    .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .a_landscape_blueprint_brush_base_get_blueprint_render_dependencies,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TArray<UPtr<crate::bindings::core_u_object::UObject>>>()
+                .swap(out_streamable_assets);
+        }
     }
 }
 #[repr(C, align(8))]
@@ -1871,7 +2127,8 @@ impl ULandscapeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_LOD_BIAS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_set_lod_bias,
                 __buffer,
             )
         };
@@ -1888,7 +2145,8 @@ impl ULandscapeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_LOD_BIAS,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_set_lod_bias,
                 __buffer,
             )
         };
@@ -1901,7 +2159,8 @@ impl ULandscapeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_FORCED_LOD,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_set_forced_lod,
                 __buffer,
             )
         };
@@ -1918,7 +2177,8 @@ impl ULandscapeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_SET_FORCED_LOD,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_set_forced_lod,
                 __buffer,
             )
         };
@@ -1934,7 +2194,8 @@ impl ULandscapeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_get_material_instance_dynamic,
                 __buffer,
             )
         };
@@ -1947,7 +2208,8 @@ impl ULandscapeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_MATERIAL_INSTANCE_DYNAMIC,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_get_material_instance_dynamic,
                 __buffer,
             )
         };
@@ -1966,7 +2228,8 @@ impl ULandscapeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_get_grass_types_bp,
                 __buffer,
             )
         };
@@ -1976,7 +2239,8 @@ impl ULandscapeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_GET_GRASS_TYPES_BP,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_get_grass_types_bp,
                 __buffer,
             )
         };
@@ -1994,7 +2258,8 @@ impl ULandscapeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_editor_get_paint_layer_weight_by_name_at_location,
                 __buffer,
             )
         };
@@ -2018,7 +2283,8 @@ impl ULandscapeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_BY_NAME_AT_LOCATION,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_editor_get_paint_layer_weight_by_name_at_location,
                 __buffer,
             )
         };
@@ -2036,7 +2302,8 @@ impl ULandscapeComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_editor_get_paint_layer_weight_at_location,
                 __buffer,
             )
         };
@@ -2060,7 +2327,8 @@ impl ULandscapeComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::landscape::U_LANDSCAPE_COMPONENT_EDITOR_GET_PAINT_LAYER_WEIGHT_AT_LOCATION,
+                crate::bindings::landscape::__FUNCTION_PTRS
+                    .u_landscape_component_editor_get_paint_layer_weight_at_location,
                 __buffer,
             )
         };

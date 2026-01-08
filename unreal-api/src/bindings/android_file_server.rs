@@ -1,18 +1,27 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANDROID_FILE_SERVER_BP_LIBRARY_STOP_FILE_SERVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANDROID_FILE_SERVER_BP_LIBRARY_START_FILE_SERVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANDROID_FILE_SERVER_BP_LIBRARY_IS_FILE_SERVER_RUNNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_android_file_server_bp_library_stop_file_server: *mut crate::ffi::UFunctionOpague,
+    pub u_android_file_server_bp_library_start_file_server: *mut crate::ffi::UFunctionOpague,
+    pub u_android_file_server_bp_library_is_file_server_running: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_android_file_server_bp_library_stop_file_server: std::ptr::null_mut(),
+            u_android_file_server_bp_library_start_file_server: std::ptr::null_mut(),
+            u_android_file_server_bp_library_is_file_server_running: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -22,21 +31,22 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopFileServer"),
-            &raw mut U_ANDROID_FILE_SERVER_BP_LIBRARY_STOP_FILE_SERVER,
+            &raw mut __FUNCTION_PTRS.u_android_file_server_bp_library_stop_file_server,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StartFileServer"),
-            &raw mut U_ANDROID_FILE_SERVER_BP_LIBRARY_START_FILE_SERVER,
+            &raw mut __FUNCTION_PTRS.u_android_file_server_bp_library_start_file_server,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFileServerRunning"),
-            &raw mut U_ANDROID_FILE_SERVER_BP_LIBRARY_IS_FILE_SERVER_RUNNING,
+            &raw mut __FUNCTION_PTRS
+                .u_android_file_server_bp_library_is_file_server_running,
         );
     }
 }
@@ -68,7 +78,8 @@ impl UAndroidFileServerBPLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_STOP_FILE_SERVER,
+                crate::bindings::android_file_server::__FUNCTION_PTRS
+                    .u_android_file_server_bp_library_stop_file_server,
                 __buffer,
             )
         };
@@ -84,7 +95,8 @@ impl UAndroidFileServerBPLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_STOP_FILE_SERVER,
+                crate::bindings::android_file_server::__FUNCTION_PTRS
+                    .u_android_file_server_bp_library_stop_file_server,
                 __buffer,
             )
         };
@@ -98,7 +110,8 @@ impl UAndroidFileServerBPLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_START_FILE_SERVER,
+                crate::bindings::android_file_server::__FUNCTION_PTRS
+                    .u_android_file_server_bp_library_start_file_server,
                 __buffer,
             )
         };
@@ -117,7 +130,8 @@ impl UAndroidFileServerBPLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_START_FILE_SERVER,
+                crate::bindings::android_file_server::__FUNCTION_PTRS
+                    .u_android_file_server_bp_library_start_file_server,
                 __buffer,
             )
         };
@@ -131,7 +145,8 @@ impl UAndroidFileServerBPLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_IS_FILE_SERVER_RUNNING,
+                crate::bindings::android_file_server::__FUNCTION_PTRS
+                    .u_android_file_server_bp_library_is_file_server_running,
                 __buffer,
             )
         };
@@ -141,7 +156,8 @@ impl UAndroidFileServerBPLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::android_file_server::U_ANDROID_FILE_SERVER_BP_LIBRARY_IS_FILE_SERVER_RUNNING,
+                crate::bindings::android_file_server::__FUNCTION_PTRS
+                    .u_android_file_server_bp_library_is_file_server_running,
                 __buffer,
             )
         };

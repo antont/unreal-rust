@@ -1,146 +1,155 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_PY_TEST_INTERFACE_FUNC_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_CHILD_INTERFACE_FUNC_INTERFACE_CHILD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OTHER_INTERFACE_FUNC_INTERFACE_OTHER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_PYTHON_SCRIPTING_LIBRARY_SET_KEEP_PYTHON_SCRIPT_ALIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDITOR_PYTHON_SCRIPTING_LIBRARY_GET_KEEP_PYTHON_SCRIPT_ALIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE_VIA_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_LEGACY_IS_BOOL_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_IS_BOOL_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_GET_CONSTANT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE_VIA_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_ADD_STR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_ADD_INT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_LIBRARY_ADD_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_RETURN_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_RETURN_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_RETURN_FIELD_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_RETURN_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_MULTICAST_DELEGATE_PROPERTY_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_LEGACY_FUNC_TAKING_PY_TEST_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_GET_CONSTANT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_DELEGATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_CHILD_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_TAKING_FIELD_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_NATIVE_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_NATIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_IMPLEMENTABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_EMIT_SCRIPT_WARNING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_EMIT_SCRIPT_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_DELEGATE_PROPERTY_CALLBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_LIBRARY_IS_BOOL_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_OBJECT_LIBRARY_GET_OTHER_CONSTANT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_STRUCT_DELEGATE_ON_NAME_COLLISION_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_VECTOR_DELEGATE_ON_NAME_COLLISION_DELEGATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_GET_STRING_CONST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_GET_INT_CONST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_TUPLE_RETURN_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_TEXT_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_STRUCT_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_STRING_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_STATIC_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_SET_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_OBJECT_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_NAME_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_MAP_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_INTEGER_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_FLOAT_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_FIELD_PATH_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_ENUM_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_DELEGATE_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_BOOL_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PY_TEST_TYPE_HINT_CHECK_ARRAY_TYPE_HINTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_INITIALIZED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_CONFIGURED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_AVAILABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PYTHON_SCRIPT_LIBRARY_FORCE_ENABLE_PYTHON_AT_RUNTIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_SCRIPT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND_EX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_py_test_interface_func_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_child_interface_func_interface_child: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_other_interface_func_interface_other: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_python_scripting_library_set_keep_python_script_alive: *mut crate::ffi::UFunctionOpague,
+    pub u_editor_python_scripting_library_get_keep_python_script_alive: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_set_bool_mutable_via_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_set_bool_mutable: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_legacy_is_bool_set: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_is_bool_set: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_get_constant_value: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_clear_bool_mutable_via_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_clear_bool_mutable: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_add_str: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_add_int: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_library_add_float: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_return_set: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_return_map: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_return_field_path: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_return_array: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_multicast_delegate_property_callback: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_legacy_func_taking_py_test_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_get_constant_value: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_taking_py_test_struct_default: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_taking_py_test_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_taking_py_test_delegate: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_taking_py_test_child_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_taking_field_path: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_blueprint_native_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_blueprint_native: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_blueprint_implementable_packed_getter: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_func_blueprint_implementable: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_emit_script_warning: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_emit_script_error: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_delegate_property_callback: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_call_func_blueprint_native_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_call_func_blueprint_native: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_call_func_blueprint_implementable_packed_getter: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_call_func_blueprint_implementable: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_library_is_bool_set: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_object_library_get_other_constant_value: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_struct_delegate_on_name_collision_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_vector_delegate_on_name_collision_delegate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_get_string_const: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_get_int_const: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_tuple_return_type: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_text_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_struct_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_string_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_static_function: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_set_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_object_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_name_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_map_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_integer_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_float_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_field_path_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_enum_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_delegate_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_bool_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_py_test_type_hint_check_array_type_hints: *mut crate::ffi::UFunctionOpague,
+    pub u_python_script_library_is_python_initialized: *mut crate::ffi::UFunctionOpague,
+    pub u_python_script_library_is_python_configured: *mut crate::ffi::UFunctionOpague,
+    pub u_python_script_library_is_python_available: *mut crate::ffi::UFunctionOpague,
+    pub u_python_script_library_force_enable_python_at_runtime: *mut crate::ffi::UFunctionOpague,
+    pub u_python_script_library_execute_python_script: *mut crate::ffi::UFunctionOpague,
+    pub u_python_script_library_execute_python_command_ex: *mut crate::ffi::UFunctionOpague,
+    pub u_python_script_library_execute_python_command: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_py_test_interface_func_interface: std::ptr::null_mut(),
+            u_py_test_child_interface_func_interface_child: std::ptr::null_mut(),
+            u_py_test_other_interface_func_interface_other: std::ptr::null_mut(),
+            u_editor_python_scripting_library_set_keep_python_script_alive: std::ptr::null_mut(),
+            u_editor_python_scripting_library_get_keep_python_script_alive: std::ptr::null_mut(),
+            u_py_test_struct_library_set_bool_mutable_via_ref: std::ptr::null_mut(),
+            u_py_test_struct_library_set_bool_mutable: std::ptr::null_mut(),
+            u_py_test_struct_library_legacy_is_bool_set: std::ptr::null_mut(),
+            u_py_test_struct_library_is_bool_set: std::ptr::null_mut(),
+            u_py_test_struct_library_get_constant_value: std::ptr::null_mut(),
+            u_py_test_struct_library_clear_bool_mutable_via_ref: std::ptr::null_mut(),
+            u_py_test_struct_library_clear_bool_mutable: std::ptr::null_mut(),
+            u_py_test_struct_library_add_str: std::ptr::null_mut(),
+            u_py_test_struct_library_add_int: std::ptr::null_mut(),
+            u_py_test_struct_library_add_float: std::ptr::null_mut(),
+            u_py_test_object_return_set: std::ptr::null_mut(),
+            u_py_test_object_return_map: std::ptr::null_mut(),
+            u_py_test_object_return_field_path: std::ptr::null_mut(),
+            u_py_test_object_return_array: std::ptr::null_mut(),
+            u_py_test_object_multicast_delegate_property_callback: std::ptr::null_mut(),
+            u_py_test_object_legacy_func_taking_py_test_struct: std::ptr::null_mut(),
+            u_py_test_object_get_constant_value: std::ptr::null_mut(),
+            u_py_test_object_func_taking_py_test_struct_default: std::ptr::null_mut(),
+            u_py_test_object_func_taking_py_test_struct: std::ptr::null_mut(),
+            u_py_test_object_func_taking_py_test_delegate: std::ptr::null_mut(),
+            u_py_test_object_func_taking_py_test_child_struct: std::ptr::null_mut(),
+            u_py_test_object_func_taking_field_path: std::ptr::null_mut(),
+            u_py_test_object_func_blueprint_native_ref: std::ptr::null_mut(),
+            u_py_test_object_func_blueprint_native: std::ptr::null_mut(),
+            u_py_test_object_func_blueprint_implementable_packed_getter: std::ptr::null_mut(),
+            u_py_test_object_func_blueprint_implementable: std::ptr::null_mut(),
+            u_py_test_object_emit_script_warning: std::ptr::null_mut(),
+            u_py_test_object_emit_script_error: std::ptr::null_mut(),
+            u_py_test_object_delegate_property_callback: std::ptr::null_mut(),
+            u_py_test_object_call_func_blueprint_native_ref: std::ptr::null_mut(),
+            u_py_test_object_call_func_blueprint_native: std::ptr::null_mut(),
+            u_py_test_object_call_func_blueprint_implementable_packed_getter: std::ptr::null_mut(),
+            u_py_test_object_call_func_blueprint_implementable: std::ptr::null_mut(),
+            u_py_test_object_library_is_bool_set: std::ptr::null_mut(),
+            u_py_test_object_library_get_other_constant_value: std::ptr::null_mut(),
+            u_py_test_struct_delegate_on_name_collision_delegate_delegate_signature: std::ptr::null_mut(),
+            u_py_test_vector_delegate_on_name_collision_delegate_delegate_signature: std::ptr::null_mut(),
+            u_py_test_type_hint_get_string_const: std::ptr::null_mut(),
+            u_py_test_type_hint_get_int_const: std::ptr::null_mut(),
+            u_py_test_type_hint_check_tuple_return_type: std::ptr::null_mut(),
+            u_py_test_type_hint_check_text_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_struct_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_string_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_static_function: std::ptr::null_mut(),
+            u_py_test_type_hint_check_set_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_object_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_name_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_map_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_integer_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_float_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_field_path_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_enum_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_delegate_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_bool_type_hints: std::ptr::null_mut(),
+            u_py_test_type_hint_check_array_type_hints: std::ptr::null_mut(),
+            u_python_script_library_is_python_initialized: std::ptr::null_mut(),
+            u_python_script_library_is_python_configured: std::ptr::null_mut(),
+            u_python_script_library_is_python_available: std::ptr::null_mut(),
+            u_python_script_library_force_enable_python_at_runtime: std::ptr::null_mut(),
+            u_python_script_library_execute_python_script: std::ptr::null_mut(),
+            u_python_script_library_execute_python_command_ex: std::ptr::null_mut(),
+            u_python_script_library_execute_python_command: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -150,7 +159,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncInterface"),
-            &raw mut U_PY_TEST_INTERFACE_FUNC_INTERFACE,
+            &raw mut __FUNCTION_PTRS.u_py_test_interface_func_interface,
         );
     }
     unsafe {
@@ -161,7 +170,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncInterfaceChild"),
-            &raw mut U_PY_TEST_CHILD_INTERFACE_FUNC_INTERFACE_CHILD,
+            &raw mut __FUNCTION_PTRS.u_py_test_child_interface_func_interface_child,
         );
     }
     unsafe {
@@ -172,7 +181,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncInterfaceOther"),
-            &raw mut U_PY_TEST_OTHER_INTERFACE_FUNC_INTERFACE_OTHER,
+            &raw mut __FUNCTION_PTRS.u_py_test_other_interface_func_interface_other,
         );
     }
     unsafe {
@@ -183,14 +192,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetKeepPythonScriptAlive"),
-            &raw mut U_EDITOR_PYTHON_SCRIPTING_LIBRARY_SET_KEEP_PYTHON_SCRIPT_ALIVE,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_python_scripting_library_set_keep_python_script_alive,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeepPythonScriptAlive"),
-            &raw mut U_EDITOR_PYTHON_SCRIPTING_LIBRARY_GET_KEEP_PYTHON_SCRIPT_ALIVE,
+            &raw mut __FUNCTION_PTRS
+                .u_editor_python_scripting_library_get_keep_python_script_alive,
         );
     }
     unsafe {
@@ -201,70 +212,70 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolMutableViaRef"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE_VIA_REF,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_set_bool_mutable_via_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBoolMutable"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_set_bool_mutable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LegacyIsBoolSet"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_LEGACY_IS_BOOL_SET,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_legacy_is_bool_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsBoolSet"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_IS_BOOL_SET,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_is_bool_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConstantValue"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_GET_CONSTANT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_get_constant_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearBoolMutableViaRef"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE_VIA_REF,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_clear_bool_mutable_via_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearBoolMutable"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_clear_bool_mutable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddStr"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_ADD_STR,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_str,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInt"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_ADD_INT,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_int,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFloat"),
-            &raw mut U_PY_TEST_STRUCT_LIBRARY_ADD_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_py_test_struct_library_add_float,
         );
     }
     unsafe {
@@ -275,161 +286,164 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReturnSet"),
-            &raw mut U_PY_TEST_OBJECT_RETURN_SET,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_return_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReturnMap"),
-            &raw mut U_PY_TEST_OBJECT_RETURN_MAP,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_return_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReturnFieldPath"),
-            &raw mut U_PY_TEST_OBJECT_RETURN_FIELD_PATH,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_return_field_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReturnArray"),
-            &raw mut U_PY_TEST_OBJECT_RETURN_ARRAY,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_return_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MulticastDelegatePropertyCallback"),
-            &raw mut U_PY_TEST_OBJECT_MULTICAST_DELEGATE_PROPERTY_CALLBACK,
+            &raw mut __FUNCTION_PTRS
+                .u_py_test_object_multicast_delegate_property_callback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LegacyFuncTakingPyTestStruct"),
-            &raw mut U_PY_TEST_OBJECT_LEGACY_FUNC_TAKING_PY_TEST_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_legacy_func_taking_py_test_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetConstantValue"),
-            &raw mut U_PY_TEST_OBJECT_GET_CONSTANT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_get_constant_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncTakingPyTestStructDefault"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_struct_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncTakingPyTestStruct"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncTakingPyTestDelegate"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_DELEGATE,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_delegate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncTakingPyTestChildStruct"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_CHILD_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_py_test_child_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncTakingFieldPath"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_TAKING_FIELD_PATH,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_taking_field_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncBlueprintNativeRef"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_NATIVE_REF,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_native_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncBlueprintNative"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_NATIVE,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_native,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncBlueprintImplementablePackedGetter"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER,
+            &raw mut __FUNCTION_PTRS
+                .u_py_test_object_func_blueprint_implementable_packed_getter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FuncBlueprintImplementable"),
-            &raw mut U_PY_TEST_OBJECT_FUNC_BLUEPRINT_IMPLEMENTABLE,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_func_blueprint_implementable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EmitScriptWarning"),
-            &raw mut U_PY_TEST_OBJECT_EMIT_SCRIPT_WARNING,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_emit_script_warning,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EmitScriptError"),
-            &raw mut U_PY_TEST_OBJECT_EMIT_SCRIPT_ERROR,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_emit_script_error,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DelegatePropertyCallback"),
-            &raw mut U_PY_TEST_OBJECT_DELEGATE_PROPERTY_CALLBACK,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_delegate_property_callback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CallFuncBlueprintNativeRef"),
-            &raw mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE_REF,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_native_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CallFuncBlueprintNative"),
-            &raw mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_native,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CallFuncBlueprintImplementablePackedGetter"),
-            &raw mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER,
+            &raw mut __FUNCTION_PTRS
+                .u_py_test_object_call_func_blueprint_implementable_packed_getter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CallFuncBlueprintImplementable"),
-            &raw mut U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_call_func_blueprint_implementable,
         );
     }
     unsafe {
@@ -440,14 +454,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsBoolSet"),
-            &raw mut U_PY_TEST_OBJECT_LIBRARY_IS_BOOL_SET,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_library_is_bool_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOtherConstantValue"),
-            &raw mut U_PY_TEST_OBJECT_LIBRARY_GET_OTHER_CONSTANT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_py_test_object_library_get_other_constant_value,
         );
     }
     unsafe {
@@ -458,7 +472,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnNameCollisionDelegate__DelegateSignature"),
-            &raw mut U_PY_TEST_STRUCT_DELEGATE_ON_NAME_COLLISION_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_py_test_struct_delegate_on_name_collision_delegate_delegate_signature,
         );
     }
     unsafe {
@@ -469,7 +484,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnNameCollisionDelegate__DelegateSignature"),
-            &raw mut U_PY_TEST_VECTOR_DELEGATE_ON_NAME_COLLISION_DELEGATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_py_test_vector_delegate_on_name_collision_delegate_delegate_signature,
         );
     }
     unsafe {
@@ -480,126 +496,126 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStringConst"),
-            &raw mut U_PY_TEST_TYPE_HINT_GET_STRING_CONST,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_get_string_const,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIntConst"),
-            &raw mut U_PY_TEST_TYPE_HINT_GET_INT_CONST,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_get_int_const,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckTupleReturnType"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_TUPLE_RETURN_TYPE,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_tuple_return_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckTextTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_TEXT_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_text_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckStructTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_STRUCT_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_struct_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckStringTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_STRING_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_string_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckStaticFunction"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_STATIC_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_static_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckSetTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_SET_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_set_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckObjectTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_OBJECT_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_object_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckNameTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_NAME_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_name_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckMapTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_MAP_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_map_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckIntegerTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_INTEGER_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_integer_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckFloatTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_FLOAT_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_float_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckFieldPathTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_FIELD_PATH_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_field_path_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckEnumTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_ENUM_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_enum_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckDelegateTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_DELEGATE_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_delegate_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckBoolTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_BOOL_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_bool_type_hints,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CheckArrayTypeHints"),
-            &raw mut U_PY_TEST_TYPE_HINT_CHECK_ARRAY_TYPE_HINTS,
+            &raw mut __FUNCTION_PTRS.u_py_test_type_hint_check_array_type_hints,
         );
     }
     unsafe {
@@ -610,49 +626,50 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPythonInitialized"),
-            &raw mut U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_INITIALIZED,
+            &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_initialized,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPythonConfigured"),
-            &raw mut U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_CONFIGURED,
+            &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_configured,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPythonAvailable"),
-            &raw mut U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_AVAILABLE,
+            &raw mut __FUNCTION_PTRS.u_python_script_library_is_python_available,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForceEnablePythonAtRuntime"),
-            &raw mut U_PYTHON_SCRIPT_LIBRARY_FORCE_ENABLE_PYTHON_AT_RUNTIME,
+            &raw mut __FUNCTION_PTRS
+                .u_python_script_library_force_enable_python_at_runtime,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExecutePythonScript"),
-            &raw mut U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_SCRIPT,
+            &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_script,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExecutePythonCommandEx"),
-            &raw mut U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND_EX,
+            &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_command_ex,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExecutePythonCommand"),
-            &raw mut U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND,
+            &raw mut __FUNCTION_PTRS.u_python_script_library_execute_python_command,
         );
     }
 }
@@ -720,7 +737,8 @@ impl UPyTestInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_INTERFACE_FUNC_INTERFACE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_interface_func_interface,
                 __buffer,
             )
         };
@@ -733,7 +751,8 @@ impl UPyTestInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_INTERFACE_FUNC_INTERFACE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_interface_func_interface,
                 __buffer,
             )
         };
@@ -769,7 +788,8 @@ impl UPyTestChildInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_CHILD_INTERFACE_FUNC_INTERFACE_CHILD,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_child_interface_func_interface_child,
                 __buffer,
             )
         };
@@ -782,7 +802,8 @@ impl UPyTestChildInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_CHILD_INTERFACE_FUNC_INTERFACE_CHILD,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_child_interface_func_interface_child,
                 __buffer,
             )
         };
@@ -818,7 +839,8 @@ impl UPyTestOtherInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OTHER_INTERFACE_FUNC_INTERFACE_OTHER,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_other_interface_func_interface_other,
                 __buffer,
             )
         };
@@ -831,7 +853,8 @@ impl UPyTestOtherInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OTHER_INTERFACE_FUNC_INTERFACE_OTHER,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_other_interface_func_interface_other,
                 __buffer,
             )
         };
@@ -866,7 +889,8 @@ impl UEditorPythonScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_SET_KEEP_PYTHON_SCRIPT_ALIVE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_editor_python_scripting_library_set_keep_python_script_alive,
                 __buffer,
             )
         };
@@ -883,7 +907,8 @@ impl UEditorPythonScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_SET_KEEP_PYTHON_SCRIPT_ALIVE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_editor_python_scripting_library_set_keep_python_script_alive,
                 __buffer,
             )
         };
@@ -896,7 +921,8 @@ impl UEditorPythonScriptingLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_GET_KEEP_PYTHON_SCRIPT_ALIVE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_editor_python_scripting_library_get_keep_python_script_alive,
                 __buffer,
             )
         };
@@ -906,7 +932,8 @@ impl UEditorPythonScriptingLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_EDITOR_PYTHON_SCRIPTING_LIBRARY_GET_KEEP_PYTHON_SCRIPT_ALIVE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_editor_python_scripting_library_get_keep_python_script_alive,
                 __buffer,
             )
         };
@@ -962,7 +989,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE_VIA_REF,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_set_bool_mutable_via_ref,
                 __buffer,
             )
         };
@@ -979,7 +1007,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE_VIA_REF,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_set_bool_mutable_via_ref,
                 __buffer,
             )
         };
@@ -995,7 +1024,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_set_bool_mutable,
                 __buffer,
             )
         };
@@ -1012,7 +1042,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_SET_BOOL_MUTABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_set_bool_mutable,
                 __buffer,
             )
         };
@@ -1025,7 +1056,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_LEGACY_IS_BOOL_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_legacy_is_bool_set,
                 __buffer,
             )
         };
@@ -1042,7 +1074,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_LEGACY_IS_BOOL_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_legacy_is_bool_set,
                 __buffer,
             )
         };
@@ -1056,7 +1089,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_IS_BOOL_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_is_bool_set,
                 __buffer,
             )
         };
@@ -1073,7 +1107,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_IS_BOOL_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_is_bool_set,
                 __buffer,
             )
         };
@@ -1087,7 +1122,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_GET_CONSTANT_VALUE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_get_constant_value,
                 __buffer,
             )
         };
@@ -1097,7 +1133,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_GET_CONSTANT_VALUE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_get_constant_value,
                 __buffer,
             )
         };
@@ -1111,7 +1148,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE_VIA_REF,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_clear_bool_mutable_via_ref,
                 __buffer,
             )
         };
@@ -1128,7 +1166,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE_VIA_REF,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_clear_bool_mutable_via_ref,
                 __buffer,
             )
         };
@@ -1144,7 +1183,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_clear_bool_mutable,
                 __buffer,
             )
         };
@@ -1161,7 +1201,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_CLEAR_BOOL_MUTABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_clear_bool_mutable,
                 __buffer,
             )
         };
@@ -1174,7 +1215,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_STR,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_add_str,
                 __buffer,
             )
         };
@@ -1198,7 +1240,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_STR,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_add_str,
                 __buffer,
             )
         };
@@ -1212,7 +1255,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_INT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_add_int,
                 __buffer,
             )
         };
@@ -1232,7 +1276,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_INT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_add_int,
                 __buffer,
             )
         };
@@ -1246,7 +1291,8 @@ impl UPyTestStructLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_FLOAT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_add_float,
                 __buffer,
             )
         };
@@ -1266,7 +1312,8 @@ impl UPyTestStructLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_STRUCT_LIBRARY_ADD_FLOAT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_struct_library_add_float,
                 __buffer,
             )
         };
@@ -1321,7 +1368,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_set,
                 __buffer,
             )
         };
@@ -1331,7 +1379,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_set,
                 __buffer,
             )
         };
@@ -1345,7 +1394,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_MAP,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_map,
                 __buffer,
             )
         };
@@ -1355,7 +1405,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_MAP,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_map,
                 __buffer,
             )
         };
@@ -1369,7 +1420,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_FIELD_PATH,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_field_path,
                 __buffer,
             )
         };
@@ -1379,7 +1431,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_FIELD_PATH,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_field_path,
                 __buffer,
             )
         };
@@ -1393,7 +1446,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_ARRAY,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_array,
                 __buffer,
             )
         };
@@ -1403,7 +1457,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_RETURN_ARRAY,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_return_array,
                 __buffer,
             )
         };
@@ -1417,7 +1472,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_MULTICAST_DELEGATE_PROPERTY_CALLBACK,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_multicast_delegate_property_callback,
                 __buffer,
             )
         };
@@ -1430,7 +1486,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_MULTICAST_DELEGATE_PROPERTY_CALLBACK,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_multicast_delegate_property_callback,
                 __buffer,
             )
         };
@@ -1443,7 +1500,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LEGACY_FUNC_TAKING_PY_TEST_STRUCT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_legacy_func_taking_py_test_struct,
                 __buffer,
             )
         };
@@ -1460,7 +1518,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LEGACY_FUNC_TAKING_PY_TEST_STRUCT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_legacy_func_taking_py_test_struct,
                 __buffer,
             )
         };
@@ -1473,7 +1532,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_GET_CONSTANT_VALUE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_get_constant_value,
                 __buffer,
             )
         };
@@ -1483,7 +1543,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_GET_CONSTANT_VALUE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_get_constant_value,
                 __buffer,
             )
         };
@@ -1497,7 +1558,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT_DEFAULT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_struct_default,
                 __buffer,
             )
         };
@@ -1514,7 +1576,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT_DEFAULT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_struct_default,
                 __buffer,
             )
         };
@@ -1527,7 +1590,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_struct,
                 __buffer,
             )
         };
@@ -1544,7 +1608,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_STRUCT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_struct,
                 __buffer,
             )
         };
@@ -1561,7 +1626,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_DELEGATE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_delegate,
                 __buffer,
             )
         };
@@ -1581,7 +1647,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_DELEGATE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_delegate,
                 __buffer,
             )
         };
@@ -1595,7 +1662,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_CHILD_STRUCT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_child_struct,
                 __buffer,
             )
         };
@@ -1612,7 +1680,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_PY_TEST_CHILD_STRUCT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_py_test_child_struct,
                 __buffer,
             )
         };
@@ -1625,7 +1694,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_FIELD_PATH,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_field_path,
                 __buffer,
             )
         };
@@ -1642,85 +1712,13 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_FUNC_TAKING_FIELD_PATH,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_taking_field_path,
                 __buffer,
             )
         };
     }
-    pub fn emit_script_warning() {
-        let mut __stack = crate::core_data::StackAlloc::<0>::new();
-        let __buffer = __stack.buffer_mut();
-        let __bindings = crate::module::bindings();
-        unsafe {
-            (__bindings
-                .core_fns
-                .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_WARNING,
-                __buffer,
-            )
-        };
-        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
-        unsafe {
-            (__bindings
-                .core_fns
-                .process_event)(
-                __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_WARNING,
-                __buffer,
-            )
-        };
-    }
-    pub fn emit_script_error() {
-        let mut __stack = crate::core_data::StackAlloc::<0>::new();
-        let __buffer = __stack.buffer_mut();
-        let __bindings = crate::module::bindings();
-        unsafe {
-            (__bindings
-                .core_fns
-                .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_ERROR,
-                __buffer,
-            )
-        };
-        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
-        unsafe {
-            (__bindings
-                .core_fns
-                .process_event)(
-                __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_EMIT_SCRIPT_ERROR,
-                __buffer,
-            )
-        };
-    }
-    pub fn delegate_property_callback(&self, in_value: i32) -> i32 {
-        let mut __stack = crate::core_data::StackAlloc::<8>::new();
-        let __buffer = __stack.buffer_mut();
-        let __bindings = crate::module::bindings();
-        unsafe {
-            (__bindings
-                .core_fns
-                .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_DELEGATE_PROPERTY_CALLBACK,
-                __buffer,
-            )
-        };
-        unsafe {
-            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
-        }
-        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
-        unsafe {
-            (__bindings
-                .core_fns
-                .process_event)(
-                __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_DELEGATE_PROPERTY_CALLBACK,
-                __buffer,
-            )
-        };
-        unsafe { __buffer.add(4).cast::<i32>().read() }
-    }
-    pub fn call_func_blueprint_native_ref(&self, in_out_struct: &mut FPyTestStruct) {
+    pub fn func_blueprint_native_ref(&self, in_out_struct: &mut FPyTestStruct) {
         let mut __stack = crate::core_data::StackAlloc::<344>::new();
         let __buffer = __stack.buffer_mut();
         let __bindings = crate::module::bindings();
@@ -1728,7 +1726,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE_REF,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_native_ref,
                 __buffer,
             )
         };
@@ -1745,7 +1744,215 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE_REF,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_native_ref,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<FPyTestStruct>().swap(in_out_struct);
+        }
+    }
+    pub fn func_blueprint_native(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_native,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_native,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn func_blueprint_implementable_packed_getter(
+        &self,
+        out_value: &mut i32,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<5>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_implementable_packed_getter,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(out_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_implementable_packed_getter,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(out_value);
+        }
+        unsafe { __buffer.add(4).cast::<bool>().read() }
+    }
+    pub fn func_blueprint_implementable(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_implementable,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_func_blueprint_implementable,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn emit_script_warning() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_emit_script_warning,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_emit_script_warning,
+                __buffer,
+            )
+        };
+    }
+    pub fn emit_script_error() {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_emit_script_error,
+                __buffer,
+            )
+        };
+        let __object_ptr = crate::bindings::python_script_plugin::UPyTestObject::cdo();
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_emit_script_error,
+                __buffer,
+            )
+        };
+    }
+    pub fn delegate_property_callback(&self, in_value: i32) -> i32 {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_delegate_property_callback,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(&in_value, __buffer.add(0).cast::<i32>(), 1);
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_delegate_property_callback,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(4).cast::<i32>().read() }
+    }
+    pub fn call_func_blueprint_native_ref(&self, in_out_struct: &mut FPyTestStruct) {
+        let mut __stack = crate::core_data::StackAlloc::<344>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_native_ref,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                in_out_struct,
+                __buffer.add(0).cast::<FPyTestStruct>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_native_ref,
                 __buffer,
             )
         };
@@ -1761,7 +1968,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_native,
                 __buffer,
             )
         };
@@ -1774,7 +1982,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_NATIVE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_native,
                 __buffer,
             )
         };
@@ -1791,7 +2000,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_implementable_packed_getter,
                 __buffer,
             )
         };
@@ -1804,7 +2014,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE_PACKED_GETTER,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_implementable_packed_getter,
                 __buffer,
             )
         };
@@ -1821,7 +2032,8 @@ impl UPyTestObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_implementable,
                 __buffer,
             )
         };
@@ -1834,7 +2046,8 @@ impl UPyTestObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_CALL_FUNC_BLUEPRINT_IMPLEMENTABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_call_func_blueprint_implementable,
                 __buffer,
             )
         };
@@ -1911,7 +2124,8 @@ impl UPyTestObjectLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_IS_BOOL_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_library_is_bool_set,
                 __buffer,
             )
         };
@@ -1928,7 +2142,8 @@ impl UPyTestObjectLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_IS_BOOL_SET,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_library_is_bool_set,
                 __buffer,
             )
         };
@@ -1942,7 +2157,8 @@ impl UPyTestObjectLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_GET_OTHER_CONSTANT_VALUE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_library_get_other_constant_value,
                 __buffer,
             )
         };
@@ -1952,7 +2168,8 @@ impl UPyTestObjectLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_OBJECT_LIBRARY_GET_OTHER_CONSTANT_VALUE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_object_library_get_other_constant_value,
                 __buffer,
             )
         };
@@ -2050,7 +2267,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_STRING_CONST,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_get_string_const,
                 __buffer,
             )
         };
@@ -2060,7 +2278,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_STRING_CONST,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_get_string_const,
                 __buffer,
             )
         };
@@ -2074,7 +2293,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_INT_CONST,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_get_int_const,
                 __buffer,
             )
         };
@@ -2084,7 +2304,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_GET_INT_CONST,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_get_int_const,
                 __buffer,
             )
         };
@@ -2098,7 +2319,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TUPLE_RETURN_TYPE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_tuple_return_type,
                 __buffer,
             )
         };
@@ -2115,7 +2337,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TUPLE_RETURN_TYPE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_tuple_return_type,
                 __buffer,
             )
         };
@@ -2132,7 +2355,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TEXT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_text_type_hints,
                 __buffer,
             )
         };
@@ -2148,7 +2372,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_TEXT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_text_type_hints,
                 __buffer,
             )
         };
@@ -2166,7 +2391,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRUCT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_struct_type_hints,
                 __buffer,
             )
         };
@@ -2190,7 +2416,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRUCT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_struct_type_hints,
                 __buffer,
             )
         };
@@ -2208,7 +2435,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRING_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_string_type_hints,
                 __buffer,
             )
         };
@@ -2228,7 +2456,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STRING_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_string_type_hints,
                 __buffer,
             )
         };
@@ -2247,7 +2476,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STATIC_FUNCTION,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_static_function,
                 __buffer,
             )
         };
@@ -2273,7 +2503,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_STATIC_FUNCTION,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_static_function,
                 __buffer,
             )
         };
@@ -2292,7 +2523,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_SET_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_set_type_hints,
                 __buffer,
             )
         };
@@ -2325,7 +2557,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_SET_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_set_type_hints,
                 __buffer,
             )
         };
@@ -2343,7 +2576,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_OBJECT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_object_type_hints,
                 __buffer,
             )
         };
@@ -2367,7 +2601,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_OBJECT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_object_type_hints,
                 __buffer,
             )
         };
@@ -2381,7 +2616,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_NAME_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_name_type_hints,
                 __buffer,
             )
         };
@@ -2397,7 +2633,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_NAME_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_name_type_hints,
                 __buffer,
             )
         };
@@ -2417,7 +2654,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_MAP_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_map_type_hints,
                 __buffer,
             )
         };
@@ -2457,7 +2695,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_MAP_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_map_type_hints,
                 __buffer,
             )
         };
@@ -2481,7 +2720,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_INTEGER_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_integer_type_hints,
                 __buffer,
             )
         };
@@ -2500,7 +2740,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_INTEGER_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_integer_type_hints,
                 __buffer,
             )
         };
@@ -2520,7 +2761,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FLOAT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_float_type_hints,
                 __buffer,
             )
         };
@@ -2542,7 +2784,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FLOAT_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_float_type_hints,
                 __buffer,
             )
         };
@@ -2559,7 +2802,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FIELD_PATH_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_field_path_type_hints,
                 __buffer,
             )
         };
@@ -2576,7 +2820,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_FIELD_PATH_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_field_path_type_hints,
                 __buffer,
             )
         };
@@ -2594,7 +2839,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ENUM_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_enum_type_hints,
                 __buffer,
             )
         };
@@ -2618,7 +2864,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ENUM_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_enum_type_hints,
                 __buffer,
             )
         };
@@ -2635,7 +2882,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_DELEGATE_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_delegate_type_hints,
                 __buffer,
             )
         };
@@ -2652,7 +2900,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_DELEGATE_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_delegate_type_hints,
                 __buffer,
             )
         };
@@ -2671,7 +2920,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_BOOL_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_bool_type_hints,
                 __buffer,
             )
         };
@@ -2690,7 +2940,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_BOOL_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_bool_type_hints,
                 __buffer,
             )
         };
@@ -2710,7 +2961,8 @@ impl UPyTestTypeHint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ARRAY_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_array_type_hints,
                 __buffer,
             )
         };
@@ -2750,7 +3002,8 @@ impl UPyTestTypeHint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PY_TEST_TYPE_HINT_CHECK_ARRAY_TYPE_HINTS,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_py_test_type_hint_check_array_type_hints,
                 __buffer,
             )
         };
@@ -2827,7 +3080,8 @@ impl UPythonScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_INITIALIZED,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_is_python_initialized,
                 __buffer,
             )
         };
@@ -2837,7 +3091,8 @@ impl UPythonScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_INITIALIZED,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_is_python_initialized,
                 __buffer,
             )
         };
@@ -2851,7 +3106,8 @@ impl UPythonScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_CONFIGURED,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_is_python_configured,
                 __buffer,
             )
         };
@@ -2861,7 +3117,8 @@ impl UPythonScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_CONFIGURED,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_is_python_configured,
                 __buffer,
             )
         };
@@ -2875,7 +3132,8 @@ impl UPythonScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_AVAILABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_is_python_available,
                 __buffer,
             )
         };
@@ -2885,7 +3143,8 @@ impl UPythonScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_IS_PYTHON_AVAILABLE,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_is_python_available,
                 __buffer,
             )
         };
@@ -2899,7 +3158,8 @@ impl UPythonScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_FORCE_ENABLE_PYTHON_AT_RUNTIME,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_force_enable_python_at_runtime,
                 __buffer,
             )
         };
@@ -2909,7 +3169,8 @@ impl UPythonScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_FORCE_ENABLE_PYTHON_AT_RUNTIME,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_force_enable_python_at_runtime,
                 __buffer,
             )
         };
@@ -2927,7 +3188,8 @@ impl UPythonScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_SCRIPT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_execute_python_script,
                 __buffer,
             )
         };
@@ -2958,7 +3220,8 @@ impl UPythonScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_SCRIPT,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_execute_python_script,
                 __buffer,
             )
         };
@@ -2978,7 +3241,8 @@ impl UPythonScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND_EX,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_execute_python_command_ex,
                 __buffer,
             )
         };
@@ -3023,7 +3287,8 @@ impl UPythonScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND_EX,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_execute_python_command_ex,
                 __buffer,
             )
         };
@@ -3043,7 +3308,8 @@ impl UPythonScriptLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_execute_python_command,
                 __buffer,
             )
         };
@@ -3060,7 +3326,8 @@ impl UPythonScriptLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::python_script_plugin::U_PYTHON_SCRIPT_LIBRARY_EXECUTE_PYTHON_COMMAND,
+                crate::bindings::python_script_plugin::__FUNCTION_PTRS
+                    .u_python_script_library_execute_python_command,
                 __buffer,
             )
         };

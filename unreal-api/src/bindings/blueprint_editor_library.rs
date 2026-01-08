@@ -1,80 +1,89 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_UPGRADE_OPERATOR_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_INSTANCE_EDITABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_TO_CINEMATICS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_ON_SPAWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REPLACE_VARIABLE_REFERENCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REPARENT_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_RENAME_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_VARIABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_FUNCTION_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_OPEN_EDITORS_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_ALL_OPEN_BLUEPRINT_EDITORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_STRUCT_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_SET_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_SAVED_BY_ENGINE_VERSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_OBJECT_REFERENCE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_MAP_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENT_ENGINE_VERSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_CLASS_REFERENCE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_FOR_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_BASIC_TYPE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GET_ARRAY_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_GENERATED_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_FIND_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_FIND_EVENT_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_CREATE_BLUEPRINT_ASSET_WITH_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_COMPILE_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_SOFT_OBJECT_SAVE_VERSION_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_ASSET_SAVE_VERSION_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE_WITH_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BLUEPRINT_EDITOR_LIBRARY_ADD_FUNCTION_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_blueprint_editor_library_upgrade_operator_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_set_blueprint_variable_instance_editable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_set_blueprint_variable_expose_to_cinematics: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_set_blueprint_variable_expose_on_spawn: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_replace_variable_references: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_reparent_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_rename_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_remove_unused_variables: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_remove_unused_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_remove_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_remove_function_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_refresh_open_editors_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_refresh_all_open_blueprint_editors: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_struct_type: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_set_type: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_saved_by_engine_version: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_object_reference_type: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_map_type: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_current_engine_version: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_class_reference_type: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_blueprint_for_class: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_blueprint_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_basic_type_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_get_array_type: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_generated_class: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_find_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_find_event_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_create_blueprint_asset_with_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_compile_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_compare_soft_object_save_version_to: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_compare_asset_save_version_to: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_add_member_variable_with_value: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_add_member_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_blueprint_editor_library_add_function_graph: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_blueprint_editor_library_upgrade_operator_nodes: std::ptr::null_mut(),
+            u_blueprint_editor_library_set_blueprint_variable_instance_editable: std::ptr::null_mut(),
+            u_blueprint_editor_library_set_blueprint_variable_expose_to_cinematics: std::ptr::null_mut(),
+            u_blueprint_editor_library_set_blueprint_variable_expose_on_spawn: std::ptr::null_mut(),
+            u_blueprint_editor_library_replace_variable_references: std::ptr::null_mut(),
+            u_blueprint_editor_library_reparent_blueprint: std::ptr::null_mut(),
+            u_blueprint_editor_library_rename_graph: std::ptr::null_mut(),
+            u_blueprint_editor_library_remove_unused_variables: std::ptr::null_mut(),
+            u_blueprint_editor_library_remove_unused_nodes: std::ptr::null_mut(),
+            u_blueprint_editor_library_remove_graph: std::ptr::null_mut(),
+            u_blueprint_editor_library_remove_function_graph: std::ptr::null_mut(),
+            u_blueprint_editor_library_refresh_open_editors_for_blueprint: std::ptr::null_mut(),
+            u_blueprint_editor_library_refresh_all_open_blueprint_editors: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_struct_type: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_set_type: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_saved_by_engine_version: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_object_reference_type: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_map_type: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_current_engine_version: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_class_reference_type: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_blueprint_for_class: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_blueprint_asset: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_basic_type_by_name: std::ptr::null_mut(),
+            u_blueprint_editor_library_get_array_type: std::ptr::null_mut(),
+            u_blueprint_editor_library_generated_class: std::ptr::null_mut(),
+            u_blueprint_editor_library_find_graph: std::ptr::null_mut(),
+            u_blueprint_editor_library_find_event_graph: std::ptr::null_mut(),
+            u_blueprint_editor_library_create_blueprint_asset_with_parent: std::ptr::null_mut(),
+            u_blueprint_editor_library_compile_blueprint: std::ptr::null_mut(),
+            u_blueprint_editor_library_compare_soft_object_save_version_to: std::ptr::null_mut(),
+            u_blueprint_editor_library_compare_asset_save_version_to: std::ptr::null_mut(),
+            u_blueprint_editor_library_add_member_variable_with_value: std::ptr::null_mut(),
+            u_blueprint_editor_library_add_member_variable: std::ptr::null_mut(),
+            u_blueprint_editor_library_add_function_graph: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -84,238 +93,250 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpgradeOperatorNodes"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_UPGRADE_OPERATOR_NODES,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_upgrade_operator_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlueprintVariableInstanceEditable"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_INSTANCE_EDITABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_set_blueprint_variable_instance_editable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlueprintVariableExposeToCinematics"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_TO_CINEMATICS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_set_blueprint_variable_expose_to_cinematics,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlueprintVariableExposeOnSpawn"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_ON_SPAWN,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_set_blueprint_variable_expose_on_spawn,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceVariableReferences"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REPLACE_VARIABLE_REFERENCES,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_replace_variable_references,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReparentBlueprint"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REPARENT_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_reparent_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameGraph"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_RENAME_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_rename_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveUnusedVariables"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_VARIABLES,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_unused_variables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveUnusedNodes"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_NODES,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_unused_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveGraph"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveFunctionGraph"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_FUNCTION_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_remove_function_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshOpenEditorsForBlueprint"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_OPEN_EDITORS_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_refresh_open_editors_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshAllOpenBlueprintEditors"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_ALL_OPEN_BLUEPRINT_EDITORS,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_refresh_all_open_blueprint_editors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStructType"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_STRUCT_TYPE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_struct_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSetType"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_SET_TYPE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_set_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSavedByEngineVersion"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_SAVED_BY_ENGINE_VERSION,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_get_saved_by_engine_version,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectReferenceType"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_OBJECT_REFERENCE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_object_reference_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMapType"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_MAP_TYPE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_map_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentEngineVersion"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENT_ENGINE_VERSION,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_get_current_engine_version,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetClassReferenceType"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_CLASS_REFERENCE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_class_reference_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlueprintForClass"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_FOR_CLASS,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_blueprint_for_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlueprintAsset"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_ASSET,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_blueprint_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBasicTypeByName"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_BASIC_TYPE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_basic_type_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetArrayType"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GET_ARRAY_TYPE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_get_array_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GeneratedClass"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_GENERATED_CLASS,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_generated_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindGraph"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_FIND_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_find_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindEventGraph"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_FIND_EVENT_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_find_event_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateBlueprintAssetWithParent"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_CREATE_BLUEPRINT_ASSET_WITH_PARENT,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_create_blueprint_asset_with_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CompileBlueprint"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_COMPILE_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_compile_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CompareSoftObjectSaveVersionTo"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_SOFT_OBJECT_SAVE_VERSION_TO,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_compare_soft_object_save_version_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CompareAssetSaveVersionTo"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_ASSET_SAVE_VERSION_TO,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_compare_asset_save_version_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMemberVariableWithValue"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE_WITH_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_blueprint_editor_library_add_member_variable_with_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMemberVariable"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_add_member_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFunctionGraph"),
-            &raw mut U_BLUEPRINT_EDITOR_LIBRARY_ADD_FUNCTION_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_blueprint_editor_library_add_function_graph,
         );
     }
 }
@@ -347,7 +368,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_UPGRADE_OPERATOR_NODES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_upgrade_operator_nodes,
                 __buffer,
             )
         };
@@ -364,7 +386,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_UPGRADE_OPERATOR_NODES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_upgrade_operator_nodes,
                 __buffer,
             )
         };
@@ -381,7 +404,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_INSTANCE_EDITABLE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_instance_editable,
                 __buffer,
             )
         };
@@ -412,7 +436,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_INSTANCE_EDITABLE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_instance_editable,
                 __buffer,
             )
         };
@@ -429,7 +454,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_TO_CINEMATICS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_expose_to_cinematics,
                 __buffer,
             )
         };
@@ -460,7 +486,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_TO_CINEMATICS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_expose_to_cinematics,
                 __buffer,
             )
         };
@@ -477,7 +504,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_ON_SPAWN,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_expose_on_spawn,
                 __buffer,
             )
         };
@@ -508,7 +536,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_SET_BLUEPRINT_VARIABLE_EXPOSE_ON_SPAWN,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_set_blueprint_variable_expose_on_spawn,
                 __buffer,
             )
         };
@@ -525,7 +554,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REPLACE_VARIABLE_REFERENCES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_replace_variable_references,
                 __buffer,
             )
         };
@@ -556,7 +586,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REPLACE_VARIABLE_REFERENCES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_replace_variable_references,
                 __buffer,
             )
         };
@@ -572,7 +603,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REPARENT_BLUEPRINT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_reparent_blueprint,
                 __buffer,
             )
         };
@@ -598,7 +630,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REPARENT_BLUEPRINT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_reparent_blueprint,
                 __buffer,
             )
         };
@@ -614,7 +647,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_RENAME_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_rename_graph,
                 __buffer,
             )
         };
@@ -638,7 +672,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_RENAME_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_rename_graph,
                 __buffer,
             )
         };
@@ -653,7 +688,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_VARIABLES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_unused_variables,
                 __buffer,
             )
         };
@@ -670,7 +706,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_VARIABLES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_unused_variables,
                 __buffer,
             )
         };
@@ -684,7 +721,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_NODES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_unused_nodes,
                 __buffer,
             )
         };
@@ -701,7 +739,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_UNUSED_NODES,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_unused_nodes,
                 __buffer,
             )
         };
@@ -717,7 +756,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_graph,
                 __buffer,
             )
         };
@@ -741,7 +781,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_graph,
                 __buffer,
             )
         };
@@ -757,7 +798,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_FUNCTION_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_function_graph,
                 __buffer,
             )
         };
@@ -781,7 +823,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REMOVE_FUNCTION_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_remove_function_graph,
                 __buffer,
             )
         };
@@ -796,7 +839,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_OPEN_EDITORS_FOR_BLUEPRINT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_refresh_open_editors_for_blueprint,
                 __buffer,
             )
         };
@@ -813,7 +857,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_OPEN_EDITORS_FOR_BLUEPRINT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_refresh_open_editors_for_blueprint,
                 __buffer,
             )
         };
@@ -826,7 +871,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_ALL_OPEN_BLUEPRINT_EDITORS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_refresh_all_open_blueprint_editors,
                 __buffer,
             )
         };
@@ -836,7 +882,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_REFRESH_ALL_OPEN_BLUEPRINT_EDITORS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_refresh_all_open_blueprint_editors,
                 __buffer,
             )
         };
@@ -851,7 +898,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_STRUCT_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_struct_type,
                 __buffer,
             )
         };
@@ -870,7 +918,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_STRUCT_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_struct_type,
                 __buffer,
             )
         };
@@ -888,7 +937,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_SET_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_set_type,
                 __buffer,
             )
         };
@@ -905,7 +955,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_SET_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_set_type,
                 __buffer,
             )
         };
@@ -923,7 +974,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_SAVED_BY_ENGINE_VERSION,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_saved_by_engine_version,
                 __buffer,
             )
         };
@@ -940,7 +992,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_SAVED_BY_ENGINE_VERSION,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_saved_by_engine_version,
                 __buffer,
             )
         };
@@ -956,7 +1009,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_OBJECT_REFERENCE_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_object_reference_type,
                 __buffer,
             )
         };
@@ -975,7 +1029,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_OBJECT_REFERENCE_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_object_reference_type,
                 __buffer,
             )
         };
@@ -994,7 +1049,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_MAP_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_map_type,
                 __buffer,
             )
         };
@@ -1018,7 +1074,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_MAP_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_map_type,
                 __buffer,
             )
         };
@@ -1034,7 +1091,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENT_ENGINE_VERSION,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_current_engine_version,
                 __buffer,
             )
         };
@@ -1044,7 +1102,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_CURRENT_ENGINE_VERSION,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_current_engine_version,
                 __buffer,
             )
         };
@@ -1060,7 +1119,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_CLASS_REFERENCE_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_class_reference_type,
                 __buffer,
             )
         };
@@ -1079,7 +1139,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_CLASS_REFERENCE_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_class_reference_type,
                 __buffer,
             )
         };
@@ -1098,7 +1159,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_FOR_CLASS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_blueprint_for_class,
                 __buffer,
             )
         };
@@ -1124,7 +1186,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_FOR_CLASS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_blueprint_for_class,
                 __buffer,
             )
         };
@@ -1145,7 +1208,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_ASSET,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_blueprint_asset,
                 __buffer,
             )
         };
@@ -1162,7 +1226,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_BLUEPRINT_ASSET,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_blueprint_asset,
                 __buffer,
             )
         };
@@ -1180,7 +1245,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_BASIC_TYPE_BY_NAME,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_basic_type_by_name,
                 __buffer,
             )
         };
@@ -1197,7 +1263,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_BASIC_TYPE_BY_NAME,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_basic_type_by_name,
                 __buffer,
             )
         };
@@ -1215,7 +1282,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_ARRAY_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_array_type,
                 __buffer,
             )
         };
@@ -1232,7 +1300,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GET_ARRAY_TYPE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_get_array_type,
                 __buffer,
             )
         };
@@ -1250,7 +1319,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GENERATED_CLASS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_generated_class,
                 __buffer,
             )
         };
@@ -1267,7 +1337,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_GENERATED_CLASS,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_generated_class,
                 __buffer,
             )
         };
@@ -1289,7 +1360,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_FIND_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_find_graph,
                 __buffer,
             )
         };
@@ -1313,7 +1385,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_FIND_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_find_graph,
                 __buffer,
             )
         };
@@ -1331,7 +1404,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_FIND_EVENT_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_find_event_graph,
                 __buffer,
             )
         };
@@ -1348,7 +1422,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_FIND_EVENT_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_find_event_graph,
                 __buffer,
             )
         };
@@ -1367,7 +1442,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_CREATE_BLUEPRINT_ASSET_WITH_PARENT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_create_blueprint_asset_with_parent,
                 __buffer,
             )
         };
@@ -1393,7 +1469,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_CREATE_BLUEPRINT_ASSET_WITH_PARENT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_create_blueprint_asset_with_parent,
                 __buffer,
             )
         };
@@ -1409,7 +1486,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_COMPILE_BLUEPRINT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_compile_blueprint,
                 __buffer,
             )
         };
@@ -1426,7 +1504,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_COMPILE_BLUEPRINT,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_compile_blueprint,
                 __buffer,
             )
         };
@@ -1443,7 +1522,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_SOFT_OBJECT_SAVE_VERSION_TO,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_compare_soft_object_save_version_to,
                 __buffer,
             )
         };
@@ -1476,7 +1556,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_SOFT_OBJECT_SAVE_VERSION_TO,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_compare_soft_object_save_version_to,
                 __buffer,
             )
         };
@@ -1496,7 +1577,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_ASSET_SAVE_VERSION_TO,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_compare_asset_save_version_to,
                 __buffer,
             )
         };
@@ -1527,7 +1609,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_COMPARE_ASSET_SAVE_VERSION_TO,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_compare_asset_save_version_to,
                 __buffer,
             )
         };
@@ -1547,7 +1630,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE_WITH_VALUE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_add_member_variable_with_value,
                 __buffer,
             )
         };
@@ -1578,7 +1662,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE_WITH_VALUE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_add_member_variable_with_value,
                 __buffer,
             )
         };
@@ -1596,7 +1681,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_add_member_variable,
                 __buffer,
             )
         };
@@ -1627,7 +1713,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_ADD_MEMBER_VARIABLE,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_add_member_variable,
                 __buffer,
             )
         };
@@ -1644,7 +1731,8 @@ impl UBlueprintEditorLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_ADD_FUNCTION_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_add_function_graph,
                 __buffer,
             )
         };
@@ -1668,7 +1756,8 @@ impl UBlueprintEditorLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::blueprint_editor_library::U_BLUEPRINT_EDITOR_LIBRARY_ADD_FUNCTION_GRAPH,
+                crate::bindings::blueprint_editor_library::__FUNCTION_PTRS
+                    .u_blueprint_editor_library_add_function_graph,
                 __buffer,
             )
         };

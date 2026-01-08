@@ -1,184 +1,193 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_ROW_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_PRE_ROLL_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_POST_ROLL_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_OVERLAP_PRIORITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_IS_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_IS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_COMPLETION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_COLOR_TINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_SET_BLEND_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_IS_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_IS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_GET_ROW_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_GET_PRE_ROLL_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_GET_POST_ROLL_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_GET_OVERLAP_PRIORITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_GET_COMPLETION_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_GET_COLOR_TINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SECTION_GET_BLEND_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_GET_EARLIEST_TIMECODE_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_FIND_BINDINGS_BY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_FIND_BINDING_BY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_ENGINE_PRIORITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_CUSTOM_PRIORITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CONDITION_BP_GET_SCOPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CONDITION_BP_GET_CHECK_FREQUENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CONDITION_BP_EVALUATE_CONDITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SUB_SECTION_SET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SUB_SECTION_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BOUND_OBJECT_PROXY_BP_GET_BOUND_OBJECT_FOR_SEQUENCER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EVENT_RECEIVER_INTERFACE_ON_OBJECT_UNBOUND_BY_SEQUENCER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_BINDING_EVENT_RECEIVER_INTERFACE_ON_OBJECT_BOUND_BY_SEQUENCER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_EASING_FUNCTION_ON_EVALUATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_STOP_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_START_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_REQUEST_CURRENT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BUILT_IN_DYNAMIC_BINDING_RESOLVER_LIBRARY_RESOLVE_TO_PLAYER_PAWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_META_DATA_SET_NOTES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_META_DATA_SET_CREATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_META_DATA_SET_AUTHOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_META_DATA_GET_NOTES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_META_DATA_GET_CREATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_META_DATA_GET_AUTHOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP_AT_CURRENT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_TIME_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAYBACK_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_HIDE_HUD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_DISABLE_CAMERA_CUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_COMPLETION_MODE_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SCRUB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RPC_ON_STOP_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RPC_ON_FINISH_PLAYBACK_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RPC_EXPLICIT_SERVER_UPDATE_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RESTORE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_REQUEST_INVALIDATE_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_REMOVE_WEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_REVERSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PAUSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_REVERSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GO_TO_END_AND_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_START_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_OBJECT_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_HIDE_HUD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_END_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DISABLE_CAMERA_CUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_CURRENT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_COMPLETION_MODE_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_BOUND_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOVIE_SCENE_SEQUENCE_PLAYER_CHANGE_PLAYBACK_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_TEST_MOVIE_SCENE_ARRAY_PROPERTIES_ACTOR_SET_TEST_SETTER_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_movie_scene_section_set_row_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_pre_roll_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_post_roll_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_overlap_priority: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_is_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_is_active: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_completion_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_color_tint: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_set_blend_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_is_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_is_active: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_get_row_index: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_get_pre_roll_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_get_post_roll_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_get_overlap_priority: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_get_completion_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_get_color_tint: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_section_get_blend_type: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_get_earliest_timecode_source: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_find_bindings_by_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_find_binding_by_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_custom_binding_get_base_engine_priority: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_custom_binding_get_base_custom_priority: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_condition_bp_get_scope: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_condition_bp_get_check_frequency: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_condition_bp_evaluate_condition: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sub_section_set_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sub_section_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_bound_object_proxy_bp_get_bound_object_for_sequencer: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_event_receiver_interface_on_object_unbound_by_sequencer: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_binding_event_receiver_interface_on_object_bound_by_sequencer: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_easing_function_on_evaluate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_custom_clock_source_on_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_custom_clock_source_on_stop_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_custom_clock_source_on_start_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_custom_clock_source_on_request_current_time: *mut crate::ffi::UFunctionOpague,
+    pub u_built_in_dynamic_binding_resolver_library_resolve_to_player_pawn: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_meta_data_set_notes: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_meta_data_set_created: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_meta_data_set_author: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_meta_data_get_notes: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_meta_data_get_created: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_meta_data_get_author: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_stop_at_current_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_stop: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_time_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_playback_position: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_hide_hud: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_frame_range: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_disable_camera_cuts: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_set_completion_mode_override: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_scrub: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_rpc_on_stop_event: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_rpc_on_finish_playback_event: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_rpc_explicit_server_update_event: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_restore_state: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_request_invalidate_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_remove_weight: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_play_to: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_play_reverse: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_play_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_play: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_pause: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_is_reversed: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_is_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_is_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_go_to_end_and_stop: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_start_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_sequence_name: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_object_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_hide_hud: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_frame_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_end_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_disable_camera_cuts: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_current_time: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_completion_mode_override: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_get_bound_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_movie_scene_sequence_player_change_playback_direction: *mut crate::ffi::UFunctionOpague,
+    pub a_test_movie_scene_array_properties_actor_set_test_setter_float: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_movie_scene_section_set_row_index: std::ptr::null_mut(),
+            u_movie_scene_section_set_pre_roll_frames: std::ptr::null_mut(),
+            u_movie_scene_section_set_post_roll_frames: std::ptr::null_mut(),
+            u_movie_scene_section_set_overlap_priority: std::ptr::null_mut(),
+            u_movie_scene_section_set_is_locked: std::ptr::null_mut(),
+            u_movie_scene_section_set_is_active: std::ptr::null_mut(),
+            u_movie_scene_section_set_completion_mode: std::ptr::null_mut(),
+            u_movie_scene_section_set_color_tint: std::ptr::null_mut(),
+            u_movie_scene_section_set_blend_type: std::ptr::null_mut(),
+            u_movie_scene_section_is_locked: std::ptr::null_mut(),
+            u_movie_scene_section_is_active: std::ptr::null_mut(),
+            u_movie_scene_section_get_row_index: std::ptr::null_mut(),
+            u_movie_scene_section_get_pre_roll_frames: std::ptr::null_mut(),
+            u_movie_scene_section_get_post_roll_frames: std::ptr::null_mut(),
+            u_movie_scene_section_get_overlap_priority: std::ptr::null_mut(),
+            u_movie_scene_section_get_completion_mode: std::ptr::null_mut(),
+            u_movie_scene_section_get_color_tint: std::ptr::null_mut(),
+            u_movie_scene_section_get_blend_type: std::ptr::null_mut(),
+            u_movie_scene_sequence_get_earliest_timecode_source: std::ptr::null_mut(),
+            u_movie_scene_sequence_find_bindings_by_tag: std::ptr::null_mut(),
+            u_movie_scene_sequence_find_binding_by_tag: std::ptr::null_mut(),
+            u_movie_scene_custom_binding_get_base_engine_priority: std::ptr::null_mut(),
+            u_movie_scene_custom_binding_get_base_custom_priority: std::ptr::null_mut(),
+            u_movie_scene_condition_bp_get_scope: std::ptr::null_mut(),
+            u_movie_scene_condition_bp_get_check_frequency: std::ptr::null_mut(),
+            u_movie_scene_condition_bp_evaluate_condition: std::ptr::null_mut(),
+            u_movie_scene_sub_section_set_sequence: std::ptr::null_mut(),
+            u_movie_scene_sub_section_get_sequence: std::ptr::null_mut(),
+            u_movie_scene_bound_object_proxy_bp_get_bound_object_for_sequencer: std::ptr::null_mut(),
+            u_movie_scene_binding_event_receiver_interface_on_object_unbound_by_sequencer: std::ptr::null_mut(),
+            u_movie_scene_binding_event_receiver_interface_on_object_bound_by_sequencer: std::ptr::null_mut(),
+            u_movie_scene_easing_function_on_evaluate: std::ptr::null_mut(),
+            u_movie_scene_custom_clock_source_on_tick: std::ptr::null_mut(),
+            u_movie_scene_custom_clock_source_on_stop_playing: std::ptr::null_mut(),
+            u_movie_scene_custom_clock_source_on_start_playing: std::ptr::null_mut(),
+            u_movie_scene_custom_clock_source_on_request_current_time: std::ptr::null_mut(),
+            u_built_in_dynamic_binding_resolver_library_resolve_to_player_pawn: std::ptr::null_mut(),
+            u_movie_scene_meta_data_set_notes: std::ptr::null_mut(),
+            u_movie_scene_meta_data_set_created: std::ptr::null_mut(),
+            u_movie_scene_meta_data_set_author: std::ptr::null_mut(),
+            u_movie_scene_meta_data_get_notes: std::ptr::null_mut(),
+            u_movie_scene_meta_data_get_created: std::ptr::null_mut(),
+            u_movie_scene_meta_data_get_author: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_stop_at_current_time: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_stop: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_weight: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_time_range: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_play_rate: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_playback_position: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_hide_hud: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_frame_rate: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_frame_range: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_disable_camera_cuts: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_set_completion_mode_override: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_scrub: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_rpc_on_stop_event: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_rpc_on_finish_playback_event: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_rpc_explicit_server_update_event: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_restore_state: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_request_invalidate_binding: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_remove_weight: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_play_to: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_play_reverse: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_play_looping: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_play: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_pause: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_is_reversed: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_is_playing: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_is_paused: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_go_to_end_and_stop: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_start_time: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_sequence_name: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_sequence: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_play_rate: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_object_bindings: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_hide_hud: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_frame_rate: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_frame_duration: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_end_time: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_duration: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_disable_camera_cuts: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_current_time: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_completion_mode_override: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_get_bound_objects: std::ptr::null_mut(),
+            u_movie_scene_sequence_player_change_playback_direction: std::ptr::null_mut(),
+            a_test_movie_scene_array_properties_actor_set_test_setter_float: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -188,126 +197,126 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRowIndex"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_ROW_INDEX,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_row_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPreRollFrames"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_PRE_ROLL_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_pre_roll_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPostRollFrames"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_POST_ROLL_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_post_roll_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetOverlapPriority"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_OVERLAP_PRIORITY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_overlap_priority,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsLocked"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_IS_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_is_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsActive"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_IS_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_is_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCompletionMode"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_COMPLETION_MODE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_completion_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetColorTint"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_COLOR_TINT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_color_tint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlendType"),
-            &raw mut U_MOVIE_SCENE_SECTION_SET_BLEND_TYPE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_set_blend_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLocked"),
-            &raw mut U_MOVIE_SCENE_SECTION_IS_LOCKED,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_is_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActive"),
-            &raw mut U_MOVIE_SCENE_SECTION_IS_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_is_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRowIndex"),
-            &raw mut U_MOVIE_SCENE_SECTION_GET_ROW_INDEX,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_row_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreRollFrames"),
-            &raw mut U_MOVIE_SCENE_SECTION_GET_PRE_ROLL_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_pre_roll_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPostRollFrames"),
-            &raw mut U_MOVIE_SCENE_SECTION_GET_POST_ROLL_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_post_roll_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOverlapPriority"),
-            &raw mut U_MOVIE_SCENE_SECTION_GET_OVERLAP_PRIORITY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_overlap_priority,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCompletionMode"),
-            &raw mut U_MOVIE_SCENE_SECTION_GET_COMPLETION_MODE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_completion_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetColorTint"),
-            &raw mut U_MOVIE_SCENE_SECTION_GET_COLOR_TINT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_color_tint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlendType"),
-            &raw mut U_MOVIE_SCENE_SECTION_GET_BLEND_TYPE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_section_get_blend_type,
         );
     }
     unsafe {
@@ -318,21 +327,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEarliestTimecodeSource"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_GET_EARLIEST_TIMECODE_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_get_earliest_timecode_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBindingsByTag"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_FIND_BINDINGS_BY_TAG,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_find_bindings_by_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBindingByTag"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_FIND_BINDING_BY_TAG,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_find_binding_by_tag,
         );
     }
     unsafe {
@@ -343,14 +352,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBaseEnginePriority"),
-            &raw mut U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_ENGINE_PRIORITY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_custom_binding_get_base_engine_priority,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBaseCustomPriority"),
-            &raw mut U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_CUSTOM_PRIORITY,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_custom_binding_get_base_custom_priority,
         );
     }
     unsafe {
@@ -361,21 +372,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_GetScope"),
-            &raw mut U_MOVIE_SCENE_CONDITION_BP_GET_SCOPE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_get_scope,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_GetCheckFrequency"),
-            &raw mut U_MOVIE_SCENE_CONDITION_BP_GET_CHECK_FREQUENCY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_get_check_frequency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_EvaluateCondition"),
-            &raw mut U_MOVIE_SCENE_CONDITION_BP_EVALUATE_CONDITION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_condition_bp_evaluate_condition,
         );
     }
     unsafe {
@@ -386,14 +397,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut U_MOVIE_SCENE_SUB_SECTION_SET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sub_section_set_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut U_MOVIE_SCENE_SUB_SECTION_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sub_section_get_sequence,
         );
     }
     unsafe {
@@ -404,7 +415,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_GetBoundObjectForSequencer"),
-            &raw mut U_MOVIE_SCENE_BOUND_OBJECT_PROXY_BP_GET_BOUND_OBJECT_FOR_SEQUENCER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_bound_object_proxy_bp_get_bound_object_for_sequencer,
         );
     }
     unsafe {
@@ -415,14 +427,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnObjectUnboundBySequencer"),
-            &raw mut U_MOVIE_SCENE_BINDING_EVENT_RECEIVER_INTERFACE_ON_OBJECT_UNBOUND_BY_SEQUENCER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_event_receiver_interface_on_object_unbound_by_sequencer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnObjectBoundBySequencer"),
-            &raw mut U_MOVIE_SCENE_BINDING_EVENT_RECEIVER_INTERFACE_ON_OBJECT_BOUND_BY_SEQUENCER,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_binding_event_receiver_interface_on_object_bound_by_sequencer,
         );
     }
     unsafe {
@@ -433,7 +447,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnEvaluate"),
-            &raw mut U_MOVIE_SCENE_EASING_FUNCTION_ON_EVALUATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_easing_function_on_evaluate,
         );
     }
     unsafe {
@@ -444,28 +458,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnTick"),
-            &raw mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_TICK,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_custom_clock_source_on_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnStopPlaying"),
-            &raw mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_STOP_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_custom_clock_source_on_stop_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnStartPlaying"),
-            &raw mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_START_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_custom_clock_source_on_start_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRequestCurrentTime"),
-            &raw mut U_MOVIE_SCENE_CUSTOM_CLOCK_SOURCE_ON_REQUEST_CURRENT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_custom_clock_source_on_request_current_time,
         );
     }
     unsafe {
@@ -476,7 +491,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResolveToPlayerPawn"),
-            &raw mut U_BUILT_IN_DYNAMIC_BINDING_RESOLVER_LIBRARY_RESOLVE_TO_PLAYER_PAWN,
+            &raw mut __FUNCTION_PTRS
+                .u_built_in_dynamic_binding_resolver_library_resolve_to_player_pawn,
         );
     }
     unsafe {
@@ -487,42 +503,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNotes"),
-            &raw mut U_MOVIE_SCENE_META_DATA_SET_NOTES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_notes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCreated"),
-            &raw mut U_MOVIE_SCENE_META_DATA_SET_CREATED,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_created,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAuthor"),
-            &raw mut U_MOVIE_SCENE_META_DATA_SET_AUTHOR,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_set_author,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNotes"),
-            &raw mut U_MOVIE_SCENE_META_DATA_GET_NOTES,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_notes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCreated"),
-            &raw mut U_MOVIE_SCENE_META_DATA_GET_CREATED,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_created,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAuthor"),
-            &raw mut U_MOVIE_SCENE_META_DATA_GET_AUTHOR,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_meta_data_get_author,
         );
     }
     unsafe {
@@ -533,294 +549,302 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("StopAtCurrentTime"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP_AT_CURRENT_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_stop_at_current_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetWeight"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTimeRange"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_TIME_RANGE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_time_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlayRate"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackPosition"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAYBACK_POSITION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_playback_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHideHud"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_HIDE_HUD,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_hide_hud,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRate"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFrameRange"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RANGE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_set_frame_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisableCameraCuts"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_DISABLE_CAMERA_CUTS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_set_disable_camera_cuts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCompletionModeOverride"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_COMPLETION_MODE_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_set_completion_mode_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Scrub"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_SCRUB,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_scrub,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RPC_OnStopEvent"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RPC_ON_STOP_EVENT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_rpc_on_stop_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RPC_OnFinishPlaybackEvent"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RPC_ON_FINISH_PLAYBACK_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_rpc_on_finish_playback_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RPC_ExplicitServerUpdateEvent"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RPC_EXPLICIT_SERVER_UPDATE_EVENT,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_rpc_explicit_server_update_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RestoreState"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_RESTORE_STATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_restore_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestInvalidateBinding"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_REQUEST_INVALIDATE_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_request_invalidate_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveWeight"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_REMOVE_WEIGHT,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_remove_weight,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayTo"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_TO,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayReverse"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_REVERSE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_reverse,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayLooping"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Play"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_PAUSE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_pause,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReversed"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_REVERSED,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_reversed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PAUSED,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_is_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GoToEndAndStop"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GO_TO_END_AND_STOP,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_go_to_end_and_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStartTime"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_START_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_start_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequenceName"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE_NAME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_sequence_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayRate"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectBindings"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_OBJECT_BINDINGS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_object_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHideHud"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_HIDE_HUD,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_hide_hud,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameRate"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFrameDuration"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_DURATION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_frame_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEndTime"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_END_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_end_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDuration"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DURATION,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisableCameraCuts"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DISABLE_CAMERA_CUTS,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_get_disable_camera_cuts,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentTime"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_CURRENT_TIME,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_current_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCompletionModeOverride"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_COMPLETION_MODE_OVERRIDE,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_get_completion_mode_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_BOUND_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_movie_scene_sequence_player_get_bound_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ChangePlaybackDirection"),
-            &raw mut U_MOVIE_SCENE_SEQUENCE_PLAYER_CHANGE_PLAYBACK_DIRECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_movie_scene_sequence_player_change_playback_direction,
         );
     }
     unsafe {
@@ -831,7 +855,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTestSetterFloat"),
-            &raw mut A_TEST_MOVIE_SCENE_ARRAY_PROPERTIES_ACTOR_SET_TEST_SETTER_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .a_test_movie_scene_array_properties_actor_set_test_setter_float,
         );
     }
 }
@@ -1109,7 +1134,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_ROW_INDEX,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_row_index,
                 __buffer,
             )
         };
@@ -1126,7 +1152,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_ROW_INDEX,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_row_index,
                 __buffer,
             )
         };
@@ -1139,7 +1166,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_PRE_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_pre_roll_frames,
                 __buffer,
             )
         };
@@ -1156,7 +1184,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_PRE_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_pre_roll_frames,
                 __buffer,
             )
         };
@@ -1169,7 +1198,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_POST_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_post_roll_frames,
                 __buffer,
             )
         };
@@ -1186,7 +1216,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_POST_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_post_roll_frames,
                 __buffer,
             )
         };
@@ -1199,7 +1230,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_OVERLAP_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_overlap_priority,
                 __buffer,
             )
         };
@@ -1216,7 +1248,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_OVERLAP_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_overlap_priority,
                 __buffer,
             )
         };
@@ -1229,7 +1262,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_IS_LOCKED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_is_locked,
                 __buffer,
             )
         };
@@ -1246,7 +1280,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_IS_LOCKED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_is_locked,
                 __buffer,
             )
         };
@@ -1259,7 +1294,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_IS_ACTIVE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_is_active,
                 __buffer,
             )
         };
@@ -1276,7 +1312,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_IS_ACTIVE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_is_active,
                 __buffer,
             )
         };
@@ -1292,7 +1329,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_COMPLETION_MODE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_completion_mode,
                 __buffer,
             )
         };
@@ -1309,7 +1347,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_COMPLETION_MODE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_completion_mode,
                 __buffer,
             )
         };
@@ -1325,7 +1364,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_COLOR_TINT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_color_tint,
                 __buffer,
             )
         };
@@ -1342,7 +1382,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_COLOR_TINT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_color_tint,
                 __buffer,
             )
         };
@@ -1355,7 +1396,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_BLEND_TYPE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_blend_type,
                 __buffer,
             )
         };
@@ -1372,7 +1414,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_SET_BLEND_TYPE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_set_blend_type,
                 __buffer,
             )
         };
@@ -1385,7 +1428,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_IS_LOCKED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_is_locked,
                 __buffer,
             )
         };
@@ -1395,7 +1439,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_IS_LOCKED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_is_locked,
                 __buffer,
             )
         };
@@ -1409,7 +1454,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_IS_ACTIVE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_is_active,
                 __buffer,
             )
         };
@@ -1419,7 +1465,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_IS_ACTIVE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_is_active,
                 __buffer,
             )
         };
@@ -1433,7 +1480,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_ROW_INDEX,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_row_index,
                 __buffer,
             )
         };
@@ -1443,7 +1491,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_ROW_INDEX,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_row_index,
                 __buffer,
             )
         };
@@ -1457,7 +1506,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_PRE_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_pre_roll_frames,
                 __buffer,
             )
         };
@@ -1467,7 +1517,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_PRE_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_pre_roll_frames,
                 __buffer,
             )
         };
@@ -1481,7 +1532,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_POST_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_post_roll_frames,
                 __buffer,
             )
         };
@@ -1491,7 +1543,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_POST_ROLL_FRAMES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_post_roll_frames,
                 __buffer,
             )
         };
@@ -1505,7 +1558,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_OVERLAP_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_overlap_priority,
                 __buffer,
             )
         };
@@ -1515,7 +1569,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_OVERLAP_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_overlap_priority,
                 __buffer,
             )
         };
@@ -1529,7 +1584,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_COMPLETION_MODE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_completion_mode,
                 __buffer,
             )
         };
@@ -1539,7 +1595,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_COMPLETION_MODE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_completion_mode,
                 __buffer,
             )
         };
@@ -1553,7 +1610,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_COLOR_TINT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_color_tint,
                 __buffer,
             )
         };
@@ -1563,7 +1621,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_COLOR_TINT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_color_tint,
                 __buffer,
             )
         };
@@ -1579,7 +1638,8 @@ impl UMovieSceneSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_BLEND_TYPE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_blend_type,
                 __buffer,
             )
         };
@@ -1589,7 +1649,8 @@ impl UMovieSceneSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SECTION_GET_BLEND_TYPE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_section_get_blend_type,
                 __buffer,
             )
         };
@@ -1666,7 +1727,8 @@ impl UMovieSceneSequence {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_GET_EARLIEST_TIMECODE_SOURCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_get_earliest_timecode_source,
                 __buffer,
             )
         };
@@ -1676,7 +1738,8 @@ impl UMovieSceneSequence {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_GET_EARLIEST_TIMECODE_SOURCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_get_earliest_timecode_source,
                 __buffer,
             )
         };
@@ -1693,7 +1756,8 @@ impl UMovieSceneSequence {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_FIND_BINDINGS_BY_TAG,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_find_bindings_by_tag,
                 __buffer,
             )
         };
@@ -1710,7 +1774,8 @@ impl UMovieSceneSequence {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_FIND_BINDINGS_BY_TAG,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_find_bindings_by_tag,
                 __buffer,
             )
         };
@@ -1727,7 +1792,8 @@ impl UMovieSceneSequence {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_FIND_BINDING_BY_TAG,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_find_binding_by_tag,
                 __buffer,
             )
         };
@@ -1744,7 +1810,8 @@ impl UMovieSceneSequence {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_FIND_BINDING_BY_TAG,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_find_binding_by_tag,
                 __buffer,
             )
         };
@@ -1779,7 +1846,8 @@ impl UMovieSceneCustomBinding {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_ENGINE_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_custom_binding_get_base_engine_priority,
                 __buffer,
             )
         };
@@ -1789,7 +1857,8 @@ impl UMovieSceneCustomBinding {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_ENGINE_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_custom_binding_get_base_engine_priority,
                 __buffer,
             )
         };
@@ -1803,7 +1872,8 @@ impl UMovieSceneCustomBinding {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_CUSTOM_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_custom_binding_get_base_custom_priority,
                 __buffer,
             )
         };
@@ -1813,7 +1883,8 @@ impl UMovieSceneCustomBinding {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_CUSTOM_BINDING_GET_BASE_CUSTOM_PRIORITY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_custom_binding_get_base_custom_priority,
                 __buffer,
             )
         };
@@ -1911,6 +1982,94 @@ impl UMovieSceneCondition {
             cdo
         }
     }
+    pub fn bp_get_scope(&self) -> EMovieSceneConditionScope {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_condition_bp_get_scope,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_condition_bp_get_scope,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EMovieSceneConditionScope>().read() }
+    }
+    pub fn bp_get_check_frequency(&self) -> EMovieSceneConditionCheckFrequency {
+        let mut __stack = crate::core_data::StackAlloc::<1>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_condition_bp_get_check_frequency,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_condition_bp_get_check_frequency,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(0).cast::<EMovieSceneConditionCheckFrequency>().read() }
+    }
+    pub fn bp_evaluate_condition(
+        &self,
+        condition_context: &FMovieSceneConditionContext,
+    ) -> bool {
+        let mut __stack = crate::core_data::StackAlloc::<49>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_condition_bp_evaluate_condition,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                condition_context,
+                __buffer.add(0).cast::<FMovieSceneConditionContext>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_condition_bp_evaluate_condition,
+                __buffer,
+            )
+        };
+        unsafe { __buffer.add(48).cast::<bool>().read() }
+    }
 }
 #[repr(C, align(8))]
 pub struct UMovieSceneEntityInstantiatorSystem {
@@ -1964,7 +2123,8 @@ impl UMovieSceneSubSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SUB_SECTION_SET_SEQUENCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sub_section_set_sequence,
                 __buffer,
             )
         };
@@ -1981,7 +2141,8 @@ impl UMovieSceneSubSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SUB_SECTION_SET_SEQUENCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sub_section_set_sequence,
                 __buffer,
             )
         };
@@ -1994,7 +2155,8 @@ impl UMovieSceneSubSection {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SUB_SECTION_GET_SEQUENCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sub_section_get_sequence,
                 __buffer,
             )
         };
@@ -2004,7 +2166,8 @@ impl UMovieSceneSubSection {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SUB_SECTION_GET_SEQUENCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sub_section_get_sequence,
                 __buffer,
             )
         };
@@ -2149,7 +2312,8 @@ impl UMovieSceneBoundObjectProxy {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_BOUND_OBJECT_PROXY_BP_GET_BOUND_OBJECT_FOR_SEQUENCER,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_bound_object_proxy_bp_get_bound_object_for_sequencer,
                 __buffer,
             )
         };
@@ -2166,7 +2330,8 @@ impl UMovieSceneBoundObjectProxy {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_BOUND_OBJECT_PROXY_BP_GET_BOUND_OBJECT_FOR_SEQUENCER,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_bound_object_proxy_bp_get_bound_object_for_sequencer,
                 __buffer,
             )
         };
@@ -2463,6 +2628,92 @@ impl UMovieSceneBindingEventReceiverInterface {
             cdo
         }
     }
+    pub fn on_object_unbound_by_sequencer(
+        &mut self,
+        player: UPtr<UMovieSceneSequencePlayer>,
+        binding_id: FMovieSceneObjectBindingID,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_binding_event_receiver_interface_on_object_unbound_by_sequencer,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer.add(0).cast::<UPtr<UMovieSceneSequencePlayer>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding_id,
+                __buffer.add(8).cast::<FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_binding_event_receiver_interface_on_object_unbound_by_sequencer,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_object_bound_by_sequencer(
+        &mut self,
+        player: UPtr<UMovieSceneSequencePlayer>,
+        binding_id: FMovieSceneObjectBindingID,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<36>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_binding_event_receiver_interface_on_object_bound_by_sequencer,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &player,
+                __buffer.add(0).cast::<UPtr<UMovieSceneSequencePlayer>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &binding_id,
+                __buffer.add(8).cast::<FMovieSceneObjectBindingID>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_binding_event_receiver_interface_on_object_bound_by_sequencer,
+                __buffer,
+            )
+        };
+    }
 }
 pub struct IMovieSceneBindingOwnerInterface {}
 #[repr(C, align(8))]
@@ -2537,7 +2788,8 @@ impl UMovieSceneEasingFunction {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_EASING_FUNCTION_ON_EVALUATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_easing_function_on_evaluate,
                 __buffer,
             )
         };
@@ -2550,7 +2802,8 @@ impl UMovieSceneEasingFunction {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_EASING_FUNCTION_ON_EVALUATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_easing_function_on_evaluate,
                 __buffer,
             )
         };
@@ -3589,7 +3842,8 @@ impl UBuiltInDynamicBindingResolverLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_BUILT_IN_DYNAMIC_BINDING_RESOLVER_LIBRARY_RESOLVE_TO_PLAYER_PAWN,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_built_in_dynamic_binding_resolver_library_resolve_to_player_pawn,
                 __buffer,
             )
         };
@@ -3613,7 +3867,8 @@ impl UBuiltInDynamicBindingResolverLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_BUILT_IN_DYNAMIC_BINDING_RESOLVER_LIBRARY_RESOLVE_TO_PLAYER_PAWN,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_built_in_dynamic_binding_resolver_library_resolve_to_player_pawn,
                 __buffer,
             )
         };
@@ -3671,7 +3926,8 @@ impl UMovieSceneMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_SET_NOTES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_set_notes,
                 __buffer,
             )
         };
@@ -3688,7 +3944,8 @@ impl UMovieSceneMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_SET_NOTES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_set_notes,
                 __buffer,
             )
         };
@@ -3704,7 +3961,8 @@ impl UMovieSceneMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_SET_CREATED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_set_created,
                 __buffer,
             )
         };
@@ -3721,7 +3979,8 @@ impl UMovieSceneMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_SET_CREATED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_set_created,
                 __buffer,
             )
         };
@@ -3734,7 +3993,8 @@ impl UMovieSceneMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_SET_AUTHOR,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_set_author,
                 __buffer,
             )
         };
@@ -3751,7 +4011,8 @@ impl UMovieSceneMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_SET_AUTHOR,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_set_author,
                 __buffer,
             )
         };
@@ -3764,7 +4025,8 @@ impl UMovieSceneMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_GET_NOTES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_get_notes,
                 __buffer,
             )
         };
@@ -3774,7 +4036,8 @@ impl UMovieSceneMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_GET_NOTES,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_get_notes,
                 __buffer,
             )
         };
@@ -3788,7 +4051,8 @@ impl UMovieSceneMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_GET_CREATED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_get_created,
                 __buffer,
             )
         };
@@ -3798,7 +4062,8 @@ impl UMovieSceneMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_GET_CREATED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_get_created,
                 __buffer,
             )
         };
@@ -3814,7 +4079,8 @@ impl UMovieSceneMetaData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_GET_AUTHOR,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_get_author,
                 __buffer,
             )
         };
@@ -3824,7 +4090,8 @@ impl UMovieSceneMetaData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_META_DATA_GET_AUTHOR,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_meta_data_get_author,
                 __buffer,
             )
         };
@@ -3859,7 +4126,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP_AT_CURRENT_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_stop_at_current_time,
                 __buffer,
             )
         };
@@ -3869,7 +4137,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP_AT_CURRENT_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_stop_at_current_time,
                 __buffer,
             )
         };
@@ -3882,7 +4151,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_stop,
                 __buffer,
             )
         };
@@ -3892,7 +4162,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_STOP,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_stop,
                 __buffer,
             )
         };
@@ -3905,7 +4176,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_WEIGHT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_weight,
                 __buffer,
             )
         };
@@ -3918,7 +4190,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_WEIGHT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_weight,
                 __buffer,
             )
         };
@@ -3931,7 +4204,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_TIME_RANGE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_time_range,
                 __buffer,
             )
         };
@@ -3947,7 +4221,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_TIME_RANGE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_time_range,
                 __buffer,
             )
         };
@@ -3960,7 +4235,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAY_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_play_rate,
                 __buffer,
             )
         };
@@ -3973,7 +4249,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAY_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_play_rate,
                 __buffer,
             )
         };
@@ -3989,7 +4266,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAYBACK_POSITION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_playback_position,
                 __buffer,
             )
         };
@@ -4006,7 +4284,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_PLAYBACK_POSITION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_playback_position,
                 __buffer,
             )
         };
@@ -4019,7 +4298,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_HIDE_HUD,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_hide_hud,
                 __buffer,
             )
         };
@@ -4032,7 +4312,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_HIDE_HUD,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_hide_hud,
                 __buffer,
             )
         };
@@ -4048,7 +4329,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_frame_rate,
                 __buffer,
             )
         };
@@ -4065,7 +4347,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_frame_rate,
                 __buffer,
             )
         };
@@ -4078,7 +4361,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RANGE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_frame_range,
                 __buffer,
             )
         };
@@ -4101,7 +4385,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_FRAME_RANGE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_frame_range,
                 __buffer,
             )
         };
@@ -4114,7 +4399,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_DISABLE_CAMERA_CUTS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_disable_camera_cuts,
                 __buffer,
             )
         };
@@ -4131,7 +4417,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_DISABLE_CAMERA_CUTS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_disable_camera_cuts,
                 __buffer,
             )
         };
@@ -4147,7 +4434,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_COMPLETION_MODE_OVERRIDE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_completion_mode_override,
                 __buffer,
             )
         };
@@ -4164,7 +4452,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SET_COMPLETION_MODE_OVERRIDE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_set_completion_mode_override,
                 __buffer,
             )
         };
@@ -4177,7 +4466,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SCRUB,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_scrub,
                 __buffer,
             )
         };
@@ -4187,7 +4477,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_SCRUB,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_scrub,
                 __buffer,
             )
         };
@@ -4200,7 +4491,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_RESTORE_STATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_restore_state,
                 __buffer,
             )
         };
@@ -4210,7 +4502,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_RESTORE_STATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_restore_state,
                 __buffer,
             )
         };
@@ -4226,7 +4519,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_REQUEST_INVALIDATE_BINDING,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_request_invalidate_binding,
                 __buffer,
             )
         };
@@ -4243,7 +4537,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_REQUEST_INVALIDATE_BINDING,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_request_invalidate_binding,
                 __buffer,
             )
         };
@@ -4256,7 +4551,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_REMOVE_WEIGHT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_remove_weight,
                 __buffer,
             )
         };
@@ -4266,7 +4562,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_REMOVE_WEIGHT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_remove_weight,
                 __buffer,
             )
         };
@@ -4283,7 +4580,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_TO,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play_to,
                 __buffer,
             )
         };
@@ -4307,7 +4605,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_TO,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play_to,
                 __buffer,
             )
         };
@@ -4320,7 +4619,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_REVERSE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play_reverse,
                 __buffer,
             )
         };
@@ -4330,7 +4630,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_REVERSE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play_reverse,
                 __buffer,
             )
         };
@@ -4343,7 +4644,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_LOOPING,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play_looping,
                 __buffer,
             )
         };
@@ -4356,7 +4658,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY_LOOPING,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play_looping,
                 __buffer,
             )
         };
@@ -4369,7 +4672,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play,
                 __buffer,
             )
         };
@@ -4379,7 +4683,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PLAY,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_play,
                 __buffer,
             )
         };
@@ -4392,7 +4697,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PAUSE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_pause,
                 __buffer,
             )
         };
@@ -4402,7 +4708,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_PAUSE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_pause,
                 __buffer,
             )
         };
@@ -4415,7 +4722,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_REVERSED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_is_reversed,
                 __buffer,
             )
         };
@@ -4425,7 +4733,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_REVERSED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_is_reversed,
                 __buffer,
             )
         };
@@ -4439,7 +4748,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PLAYING,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_is_playing,
                 __buffer,
             )
         };
@@ -4449,7 +4759,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PLAYING,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_is_playing,
                 __buffer,
             )
         };
@@ -4463,7 +4774,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PAUSED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_is_paused,
                 __buffer,
             )
         };
@@ -4473,7 +4785,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_IS_PAUSED,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_is_paused,
                 __buffer,
             )
         };
@@ -4487,7 +4800,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GO_TO_END_AND_STOP,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_go_to_end_and_stop,
                 __buffer,
             )
         };
@@ -4497,7 +4811,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GO_TO_END_AND_STOP,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_go_to_end_and_stop,
                 __buffer,
             )
         };
@@ -4510,7 +4825,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_START_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_start_time,
                 __buffer,
             )
         };
@@ -4520,7 +4836,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_START_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_start_time,
                 __buffer,
             )
         };
@@ -4539,7 +4856,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE_NAME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_sequence_name,
                 __buffer,
             )
         };
@@ -4556,7 +4874,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE_NAME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_sequence_name,
                 __buffer,
             )
         };
@@ -4570,7 +4889,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_sequence,
                 __buffer,
             )
         };
@@ -4580,7 +4900,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_SEQUENCE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_sequence,
                 __buffer,
             )
         };
@@ -4594,7 +4915,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_PLAY_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_play_rate,
                 __buffer,
             )
         };
@@ -4604,7 +4926,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_PLAY_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_play_rate,
                 __buffer,
             )
         };
@@ -4621,7 +4944,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_OBJECT_BINDINGS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_object_bindings,
                 __buffer,
             )
         };
@@ -4638,7 +4962,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_OBJECT_BINDINGS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_object_bindings,
                 __buffer,
             )
         };
@@ -4652,7 +4977,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_HIDE_HUD,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_hide_hud,
                 __buffer,
             )
         };
@@ -4662,7 +4988,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_HIDE_HUD,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_hide_hud,
                 __buffer,
             )
         };
@@ -4676,7 +5003,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_frame_rate,
                 __buffer,
             )
         };
@@ -4686,7 +5014,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_RATE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_frame_rate,
                 __buffer,
             )
         };
@@ -4702,7 +5031,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_DURATION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_frame_duration,
                 __buffer,
             )
         };
@@ -4712,7 +5042,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_FRAME_DURATION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_frame_duration,
                 __buffer,
             )
         };
@@ -4726,7 +5057,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_END_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_end_time,
                 __buffer,
             )
         };
@@ -4736,7 +5068,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_END_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_end_time,
                 __buffer,
             )
         };
@@ -4755,7 +5088,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DURATION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_duration,
                 __buffer,
             )
         };
@@ -4765,7 +5099,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DURATION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_duration,
                 __buffer,
             )
         };
@@ -4784,7 +5119,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DISABLE_CAMERA_CUTS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_disable_camera_cuts,
                 __buffer,
             )
         };
@@ -4794,7 +5130,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_DISABLE_CAMERA_CUTS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_disable_camera_cuts,
                 __buffer,
             )
         };
@@ -4810,7 +5147,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_CURRENT_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_current_time,
                 __buffer,
             )
         };
@@ -4820,7 +5158,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_CURRENT_TIME,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_current_time,
                 __buffer,
             )
         };
@@ -4839,7 +5178,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_COMPLETION_MODE_OVERRIDE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_completion_mode_override,
                 __buffer,
             )
         };
@@ -4849,7 +5189,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_COMPLETION_MODE_OVERRIDE,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_completion_mode_override,
                 __buffer,
             )
         };
@@ -4866,7 +5207,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_BOUND_OBJECTS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_bound_objects,
                 __buffer,
             )
         };
@@ -4883,7 +5225,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_GET_BOUND_OBJECTS,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_get_bound_objects,
                 __buffer,
             )
         };
@@ -4902,7 +5245,8 @@ impl UMovieSceneSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_CHANGE_PLAYBACK_DIRECTION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_change_playback_direction,
                 __buffer,
             )
         };
@@ -4912,7 +5256,8 @@ impl UMovieSceneSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::U_MOVIE_SCENE_SEQUENCE_PLAYER_CHANGE_PLAYBACK_DIRECTION,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .u_movie_scene_sequence_player_change_playback_direction,
                 __buffer,
             )
         };
@@ -5233,7 +5578,8 @@ impl ATestMovieSceneArrayPropertiesActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::movie_scene::A_TEST_MOVIE_SCENE_ARRAY_PROPERTIES_ACTOR_SET_TEST_SETTER_FLOAT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .a_test_movie_scene_array_properties_actor_set_test_setter_float,
                 __buffer,
             )
         };
@@ -5246,7 +5592,8 @@ impl ATestMovieSceneArrayPropertiesActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::movie_scene::A_TEST_MOVIE_SCENE_ARRAY_PROPERTIES_ACTOR_SET_TEST_SETTER_FLOAT,
+                crate::bindings::movie_scene::__FUNCTION_PTRS
+                    .a_test_movie_scene_array_properties_actor_set_test_setter_float,
                 __buffer,
             )
         };

@@ -1,30 +1,39 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut A_TEMPLATE_SEQUENCE_ACTOR_SET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_TEMPLATE_SEQUENCE_ACTOR_SET_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_TEMPLATE_SEQUENCE_ACTOR_LOAD_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TEMPLATE_SEQUENCE_PLAYER_CREATE_TEMPLATE_SEQUENCE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_POST_PROCESS_BLEND_CACHE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_LAST_FRAME_CAMERA_CACHE_POV: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_CAMERA_CACHE_POV: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub a_template_sequence_actor_set_sequence: *mut crate::ffi::UFunctionOpague,
+    pub a_template_sequence_actor_set_binding: *mut crate::ffi::UFunctionOpague,
+    pub a_template_sequence_actor_load_sequence: *mut crate::ffi::UFunctionOpague,
+    pub a_template_sequence_actor_get_sequence_player: *mut crate::ffi::UFunctionOpague,
+    pub a_template_sequence_actor_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_template_sequence_player_create_template_sequence_player: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_camera_shake_test_util_get_post_process_blend_cache: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_camera_shake_test_util_get_last_frame_camera_cache_pov: *mut crate::ffi::UFunctionOpague,
+    pub u_sequence_camera_shake_test_util_get_camera_cache_pov: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            a_template_sequence_actor_set_sequence: std::ptr::null_mut(),
+            a_template_sequence_actor_set_binding: std::ptr::null_mut(),
+            a_template_sequence_actor_load_sequence: std::ptr::null_mut(),
+            a_template_sequence_actor_get_sequence_player: std::ptr::null_mut(),
+            a_template_sequence_actor_get_sequence: std::ptr::null_mut(),
+            u_template_sequence_player_create_template_sequence_player: std::ptr::null_mut(),
+            u_sequence_camera_shake_test_util_get_post_process_blend_cache: std::ptr::null_mut(),
+            u_sequence_camera_shake_test_util_get_last_frame_camera_cache_pov: std::ptr::null_mut(),
+            u_sequence_camera_shake_test_util_get_camera_cache_pov: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -34,35 +43,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut A_TEMPLATE_SEQUENCE_ACTOR_SET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_set_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBinding"),
-            &raw mut A_TEMPLATE_SEQUENCE_ACTOR_SET_BINDING,
+            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_set_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LoadSequence"),
-            &raw mut A_TEMPLATE_SEQUENCE_ACTOR_LOAD_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_load_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequencePlayer"),
-            &raw mut A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_get_sequence_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.a_template_sequence_actor_get_sequence,
         );
     }
     unsafe {
@@ -73,7 +82,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateTemplateSequencePlayer"),
-            &raw mut U_TEMPLATE_SEQUENCE_PLAYER_CREATE_TEMPLATE_SEQUENCE_PLAYER,
+            &raw mut __FUNCTION_PTRS
+                .u_template_sequence_player_create_template_sequence_player,
         );
     }
     unsafe {
@@ -84,21 +94,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPostProcessBlendCache"),
-            &raw mut U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_POST_PROCESS_BLEND_CACHE,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_camera_shake_test_util_get_post_process_blend_cache,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLastFrameCameraCachePOV"),
-            &raw mut U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_LAST_FRAME_CAMERA_CACHE_POV,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_camera_shake_test_util_get_last_frame_camera_cache_pov,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCameraCachePOV"),
-            &raw mut U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_CAMERA_CACHE_POV,
+            &raw mut __FUNCTION_PTRS
+                .u_sequence_camera_shake_test_util_get_camera_cache_pov,
         );
     }
 }
@@ -413,7 +426,8 @@ impl ATemplateSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_SET_SEQUENCE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_set_sequence,
                 __buffer,
             )
         };
@@ -430,7 +444,8 @@ impl ATemplateSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_SET_SEQUENCE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_set_sequence,
                 __buffer,
             )
         };
@@ -447,7 +462,8 @@ impl ATemplateSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_SET_BINDING,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_set_binding,
                 __buffer,
             )
         };
@@ -471,7 +487,8 @@ impl ATemplateSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_SET_BINDING,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_set_binding,
                 __buffer,
             )
         };
@@ -484,7 +501,8 @@ impl ATemplateSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_LOAD_SEQUENCE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_load_sequence,
                 __buffer,
             )
         };
@@ -494,7 +512,8 @@ impl ATemplateSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_LOAD_SEQUENCE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_load_sequence,
                 __buffer,
             )
         };
@@ -508,7 +527,8 @@ impl ATemplateSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_get_sequence_player,
                 __buffer,
             )
         };
@@ -518,7 +538,8 @@ impl ATemplateSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_get_sequence_player,
                 __buffer,
             )
         };
@@ -532,7 +553,8 @@ impl ATemplateSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_get_sequence,
                 __buffer,
             )
         };
@@ -542,7 +564,8 @@ impl ATemplateSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::A_TEMPLATE_SEQUENCE_ACTOR_GET_SEQUENCE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .a_template_sequence_actor_get_sequence,
                 __buffer,
             )
         };
@@ -582,7 +605,8 @@ impl UTemplateSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::U_TEMPLATE_SEQUENCE_PLAYER_CREATE_TEMPLATE_SEQUENCE_PLAYER,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_template_sequence_player_create_template_sequence_player,
                 __buffer,
             )
         };
@@ -624,7 +648,8 @@ impl UTemplateSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::U_TEMPLATE_SEQUENCE_PLAYER_CREATE_TEMPLATE_SEQUENCE_PLAYER,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_template_sequence_player_create_template_sequence_player,
                 __buffer,
             )
         };
@@ -667,7 +692,8 @@ impl USequenceCameraShakeTestUtil {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_POST_PROCESS_BLEND_CACHE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_post_process_blend_cache,
                 __buffer,
             )
         };
@@ -703,7 +729,8 @@ impl USequenceCameraShakeTestUtil {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_POST_PROCESS_BLEND_CACHE,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_post_process_blend_cache,
                 __buffer,
             )
         };
@@ -728,7 +755,8 @@ impl USequenceCameraShakeTestUtil {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_LAST_FRAME_CAMERA_CACHE_POV,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_last_frame_camera_cache_pov,
                 __buffer,
             )
         };
@@ -747,7 +775,8 @@ impl USequenceCameraShakeTestUtil {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_LAST_FRAME_CAMERA_CACHE_POV,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_last_frame_camera_cache_pov,
                 __buffer,
             )
         };
@@ -765,7 +794,8 @@ impl USequenceCameraShakeTestUtil {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::template_sequence::U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_CAMERA_CACHE_POV,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_camera_cache_pov,
                 __buffer,
             )
         };
@@ -784,7 +814,8 @@ impl USequenceCameraShakeTestUtil {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::template_sequence::U_SEQUENCE_CAMERA_SHAKE_TEST_UTIL_GET_CAMERA_CACHE_POV,
+                crate::bindings::template_sequence::__FUNCTION_PTRS
+                    .u_sequence_camera_shake_test_util_get_camera_cache_pov,
                 __buffer,
             )
         };

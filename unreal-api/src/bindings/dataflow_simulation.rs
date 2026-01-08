@@ -1,16 +1,25 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_DATAFLOW_SIMULATION_ACTOR_PRE_DATAFLOW_SIMULATION_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_DATAFLOW_SIMULATION_ACTOR_POST_DATAFLOW_SIMULATION_TICK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_dataflow_simulation_actor_pre_dataflow_simulation_tick: *mut crate::ffi::UFunctionOpague,
+    pub u_dataflow_simulation_actor_post_dataflow_simulation_tick: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_dataflow_simulation_actor_pre_dataflow_simulation_tick: std::ptr::null_mut(),
+            u_dataflow_simulation_actor_post_dataflow_simulation_tick: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -20,14 +29,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PreDataflowSimulationTick"),
-            &raw mut U_DATAFLOW_SIMULATION_ACTOR_PRE_DATAFLOW_SIMULATION_TICK,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_simulation_actor_pre_dataflow_simulation_tick,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PostDataflowSimulationTick"),
-            &raw mut U_DATAFLOW_SIMULATION_ACTOR_POST_DATAFLOW_SIMULATION_TICK,
+            &raw mut __FUNCTION_PTRS
+                .u_dataflow_simulation_actor_post_dataflow_simulation_tick,
         );
     }
 }
@@ -140,7 +151,8 @@ impl UDataflowSimulationActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_PRE_DATAFLOW_SIMULATION_TICK,
+                crate::bindings::dataflow_simulation::__FUNCTION_PTRS
+                    .u_dataflow_simulation_actor_pre_dataflow_simulation_tick,
                 __buffer,
             )
         };
@@ -160,7 +172,8 @@ impl UDataflowSimulationActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_PRE_DATAFLOW_SIMULATION_TICK,
+                crate::bindings::dataflow_simulation::__FUNCTION_PTRS
+                    .u_dataflow_simulation_actor_pre_dataflow_simulation_tick,
                 __buffer,
             )
         };
@@ -177,7 +190,8 @@ impl UDataflowSimulationActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_POST_DATAFLOW_SIMULATION_TICK,
+                crate::bindings::dataflow_simulation::__FUNCTION_PTRS
+                    .u_dataflow_simulation_actor_post_dataflow_simulation_tick,
                 __buffer,
             )
         };
@@ -197,7 +211,8 @@ impl UDataflowSimulationActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::dataflow_simulation::U_DATAFLOW_SIMULATION_ACTOR_POST_DATAFLOW_SIMULATION_TICK,
+                crate::bindings::dataflow_simulation::__FUNCTION_PTRS
+                    .u_dataflow_simulation_actor_post_dataflow_simulation_tick,
                 __buffer,
             )
         };

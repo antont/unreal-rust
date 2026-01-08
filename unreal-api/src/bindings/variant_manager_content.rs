@@ -1,96 +1,105 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_LEVEL_VARIANT_SETS_GET_VARIANT_SET_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_VARIANT_SETS_GET_VARIANT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_VARIANT_SETS_GET_NUM_VARIANT_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_VARIANT_SETS_ACTOR_SET_LEVEL_VARIANT_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_VARIANT_SETS_ACTOR_GET_LEVEL_VARIANT_SETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_VALUE_HAS_RECORDED_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_VALUE_GET_PROPERTY_TOOLTIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PROPERTY_VALUE_GET_FULL_DISPLAY_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SWITCH_ACTOR_SELECT_OPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SWITCH_ACTOR_GET_SELECTED_OPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_SWITCH_ACTOR_GET_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SWITCH_ON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_THUMBNAIL_FROM_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_THUMBNAIL_FROM_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_THUMBNAIL_FROM_CAMERA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_DISPLAY_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_IS_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_THUMBNAIL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_NUM_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_NUM_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_DISPLAY_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_DEPENDENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_GET_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_DELETE_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_ADD_DEPENDENCY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_SET_THUMBNAIL_FROM_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_SET_THUMBNAIL_FROM_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_SET_THUMBNAIL_FROM_CAMERA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_SET_DISPLAY_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_GET_VARIANT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_GET_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_GET_THUMBNAIL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_GET_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_GET_NUM_VARIANTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_VARIANT_SET_GET_DISPLAY_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_level_variant_sets_get_variant_set_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_level_variant_sets_get_variant_set: *mut crate::ffi::UFunctionOpague,
+    pub u_level_variant_sets_get_num_variant_sets: *mut crate::ffi::UFunctionOpague,
+    pub a_level_variant_sets_actor_switch_on_variant_by_name: *mut crate::ffi::UFunctionOpague,
+    pub a_level_variant_sets_actor_switch_on_variant_by_index: *mut crate::ffi::UFunctionOpague,
+    pub a_level_variant_sets_actor_set_level_variant_sets: *mut crate::ffi::UFunctionOpague,
+    pub a_level_variant_sets_actor_get_level_variant_sets: *mut crate::ffi::UFunctionOpague,
+    pub u_property_value_has_recorded_data: *mut crate::ffi::UFunctionOpague,
+    pub u_property_value_get_property_tooltip: *mut crate::ffi::UFunctionOpague,
+    pub u_property_value_get_full_display_string: *mut crate::ffi::UFunctionOpague,
+    pub a_switch_actor_select_option: *mut crate::ffi::UFunctionOpague,
+    pub a_switch_actor_get_selected_option: *mut crate::ffi::UFunctionOpague,
+    pub a_switch_actor_get_options: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_switch_on: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_thumbnail_from_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_thumbnail_from_file: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_thumbnail_from_editor_viewport: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_thumbnail_from_camera: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_display_text: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_is_active: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_thumbnail: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_num_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_num_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_display_text: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_dependents: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_get_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_delete_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_add_dependency: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_set_thumbnail_from_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_set_thumbnail_from_file: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_set_thumbnail_from_editor_viewport: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_set_thumbnail_from_camera: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_set_display_text: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_get_variant_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_get_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_get_thumbnail: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_get_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_get_num_variants: *mut crate::ffi::UFunctionOpague,
+    pub u_variant_set_get_display_text: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_level_variant_sets_get_variant_set_by_name: std::ptr::null_mut(),
+            u_level_variant_sets_get_variant_set: std::ptr::null_mut(),
+            u_level_variant_sets_get_num_variant_sets: std::ptr::null_mut(),
+            a_level_variant_sets_actor_switch_on_variant_by_name: std::ptr::null_mut(),
+            a_level_variant_sets_actor_switch_on_variant_by_index: std::ptr::null_mut(),
+            a_level_variant_sets_actor_set_level_variant_sets: std::ptr::null_mut(),
+            a_level_variant_sets_actor_get_level_variant_sets: std::ptr::null_mut(),
+            u_property_value_has_recorded_data: std::ptr::null_mut(),
+            u_property_value_get_property_tooltip: std::ptr::null_mut(),
+            u_property_value_get_full_display_string: std::ptr::null_mut(),
+            a_switch_actor_select_option: std::ptr::null_mut(),
+            a_switch_actor_get_selected_option: std::ptr::null_mut(),
+            a_switch_actor_get_options: std::ptr::null_mut(),
+            u_variant_switch_on: std::ptr::null_mut(),
+            u_variant_set_thumbnail_from_texture: std::ptr::null_mut(),
+            u_variant_set_thumbnail_from_file: std::ptr::null_mut(),
+            u_variant_set_thumbnail_from_editor_viewport: std::ptr::null_mut(),
+            u_variant_set_thumbnail_from_camera: std::ptr::null_mut(),
+            u_variant_set_display_text: std::ptr::null_mut(),
+            u_variant_set_dependency: std::ptr::null_mut(),
+            u_variant_is_active: std::ptr::null_mut(),
+            u_variant_get_thumbnail: std::ptr::null_mut(),
+            u_variant_get_parent: std::ptr::null_mut(),
+            u_variant_get_num_dependencies: std::ptr::null_mut(),
+            u_variant_get_num_actors: std::ptr::null_mut(),
+            u_variant_get_display_text: std::ptr::null_mut(),
+            u_variant_get_dependents: std::ptr::null_mut(),
+            u_variant_get_dependency: std::ptr::null_mut(),
+            u_variant_get_actor: std::ptr::null_mut(),
+            u_variant_delete_dependency: std::ptr::null_mut(),
+            u_variant_add_dependency: std::ptr::null_mut(),
+            u_variant_set_set_thumbnail_from_texture: std::ptr::null_mut(),
+            u_variant_set_set_thumbnail_from_file: std::ptr::null_mut(),
+            u_variant_set_set_thumbnail_from_editor_viewport: std::ptr::null_mut(),
+            u_variant_set_set_thumbnail_from_camera: std::ptr::null_mut(),
+            u_variant_set_set_display_text: std::ptr::null_mut(),
+            u_variant_set_get_variant_by_name: std::ptr::null_mut(),
+            u_variant_set_get_variant: std::ptr::null_mut(),
+            u_variant_set_get_thumbnail: std::ptr::null_mut(),
+            u_variant_set_get_parent: std::ptr::null_mut(),
+            u_variant_set_get_num_variants: std::ptr::null_mut(),
+            u_variant_set_get_display_text: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -100,21 +109,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariantSetByName"),
-            &raw mut U_LEVEL_VARIANT_SETS_GET_VARIANT_SET_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_variant_set_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariantSet"),
-            &raw mut U_LEVEL_VARIANT_SETS_GET_VARIANT_SET,
+            &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_variant_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVariantSets"),
-            &raw mut U_LEVEL_VARIANT_SETS_GET_NUM_VARIANT_SETS,
+            &raw mut __FUNCTION_PTRS.u_level_variant_sets_get_num_variant_sets,
         );
     }
     unsafe {
@@ -125,28 +134,29 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwitchOnVariantByName"),
-            &raw mut A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_NAME,
+            &raw mut __FUNCTION_PTRS.a_level_variant_sets_actor_switch_on_variant_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwitchOnVariantByIndex"),
-            &raw mut A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .a_level_variant_sets_actor_switch_on_variant_by_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLevelVariantSets"),
-            &raw mut A_LEVEL_VARIANT_SETS_ACTOR_SET_LEVEL_VARIANT_SETS,
+            &raw mut __FUNCTION_PTRS.a_level_variant_sets_actor_set_level_variant_sets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLevelVariantSets"),
-            &raw mut A_LEVEL_VARIANT_SETS_ACTOR_GET_LEVEL_VARIANT_SETS,
+            &raw mut __FUNCTION_PTRS.a_level_variant_sets_actor_get_level_variant_sets,
         );
     }
     unsafe {
@@ -157,21 +167,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasRecordedData"),
-            &raw mut U_PROPERTY_VALUE_HAS_RECORDED_DATA,
+            &raw mut __FUNCTION_PTRS.u_property_value_has_recorded_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPropertyTooltip"),
-            &raw mut U_PROPERTY_VALUE_GET_PROPERTY_TOOLTIP,
+            &raw mut __FUNCTION_PTRS.u_property_value_get_property_tooltip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFullDisplayString"),
-            &raw mut U_PROPERTY_VALUE_GET_FULL_DISPLAY_STRING,
+            &raw mut __FUNCTION_PTRS.u_property_value_get_full_display_string,
         );
     }
     unsafe {
@@ -182,21 +192,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectOption"),
-            &raw mut A_SWITCH_ACTOR_SELECT_OPTION,
+            &raw mut __FUNCTION_PTRS.a_switch_actor_select_option,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedOption"),
-            &raw mut A_SWITCH_ACTOR_GET_SELECTED_OPTION,
+            &raw mut __FUNCTION_PTRS.a_switch_actor_get_selected_option,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOptions"),
-            &raw mut A_SWITCH_ACTOR_GET_OPTIONS,
+            &raw mut __FUNCTION_PTRS.a_switch_actor_get_options,
         );
     }
     unsafe {
@@ -207,126 +217,126 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwitchOn"),
-            &raw mut U_VARIANT_SWITCH_ON,
+            &raw mut __FUNCTION_PTRS.u_variant_switch_on,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromTexture"),
-            &raw mut U_VARIANT_SET_THUMBNAIL_FROM_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromFile"),
-            &raw mut U_VARIANT_SET_THUMBNAIL_FROM_FILE,
+            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromEditorViewport"),
-            &raw mut U_VARIANT_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_editor_viewport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromCamera"),
-            &raw mut U_VARIANT_SET_THUMBNAIL_FROM_CAMERA,
+            &raw mut __FUNCTION_PTRS.u_variant_set_thumbnail_from_camera,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayText"),
-            &raw mut U_VARIANT_SET_DISPLAY_TEXT,
+            &raw mut __FUNCTION_PTRS.u_variant_set_display_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDependency"),
-            &raw mut U_VARIANT_SET_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_variant_set_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActive"),
-            &raw mut U_VARIANT_IS_ACTIVE,
+            &raw mut __FUNCTION_PTRS.u_variant_is_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetThumbnail"),
-            &raw mut U_VARIANT_GET_THUMBNAIL,
+            &raw mut __FUNCTION_PTRS.u_variant_get_thumbnail,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParent"),
-            &raw mut U_VARIANT_GET_PARENT,
+            &raw mut __FUNCTION_PTRS.u_variant_get_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumDependencies"),
-            &raw mut U_VARIANT_GET_NUM_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS.u_variant_get_num_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumActors"),
-            &raw mut U_VARIANT_GET_NUM_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_variant_get_num_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayText"),
-            &raw mut U_VARIANT_GET_DISPLAY_TEXT,
+            &raw mut __FUNCTION_PTRS.u_variant_get_display_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDependents"),
-            &raw mut U_VARIANT_GET_DEPENDENTS,
+            &raw mut __FUNCTION_PTRS.u_variant_get_dependents,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDependency"),
-            &raw mut U_VARIANT_GET_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_variant_get_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActor"),
-            &raw mut U_VARIANT_GET_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_variant_get_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteDependency"),
-            &raw mut U_VARIANT_DELETE_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_variant_delete_dependency,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDependency"),
-            &raw mut U_VARIANT_ADD_DEPENDENCY,
+            &raw mut __FUNCTION_PTRS.u_variant_add_dependency,
         );
     }
     unsafe {
@@ -337,77 +347,77 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromTexture"),
-            &raw mut U_VARIANT_SET_SET_THUMBNAIL_FROM_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromFile"),
-            &raw mut U_VARIANT_SET_SET_THUMBNAIL_FROM_FILE,
+            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromEditorViewport"),
-            &raw mut U_VARIANT_SET_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_editor_viewport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetThumbnailFromCamera"),
-            &raw mut U_VARIANT_SET_SET_THUMBNAIL_FROM_CAMERA,
+            &raw mut __FUNCTION_PTRS.u_variant_set_set_thumbnail_from_camera,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDisplayText"),
-            &raw mut U_VARIANT_SET_SET_DISPLAY_TEXT,
+            &raw mut __FUNCTION_PTRS.u_variant_set_set_display_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariantByName"),
-            &raw mut U_VARIANT_SET_GET_VARIANT_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_variant_set_get_variant_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariant"),
-            &raw mut U_VARIANT_SET_GET_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_variant_set_get_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetThumbnail"),
-            &raw mut U_VARIANT_SET_GET_THUMBNAIL,
+            &raw mut __FUNCTION_PTRS.u_variant_set_get_thumbnail,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParent"),
-            &raw mut U_VARIANT_SET_GET_PARENT,
+            &raw mut __FUNCTION_PTRS.u_variant_set_get_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumVariants"),
-            &raw mut U_VARIANT_SET_GET_NUM_VARIANTS,
+            &raw mut __FUNCTION_PTRS.u_variant_set_get_num_variants,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayText"),
-            &raw mut U_VARIANT_SET_GET_DISPLAY_TEXT,
+            &raw mut __FUNCTION_PTRS.u_variant_set_get_display_text,
         );
     }
 }
@@ -449,7 +459,8 @@ impl ULevelVariantSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET_BY_NAME,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_level_variant_sets_get_variant_set_by_name,
                 __buffer,
             )
         };
@@ -466,7 +477,8 @@ impl ULevelVariantSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET_BY_NAME,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_level_variant_sets_get_variant_set_by_name,
                 __buffer,
             )
         };
@@ -480,7 +492,8 @@ impl ULevelVariantSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_level_variant_sets_get_variant_set,
                 __buffer,
             )
         };
@@ -497,7 +510,8 @@ impl ULevelVariantSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_VARIANT_SET,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_level_variant_sets_get_variant_set,
                 __buffer,
             )
         };
@@ -511,7 +525,8 @@ impl ULevelVariantSets {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_NUM_VARIANT_SETS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_level_variant_sets_get_num_variant_sets,
                 __buffer,
             )
         };
@@ -521,7 +536,8 @@ impl ULevelVariantSets {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_LEVEL_VARIANT_SETS_GET_NUM_VARIANT_SETS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_level_variant_sets_get_num_variant_sets,
                 __buffer,
             )
         };
@@ -563,7 +579,8 @@ impl ALevelVariantSetsActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_NAME,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_switch_on_variant_by_name,
                 __buffer,
             )
         };
@@ -587,7 +604,8 @@ impl ALevelVariantSetsActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_NAME,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_switch_on_variant_by_name,
                 __buffer,
             )
         };
@@ -605,7 +623,8 @@ impl ALevelVariantSetsActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_INDEX,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_switch_on_variant_by_index,
                 __buffer,
             )
         };
@@ -629,7 +648,8 @@ impl ALevelVariantSetsActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SWITCH_ON_VARIANT_BY_INDEX,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_switch_on_variant_by_index,
                 __buffer,
             )
         };
@@ -643,7 +663,8 @@ impl ALevelVariantSetsActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SET_LEVEL_VARIANT_SETS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_set_level_variant_sets,
                 __buffer,
             )
         };
@@ -660,7 +681,8 @@ impl ALevelVariantSetsActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_SET_LEVEL_VARIANT_SETS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_set_level_variant_sets,
                 __buffer,
             )
         };
@@ -673,7 +695,8 @@ impl ALevelVariantSetsActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_GET_LEVEL_VARIANT_SETS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_get_level_variant_sets,
                 __buffer,
             )
         };
@@ -686,7 +709,8 @@ impl ALevelVariantSetsActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::A_LEVEL_VARIANT_SETS_ACTOR_GET_LEVEL_VARIANT_SETS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_level_variant_sets_actor_get_level_variant_sets,
                 __buffer,
             )
         };
@@ -742,7 +766,8 @@ impl UPropertyValue {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_HAS_RECORDED_DATA,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_property_value_has_recorded_data,
                 __buffer,
             )
         };
@@ -752,7 +777,8 @@ impl UPropertyValue {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_HAS_RECORDED_DATA,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_property_value_has_recorded_data,
                 __buffer,
             )
         };
@@ -766,7 +792,8 @@ impl UPropertyValue {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_PROPERTY_TOOLTIP,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_property_value_get_property_tooltip,
                 __buffer,
             )
         };
@@ -776,7 +803,8 @@ impl UPropertyValue {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_PROPERTY_TOOLTIP,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_property_value_get_property_tooltip,
                 __buffer,
             )
         };
@@ -790,7 +818,8 @@ impl UPropertyValue {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_FULL_DISPLAY_STRING,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_property_value_get_full_display_string,
                 __buffer,
             )
         };
@@ -800,7 +829,8 @@ impl UPropertyValue {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_PROPERTY_VALUE_GET_FULL_DISPLAY_STRING,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_property_value_get_full_display_string,
                 __buffer,
             )
         };
@@ -961,7 +991,8 @@ impl ASwitchActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_SELECT_OPTION,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_switch_actor_select_option,
                 __buffer,
             )
         };
@@ -978,7 +1009,8 @@ impl ASwitchActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_SELECT_OPTION,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_switch_actor_select_option,
                 __buffer,
             )
         };
@@ -991,7 +1023,8 @@ impl ASwitchActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_SELECTED_OPTION,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_switch_actor_get_selected_option,
                 __buffer,
             )
         };
@@ -1001,7 +1034,8 @@ impl ASwitchActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_SELECTED_OPTION,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_switch_actor_get_selected_option,
                 __buffer,
             )
         };
@@ -1015,7 +1049,8 @@ impl ASwitchActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_OPTIONS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_switch_actor_get_options,
                 __buffer,
             )
         };
@@ -1025,7 +1060,8 @@ impl ASwitchActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::A_SWITCH_ACTOR_GET_OPTIONS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .a_switch_actor_get_options,
                 __buffer,
             )
         };
@@ -1061,7 +1097,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SWITCH_ON,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_switch_on,
                 __buffer,
             )
         };
@@ -1071,7 +1108,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SWITCH_ON,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_switch_on,
                 __buffer,
             )
         };
@@ -1087,7 +1125,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_TEXTURE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_texture,
                 __buffer,
             )
         };
@@ -1104,7 +1143,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_TEXTURE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_texture,
                 __buffer,
             )
         };
@@ -1117,7 +1157,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_FILE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_file,
                 __buffer,
             )
         };
@@ -1134,7 +1175,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_FILE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_file,
                 __buffer,
             )
         };
@@ -1147,7 +1189,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_editor_viewport,
                 __buffer,
             )
         };
@@ -1157,7 +1200,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_editor_viewport,
                 __buffer,
             )
         };
@@ -1177,7 +1221,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_CAMERA,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_camera,
                 __buffer,
             )
         };
@@ -1214,7 +1259,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_THUMBNAIL_FROM_CAMERA,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_thumbnail_from_camera,
                 __buffer,
             )
         };
@@ -1227,7 +1273,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_display_text,
                 __buffer,
             )
         };
@@ -1244,7 +1291,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_display_text,
                 __buffer,
             )
         };
@@ -1257,7 +1305,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_IS_ACTIVE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_is_active,
                 __buffer,
             )
         };
@@ -1267,7 +1316,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_IS_ACTIVE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_is_active,
                 __buffer,
             )
         };
@@ -1281,7 +1331,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_THUMBNAIL,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_thumbnail,
                 __buffer,
             )
         };
@@ -1291,7 +1342,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_THUMBNAIL,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_thumbnail,
                 __buffer,
             )
         };
@@ -1307,7 +1359,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_PARENT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_parent,
                 __buffer,
             )
         };
@@ -1317,7 +1370,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_PARENT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_parent,
                 __buffer,
             )
         };
@@ -1331,7 +1385,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_DEPENDENCIES,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_num_dependencies,
                 __buffer,
             )
         };
@@ -1341,7 +1396,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_DEPENDENCIES,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_num_dependencies,
                 __buffer,
             )
         };
@@ -1355,7 +1411,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_ACTORS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_num_actors,
                 __buffer,
             )
         };
@@ -1365,7 +1422,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_NUM_ACTORS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_num_actors,
                 __buffer,
             )
         };
@@ -1379,7 +1437,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_display_text,
                 __buffer,
             )
         };
@@ -1389,7 +1448,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_display_text,
                 __buffer,
             )
         };
@@ -1407,7 +1467,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENTS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_dependents,
                 __buffer,
             )
         };
@@ -1431,7 +1492,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENTS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_dependents,
                 __buffer,
             )
         };
@@ -1445,7 +1507,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENCY,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_dependency,
                 __buffer,
             )
         };
@@ -1458,7 +1521,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_DEPENDENCY,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_dependency,
                 __buffer,
             )
         };
@@ -1475,7 +1539,8 @@ impl UVariant {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_GET_ACTOR,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_actor,
                 __buffer,
             )
         };
@@ -1492,7 +1557,8 @@ impl UVariant {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_GET_ACTOR,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_get_actor,
                 __buffer,
             )
         };
@@ -1551,7 +1617,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_TEXTURE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_texture,
                 __buffer,
             )
         };
@@ -1568,7 +1635,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_TEXTURE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_texture,
                 __buffer,
             )
         };
@@ -1581,7 +1649,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_FILE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_file,
                 __buffer,
             )
         };
@@ -1598,7 +1667,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_FILE,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_file,
                 __buffer,
             )
         };
@@ -1611,7 +1681,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_editor_viewport,
                 __buffer,
             )
         };
@@ -1621,7 +1692,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_EDITOR_VIEWPORT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_editor_viewport,
                 __buffer,
             )
         };
@@ -1641,7 +1713,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_CAMERA,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_camera,
                 __buffer,
             )
         };
@@ -1678,7 +1751,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_THUMBNAIL_FROM_CAMERA,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_thumbnail_from_camera,
                 __buffer,
             )
         };
@@ -1691,7 +1765,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_display_text,
                 __buffer,
             )
         };
@@ -1708,7 +1783,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_SET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_set_display_text,
                 __buffer,
             )
         };
@@ -1721,7 +1797,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT_BY_NAME,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_variant_by_name,
                 __buffer,
             )
         };
@@ -1738,7 +1815,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT_BY_NAME,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_variant_by_name,
                 __buffer,
             )
         };
@@ -1752,7 +1830,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_variant,
                 __buffer,
             )
         };
@@ -1769,7 +1848,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_VARIANT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_variant,
                 __buffer,
             )
         };
@@ -1783,7 +1863,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_THUMBNAIL,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_thumbnail,
                 __buffer,
             )
         };
@@ -1793,7 +1874,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_THUMBNAIL,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_thumbnail,
                 __buffer,
             )
         };
@@ -1809,7 +1891,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_PARENT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_parent,
                 __buffer,
             )
         };
@@ -1819,7 +1902,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_PARENT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_parent,
                 __buffer,
             )
         };
@@ -1833,7 +1917,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_NUM_VARIANTS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_num_variants,
                 __buffer,
             )
         };
@@ -1843,7 +1928,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_NUM_VARIANTS,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_num_variants,
                 __buffer,
             )
         };
@@ -1857,7 +1943,8 @@ impl UVariantSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_display_text,
                 __buffer,
             )
         };
@@ -1867,7 +1954,8 @@ impl UVariantSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::variant_manager_content::U_VARIANT_SET_GET_DISPLAY_TEXT,
+                crate::bindings::variant_manager_content::__FUNCTION_PTRS
+                    .u_variant_set_get_display_text,
                 __buffer,
             )
         };

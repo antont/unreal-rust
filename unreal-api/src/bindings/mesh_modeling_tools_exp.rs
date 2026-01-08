@@ -1,134 +1,143 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_BAKE_INPUT_MESH_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_INPUT_MESH_PROPERTIES_GET_SOURCE_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_TEXTURE2_D_PROPERTIES_GET_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_MULTI_TEXTURE2_D_PROPERTIES_GET_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_MESH_ATTRIBUTE_MAPS_TOOL_PROPERTIES_GET_MAP_PREVIEW_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_MULTI_MESH_ATTRIBUTE_MAPS_TOOL_PROPERTIES_GET_MAP_PREVIEW_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_BAKE_MULTI_MESH_INPUT_TOOL_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_SLIDE_FORWARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_SLIDE_BACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_RESET_GRID_FROM_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_PUSH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_PULL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_FLIP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_CORNER_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_CUBE_GRID_TOOL_ACTIONS_ACCEPT_AND_START_NEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_WORLD_ORIGIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_TOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_RIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_LEFT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_FRONT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_CENTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_BOTTOM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_BACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_INSPECTOR_MATERIAL_PROPERTIES_GET_UV_CHANNEL_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_SHRINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_SELECT_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_OPTIMIZE_BORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_LARGEST_TRI_COUNT_PART: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_LARGEST_AREA_PART: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_INVERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_GROW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_FLOOD_FILL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_EXPAND_TO_MATERIALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_EDIT_ACTIONS_CLEAR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_SMOOTH_BORDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_SEPARATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_FLIP_NORMALS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_DUPLICATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_DISCONNECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_CREATE_POLYGROUP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_UP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_SHIFT_TO_CENTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_RIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_LEFT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_FORWARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_DOWN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_BACKWARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_DUPLICATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_DELETE_ALL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_ADD_SPHERE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_ADD_CAPSULE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_ADD_BOX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLANE_CUT_TOOL_FLIP_PLANE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PLANE_CUT_TOOL_CUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_REVOLVE_SPLINE_TOOL_ACTION_PROPERTY_SET_RESET_AXIS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRANSFER_MESH_TOOL_PROPERTIES_GET_TARGET_LOD_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TRANSFER_MESH_TOOL_PROPERTIES_GET_SOURCE_LOD_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_TRANSFER_TOOL_PROPERTIES_GET_SOURCE_UV_CHANNEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_TRANSFER_TOOL_PROPERTIES_GET_DEST_UV_CHANNEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_bake_input_mesh_properties_get_target_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_input_mesh_properties_get_source_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_texture2_d_properties_get_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_multi_texture2_d_properties_get_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_mesh_attribute_maps_tool_properties_get_map_preview_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_multi_mesh_attribute_maps_tool_properties_get_map_preview_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_bake_multi_mesh_input_tool_properties_get_target_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_slide_forward: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_slide_back: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_reset_grid_from_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_push: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_pull: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_flip: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_corner_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_cube_grid_tool_actions_accept_and_start_new: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_world_origin: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_top: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_right: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_left: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_front: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_center: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_bottom: *mut crate::ffi::UFunctionOpague,
+    pub u_edit_pivot_tool_action_property_set_back: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_inspector_material_properties_get_uv_channel_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_shrink: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_select_all: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_optimize_border: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_largest_tri_count_part: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_largest_area_part: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_invert: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_grow: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_flood_fill: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_expand_to_materials: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_edit_actions_clear: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_mesh_edit_actions_smooth_border: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_mesh_edit_actions_separate: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_mesh_edit_actions_flip_normals: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_mesh_edit_actions_duplicate: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_mesh_edit_actions_disconnect: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_mesh_edit_actions_delete: *mut crate::ffi::UFunctionOpague,
+    pub u_mesh_selection_mesh_edit_actions_create_polygroup: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_tool_action_property_set_up: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_tool_action_property_set_shift_to_center: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_tool_action_property_set_right: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_tool_action_property_set_left: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_tool_action_property_set_forward: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_tool_action_property_set_down: *mut crate::ffi::UFunctionOpague,
+    pub u_mirror_tool_action_property_set_backward: *mut crate::ffi::UFunctionOpague,
+    pub u_simple_collision_editor_tool_action_properties_duplicate: *mut crate::ffi::UFunctionOpague,
+    pub u_simple_collision_editor_tool_action_properties_delete_all: *mut crate::ffi::UFunctionOpague,
+    pub u_simple_collision_editor_tool_action_properties_delete: *mut crate::ffi::UFunctionOpague,
+    pub u_simple_collision_editor_tool_action_properties_add_sphere: *mut crate::ffi::UFunctionOpague,
+    pub u_simple_collision_editor_tool_action_properties_add_capsule: *mut crate::ffi::UFunctionOpague,
+    pub u_simple_collision_editor_tool_action_properties_add_box: *mut crate::ffi::UFunctionOpague,
+    pub u_plane_cut_tool_flip_plane: *mut crate::ffi::UFunctionOpague,
+    pub u_plane_cut_tool_cut: *mut crate::ffi::UFunctionOpague,
+    pub u_revolve_spline_tool_action_property_set_reset_axis: *mut crate::ffi::UFunctionOpague,
+    pub u_transfer_mesh_tool_properties_get_target_lod_names_func: *mut crate::ffi::UFunctionOpague,
+    pub u_transfer_mesh_tool_properties_get_source_lod_names_func: *mut crate::ffi::UFunctionOpague,
+    pub uuv_transfer_tool_properties_get_source_uv_channel_names: *mut crate::ffi::UFunctionOpague,
+    pub uuv_transfer_tool_properties_get_dest_uv_channel_names: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_bake_input_mesh_properties_get_target_uv_layer_names_func: std::ptr::null_mut(),
+            u_bake_input_mesh_properties_get_source_uv_layer_names_func: std::ptr::null_mut(),
+            u_bake_texture2_d_properties_get_uv_layer_names_func: std::ptr::null_mut(),
+            u_bake_multi_texture2_d_properties_get_uv_layer_names_func: std::ptr::null_mut(),
+            u_bake_mesh_attribute_maps_tool_properties_get_map_preview_names_func: std::ptr::null_mut(),
+            u_bake_multi_mesh_attribute_maps_tool_properties_get_map_preview_names_func: std::ptr::null_mut(),
+            u_bake_multi_mesh_input_tool_properties_get_target_uv_layer_names_func: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_slide_forward: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_slide_back: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_reset_grid_from_actor: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_push: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_pull: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_flip: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_corner_mode: std::ptr::null_mut(),
+            u_cube_grid_tool_actions_accept_and_start_new: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_world_origin: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_top: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_right: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_left: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_front: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_center: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_bottom: std::ptr::null_mut(),
+            u_edit_pivot_tool_action_property_set_back: std::ptr::null_mut(),
+            u_mesh_inspector_material_properties_get_uv_channel_names_func: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_shrink: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_select_all: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_optimize_border: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_largest_tri_count_part: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_largest_area_part: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_invert: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_grow: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_flood_fill: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_expand_to_materials: std::ptr::null_mut(),
+            u_mesh_selection_edit_actions_clear: std::ptr::null_mut(),
+            u_mesh_selection_mesh_edit_actions_smooth_border: std::ptr::null_mut(),
+            u_mesh_selection_mesh_edit_actions_separate: std::ptr::null_mut(),
+            u_mesh_selection_mesh_edit_actions_flip_normals: std::ptr::null_mut(),
+            u_mesh_selection_mesh_edit_actions_duplicate: std::ptr::null_mut(),
+            u_mesh_selection_mesh_edit_actions_disconnect: std::ptr::null_mut(),
+            u_mesh_selection_mesh_edit_actions_delete: std::ptr::null_mut(),
+            u_mesh_selection_mesh_edit_actions_create_polygroup: std::ptr::null_mut(),
+            u_mirror_tool_action_property_set_up: std::ptr::null_mut(),
+            u_mirror_tool_action_property_set_shift_to_center: std::ptr::null_mut(),
+            u_mirror_tool_action_property_set_right: std::ptr::null_mut(),
+            u_mirror_tool_action_property_set_left: std::ptr::null_mut(),
+            u_mirror_tool_action_property_set_forward: std::ptr::null_mut(),
+            u_mirror_tool_action_property_set_down: std::ptr::null_mut(),
+            u_mirror_tool_action_property_set_backward: std::ptr::null_mut(),
+            u_simple_collision_editor_tool_action_properties_duplicate: std::ptr::null_mut(),
+            u_simple_collision_editor_tool_action_properties_delete_all: std::ptr::null_mut(),
+            u_simple_collision_editor_tool_action_properties_delete: std::ptr::null_mut(),
+            u_simple_collision_editor_tool_action_properties_add_sphere: std::ptr::null_mut(),
+            u_simple_collision_editor_tool_action_properties_add_capsule: std::ptr::null_mut(),
+            u_simple_collision_editor_tool_action_properties_add_box: std::ptr::null_mut(),
+            u_plane_cut_tool_flip_plane: std::ptr::null_mut(),
+            u_plane_cut_tool_cut: std::ptr::null_mut(),
+            u_revolve_spline_tool_action_property_set_reset_axis: std::ptr::null_mut(),
+            u_transfer_mesh_tool_properties_get_target_lod_names_func: std::ptr::null_mut(),
+            u_transfer_mesh_tool_properties_get_source_lod_names_func: std::ptr::null_mut(),
+            uuv_transfer_tool_properties_get_source_uv_channel_names: std::ptr::null_mut(),
+            uuv_transfer_tool_properties_get_dest_uv_channel_names: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -138,14 +147,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetUVLayerNamesFunc"),
-            &raw mut U_BAKE_INPUT_MESH_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_input_mesh_properties_get_target_uv_layer_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceUVLayerNamesFunc"),
-            &raw mut U_BAKE_INPUT_MESH_PROPERTIES_GET_SOURCE_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_input_mesh_properties_get_source_uv_layer_names_func,
         );
     }
     unsafe {
@@ -156,7 +167,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVLayerNamesFunc"),
-            &raw mut U_BAKE_TEXTURE2_D_PROPERTIES_GET_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS.u_bake_texture2_d_properties_get_uv_layer_names_func,
         );
     }
     unsafe {
@@ -167,7 +178,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVLayerNamesFunc"),
-            &raw mut U_BAKE_MULTI_TEXTURE2_D_PROPERTIES_GET_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_multi_texture2_d_properties_get_uv_layer_names_func,
         );
     }
     unsafe {
@@ -178,7 +190,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMapPreviewNamesFunc"),
-            &raw mut U_BAKE_MESH_ATTRIBUTE_MAPS_TOOL_PROPERTIES_GET_MAP_PREVIEW_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_mesh_attribute_maps_tool_properties_get_map_preview_names_func,
         );
     }
     unsafe {
@@ -189,7 +202,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMapPreviewNamesFunc"),
-            &raw mut U_BAKE_MULTI_MESH_ATTRIBUTE_MAPS_TOOL_PROPERTIES_GET_MAP_PREVIEW_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_multi_mesh_attribute_maps_tool_properties_get_map_preview_names_func,
         );
     }
     unsafe {
@@ -200,7 +214,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetUVLayerNamesFunc"),
-            &raw mut U_BAKE_MULTI_MESH_INPUT_TOOL_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_bake_multi_mesh_input_tool_properties_get_target_uv_layer_names_func,
         );
     }
     unsafe {
@@ -211,56 +226,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SlideForward"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_SLIDE_FORWARD,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_slide_forward,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SlideBack"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_SLIDE_BACK,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_slide_back,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetGridFromActor"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_RESET_GRID_FROM_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_reset_grid_from_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Push"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_PUSH,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_push,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Pull"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_PULL,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_pull,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Flip"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_FLIP,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_flip,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CornerMode"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_CORNER_MODE,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_corner_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AcceptAndStartNew"),
-            &raw mut U_CUBE_GRID_TOOL_ACTIONS_ACCEPT_AND_START_NEW,
+            &raw mut __FUNCTION_PTRS.u_cube_grid_tool_actions_accept_and_start_new,
         );
     }
     unsafe {
@@ -271,56 +286,56 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WorldOrigin"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_WORLD_ORIGIN,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_world_origin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Top"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_TOP,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_top,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Right"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_RIGHT,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_right,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Left"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_LEFT,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_left,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Front"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_FRONT,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_front,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Center"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_CENTER,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_center,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Bottom"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_BOTTOM,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_bottom,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Back"),
-            &raw mut U_EDIT_PIVOT_TOOL_ACTION_PROPERTY_SET_BACK,
+            &raw mut __FUNCTION_PTRS.u_edit_pivot_tool_action_property_set_back,
         );
     }
     unsafe {
@@ -331,7 +346,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVChannelNamesFunc"),
-            &raw mut U_MESH_INSPECTOR_MATERIAL_PROPERTIES_GET_UV_CHANNEL_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_mesh_inspector_material_properties_get_uv_channel_names_func,
         );
     }
     unsafe {
@@ -342,70 +358,70 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Shrink"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_SHRINK,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_shrink,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectAll"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_SELECT_ALL,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_select_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OptimizeBorder"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_OPTIMIZE_BORDER,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_optimize_border,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LargestTriCountPart"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_LARGEST_TRI_COUNT_PART,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_largest_tri_count_part,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LargestAreaPart"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_LARGEST_AREA_PART,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_largest_area_part,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Invert"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_INVERT,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_invert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Grow"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_GROW,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_grow,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FloodFill"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_FLOOD_FILL,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_flood_fill,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExpandToMaterials"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_EXPAND_TO_MATERIALS,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_expand_to_materials,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Clear"),
-            &raw mut U_MESH_SELECTION_EDIT_ACTIONS_CLEAR,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_edit_actions_clear,
         );
     }
     unsafe {
@@ -416,49 +432,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SmoothBorder"),
-            &raw mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_SMOOTH_BORDER,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_mesh_edit_actions_smooth_border,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Separate"),
-            &raw mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_SEPARATE,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_mesh_edit_actions_separate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FlipNormals"),
-            &raw mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_FLIP_NORMALS,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_mesh_edit_actions_flip_normals,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Duplicate"),
-            &raw mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_DUPLICATE,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_mesh_edit_actions_duplicate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Disconnect"),
-            &raw mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_DISCONNECT,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_mesh_edit_actions_disconnect,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_DELETE,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_mesh_edit_actions_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePolygroup"),
-            &raw mut U_MESH_SELECTION_MESH_EDIT_ACTIONS_CREATE_POLYGROUP,
+            &raw mut __FUNCTION_PTRS.u_mesh_selection_mesh_edit_actions_create_polygroup,
         );
     }
     unsafe {
@@ -469,49 +485,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Up"),
-            &raw mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_UP,
+            &raw mut __FUNCTION_PTRS.u_mirror_tool_action_property_set_up,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShiftToCenter"),
-            &raw mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_SHIFT_TO_CENTER,
+            &raw mut __FUNCTION_PTRS.u_mirror_tool_action_property_set_shift_to_center,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Right"),
-            &raw mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_RIGHT,
+            &raw mut __FUNCTION_PTRS.u_mirror_tool_action_property_set_right,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Left"),
-            &raw mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_LEFT,
+            &raw mut __FUNCTION_PTRS.u_mirror_tool_action_property_set_left,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Forward"),
-            &raw mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_FORWARD,
+            &raw mut __FUNCTION_PTRS.u_mirror_tool_action_property_set_forward,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Down"),
-            &raw mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_DOWN,
+            &raw mut __FUNCTION_PTRS.u_mirror_tool_action_property_set_down,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Backward"),
-            &raw mut U_MIRROR_TOOL_ACTION_PROPERTY_SET_BACKWARD,
+            &raw mut __FUNCTION_PTRS.u_mirror_tool_action_property_set_backward,
         );
     }
     unsafe {
@@ -522,42 +538,48 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Duplicate"),
-            &raw mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_DUPLICATE,
+            &raw mut __FUNCTION_PTRS
+                .u_simple_collision_editor_tool_action_properties_duplicate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteAll"),
-            &raw mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_DELETE_ALL,
+            &raw mut __FUNCTION_PTRS
+                .u_simple_collision_editor_tool_action_properties_delete_all,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Delete"),
-            &raw mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_DELETE,
+            &raw mut __FUNCTION_PTRS
+                .u_simple_collision_editor_tool_action_properties_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSphere"),
-            &raw mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_ADD_SPHERE,
+            &raw mut __FUNCTION_PTRS
+                .u_simple_collision_editor_tool_action_properties_add_sphere,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCapsule"),
-            &raw mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_ADD_CAPSULE,
+            &raw mut __FUNCTION_PTRS
+                .u_simple_collision_editor_tool_action_properties_add_capsule,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBox"),
-            &raw mut U_SIMPLE_COLLISION_EDITOR_TOOL_ACTION_PROPERTIES_ADD_BOX,
+            &raw mut __FUNCTION_PTRS
+                .u_simple_collision_editor_tool_action_properties_add_box,
         );
     }
     unsafe {
@@ -568,14 +590,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FlipPlane"),
-            &raw mut U_PLANE_CUT_TOOL_FLIP_PLANE,
+            &raw mut __FUNCTION_PTRS.u_plane_cut_tool_flip_plane,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Cut"),
-            &raw mut U_PLANE_CUT_TOOL_CUT,
+            &raw mut __FUNCTION_PTRS.u_plane_cut_tool_cut,
         );
     }
     unsafe {
@@ -586,7 +608,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetAxis"),
-            &raw mut U_REVOLVE_SPLINE_TOOL_ACTION_PROPERTY_SET_RESET_AXIS,
+            &raw mut __FUNCTION_PTRS.u_revolve_spline_tool_action_property_set_reset_axis,
         );
     }
     unsafe {
@@ -597,14 +619,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetLODNamesFunc"),
-            &raw mut U_TRANSFER_MESH_TOOL_PROPERTIES_GET_TARGET_LOD_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_transfer_mesh_tool_properties_get_target_lod_names_func,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceLODNamesFunc"),
-            &raw mut U_TRANSFER_MESH_TOOL_PROPERTIES_GET_SOURCE_LOD_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .u_transfer_mesh_tool_properties_get_source_lod_names_func,
         );
     }
     unsafe {
@@ -615,14 +639,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceUVChannelNames"),
-            &raw mut UUV_TRANSFER_TOOL_PROPERTIES_GET_SOURCE_UV_CHANNEL_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .uuv_transfer_tool_properties_get_source_uv_channel_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDestUVChannelNames"),
-            &raw mut UUV_TRANSFER_TOOL_PROPERTIES_GET_DEST_UV_CHANNEL_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .uuv_transfer_tool_properties_get_dest_uv_channel_names,
         );
     }
 }

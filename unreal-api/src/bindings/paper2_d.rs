@@ -1,146 +1,155 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_GET_TOTAL_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_GET_NUM_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_STOP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_ON_REP_SOURCE_FLIPBOOK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_SPRITE_COMPONENT_GET_SPRITE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_paper_flipbook_is_valid_key_frame_index: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_get_total_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_get_sprite_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_get_sprite_at_frame: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_get_num_key_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_get_num_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_get_key_frame_index_at_time: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_stop: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_set_sprite_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_set_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_set_playback_position_in_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_set_playback_position: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_set_new_time: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_set_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_set_flipbook: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_reverse_from_end: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_reverse: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_play_from_start: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_play: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_on_rep_source_flipbook: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_is_reversing: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_is_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_is_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_sprite_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_play_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_playback_position_in_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_playback_position: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_flipbook_length_in_frames: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_flipbook_length: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_flipbook_framerate: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_flipbook_component_get_flipbook: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_update_instance_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_update_instance_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_sort_instances_along_axis: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_remove_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_get_instance_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_get_instance_count: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_clear_instances: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_grouped_sprite_component_add_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_sprite_blueprint_library_make_brush_from_sprite: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_sprite_component_set_sprite_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_sprite_component_set_sprite: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_sprite_component_get_sprite: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_set_tile_map_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_set_tile_map: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_set_tile: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_set_layer_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_set_layer_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_set_default_collision_thickness: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_resize_map: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_rebuild_collision: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_owns_tile_map: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_make_tile_map_editable: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_get_tile_polygon: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_get_tile_map_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_get_tile_corner_position: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_get_tile_center_position: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_get_tile: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_get_map_size: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_get_layer_color: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_create_new_tile_map: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_tile_map_component_add_new_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_paper_terrain_component_set_terrain_color: *mut crate::ffi::UFunctionOpague,
+    pub u_tile_map_blueprint_library_make_tile: *mut crate::ffi::UFunctionOpague,
+    pub u_tile_map_blueprint_library_get_tile_user_data: *mut crate::ffi::UFunctionOpague,
+    pub u_tile_map_blueprint_library_get_tile_transform: *mut crate::ffi::UFunctionOpague,
+    pub u_tile_map_blueprint_library_break_tile: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_paper_flipbook_is_valid_key_frame_index: std::ptr::null_mut(),
+            u_paper_flipbook_get_total_duration: std::ptr::null_mut(),
+            u_paper_flipbook_get_sprite_at_time: std::ptr::null_mut(),
+            u_paper_flipbook_get_sprite_at_frame: std::ptr::null_mut(),
+            u_paper_flipbook_get_num_key_frames: std::ptr::null_mut(),
+            u_paper_flipbook_get_num_frames: std::ptr::null_mut(),
+            u_paper_flipbook_get_key_frame_index_at_time: std::ptr::null_mut(),
+            u_paper_flipbook_component_stop: std::ptr::null_mut(),
+            u_paper_flipbook_component_set_sprite_color: std::ptr::null_mut(),
+            u_paper_flipbook_component_set_play_rate: std::ptr::null_mut(),
+            u_paper_flipbook_component_set_playback_position_in_frames: std::ptr::null_mut(),
+            u_paper_flipbook_component_set_playback_position: std::ptr::null_mut(),
+            u_paper_flipbook_component_set_new_time: std::ptr::null_mut(),
+            u_paper_flipbook_component_set_looping: std::ptr::null_mut(),
+            u_paper_flipbook_component_set_flipbook: std::ptr::null_mut(),
+            u_paper_flipbook_component_reverse_from_end: std::ptr::null_mut(),
+            u_paper_flipbook_component_reverse: std::ptr::null_mut(),
+            u_paper_flipbook_component_play_from_start: std::ptr::null_mut(),
+            u_paper_flipbook_component_play: std::ptr::null_mut(),
+            u_paper_flipbook_component_on_rep_source_flipbook: std::ptr::null_mut(),
+            u_paper_flipbook_component_is_reversing: std::ptr::null_mut(),
+            u_paper_flipbook_component_is_playing: std::ptr::null_mut(),
+            u_paper_flipbook_component_is_looping: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_sprite_color: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_play_rate: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_playback_position_in_frames: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_playback_position: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_flipbook_length_in_frames: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_flipbook_length: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_flipbook_framerate: std::ptr::null_mut(),
+            u_paper_flipbook_component_get_flipbook: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_update_instance_transform: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_update_instance_color: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_sort_instances_along_axis: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_remove_instance: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_get_instance_transform: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_get_instance_count: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_clear_instances: std::ptr::null_mut(),
+            u_paper_grouped_sprite_component_add_instance: std::ptr::null_mut(),
+            u_paper_sprite_blueprint_library_make_brush_from_sprite: std::ptr::null_mut(),
+            u_paper_sprite_component_set_sprite_color: std::ptr::null_mut(),
+            u_paper_sprite_component_set_sprite: std::ptr::null_mut(),
+            u_paper_sprite_component_get_sprite: std::ptr::null_mut(),
+            u_paper_tile_map_component_set_tile_map_color: std::ptr::null_mut(),
+            u_paper_tile_map_component_set_tile_map: std::ptr::null_mut(),
+            u_paper_tile_map_component_set_tile: std::ptr::null_mut(),
+            u_paper_tile_map_component_set_layer_color: std::ptr::null_mut(),
+            u_paper_tile_map_component_set_layer_collision: std::ptr::null_mut(),
+            u_paper_tile_map_component_set_default_collision_thickness: std::ptr::null_mut(),
+            u_paper_tile_map_component_resize_map: std::ptr::null_mut(),
+            u_paper_tile_map_component_rebuild_collision: std::ptr::null_mut(),
+            u_paper_tile_map_component_owns_tile_map: std::ptr::null_mut(),
+            u_paper_tile_map_component_make_tile_map_editable: std::ptr::null_mut(),
+            u_paper_tile_map_component_get_tile_polygon: std::ptr::null_mut(),
+            u_paper_tile_map_component_get_tile_map_color: std::ptr::null_mut(),
+            u_paper_tile_map_component_get_tile_corner_position: std::ptr::null_mut(),
+            u_paper_tile_map_component_get_tile_center_position: std::ptr::null_mut(),
+            u_paper_tile_map_component_get_tile: std::ptr::null_mut(),
+            u_paper_tile_map_component_get_map_size: std::ptr::null_mut(),
+            u_paper_tile_map_component_get_layer_color: std::ptr::null_mut(),
+            u_paper_tile_map_component_create_new_tile_map: std::ptr::null_mut(),
+            u_paper_tile_map_component_add_new_layer: std::ptr::null_mut(),
+            u_paper_terrain_component_set_terrain_color: std::ptr::null_mut(),
+            u_tile_map_blueprint_library_make_tile: std::ptr::null_mut(),
+            u_tile_map_blueprint_library_get_tile_user_data: std::ptr::null_mut(),
+            u_tile_map_blueprint_library_get_tile_transform: std::ptr::null_mut(),
+            u_tile_map_blueprint_library_break_tile: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -150,49 +159,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidKeyFrameIndex"),
-            &raw mut U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_is_valid_key_frame_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTotalDuration"),
-            &raw mut U_PAPER_FLIPBOOK_GET_TOTAL_DURATION,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_get_total_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpriteAtTime"),
-            &raw mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_get_sprite_at_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpriteAtFrame"),
-            &raw mut U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_get_sprite_at_frame,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumKeyFrames"),
-            &raw mut U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_get_num_key_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumFrames"),
-            &raw mut U_PAPER_FLIPBOOK_GET_NUM_FRAMES,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_get_num_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetKeyFrameIndexAtTime"),
-            &raw mut U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_get_key_frame_index_at_time,
         );
     }
     unsafe {
@@ -203,168 +212,171 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Stop"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_STOP,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_stop,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpriteColor"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_set_sprite_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlayRate"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_set_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackPositionInFrames"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_flipbook_component_set_playback_position_in_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackPosition"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_set_playback_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNewTime"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_set_new_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLooping"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_set_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFlipbook"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_set_flipbook,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReverseFromEnd"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_reverse_from_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reverse"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_REVERSE,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_reverse,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayFromStart"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_play_from_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Play"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_PLAY,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRep_SourceFlipbook"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_ON_REP_SOURCE_FLIPBOOK,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_on_rep_source_flipbook,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReversing"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_is_reversing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_is_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLooping"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_is_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpriteColor"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_get_sprite_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayRate"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_get_play_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackPositionInFrames"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_flipbook_component_get_playback_position_in_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackPosition"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_get_playback_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFlipbookLengthInFrames"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_flipbook_component_get_flipbook_length_in_frames,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFlipbookLength"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_get_flipbook_length,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFlipbookFramerate"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_get_flipbook_framerate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFlipbook"),
-            &raw mut U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK,
+            &raw mut __FUNCTION_PTRS.u_paper_flipbook_component_get_flipbook,
         );
     }
     unsafe {
@@ -375,56 +387,60 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateInstanceTransform"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_grouped_sprite_component_update_instance_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateInstanceColor"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_grouped_sprite_component_update_instance_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortInstancesAlongAxis"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_grouped_sprite_component_sort_instances_along_axis,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveInstance"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_paper_grouped_sprite_component_remove_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstanceTransform"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_grouped_sprite_component_get_instance_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstanceCount"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT,
+            &raw mut __FUNCTION_PTRS.u_paper_grouped_sprite_component_get_instance_count,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearInstances"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES,
+            &raw mut __FUNCTION_PTRS.u_paper_grouped_sprite_component_clear_instances,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInstance"),
-            &raw mut U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE,
+            &raw mut __FUNCTION_PTRS.u_paper_grouped_sprite_component_add_instance,
         );
     }
     unsafe {
@@ -435,7 +451,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeBrushFromSprite"),
-            &raw mut U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_sprite_blueprint_library_make_brush_from_sprite,
         );
     }
     unsafe {
@@ -446,21 +463,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpriteColor"),
-            &raw mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_sprite_component_set_sprite_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSprite"),
-            &raw mut U_PAPER_SPRITE_COMPONENT_SET_SPRITE,
+            &raw mut __FUNCTION_PTRS.u_paper_sprite_component_set_sprite,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSprite"),
-            &raw mut U_PAPER_SPRITE_COMPONENT_GET_SPRITE,
+            &raw mut __FUNCTION_PTRS.u_paper_sprite_component_get_sprite,
         );
     }
     unsafe {
@@ -471,133 +488,134 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTileMapColor"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_set_tile_map_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTileMap"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_set_tile_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTile"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_TILE,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_set_tile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLayerColor"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_set_layer_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLayerCollision"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_set_layer_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultCollisionThickness"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS,
+            &raw mut __FUNCTION_PTRS
+                .u_paper_tile_map_component_set_default_collision_thickness,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResizeMap"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_resize_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RebuildCollision"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_rebuild_collision,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OwnsTileMap"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_owns_tile_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeTileMapEditable"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_make_tile_map_editable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTilePolygon"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_get_tile_polygon,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTileMapColor"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_get_tile_map_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTileCornerPosition"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_get_tile_corner_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTileCenterPosition"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_get_tile_center_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTile"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_TILE,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_get_tile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMapSize"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_get_map_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLayerColor"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_get_layer_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewTileMap"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_create_new_tile_map,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNewLayer"),
-            &raw mut U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER,
+            &raw mut __FUNCTION_PTRS.u_paper_tile_map_component_add_new_layer,
         );
     }
     unsafe {
@@ -608,7 +626,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTerrainColor"),
-            &raw mut U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR,
+            &raw mut __FUNCTION_PTRS.u_paper_terrain_component_set_terrain_color,
         );
     }
     unsafe {
@@ -619,28 +637,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeTile"),
-            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE,
+            &raw mut __FUNCTION_PTRS.u_tile_map_blueprint_library_make_tile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTileUserData"),
-            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA,
+            &raw mut __FUNCTION_PTRS.u_tile_map_blueprint_library_get_tile_user_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTileTransform"),
-            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM,
+            &raw mut __FUNCTION_PTRS.u_tile_map_blueprint_library_get_tile_transform,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakTile"),
-            &raw mut U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE,
+            &raw mut __FUNCTION_PTRS.u_tile_map_blueprint_library_break_tile,
         );
     }
 }
@@ -731,7 +749,8 @@ impl UPaperFlipbook {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_is_valid_key_frame_index,
                 __buffer,
             )
         };
@@ -744,7 +763,8 @@ impl UPaperFlipbook {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_IS_VALID_KEY_FRAME_INDEX,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_is_valid_key_frame_index,
                 __buffer,
             )
         };
@@ -758,7 +778,8 @@ impl UPaperFlipbook {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_TOTAL_DURATION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_total_duration,
                 __buffer,
             )
         };
@@ -768,7 +789,8 @@ impl UPaperFlipbook {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_TOTAL_DURATION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_total_duration,
                 __buffer,
             )
         };
@@ -786,7 +808,8 @@ impl UPaperFlipbook {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_sprite_at_time,
                 __buffer,
             )
         };
@@ -806,7 +829,8 @@ impl UPaperFlipbook {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_TIME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_sprite_at_time,
                 __buffer,
             )
         };
@@ -820,7 +844,8 @@ impl UPaperFlipbook {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_sprite_at_frame,
                 __buffer,
             )
         };
@@ -837,7 +862,8 @@ impl UPaperFlipbook {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_SPRITE_AT_FRAME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_sprite_at_frame,
                 __buffer,
             )
         };
@@ -851,7 +877,8 @@ impl UPaperFlipbook {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_num_key_frames,
                 __buffer,
             )
         };
@@ -861,7 +888,8 @@ impl UPaperFlipbook {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_KEY_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_num_key_frames,
                 __buffer,
             )
         };
@@ -875,7 +903,8 @@ impl UPaperFlipbook {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_num_frames,
                 __buffer,
             )
         };
@@ -885,7 +914,8 @@ impl UPaperFlipbook {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_NUM_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_num_frames,
                 __buffer,
             )
         };
@@ -899,7 +929,8 @@ impl UPaperFlipbook {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_key_frame_index_at_time,
                 __buffer,
             )
         };
@@ -919,7 +950,8 @@ impl UPaperFlipbook {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_GET_KEY_FRAME_INDEX_AT_TIME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_get_key_frame_index_at_time,
                 __buffer,
             )
         };
@@ -980,7 +1012,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_STOP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_stop,
                 __buffer,
             )
         };
@@ -990,7 +1023,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_STOP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_stop,
                 __buffer,
             )
         };
@@ -1006,7 +1040,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_sprite_color,
                 __buffer,
             )
         };
@@ -1023,7 +1058,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_SPRITE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_sprite_color,
                 __buffer,
             )
         };
@@ -1036,7 +1072,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_play_rate,
                 __buffer,
             )
         };
@@ -1049,7 +1086,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAY_RATE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_play_rate,
                 __buffer,
             )
         };
@@ -1066,7 +1104,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_playback_position_in_frames,
                 __buffer,
             )
         };
@@ -1090,7 +1129,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION_IN_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_playback_position_in_frames,
                 __buffer,
             )
         };
@@ -1103,7 +1143,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_playback_position,
                 __buffer,
             )
         };
@@ -1127,7 +1168,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_PLAYBACK_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_playback_position,
                 __buffer,
             )
         };
@@ -1140,7 +1182,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_new_time,
                 __buffer,
             )
         };
@@ -1153,7 +1196,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_NEW_TIME,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_new_time,
                 __buffer,
             )
         };
@@ -1166,7 +1210,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_looping,
                 __buffer,
             )
         };
@@ -1183,7 +1228,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_LOOPING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_looping,
                 __buffer,
             )
         };
@@ -1196,7 +1242,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_flipbook,
                 __buffer,
             )
         };
@@ -1213,7 +1260,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_SET_FLIPBOOK,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_set_flipbook,
                 __buffer,
             )
         };
@@ -1227,7 +1275,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_reverse_from_end,
                 __buffer,
             )
         };
@@ -1237,7 +1286,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE_FROM_END,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_reverse_from_end,
                 __buffer,
             )
         };
@@ -1250,7 +1300,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_reverse,
                 __buffer,
             )
         };
@@ -1260,7 +1311,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_REVERSE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_reverse,
                 __buffer,
             )
         };
@@ -1273,7 +1325,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_play_from_start,
                 __buffer,
             )
         };
@@ -1283,7 +1336,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY_FROM_START,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_play_from_start,
                 __buffer,
             )
         };
@@ -1296,7 +1350,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_play,
                 __buffer,
             )
         };
@@ -1306,7 +1361,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_PLAY,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_play,
                 __buffer,
             )
         };
@@ -1319,7 +1375,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_is_reversing,
                 __buffer,
             )
         };
@@ -1329,7 +1386,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_REVERSING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_is_reversing,
                 __buffer,
             )
         };
@@ -1343,7 +1401,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_is_playing,
                 __buffer,
             )
         };
@@ -1353,7 +1412,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_PLAYING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_is_playing,
                 __buffer,
             )
         };
@@ -1367,7 +1427,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_is_looping,
                 __buffer,
             )
         };
@@ -1377,7 +1438,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_IS_LOOPING,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_is_looping,
                 __buffer,
             )
         };
@@ -1391,7 +1453,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_sprite_color,
                 __buffer,
             )
         };
@@ -1401,7 +1464,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_SPRITE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_sprite_color,
                 __buffer,
             )
         };
@@ -1417,7 +1481,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_play_rate,
                 __buffer,
             )
         };
@@ -1427,7 +1492,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAY_RATE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_play_rate,
                 __buffer,
             )
         };
@@ -1441,7 +1507,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_playback_position_in_frames,
                 __buffer,
             )
         };
@@ -1451,7 +1518,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION_IN_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_playback_position_in_frames,
                 __buffer,
             )
         };
@@ -1465,7 +1533,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_playback_position,
                 __buffer,
             )
         };
@@ -1475,7 +1544,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_PLAYBACK_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_playback_position,
                 __buffer,
             )
         };
@@ -1489,7 +1559,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook_length_in_frames,
                 __buffer,
             )
         };
@@ -1499,7 +1570,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH_IN_FRAMES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook_length_in_frames,
                 __buffer,
             )
         };
@@ -1513,7 +1585,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook_length,
                 __buffer,
             )
         };
@@ -1523,7 +1596,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_LENGTH,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook_length,
                 __buffer,
             )
         };
@@ -1537,7 +1611,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook_framerate,
                 __buffer,
             )
         };
@@ -1547,7 +1622,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK_FRAMERATE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook_framerate,
                 __buffer,
             )
         };
@@ -1561,7 +1637,8 @@ impl UPaperFlipbookComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook,
                 __buffer,
             )
         };
@@ -1571,7 +1648,8 @@ impl UPaperFlipbookComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_FLIPBOOK_COMPONENT_GET_FLIPBOOK,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_flipbook_component_get_flipbook,
                 __buffer,
             )
         };
@@ -1636,7 +1714,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_update_instance_transform,
                 __buffer,
             )
         };
@@ -1681,7 +1760,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_TRANSFORM,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_update_instance_transform,
                 __buffer,
             )
         };
@@ -1700,7 +1780,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_update_instance_color,
                 __buffer,
             )
         };
@@ -1731,7 +1812,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_UPDATE_INSTANCE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_update_instance_color,
                 __buffer,
             )
         };
@@ -1748,7 +1830,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_sort_instances_along_axis,
                 __buffer,
             )
         };
@@ -1765,7 +1848,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_SORT_INSTANCES_ALONG_AXIS,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_sort_instances_along_axis,
                 __buffer,
             )
         };
@@ -1778,7 +1862,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_remove_instance,
                 __buffer,
             )
         };
@@ -1795,7 +1880,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_REMOVE_INSTANCE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_remove_instance,
                 __buffer,
             )
         };
@@ -1814,7 +1900,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_get_instance_transform,
                 __buffer,
             )
         };
@@ -1845,7 +1932,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_TRANSFORM,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_get_instance_transform,
                 __buffer,
             )
         };
@@ -1865,7 +1953,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_get_instance_count,
                 __buffer,
             )
         };
@@ -1875,7 +1964,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_GET_INSTANCE_COUNT,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_get_instance_count,
                 __buffer,
             )
         };
@@ -1889,7 +1979,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_clear_instances,
                 __buffer,
             )
         };
@@ -1899,7 +1990,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_CLEAR_INSTANCES,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_clear_instances,
                 __buffer,
             )
         };
@@ -1918,7 +2010,8 @@ impl UPaperGroupedSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_add_instance,
                 __buffer,
             )
         };
@@ -1956,7 +2049,8 @@ impl UPaperGroupedSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_GROUPED_SPRITE_COMPONENT_ADD_INSTANCE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_grouped_sprite_component_add_instance,
                 __buffer,
             )
         };
@@ -2085,7 +2179,8 @@ impl UPaperSpriteBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_blueprint_library_make_brush_from_sprite,
                 __buffer,
             )
         };
@@ -2108,7 +2203,8 @@ impl UPaperSpriteBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_SPRITE_BLUEPRINT_LIBRARY_MAKE_BRUSH_FROM_SPRITE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_blueprint_library_make_brush_from_sprite,
                 __buffer,
             )
         };
@@ -2153,7 +2249,8 @@ impl UPaperSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_component_set_sprite_color,
                 __buffer,
             )
         };
@@ -2170,7 +2267,8 @@ impl UPaperSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_component_set_sprite_color,
                 __buffer,
             )
         };
@@ -2183,7 +2281,8 @@ impl UPaperSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_component_set_sprite,
                 __buffer,
             )
         };
@@ -2200,7 +2299,8 @@ impl UPaperSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_SET_SPRITE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_component_set_sprite,
                 __buffer,
             )
         };
@@ -2214,7 +2314,8 @@ impl UPaperSpriteComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_GET_SPRITE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_component_get_sprite,
                 __buffer,
             )
         };
@@ -2224,7 +2325,8 @@ impl UPaperSpriteComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_SPRITE_COMPONENT_GET_SPRITE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_sprite_component_get_sprite,
                 __buffer,
             )
         };
@@ -2355,7 +2457,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_tile_map_color,
                 __buffer,
             )
         };
@@ -2372,7 +2475,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_tile_map_color,
                 __buffer,
             )
         };
@@ -2385,7 +2489,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_tile_map,
                 __buffer,
             )
         };
@@ -2402,7 +2507,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_tile_map,
                 __buffer,
             )
         };
@@ -2416,7 +2522,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_tile,
                 __buffer,
             )
         };
@@ -2442,7 +2549,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_tile,
                 __buffer,
             )
         };
@@ -2459,7 +2567,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_layer_color,
                 __buffer,
             )
         };
@@ -2479,7 +2588,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_layer_color,
                 __buffer,
             )
         };
@@ -2501,7 +2611,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_layer_collision,
                 __buffer,
             )
         };
@@ -2556,7 +2667,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_LAYER_COLLISION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_layer_collision,
                 __buffer,
             )
         };
@@ -2573,7 +2685,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_default_collision_thickness,
                 __buffer,
             )
         };
@@ -2593,7 +2706,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_SET_DEFAULT_COLLISION_THICKNESS,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_set_default_collision_thickness,
                 __buffer,
             )
         };
@@ -2606,7 +2720,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_resize_map,
                 __buffer,
             )
         };
@@ -2630,7 +2745,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_RESIZE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_resize_map,
                 __buffer,
             )
         };
@@ -2643,7 +2759,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_rebuild_collision,
                 __buffer,
             )
         };
@@ -2653,7 +2770,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_REBUILD_COLLISION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_rebuild_collision,
                 __buffer,
             )
         };
@@ -2666,7 +2784,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_owns_tile_map,
                 __buffer,
             )
         };
@@ -2676,7 +2795,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_OWNS_TILE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_owns_tile_map,
                 __buffer,
             )
         };
@@ -2690,7 +2810,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_make_tile_map_editable,
                 __buffer,
             )
         };
@@ -2700,7 +2821,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_MAKE_TILE_MAP_EDITABLE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_make_tile_map_editable,
                 __buffer,
             )
         };
@@ -2720,7 +2842,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_polygon,
                 __buffer,
             )
         };
@@ -2759,7 +2882,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_POLYGON,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_polygon,
                 __buffer,
             )
         };
@@ -2778,7 +2902,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_map_color,
                 __buffer,
             )
         };
@@ -2788,7 +2913,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_MAP_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_map_color,
                 __buffer,
             )
         };
@@ -2810,7 +2936,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_corner_position,
                 __buffer,
             )
         };
@@ -2840,7 +2967,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CORNER_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_corner_position,
                 __buffer,
             )
         };
@@ -2862,7 +2990,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_center_position,
                 __buffer,
             )
         };
@@ -2892,7 +3021,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE_CENTER_POSITION,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile_center_position,
                 __buffer,
             )
         };
@@ -2908,7 +3038,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile,
                 __buffer,
             )
         };
@@ -2927,7 +3058,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_tile,
                 __buffer,
             )
         };
@@ -2946,7 +3078,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_map_size,
                 __buffer,
             )
         };
@@ -2965,7 +3098,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_MAP_SIZE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_map_size,
                 __buffer,
             )
         };
@@ -2990,7 +3124,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_layer_color,
                 __buffer,
             )
         };
@@ -3003,7 +3138,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_GET_LAYER_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_get_layer_color,
                 __buffer,
             )
         };
@@ -3027,7 +3163,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_create_new_tile_map,
                 __buffer,
             )
         };
@@ -3067,7 +3204,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_CREATE_NEW_TILE_MAP,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_create_new_tile_map,
                 __buffer,
             )
         };
@@ -3080,7 +3218,8 @@ impl UPaperTileMapComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_add_new_layer,
                 __buffer,
             )
         };
@@ -3090,7 +3229,8 @@ impl UPaperTileMapComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TILE_MAP_COMPONENT_ADD_NEW_LAYER,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_tile_map_component_add_new_layer,
                 __buffer,
             )
         };
@@ -3210,7 +3350,8 @@ impl UPaperTerrainComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_terrain_component_set_terrain_color,
                 __buffer,
             )
         };
@@ -3227,7 +3368,8 @@ impl UPaperTerrainComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_PAPER_TERRAIN_COMPONENT_SET_TERRAIN_COLOR,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_paper_terrain_component_set_terrain_color,
                 __buffer,
             )
         };
@@ -3309,7 +3451,8 @@ impl UTileMapBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_make_tile,
                 __buffer,
             )
         };
@@ -3338,7 +3481,8 @@ impl UTileMapBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_MAKE_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_make_tile,
                 __buffer,
             )
         };
@@ -3352,7 +3496,8 @@ impl UTileMapBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_get_tile_user_data,
                 __buffer,
             )
         };
@@ -3369,7 +3514,8 @@ impl UTileMapBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_USER_DATA,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_get_tile_user_data,
                 __buffer,
             )
         };
@@ -3385,7 +3531,8 @@ impl UTileMapBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_get_tile_transform,
                 __buffer,
             )
         };
@@ -3402,7 +3549,8 @@ impl UTileMapBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_GET_TILE_TRANSFORM,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_get_tile_transform,
                 __buffer,
             )
         };
@@ -3425,7 +3573,8 @@ impl UTileMapBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_break_tile,
                 __buffer,
             )
         };
@@ -3461,7 +3610,8 @@ impl UTileMapBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::paper2_d::U_TILE_MAP_BLUEPRINT_LIBRARY_BREAK_TILE,
+                crate::bindings::paper2_d::__FUNCTION_PTRS
+                    .u_tile_map_blueprint_library_break_tile,
                 __buffer,
             )
         };

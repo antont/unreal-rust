@@ -1,252 +1,261 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_VALIDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_INT64: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOURCE_GET_URL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_FILE_MEDIA_SOURCE_SET_FILE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_COMPONENT_GET_MEDIA_TEXTURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_COMPONENT_GET_MEDIA_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SUPPORTS_SEEKING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SUPPORTS_SCRUBBING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SUPPORTS_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SUPPORTS_PLAYBACK_TIME_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_VIEW_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_VIEW_FIELD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_VIDEO_TRACK_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_TRACK_FORMAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_TIME_DELAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_PLAYBACK_TIME_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_NATIVE_VOLUME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_MEDIA_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_DESIRED_PLAYER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SET_BLOCK_ON_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SELECT_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SEEK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_SCRUB: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_REWIND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_REOPEN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_PREVIOUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_PLAY_AND_SEEK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_PAUSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_OPEN_URL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_OPEN_SOURCE_WITH_OPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_OPEN_SOURCE_LATENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_OPEN_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_OPEN_PLAYLIST_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_OPEN_PLAYLIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_OPEN_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_NEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_READY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_PREPARING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_PAUSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_LOOPING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_CONNECTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_CLOSED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_IS_BUFFERING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_HAS_ERROR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_VIEW_ROTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_DIMENSIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_ASPECT_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_VERTICAL_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_URL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_TRACK_LANGUAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_TRACK_FORMAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_TRACK_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_TIME_STAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_TIME_DELAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_SUPPORTED_RATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_SELECTED_TRACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_PLAYLIST_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_PLAYLIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_PLAYER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_PLAYBACK_TIME_RANGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_NUM_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_NUM_TRACK_FORMATS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_MEDIA_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_MEDIA_METADATA_ITEMS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_HORIZONTAL_FIELD_OF_VIEW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_DURATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_DISPLAY_TIME_STAMP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_DISPLAY_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_DESIRED_PLAYER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_AUDIO_TRACK_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_AUDIO_TRACK_SAMPLE_RATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_GET_AUDIO_TRACK_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_CLOSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_CAN_PLAY_URL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_CAN_PLAY_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYER_CAN_PAUSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_REPLACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_REMOVE_AT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_REMOVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_NUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_INSERT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_GET_RANDOM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_GET_PREVIOUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_GET_NEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_GET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_ADD_URL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_ADD_FILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_PLAYLIST_ADD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_SET_SPECTRAL_ANALYSIS_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_SET_MEDIA_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_SET_ENVELOPE_FOLLOWINGSETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_SET_ENABLE_SPECTRAL_ANALYSIS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_SET_ENABLE_ENVELOPE_FOLLOWING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_GET_SPECTRAL_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_GET_NORMALIZED_SPECTRAL_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_GET_MEDIA_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_GET_ENVELOPE_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_SOUND_COMPONENT_BP_GET_ATTENUATION_SETTINGS_TO_APPLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_TEXTURE_UPDATE_RESOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_TEXTURE_SET_MEDIA_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_TEXTURE_GET_WIDTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_TEXTURE_GET_TEXTURE_NUM_MIPS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_TEXTURE_GET_MEDIA_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_TEXTURE_GET_HEIGHT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_TEXTURE_GET_ASPECT_RATIO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_WEBCAM_CAPTURE_DEVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_VIDEO_CAPTURE_DEVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_AUDIO_CAPTURE_DEVICES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_media_source_validate: *mut crate::ffi::UFunctionOpague,
+    pub u_media_source_set_media_option_string: *mut crate::ffi::UFunctionOpague,
+    pub u_media_source_set_media_option_int64: *mut crate::ffi::UFunctionOpague,
+    pub u_media_source_set_media_option_float: *mut crate::ffi::UFunctionOpague,
+    pub u_media_source_set_media_option_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_media_source_get_url: *mut crate::ffi::UFunctionOpague,
+    pub u_file_media_source_set_file_path: *mut crate::ffi::UFunctionOpague,
+    pub u_media_component_get_media_texture: *mut crate::ffi::UFunctionOpague,
+    pub u_media_component_get_media_player: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_supports_seeking: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_supports_scrubbing: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_supports_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_supports_playback_time_range: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_view_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_view_field: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_video_track_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_track_format: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_time_delay: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_playback_time_range: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_native_volume: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_media_options: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_desired_player_name: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_set_block_on_time: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_select_track: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_seek: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_scrub: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_rewind: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_reopen: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_previous: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_play_and_seek: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_play: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_pause: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_open_url: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_open_source_with_options: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_open_source_latent: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_open_source: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_open_playlist_index: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_open_playlist: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_open_file: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_next: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_ready: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_preparing: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_paused: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_looping: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_connecting: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_closed: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_is_buffering: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_has_error: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_view_rotation: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_video_track_type: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_video_track_frame_rates: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_video_track_frame_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_video_track_dimensions: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_video_track_aspect_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_vertical_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_url: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_track_language: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_track_format: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_track_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_time_stamp: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_time_delay: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_time: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_supported_rates: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_selected_track: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_playlist_index: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_playlist: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_player_name: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_playback_time_range: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_num_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_num_track_formats: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_media_name: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_media_metadata_items: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_horizontal_field_of_view: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_duration: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_display_time_stamp: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_display_time: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_desired_player_name: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_audio_track_type: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_audio_track_sample_rate: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_get_audio_track_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_close: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_can_play_url: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_can_play_source: *mut crate::ffi::UFunctionOpague,
+    pub u_media_player_can_pause: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_replace: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_remove_at: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_remove: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_num: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_insert: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_get_random: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_get_previous: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_get_next: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_get: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_add_url: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_add_file: *mut crate::ffi::UFunctionOpague,
+    pub u_media_playlist_add: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_set_spectral_analysis_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_set_media_player: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_set_envelope_followingsettings: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_set_enable_spectral_analysis: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_set_enable_envelope_following: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_get_spectral_data: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_get_normalized_spectral_data: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_get_media_player: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_get_envelope_value: *mut crate::ffi::UFunctionOpague,
+    pub u_media_sound_component_bp_get_attenuation_settings_to_apply: *mut crate::ffi::UFunctionOpague,
+    pub u_media_texture_update_resource: *mut crate::ffi::UFunctionOpague,
+    pub u_media_texture_set_media_player: *mut crate::ffi::UFunctionOpague,
+    pub u_media_texture_get_width: *mut crate::ffi::UFunctionOpague,
+    pub u_media_texture_get_texture_num_mips: *mut crate::ffi::UFunctionOpague,
+    pub u_media_texture_get_media_player: *mut crate::ffi::UFunctionOpague,
+    pub u_media_texture_get_height: *mut crate::ffi::UFunctionOpague,
+    pub u_media_texture_get_aspect_ratio: *mut crate::ffi::UFunctionOpague,
+    pub u_media_blueprint_function_library_enumerate_webcam_capture_devices: *mut crate::ffi::UFunctionOpague,
+    pub u_media_blueprint_function_library_enumerate_video_capture_devices: *mut crate::ffi::UFunctionOpague,
+    pub u_media_blueprint_function_library_enumerate_audio_capture_devices: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_media_source_validate: std::ptr::null_mut(),
+            u_media_source_set_media_option_string: std::ptr::null_mut(),
+            u_media_source_set_media_option_int64: std::ptr::null_mut(),
+            u_media_source_set_media_option_float: std::ptr::null_mut(),
+            u_media_source_set_media_option_bool: std::ptr::null_mut(),
+            u_media_source_get_url: std::ptr::null_mut(),
+            u_file_media_source_set_file_path: std::ptr::null_mut(),
+            u_media_component_get_media_texture: std::ptr::null_mut(),
+            u_media_component_get_media_player: std::ptr::null_mut(),
+            u_media_player_supports_seeking: std::ptr::null_mut(),
+            u_media_player_supports_scrubbing: std::ptr::null_mut(),
+            u_media_player_supports_rate: std::ptr::null_mut(),
+            u_media_player_supports_playback_time_range: std::ptr::null_mut(),
+            u_media_player_set_view_rotation: std::ptr::null_mut(),
+            u_media_player_set_view_field: std::ptr::null_mut(),
+            u_media_player_set_video_track_frame_rate: std::ptr::null_mut(),
+            u_media_player_set_track_format: std::ptr::null_mut(),
+            u_media_player_set_time_delay: std::ptr::null_mut(),
+            u_media_player_set_rate: std::ptr::null_mut(),
+            u_media_player_set_playback_time_range: std::ptr::null_mut(),
+            u_media_player_set_native_volume: std::ptr::null_mut(),
+            u_media_player_set_media_options: std::ptr::null_mut(),
+            u_media_player_set_looping: std::ptr::null_mut(),
+            u_media_player_set_desired_player_name: std::ptr::null_mut(),
+            u_media_player_set_block_on_time: std::ptr::null_mut(),
+            u_media_player_select_track: std::ptr::null_mut(),
+            u_media_player_seek: std::ptr::null_mut(),
+            u_media_player_scrub: std::ptr::null_mut(),
+            u_media_player_rewind: std::ptr::null_mut(),
+            u_media_player_reopen: std::ptr::null_mut(),
+            u_media_player_previous: std::ptr::null_mut(),
+            u_media_player_play_and_seek: std::ptr::null_mut(),
+            u_media_player_play: std::ptr::null_mut(),
+            u_media_player_pause: std::ptr::null_mut(),
+            u_media_player_open_url: std::ptr::null_mut(),
+            u_media_player_open_source_with_options: std::ptr::null_mut(),
+            u_media_player_open_source_latent: std::ptr::null_mut(),
+            u_media_player_open_source: std::ptr::null_mut(),
+            u_media_player_open_playlist_index: std::ptr::null_mut(),
+            u_media_player_open_playlist: std::ptr::null_mut(),
+            u_media_player_open_file: std::ptr::null_mut(),
+            u_media_player_next: std::ptr::null_mut(),
+            u_media_player_is_ready: std::ptr::null_mut(),
+            u_media_player_is_preparing: std::ptr::null_mut(),
+            u_media_player_is_playing: std::ptr::null_mut(),
+            u_media_player_is_paused: std::ptr::null_mut(),
+            u_media_player_is_looping: std::ptr::null_mut(),
+            u_media_player_is_connecting: std::ptr::null_mut(),
+            u_media_player_is_closed: std::ptr::null_mut(),
+            u_media_player_is_buffering: std::ptr::null_mut(),
+            u_media_player_has_error: std::ptr::null_mut(),
+            u_media_player_get_view_rotation: std::ptr::null_mut(),
+            u_media_player_get_video_track_type: std::ptr::null_mut(),
+            u_media_player_get_video_track_frame_rates: std::ptr::null_mut(),
+            u_media_player_get_video_track_frame_rate: std::ptr::null_mut(),
+            u_media_player_get_video_track_dimensions: std::ptr::null_mut(),
+            u_media_player_get_video_track_aspect_ratio: std::ptr::null_mut(),
+            u_media_player_get_vertical_field_of_view: std::ptr::null_mut(),
+            u_media_player_get_url: std::ptr::null_mut(),
+            u_media_player_get_track_language: std::ptr::null_mut(),
+            u_media_player_get_track_format: std::ptr::null_mut(),
+            u_media_player_get_track_display_name: std::ptr::null_mut(),
+            u_media_player_get_time_stamp: std::ptr::null_mut(),
+            u_media_player_get_time_delay: std::ptr::null_mut(),
+            u_media_player_get_time: std::ptr::null_mut(),
+            u_media_player_get_supported_rates: std::ptr::null_mut(),
+            u_media_player_get_selected_track: std::ptr::null_mut(),
+            u_media_player_get_rate: std::ptr::null_mut(),
+            u_media_player_get_playlist_index: std::ptr::null_mut(),
+            u_media_player_get_playlist: std::ptr::null_mut(),
+            u_media_player_get_player_name: std::ptr::null_mut(),
+            u_media_player_get_playback_time_range: std::ptr::null_mut(),
+            u_media_player_get_num_tracks: std::ptr::null_mut(),
+            u_media_player_get_num_track_formats: std::ptr::null_mut(),
+            u_media_player_get_media_name: std::ptr::null_mut(),
+            u_media_player_get_media_metadata_items: std::ptr::null_mut(),
+            u_media_player_get_horizontal_field_of_view: std::ptr::null_mut(),
+            u_media_player_get_duration: std::ptr::null_mut(),
+            u_media_player_get_display_time_stamp: std::ptr::null_mut(),
+            u_media_player_get_display_time: std::ptr::null_mut(),
+            u_media_player_get_desired_player_name: std::ptr::null_mut(),
+            u_media_player_get_audio_track_type: std::ptr::null_mut(),
+            u_media_player_get_audio_track_sample_rate: std::ptr::null_mut(),
+            u_media_player_get_audio_track_channels: std::ptr::null_mut(),
+            u_media_player_close: std::ptr::null_mut(),
+            u_media_player_can_play_url: std::ptr::null_mut(),
+            u_media_player_can_play_source: std::ptr::null_mut(),
+            u_media_player_can_pause: std::ptr::null_mut(),
+            u_media_playlist_replace: std::ptr::null_mut(),
+            u_media_playlist_remove_at: std::ptr::null_mut(),
+            u_media_playlist_remove: std::ptr::null_mut(),
+            u_media_playlist_num: std::ptr::null_mut(),
+            u_media_playlist_insert: std::ptr::null_mut(),
+            u_media_playlist_get_random: std::ptr::null_mut(),
+            u_media_playlist_get_previous: std::ptr::null_mut(),
+            u_media_playlist_get_next: std::ptr::null_mut(),
+            u_media_playlist_get: std::ptr::null_mut(),
+            u_media_playlist_add_url: std::ptr::null_mut(),
+            u_media_playlist_add_file: std::ptr::null_mut(),
+            u_media_playlist_add: std::ptr::null_mut(),
+            u_media_sound_component_set_spectral_analysis_settings: std::ptr::null_mut(),
+            u_media_sound_component_set_media_player: std::ptr::null_mut(),
+            u_media_sound_component_set_envelope_followingsettings: std::ptr::null_mut(),
+            u_media_sound_component_set_enable_spectral_analysis: std::ptr::null_mut(),
+            u_media_sound_component_set_enable_envelope_following: std::ptr::null_mut(),
+            u_media_sound_component_get_spectral_data: std::ptr::null_mut(),
+            u_media_sound_component_get_normalized_spectral_data: std::ptr::null_mut(),
+            u_media_sound_component_get_media_player: std::ptr::null_mut(),
+            u_media_sound_component_get_envelope_value: std::ptr::null_mut(),
+            u_media_sound_component_bp_get_attenuation_settings_to_apply: std::ptr::null_mut(),
+            u_media_texture_update_resource: std::ptr::null_mut(),
+            u_media_texture_set_media_player: std::ptr::null_mut(),
+            u_media_texture_get_width: std::ptr::null_mut(),
+            u_media_texture_get_texture_num_mips: std::ptr::null_mut(),
+            u_media_texture_get_media_player: std::ptr::null_mut(),
+            u_media_texture_get_height: std::ptr::null_mut(),
+            u_media_texture_get_aspect_ratio: std::ptr::null_mut(),
+            u_media_blueprint_function_library_enumerate_webcam_capture_devices: std::ptr::null_mut(),
+            u_media_blueprint_function_library_enumerate_video_capture_devices: std::ptr::null_mut(),
+            u_media_blueprint_function_library_enumerate_audio_capture_devices: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -256,42 +265,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Validate"),
-            &raw mut U_MEDIA_SOURCE_VALIDATE,
+            &raw mut __FUNCTION_PTRS.u_media_source_validate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMediaOptionString"),
-            &raw mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_STRING,
+            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMediaOptionInt64"),
-            &raw mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_INT64,
+            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_int64,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMediaOptionFloat"),
-            &raw mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMediaOptionBool"),
-            &raw mut U_MEDIA_SOURCE_SET_MEDIA_OPTION_BOOL,
+            &raw mut __FUNCTION_PTRS.u_media_source_set_media_option_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUrl"),
-            &raw mut U_MEDIA_SOURCE_GET_URL,
+            &raw mut __FUNCTION_PTRS.u_media_source_get_url,
         );
     }
     unsafe {
@@ -302,7 +311,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilePath"),
-            &raw mut U_FILE_MEDIA_SOURCE_SET_FILE_PATH,
+            &raw mut __FUNCTION_PTRS.u_file_media_source_set_file_path,
         );
     }
     unsafe {
@@ -313,14 +322,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaTexture"),
-            &raw mut U_MEDIA_COMPONENT_GET_MEDIA_TEXTURE,
+            &raw mut __FUNCTION_PTRS.u_media_component_get_media_texture,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut U_MEDIA_COMPONENT_GET_MEDIA_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_media_component_get_media_player,
         );
     }
     unsafe {
@@ -331,553 +340,553 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SupportsSeeking"),
-            &raw mut U_MEDIA_PLAYER_SUPPORTS_SEEKING,
+            &raw mut __FUNCTION_PTRS.u_media_player_supports_seeking,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SupportsScrubbing"),
-            &raw mut U_MEDIA_PLAYER_SUPPORTS_SCRUBBING,
+            &raw mut __FUNCTION_PTRS.u_media_player_supports_scrubbing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SupportsRate"),
-            &raw mut U_MEDIA_PLAYER_SUPPORTS_RATE,
+            &raw mut __FUNCTION_PTRS.u_media_player_supports_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SupportsPlaybackTimeRange"),
-            &raw mut U_MEDIA_PLAYER_SUPPORTS_PLAYBACK_TIME_RANGE,
+            &raw mut __FUNCTION_PTRS.u_media_player_supports_playback_time_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetViewRotation"),
-            &raw mut U_MEDIA_PLAYER_SET_VIEW_ROTATION,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_view_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetViewField"),
-            &raw mut U_MEDIA_PLAYER_SET_VIEW_FIELD,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_view_field,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetVideoTrackFrameRate"),
-            &raw mut U_MEDIA_PLAYER_SET_VIDEO_TRACK_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_video_track_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrackFormat"),
-            &raw mut U_MEDIA_PLAYER_SET_TRACK_FORMAT,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_track_format,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTimeDelay"),
-            &raw mut U_MEDIA_PLAYER_SET_TIME_DELAY,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_time_delay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRate"),
-            &raw mut U_MEDIA_PLAYER_SET_RATE,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackTimeRange"),
-            &raw mut U_MEDIA_PLAYER_SET_PLAYBACK_TIME_RANGE,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_playback_time_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNativeVolume"),
-            &raw mut U_MEDIA_PLAYER_SET_NATIVE_VOLUME,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_native_volume,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMediaOptions"),
-            &raw mut U_MEDIA_PLAYER_SET_MEDIA_OPTIONS,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_media_options,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLooping"),
-            &raw mut U_MEDIA_PLAYER_SET_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDesiredPlayerName"),
-            &raw mut U_MEDIA_PLAYER_SET_DESIRED_PLAYER_NAME,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_desired_player_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlockOnTime"),
-            &raw mut U_MEDIA_PLAYER_SET_BLOCK_ON_TIME,
+            &raw mut __FUNCTION_PTRS.u_media_player_set_block_on_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectTrack"),
-            &raw mut U_MEDIA_PLAYER_SELECT_TRACK,
+            &raw mut __FUNCTION_PTRS.u_media_player_select_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Seek"),
-            &raw mut U_MEDIA_PLAYER_SEEK,
+            &raw mut __FUNCTION_PTRS.u_media_player_seek,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Scrub"),
-            &raw mut U_MEDIA_PLAYER_SCRUB,
+            &raw mut __FUNCTION_PTRS.u_media_player_scrub,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Rewind"),
-            &raw mut U_MEDIA_PLAYER_REWIND,
+            &raw mut __FUNCTION_PTRS.u_media_player_rewind,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reopen"),
-            &raw mut U_MEDIA_PLAYER_REOPEN,
+            &raw mut __FUNCTION_PTRS.u_media_player_reopen,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Previous"),
-            &raw mut U_MEDIA_PLAYER_PREVIOUS,
+            &raw mut __FUNCTION_PTRS.u_media_player_previous,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayAndSeek"),
-            &raw mut U_MEDIA_PLAYER_PLAY_AND_SEEK,
+            &raw mut __FUNCTION_PTRS.u_media_player_play_and_seek,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Play"),
-            &raw mut U_MEDIA_PLAYER_PLAY,
+            &raw mut __FUNCTION_PTRS.u_media_player_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut U_MEDIA_PLAYER_PAUSE,
+            &raw mut __FUNCTION_PTRS.u_media_player_pause,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenUrl"),
-            &raw mut U_MEDIA_PLAYER_OPEN_URL,
+            &raw mut __FUNCTION_PTRS.u_media_player_open_url,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenSourceWithOptions"),
-            &raw mut U_MEDIA_PLAYER_OPEN_SOURCE_WITH_OPTIONS,
+            &raw mut __FUNCTION_PTRS.u_media_player_open_source_with_options,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenSourceLatent"),
-            &raw mut U_MEDIA_PLAYER_OPEN_SOURCE_LATENT,
+            &raw mut __FUNCTION_PTRS.u_media_player_open_source_latent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenSource"),
-            &raw mut U_MEDIA_PLAYER_OPEN_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_media_player_open_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenPlaylistIndex"),
-            &raw mut U_MEDIA_PLAYER_OPEN_PLAYLIST_INDEX,
+            &raw mut __FUNCTION_PTRS.u_media_player_open_playlist_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenPlaylist"),
-            &raw mut U_MEDIA_PLAYER_OPEN_PLAYLIST,
+            &raw mut __FUNCTION_PTRS.u_media_player_open_playlist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenFile"),
-            &raw mut U_MEDIA_PLAYER_OPEN_FILE,
+            &raw mut __FUNCTION_PTRS.u_media_player_open_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Next"),
-            &raw mut U_MEDIA_PLAYER_NEXT,
+            &raw mut __FUNCTION_PTRS.u_media_player_next,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReady"),
-            &raw mut U_MEDIA_PLAYER_IS_READY,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_ready,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPreparing"),
-            &raw mut U_MEDIA_PLAYER_IS_PREPARING,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_preparing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut U_MEDIA_PLAYER_IS_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPaused"),
-            &raw mut U_MEDIA_PLAYER_IS_PAUSED,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_paused,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLooping"),
-            &raw mut U_MEDIA_PLAYER_IS_LOOPING,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_looping,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsConnecting"),
-            &raw mut U_MEDIA_PLAYER_IS_CONNECTING,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_connecting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsClosed"),
-            &raw mut U_MEDIA_PLAYER_IS_CLOSED,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_closed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsBuffering"),
-            &raw mut U_MEDIA_PLAYER_IS_BUFFERING,
+            &raw mut __FUNCTION_PTRS.u_media_player_is_buffering,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasError"),
-            &raw mut U_MEDIA_PLAYER_HAS_ERROR,
+            &raw mut __FUNCTION_PTRS.u_media_player_has_error,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetViewRotation"),
-            &raw mut U_MEDIA_PLAYER_GET_VIEW_ROTATION,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_view_rotation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVideoTrackType"),
-            &raw mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_TYPE,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVideoTrackFrameRates"),
-            &raw mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATES,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_frame_rates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVideoTrackFrameRate"),
-            &raw mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATE,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_frame_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVideoTrackDimensions"),
-            &raw mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_DIMENSIONS,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_dimensions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVideoTrackAspectRatio"),
-            &raw mut U_MEDIA_PLAYER_GET_VIDEO_TRACK_ASPECT_RATIO,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_video_track_aspect_ratio,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVerticalFieldOfView"),
-            &raw mut U_MEDIA_PLAYER_GET_VERTICAL_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_vertical_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUrl"),
-            &raw mut U_MEDIA_PLAYER_GET_URL,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_url,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrackLanguage"),
-            &raw mut U_MEDIA_PLAYER_GET_TRACK_LANGUAGE,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_track_language,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrackFormat"),
-            &raw mut U_MEDIA_PLAYER_GET_TRACK_FORMAT,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_track_format,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrackDisplayName"),
-            &raw mut U_MEDIA_PLAYER_GET_TRACK_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_track_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimeStamp"),
-            &raw mut U_MEDIA_PLAYER_GET_TIME_STAMP,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_time_stamp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimeDelay"),
-            &raw mut U_MEDIA_PLAYER_GET_TIME_DELAY,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_time_delay,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTime"),
-            &raw mut U_MEDIA_PLAYER_GET_TIME,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedRates"),
-            &raw mut U_MEDIA_PLAYER_GET_SUPPORTED_RATES,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_supported_rates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedTrack"),
-            &raw mut U_MEDIA_PLAYER_GET_SELECTED_TRACK,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_selected_track,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRate"),
-            &raw mut U_MEDIA_PLAYER_GET_RATE,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaylistIndex"),
-            &raw mut U_MEDIA_PLAYER_GET_PLAYLIST_INDEX,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_playlist_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaylist"),
-            &raw mut U_MEDIA_PLAYER_GET_PLAYLIST,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_playlist,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlayerName"),
-            &raw mut U_MEDIA_PLAYER_GET_PLAYER_NAME,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_player_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackTimeRange"),
-            &raw mut U_MEDIA_PLAYER_GET_PLAYBACK_TIME_RANGE,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_playback_time_range,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumTracks"),
-            &raw mut U_MEDIA_PLAYER_GET_NUM_TRACKS,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_num_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumTrackFormats"),
-            &raw mut U_MEDIA_PLAYER_GET_NUM_TRACK_FORMATS,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_num_track_formats,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaName"),
-            &raw mut U_MEDIA_PLAYER_GET_MEDIA_NAME,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_media_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaMetadataItems"),
-            &raw mut U_MEDIA_PLAYER_GET_MEDIA_METADATA_ITEMS,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_media_metadata_items,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHorizontalFieldOfView"),
-            &raw mut U_MEDIA_PLAYER_GET_HORIZONTAL_FIELD_OF_VIEW,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_horizontal_field_of_view,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDuration"),
-            &raw mut U_MEDIA_PLAYER_GET_DURATION,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_duration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayTimeStamp"),
-            &raw mut U_MEDIA_PLAYER_GET_DISPLAY_TIME_STAMP,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_display_time_stamp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayTime"),
-            &raw mut U_MEDIA_PLAYER_GET_DISPLAY_TIME,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_display_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDesiredPlayerName"),
-            &raw mut U_MEDIA_PLAYER_GET_DESIRED_PLAYER_NAME,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_desired_player_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioTrackType"),
-            &raw mut U_MEDIA_PLAYER_GET_AUDIO_TRACK_TYPE,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioTrackSampleRate"),
-            &raw mut U_MEDIA_PLAYER_GET_AUDIO_TRACK_SAMPLE_RATE,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_sample_rate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAudioTrackChannels"),
-            &raw mut U_MEDIA_PLAYER_GET_AUDIO_TRACK_CHANNELS,
+            &raw mut __FUNCTION_PTRS.u_media_player_get_audio_track_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Close"),
-            &raw mut U_MEDIA_PLAYER_CLOSE,
+            &raw mut __FUNCTION_PTRS.u_media_player_close,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanPlayUrl"),
-            &raw mut U_MEDIA_PLAYER_CAN_PLAY_URL,
+            &raw mut __FUNCTION_PTRS.u_media_player_can_play_url,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanPlaySource"),
-            &raw mut U_MEDIA_PLAYER_CAN_PLAY_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_media_player_can_play_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanPause"),
-            &raw mut U_MEDIA_PLAYER_CAN_PAUSE,
+            &raw mut __FUNCTION_PTRS.u_media_player_can_pause,
         );
     }
     unsafe {
@@ -888,84 +897,84 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Replace"),
-            &raw mut U_MEDIA_PLAYLIST_REPLACE,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_replace,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAt"),
-            &raw mut U_MEDIA_PLAYLIST_REMOVE_AT,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_remove_at,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Remove"),
-            &raw mut U_MEDIA_PLAYLIST_REMOVE,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_remove,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Num"),
-            &raw mut U_MEDIA_PLAYLIST_NUM,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_num,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Insert"),
-            &raw mut U_MEDIA_PLAYLIST_INSERT,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_insert,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRandom"),
-            &raw mut U_MEDIA_PLAYLIST_GET_RANDOM,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_get_random,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPrevious"),
-            &raw mut U_MEDIA_PLAYLIST_GET_PREVIOUS,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_get_previous,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNext"),
-            &raw mut U_MEDIA_PLAYLIST_GET_NEXT,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_get_next,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Get"),
-            &raw mut U_MEDIA_PLAYLIST_GET,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_get,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddUrl"),
-            &raw mut U_MEDIA_PLAYLIST_ADD_URL,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_add_url,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFile"),
-            &raw mut U_MEDIA_PLAYLIST_ADD_FILE,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_add_file,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Add"),
-            &raw mut U_MEDIA_PLAYLIST_ADD,
+            &raw mut __FUNCTION_PTRS.u_media_playlist_add,
         );
     }
     unsafe {
@@ -976,70 +985,74 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSpectralAnalysisSettings"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_SET_SPECTRAL_ANALYSIS_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_media_sound_component_set_spectral_analysis_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMediaPlayer"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_SET_MEDIA_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_media_sound_component_set_media_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnvelopeFollowingsettings"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_SET_ENVELOPE_FOLLOWINGSETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_media_sound_component_set_envelope_followingsettings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableSpectralAnalysis"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_SET_ENABLE_SPECTRAL_ANALYSIS,
+            &raw mut __FUNCTION_PTRS.u_media_sound_component_set_enable_spectral_analysis,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetEnableEnvelopeFollowing"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_SET_ENABLE_ENVELOPE_FOLLOWING,
+            &raw mut __FUNCTION_PTRS
+                .u_media_sound_component_set_enable_envelope_following,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSpectralData"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_GET_SPECTRAL_DATA,
+            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_spectral_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedSpectralData"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_GET_NORMALIZED_SPECTRAL_DATA,
+            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_normalized_spectral_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_GET_MEDIA_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_media_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnvelopeValue"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_GET_ENVELOPE_VALUE,
+            &raw mut __FUNCTION_PTRS.u_media_sound_component_get_envelope_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BP_GetAttenuationSettingsToApply"),
-            &raw mut U_MEDIA_SOUND_COMPONENT_BP_GET_ATTENUATION_SETTINGS_TO_APPLY,
+            &raw mut __FUNCTION_PTRS
+                .u_media_sound_component_bp_get_attenuation_settings_to_apply,
         );
     }
     unsafe {
@@ -1050,49 +1063,49 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateResource"),
-            &raw mut U_MEDIA_TEXTURE_UPDATE_RESOURCE,
+            &raw mut __FUNCTION_PTRS.u_media_texture_update_resource,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMediaPlayer"),
-            &raw mut U_MEDIA_TEXTURE_SET_MEDIA_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_media_texture_set_media_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWidth"),
-            &raw mut U_MEDIA_TEXTURE_GET_WIDTH,
+            &raw mut __FUNCTION_PTRS.u_media_texture_get_width,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTextureNumMips"),
-            &raw mut U_MEDIA_TEXTURE_GET_TEXTURE_NUM_MIPS,
+            &raw mut __FUNCTION_PTRS.u_media_texture_get_texture_num_mips,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaPlayer"),
-            &raw mut U_MEDIA_TEXTURE_GET_MEDIA_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_media_texture_get_media_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHeight"),
-            &raw mut U_MEDIA_TEXTURE_GET_HEIGHT,
+            &raw mut __FUNCTION_PTRS.u_media_texture_get_height,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAspectRatio"),
-            &raw mut U_MEDIA_TEXTURE_GET_ASPECT_RATIO,
+            &raw mut __FUNCTION_PTRS.u_media_texture_get_aspect_ratio,
         );
     }
     unsafe {
@@ -1103,21 +1116,24 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnumerateWebcamCaptureDevices"),
-            &raw mut U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_WEBCAM_CAPTURE_DEVICES,
+            &raw mut __FUNCTION_PTRS
+                .u_media_blueprint_function_library_enumerate_webcam_capture_devices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnumerateVideoCaptureDevices"),
-            &raw mut U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_VIDEO_CAPTURE_DEVICES,
+            &raw mut __FUNCTION_PTRS
+                .u_media_blueprint_function_library_enumerate_video_capture_devices,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnumerateAudioCaptureDevices"),
-            &raw mut U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_AUDIO_CAPTURE_DEVICES,
+            &raw mut __FUNCTION_PTRS
+                .u_media_blueprint_function_library_enumerate_audio_capture_devices,
         );
     }
 }
@@ -1201,7 +1217,7 @@ impl UMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOURCE_VALIDATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_source_validate,
                 __buffer,
             )
         };
@@ -1211,7 +1227,7 @@ impl UMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOURCE_VALIDATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_source_validate,
                 __buffer,
             )
         };
@@ -1225,7 +1241,8 @@ impl UMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_STRING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_string,
                 __buffer,
             )
         };
@@ -1241,7 +1258,8 @@ impl UMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_STRING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_string,
                 __buffer,
             )
         };
@@ -1254,7 +1272,8 @@ impl UMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_INT64,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_int64,
                 __buffer,
             )
         };
@@ -1270,7 +1289,8 @@ impl UMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_INT64,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_int64,
                 __buffer,
             )
         };
@@ -1283,7 +1303,8 @@ impl UMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_FLOAT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_float,
                 __buffer,
             )
         };
@@ -1299,7 +1320,8 @@ impl UMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_FLOAT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_float,
                 __buffer,
             )
         };
@@ -1312,7 +1334,8 @@ impl UMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_BOOL,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_bool,
                 __buffer,
             )
         };
@@ -1328,7 +1351,8 @@ impl UMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOURCE_SET_MEDIA_OPTION_BOOL,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_source_set_media_option_bool,
                 __buffer,
             )
         };
@@ -1341,7 +1365,7 @@ impl UMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOURCE_GET_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_source_get_url,
                 __buffer,
             )
         };
@@ -1351,7 +1375,7 @@ impl UMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOURCE_GET_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_source_get_url,
                 __buffer,
             )
         };
@@ -1414,7 +1438,8 @@ impl UFileMediaSource {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_FILE_MEDIA_SOURCE_SET_FILE_PATH,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_file_media_source_set_file_path,
                 __buffer,
             )
         };
@@ -1427,7 +1452,8 @@ impl UFileMediaSource {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_FILE_MEDIA_SOURCE_SET_FILE_PATH,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_file_media_source_set_file_path,
                 __buffer,
             )
         };
@@ -1464,7 +1490,8 @@ impl UMediaComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_COMPONENT_GET_MEDIA_TEXTURE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_component_get_media_texture,
                 __buffer,
             )
         };
@@ -1474,7 +1501,8 @@ impl UMediaComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_COMPONENT_GET_MEDIA_TEXTURE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_component_get_media_texture,
                 __buffer,
             )
         };
@@ -1488,7 +1516,8 @@ impl UMediaComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_COMPONENT_GET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_component_get_media_player,
                 __buffer,
             )
         };
@@ -1498,7 +1527,8 @@ impl UMediaComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_COMPONENT_GET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_component_get_media_player,
                 __buffer,
             )
         };
@@ -1572,7 +1602,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_SEEKING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_seeking,
                 __buffer,
             )
         };
@@ -1582,7 +1613,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_SEEKING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_seeking,
                 __buffer,
             )
         };
@@ -1596,7 +1628,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_SCRUBBING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_scrubbing,
                 __buffer,
             )
         };
@@ -1606,7 +1639,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_SCRUBBING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_scrubbing,
                 __buffer,
             )
         };
@@ -1620,7 +1654,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_rate,
                 __buffer,
             )
         };
@@ -1636,7 +1671,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_rate,
                 __buffer,
             )
         };
@@ -1650,7 +1686,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_PLAYBACK_TIME_RANGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_playback_time_range,
                 __buffer,
             )
         };
@@ -1660,7 +1697,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SUPPORTS_PLAYBACK_TIME_RANGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_supports_playback_time_range,
                 __buffer,
             )
         };
@@ -1678,7 +1716,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_VIEW_ROTATION,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_view_rotation,
                 __buffer,
             )
         };
@@ -1698,7 +1737,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_VIEW_ROTATION,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_view_rotation,
                 __buffer,
             )
         };
@@ -1717,7 +1757,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_VIEW_FIELD,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_view_field,
                 __buffer,
             )
         };
@@ -1736,7 +1777,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_VIEW_FIELD,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_view_field,
                 __buffer,
             )
         };
@@ -1755,7 +1797,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_VIDEO_TRACK_FRAME_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_video_track_frame_rate,
                 __buffer,
             )
         };
@@ -1782,7 +1825,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_VIDEO_TRACK_FRAME_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_video_track_frame_rate,
                 __buffer,
             )
         };
@@ -1801,7 +1845,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_TRACK_FORMAT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_track_format,
                 __buffer,
             )
         };
@@ -1832,7 +1877,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_TRACK_FORMAT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_track_format,
                 __buffer,
             )
         };
@@ -1849,7 +1895,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_TIME_DELAY,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_time_delay,
                 __buffer,
             )
         };
@@ -1866,7 +1913,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_TIME_DELAY,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_time_delay,
                 __buffer,
             )
         };
@@ -1879,7 +1927,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_set_rate,
                 __buffer,
             )
         };
@@ -1892,7 +1940,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_set_rate,
                 __buffer,
             )
         };
@@ -1909,7 +1957,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_PLAYBACK_TIME_RANGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_playback_time_range,
                 __buffer,
             )
         };
@@ -1926,7 +1975,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_PLAYBACK_TIME_RANGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_playback_time_range,
                 __buffer,
             )
         };
@@ -1940,7 +1990,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_NATIVE_VOLUME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_native_volume,
                 __buffer,
             )
         };
@@ -1953,7 +2004,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_NATIVE_VOLUME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_native_volume,
                 __buffer,
             )
         };
@@ -1967,7 +2019,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_MEDIA_OPTIONS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_media_options,
                 __buffer,
             )
         };
@@ -1984,7 +2037,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_MEDIA_OPTIONS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_media_options,
                 __buffer,
             )
         };
@@ -1997,7 +2051,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_LOOPING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_looping,
                 __buffer,
             )
         };
@@ -2010,7 +2065,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_LOOPING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_looping,
                 __buffer,
             )
         };
@@ -2024,7 +2080,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_DESIRED_PLAYER_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_desired_player_name,
                 __buffer,
             )
         };
@@ -2041,7 +2098,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_DESIRED_PLAYER_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_desired_player_name,
                 __buffer,
             )
         };
@@ -2057,7 +2115,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_BLOCK_ON_TIME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_block_on_time,
                 __buffer,
             )
         };
@@ -2074,7 +2133,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SET_BLOCK_ON_TIME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_set_block_on_time,
                 __buffer,
             )
         };
@@ -2091,7 +2151,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SELECT_TRACK,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_select_track,
                 __buffer,
             )
         };
@@ -2115,7 +2176,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SELECT_TRACK,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_select_track,
                 __buffer,
             )
         };
@@ -2129,7 +2191,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SEEK,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_seek,
                 __buffer,
             )
         };
@@ -2146,7 +2208,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SEEK,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_seek,
                 __buffer,
             )
         };
@@ -2160,7 +2222,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SCRUB,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_scrub,
                 __buffer,
             )
         };
@@ -2177,7 +2239,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_SCRUB,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_scrub,
                 __buffer,
             )
         };
@@ -2191,7 +2253,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_REWIND,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_rewind,
                 __buffer,
             )
         };
@@ -2201,7 +2263,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_REWIND,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_rewind,
                 __buffer,
             )
         };
@@ -2215,7 +2277,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_REOPEN,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_reopen,
                 __buffer,
             )
         };
@@ -2225,7 +2287,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_REOPEN,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_reopen,
                 __buffer,
             )
         };
@@ -2239,7 +2301,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PREVIOUS,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_previous,
                 __buffer,
             )
         };
@@ -2249,7 +2311,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PREVIOUS,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_previous,
                 __buffer,
             )
         };
@@ -2263,7 +2325,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PLAY_AND_SEEK,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_play_and_seek,
                 __buffer,
             )
         };
@@ -2273,7 +2336,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PLAY_AND_SEEK,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_play_and_seek,
                 __buffer,
             )
         };
@@ -2286,7 +2350,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PLAY,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_play,
                 __buffer,
             )
         };
@@ -2296,7 +2360,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PLAY,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_play,
                 __buffer,
             )
         };
@@ -2310,7 +2374,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PAUSE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_pause,
                 __buffer,
             )
         };
@@ -2320,7 +2384,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_PAUSE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_pause,
                 __buffer,
             )
         };
@@ -2334,7 +2398,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_open_url,
                 __buffer,
             )
         };
@@ -2347,7 +2411,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_open_url,
                 __buffer,
             )
         };
@@ -2365,7 +2429,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_SOURCE_WITH_OPTIONS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_source_with_options,
                 __buffer,
             )
         };
@@ -2391,7 +2456,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_SOURCE_WITH_OPTIONS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_source_with_options,
                 __buffer,
             )
         };
@@ -2412,7 +2478,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_SOURCE_LATENT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_source_latent,
                 __buffer,
             )
         };
@@ -2459,7 +2526,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_SOURCE_LATENT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_source_latent,
                 __buffer,
             )
         };
@@ -2475,7 +2543,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_SOURCE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_source,
                 __buffer,
             )
         };
@@ -2492,7 +2561,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_SOURCE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_source,
                 __buffer,
             )
         };
@@ -2510,7 +2580,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_PLAYLIST_INDEX,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_playlist_index,
                 __buffer,
             )
         };
@@ -2530,7 +2601,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_PLAYLIST_INDEX,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_playlist_index,
                 __buffer,
             )
         };
@@ -2544,7 +2616,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_PLAYLIST,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_playlist,
                 __buffer,
             )
         };
@@ -2561,7 +2634,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_PLAYLIST,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_open_playlist,
                 __buffer,
             )
         };
@@ -2575,7 +2649,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_FILE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_open_file,
                 __buffer,
             )
         };
@@ -2592,7 +2666,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_OPEN_FILE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_open_file,
                 __buffer,
             )
         };
@@ -2606,7 +2680,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_NEXT,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_next,
                 __buffer,
             )
         };
@@ -2616,7 +2690,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_NEXT,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_next,
                 __buffer,
             )
         };
@@ -2630,7 +2704,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_READY,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_ready,
                 __buffer,
             )
         };
@@ -2640,7 +2714,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_READY,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_ready,
                 __buffer,
             )
         };
@@ -2654,7 +2728,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_PREPARING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_is_preparing,
                 __buffer,
             )
         };
@@ -2664,7 +2739,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_PREPARING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_is_preparing,
                 __buffer,
             )
         };
@@ -2678,7 +2754,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_PLAYING,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_playing,
                 __buffer,
             )
         };
@@ -2688,7 +2764,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_PLAYING,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_playing,
                 __buffer,
             )
         };
@@ -2702,7 +2778,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_PAUSED,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_paused,
                 __buffer,
             )
         };
@@ -2712,7 +2788,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_PAUSED,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_paused,
                 __buffer,
             )
         };
@@ -2726,7 +2802,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_LOOPING,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_looping,
                 __buffer,
             )
         };
@@ -2736,7 +2812,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_LOOPING,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_looping,
                 __buffer,
             )
         };
@@ -2750,7 +2826,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_CONNECTING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_is_connecting,
                 __buffer,
             )
         };
@@ -2760,7 +2837,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_CONNECTING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_is_connecting,
                 __buffer,
             )
         };
@@ -2774,7 +2852,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_CLOSED,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_closed,
                 __buffer,
             )
         };
@@ -2784,7 +2862,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_CLOSED,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_is_closed,
                 __buffer,
             )
         };
@@ -2798,7 +2876,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_BUFFERING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_is_buffering,
                 __buffer,
             )
         };
@@ -2808,7 +2887,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_IS_BUFFERING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_is_buffering,
                 __buffer,
             )
         };
@@ -2822,7 +2902,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_HAS_ERROR,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_has_error,
                 __buffer,
             )
         };
@@ -2832,7 +2912,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_HAS_ERROR,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_has_error,
                 __buffer,
             )
         };
@@ -2846,7 +2926,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIEW_ROTATION,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_view_rotation,
                 __buffer,
             )
         };
@@ -2856,7 +2937,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIEW_ROTATION,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_view_rotation,
                 __buffer,
             )
         };
@@ -2872,7 +2954,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_TYPE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_type,
                 __buffer,
             )
         };
@@ -2896,7 +2979,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_TYPE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_type,
                 __buffer,
             )
         };
@@ -2914,7 +2998,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_frame_rates,
                 __buffer,
             )
         };
@@ -2938,7 +3023,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_frame_rates,
                 __buffer,
             )
         };
@@ -2958,7 +3044,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_frame_rate,
                 __buffer,
             )
         };
@@ -2982,7 +3069,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_FRAME_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_frame_rate,
                 __buffer,
             )
         };
@@ -3000,7 +3088,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_DIMENSIONS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_dimensions,
                 __buffer,
             )
         };
@@ -3024,7 +3113,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_DIMENSIONS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_dimensions,
                 __buffer,
             )
         };
@@ -3044,7 +3134,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_ASPECT_RATIO,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_aspect_ratio,
                 __buffer,
             )
         };
@@ -3068,7 +3159,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VIDEO_TRACK_ASPECT_RATIO,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_video_track_aspect_ratio,
                 __buffer,
             )
         };
@@ -3082,7 +3174,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VERTICAL_FIELD_OF_VIEW,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_vertical_field_of_view,
                 __buffer,
             )
         };
@@ -3092,7 +3185,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_VERTICAL_FIELD_OF_VIEW,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_vertical_field_of_view,
                 __buffer,
             )
         };
@@ -3106,7 +3200,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_get_url,
                 __buffer,
             )
         };
@@ -3116,7 +3210,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_get_url,
                 __buffer,
             )
         };
@@ -3134,7 +3228,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TRACK_LANGUAGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_track_language,
                 __buffer,
             )
         };
@@ -3158,7 +3253,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TRACK_LANGUAGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_track_language,
                 __buffer,
             )
         };
@@ -3176,7 +3272,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TRACK_FORMAT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_track_format,
                 __buffer,
             )
         };
@@ -3200,7 +3297,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TRACK_FORMAT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_track_format,
                 __buffer,
             )
         };
@@ -3218,7 +3316,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TRACK_DISPLAY_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_track_display_name,
                 __buffer,
             )
         };
@@ -3242,7 +3341,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TRACK_DISPLAY_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_track_display_name,
                 __buffer,
             )
         };
@@ -3256,7 +3356,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TIME_STAMP,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_time_stamp,
                 __buffer,
             )
         };
@@ -3266,7 +3367,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TIME_STAMP,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_time_stamp,
                 __buffer,
             )
         };
@@ -3280,7 +3382,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TIME_DELAY,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_time_delay,
                 __buffer,
             )
         };
@@ -3290,7 +3393,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TIME_DELAY,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_time_delay,
                 __buffer,
             )
         };
@@ -3306,7 +3410,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TIME,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_get_time,
                 __buffer,
             )
         };
@@ -3316,7 +3420,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_TIME,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_get_time,
                 __buffer,
             )
         };
@@ -3336,7 +3440,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_SUPPORTED_RATES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_supported_rates,
                 __buffer,
             )
         };
@@ -3362,7 +3467,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_SUPPORTED_RATES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_supported_rates,
                 __buffer,
             )
         };
@@ -3381,7 +3487,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_SELECTED_TRACK,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_selected_track,
                 __buffer,
             )
         };
@@ -3398,7 +3505,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_SELECTED_TRACK,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_selected_track,
                 __buffer,
             )
         };
@@ -3412,7 +3520,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_get_rate,
                 __buffer,
             )
         };
@@ -3422,7 +3530,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_get_rate,
                 __buffer,
             )
         };
@@ -3436,7 +3544,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYLIST_INDEX,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_playlist_index,
                 __buffer,
             )
         };
@@ -3446,7 +3555,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYLIST_INDEX,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_playlist_index,
                 __buffer,
             )
         };
@@ -3460,7 +3570,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYLIST,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_playlist,
                 __buffer,
             )
         };
@@ -3470,7 +3581,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYLIST,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_playlist,
                 __buffer,
             )
         };
@@ -3484,7 +3596,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYER_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_player_name,
                 __buffer,
             )
         };
@@ -3494,7 +3607,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYER_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_player_name,
                 __buffer,
             )
         };
@@ -3511,7 +3625,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYBACK_TIME_RANGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_playback_time_range,
                 __buffer,
             )
         };
@@ -3528,7 +3643,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_PLAYBACK_TIME_RANGE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_playback_time_range,
                 __buffer,
             )
         };
@@ -3547,7 +3663,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_NUM_TRACKS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_num_tracks,
                 __buffer,
             )
         };
@@ -3564,7 +3681,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_NUM_TRACKS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_num_tracks,
                 __buffer,
             )
         };
@@ -3582,7 +3700,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_NUM_TRACK_FORMATS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_num_track_formats,
                 __buffer,
             )
         };
@@ -3606,7 +3725,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_NUM_TRACK_FORMATS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_num_track_formats,
                 __buffer,
             )
         };
@@ -3620,7 +3740,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_MEDIA_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_media_name,
                 __buffer,
             )
         };
@@ -3630,7 +3751,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_MEDIA_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_media_name,
                 __buffer,
             )
         };
@@ -3644,7 +3766,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_MEDIA_METADATA_ITEMS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_media_metadata_items,
                 __buffer,
             )
         };
@@ -3654,7 +3777,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_MEDIA_METADATA_ITEMS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_media_metadata_items,
                 __buffer,
             )
         };
@@ -3668,7 +3792,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_HORIZONTAL_FIELD_OF_VIEW,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_horizontal_field_of_view,
                 __buffer,
             )
         };
@@ -3678,7 +3803,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_HORIZONTAL_FIELD_OF_VIEW,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_horizontal_field_of_view,
                 __buffer,
             )
         };
@@ -3692,7 +3818,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DURATION,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_duration,
                 __buffer,
             )
         };
@@ -3702,7 +3829,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DURATION,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_duration,
                 __buffer,
             )
         };
@@ -3718,7 +3846,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DISPLAY_TIME_STAMP,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_display_time_stamp,
                 __buffer,
             )
         };
@@ -3728,7 +3857,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DISPLAY_TIME_STAMP,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_display_time_stamp,
                 __buffer,
             )
         };
@@ -3742,7 +3872,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DISPLAY_TIME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_display_time,
                 __buffer,
             )
         };
@@ -3752,7 +3883,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DISPLAY_TIME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_display_time,
                 __buffer,
             )
         };
@@ -3768,7 +3900,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DESIRED_PLAYER_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_desired_player_name,
                 __buffer,
             )
         };
@@ -3778,7 +3911,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_DESIRED_PLAYER_NAME,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_desired_player_name,
                 __buffer,
             )
         };
@@ -3792,7 +3926,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_AUDIO_TRACK_TYPE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_audio_track_type,
                 __buffer,
             )
         };
@@ -3816,7 +3951,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_AUDIO_TRACK_TYPE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_audio_track_type,
                 __buffer,
             )
         };
@@ -3834,7 +3970,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_AUDIO_TRACK_SAMPLE_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_audio_track_sample_rate,
                 __buffer,
             )
         };
@@ -3858,7 +3995,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_AUDIO_TRACK_SAMPLE_RATE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_audio_track_sample_rate,
                 __buffer,
             )
         };
@@ -3872,7 +4010,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_AUDIO_TRACK_CHANNELS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_audio_track_channels,
                 __buffer,
             )
         };
@@ -3896,7 +4035,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_GET_AUDIO_TRACK_CHANNELS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_get_audio_track_channels,
                 __buffer,
             )
         };
@@ -3910,7 +4050,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CLOSE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_close,
                 __buffer,
             )
         };
@@ -3920,7 +4060,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CLOSE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_close,
                 __buffer,
             )
         };
@@ -3933,7 +4073,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CAN_PLAY_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_can_play_url,
                 __buffer,
             )
         };
@@ -3946,7 +4087,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CAN_PLAY_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_can_play_url,
                 __buffer,
             )
         };
@@ -3960,7 +4102,8 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CAN_PLAY_SOURCE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_can_play_source,
                 __buffer,
             )
         };
@@ -3977,7 +4120,8 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CAN_PLAY_SOURCE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_player_can_play_source,
                 __buffer,
             )
         };
@@ -3991,7 +4135,7 @@ impl UMediaPlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CAN_PAUSE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_can_pause,
                 __buffer,
             )
         };
@@ -4001,7 +4145,7 @@ impl UMediaPlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYER_CAN_PAUSE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_player_can_pause,
                 __buffer,
             )
         };
@@ -4058,7 +4202,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_REPLACE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_replace,
                 __buffer,
             )
         };
@@ -4078,7 +4222,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_REPLACE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_replace,
                 __buffer,
             )
         };
@@ -4092,7 +4236,8 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_REMOVE_AT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_playlist_remove_at,
                 __buffer,
             )
         };
@@ -4105,7 +4250,8 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_REMOVE_AT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_playlist_remove_at,
                 __buffer,
             )
         };
@@ -4119,7 +4265,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_REMOVE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_remove,
                 __buffer,
             )
         };
@@ -4136,7 +4282,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_REMOVE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_remove,
                 __buffer,
             )
         };
@@ -4150,7 +4296,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_NUM,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_num,
                 __buffer,
             )
         };
@@ -4160,7 +4306,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_NUM,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_num,
                 __buffer,
             )
         };
@@ -4174,7 +4320,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_INSERT,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_insert,
                 __buffer,
             )
         };
@@ -4194,7 +4340,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_INSERT,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_insert,
                 __buffer,
             )
         };
@@ -4207,7 +4353,8 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET_RANDOM,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_playlist_get_random,
                 __buffer,
             )
         };
@@ -4220,7 +4367,8 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET_RANDOM,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_playlist_get_random,
                 __buffer,
             )
         };
@@ -4237,7 +4385,8 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET_PREVIOUS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_playlist_get_previous,
                 __buffer,
             )
         };
@@ -4254,7 +4403,8 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET_PREVIOUS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_playlist_get_previous,
                 __buffer,
             )
         };
@@ -4271,7 +4421,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET_NEXT,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_get_next,
                 __buffer,
             )
         };
@@ -4288,7 +4438,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET_NEXT,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_get_next,
                 __buffer,
             )
         };
@@ -4305,7 +4455,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_get,
                 __buffer,
             )
         };
@@ -4318,7 +4468,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_GET,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_get,
                 __buffer,
             )
         };
@@ -4332,7 +4482,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_ADD_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_add_url,
                 __buffer,
             )
         };
@@ -4345,7 +4495,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_ADD_URL,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_add_url,
                 __buffer,
             )
         };
@@ -4359,7 +4509,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_ADD_FILE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_add_file,
                 __buffer,
             )
         };
@@ -4376,7 +4526,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_ADD_FILE,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_add_file,
                 __buffer,
             )
         };
@@ -4390,7 +4540,7 @@ impl UMediaPlaylist {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_ADD,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_add,
                 __buffer,
             )
         };
@@ -4407,7 +4557,7 @@ impl UMediaPlaylist {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_PLAYLIST_ADD,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_playlist_add,
                 __buffer,
             )
         };
@@ -4446,7 +4596,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_SPECTRAL_ANALYSIS_SETTINGS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_spectral_analysis_settings,
                 __buffer,
             )
         };
@@ -4470,7 +4621,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_SPECTRAL_ANALYSIS_SETTINGS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_spectral_analysis_settings,
                 __buffer,
             )
         };
@@ -4483,7 +4635,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_media_player,
                 __buffer,
             )
         };
@@ -4500,7 +4653,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_media_player,
                 __buffer,
             )
         };
@@ -4517,7 +4671,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_ENVELOPE_FOLLOWINGSETTINGS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_envelope_followingsettings,
                 __buffer,
             )
         };
@@ -4541,7 +4696,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_ENVELOPE_FOLLOWINGSETTINGS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_envelope_followingsettings,
                 __buffer,
             )
         };
@@ -4557,7 +4713,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_ENABLE_SPECTRAL_ANALYSIS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_enable_spectral_analysis,
                 __buffer,
             )
         };
@@ -4574,7 +4731,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_ENABLE_SPECTRAL_ANALYSIS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_enable_spectral_analysis,
                 __buffer,
             )
         };
@@ -4587,7 +4745,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_ENABLE_ENVELOPE_FOLLOWING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_enable_envelope_following,
                 __buffer,
             )
         };
@@ -4604,7 +4763,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_SET_ENABLE_ENVELOPE_FOLLOWING,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_set_enable_envelope_following,
                 __buffer,
             )
         };
@@ -4617,7 +4777,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_SPECTRAL_DATA,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_spectral_data,
                 __buffer,
             )
         };
@@ -4627,7 +4788,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_SPECTRAL_DATA,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_spectral_data,
                 __buffer,
             )
         };
@@ -4645,7 +4807,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_NORMALIZED_SPECTRAL_DATA,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_normalized_spectral_data,
                 __buffer,
             )
         };
@@ -4655,7 +4818,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_NORMALIZED_SPECTRAL_DATA,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_normalized_spectral_data,
                 __buffer,
             )
         };
@@ -4671,7 +4835,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_media_player,
                 __buffer,
             )
         };
@@ -4681,7 +4846,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_media_player,
                 __buffer,
             )
         };
@@ -4695,7 +4861,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_ENVELOPE_VALUE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_envelope_value,
                 __buffer,
             )
         };
@@ -4705,7 +4872,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_GET_ENVELOPE_VALUE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_get_envelope_value,
                 __buffer,
             )
         };
@@ -4722,7 +4890,8 @@ impl UMediaSoundComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_BP_GET_ATTENUATION_SETTINGS_TO_APPLY,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_bp_get_attenuation_settings_to_apply,
                 __buffer,
             )
         };
@@ -4741,7 +4910,8 @@ impl UMediaSoundComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_SOUND_COMPONENT_BP_GET_ATTENUATION_SETTINGS_TO_APPLY,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_sound_component_bp_get_attenuation_settings_to_apply,
                 __buffer,
             )
         };
@@ -4794,7 +4964,8 @@ impl UMediaTexture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_UPDATE_RESOURCE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_update_resource,
                 __buffer,
             )
         };
@@ -4804,7 +4975,8 @@ impl UMediaTexture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_UPDATE_RESOURCE,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_update_resource,
                 __buffer,
             )
         };
@@ -4817,7 +4989,8 @@ impl UMediaTexture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_SET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_set_media_player,
                 __buffer,
             )
         };
@@ -4834,7 +5007,8 @@ impl UMediaTexture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_SET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_set_media_player,
                 __buffer,
             )
         };
@@ -4847,7 +5021,7 @@ impl UMediaTexture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_WIDTH,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_texture_get_width,
                 __buffer,
             )
         };
@@ -4857,7 +5031,7 @@ impl UMediaTexture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_WIDTH,
+                crate::bindings::media_assets::__FUNCTION_PTRS.u_media_texture_get_width,
                 __buffer,
             )
         };
@@ -4871,7 +5045,8 @@ impl UMediaTexture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_TEXTURE_NUM_MIPS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_texture_num_mips,
                 __buffer,
             )
         };
@@ -4881,7 +5056,8 @@ impl UMediaTexture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_TEXTURE_NUM_MIPS,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_texture_num_mips,
                 __buffer,
             )
         };
@@ -4895,7 +5071,8 @@ impl UMediaTexture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_media_player,
                 __buffer,
             )
         };
@@ -4905,7 +5082,8 @@ impl UMediaTexture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_MEDIA_PLAYER,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_media_player,
                 __buffer,
             )
         };
@@ -4919,7 +5097,8 @@ impl UMediaTexture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_HEIGHT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_height,
                 __buffer,
             )
         };
@@ -4929,7 +5108,8 @@ impl UMediaTexture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_HEIGHT,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_height,
                 __buffer,
             )
         };
@@ -4943,7 +5123,8 @@ impl UMediaTexture {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_ASPECT_RATIO,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_aspect_ratio,
                 __buffer,
             )
         };
@@ -4953,7 +5134,8 @@ impl UMediaTexture {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_TEXTURE_GET_ASPECT_RATIO,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_texture_get_aspect_ratio,
                 __buffer,
             )
         };
@@ -5059,7 +5241,8 @@ impl UMediaBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_WEBCAM_CAPTURE_DEVICES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_webcam_capture_devices,
                 __buffer,
             )
         };
@@ -5079,7 +5262,8 @@ impl UMediaBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_WEBCAM_CAPTURE_DEVICES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_webcam_capture_devices,
                 __buffer,
             )
         };
@@ -5098,7 +5282,8 @@ impl UMediaBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_VIDEO_CAPTURE_DEVICES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_video_capture_devices,
                 __buffer,
             )
         };
@@ -5118,7 +5303,8 @@ impl UMediaBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_VIDEO_CAPTURE_DEVICES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_video_capture_devices,
                 __buffer,
             )
         };
@@ -5137,7 +5323,8 @@ impl UMediaBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::media_assets::U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_AUDIO_CAPTURE_DEVICES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_audio_capture_devices,
                 __buffer,
             )
         };
@@ -5157,7 +5344,8 @@ impl UMediaBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::media_assets::U_MEDIA_BLUEPRINT_FUNCTION_LIBRARY_ENUMERATE_AUDIO_CAPTURE_DEVICES,
+                crate::bindings::media_assets::__FUNCTION_PTRS
+                    .u_media_blueprint_function_library_enumerate_audio_capture_devices,
                 __buffer,
             )
         };

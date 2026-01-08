@@ -1,36 +1,45 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_ON_MOTION_CONTROLLER_UPDATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_hand_keypoint_conversion_conv_hand_keypoint_to_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_set_tracking_source: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_set_tracking_motion_source: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_set_associated_player_index: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_on_motion_controller_updated: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_is_tracked: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_get_tracking_source: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_get_parameter_value: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_get_linear_velocity: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_get_linear_acceleration: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_get_hand_joint_position: *mut crate::ffi::UFunctionOpague,
+    pub u_motion_controller_component_get_angular_velocity: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_hand_keypoint_conversion_conv_hand_keypoint_to_int32: std::ptr::null_mut(),
+            u_motion_controller_component_set_tracking_source: std::ptr::null_mut(),
+            u_motion_controller_component_set_tracking_motion_source: std::ptr::null_mut(),
+            u_motion_controller_component_set_associated_player_index: std::ptr::null_mut(),
+            u_motion_controller_component_on_motion_controller_updated: std::ptr::null_mut(),
+            u_motion_controller_component_is_tracked: std::ptr::null_mut(),
+            u_motion_controller_component_get_tracking_source: std::ptr::null_mut(),
+            u_motion_controller_component_get_parameter_value: std::ptr::null_mut(),
+            u_motion_controller_component_get_linear_velocity: std::ptr::null_mut(),
+            u_motion_controller_component_get_linear_acceleration: std::ptr::null_mut(),
+            u_motion_controller_component_get_hand_joint_position: std::ptr::null_mut(),
+            u_motion_controller_component_get_angular_velocity: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -40,7 +49,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_HandKeypointToInt32"),
-            &raw mut U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32,
+            &raw mut __FUNCTION_PTRS
+                .u_hand_keypoint_conversion_conv_hand_keypoint_to_int32,
         );
     }
     unsafe {
@@ -51,77 +61,82 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrackingSource"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_motion_controller_component_set_tracking_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrackingMotionSource"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_controller_component_set_tracking_motion_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAssociatedPlayerIndex"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_controller_component_set_associated_player_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnMotionControllerUpdated"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_ON_MOTION_CONTROLLER_UPDATED,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_controller_component_on_motion_controller_updated,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTracked"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED,
+            &raw mut __FUNCTION_PTRS.u_motion_controller_component_is_tracked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrackingSource"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE,
+            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_tracking_source,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParameterValue"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE,
+            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_parameter_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinearVelocity"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY,
+            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_linear_velocity,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinearAcceleration"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_controller_component_get_linear_acceleration,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHandJointPosition"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_motion_controller_component_get_hand_joint_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAngularVelocity"),
-            &raw mut U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY,
+            &raw mut __FUNCTION_PTRS.u_motion_controller_component_get_angular_velocity,
         );
     }
 }
@@ -196,7 +211,8 @@ impl UHandKeypointConversion {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_hand_keypoint_conversion_conv_hand_keypoint_to_int32,
                 __buffer,
             )
         };
@@ -213,7 +229,8 @@ impl UHandKeypointConversion {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_HAND_KEYPOINT_CONVERSION_CONV_HAND_KEYPOINT_TO_INT32,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_hand_keypoint_conversion_conv_hand_keypoint_to_int32,
                 __buffer,
             )
         };
@@ -259,7 +276,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_set_tracking_source,
                 __buffer,
             )
         };
@@ -276,7 +294,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_SOURCE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_set_tracking_source,
                 __buffer,
             )
         };
@@ -289,7 +308,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_set_tracking_motion_source,
                 __buffer,
             )
         };
@@ -306,7 +326,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_TRACKING_MOTION_SOURCE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_set_tracking_motion_source,
                 __buffer,
             )
         };
@@ -319,7 +340,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_set_associated_player_index,
                 __buffer,
             )
         };
@@ -332,7 +354,33 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_SET_ASSOCIATED_PLAYER_INDEX,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_set_associated_player_index,
+                __buffer,
+            )
+        };
+    }
+    pub fn on_motion_controller_updated(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_on_motion_controller_updated,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_on_motion_controller_updated,
                 __buffer,
             )
         };
@@ -345,7 +393,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_is_tracked,
                 __buffer,
             )
         };
@@ -355,7 +404,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_IS_TRACKED,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_is_tracked,
                 __buffer,
             )
         };
@@ -369,7 +419,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_tracking_source,
                 __buffer,
             )
         };
@@ -379,7 +430,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_TRACKING_SOURCE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_tracking_source,
                 __buffer,
             )
         };
@@ -399,7 +451,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_parameter_value,
                 __buffer,
             )
         };
@@ -419,7 +472,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_PARAMETER_VALUE,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_parameter_value,
                 __buffer,
             )
         };
@@ -439,7 +493,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_linear_velocity,
                 __buffer,
             )
         };
@@ -456,7 +511,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_VELOCITY,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_linear_velocity,
                 __buffer,
             )
         };
@@ -479,7 +535,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_linear_acceleration,
                 __buffer,
             )
         };
@@ -496,7 +553,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_LINEAR_ACCELERATION,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_linear_acceleration,
                 __buffer,
             )
         };
@@ -520,7 +578,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_hand_joint_position,
                 __buffer,
             )
         };
@@ -544,7 +603,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_HAND_JOINT_POSITION,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_hand_joint_position,
                 __buffer,
             )
         };
@@ -566,7 +626,8 @@ impl UMotionControllerComponent {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_angular_velocity,
                 __buffer,
             )
         };
@@ -583,7 +644,8 @@ impl UMotionControllerComponent {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::head_mounted_display::U_MOTION_CONTROLLER_COMPONENT_GET_ANGULAR_VELOCITY,
+                crate::bindings::head_mounted_display::__FUNCTION_PTRS
+                    .u_motion_controller_component_get_angular_velocity,
                 __buffer,
             )
         };

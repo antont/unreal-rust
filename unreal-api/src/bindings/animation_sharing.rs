@@ -1,26 +1,35 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ANIMATION_SHARING_STATE_PROCESSOR_PROCESS_ACTOR_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_SHARING_STATE_PROCESSOR_GET_ANIMATION_STATE_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_animation_sharing_state_processor_process_actor_state: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_sharing_state_processor_get_animation_state_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_anim_sharing_state_instance_get_instanced_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_sharing_manager_register_actor_with_skeleton_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_sharing_manager_get_animation_sharing_manager: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_sharing_manager_create_animation_sharing_manager: *mut crate::ffi::UFunctionOpague,
+    pub u_animation_sharing_manager_animation_sharing_enabled: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_animation_sharing_state_processor_process_actor_state: std::ptr::null_mut(),
+            u_animation_sharing_state_processor_get_animation_state_enum: std::ptr::null_mut(),
+            u_anim_sharing_state_instance_get_instanced_actors: std::ptr::null_mut(),
+            u_animation_sharing_manager_register_actor_with_skeleton_bp: std::ptr::null_mut(),
+            u_animation_sharing_manager_get_animation_sharing_manager: std::ptr::null_mut(),
+            u_animation_sharing_manager_create_animation_sharing_manager: std::ptr::null_mut(),
+            u_animation_sharing_manager_animation_sharing_enabled: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -30,14 +39,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ProcessActorState"),
-            &raw mut U_ANIMATION_SHARING_STATE_PROCESSOR_PROCESS_ACTOR_STATE,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_sharing_state_processor_process_actor_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationStateEnum"),
-            &raw mut U_ANIMATION_SHARING_STATE_PROCESSOR_GET_ANIMATION_STATE_ENUM,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_sharing_state_processor_get_animation_state_enum,
         );
     }
     unsafe {
@@ -48,7 +59,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInstancedActors"),
-            &raw mut U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_anim_sharing_state_instance_get_instanced_actors,
         );
     }
     unsafe {
@@ -59,28 +70,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterActorWithSkeletonBP"),
-            &raw mut U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_sharing_manager_register_actor_with_skeleton_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAnimationSharingManager"),
-            &raw mut U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_sharing_manager_get_animation_sharing_manager,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAnimationSharingManager"),
-            &raw mut U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_sharing_manager_create_animation_sharing_manager,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AnimationSharingEnabled"),
-            &raw mut U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_animation_sharing_manager_animation_sharing_enabled,
         );
     }
 }
@@ -102,6 +117,105 @@ impl UAnimationSharingStateProcessor {
             let mut cdo = std::ptr::null_mut();
             (crate::module::bindings().core_fns.get_cdo_from_class)(class, &raw mut cdo);
             cdo
+        }
+    }
+    pub fn process_actor_state(
+        &mut self,
+        out_state: &mut i32,
+        in_actor: UPtr<crate::bindings::engine::AActor>,
+        current_state: u8,
+        on_demand_state: u8,
+        b_should_process: &mut bool,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<19>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_state_processor_process_actor_state,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(out_state, __buffer.add(0).cast::<i32>(), 1);
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_actor,
+                __buffer.add(8).cast::<UPtr<crate::bindings::engine::AActor>>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &current_state,
+                __buffer.add(16).cast::<u8>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &on_demand_state,
+                __buffer.add(17).cast::<u8>(),
+                1,
+            );
+        }
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                b_should_process,
+                __buffer.add(18).cast::<bool>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_state_processor_process_actor_state,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<i32>().swap(out_state);
+        }
+        unsafe {
+            __buffer.add(18).cast::<bool>().swap(b_should_process);
+        }
+    }
+    pub fn get_animation_state_enum(
+        &mut self,
+    ) -> UPtr<crate::bindings::core_u_object::UEnum> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_state_processor_get_animation_state_enum,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_state_processor_get_animation_state_enum,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UEnum>>().read()
         }
     }
 }
@@ -142,7 +256,8 @@ impl UAnimSharingStateInstance {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_sharing::U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_anim_sharing_state_instance_get_instanced_actors,
                 __buffer,
             )
         };
@@ -159,7 +274,8 @@ impl UAnimSharingStateInstance {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_sharing::U_ANIM_SHARING_STATE_INSTANCE_GET_INSTANCED_ACTORS,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_anim_sharing_state_instance_get_instanced_actors,
                 __buffer,
             )
         };
@@ -276,7 +392,8 @@ impl UAnimationSharingManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_register_actor_with_skeleton_bp,
                 __buffer,
             )
         };
@@ -300,7 +417,8 @@ impl UAnimationSharingManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_REGISTER_ACTOR_WITH_SKELETON_BP,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_register_actor_with_skeleton_bp,
                 __buffer,
             )
         };
@@ -315,7 +433,8 @@ impl UAnimationSharingManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_get_animation_sharing_manager,
                 __buffer,
             )
         };
@@ -332,7 +451,8 @@ impl UAnimationSharingManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_GET_ANIMATION_SHARING_MANAGER,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_get_animation_sharing_manager,
                 __buffer,
             )
         };
@@ -349,7 +469,8 @@ impl UAnimationSharingManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_create_animation_sharing_manager,
                 __buffer,
             )
         };
@@ -373,7 +494,8 @@ impl UAnimationSharingManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_CREATE_ANIMATION_SHARING_MANAGER,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_create_animation_sharing_manager,
                 __buffer,
             )
         };
@@ -387,7 +509,8 @@ impl UAnimationSharingManager {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_animation_sharing_enabled,
                 __buffer,
             )
         };
@@ -397,7 +520,8 @@ impl UAnimationSharingManager {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::animation_sharing::U_ANIMATION_SHARING_MANAGER_ANIMATION_SHARING_ENABLED,
+                crate::bindings::animation_sharing::__FUNCTION_PTRS
+                    .u_animation_sharing_manager_animation_sharing_enabled,
                 __buffer,
             )
         };

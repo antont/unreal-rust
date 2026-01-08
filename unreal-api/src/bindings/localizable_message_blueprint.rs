@@ -1,20 +1,29 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_LOCALIZABLE_MESSAGE_LIBRARY_RESET_LOCALIZABLE_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCALIZABLE_MESSAGE_LIBRARY_IS_EMPTY_LOCALIZABLE_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCALIZABLE_MESSAGE_LIBRARY_EQUAL_EQUAL_LOCALIZABLE_MESSAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LOCALIZABLE_MESSAGE_LIBRARY_CONV_LOCALIZABLE_MESSAGE_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_localizable_message_library_reset_localizable_message: *mut crate::ffi::UFunctionOpague,
+    pub u_localizable_message_library_is_empty_localizable_message: *mut crate::ffi::UFunctionOpague,
+    pub u_localizable_message_library_equal_equal_localizable_message: *mut crate::ffi::UFunctionOpague,
+    pub u_localizable_message_library_conv_localizable_message_to_text: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_localizable_message_library_reset_localizable_message: std::ptr::null_mut(),
+            u_localizable_message_library_is_empty_localizable_message: std::ptr::null_mut(),
+            u_localizable_message_library_equal_equal_localizable_message: std::ptr::null_mut(),
+            u_localizable_message_library_conv_localizable_message_to_text: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -24,28 +33,32 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Reset_LocalizableMessage"),
-            &raw mut U_LOCALIZABLE_MESSAGE_LIBRARY_RESET_LOCALIZABLE_MESSAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_localizable_message_library_reset_localizable_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEmpty_LocalizableMessage"),
-            &raw mut U_LOCALIZABLE_MESSAGE_LIBRARY_IS_EMPTY_LOCALIZABLE_MESSAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_localizable_message_library_is_empty_localizable_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EqualEqual_LocalizableMessage"),
-            &raw mut U_LOCALIZABLE_MESSAGE_LIBRARY_EQUAL_EQUAL_LOCALIZABLE_MESSAGE,
+            &raw mut __FUNCTION_PTRS
+                .u_localizable_message_library_equal_equal_localizable_message,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_LocalizableMessageToText"),
-            &raw mut U_LOCALIZABLE_MESSAGE_LIBRARY_CONV_LOCALIZABLE_MESSAGE_TO_TEXT,
+            &raw mut __FUNCTION_PTRS
+                .u_localizable_message_library_conv_localizable_message_to_text,
         );
     }
 }
@@ -79,7 +92,8 @@ impl ULocalizableMessageLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_RESET_LOCALIZABLE_MESSAGE,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_reset_localizable_message,
                 __buffer,
             )
         };
@@ -98,7 +112,8 @@ impl ULocalizableMessageLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_RESET_LOCALIZABLE_MESSAGE,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_reset_localizable_message,
                 __buffer,
             )
         };
@@ -119,7 +134,8 @@ impl ULocalizableMessageLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_IS_EMPTY_LOCALIZABLE_MESSAGE,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_is_empty_localizable_message,
                 __buffer,
             )
         };
@@ -138,7 +154,8 @@ impl ULocalizableMessageLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_IS_EMPTY_LOCALIZABLE_MESSAGE,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_is_empty_localizable_message,
                 __buffer,
             )
         };
@@ -155,7 +172,8 @@ impl ULocalizableMessageLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_EQUAL_EQUAL_LOCALIZABLE_MESSAGE,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_equal_equal_localizable_message,
                 __buffer,
             )
         };
@@ -183,7 +201,8 @@ impl ULocalizableMessageLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_EQUAL_EQUAL_LOCALIZABLE_MESSAGE,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_equal_equal_localizable_message,
                 __buffer,
             )
         };
@@ -200,7 +219,8 @@ impl ULocalizableMessageLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_CONV_LOCALIZABLE_MESSAGE_TO_TEXT,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_conv_localizable_message_to_text,
                 __buffer,
             )
         };
@@ -226,7 +246,8 @@ impl ULocalizableMessageLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::localizable_message_blueprint::U_LOCALIZABLE_MESSAGE_LIBRARY_CONV_LOCALIZABLE_MESSAGE_TO_TEXT,
+                crate::bindings::localizable_message_blueprint::__FUNCTION_PTRS
+                    .u_localizable_message_library_conv_localizable_message_to_text,
                 __buffer,
             )
         };

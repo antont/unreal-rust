@@ -1,22 +1,31 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut UUV_EDITOR_CHANNEL_EDIT_TARGET_PROPERTIES_GET_UV_CHANNEL_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_CHANNEL_EDIT_TARGET_PROPERTIES_GET_ASSET_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_CHANNEL_EDIT_TOOL_ACTION_PROPERTY_SET_APPLY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_TEXEL_DENSITY_ACTION_SETTINGS_SAMPLE_TEXEL_DENSITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UUV_EDITOR_BAKE_UV_SHELL_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub uuv_editor_channel_edit_target_properties_get_uv_channel_names: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_channel_edit_target_properties_get_asset_names: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_channel_edit_tool_action_property_set_apply: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_texel_density_action_settings_sample_texel_density: *mut crate::ffi::UFunctionOpague,
+    pub uuv_editor_bake_uv_shell_properties_get_target_uv_layer_names_func: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            uuv_editor_channel_edit_target_properties_get_uv_channel_names: std::ptr::null_mut(),
+            uuv_editor_channel_edit_target_properties_get_asset_names: std::ptr::null_mut(),
+            uuv_editor_channel_edit_tool_action_property_set_apply: std::ptr::null_mut(),
+            uuv_editor_texel_density_action_settings_sample_texel_density: std::ptr::null_mut(),
+            uuv_editor_bake_uv_shell_properties_get_target_uv_layer_names_func: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -26,14 +35,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUVChannelNames"),
-            &raw mut UUV_EDITOR_CHANNEL_EDIT_TARGET_PROPERTIES_GET_UV_CHANNEL_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .uuv_editor_channel_edit_target_properties_get_uv_channel_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetNames"),
-            &raw mut UUV_EDITOR_CHANNEL_EDIT_TARGET_PROPERTIES_GET_ASSET_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .uuv_editor_channel_edit_target_properties_get_asset_names,
         );
     }
     unsafe {
@@ -44,7 +55,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Apply"),
-            &raw mut UUV_EDITOR_CHANNEL_EDIT_TOOL_ACTION_PROPERTY_SET_APPLY,
+            &raw mut __FUNCTION_PTRS
+                .uuv_editor_channel_edit_tool_action_property_set_apply,
         );
     }
     unsafe {
@@ -55,7 +67,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SampleTexelDensity"),
-            &raw mut UUV_EDITOR_TEXEL_DENSITY_ACTION_SETTINGS_SAMPLE_TEXEL_DENSITY,
+            &raw mut __FUNCTION_PTRS
+                .uuv_editor_texel_density_action_settings_sample_texel_density,
         );
     }
     unsafe {
@@ -66,7 +79,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetUVLayerNamesFunc"),
-            &raw mut UUV_EDITOR_BAKE_UV_SHELL_PROPERTIES_GET_TARGET_UV_LAYER_NAMES_FUNC,
+            &raw mut __FUNCTION_PTRS
+                .uuv_editor_bake_uv_shell_properties_get_target_uv_layer_names_func,
         );
     }
 }

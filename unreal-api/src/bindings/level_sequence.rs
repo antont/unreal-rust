@@ -1,164 +1,173 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_REMOVE_META_DATA_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_FIND_OR_ADD_META_DATA_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_FIND_META_DATA_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_COPY_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_BURN_IN_OPTIONS_SET_BURN_IN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_SHOW_BURNIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_SET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_SET_REPLICATE_PLAYBACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_SET_BINDING_BY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_SET_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_RESET_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_RESET_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING_BY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_ON_LEVEL_SEQUENCE_LOADED_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_HIDE_BURNIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING_BY_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_BURN_IN_SET_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_BURN_IN_GET_SETTINGS_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_ON_CREATED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE_CUSTOM_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_CUSTOM_CLOCK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_CURRENT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_PLAYER_GET_ACTIVE_CAMERA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_PLAYER_CREATE_LEVEL_SEQUENCE_PLAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_SUB_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_RECORDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_NO_GOOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_FLAGGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_FAVORITE_RATING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_ASSET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_ASSET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_ASSET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_ASSET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_BY_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_ASSET_TAG: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_SUB_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_RECORDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_NO_GOOD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_FLAGGED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_FAVORITE_RATING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_SYNCHRONIZE_TO_SERVER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_ON_REP_SERVER_START_TIME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_MEDIA_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_level_sequence_remove_meta_data_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_find_or_add_meta_data_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_find_meta_data_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_copy_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_burn_in_options_set_burn_in: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_show_burnin: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_set_sequence: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_set_replicate_playback: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_set_binding_by_tag: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_set_binding: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_reset_bindings: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_reset_binding: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_remove_binding_by_tag: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_remove_binding: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_on_level_sequence_loaded_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_hide_burnin: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_get_sequence_player: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_find_named_bindings: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_find_named_binding: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_add_binding_by_tag: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_actor_add_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_burn_in_set_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_burn_in_get_settings_class: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_on_created: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_sequence_custom_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_root_sequence_time: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_root_sequence_custom_clock: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_current_time: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_bound_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_bound_object: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_bound_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_director_get_bound_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_player_get_active_camera_component: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_player_create_level_sequence_player: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_set_is_sub_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_set_is_recorded: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_set_is_no_good: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_set_is_flagged: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_set_favorite_rating: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_sub_sequence_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_sub_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_recorded_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_recorded: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_no_good_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_no_good: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_flagged_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_is_flagged: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_favorite_rating_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_has_favorite_rating: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_sub_sequence_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_sub_sequence_asset_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_sub_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_recorded_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_recorded_asset_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_recorded: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_no_good_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_no_good_asset_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_no_good: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_flagged_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_flagged_asset_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_is_flagged: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_favorite_rating_by_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_favorite_rating_asset_tag: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_get_favorite_rating: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_clear_is_sub_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_clear_is_recorded: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_clear_is_no_good: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_clear_is_flagged: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_shot_meta_data_library_clear_favorite_rating: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_media_controller_synchronize_to_server: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_media_controller_play: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_media_controller_on_rep_server_start_time_seconds: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_media_controller_get_sequence: *mut crate::ffi::UFunctionOpague,
+    pub a_level_sequence_media_controller_get_media_component: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_level_sequence_remove_meta_data_by_class: std::ptr::null_mut(),
+            u_level_sequence_find_or_add_meta_data_by_class: std::ptr::null_mut(),
+            u_level_sequence_find_meta_data_by_class: std::ptr::null_mut(),
+            u_level_sequence_copy_meta_data: std::ptr::null_mut(),
+            u_level_sequence_burn_in_options_set_burn_in: std::ptr::null_mut(),
+            a_level_sequence_actor_show_burnin: std::ptr::null_mut(),
+            a_level_sequence_actor_set_sequence: std::ptr::null_mut(),
+            a_level_sequence_actor_set_replicate_playback: std::ptr::null_mut(),
+            a_level_sequence_actor_set_binding_by_tag: std::ptr::null_mut(),
+            a_level_sequence_actor_set_binding: std::ptr::null_mut(),
+            a_level_sequence_actor_reset_bindings: std::ptr::null_mut(),
+            a_level_sequence_actor_reset_binding: std::ptr::null_mut(),
+            a_level_sequence_actor_remove_binding_by_tag: std::ptr::null_mut(),
+            a_level_sequence_actor_remove_binding: std::ptr::null_mut(),
+            a_level_sequence_actor_on_level_sequence_loaded_delegate_signature: std::ptr::null_mut(),
+            a_level_sequence_actor_hide_burnin: std::ptr::null_mut(),
+            a_level_sequence_actor_get_sequence_player: std::ptr::null_mut(),
+            a_level_sequence_actor_get_sequence: std::ptr::null_mut(),
+            a_level_sequence_actor_find_named_bindings: std::ptr::null_mut(),
+            a_level_sequence_actor_find_named_binding: std::ptr::null_mut(),
+            a_level_sequence_actor_add_binding_by_tag: std::ptr::null_mut(),
+            a_level_sequence_actor_add_binding: std::ptr::null_mut(),
+            u_level_sequence_burn_in_set_settings: std::ptr::null_mut(),
+            u_level_sequence_burn_in_get_settings_class: std::ptr::null_mut(),
+            u_level_sequence_director_on_created: std::ptr::null_mut(),
+            u_level_sequence_director_get_sequence_custom_clock: std::ptr::null_mut(),
+            u_level_sequence_director_get_sequence: std::ptr::null_mut(),
+            u_level_sequence_director_get_root_sequence_time: std::ptr::null_mut(),
+            u_level_sequence_director_get_root_sequence_custom_clock: std::ptr::null_mut(),
+            u_level_sequence_director_get_current_time: std::ptr::null_mut(),
+            u_level_sequence_director_get_bound_objects: std::ptr::null_mut(),
+            u_level_sequence_director_get_bound_object: std::ptr::null_mut(),
+            u_level_sequence_director_get_bound_actors: std::ptr::null_mut(),
+            u_level_sequence_director_get_bound_actor: std::ptr::null_mut(),
+            u_level_sequence_player_get_active_camera_component: std::ptr::null_mut(),
+            u_level_sequence_player_create_level_sequence_player: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_set_is_sub_sequence: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_set_is_recorded: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_set_is_no_good: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_set_is_flagged: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_set_favorite_rating: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_sub_sequence_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_sub_sequence: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_recorded_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_recorded: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_no_good_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_no_good: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_flagged_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_is_flagged: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_favorite_rating_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_has_favorite_rating: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_sub_sequence_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_sub_sequence_asset_tag: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_sub_sequence: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_recorded_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_recorded_asset_tag: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_recorded: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_no_good_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_no_good_asset_tag: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_no_good: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_flagged_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_flagged_asset_tag: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_is_flagged: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_favorite_rating_by_asset_data: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_favorite_rating_asset_tag: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_get_favorite_rating: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_clear_is_sub_sequence: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_clear_is_recorded: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_clear_is_no_good: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_clear_is_flagged: std::ptr::null_mut(),
+            u_level_sequence_shot_meta_data_library_clear_favorite_rating: std::ptr::null_mut(),
+            a_level_sequence_media_controller_synchronize_to_server: std::ptr::null_mut(),
+            a_level_sequence_media_controller_play: std::ptr::null_mut(),
+            a_level_sequence_media_controller_on_rep_server_start_time_seconds: std::ptr::null_mut(),
+            a_level_sequence_media_controller_get_sequence: std::ptr::null_mut(),
+            a_level_sequence_media_controller_get_media_component: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -168,28 +177,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMetaDataByClass"),
-            &raw mut U_LEVEL_SEQUENCE_REMOVE_META_DATA_BY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_remove_meta_data_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindOrAddMetaDataByClass"),
-            &raw mut U_LEVEL_SEQUENCE_FIND_OR_ADD_META_DATA_BY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_find_or_add_meta_data_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindMetaDataByClass"),
-            &raw mut U_LEVEL_SEQUENCE_FIND_META_DATA_BY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_find_meta_data_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyMetaData"),
-            &raw mut U_LEVEL_SEQUENCE_COPY_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_copy_meta_data,
         );
     }
     unsafe {
@@ -200,7 +209,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBurnIn"),
-            &raw mut U_LEVEL_SEQUENCE_BURN_IN_OPTIONS_SET_BURN_IN,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_options_set_burn_in,
         );
     }
     unsafe {
@@ -211,119 +220,120 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShowBurnin"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_SHOW_BURNIN,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_show_burnin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSequence"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_SET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetReplicatePlayback"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_SET_REPLICATE_PLAYBACK,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_replicate_playback,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBindingByTag"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_SET_BINDING_BY_TAG,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_binding_by_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBinding"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_SET_BINDING,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_set_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetBindings"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_RESET_BINDINGS,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_reset_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetBinding"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_RESET_BINDING,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_reset_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBindingByTag"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING_BY_TAG,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_remove_binding_by_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBinding"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_remove_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnLevelSequenceLoaded__DelegateSignature"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_ON_LEVEL_SEQUENCE_LOADED_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .a_level_sequence_actor_on_level_sequence_loaded_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HideBurnin"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_HIDE_BURNIN,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_hide_burnin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequencePlayer"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_get_sequence_player,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_get_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNamedBindings"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDINGS,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_find_named_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNamedBinding"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDING,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_find_named_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBindingByTag"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING_BY_TAG,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_add_binding_by_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBinding"),
-            &raw mut A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_actor_add_binding,
         );
     }
     unsafe {
@@ -334,14 +344,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSettings"),
-            &raw mut U_LEVEL_SEQUENCE_BURN_IN_SET_SETTINGS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_set_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSettingsClass"),
-            &raw mut U_LEVEL_SEQUENCE_BURN_IN_GET_SETTINGS_CLASS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_burn_in_get_settings_class,
         );
     }
     unsafe {
@@ -352,70 +362,71 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnCreated"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_ON_CREATED,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_on_created,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequenceCustomClock"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE_CUSTOM_CLOCK,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_sequence_custom_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootSequenceTime"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_TIME,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_root_sequence_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootSequenceCustomClock"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_CUSTOM_CLOCK,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_director_get_root_sequence_custom_clock,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentTime"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_CURRENT_TIME,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_current_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundObject"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundActors"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundActor"),
-            &raw mut U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_director_get_bound_actor,
         );
     }
     unsafe {
@@ -426,14 +437,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActiveCameraComponent"),
-            &raw mut U_LEVEL_SEQUENCE_PLAYER_GET_ACTIVE_CAMERA_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_player_get_active_camera_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateLevelSequencePlayer"),
-            &raw mut U_LEVEL_SEQUENCE_PLAYER_CREATE_LEVEL_SEQUENCE_PLAYER,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_player_create_level_sequence_player,
         );
     }
     unsafe {
@@ -444,245 +455,280 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsSubSequence"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_SUB_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_set_is_sub_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsRecorded"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_RECORDED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_set_is_recorded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsNoGood"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_NO_GOOD,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_set_is_no_good,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsFlagged"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_FLAGGED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_set_is_flagged,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFavoriteRating"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_FAVORITE_RATING,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_set_favorite_rating,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsSubSequenceByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_sub_sequence_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsSubSequence"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_sub_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsRecordedByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_recorded_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsRecorded"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_recorded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsNoGoodByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_no_good_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsNoGood"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_no_good,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsFlaggedByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_flagged_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIsFlagged"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_is_flagged,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasFavoriteRatingByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_favorite_rating_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasFavoriteRating"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_has_favorite_rating,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsSubSequenceByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsSubSequenceAssetTag"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_ASSET_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_asset_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsSubSequence"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_sub_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsRecordedByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_recorded_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsRecordedAssetTag"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_ASSET_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_recorded_asset_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsRecorded"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_recorded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsNoGoodByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_no_good_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsNoGoodAssetTag"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_ASSET_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_no_good_asset_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsNoGood"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_no_good,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsFlaggedByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_flagged_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsFlaggedAssetTag"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_ASSET_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_flagged_asset_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIsFlagged"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_is_flagged,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFavoriteRatingByAssetData"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_BY_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_favorite_rating_by_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFavoriteRatingAssetTag"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_ASSET_TAG,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_favorite_rating_asset_tag,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFavoriteRating"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_get_favorite_rating,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearIsSubSequence"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_SUB_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_clear_is_sub_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearIsRecorded"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_RECORDED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_clear_is_recorded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearIsNoGood"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_NO_GOOD,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_clear_is_no_good,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearIsFlagged"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_FLAGGED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_clear_is_flagged,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearFavoriteRating"),
-            &raw mut U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_FAVORITE_RATING,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_shot_meta_data_library_clear_favorite_rating,
         );
     }
     unsafe {
@@ -693,35 +739,38 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SynchronizeToServer"),
-            &raw mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_SYNCHRONIZE_TO_SERVER,
+            &raw mut __FUNCTION_PTRS
+                .a_level_sequence_media_controller_synchronize_to_server,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Play"),
-            &raw mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_PLAY,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_media_controller_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnRep_ServerStartTimeSeconds"),
-            &raw mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_ON_REP_SERVER_START_TIME_SECONDS,
+            &raw mut __FUNCTION_PTRS
+                .a_level_sequence_media_controller_on_rep_server_start_time_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSequence"),
-            &raw mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_SEQUENCE,
+            &raw mut __FUNCTION_PTRS.a_level_sequence_media_controller_get_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMediaComponent"),
-            &raw mut A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_MEDIA_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .a_level_sequence_media_controller_get_media_component,
         );
     }
 }
@@ -848,7 +897,8 @@ impl ULevelSequence {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_REMOVE_META_DATA_BY_CLASS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_remove_meta_data_by_class,
                 __buffer,
             )
         };
@@ -867,7 +917,8 @@ impl ULevelSequence {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_REMOVE_META_DATA_BY_CLASS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_remove_meta_data_by_class,
                 __buffer,
             )
         };
@@ -883,7 +934,8 @@ impl ULevelSequence {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_OR_ADD_META_DATA_BY_CLASS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_find_or_add_meta_data_by_class,
                 __buffer,
             )
         };
@@ -902,7 +954,8 @@ impl ULevelSequence {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_OR_ADD_META_DATA_BY_CLASS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_find_or_add_meta_data_by_class,
                 __buffer,
             )
         };
@@ -924,7 +977,8 @@ impl ULevelSequence {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_META_DATA_BY_CLASS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_find_meta_data_by_class,
                 __buffer,
             )
         };
@@ -943,7 +997,8 @@ impl ULevelSequence {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_FIND_META_DATA_BY_CLASS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_find_meta_data_by_class,
                 __buffer,
             )
         };
@@ -965,7 +1020,8 @@ impl ULevelSequence {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_COPY_META_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_copy_meta_data,
                 __buffer,
             )
         };
@@ -982,7 +1038,8 @@ impl ULevelSequence {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_COPY_META_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_copy_meta_data,
                 __buffer,
             )
         };
@@ -1050,7 +1107,8 @@ impl ULevelSequenceBurnInOptions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_BURN_IN_OPTIONS_SET_BURN_IN,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_burn_in_options_set_burn_in,
                 __buffer,
             )
         };
@@ -1067,7 +1125,8 @@ impl ULevelSequenceBurnInOptions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_BURN_IN_OPTIONS_SET_BURN_IN,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_burn_in_options_set_burn_in,
                 __buffer,
             )
         };
@@ -1115,7 +1174,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SHOW_BURNIN,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_show_burnin,
                 __buffer,
             )
         };
@@ -1125,7 +1185,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SHOW_BURNIN,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_show_burnin,
                 __buffer,
             )
         };
@@ -1138,7 +1199,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_sequence,
                 __buffer,
             )
         };
@@ -1155,7 +1217,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_sequence,
                 __buffer,
             )
         };
@@ -1168,7 +1231,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_REPLICATE_PLAYBACK,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_replicate_playback,
                 __buffer,
             )
         };
@@ -1185,7 +1249,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_REPLICATE_PLAYBACK,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_replicate_playback,
                 __buffer,
             )
         };
@@ -1203,7 +1268,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING_BY_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_binding_by_tag,
                 __buffer,
             )
         };
@@ -1234,7 +1300,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING_BY_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_binding_by_tag,
                 __buffer,
             )
         };
@@ -1252,7 +1319,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_binding,
                 __buffer,
             )
         };
@@ -1285,7 +1353,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_SET_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_set_binding,
                 __buffer,
             )
         };
@@ -1298,7 +1367,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDINGS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_reset_bindings,
                 __buffer,
             )
         };
@@ -1308,7 +1378,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDINGS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_reset_bindings,
                 __buffer,
             )
         };
@@ -1324,7 +1395,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_reset_binding,
                 __buffer,
             )
         };
@@ -1343,7 +1415,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_RESET_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_reset_binding,
                 __buffer,
             )
         };
@@ -1360,7 +1433,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING_BY_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_remove_binding_by_tag,
                 __buffer,
             )
         };
@@ -1380,7 +1454,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING_BY_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_remove_binding_by_tag,
                 __buffer,
             )
         };
@@ -1397,7 +1472,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_remove_binding,
                 __buffer,
             )
         };
@@ -1423,7 +1499,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_REMOVE_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_remove_binding,
                 __buffer,
             )
         };
@@ -1436,7 +1513,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_HIDE_BURNIN,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_hide_burnin,
                 __buffer,
             )
         };
@@ -1446,7 +1524,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_HIDE_BURNIN,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_hide_burnin,
                 __buffer,
             )
         };
@@ -1459,7 +1538,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_get_sequence_player,
                 __buffer,
             )
         };
@@ -1469,7 +1549,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE_PLAYER,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_get_sequence_player,
                 __buffer,
             )
         };
@@ -1483,7 +1564,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_get_sequence,
                 __buffer,
             )
         };
@@ -1493,7 +1575,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_GET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_get_sequence,
                 __buffer,
             )
         };
@@ -1510,7 +1593,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDINGS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_find_named_bindings,
                 __buffer,
             )
         };
@@ -1523,7 +1607,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDINGS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_find_named_bindings,
                 __buffer,
             )
         };
@@ -1547,7 +1632,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_find_named_binding,
                 __buffer,
             )
         };
@@ -1560,7 +1646,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_FIND_NAMED_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_find_named_binding,
                 __buffer,
             )
         };
@@ -1584,7 +1671,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING_BY_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_add_binding_by_tag,
                 __buffer,
             )
         };
@@ -1615,7 +1703,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING_BY_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_add_binding_by_tag,
                 __buffer,
             )
         };
@@ -1633,7 +1722,8 @@ impl ALevelSequenceActor {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_add_binding,
                 __buffer,
             )
         };
@@ -1666,7 +1756,8 @@ impl ALevelSequenceActor {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_ACTOR_ADD_BINDING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_actor_add_binding,
                 __buffer,
             )
         };
@@ -1739,6 +1830,72 @@ impl ULevelSequenceBurnIn {
             cdo
         }
     }
+    pub fn set_settings(
+        &mut self,
+        in_settings: UPtr<crate::bindings::core_u_object::UObject>,
+    ) {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_burn_in_set_settings,
+                __buffer,
+            )
+        };
+        unsafe {
+            std::ptr::copy_nonoverlapping(
+                &in_settings,
+                __buffer.add(0).cast::<UPtr<crate::bindings::core_u_object::UObject>>(),
+                1,
+            );
+        }
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_burn_in_set_settings,
+                __buffer,
+            )
+        };
+    }
+    pub fn get_settings_class(&self) -> TSubclassOf<ULevelSequenceBurnInInitSettings> {
+        let mut __stack = crate::core_data::StackAlloc::<8>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_burn_in_get_settings_class,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_burn_in_get_settings_class,
+                __buffer,
+            )
+        };
+        unsafe {
+            __buffer
+                .add(0)
+                .cast::<TSubclassOf<ULevelSequenceBurnInInitSettings>>()
+                .read()
+        }
+    }
 }
 #[repr(C, align(8))]
 pub struct ULevelSequenceDirector {
@@ -1763,6 +1920,31 @@ impl ULevelSequenceDirector {
             cdo
         }
     }
+    pub fn on_created(&mut self) {
+        let mut __stack = crate::core_data::StackAlloc::<0>::new();
+        let __buffer = __stack.buffer_mut();
+        let __bindings = crate::module::bindings();
+        unsafe {
+            (__bindings
+                .core_fns
+                .initialize_values_in_param_buffer)(
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_on_created,
+                __buffer,
+            )
+        };
+        let __object_ptr = self as *const _ as *mut std::ffi::c_void;
+        unsafe {
+            (__bindings
+                .core_fns
+                .process_event)(
+                __object_ptr,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_on_created,
+                __buffer,
+            )
+        };
+    }
     pub fn get_sequence_custom_clock(
         &self,
     ) -> UPtr<crate::bindings::movie_scene::UMovieSceneClock> {
@@ -1773,7 +1955,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE_CUSTOM_CLOCK,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_sequence_custom_clock,
                 __buffer,
             )
         };
@@ -1783,7 +1966,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE_CUSTOM_CLOCK,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_sequence_custom_clock,
                 __buffer,
             )
         };
@@ -1804,7 +1988,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_sequence,
                 __buffer,
             )
         };
@@ -1814,7 +1999,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_sequence,
                 __buffer,
             )
         };
@@ -1835,7 +2021,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_TIME,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_root_sequence_time,
                 __buffer,
             )
         };
@@ -1845,7 +2032,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_TIME,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_root_sequence_time,
                 __buffer,
             )
         };
@@ -1866,7 +2054,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_CUSTOM_CLOCK,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_root_sequence_custom_clock,
                 __buffer,
             )
         };
@@ -1876,7 +2065,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_ROOT_SEQUENCE_CUSTOM_CLOCK,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_root_sequence_custom_clock,
                 __buffer,
             )
         };
@@ -1897,7 +2087,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_CURRENT_TIME,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_current_time,
                 __buffer,
             )
         };
@@ -1907,7 +2098,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_CURRENT_TIME,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_current_time,
                 __buffer,
             )
         };
@@ -1929,7 +2121,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECTS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_objects,
                 __buffer,
             )
         };
@@ -1948,7 +2141,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECTS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_objects,
                 __buffer,
             )
         };
@@ -1970,7 +2164,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECT,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_object,
                 __buffer,
             )
         };
@@ -1989,7 +2184,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_OBJECT,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_object,
                 __buffer,
             )
         };
@@ -2011,7 +2207,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTORS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_actors,
                 __buffer,
             )
         };
@@ -2030,7 +2227,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTORS,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_actors,
                 __buffer,
             )
         };
@@ -2052,7 +2250,8 @@ impl ULevelSequenceDirector {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTOR,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_actor,
                 __buffer,
             )
         };
@@ -2071,7 +2270,8 @@ impl ULevelSequenceDirector {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_DIRECTOR_GET_BOUND_ACTOR,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_director_get_bound_actor,
                 __buffer,
             )
         };
@@ -2131,7 +2331,8 @@ impl ULevelSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_GET_ACTIVE_CAMERA_COMPONENT,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_player_get_active_camera_component,
                 __buffer,
             )
         };
@@ -2141,7 +2342,8 @@ impl ULevelSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_GET_ACTIVE_CAMERA_COMPONENT,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_player_get_active_camera_component,
                 __buffer,
             )
         };
@@ -2165,7 +2367,8 @@ impl ULevelSequencePlayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_CREATE_LEVEL_SEQUENCE_PLAYER,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_player_create_level_sequence_player,
                 __buffer,
             )
         };
@@ -2207,7 +2410,8 @@ impl ULevelSequencePlayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_PLAYER_CREATE_LEVEL_SEQUENCE_PLAYER,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_player_create_level_sequence_player,
                 __buffer,
             )
         };
@@ -2269,7 +2473,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_sub_sequence,
                 __buffer,
             )
         };
@@ -2293,7 +2498,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_sub_sequence,
                 __buffer,
             )
         };
@@ -2309,7 +2515,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_recorded,
                 __buffer,
             )
         };
@@ -2333,7 +2540,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_recorded,
                 __buffer,
             )
         };
@@ -2349,7 +2557,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_no_good,
                 __buffer,
             )
         };
@@ -2373,7 +2582,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_no_good,
                 __buffer,
             )
         };
@@ -2389,7 +2599,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_flagged,
                 __buffer,
             )
         };
@@ -2413,7 +2624,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_is_flagged,
                 __buffer,
             )
         };
@@ -2429,7 +2641,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_favorite_rating,
                 __buffer,
             )
         };
@@ -2453,7 +2666,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_SET_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_set_favorite_rating,
                 __buffer,
             )
         };
@@ -2468,7 +2682,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_sub_sequence_by_asset_data,
                 __buffer,
             )
         };
@@ -2485,7 +2700,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_sub_sequence_by_asset_data,
                 __buffer,
             )
         };
@@ -2499,7 +2715,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_sub_sequence,
                 __buffer,
             )
         };
@@ -2516,7 +2733,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_sub_sequence,
                 __buffer,
             )
         };
@@ -2532,7 +2750,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_recorded_by_asset_data,
                 __buffer,
             )
         };
@@ -2549,7 +2768,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_recorded_by_asset_data,
                 __buffer,
             )
         };
@@ -2563,7 +2783,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_recorded,
                 __buffer,
             )
         };
@@ -2580,7 +2801,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_recorded,
                 __buffer,
             )
         };
@@ -2596,7 +2818,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_no_good_by_asset_data,
                 __buffer,
             )
         };
@@ -2613,7 +2836,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_no_good_by_asset_data,
                 __buffer,
             )
         };
@@ -2627,7 +2851,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_no_good,
                 __buffer,
             )
         };
@@ -2644,7 +2869,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_no_good,
                 __buffer,
             )
         };
@@ -2660,7 +2886,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_flagged_by_asset_data,
                 __buffer,
             )
         };
@@ -2677,7 +2904,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_flagged_by_asset_data,
                 __buffer,
             )
         };
@@ -2691,7 +2919,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_flagged,
                 __buffer,
             )
         };
@@ -2708,7 +2937,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_is_flagged,
                 __buffer,
             )
         };
@@ -2724,7 +2954,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_favorite_rating_by_asset_data,
                 __buffer,
             )
         };
@@ -2741,7 +2972,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_favorite_rating_by_asset_data,
                 __buffer,
             )
         };
@@ -2755,7 +2987,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_favorite_rating,
                 __buffer,
             )
         };
@@ -2772,7 +3005,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_HAS_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_has_favorite_rating,
                 __buffer,
             )
         };
@@ -2789,7 +3023,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_by_asset_data,
                 __buffer,
             )
         };
@@ -2813,7 +3048,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_by_asset_data,
                 __buffer,
             )
         };
@@ -2830,7 +3066,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_asset_tag,
                 __buffer,
             )
         };
@@ -2840,7 +3077,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence_asset_tag,
                 __buffer,
             )
         };
@@ -2857,7 +3095,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence,
                 __buffer,
             )
         };
@@ -2881,7 +3120,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_sub_sequence,
                 __buffer,
             )
         };
@@ -2901,7 +3141,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded_by_asset_data,
                 __buffer,
             )
         };
@@ -2925,7 +3166,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded_by_asset_data,
                 __buffer,
             )
         };
@@ -2942,7 +3184,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded_asset_tag,
                 __buffer,
             )
         };
@@ -2952,7 +3195,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded_asset_tag,
                 __buffer,
             )
         };
@@ -2969,7 +3213,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded,
                 __buffer,
             )
         };
@@ -2993,7 +3238,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_recorded,
                 __buffer,
             )
         };
@@ -3013,7 +3259,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good_by_asset_data,
                 __buffer,
             )
         };
@@ -3037,7 +3284,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good_by_asset_data,
                 __buffer,
             )
         };
@@ -3054,7 +3302,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good_asset_tag,
                 __buffer,
             )
         };
@@ -3064,7 +3313,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good_asset_tag,
                 __buffer,
             )
         };
@@ -3081,7 +3331,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good,
                 __buffer,
             )
         };
@@ -3105,7 +3356,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_no_good,
                 __buffer,
             )
         };
@@ -3125,7 +3377,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged_by_asset_data,
                 __buffer,
             )
         };
@@ -3149,7 +3402,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged_by_asset_data,
                 __buffer,
             )
         };
@@ -3166,7 +3420,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged_asset_tag,
                 __buffer,
             )
         };
@@ -3176,7 +3431,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged_asset_tag,
                 __buffer,
             )
         };
@@ -3193,7 +3449,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged,
                 __buffer,
             )
         };
@@ -3217,7 +3474,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_is_flagged,
                 __buffer,
             )
         };
@@ -3237,7 +3495,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating_by_asset_data,
                 __buffer,
             )
         };
@@ -3261,7 +3520,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_BY_ASSET_DATA,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating_by_asset_data,
                 __buffer,
             )
         };
@@ -3278,7 +3538,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating_asset_tag,
                 __buffer,
             )
         };
@@ -3288,7 +3549,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING_ASSET_TAG,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating_asset_tag,
                 __buffer,
             )
         };
@@ -3305,7 +3567,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating,
                 __buffer,
             )
         };
@@ -3329,7 +3592,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_GET_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_get_favorite_rating,
                 __buffer,
             )
         };
@@ -3346,7 +3610,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_sub_sequence,
                 __buffer,
             )
         };
@@ -3363,7 +3628,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_SUB_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_sub_sequence,
                 __buffer,
             )
         };
@@ -3376,7 +3642,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_recorded,
                 __buffer,
             )
         };
@@ -3393,7 +3660,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_RECORDED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_recorded,
                 __buffer,
             )
         };
@@ -3406,7 +3674,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_no_good,
                 __buffer,
             )
         };
@@ -3423,7 +3692,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_NO_GOOD,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_no_good,
                 __buffer,
             )
         };
@@ -3436,7 +3706,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_flagged,
                 __buffer,
             )
         };
@@ -3453,7 +3724,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_IS_FLAGGED,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_is_flagged,
                 __buffer,
             )
         };
@@ -3466,7 +3738,8 @@ impl ULevelSequenceShotMetaDataLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_favorite_rating,
                 __buffer,
             )
         };
@@ -3483,7 +3756,8 @@ impl ULevelSequenceShotMetaDataLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::U_LEVEL_SEQUENCE_SHOT_META_DATA_LIBRARY_CLEAR_FAVORITE_RATING,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .u_level_sequence_shot_meta_data_library_clear_favorite_rating,
                 __buffer,
             )
         };
@@ -3522,7 +3796,8 @@ impl ALevelSequenceMediaController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_SYNCHRONIZE_TO_SERVER,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_synchronize_to_server,
                 __buffer,
             )
         };
@@ -3539,7 +3814,8 @@ impl ALevelSequenceMediaController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_SYNCHRONIZE_TO_SERVER,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_synchronize_to_server,
                 __buffer,
             )
         };
@@ -3552,7 +3828,8 @@ impl ALevelSequenceMediaController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_PLAY,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_play,
                 __buffer,
             )
         };
@@ -3562,7 +3839,8 @@ impl ALevelSequenceMediaController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_PLAY,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_play,
                 __buffer,
             )
         };
@@ -3575,7 +3853,8 @@ impl ALevelSequenceMediaController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_get_sequence,
                 __buffer,
             )
         };
@@ -3585,7 +3864,8 @@ impl ALevelSequenceMediaController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_SEQUENCE,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_get_sequence,
                 __buffer,
             )
         };
@@ -3601,7 +3881,8 @@ impl ALevelSequenceMediaController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_MEDIA_COMPONENT,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_get_media_component,
                 __buffer,
             )
         };
@@ -3611,7 +3892,8 @@ impl ALevelSequenceMediaController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence::A_LEVEL_SEQUENCE_MEDIA_CONTROLLER_GET_MEDIA_COMPONENT,
+                crate::bindings::level_sequence::__FUNCTION_PTRS
+                    .a_level_sequence_media_controller_get_media_component,
                 __buffer,
             )
         };

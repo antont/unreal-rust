@@ -1,28 +1,37 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_REMOVE_BINDING_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_PREVIOUS_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_NEXT_KEY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_BINDING_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_ADD_BINDING_TAGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_MODULE_SCRIPTING_LAYER_GET_OUTLINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_SETTINGS_SHOULD_SHOW_THUMBNAIL_CAPTURE_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_sequencer_module_outliner_scripting_object_remove_binding_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_module_outliner_scripting_object_get_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_module_outliner_scripting_object_get_previous_key: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_module_outliner_scripting_object_get_next_key: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_module_outliner_scripting_object_get_binding_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_module_outliner_scripting_object_add_binding_tags: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_module_scripting_layer_get_outliner: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_settings_should_show_thumbnail_capture_settings: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_sequencer_module_outliner_scripting_object_remove_binding_tags: std::ptr::null_mut(),
+            u_sequencer_module_outliner_scripting_object_get_sections: std::ptr::null_mut(),
+            u_sequencer_module_outliner_scripting_object_get_previous_key: std::ptr::null_mut(),
+            u_sequencer_module_outliner_scripting_object_get_next_key: std::ptr::null_mut(),
+            u_sequencer_module_outliner_scripting_object_get_binding_tags: std::ptr::null_mut(),
+            u_sequencer_module_outliner_scripting_object_add_binding_tags: std::ptr::null_mut(),
+            u_sequencer_module_scripting_layer_get_outliner: std::ptr::null_mut(),
+            u_sequencer_settings_should_show_thumbnail_capture_settings: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -32,42 +41,48 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveBindingTags"),
-            &raw mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_REMOVE_BINDING_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_module_outliner_scripting_object_remove_binding_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSections"),
-            &raw mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_SECTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_module_outliner_scripting_object_get_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviousKey"),
-            &raw mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_PREVIOUS_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_module_outliner_scripting_object_get_previous_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNextKey"),
-            &raw mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_NEXT_KEY,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_module_outliner_scripting_object_get_next_key,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBindingTags"),
-            &raw mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_BINDING_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_module_outliner_scripting_object_get_binding_tags,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBindingTags"),
-            &raw mut U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_ADD_BINDING_TAGS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_module_outliner_scripting_object_add_binding_tags,
         );
     }
     unsafe {
@@ -78,7 +93,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOutliner"),
-            &raw mut U_SEQUENCER_MODULE_SCRIPTING_LAYER_GET_OUTLINER,
+            &raw mut __FUNCTION_PTRS.u_sequencer_module_scripting_layer_get_outliner,
         );
     }
     unsafe {
@@ -89,7 +104,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldShowThumbnailCaptureSettings"),
-            &raw mut U_SEQUENCER_SETTINGS_SHOULD_SHOW_THUMBNAIL_CAPTURE_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_settings_should_show_thumbnail_capture_settings,
         );
     }
 }
@@ -393,7 +409,8 @@ impl USequencerModuleOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_REMOVE_BINDING_TAGS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_remove_binding_tags,
                 __buffer,
             )
         };
@@ -423,7 +440,8 @@ impl USequencerModuleOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_REMOVE_BINDING_TAGS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_remove_binding_tags,
                 __buffer,
             )
         };
@@ -441,7 +459,8 @@ impl USequencerModuleOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_SECTIONS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_sections,
                 __buffer,
             )
         };
@@ -464,7 +483,8 @@ impl USequencerModuleOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_SECTIONS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_sections,
                 __buffer,
             )
         };
@@ -490,7 +510,8 @@ impl USequencerModuleOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_PREVIOUS_KEY,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_previous_key,
                 __buffer,
             )
         };
@@ -529,7 +550,8 @@ impl USequencerModuleOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_PREVIOUS_KEY,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_previous_key,
                 __buffer,
             )
         };
@@ -555,7 +577,8 @@ impl USequencerModuleOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_NEXT_KEY,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_next_key,
                 __buffer,
             )
         };
@@ -594,7 +617,8 @@ impl USequencerModuleOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_NEXT_KEY,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_next_key,
                 __buffer,
             )
         };
@@ -616,7 +640,8 @@ impl USequencerModuleOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_BINDING_TAGS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_binding_tags,
                 __buffer,
             )
         };
@@ -637,7 +662,8 @@ impl USequencerModuleOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_GET_BINDING_TAGS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_get_binding_tags,
                 __buffer,
             )
         };
@@ -657,7 +683,8 @@ impl USequencerModuleOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_ADD_BINDING_TAGS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_add_binding_tags,
                 __buffer,
             )
         };
@@ -687,7 +714,8 @@ impl USequencerModuleOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_OUTLINER_SCRIPTING_OBJECT_ADD_BINDING_TAGS,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_outliner_scripting_object_add_binding_tags,
                 __buffer,
             )
         };
@@ -721,7 +749,8 @@ impl USequencerModuleScriptingLayer {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_SCRIPTING_LAYER_GET_OUTLINER,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_scripting_layer_get_outliner,
                 __buffer,
             )
         };
@@ -731,7 +760,8 @@ impl USequencerModuleScriptingLayer {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer::U_SEQUENCER_MODULE_SCRIPTING_LAYER_GET_OUTLINER,
+                crate::bindings::sequencer::__FUNCTION_PTRS
+                    .u_sequencer_module_scripting_layer_get_outliner,
                 __buffer,
             )
         };

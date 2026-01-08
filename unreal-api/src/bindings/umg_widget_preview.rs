@@ -1,16 +1,25 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_WIDGET_PREVIEW_GET_WIDGET_SLOT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_WIDGET_PREVIEW_GET_AVAILABLE_WIDGET_SLOT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_widget_preview_get_widget_slot_names: *mut crate::ffi::UFunctionOpague,
+    pub u_widget_preview_get_available_widget_slot_names: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_widget_preview_get_widget_slot_names: std::ptr::null_mut(),
+            u_widget_preview_get_available_widget_slot_names: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -20,14 +29,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWidgetSlotNames"),
-            &raw mut U_WIDGET_PREVIEW_GET_WIDGET_SLOT_NAMES,
+            &raw mut __FUNCTION_PTRS.u_widget_preview_get_widget_slot_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAvailableWidgetSlotNames"),
-            &raw mut U_WIDGET_PREVIEW_GET_AVAILABLE_WIDGET_SLOT_NAMES,
+            &raw mut __FUNCTION_PTRS.u_widget_preview_get_available_widget_slot_names,
         );
     }
 }
@@ -92,7 +101,8 @@ impl UWidgetPreview {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_WIDGET_SLOT_NAMES,
+                crate::bindings::umg_widget_preview::__FUNCTION_PTRS
+                    .u_widget_preview_get_widget_slot_names,
                 __buffer,
             )
         };
@@ -102,7 +112,8 @@ impl UWidgetPreview {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_WIDGET_SLOT_NAMES,
+                crate::bindings::umg_widget_preview::__FUNCTION_PTRS
+                    .u_widget_preview_get_widget_slot_names,
                 __buffer,
             )
         };
@@ -116,7 +127,8 @@ impl UWidgetPreview {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_AVAILABLE_WIDGET_SLOT_NAMES,
+                crate::bindings::umg_widget_preview::__FUNCTION_PTRS
+                    .u_widget_preview_get_available_widget_slot_names,
                 __buffer,
             )
         };
@@ -126,7 +138,8 @@ impl UWidgetPreview {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::umg_widget_preview::U_WIDGET_PREVIEW_GET_AVAILABLE_WIDGET_SLOT_NAMES,
+                crate::bindings::umg_widget_preview::__FUNCTION_PTRS
+                    .u_widget_preview_get_available_widget_slot_names,
                 __buffer,
             )
         };

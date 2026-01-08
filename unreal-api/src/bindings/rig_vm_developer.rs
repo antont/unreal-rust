@@ -1,936 +1,945 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_SUSPEND_NOTIFICATIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_SPLIT_ASSET_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_SET_AUTO_VM_RECOMPILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_REQUEST_RIG_VM_INIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_REQUEST_AUTO_VM_RECOMPILATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_RENAME_MEMBER_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_REMOVE_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_REMOVE_MEMBER_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_RECOMPILE_VM_IF_REQUIRED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_RECOMPILE_VM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_JOIN_ASSET_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_RIG_VM_HOST_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_OR_CREATE_LOCAL_FUNCTION_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_OR_CREATE_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_MEMBER_VARIABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_MATCHING_VARIANTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_LOCAL_FUNCTION_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_FOCUSED_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_DEFAULT_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_DEBUGGED_RIG_VM_HOST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_CONTROLLER_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_CONTROLLER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_AVAILABLE_RIG_VM_STRUCTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_AUTO_VM_RECOMPILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_BP: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GET_ALL_MODELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_GENERATE_PYTHON_COMMANDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_CREATE_RIG_VM_HOST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_CHANGE_MEMBER_VARIABLE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_BULK_REMOVE_MEMBER_VARIABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_ADD_MODEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BLUEPRINT_ADD_MEMBER_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_COMPILER_COMPILE_VM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_COMPILER_COMPILE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_SET_IS_EXCLUDED_BY_EARLY_EXIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_SET_HAS_EARLY_EXIT_MARKER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_SET_HAS_BREAKPOINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_SET_EXECUTION_IS_HALTED_AT_THIS_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_VISIBLE_IN_UI: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_TRAIT_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_PURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_PIN_CATEGORY_EXPANDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_MUTABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_LOOP_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_LINKED_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_INPUT_AGGREGATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_INJECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_HIGHLIGHTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_EXCLUDED_BY_EARLY_EXIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_EVENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_DEFINED_AS_VARYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_DEFINED_AS_CONSTANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_CONTROL_FLOW_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_IS_AGGREGATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_PIN_OF_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_OUTPUT_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_ORPHANED_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_LAZY_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_IO_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_INPUT_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_EARLY_EXIT_MARKER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_HAS_BREAKPOINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_TRAIT_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_TOOL_TIP_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_SUPPORTED_WORKFLOWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_SUB_PIN_CATEGORIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_SECOND_AGGREGATE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_ROOT_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_PREVIOUS_F_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_PINS_FOR_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_PIN_CATEGORY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_PIN_CATEGORIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_ORPHANED_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_OPPOSITE_AGGREGATE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_NODE_TITLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_NODE_SUB_TITLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_NODE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_NODE_LAYOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_NODE_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_NODE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_NEXT_AGGREGATE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_LINKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_LINKED_TARGET_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_LINKED_SOURCE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_INJECTION_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_GRAPH_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_FIRST_AGGREGATE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_EVENT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_ALL_PINS_RECURSIVELY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_AGGREGATE_OUTPUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_GET_AGGREGATE_INPUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_FIND_ROOT_PIN_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_FIND_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_FIND_FUNCTION_FOR_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_FIND_EXECUTE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_EXECUTION_IS_HALTED_AT_THIS_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_CAN_ONLY_EXIST_ONCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_NODE_CAN_BE_UPGRADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_TEMPLATE_NODE_IS_SINGLETON: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_TEMPLATE_NODE_IS_RESOLVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_TEMPLATE_NODE_IS_FULLY_UNRESOLVED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_TEMPLATE_NODE_GET_SCRIPT_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_TEMPLATE_NODE_GET_NOTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LIBRARY_NODE_GET_MATCHING_VARIANTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LIBRARY_NODE_GET_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT_REF: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LIBRARY_NODE_GET_CONTAINED_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_RIG_VM_ARRAY_NODE_GET_OP_CODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_FONT_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_COLOR_BUBBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_BUBBLE_VISIBLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ENUM_NODE_GET_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ENUM_NODE_GET_CPP_TYPE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ENUM_NODE_GET_CPP_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_FUNCTION_REFERENCE_NODE_GET_REFERENCED_FUNCTION_HEADER_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_INVOKE_ENTRY_NODE_GET_ENTRY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PARAMETER_NODE_IS_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PARAMETER_NODE_GET_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_UNIT_NODE_GET_STRUCT_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_UNIT_NODE_GET_METHOD_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_IS_LOCAL_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_IS_INPUT_ARGUMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_IS_GETTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_IS_EXTERNAL_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_GET_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_SPLIT_VARIANT_FROM_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_JOIN_VARIANT_SET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GET_VARIANT_REF_FOR_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GET_USED_FUNCTION_IDENTIFIERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GET_FUNCTION_IDENTIFIER_FOR_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GET_ALL_FUNCTION_IDENTIFIERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GATHER_FUNCTION_VARIANT_REFS_FOR_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GATHER_ALL_FUNCTION_VARIANT_REFS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_GATHER_ALL_ASSET_VARIANT_REFS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_FIND_FUNCTION_VARIANT_REFS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_FIND_ASSET_VARIANT_REFS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_CREATE_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_BUILD_DATA_CREATE_ASSET_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ACTION_STACK_UNDO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ACTION_STACK_REDO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ACTION_STACK_OPEN_UNDO_BRACKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ACTION_STACK_CLOSE_UNDO_BRACKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_ACTION_STACK_CANCEL_UNDO_BRACKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_SET_SCHEMA_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_SET_DEFAULT_FUNCTION_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_IS_TOP_LEVEL_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_IS_ROOT_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_IS_NODE_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_IS_NODE_HIGHLIGHTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_VARIABLE_DESCRIPTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_SELECT_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_SCHEMA_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_SCHEMA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_ROOT_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_RETURN_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_PARENT_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_OUTPUT_ARGUMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_NODE_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_LOCAL_VARIABLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_LINKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_INPUT_ARGUMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_GRAPH_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_GRAPH_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_EVENT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_ENTRY_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_DEFAULT_FUNCTION_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_GET_CONTAINED_GRAPHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_FIND_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_FIND_NODE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_FIND_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_FIND_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_GRAPH_CONTAINS_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCES_FOR_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCE_PATHS_FOR_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_FUNCTION_LIBRARY_GET_FUNCTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION_FOR_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_TARGET_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_TARGET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_SOURCE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_SOURCE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_PIN_PATH_REPRESENTATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_OPPOSITE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_LINK_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_GRAPH_DEPTH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_LINK_GET_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_INJECTION_INFO_GET_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_INJECTION_INFO_GET_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_SHOULD_ONLY_SHOW_SUB_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_SHOULD_HIDE_SUB_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_REQUIRES_WATCH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_WILD_CARD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_VALID_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_U_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_TRAIT_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_STRUCT_MEMBER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_STRING_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_ROOT_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_REFERENCE_COUNTED_CONTAINER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_LINKED_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_LAZY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_FIXED_SIZE_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_EXPANDED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_EXECUTE_CONTEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_DYNAMIC_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_DEFINED_AS_CONSTANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_ARRAY_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_IS_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_HAS_USER_PROVIDED_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_HAS_ORIGINAL_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_HAS_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_HAS_DEFAULT_VALUE_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_TOOL_TIP_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_TARGET_LINKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_SUB_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_SUB_PIN_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_SOURCE_LINKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_SEGMENT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_SCRIPT_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ROOT_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_PIN_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_PIN_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_PIN_FOR_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_PARENT_SCRIPT_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_PARENT_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ORIGINAL_PIN_FROM_INJECTED_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ORIGINAL_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_META_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_LINKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_LINKED_TARGET_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_LINKED_SOURCE_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_INDEX_IN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ENUM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_DIRECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_DEFAULT_VALUE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_CUSTOM_WIDGET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_CPP_TYPE_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_CPP_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ARRAY_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ARRAY_ELEMENT_CPP_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ALL_SUB_PINS_RECURSIVELY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_GET_ABSOLUTE_PIN_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_FIND_SUB_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_FIND_LINK_FOR_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_CONTAINS_WILD_CARD_SUB_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_PIN_CAN_PROVIDE_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_USER_WORKFLOW_REGISTRY_UNREGISTER_PROVIDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_USER_WORKFLOW_REGISTRY_REGISTER_PROVIDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_USER_WORKFLOW_REGISTRY_GET_WORKFLOWS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_USER_WORKFLOW_REGISTRY_GET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_UPGRADE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_UNRESOLVE_TEMPLATE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_UNDO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_UNBIND_PIN_FROM_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SWAP_ALL_FUNCTION_REFERENCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SPLIT_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_UNIT_NODE_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_SCHEMA_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_SCHEMA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_REMAPPED_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_IS_WATCHED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_INDEX_IN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_EXPANSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_EXPANSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_TITLE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_TITLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_SIZE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_POSITION_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_LAYOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_COLOR_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_COLOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE_FROM_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_IS_RUNNING_UNIT_TEST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_EXPOSED_PIN_INDEX: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_ARRAY_PIN_SIZE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SET_ACTION_STACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SELECT_NODE_ISLANDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SELECT_NODE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SELECT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_SELECT_LINKED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RESOLVE_WILD_CARD_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RESET_PIN_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REPLACE_PARAMETER_NODE_WITH_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RENAME_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RENAME_PIN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RENAME_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RENAME_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RENAME_LOCAL_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RENAME_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_RENAME_EXPOSED_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_TRAIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_TAG_FROM_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_PIN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_NODES_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_NODE_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_LOCAL_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_INJECTED_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_FUNCTION_FROM_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_EXPOSED_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_ARRAY_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REMOVE_AGGREGATE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REFRESH_VARIABLE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_REDO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_PUSH_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_PROMOTE_PIN_TO_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_PROMOTE_FUNCTION_REFERENCE_NODE_TO_COLLAPSE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_PROMOTE_COLLAPSE_NODE_TO_FUNCTION_REFERENCE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_POP_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_PERFORM_USER_WORKFLOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_OPEN_UNDO_BRACKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_MARK_FUNCTION_AS_PUBLIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_MAKE_VARIABLE_NODE_FROM_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_MAKE_OPTIONS_FOR_WORKFLOW: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_MAKE_BINDINGS_FROM_VARIABLE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION_FROM_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_JOIN_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_IS_TRANSACTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_IS_REPORTING_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_IS_FUNCTION_PUBLIC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_INSERT_ARRAY_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_IMPORT_NODES_FROM_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_UNIT_STRUCTS_FOR_TEMPLATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_TOP_LEVEL_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_TEMPLATE_FOR_UNIT_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_SCHEMA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_REGISTERED_UNIT_STRUCTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_REGISTERED_TEMPLATES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_PIN_DEFAULT_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_CONTROLLER_FOR_GRAPH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GET_ACTION_STACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_GENERATE_PYTHON_COMMANDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_FIND_VARIANTS_OF_FUNCTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_IDENTIFIER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_EXPORT_SELECTED_NODES_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_EXPORT_NODE_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_EXPORT_NODES_TO_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_EXPAND_LIBRARY_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ENABLE_REPORTING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_EJECT_NODE_FROM_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_DUPLICATE_ARRAY_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CREATE_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_COLLAPSE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLOSE_UNDO_BRACKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_PIN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_NODE_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_NODE_LAYOUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CLEAR_ARRAY_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CHANGE_EXPOSED_PIN_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CAN_IMPORT_NODES_FROM_TEXT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_CANCEL_UNDO_BRACKET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_BREAK_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_BREAK_ALL_LINKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_BIND_PIN_TO_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE_FROM_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_WITH_DEFAULTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_FROM_STRUCT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_UNIT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_TRAIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_TEMPLATE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_TAG_TO_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_SELECT_NODE_FROM_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_SELECT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE_FROM_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PINS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE_FROM_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_LINK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_INVOKE_ENTRY_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE_FROM_STRUCT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_IF_NODE_FROM_STRUCT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_IF_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_FUNCTION_TO_LIBRARY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE_FROM_DESCRIPTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_FREE_REROUTE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_EXTERNAL_FUNCTION_REFERENCE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_EXPOSED_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_ENUM_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_EMPTY_PIN_CATEGORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_DEFAULT_TAG_TO_FUNCTION_VARIANT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_COMMENT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_BRANCH_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_ARRAY_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE_FROM_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_RIG_VM_CONTROLLER_ADD_AGGREGATE_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_rig_vm_blueprint_suspend_notifications: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_split_asset_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_set_auto_vm_recompile: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_request_rig_vm_init: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_request_auto_vm_recompilation: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_rename_member_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_remove_model: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_remove_member_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_recompile_vm_if_required: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_recompile_vm: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_join_asset_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_rig_vm_host_class: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_or_create_local_function_library: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_or_create_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_model: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_member_variables: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_matching_variants: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_local_function_library: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_focused_model: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_default_model: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_debugged_rig_vm_host: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_controller_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_controller: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_available_rig_vm_structs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_auto_vm_recompile: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_asset_variant_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_asset_variant_bp: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_get_all_models: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_generate_python_commands: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_create_rig_vm_host: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_change_member_variable_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_bulk_remove_member_variables: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_add_model: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_blueprint_add_member_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_compiler_compile_vm: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_compiler_compile: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_set_is_excluded_by_early_exit: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_set_has_early_exit_marker: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_set_has_breakpoint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_set_execution_is_halted_at_this_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_visible_in_ui: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_trait_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_pure: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_pin_category_expanded: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_mutable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_loop_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_linked_to: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_input_aggregate: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_injected: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_highlighted: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_excluded_by_early_exit: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_event: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_defined_as_varying: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_defined_as_constant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_control_flow_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_is_aggregate: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_pin_of_direction: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_output_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_orphaned_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_lazy_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_io_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_input_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_early_exit_marker: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_has_breakpoint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_trait_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_tool_tip_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_supported_workflows: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_sub_pin_categories: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_size: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_second_aggregate_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_root_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_previous_f_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_position: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_pins_for_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_pin_category_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_pin_categories: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_parent_pin_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_parent_pin_categories: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_orphaned_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_opposite_aggregate_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_node_title: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_node_sub_title: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_node_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_node_layout: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_node_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_node_color: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_next_aggregate_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_links: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_linked_target_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_linked_source_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_injection_info: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_graph_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_first_aggregate_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_event_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_all_pins_recursively: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_aggregate_outputs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_get_aggregate_inputs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_find_root_pin_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_find_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_find_function_for_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_find_execute_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_execution_is_halted_at_this_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_can_only_exist_once: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_node_can_be_upgraded: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_template_node_is_singleton: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_template_node_is_resolved: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_template_node_is_fully_unresolved: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_template_node_get_script_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_template_node_get_notation: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_library_node_get_matching_variants: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_library_node_get_library: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_library_node_get_function_variant_ref: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_library_node_get_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_library_node_get_contained_graph: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_rig_vm_array_node_get_op_code: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_rig_vm_array_node_get_cpp_type_object: *mut crate::ffi::UFunctionOpague,
+    pub udeprecated_rig_vm_array_node_get_cpp_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_comment_node_get_comment_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_comment_node_get_comment_font_size: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_comment_node_get_comment_color_bubble: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_comment_node_get_comment_bubble_visible: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_enum_node_get_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_enum_node_get_cpp_type_object: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_enum_node_get_cpp_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_function_reference_node_get_referenced_function_header_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_invoke_entry_node_get_entry_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_parameter_node_is_input: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_parameter_node_get_parameter_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_parameter_node_get_parameter_description: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_parameter_node_get_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_parameter_node_get_cpp_type_object: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_parameter_node_get_cpp_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_unit_node_get_struct_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_unit_node_get_method_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_is_local_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_is_input_argument: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_is_getter: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_is_external_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_get_variable_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_get_variable_description: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_get_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_get_cpp_type_object: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_variable_node_get_cpp_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_split_variant_from_set: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_join_variant_set: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_get_variant_ref_for_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_get_used_function_identifiers: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_get_function_identifier_for_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_get_asset_data_for_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_get_asset_data_for_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_get_all_function_identifiers: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_get: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_gather_function_variant_refs_for_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_gather_all_function_variant_refs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_gather_all_asset_variant_refs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_find_function_variant_refs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_find_asset_variant_refs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_create_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_build_data_create_asset_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_action_stack_undo: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_action_stack_redo: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_action_stack_open_undo_bracket: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_action_stack_close_undo_bracket: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_action_stack_cancel_undo_bracket: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_set_schema_class: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_set_default_function_library: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_is_top_level_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_is_root_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_is_node_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_is_node_highlighted: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_variable_descriptions: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_select_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_schema_class: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_schema: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_root_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_return_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_parent_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_output_arguments: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_node_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_local_variables: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_links: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_input_arguments: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_graph_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_graph_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_event_names: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_entry_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_default_function_library: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_get_contained_graphs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_find_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_find_node_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_find_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_find_link: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_graph_contains_link: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_function_library_get_references_for_function: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_function_library_get_reference_paths_for_function: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_function_library_get_functions: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_function_library_find_function_for_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_function_library_find_function: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_target_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_target_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_source_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_source_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_pin_path_representation: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_opposite_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_link_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_graph_depth: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_link_get_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_injection_info_get_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_injection_info_get_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_should_only_show_sub_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_should_hide_sub_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_requires_watch: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_wild_card: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_valid_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_u_object: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_trait_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_struct_member: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_string_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_root_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_reference_counted_container: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_linked_to: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_lazy: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_fixed_size_array: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_expanded: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_execute_context: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_dynamic_array: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_defined_as_constant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_array_element: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_is_array: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_has_user_provided_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_has_original_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_has_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_has_default_value_override: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_tool_tip_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_target_links: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_sub_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_sub_pin_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_source_links: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_segment_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_script_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_root_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_pin_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_pin_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_pin_for_link: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_parent_script_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_parent_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_original_pin_from_injected_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_original_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_meta_data: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_links: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_linked_target_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_linked_source_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_index_in_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_enum: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_direction: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_default_value_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_custom_widget_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_cpp_type_object: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_cpp_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_array_size: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_array_element_cpp_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_all_sub_pins_recursively: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_get_absolute_pin_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_find_sub_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_find_link_for_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_contains_wild_card_sub_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_pin_can_provide_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_user_workflow_registry_unregister_provider: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_user_workflow_registry_register_provider: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_user_workflow_registry_get_workflows: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_user_workflow_registry_get: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_upgrade_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_unresolve_template_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_undo: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_unbind_pin_from_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_swap_function_reference_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_swap_function_reference: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_swap_all_function_references: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_split_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_unit_node_defaults: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_schema_class: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_schema: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_remapped_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_is_watched: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_index_in_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_expansion: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_category_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_category_expansion: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_pin_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_title_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_title: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_size_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_size: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_position_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_position: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_layout: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_keywords_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_keywords: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_description_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_description: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_color_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_color: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_category_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_node_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_local_variable_type_from_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_local_variable_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_local_variable_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_is_running_unit_test: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_exposed_pin_index: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_comment_text_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_comment_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_array_pin_size: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_set_action_stack: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_select_node_islands: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_select_node_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_select_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_select_linked_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_resolve_wild_card_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_reset_pin_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_reset_default_value_for_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_reset_default_value_for_all_pins_on_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_reset_default_value_for_all_pins_on_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_replace_parameter_node_with_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_rename_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_rename_pin_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_rename_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_rename_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_rename_local_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_rename_function: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_rename_exposed_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_trait: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_tag_from_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_pin_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_nodes_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_node_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_local_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_injected_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_function_from_library: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_exposed_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_array_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_remove_aggregate_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_refresh_variable_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_redo: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_push_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_promote_pin_to_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_promote_function_reference_node_to_collapse_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_promote_collapse_node_to_function_reference_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_pop_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_perform_user_workflow: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_open_undo_bracket: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_mark_function_as_public: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_make_variable_node_from_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_make_options_for_workflow: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_make_bindings_from_variable_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_localize_functions: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_localize_function_from_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_localize_function: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_join_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_is_transacting: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_is_reporting_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_is_function_public: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_insert_array_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_import_nodes_from_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_unit_structs_for_template: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_top_level_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_template_for_unit_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_schema: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_registered_unit_structs: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_registered_templates: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_pin_default_value: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_controller_for_graph: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_get_action_stack: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_generate_python_commands: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_find_variants_of_function: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_find_graph_function_identifier: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_find_graph_function_header_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_find_graph_function_header: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_export_selected_nodes_to_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_export_node_to_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_export_nodes_to_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_expand_library_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_enable_reporting: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_eject_node_from_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_duplicate_array_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_create_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_collapse_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_close_undo_bracket: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_pin_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_override_on_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_override_on_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_override_on_all_pins_on_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_override_on_all_pins_on_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_node_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_node_layout: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_clear_array_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_change_exposed_pin_type: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_can_import_nodes_from_text: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_cancel_undo_bracket: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_break_link: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_break_all_links: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_bind_pin_to_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_variable_node_from_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_variable_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_unit_node_with_defaults: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_unit_node_from_struct_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_unit_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_trait: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_template_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_tag_to_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_select_node_from_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_select_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_reroute_node_on_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_reroute_node_on_link_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_reroute_node_on_link: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_parameter_node_from_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_parameter_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_override_to_pins: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_override_to_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_override_to_all_pins_on_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_override_to_all_pins_on_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_local_variable_from_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_local_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_link: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_invoke_entry_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_injected_node_from_struct_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_injected_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_if_node_from_struct: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_if_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_function_to_library: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_function_reference_node_from_description: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_function_reference_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_free_reroute_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_external_function_reference_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_exposed_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_enum_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_empty_pin_category: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_default_tag_to_function_variant: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_comment_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_branch_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_array_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_array_node_from_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_array_node: *mut crate::ffi::UFunctionOpague,
+    pub u_rig_vm_controller_add_aggregate_pin: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_rig_vm_blueprint_suspend_notifications: std::ptr::null_mut(),
+            u_rig_vm_blueprint_split_asset_variant: std::ptr::null_mut(),
+            u_rig_vm_blueprint_set_auto_vm_recompile: std::ptr::null_mut(),
+            u_rig_vm_blueprint_request_rig_vm_init: std::ptr::null_mut(),
+            u_rig_vm_blueprint_request_auto_vm_recompilation: std::ptr::null_mut(),
+            u_rig_vm_blueprint_rename_member_variable: std::ptr::null_mut(),
+            u_rig_vm_blueprint_remove_model: std::ptr::null_mut(),
+            u_rig_vm_blueprint_remove_member_variable: std::ptr::null_mut(),
+            u_rig_vm_blueprint_recompile_vm_if_required: std::ptr::null_mut(),
+            u_rig_vm_blueprint_recompile_vm: std::ptr::null_mut(),
+            u_rig_vm_blueprint_join_asset_variant: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_rig_vm_host_class: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_or_create_local_function_library: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_or_create_controller: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_model: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_member_variables: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_matching_variants: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_local_function_library: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_focused_model: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_default_model: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_debugged_rig_vm_host: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_controller_by_name: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_controller: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_available_rig_vm_structs: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_auto_vm_recompile: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_asset_variant_ref: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_asset_variant_bp: std::ptr::null_mut(),
+            u_rig_vm_blueprint_get_all_models: std::ptr::null_mut(),
+            u_rig_vm_blueprint_generate_python_commands: std::ptr::null_mut(),
+            u_rig_vm_blueprint_create_rig_vm_host: std::ptr::null_mut(),
+            u_rig_vm_blueprint_change_member_variable_type: std::ptr::null_mut(),
+            u_rig_vm_blueprint_bulk_remove_member_variables: std::ptr::null_mut(),
+            u_rig_vm_blueprint_add_model: std::ptr::null_mut(),
+            u_rig_vm_blueprint_add_member_variable: std::ptr::null_mut(),
+            u_rig_vm_compiler_compile_vm: std::ptr::null_mut(),
+            u_rig_vm_compiler_compile: std::ptr::null_mut(),
+            u_rig_vm_node_set_is_excluded_by_early_exit: std::ptr::null_mut(),
+            u_rig_vm_node_set_has_early_exit_marker: std::ptr::null_mut(),
+            u_rig_vm_node_set_has_breakpoint: std::ptr::null_mut(),
+            u_rig_vm_node_set_execution_is_halted_at_this_node: std::ptr::null_mut(),
+            u_rig_vm_node_is_visible_in_ui: std::ptr::null_mut(),
+            u_rig_vm_node_is_trait_pin: std::ptr::null_mut(),
+            u_rig_vm_node_is_selected: std::ptr::null_mut(),
+            u_rig_vm_node_is_pure: std::ptr::null_mut(),
+            u_rig_vm_node_is_pin_category_expanded: std::ptr::null_mut(),
+            u_rig_vm_node_is_mutable: std::ptr::null_mut(),
+            u_rig_vm_node_is_loop_node: std::ptr::null_mut(),
+            u_rig_vm_node_is_linked_to: std::ptr::null_mut(),
+            u_rig_vm_node_is_input_aggregate: std::ptr::null_mut(),
+            u_rig_vm_node_is_injected: std::ptr::null_mut(),
+            u_rig_vm_node_is_highlighted: std::ptr::null_mut(),
+            u_rig_vm_node_is_excluded_by_early_exit: std::ptr::null_mut(),
+            u_rig_vm_node_is_event: std::ptr::null_mut(),
+            u_rig_vm_node_is_defined_as_varying: std::ptr::null_mut(),
+            u_rig_vm_node_is_defined_as_constant: std::ptr::null_mut(),
+            u_rig_vm_node_is_control_flow_node: std::ptr::null_mut(),
+            u_rig_vm_node_is_aggregate: std::ptr::null_mut(),
+            u_rig_vm_node_has_pin_of_direction: std::ptr::null_mut(),
+            u_rig_vm_node_has_output_pin: std::ptr::null_mut(),
+            u_rig_vm_node_has_orphaned_pins: std::ptr::null_mut(),
+            u_rig_vm_node_has_lazy_pin: std::ptr::null_mut(),
+            u_rig_vm_node_has_io_pin: std::ptr::null_mut(),
+            u_rig_vm_node_has_input_pin: std::ptr::null_mut(),
+            u_rig_vm_node_has_early_exit_marker: std::ptr::null_mut(),
+            u_rig_vm_node_has_breakpoint: std::ptr::null_mut(),
+            u_rig_vm_node_get_trait_pins: std::ptr::null_mut(),
+            u_rig_vm_node_get_tool_tip_text: std::ptr::null_mut(),
+            u_rig_vm_node_get_supported_workflows: std::ptr::null_mut(),
+            u_rig_vm_node_get_sub_pin_categories: std::ptr::null_mut(),
+            u_rig_vm_node_get_size: std::ptr::null_mut(),
+            u_rig_vm_node_get_second_aggregate_pin: std::ptr::null_mut(),
+            u_rig_vm_node_get_root_graph: std::ptr::null_mut(),
+            u_rig_vm_node_get_previous_f_name: std::ptr::null_mut(),
+            u_rig_vm_node_get_position: std::ptr::null_mut(),
+            u_rig_vm_node_get_pins_for_category: std::ptr::null_mut(),
+            u_rig_vm_node_get_pins: std::ptr::null_mut(),
+            u_rig_vm_node_get_pin_category_name: std::ptr::null_mut(),
+            u_rig_vm_node_get_pin_categories: std::ptr::null_mut(),
+            u_rig_vm_node_get_parent_pin_category: std::ptr::null_mut(),
+            u_rig_vm_node_get_parent_pin_categories: std::ptr::null_mut(),
+            u_rig_vm_node_get_orphaned_pins: std::ptr::null_mut(),
+            u_rig_vm_node_get_opposite_aggregate_pin: std::ptr::null_mut(),
+            u_rig_vm_node_get_node_title: std::ptr::null_mut(),
+            u_rig_vm_node_get_node_sub_title: std::ptr::null_mut(),
+            u_rig_vm_node_get_node_path: std::ptr::null_mut(),
+            u_rig_vm_node_get_node_layout: std::ptr::null_mut(),
+            u_rig_vm_node_get_node_index: std::ptr::null_mut(),
+            u_rig_vm_node_get_node_color: std::ptr::null_mut(),
+            u_rig_vm_node_get_next_aggregate_name: std::ptr::null_mut(),
+            u_rig_vm_node_get_links: std::ptr::null_mut(),
+            u_rig_vm_node_get_linked_target_nodes: std::ptr::null_mut(),
+            u_rig_vm_node_get_linked_source_nodes: std::ptr::null_mut(),
+            u_rig_vm_node_get_injection_info: std::ptr::null_mut(),
+            u_rig_vm_node_get_graph_depth: std::ptr::null_mut(),
+            u_rig_vm_node_get_graph: std::ptr::null_mut(),
+            u_rig_vm_node_get_first_aggregate_pin: std::ptr::null_mut(),
+            u_rig_vm_node_get_event_name: std::ptr::null_mut(),
+            u_rig_vm_node_get_all_pins_recursively: std::ptr::null_mut(),
+            u_rig_vm_node_get_aggregate_outputs: std::ptr::null_mut(),
+            u_rig_vm_node_get_aggregate_inputs: std::ptr::null_mut(),
+            u_rig_vm_node_find_root_pin_by_name: std::ptr::null_mut(),
+            u_rig_vm_node_find_pin: std::ptr::null_mut(),
+            u_rig_vm_node_find_function_for_node: std::ptr::null_mut(),
+            u_rig_vm_node_find_execute_pin: std::ptr::null_mut(),
+            u_rig_vm_node_execution_is_halted_at_this_node: std::ptr::null_mut(),
+            u_rig_vm_node_can_only_exist_once: std::ptr::null_mut(),
+            u_rig_vm_node_can_be_upgraded: std::ptr::null_mut(),
+            u_rig_vm_template_node_is_singleton: std::ptr::null_mut(),
+            u_rig_vm_template_node_is_resolved: std::ptr::null_mut(),
+            u_rig_vm_template_node_is_fully_unresolved: std::ptr::null_mut(),
+            u_rig_vm_template_node_get_script_struct: std::ptr::null_mut(),
+            u_rig_vm_template_node_get_notation: std::ptr::null_mut(),
+            u_rig_vm_library_node_get_matching_variants: std::ptr::null_mut(),
+            u_rig_vm_library_node_get_library: std::ptr::null_mut(),
+            u_rig_vm_library_node_get_function_variant_ref: std::ptr::null_mut(),
+            u_rig_vm_library_node_get_function_variant: std::ptr::null_mut(),
+            u_rig_vm_library_node_get_contained_graph: std::ptr::null_mut(),
+            udeprecated_rig_vm_array_node_get_op_code: std::ptr::null_mut(),
+            udeprecated_rig_vm_array_node_get_cpp_type_object: std::ptr::null_mut(),
+            udeprecated_rig_vm_array_node_get_cpp_type: std::ptr::null_mut(),
+            u_rig_vm_comment_node_get_comment_text: std::ptr::null_mut(),
+            u_rig_vm_comment_node_get_comment_font_size: std::ptr::null_mut(),
+            u_rig_vm_comment_node_get_comment_color_bubble: std::ptr::null_mut(),
+            u_rig_vm_comment_node_get_comment_bubble_visible: std::ptr::null_mut(),
+            u_rig_vm_enum_node_get_enum: std::ptr::null_mut(),
+            u_rig_vm_enum_node_get_cpp_type_object: std::ptr::null_mut(),
+            u_rig_vm_enum_node_get_cpp_type: std::ptr::null_mut(),
+            u_rig_vm_function_reference_node_get_referenced_function_header_for_blueprint: std::ptr::null_mut(),
+            u_rig_vm_invoke_entry_node_get_entry_name: std::ptr::null_mut(),
+            u_rig_vm_parameter_node_is_input: std::ptr::null_mut(),
+            u_rig_vm_parameter_node_get_parameter_name: std::ptr::null_mut(),
+            u_rig_vm_parameter_node_get_parameter_description: std::ptr::null_mut(),
+            u_rig_vm_parameter_node_get_default_value: std::ptr::null_mut(),
+            u_rig_vm_parameter_node_get_cpp_type_object: std::ptr::null_mut(),
+            u_rig_vm_parameter_node_get_cpp_type: std::ptr::null_mut(),
+            u_rig_vm_unit_node_get_struct_default_value: std::ptr::null_mut(),
+            u_rig_vm_unit_node_get_method_name: std::ptr::null_mut(),
+            u_rig_vm_variable_node_is_local_variable: std::ptr::null_mut(),
+            u_rig_vm_variable_node_is_input_argument: std::ptr::null_mut(),
+            u_rig_vm_variable_node_is_getter: std::ptr::null_mut(),
+            u_rig_vm_variable_node_is_external_variable: std::ptr::null_mut(),
+            u_rig_vm_variable_node_get_variable_name: std::ptr::null_mut(),
+            u_rig_vm_variable_node_get_variable_description: std::ptr::null_mut(),
+            u_rig_vm_variable_node_get_default_value: std::ptr::null_mut(),
+            u_rig_vm_variable_node_get_cpp_type_object: std::ptr::null_mut(),
+            u_rig_vm_variable_node_get_cpp_type: std::ptr::null_mut(),
+            u_rig_vm_build_data_split_variant_from_set: std::ptr::null_mut(),
+            u_rig_vm_build_data_join_variant_set: std::ptr::null_mut(),
+            u_rig_vm_build_data_get_variant_ref_for_asset: std::ptr::null_mut(),
+            u_rig_vm_build_data_get_used_function_identifiers: std::ptr::null_mut(),
+            u_rig_vm_build_data_get_function_identifier_for_variant: std::ptr::null_mut(),
+            u_rig_vm_build_data_get_asset_data_for_variant: std::ptr::null_mut(),
+            u_rig_vm_build_data_get_asset_data_for_path: std::ptr::null_mut(),
+            u_rig_vm_build_data_get_all_function_identifiers: std::ptr::null_mut(),
+            u_rig_vm_build_data_get: std::ptr::null_mut(),
+            u_rig_vm_build_data_gather_function_variant_refs_for_asset: std::ptr::null_mut(),
+            u_rig_vm_build_data_gather_all_function_variant_refs: std::ptr::null_mut(),
+            u_rig_vm_build_data_gather_all_asset_variant_refs: std::ptr::null_mut(),
+            u_rig_vm_build_data_find_function_variant_refs: std::ptr::null_mut(),
+            u_rig_vm_build_data_find_asset_variant_refs: std::ptr::null_mut(),
+            u_rig_vm_build_data_create_function_variant: std::ptr::null_mut(),
+            u_rig_vm_build_data_create_asset_variant: std::ptr::null_mut(),
+            u_rig_vm_action_stack_undo: std::ptr::null_mut(),
+            u_rig_vm_action_stack_redo: std::ptr::null_mut(),
+            u_rig_vm_action_stack_open_undo_bracket: std::ptr::null_mut(),
+            u_rig_vm_action_stack_close_undo_bracket: std::ptr::null_mut(),
+            u_rig_vm_action_stack_cancel_undo_bracket: std::ptr::null_mut(),
+            u_rig_vm_graph_set_schema_class: std::ptr::null_mut(),
+            u_rig_vm_graph_set_default_function_library: std::ptr::null_mut(),
+            u_rig_vm_graph_is_top_level_graph: std::ptr::null_mut(),
+            u_rig_vm_graph_is_root_graph: std::ptr::null_mut(),
+            u_rig_vm_graph_is_node_selected: std::ptr::null_mut(),
+            u_rig_vm_graph_is_node_highlighted: std::ptr::null_mut(),
+            u_rig_vm_graph_get_variable_descriptions: std::ptr::null_mut(),
+            u_rig_vm_graph_get_select_nodes: std::ptr::null_mut(),
+            u_rig_vm_graph_get_schema_class: std::ptr::null_mut(),
+            u_rig_vm_graph_get_schema: std::ptr::null_mut(),
+            u_rig_vm_graph_get_root_graph: std::ptr::null_mut(),
+            u_rig_vm_graph_get_return_node: std::ptr::null_mut(),
+            u_rig_vm_graph_get_parent_graph: std::ptr::null_mut(),
+            u_rig_vm_graph_get_output_arguments: std::ptr::null_mut(),
+            u_rig_vm_graph_get_nodes: std::ptr::null_mut(),
+            u_rig_vm_graph_get_node_path: std::ptr::null_mut(),
+            u_rig_vm_graph_get_local_variables: std::ptr::null_mut(),
+            u_rig_vm_graph_get_links: std::ptr::null_mut(),
+            u_rig_vm_graph_get_input_arguments: std::ptr::null_mut(),
+            u_rig_vm_graph_get_graph_name: std::ptr::null_mut(),
+            u_rig_vm_graph_get_graph_depth: std::ptr::null_mut(),
+            u_rig_vm_graph_get_event_names: std::ptr::null_mut(),
+            u_rig_vm_graph_get_entry_node: std::ptr::null_mut(),
+            u_rig_vm_graph_get_default_function_library: std::ptr::null_mut(),
+            u_rig_vm_graph_get_contained_graphs: std::ptr::null_mut(),
+            u_rig_vm_graph_find_pin: std::ptr::null_mut(),
+            u_rig_vm_graph_find_node_by_name: std::ptr::null_mut(),
+            u_rig_vm_graph_find_node: std::ptr::null_mut(),
+            u_rig_vm_graph_find_link: std::ptr::null_mut(),
+            u_rig_vm_graph_contains_link: std::ptr::null_mut(),
+            u_rig_vm_function_library_get_references_for_function: std::ptr::null_mut(),
+            u_rig_vm_function_library_get_reference_paths_for_function: std::ptr::null_mut(),
+            u_rig_vm_function_library_get_functions: std::ptr::null_mut(),
+            u_rig_vm_function_library_find_function_for_node: std::ptr::null_mut(),
+            u_rig_vm_function_library_find_function: std::ptr::null_mut(),
+            u_rig_vm_link_get_target_pin: std::ptr::null_mut(),
+            u_rig_vm_link_get_target_node: std::ptr::null_mut(),
+            u_rig_vm_link_get_source_pin: std::ptr::null_mut(),
+            u_rig_vm_link_get_source_node: std::ptr::null_mut(),
+            u_rig_vm_link_get_pin_path_representation: std::ptr::null_mut(),
+            u_rig_vm_link_get_opposite_pin: std::ptr::null_mut(),
+            u_rig_vm_link_get_link_index: std::ptr::null_mut(),
+            u_rig_vm_link_get_graph_depth: std::ptr::null_mut(),
+            u_rig_vm_link_get_graph: std::ptr::null_mut(),
+            u_rig_vm_injection_info_get_pin: std::ptr::null_mut(),
+            u_rig_vm_injection_info_get_graph: std::ptr::null_mut(),
+            u_rig_vm_pin_should_only_show_sub_pins: std::ptr::null_mut(),
+            u_rig_vm_pin_should_hide_sub_pins: std::ptr::null_mut(),
+            u_rig_vm_pin_requires_watch: std::ptr::null_mut(),
+            u_rig_vm_pin_is_wild_card: std::ptr::null_mut(),
+            u_rig_vm_pin_is_valid_default_value: std::ptr::null_mut(),
+            u_rig_vm_pin_is_u_object: std::ptr::null_mut(),
+            u_rig_vm_pin_is_trait_pin: std::ptr::null_mut(),
+            u_rig_vm_pin_is_struct_member: std::ptr::null_mut(),
+            u_rig_vm_pin_is_struct: std::ptr::null_mut(),
+            u_rig_vm_pin_is_string_type: std::ptr::null_mut(),
+            u_rig_vm_pin_is_root_pin: std::ptr::null_mut(),
+            u_rig_vm_pin_is_reference_counted_container: std::ptr::null_mut(),
+            u_rig_vm_pin_is_linked_to: std::ptr::null_mut(),
+            u_rig_vm_pin_is_lazy: std::ptr::null_mut(),
+            u_rig_vm_pin_is_interface: std::ptr::null_mut(),
+            u_rig_vm_pin_is_fixed_size_array: std::ptr::null_mut(),
+            u_rig_vm_pin_is_expanded: std::ptr::null_mut(),
+            u_rig_vm_pin_is_execute_context: std::ptr::null_mut(),
+            u_rig_vm_pin_is_enum: std::ptr::null_mut(),
+            u_rig_vm_pin_is_dynamic_array: std::ptr::null_mut(),
+            u_rig_vm_pin_is_defined_as_constant: std::ptr::null_mut(),
+            u_rig_vm_pin_is_array_element: std::ptr::null_mut(),
+            u_rig_vm_pin_is_array: std::ptr::null_mut(),
+            u_rig_vm_pin_has_user_provided_default_value: std::ptr::null_mut(),
+            u_rig_vm_pin_has_original_default_value: std::ptr::null_mut(),
+            u_rig_vm_pin_has_meta_data: std::ptr::null_mut(),
+            u_rig_vm_pin_has_default_value_override: std::ptr::null_mut(),
+            u_rig_vm_pin_get_tool_tip_text: std::ptr::null_mut(),
+            u_rig_vm_pin_get_target_links: std::ptr::null_mut(),
+            u_rig_vm_pin_get_sub_pins: std::ptr::null_mut(),
+            u_rig_vm_pin_get_sub_pin_path: std::ptr::null_mut(),
+            u_rig_vm_pin_get_source_links: std::ptr::null_mut(),
+            u_rig_vm_pin_get_segment_path: std::ptr::null_mut(),
+            u_rig_vm_pin_get_script_struct: std::ptr::null_mut(),
+            u_rig_vm_pin_get_root_pin: std::ptr::null_mut(),
+            u_rig_vm_pin_get_pin_path: std::ptr::null_mut(),
+            u_rig_vm_pin_get_pin_index: std::ptr::null_mut(),
+            u_rig_vm_pin_get_pin_for_link: std::ptr::null_mut(),
+            u_rig_vm_pin_get_parent_script_struct: std::ptr::null_mut(),
+            u_rig_vm_pin_get_parent_pin: std::ptr::null_mut(),
+            u_rig_vm_pin_get_original_pin_from_injected_node: std::ptr::null_mut(),
+            u_rig_vm_pin_get_original_default_value: std::ptr::null_mut(),
+            u_rig_vm_pin_get_node: std::ptr::null_mut(),
+            u_rig_vm_pin_get_meta_data: std::ptr::null_mut(),
+            u_rig_vm_pin_get_links: std::ptr::null_mut(),
+            u_rig_vm_pin_get_linked_target_pins: std::ptr::null_mut(),
+            u_rig_vm_pin_get_linked_source_pins: std::ptr::null_mut(),
+            u_rig_vm_pin_get_index_in_category: std::ptr::null_mut(),
+            u_rig_vm_pin_get_graph: std::ptr::null_mut(),
+            u_rig_vm_pin_get_enum: std::ptr::null_mut(),
+            u_rig_vm_pin_get_display_name: std::ptr::null_mut(),
+            u_rig_vm_pin_get_direction: std::ptr::null_mut(),
+            u_rig_vm_pin_get_default_value_type: std::ptr::null_mut(),
+            u_rig_vm_pin_get_default_value: std::ptr::null_mut(),
+            u_rig_vm_pin_get_custom_widget_name: std::ptr::null_mut(),
+            u_rig_vm_pin_get_cpp_type_object: std::ptr::null_mut(),
+            u_rig_vm_pin_get_cpp_type: std::ptr::null_mut(),
+            u_rig_vm_pin_get_category: std::ptr::null_mut(),
+            u_rig_vm_pin_get_array_size: std::ptr::null_mut(),
+            u_rig_vm_pin_get_array_element_cpp_type: std::ptr::null_mut(),
+            u_rig_vm_pin_get_all_sub_pins_recursively: std::ptr::null_mut(),
+            u_rig_vm_pin_get_absolute_pin_index: std::ptr::null_mut(),
+            u_rig_vm_pin_find_sub_pin: std::ptr::null_mut(),
+            u_rig_vm_pin_find_link_for_pin: std::ptr::null_mut(),
+            u_rig_vm_pin_contains_wild_card_sub_pin: std::ptr::null_mut(),
+            u_rig_vm_pin_can_provide_default_value: std::ptr::null_mut(),
+            u_rig_vm_user_workflow_registry_unregister_provider: std::ptr::null_mut(),
+            u_rig_vm_user_workflow_registry_register_provider: std::ptr::null_mut(),
+            u_rig_vm_user_workflow_registry_get_workflows: std::ptr::null_mut(),
+            u_rig_vm_user_workflow_registry_get: std::ptr::null_mut(),
+            u_rig_vm_controller_upgrade_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_unresolve_template_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_undo: std::ptr::null_mut(),
+            u_rig_vm_controller_unbind_pin_from_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_swap_function_reference_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_swap_function_reference: std::ptr::null_mut(),
+            u_rig_vm_controller_swap_all_function_references: std::ptr::null_mut(),
+            u_rig_vm_controller_split_function_variant: std::ptr::null_mut(),
+            u_rig_vm_controller_set_unit_node_defaults: std::ptr::null_mut(),
+            u_rig_vm_controller_set_schema_class: std::ptr::null_mut(),
+            u_rig_vm_controller_set_schema: std::ptr::null_mut(),
+            u_rig_vm_controller_set_remapped_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_is_watched: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_index_in_category: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_expansion: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_display_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_default_value: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_category_index: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_category_expansion: std::ptr::null_mut(),
+            u_rig_vm_controller_set_pin_category: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_title_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_title: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_size_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_size: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_selection: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_position_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_position: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_layout: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_keywords_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_keywords: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_description_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_description: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_color_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_color: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_category_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_node_category: std::ptr::null_mut(),
+            u_rig_vm_controller_set_local_variable_type_from_object_path: std::ptr::null_mut(),
+            u_rig_vm_controller_set_local_variable_type: std::ptr::null_mut(),
+            u_rig_vm_controller_set_local_variable_default_value: std::ptr::null_mut(),
+            u_rig_vm_controller_set_is_running_unit_test: std::ptr::null_mut(),
+            u_rig_vm_controller_set_graph: std::ptr::null_mut(),
+            u_rig_vm_controller_set_exposed_pin_index: std::ptr::null_mut(),
+            u_rig_vm_controller_set_comment_text_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_set_comment_text: std::ptr::null_mut(),
+            u_rig_vm_controller_set_array_pin_size: std::ptr::null_mut(),
+            u_rig_vm_controller_set_action_stack: std::ptr::null_mut(),
+            u_rig_vm_controller_select_node_islands: std::ptr::null_mut(),
+            u_rig_vm_controller_select_node_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_select_node: std::ptr::null_mut(),
+            u_rig_vm_controller_select_linked_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_resolve_wild_card_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_reset_pin_default_value: std::ptr::null_mut(),
+            u_rig_vm_controller_reset_default_value_for_pins: std::ptr::null_mut(),
+            u_rig_vm_controller_reset_default_value_for_all_pins_on_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_reset_default_value_for_all_pins_on_node: std::ptr::null_mut(),
+            u_rig_vm_controller_replace_parameter_node_with_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_rename_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_rename_pin_category: std::ptr::null_mut(),
+            u_rig_vm_controller_rename_parameter: std::ptr::null_mut(),
+            u_rig_vm_controller_rename_node: std::ptr::null_mut(),
+            u_rig_vm_controller_rename_local_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_rename_function: std::ptr::null_mut(),
+            u_rig_vm_controller_rename_exposed_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_trait: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_tag_from_function_variant: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_pin_category: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_nodes_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_node_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_node: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_local_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_injected_node: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_function_from_library: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_exposed_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_array_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_remove_aggregate_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_refresh_variable_node: std::ptr::null_mut(),
+            u_rig_vm_controller_redo: std::ptr::null_mut(),
+            u_rig_vm_controller_push_graph: std::ptr::null_mut(),
+            u_rig_vm_controller_promote_pin_to_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_promote_function_reference_node_to_collapse_node: std::ptr::null_mut(),
+            u_rig_vm_controller_promote_collapse_node_to_function_reference_node: std::ptr::null_mut(),
+            u_rig_vm_controller_pop_graph: std::ptr::null_mut(),
+            u_rig_vm_controller_perform_user_workflow: std::ptr::null_mut(),
+            u_rig_vm_controller_open_undo_bracket: std::ptr::null_mut(),
+            u_rig_vm_controller_mark_function_as_public: std::ptr::null_mut(),
+            u_rig_vm_controller_make_variable_node_from_binding: std::ptr::null_mut(),
+            u_rig_vm_controller_make_options_for_workflow: std::ptr::null_mut(),
+            u_rig_vm_controller_make_bindings_from_variable_node: std::ptr::null_mut(),
+            u_rig_vm_controller_localize_functions: std::ptr::null_mut(),
+            u_rig_vm_controller_localize_function_from_path: std::ptr::null_mut(),
+            u_rig_vm_controller_localize_function: std::ptr::null_mut(),
+            u_rig_vm_controller_join_function_variant: std::ptr::null_mut(),
+            u_rig_vm_controller_is_transacting: std::ptr::null_mut(),
+            u_rig_vm_controller_is_reporting_enabled: std::ptr::null_mut(),
+            u_rig_vm_controller_is_function_public: std::ptr::null_mut(),
+            u_rig_vm_controller_insert_array_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_import_nodes_from_text: std::ptr::null_mut(),
+            u_rig_vm_controller_get_unit_structs_for_template: std::ptr::null_mut(),
+            u_rig_vm_controller_get_top_level_graph: std::ptr::null_mut(),
+            u_rig_vm_controller_get_template_for_unit_struct: std::ptr::null_mut(),
+            u_rig_vm_controller_get_schema: std::ptr::null_mut(),
+            u_rig_vm_controller_get_registered_unit_structs: std::ptr::null_mut(),
+            u_rig_vm_controller_get_registered_templates: std::ptr::null_mut(),
+            u_rig_vm_controller_get_pin_default_value: std::ptr::null_mut(),
+            u_rig_vm_controller_get_graph: std::ptr::null_mut(),
+            u_rig_vm_controller_get_controller_for_graph: std::ptr::null_mut(),
+            u_rig_vm_controller_get_action_stack: std::ptr::null_mut(),
+            u_rig_vm_controller_generate_python_commands: std::ptr::null_mut(),
+            u_rig_vm_controller_find_variants_of_function: std::ptr::null_mut(),
+            u_rig_vm_controller_find_graph_function_identifier: std::ptr::null_mut(),
+            u_rig_vm_controller_find_graph_function_header_by_name: std::ptr::null_mut(),
+            u_rig_vm_controller_find_graph_function_header: std::ptr::null_mut(),
+            u_rig_vm_controller_export_selected_nodes_to_text: std::ptr::null_mut(),
+            u_rig_vm_controller_export_node_to_text: std::ptr::null_mut(),
+            u_rig_vm_controller_export_nodes_to_text: std::ptr::null_mut(),
+            u_rig_vm_controller_expand_library_node: std::ptr::null_mut(),
+            u_rig_vm_controller_enable_reporting: std::ptr::null_mut(),
+            u_rig_vm_controller_eject_node_from_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_duplicate_array_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_create_function_variant: std::ptr::null_mut(),
+            u_rig_vm_controller_collapse_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_close_undo_bracket: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_pin_category: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_override_on_pins: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_override_on_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_override_on_all_pins_on_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_override_on_all_pins_on_node: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_node_selection: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_node_layout: std::ptr::null_mut(),
+            u_rig_vm_controller_clear_array_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_change_exposed_pin_type: std::ptr::null_mut(),
+            u_rig_vm_controller_can_import_nodes_from_text: std::ptr::null_mut(),
+            u_rig_vm_controller_cancel_undo_bracket: std::ptr::null_mut(),
+            u_rig_vm_controller_break_link: std::ptr::null_mut(),
+            u_rig_vm_controller_break_all_links: std::ptr::null_mut(),
+            u_rig_vm_controller_bind_pin_to_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_add_variable_node_from_object_path: std::ptr::null_mut(),
+            u_rig_vm_controller_add_variable_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_unit_node_with_defaults: std::ptr::null_mut(),
+            u_rig_vm_controller_add_unit_node_from_struct_path: std::ptr::null_mut(),
+            u_rig_vm_controller_add_unit_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_trait: std::ptr::null_mut(),
+            u_rig_vm_controller_add_template_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_tag_to_function_variant: std::ptr::null_mut(),
+            u_rig_vm_controller_add_select_node_from_struct: std::ptr::null_mut(),
+            u_rig_vm_controller_add_select_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_reroute_node_on_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_add_reroute_node_on_link_path: std::ptr::null_mut(),
+            u_rig_vm_controller_add_reroute_node_on_link: std::ptr::null_mut(),
+            u_rig_vm_controller_add_parameter_node_from_object_path: std::ptr::null_mut(),
+            u_rig_vm_controller_add_parameter_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_override_to_pins: std::ptr::null_mut(),
+            u_rig_vm_controller_add_override_to_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_add_override_to_all_pins_on_nodes: std::ptr::null_mut(),
+            u_rig_vm_controller_add_override_to_all_pins_on_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_local_variable_from_object_path: std::ptr::null_mut(),
+            u_rig_vm_controller_add_local_variable: std::ptr::null_mut(),
+            u_rig_vm_controller_add_link: std::ptr::null_mut(),
+            u_rig_vm_controller_add_invoke_entry_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_injected_node_from_struct_path: std::ptr::null_mut(),
+            u_rig_vm_controller_add_injected_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_if_node_from_struct: std::ptr::null_mut(),
+            u_rig_vm_controller_add_if_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_function_to_library: std::ptr::null_mut(),
+            u_rig_vm_controller_add_function_reference_node_from_description: std::ptr::null_mut(),
+            u_rig_vm_controller_add_function_reference_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_free_reroute_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_external_function_reference_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_exposed_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_add_enum_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_empty_pin_category: std::ptr::null_mut(),
+            u_rig_vm_controller_add_default_tag_to_function_variant: std::ptr::null_mut(),
+            u_rig_vm_controller_add_comment_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_branch_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_array_pin: std::ptr::null_mut(),
+            u_rig_vm_controller_add_array_node_from_object_path: std::ptr::null_mut(),
+            u_rig_vm_controller_add_array_node: std::ptr::null_mut(),
+            u_rig_vm_controller_add_aggregate_pin: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -940,238 +949,239 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SuspendNotifications"),
-            &raw mut U_RIG_VM_BLUEPRINT_SUSPEND_NOTIFICATIONS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_suspend_notifications,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SplitAssetVariant"),
-            &raw mut U_RIG_VM_BLUEPRINT_SPLIT_ASSET_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_split_asset_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetAutoVMRecompile"),
-            &raw mut U_RIG_VM_BLUEPRINT_SET_AUTO_VM_RECOMPILE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_set_auto_vm_recompile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestRigVMInit"),
-            &raw mut U_RIG_VM_BLUEPRINT_REQUEST_RIG_VM_INIT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_request_rig_vm_init,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequestAutoVMRecompilation"),
-            &raw mut U_RIG_VM_BLUEPRINT_REQUEST_AUTO_VM_RECOMPILATION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_request_auto_vm_recompilation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameMemberVariable"),
-            &raw mut U_RIG_VM_BLUEPRINT_RENAME_MEMBER_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_rename_member_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveModel"),
-            &raw mut U_RIG_VM_BLUEPRINT_REMOVE_MODEL,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_remove_model,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveMemberVariable"),
-            &raw mut U_RIG_VM_BLUEPRINT_REMOVE_MEMBER_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_remove_member_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecompileVMIfRequired"),
-            &raw mut U_RIG_VM_BLUEPRINT_RECOMPILE_VM_IF_REQUIRED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_recompile_vm_if_required,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RecompileVM"),
-            &raw mut U_RIG_VM_BLUEPRINT_RECOMPILE_VM,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_recompile_vm,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("JoinAssetVariant"),
-            &raw mut U_RIG_VM_BLUEPRINT_JOIN_ASSET_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_join_asset_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRigVMHostClass"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_RIG_VM_HOST_CLASS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_rig_vm_host_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOrCreateLocalFunctionLibrary"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_OR_CREATE_LOCAL_FUNCTION_LIBRARY,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_blueprint_get_or_create_local_function_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOrCreateController"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_OR_CREATE_CONTROLLER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_or_create_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetModel"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_MODEL,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_model,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMemberVariables"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_MEMBER_VARIABLES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_member_variables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMatchingVariants"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_MATCHING_VARIANTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_matching_variants,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalFunctionLibrary"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_LOCAL_FUNCTION_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_local_function_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFocusedModel"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_FOCUSED_MODEL,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_focused_model,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultModel"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_DEFAULT_MODEL,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_default_model,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDebuggedRigVMHost"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_DEBUGGED_RIG_VM_HOST,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_debugged_rig_vm_host,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControllerByName"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_CONTROLLER_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_controller_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetController"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_CONTROLLER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_controller,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAvailableRigVMStructs"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_AVAILABLE_RIG_VM_STRUCTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_available_rig_vm_structs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAutoVMRecompile"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_AUTO_VM_RECOMPILE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_auto_vm_recompile,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetVariantRef"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_REF,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_asset_variant_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetVariantBP"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_BP,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_asset_variant_bp,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllModels"),
-            &raw mut U_RIG_VM_BLUEPRINT_GET_ALL_MODELS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_get_all_models,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
-            &raw mut U_RIG_VM_BLUEPRINT_GENERATE_PYTHON_COMMANDS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_generate_python_commands,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateRigVMHost"),
-            &raw mut U_RIG_VM_BLUEPRINT_CREATE_RIG_VM_HOST,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_create_rig_vm_host,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ChangeMemberVariableType"),
-            &raw mut U_RIG_VM_BLUEPRINT_CHANGE_MEMBER_VARIABLE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_change_member_variable_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BulkRemoveMemberVariables"),
-            &raw mut U_RIG_VM_BLUEPRINT_BULK_REMOVE_MEMBER_VARIABLES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_bulk_remove_member_variables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddModel"),
-            &raw mut U_RIG_VM_BLUEPRINT_ADD_MODEL,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_add_model,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddMemberVariable"),
-            &raw mut U_RIG_VM_BLUEPRINT_ADD_MEMBER_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_blueprint_add_member_variable,
         );
     }
     unsafe {
@@ -1182,14 +1192,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CompileVM"),
-            &raw mut U_RIG_VM_COMPILER_COMPILE_VM,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_compiler_compile_vm,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Compile"),
-            &raw mut U_RIG_VM_COMPILER_COMPILE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_compiler_compile,
         );
     }
     unsafe {
@@ -1200,497 +1210,497 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsExcludedByEarlyExit"),
-            &raw mut U_RIG_VM_NODE_SET_IS_EXCLUDED_BY_EARLY_EXIT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_is_excluded_by_early_exit,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHasEarlyExitMarker"),
-            &raw mut U_RIG_VM_NODE_SET_HAS_EARLY_EXIT_MARKER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_has_early_exit_marker,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetHasBreakpoint"),
-            &raw mut U_RIG_VM_NODE_SET_HAS_BREAKPOINT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_has_breakpoint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExecutionIsHaltedAtThisNode"),
-            &raw mut U_RIG_VM_NODE_SET_EXECUTION_IS_HALTED_AT_THIS_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_set_execution_is_halted_at_this_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsVisibleInUI"),
-            &raw mut U_RIG_VM_NODE_IS_VISIBLE_IN_UI,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_visible_in_ui,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTraitPin"),
-            &raw mut U_RIG_VM_NODE_IS_TRAIT_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_trait_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSelected"),
-            &raw mut U_RIG_VM_NODE_IS_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPure"),
-            &raw mut U_RIG_VM_NODE_IS_PURE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_pure,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPinCategoryExpanded"),
-            &raw mut U_RIG_VM_NODE_IS_PIN_CATEGORY_EXPANDED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_pin_category_expanded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsMutable"),
-            &raw mut U_RIG_VM_NODE_IS_MUTABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_mutable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLoopNode"),
-            &raw mut U_RIG_VM_NODE_IS_LOOP_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_loop_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLinkedTo"),
-            &raw mut U_RIG_VM_NODE_IS_LINKED_TO,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_linked_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInputAggregate"),
-            &raw mut U_RIG_VM_NODE_IS_INPUT_AGGREGATE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_input_aggregate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInjected"),
-            &raw mut U_RIG_VM_NODE_IS_INJECTED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_injected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsHighlighted"),
-            &raw mut U_RIG_VM_NODE_IS_HIGHLIGHTED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_highlighted,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsExcludedByEarlyExit"),
-            &raw mut U_RIG_VM_NODE_IS_EXCLUDED_BY_EARLY_EXIT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_excluded_by_early_exit,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEvent"),
-            &raw mut U_RIG_VM_NODE_IS_EVENT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_event,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDefinedAsVarying"),
-            &raw mut U_RIG_VM_NODE_IS_DEFINED_AS_VARYING,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_defined_as_varying,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDefinedAsConstant"),
-            &raw mut U_RIG_VM_NODE_IS_DEFINED_AS_CONSTANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_defined_as_constant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsControlFlowNode"),
-            &raw mut U_RIG_VM_NODE_IS_CONTROL_FLOW_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_control_flow_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAggregate"),
-            &raw mut U_RIG_VM_NODE_IS_AGGREGATE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_is_aggregate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasPinOfDirection"),
-            &raw mut U_RIG_VM_NODE_HAS_PIN_OF_DIRECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_pin_of_direction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasOutputPin"),
-            &raw mut U_RIG_VM_NODE_HAS_OUTPUT_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_output_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasOrphanedPins"),
-            &raw mut U_RIG_VM_NODE_HAS_ORPHANED_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_orphaned_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasLazyPin"),
-            &raw mut U_RIG_VM_NODE_HAS_LAZY_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_lazy_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasIOPin"),
-            &raw mut U_RIG_VM_NODE_HAS_IO_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_io_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasInputPin"),
-            &raw mut U_RIG_VM_NODE_HAS_INPUT_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_input_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasEarlyExitMarker"),
-            &raw mut U_RIG_VM_NODE_HAS_EARLY_EXIT_MARKER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_early_exit_marker,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasBreakpoint"),
-            &raw mut U_RIG_VM_NODE_HAS_BREAKPOINT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_has_breakpoint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTraitPins"),
-            &raw mut U_RIG_VM_NODE_GET_TRAIT_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_trait_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetToolTipText"),
-            &raw mut U_RIG_VM_NODE_GET_TOOL_TIP_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_tool_tip_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSupportedWorkflows"),
-            &raw mut U_RIG_VM_NODE_GET_SUPPORTED_WORKFLOWS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_supported_workflows,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSubPinCategories"),
-            &raw mut U_RIG_VM_NODE_GET_SUB_PIN_CATEGORIES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_sub_pin_categories,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSize"),
-            &raw mut U_RIG_VM_NODE_GET_SIZE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSecondAggregatePin"),
-            &raw mut U_RIG_VM_NODE_GET_SECOND_AGGREGATE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_second_aggregate_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootGraph"),
-            &raw mut U_RIG_VM_NODE_GET_ROOT_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_root_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPreviousFName"),
-            &raw mut U_RIG_VM_NODE_GET_PREVIOUS_F_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_previous_f_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPosition"),
-            &raw mut U_RIG_VM_NODE_GET_POSITION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinsForCategory"),
-            &raw mut U_RIG_VM_NODE_GET_PINS_FOR_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pins_for_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPins"),
-            &raw mut U_RIG_VM_NODE_GET_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinCategoryName"),
-            &raw mut U_RIG_VM_NODE_GET_PIN_CATEGORY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pin_category_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinCategories"),
-            &raw mut U_RIG_VM_NODE_GET_PIN_CATEGORIES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_pin_categories,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentPinCategory"),
-            &raw mut U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_parent_pin_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentPinCategories"),
-            &raw mut U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORIES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_parent_pin_categories,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOrphanedPins"),
-            &raw mut U_RIG_VM_NODE_GET_ORPHANED_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_orphaned_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOppositeAggregatePin"),
-            &raw mut U_RIG_VM_NODE_GET_OPPOSITE_AGGREGATE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_opposite_aggregate_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeTitle"),
-            &raw mut U_RIG_VM_NODE_GET_NODE_TITLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_title,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeSubTitle"),
-            &raw mut U_RIG_VM_NODE_GET_NODE_SUB_TITLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_sub_title,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodePath"),
-            &raw mut U_RIG_VM_NODE_GET_NODE_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeLayout"),
-            &raw mut U_RIG_VM_NODE_GET_NODE_LAYOUT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_layout,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeIndex"),
-            &raw mut U_RIG_VM_NODE_GET_NODE_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeColor"),
-            &raw mut U_RIG_VM_NODE_GET_NODE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_node_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNextAggregateName"),
-            &raw mut U_RIG_VM_NODE_GET_NEXT_AGGREGATE_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_next_aggregate_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinks"),
-            &raw mut U_RIG_VM_NODE_GET_LINKS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_links,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinkedTargetNodes"),
-            &raw mut U_RIG_VM_NODE_GET_LINKED_TARGET_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_linked_target_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinkedSourceNodes"),
-            &raw mut U_RIG_VM_NODE_GET_LINKED_SOURCE_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_linked_source_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInjectionInfo"),
-            &raw mut U_RIG_VM_NODE_GET_INJECTION_INFO,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_injection_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphDepth"),
-            &raw mut U_RIG_VM_NODE_GET_GRAPH_DEPTH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_graph_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut U_RIG_VM_NODE_GET_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFirstAggregatePin"),
-            &raw mut U_RIG_VM_NODE_GET_FIRST_AGGREGATE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_first_aggregate_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEventName"),
-            &raw mut U_RIG_VM_NODE_GET_EVENT_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_event_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllPinsRecursively"),
-            &raw mut U_RIG_VM_NODE_GET_ALL_PINS_RECURSIVELY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_all_pins_recursively,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAggregateOutputs"),
-            &raw mut U_RIG_VM_NODE_GET_AGGREGATE_OUTPUTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_aggregate_outputs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAggregateInputs"),
-            &raw mut U_RIG_VM_NODE_GET_AGGREGATE_INPUTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_get_aggregate_inputs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindRootPinByName"),
-            &raw mut U_RIG_VM_NODE_FIND_ROOT_PIN_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_root_pin_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPin"),
-            &raw mut U_RIG_VM_NODE_FIND_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindFunctionForNode"),
-            &raw mut U_RIG_VM_NODE_FIND_FUNCTION_FOR_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_function_for_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindExecutePin"),
-            &raw mut U_RIG_VM_NODE_FIND_EXECUTE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_find_execute_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExecutionIsHaltedAtThisNode"),
-            &raw mut U_RIG_VM_NODE_EXECUTION_IS_HALTED_AT_THIS_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_execution_is_halted_at_this_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanOnlyExistOnce"),
-            &raw mut U_RIG_VM_NODE_CAN_ONLY_EXIST_ONCE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_can_only_exist_once,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanBeUpgraded"),
-            &raw mut U_RIG_VM_NODE_CAN_BE_UPGRADED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_node_can_be_upgraded,
         );
     }
     unsafe {
@@ -1701,35 +1711,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSingleton"),
-            &raw mut U_RIG_VM_TEMPLATE_NODE_IS_SINGLETON,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_singleton,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsResolved"),
-            &raw mut U_RIG_VM_TEMPLATE_NODE_IS_RESOLVED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_resolved,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFullyUnresolved"),
-            &raw mut U_RIG_VM_TEMPLATE_NODE_IS_FULLY_UNRESOLVED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_is_fully_unresolved,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetScriptStruct"),
-            &raw mut U_RIG_VM_TEMPLATE_NODE_GET_SCRIPT_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_get_script_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNotation"),
-            &raw mut U_RIG_VM_TEMPLATE_NODE_GET_NOTATION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_template_node_get_notation,
         );
     }
     unsafe {
@@ -1740,35 +1750,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMatchingVariants"),
-            &raw mut U_RIG_VM_LIBRARY_NODE_GET_MATCHING_VARIANTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_matching_variants,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLibrary"),
-            &raw mut U_RIG_VM_LIBRARY_NODE_GET_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFunctionVariantRef"),
-            &raw mut U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT_REF,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_function_variant_ref,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFunctionVariant"),
-            &raw mut U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetContainedGraph"),
-            &raw mut U_RIG_VM_LIBRARY_NODE_GET_CONTAINED_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_library_node_get_contained_graph,
         );
     }
     unsafe {
@@ -1779,21 +1789,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOpCode"),
-            &raw mut UDEPRECATED_RIG_VM_ARRAY_NODE_GET_OP_CODE,
+            &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_op_code,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE_OBJECT,
+            &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_cpp_type_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE,
+            &raw mut __FUNCTION_PTRS.udeprecated_rig_vm_array_node_get_cpp_type,
         );
     }
     unsafe {
@@ -1804,28 +1814,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCommentText"),
-            &raw mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCommentFontSize"),
-            &raw mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_FONT_SIZE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_font_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCommentColorBubble"),
-            &raw mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_COLOR_BUBBLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_color_bubble,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCommentBubbleVisible"),
-            &raw mut U_RIG_VM_COMMENT_NODE_GET_COMMENT_BUBBLE_VISIBLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_comment_node_get_comment_bubble_visible,
         );
     }
     unsafe {
@@ -1836,21 +1846,21 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnum"),
-            &raw mut U_RIG_VM_ENUM_NODE_GET_ENUM,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut U_RIG_VM_ENUM_NODE_GET_CPP_TYPE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_cpp_type_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut U_RIG_VM_ENUM_NODE_GET_CPP_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_enum_node_get_cpp_type,
         );
     }
     unsafe {
@@ -1861,7 +1871,8 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReferencedFunctionHeader_ForBlueprint"),
-            &raw mut U_RIG_VM_FUNCTION_REFERENCE_NODE_GET_REFERENCED_FUNCTION_HEADER_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_function_reference_node_get_referenced_function_header_for_blueprint,
         );
     }
     unsafe {
@@ -1872,7 +1883,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEntryName"),
-            &raw mut U_RIG_VM_INVOKE_ENTRY_NODE_GET_ENTRY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_invoke_entry_node_get_entry_name,
         );
     }
     unsafe {
@@ -1883,42 +1894,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInput"),
-            &raw mut U_RIG_VM_PARAMETER_NODE_IS_INPUT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_is_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParameterName"),
-            &raw mut U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_parameter_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParameterDescription"),
-            &raw mut U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_parameter_description,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultValue"),
-            &raw mut U_RIG_VM_PARAMETER_NODE_GET_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_cpp_type_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_parameter_node_get_cpp_type,
         );
     }
     unsafe {
@@ -1929,14 +1940,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStructDefaultValue"),
-            &raw mut U_RIG_VM_UNIT_NODE_GET_STRUCT_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_unit_node_get_struct_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMethodName"),
-            &raw mut U_RIG_VM_UNIT_NODE_GET_METHOD_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_unit_node_get_method_name,
         );
     }
     unsafe {
@@ -1947,63 +1958,63 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLocalVariable"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_IS_LOCAL_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_local_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInputArgument"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_IS_INPUT_ARGUMENT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_input_argument,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsGetter"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_IS_GETTER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_getter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsExternalVariable"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_IS_EXTERNAL_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_is_external_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableName"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_variable_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableDescription"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_variable_description,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultValue"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_GET_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_cpp_type_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_variable_node_get_cpp_type,
         );
     }
     unsafe {
@@ -2014,112 +2025,114 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SplitVariantFromSet"),
-            &raw mut U_RIG_VM_BUILD_DATA_SPLIT_VARIANT_FROM_SET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_split_variant_from_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("JoinVariantSet"),
-            &raw mut U_RIG_VM_BUILD_DATA_JOIN_VARIANT_SET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_join_variant_set,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariantRefForAsset"),
-            &raw mut U_RIG_VM_BUILD_DATA_GET_VARIANT_REF_FOR_ASSET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_variant_ref_for_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUsedFunctionIdentifiers"),
-            &raw mut U_RIG_VM_BUILD_DATA_GET_USED_FUNCTION_IDENTIFIERS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_used_function_identifiers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFunctionIdentifierForVariant"),
-            &raw mut U_RIG_VM_BUILD_DATA_GET_FUNCTION_IDENTIFIER_FOR_VARIANT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_build_data_get_function_identifier_for_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetDataForVariant"),
-            &raw mut U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_asset_data_for_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetDataForPath"),
-            &raw mut U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_asset_data_for_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllFunctionIdentifiers"),
-            &raw mut U_RIG_VM_BUILD_DATA_GET_ALL_FUNCTION_IDENTIFIERS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get_all_function_identifiers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Get"),
-            &raw mut U_RIG_VM_BUILD_DATA_GET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_get,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GatherFunctionVariantRefsForAsset"),
-            &raw mut U_RIG_VM_BUILD_DATA_GATHER_FUNCTION_VARIANT_REFS_FOR_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_build_data_gather_function_variant_refs_for_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GatherAllFunctionVariantRefs"),
-            &raw mut U_RIG_VM_BUILD_DATA_GATHER_ALL_FUNCTION_VARIANT_REFS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_gather_all_function_variant_refs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GatherAllAssetVariantRefs"),
-            &raw mut U_RIG_VM_BUILD_DATA_GATHER_ALL_ASSET_VARIANT_REFS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_gather_all_asset_variant_refs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindFunctionVariantRefs"),
-            &raw mut U_RIG_VM_BUILD_DATA_FIND_FUNCTION_VARIANT_REFS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_find_function_variant_refs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindAssetVariantRefs"),
-            &raw mut U_RIG_VM_BUILD_DATA_FIND_ASSET_VARIANT_REFS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_find_asset_variant_refs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFunctionVariant"),
-            &raw mut U_RIG_VM_BUILD_DATA_CREATE_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_create_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAssetVariant"),
-            &raw mut U_RIG_VM_BUILD_DATA_CREATE_ASSET_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_build_data_create_asset_variant,
         );
     }
     unsafe {
@@ -2130,35 +2143,35 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Undo"),
-            &raw mut U_RIG_VM_ACTION_STACK_UNDO,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_undo,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Redo"),
-            &raw mut U_RIG_VM_ACTION_STACK_REDO,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_redo,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenUndoBracket"),
-            &raw mut U_RIG_VM_ACTION_STACK_OPEN_UNDO_BRACKET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_open_undo_bracket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CloseUndoBracket"),
-            &raw mut U_RIG_VM_ACTION_STACK_CLOSE_UNDO_BRACKET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_close_undo_bracket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CancelUndoBracket"),
-            &raw mut U_RIG_VM_ACTION_STACK_CANCEL_UNDO_BRACKET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_action_stack_cancel_undo_bracket,
         );
     }
     unsafe {
@@ -2169,210 +2182,210 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSchemaClass"),
-            &raw mut U_RIG_VM_GRAPH_SET_SCHEMA_CLASS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_set_schema_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDefaultFunctionLibrary"),
-            &raw mut U_RIG_VM_GRAPH_SET_DEFAULT_FUNCTION_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_set_default_function_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTopLevelGraph"),
-            &raw mut U_RIG_VM_GRAPH_IS_TOP_LEVEL_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_top_level_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRootGraph"),
-            &raw mut U_RIG_VM_GRAPH_IS_ROOT_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_root_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNodeSelected"),
-            &raw mut U_RIG_VM_GRAPH_IS_NODE_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_node_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNodeHighlighted"),
-            &raw mut U_RIG_VM_GRAPH_IS_NODE_HIGHLIGHTED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_is_node_highlighted,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableDescriptions"),
-            &raw mut U_RIG_VM_GRAPH_GET_VARIABLE_DESCRIPTIONS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_variable_descriptions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectNodes"),
-            &raw mut U_RIG_VM_GRAPH_GET_SELECT_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_select_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSchemaClass"),
-            &raw mut U_RIG_VM_GRAPH_GET_SCHEMA_CLASS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_schema_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSchema"),
-            &raw mut U_RIG_VM_GRAPH_GET_SCHEMA,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_schema,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootGraph"),
-            &raw mut U_RIG_VM_GRAPH_GET_ROOT_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_root_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReturnNode"),
-            &raw mut U_RIG_VM_GRAPH_GET_RETURN_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_return_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentGraph"),
-            &raw mut U_RIG_VM_GRAPH_GET_PARENT_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_parent_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOutputArguments"),
-            &raw mut U_RIG_VM_GRAPH_GET_OUTPUT_ARGUMENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_output_arguments,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodes"),
-            &raw mut U_RIG_VM_GRAPH_GET_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodePath"),
-            &raw mut U_RIG_VM_GRAPH_GET_NODE_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_node_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalVariables"),
-            &raw mut U_RIG_VM_GRAPH_GET_LOCAL_VARIABLES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_local_variables,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinks"),
-            &raw mut U_RIG_VM_GRAPH_GET_LINKS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_links,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInputArguments"),
-            &raw mut U_RIG_VM_GRAPH_GET_INPUT_ARGUMENTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_input_arguments,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphName"),
-            &raw mut U_RIG_VM_GRAPH_GET_GRAPH_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_graph_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphDepth"),
-            &raw mut U_RIG_VM_GRAPH_GET_GRAPH_DEPTH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_graph_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEventNames"),
-            &raw mut U_RIG_VM_GRAPH_GET_EVENT_NAMES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_event_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEntryNode"),
-            &raw mut U_RIG_VM_GRAPH_GET_ENTRY_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_entry_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultFunctionLibrary"),
-            &raw mut U_RIG_VM_GRAPH_GET_DEFAULT_FUNCTION_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_default_function_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetContainedGraphs"),
-            &raw mut U_RIG_VM_GRAPH_GET_CONTAINED_GRAPHS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_get_contained_graphs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPin"),
-            &raw mut U_RIG_VM_GRAPH_FIND_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeByName"),
-            &raw mut U_RIG_VM_GRAPH_FIND_NODE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_node_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNode"),
-            &raw mut U_RIG_VM_GRAPH_FIND_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindLink"),
-            &raw mut U_RIG_VM_GRAPH_FIND_LINK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_find_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ContainsLink"),
-            &raw mut U_RIG_VM_GRAPH_CONTAINS_LINK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_graph_contains_link,
         );
     }
     unsafe {
@@ -2383,35 +2396,37 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReferencesForFunction"),
-            &raw mut U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCES_FOR_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_function_library_get_references_for_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReferencePathsForFunction"),
-            &raw mut U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCE_PATHS_FOR_FUNCTION,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_function_library_get_reference_paths_for_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFunctions"),
-            &raw mut U_RIG_VM_FUNCTION_LIBRARY_GET_FUNCTIONS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_get_functions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindFunctionForNode"),
-            &raw mut U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION_FOR_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_find_function_for_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindFunction"),
-            &raw mut U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_function_library_find_function,
         );
     }
     unsafe {
@@ -2422,63 +2437,63 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetPin"),
-            &raw mut U_RIG_VM_LINK_GET_TARGET_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_target_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetNode"),
-            &raw mut U_RIG_VM_LINK_GET_TARGET_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_target_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourcePin"),
-            &raw mut U_RIG_VM_LINK_GET_SOURCE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_source_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceNode"),
-            &raw mut U_RIG_VM_LINK_GET_SOURCE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_source_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinPathRepresentation"),
-            &raw mut U_RIG_VM_LINK_GET_PIN_PATH_REPRESENTATION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_pin_path_representation,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOppositePin"),
-            &raw mut U_RIG_VM_LINK_GET_OPPOSITE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_opposite_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinkIndex"),
-            &raw mut U_RIG_VM_LINK_GET_LINK_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_link_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphDepth"),
-            &raw mut U_RIG_VM_LINK_GET_GRAPH_DEPTH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_graph_depth,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut U_RIG_VM_LINK_GET_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_link_get_graph,
         );
     }
     unsafe {
@@ -2489,14 +2504,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPin"),
-            &raw mut U_RIG_VM_INJECTION_INFO_GET_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_injection_info_get_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut U_RIG_VM_INJECTION_INFO_GET_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_injection_info_get_graph,
         );
     }
     unsafe {
@@ -2507,462 +2522,462 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldOnlyShowSubPins"),
-            &raw mut U_RIG_VM_PIN_SHOULD_ONLY_SHOW_SUB_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_should_only_show_sub_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ShouldHideSubPins"),
-            &raw mut U_RIG_VM_PIN_SHOULD_HIDE_SUB_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_should_hide_sub_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RequiresWatch"),
-            &raw mut U_RIG_VM_PIN_REQUIRES_WATCH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_requires_watch,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsWildCard"),
-            &raw mut U_RIG_VM_PIN_IS_WILD_CARD,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_wild_card,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidDefaultValue"),
-            &raw mut U_RIG_VM_PIN_IS_VALID_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_valid_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsUObject"),
-            &raw mut U_RIG_VM_PIN_IS_U_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_u_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTraitPin"),
-            &raw mut U_RIG_VM_PIN_IS_TRAIT_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_trait_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsStructMember"),
-            &raw mut U_RIG_VM_PIN_IS_STRUCT_MEMBER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_struct_member,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsStruct"),
-            &raw mut U_RIG_VM_PIN_IS_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsStringType"),
-            &raw mut U_RIG_VM_PIN_IS_STRING_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_string_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRootPin"),
-            &raw mut U_RIG_VM_PIN_IS_ROOT_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_root_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReferenceCountedContainer"),
-            &raw mut U_RIG_VM_PIN_IS_REFERENCE_COUNTED_CONTAINER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_reference_counted_container,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLinkedTo"),
-            &raw mut U_RIG_VM_PIN_IS_LINKED_TO,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_linked_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLazy"),
-            &raw mut U_RIG_VM_PIN_IS_LAZY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_lazy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInterface"),
-            &raw mut U_RIG_VM_PIN_IS_INTERFACE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFixedSizeArray"),
-            &raw mut U_RIG_VM_PIN_IS_FIXED_SIZE_ARRAY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_fixed_size_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsExpanded"),
-            &raw mut U_RIG_VM_PIN_IS_EXPANDED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_expanded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsExecuteContext"),
-            &raw mut U_RIG_VM_PIN_IS_EXECUTE_CONTEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_execute_context,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsEnum"),
-            &raw mut U_RIG_VM_PIN_IS_ENUM,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDynamicArray"),
-            &raw mut U_RIG_VM_PIN_IS_DYNAMIC_ARRAY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_dynamic_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDefinedAsConstant"),
-            &raw mut U_RIG_VM_PIN_IS_DEFINED_AS_CONSTANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_defined_as_constant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsArrayElement"),
-            &raw mut U_RIG_VM_PIN_IS_ARRAY_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_array_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsArray"),
-            &raw mut U_RIG_VM_PIN_IS_ARRAY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_is_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasUserProvidedDefaultValue"),
-            &raw mut U_RIG_VM_PIN_HAS_USER_PROVIDED_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_user_provided_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasOriginalDefaultValue"),
-            &raw mut U_RIG_VM_PIN_HAS_ORIGINAL_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_original_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasMetaData"),
-            &raw mut U_RIG_VM_PIN_HAS_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasDefaultValueOverride"),
-            &raw mut U_RIG_VM_PIN_HAS_DEFAULT_VALUE_OVERRIDE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_has_default_value_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetToolTipText"),
-            &raw mut U_RIG_VM_PIN_GET_TOOL_TIP_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_tool_tip_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTargetLinks"),
-            &raw mut U_RIG_VM_PIN_GET_TARGET_LINKS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_target_links,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSubPins"),
-            &raw mut U_RIG_VM_PIN_GET_SUB_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_sub_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSubPinPath"),
-            &raw mut U_RIG_VM_PIN_GET_SUB_PIN_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_sub_pin_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSourceLinks"),
-            &raw mut U_RIG_VM_PIN_GET_SOURCE_LINKS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_source_links,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSegmentPath"),
-            &raw mut U_RIG_VM_PIN_GET_SEGMENT_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_segment_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetScriptStruct"),
-            &raw mut U_RIG_VM_PIN_GET_SCRIPT_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_script_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootPin"),
-            &raw mut U_RIG_VM_PIN_GET_ROOT_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_root_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinPath"),
-            &raw mut U_RIG_VM_PIN_GET_PIN_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinIndex"),
-            &raw mut U_RIG_VM_PIN_GET_PIN_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinForLink"),
-            &raw mut U_RIG_VM_PIN_GET_PIN_FOR_LINK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_pin_for_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentScriptStruct"),
-            &raw mut U_RIG_VM_PIN_GET_PARENT_SCRIPT_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_parent_script_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentPin"),
-            &raw mut U_RIG_VM_PIN_GET_PARENT_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_parent_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOriginalPinFromInjectedNode"),
-            &raw mut U_RIG_VM_PIN_GET_ORIGINAL_PIN_FROM_INJECTED_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_original_pin_from_injected_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetOriginalDefaultValue"),
-            &raw mut U_RIG_VM_PIN_GET_ORIGINAL_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_original_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNode"),
-            &raw mut U_RIG_VM_PIN_GET_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaData"),
-            &raw mut U_RIG_VM_PIN_GET_META_DATA,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_meta_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinks"),
-            &raw mut U_RIG_VM_PIN_GET_LINKS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_links,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinkedTargetPins"),
-            &raw mut U_RIG_VM_PIN_GET_LINKED_TARGET_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_linked_target_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLinkedSourcePins"),
-            &raw mut U_RIG_VM_PIN_GET_LINKED_SOURCE_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_linked_source_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIndexInCategory"),
-            &raw mut U_RIG_VM_PIN_GET_INDEX_IN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_index_in_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut U_RIG_VM_PIN_GET_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetEnum"),
-            &raw mut U_RIG_VM_PIN_GET_ENUM,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_enum,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_RIG_VM_PIN_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDirection"),
-            &raw mut U_RIG_VM_PIN_GET_DIRECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_direction,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultValueType"),
-            &raw mut U_RIG_VM_PIN_GET_DEFAULT_VALUE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_default_value_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDefaultValue"),
-            &raw mut U_RIG_VM_PIN_GET_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomWidgetName"),
-            &raw mut U_RIG_VM_PIN_GET_CUSTOM_WIDGET_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_custom_widget_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPTypeObject"),
-            &raw mut U_RIG_VM_PIN_GET_CPP_TYPE_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_cpp_type_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPPType"),
-            &raw mut U_RIG_VM_PIN_GET_CPP_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_cpp_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCategory"),
-            &raw mut U_RIG_VM_PIN_GET_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetArraySize"),
-            &raw mut U_RIG_VM_PIN_GET_ARRAY_SIZE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_array_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetArrayElementCppType"),
-            &raw mut U_RIG_VM_PIN_GET_ARRAY_ELEMENT_CPP_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_array_element_cpp_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllSubPinsRecursively"),
-            &raw mut U_RIG_VM_PIN_GET_ALL_SUB_PINS_RECURSIVELY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_all_sub_pins_recursively,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAbsolutePinIndex"),
-            &raw mut U_RIG_VM_PIN_GET_ABSOLUTE_PIN_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_get_absolute_pin_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindSubPin"),
-            &raw mut U_RIG_VM_PIN_FIND_SUB_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_find_sub_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindLinkForPin"),
-            &raw mut U_RIG_VM_PIN_FIND_LINK_FOR_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_find_link_for_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ContainsWildCardSubPin"),
-            &raw mut U_RIG_VM_PIN_CONTAINS_WILD_CARD_SUB_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_contains_wild_card_sub_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanProvideDefaultValue"),
-            &raw mut U_RIG_VM_PIN_CAN_PROVIDE_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_pin_can_provide_default_value,
         );
     }
     unsafe {
@@ -2973,28 +2988,28 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterProvider"),
-            &raw mut U_RIG_VM_USER_WORKFLOW_REGISTRY_UNREGISTER_PROVIDER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_unregister_provider,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterProvider"),
-            &raw mut U_RIG_VM_USER_WORKFLOW_REGISTRY_REGISTER_PROVIDER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_register_provider,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetWorkflows"),
-            &raw mut U_RIG_VM_USER_WORKFLOW_REGISTRY_GET_WORKFLOWS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_get_workflows,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Get"),
-            &raw mut U_RIG_VM_USER_WORKFLOW_REGISTRY_GET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_user_workflow_registry_get,
         );
     }
     unsafe {
@@ -3005,1253 +3020,1270 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpgradeNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_UPGRADE_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_upgrade_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnresolveTemplateNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_UNRESOLVE_TEMPLATE_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_unresolve_template_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Undo"),
-            &raw mut U_RIG_VM_CONTROLLER_UNDO,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_undo,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnbindPinFromVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_UNBIND_PIN_FROM_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_unbind_pin_from_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwapFunctionReferenceByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_function_reference_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwapFunctionReference"),
-            &raw mut U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_function_reference,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SwapAllFunctionReferences"),
-            &raw mut U_RIG_VM_CONTROLLER_SWAP_ALL_FUNCTION_REFERENCES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_swap_all_function_references,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SplitFunctionVariant"),
-            &raw mut U_RIG_VM_CONTROLLER_SPLIT_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_split_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetUnitNodeDefaults"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_UNIT_NODE_DEFAULTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_unit_node_defaults,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSchemaClass"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_SCHEMA_CLASS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_schema_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSchema"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_SCHEMA,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_schema,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRemappedVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_REMAPPED_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_remapped_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinIsWatched"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_IS_WATCHED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_is_watched,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinIndexInCategory"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_INDEX_IN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_index_in_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinExpansion"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_EXPANSION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_expansion,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinDisplayName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinDefaultValue"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinCategoryIndex"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinCategoryExpansion"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_EXPANSION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category_expansion,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinCategory"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_pin_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeTitleByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_TITLE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_title_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeTitle"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_TITLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_title,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeSizeByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_SIZE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_size_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeSize"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_SIZE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeSelection"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodePositionByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_POSITION_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_position_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodePosition"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_POSITION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeLayout"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_LAYOUT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_layout,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeKeywordsByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_keywords_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeKeywords"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_keywords,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeDescriptionByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_description_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeDescription"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_description,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeColorByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_COLOR_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_color_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeColor"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_COLOR,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_color,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeCategoryByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_category_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeCategory"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_node_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalVariableTypeFromObjectPath"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE_FROM_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_set_local_variable_type_from_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalVariableType"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_local_variable_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalVariableDefaultValue"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_local_variable_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetIsRunningUnitTest"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_IS_RUNNING_UNIT_TEST,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_is_running_unit_test,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraph"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetExposedPinIndex"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_EXPOSED_PIN_INDEX,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_exposed_pin_index,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCommentTextByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_comment_text_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCommentText"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_comment_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetArrayPinSize"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_ARRAY_PIN_SIZE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_array_pin_size,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetActionStack"),
-            &raw mut U_RIG_VM_CONTROLLER_SET_ACTION_STACK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_set_action_stack,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectNodeIslands"),
-            &raw mut U_RIG_VM_CONTROLLER_SELECT_NODE_ISLANDS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node_islands,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectNodeByName"),
-            &raw mut U_RIG_VM_CONTROLLER_SELECT_NODE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectNode"),
-            &raw mut U_RIG_VM_CONTROLLER_SELECT_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectLinkedNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_SELECT_LINKED_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_select_linked_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResolveWildCardPin"),
-            &raw mut U_RIG_VM_CONTROLLER_RESOLVE_WILD_CARD_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_resolve_wild_card_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetPinDefaultValue"),
-            &raw mut U_RIG_VM_CONTROLLER_RESET_PIN_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_reset_pin_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetDefaultValueForPins"),
-            &raw mut U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_reset_default_value_for_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetDefaultValueForAllPinsOnNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_reset_default_value_for_all_pins_on_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ResetDefaultValueForAllPinsOnNode"),
-            &raw mut U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_reset_default_value_for_all_pins_on_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceParameterNodeWithVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_REPLACE_PARAMETER_NODE_WITH_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_replace_parameter_node_with_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_RENAME_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenamePinCategory"),
-            &raw mut U_RIG_VM_CONTROLLER_RENAME_PIN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_pin_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameParameter"),
-            &raw mut U_RIG_VM_CONTROLLER_RENAME_PARAMETER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameNode"),
-            &raw mut U_RIG_VM_CONTROLLER_RENAME_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameLocalVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_RENAME_LOCAL_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_local_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameFunction"),
-            &raw mut U_RIG_VM_CONTROLLER_RENAME_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameExposedPin"),
-            &raw mut U_RIG_VM_CONTROLLER_RENAME_EXPOSED_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_rename_exposed_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTrait"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_TRAIT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_trait,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveTagFromFunctionVariant"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_TAG_FROM_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_tag_from_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemovePinCategory"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_PIN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_pin_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNodesByName"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_NODES_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_nodes_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNodeByName"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_NODE_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_node_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNode"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveLocalVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_LOCAL_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_local_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveInjectedNode"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_INJECTED_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_injected_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveFunctionFromLibrary"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_FUNCTION_FROM_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_function_from_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveExposedPin"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_EXPOSED_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_exposed_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveArrayPin"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_ARRAY_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_array_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAggregatePin"),
-            &raw mut U_RIG_VM_CONTROLLER_REMOVE_AGGREGATE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_remove_aggregate_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshVariableNode"),
-            &raw mut U_RIG_VM_CONTROLLER_REFRESH_VARIABLE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_refresh_variable_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Redo"),
-            &raw mut U_RIG_VM_CONTROLLER_REDO,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_redo,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PushGraph"),
-            &raw mut U_RIG_VM_CONTROLLER_PUSH_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_push_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PromotePinToVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_PROMOTE_PIN_TO_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_promote_pin_to_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PromoteFunctionReferenceNodeToCollapseNode"),
-            &raw mut U_RIG_VM_CONTROLLER_PROMOTE_FUNCTION_REFERENCE_NODE_TO_COLLAPSE_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_promote_function_reference_node_to_collapse_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PromoteCollapseNodeToFunctionReferenceNode"),
-            &raw mut U_RIG_VM_CONTROLLER_PROMOTE_COLLAPSE_NODE_TO_FUNCTION_REFERENCE_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_promote_collapse_node_to_function_reference_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PopGraph"),
-            &raw mut U_RIG_VM_CONTROLLER_POP_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_pop_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PerformUserWorkflow"),
-            &raw mut U_RIG_VM_CONTROLLER_PERFORM_USER_WORKFLOW,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_perform_user_workflow,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenUndoBracket"),
-            &raw mut U_RIG_VM_CONTROLLER_OPEN_UNDO_BRACKET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_open_undo_bracket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MarkFunctionAsPublic"),
-            &raw mut U_RIG_VM_CONTROLLER_MARK_FUNCTION_AS_PUBLIC,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_mark_function_as_public,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeVariableNodeFromBinding"),
-            &raw mut U_RIG_VM_CONTROLLER_MAKE_VARIABLE_NODE_FROM_BINDING,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_make_variable_node_from_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeOptionsForWorkflow"),
-            &raw mut U_RIG_VM_CONTROLLER_MAKE_OPTIONS_FOR_WORKFLOW,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_make_options_for_workflow,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeBindingsFromVariableNode"),
-            &raw mut U_RIG_VM_CONTROLLER_MAKE_BINDINGS_FROM_VARIABLE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_make_bindings_from_variable_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LocalizeFunctions"),
-            &raw mut U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTIONS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_functions,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LocalizeFunctionFromPath"),
-            &raw mut U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION_FROM_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_function_from_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("LocalizeFunction"),
-            &raw mut U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_localize_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("JoinFunctionVariant"),
-            &raw mut U_RIG_VM_CONTROLLER_JOIN_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_join_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTransacting"),
-            &raw mut U_RIG_VM_CONTROLLER_IS_TRANSACTING,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_transacting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsReportingEnabled"),
-            &raw mut U_RIG_VM_CONTROLLER_IS_REPORTING_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_reporting_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFunctionPublic"),
-            &raw mut U_RIG_VM_CONTROLLER_IS_FUNCTION_PUBLIC,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_is_function_public,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InsertArrayPin"),
-            &raw mut U_RIG_VM_CONTROLLER_INSERT_ARRAY_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_insert_array_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ImportNodesFromText"),
-            &raw mut U_RIG_VM_CONTROLLER_IMPORT_NODES_FROM_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_import_nodes_from_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetUnitStructsForTemplate"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_UNIT_STRUCTS_FOR_TEMPLATE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_unit_structs_for_template,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTopLevelGraph"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_TOP_LEVEL_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_top_level_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTemplateForUnitStruct"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_TEMPLATE_FOR_UNIT_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_template_for_unit_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSchema"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_SCHEMA,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_schema,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRegisteredUnitStructs"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_REGISTERED_UNIT_STRUCTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_registered_unit_structs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRegisteredTemplates"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_REGISTERED_TEMPLATES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_registered_templates,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinDefaultValue"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_PIN_DEFAULT_VALUE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_pin_default_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraph"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetControllerForGraph"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_CONTROLLER_FOR_GRAPH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_controller_for_graph,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetActionStack"),
-            &raw mut U_RIG_VM_CONTROLLER_GET_ACTION_STACK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_get_action_stack,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GeneratePythonCommands"),
-            &raw mut U_RIG_VM_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_generate_python_commands,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindVariantsOfFunction"),
-            &raw mut U_RIG_VM_CONTROLLER_FIND_VARIANTS_OF_FUNCTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_variants_of_function,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindGraphFunctionIdentifier"),
-            &raw mut U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_IDENTIFIER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_graph_function_identifier,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindGraphFunctionHeaderByName"),
-            &raw mut U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER_BY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_find_graph_function_header_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindGraphFunctionHeader"),
-            &raw mut U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_find_graph_function_header,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportSelectedNodesToText"),
-            &raw mut U_RIG_VM_CONTROLLER_EXPORT_SELECTED_NODES_TO_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_selected_nodes_to_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportNodeToText"),
-            &raw mut U_RIG_VM_CONTROLLER_EXPORT_NODE_TO_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_node_to_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExportNodesToText"),
-            &raw mut U_RIG_VM_CONTROLLER_EXPORT_NODES_TO_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_export_nodes_to_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ExpandLibraryNode"),
-            &raw mut U_RIG_VM_CONTROLLER_EXPAND_LIBRARY_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_expand_library_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableReporting"),
-            &raw mut U_RIG_VM_CONTROLLER_ENABLE_REPORTING,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_enable_reporting,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EjectNodeFromPin"),
-            &raw mut U_RIG_VM_CONTROLLER_EJECT_NODE_FROM_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_eject_node_from_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateArrayPin"),
-            &raw mut U_RIG_VM_CONTROLLER_DUPLICATE_ARRAY_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_duplicate_array_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFunctionVariant"),
-            &raw mut U_RIG_VM_CONTROLLER_CREATE_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_create_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CollapseNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_COLLAPSE_NODES,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_collapse_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CloseUndoBracket"),
-            &raw mut U_RIG_VM_CONTROLLER_CLOSE_UNDO_BRACKET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_close_undo_bracket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearPinCategory"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_PIN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_pin_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearOverrideOnPins"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_override_on_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearOverrideOnPin"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_override_on_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearOverrideOnAllPinsOnNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_clear_override_on_all_pins_on_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearOverrideOnAllPinsOnNode"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_clear_override_on_all_pins_on_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearNodeSelection"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_NODE_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_node_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearNodeLayout"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_NODE_LAYOUT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_node_layout,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearArrayPin"),
-            &raw mut U_RIG_VM_CONTROLLER_CLEAR_ARRAY_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_clear_array_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ChangeExposedPinType"),
-            &raw mut U_RIG_VM_CONTROLLER_CHANGE_EXPOSED_PIN_TYPE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_change_exposed_pin_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanImportNodesFromText"),
-            &raw mut U_RIG_VM_CONTROLLER_CAN_IMPORT_NODES_FROM_TEXT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_can_import_nodes_from_text,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CancelUndoBracket"),
-            &raw mut U_RIG_VM_CONTROLLER_CANCEL_UNDO_BRACKET,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_cancel_undo_bracket,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakLink"),
-            &raw mut U_RIG_VM_CONTROLLER_BREAK_LINK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_break_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BreakAllLinks"),
-            &raw mut U_RIG_VM_CONTROLLER_BREAK_ALL_LINKS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_break_all_links,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BindPinToVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_BIND_PIN_TO_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_bind_pin_to_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVariableNodeFromObjectPath"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE_FROM_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_variable_node_from_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddVariableNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_variable_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddUnitNodeWithDefaults"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_WITH_DEFAULTS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node_with_defaults,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddUnitNodeFromStructPath"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_FROM_STRUCT_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node_from_struct_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddUnitNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_UNIT_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_unit_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTrait"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_TRAIT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_trait,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTemplateNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_TEMPLATE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_template_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddTagToFunctionVariant"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_TAG_TO_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_tag_to_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSelectNodeFromStruct"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_SELECT_NODE_FROM_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_select_node_from_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSelectNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_SELECT_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_select_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddRerouteNodeOnPin"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddRerouteNodeOnLinkPath"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_link_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddRerouteNodeOnLink"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_reroute_node_on_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddParameterNodeFromObjectPath"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE_FROM_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_parameter_node_from_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddParameterNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_parameter_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddOverrideToPins"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PINS,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_pins,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddOverrideToPin"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddOverrideToAllPinsOnNodes"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_override_to_all_pins_on_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddOverrideToAllPinsOnNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_override_to_all_pins_on_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLocalVariableFromObjectPath"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE_FROM_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_local_variable_from_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLocalVariable"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_local_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddLink"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_LINK,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_link,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInvokeEntryNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_INVOKE_ENTRY_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_invoke_entry_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInjectedNodeFromStructPath"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE_FROM_STRUCT_PATH,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_injected_node_from_struct_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInjectedNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_injected_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddIfNodeFromStruct"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_IF_NODE_FROM_STRUCT,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_if_node_from_struct,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddIfNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_IF_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_if_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFunctionToLibrary"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_FUNCTION_TO_LIBRARY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_function_to_library,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFunctionReferenceNodeFromDescription"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE_FROM_DESCRIPTION,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_function_reference_node_from_description,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFunctionReferenceNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_function_reference_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddFreeRerouteNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_FREE_REROUTE_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_free_reroute_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddExternalFunctionReferenceNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_EXTERNAL_FUNCTION_REFERENCE_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_external_function_reference_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddExposedPin"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_EXPOSED_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_exposed_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddEnumNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_ENUM_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_enum_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddEmptyPinCategory"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_EMPTY_PIN_CATEGORY,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_empty_pin_category,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddDefaultTagToFunctionVariant"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_DEFAULT_TAG_TO_FUNCTION_VARIANT,
+            &raw mut __FUNCTION_PTRS
+                .u_rig_vm_controller_add_default_tag_to_function_variant,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddCommentNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_COMMENT_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_comment_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddBranchNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_BRANCH_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_branch_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddArrayPin"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_ARRAY_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddArrayNodeFromObjectPath"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE_FROM_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_node_from_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddArrayNode"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_array_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAggregatePin"),
-            &raw mut U_RIG_VM_CONTROLLER_ADD_AGGREGATE_PIN,
+            &raw mut __FUNCTION_PTRS.u_rig_vm_controller_add_aggregate_pin,
         );
     }
 }
@@ -4427,7 +4459,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SUSPEND_NOTIFICATIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_suspend_notifications,
                 __buffer,
             )
         };
@@ -4444,7 +4477,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SUSPEND_NOTIFICATIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_suspend_notifications,
                 __buffer,
             )
         };
@@ -4457,7 +4491,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SPLIT_ASSET_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_split_asset_variant,
                 __buffer,
             )
         };
@@ -4467,7 +4502,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SPLIT_ASSET_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_split_asset_variant,
                 __buffer,
             )
         };
@@ -4481,7 +4517,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SET_AUTO_VM_RECOMPILE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_set_auto_vm_recompile,
                 __buffer,
             )
         };
@@ -4498,7 +4535,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_SET_AUTO_VM_RECOMPILE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_set_auto_vm_recompile,
                 __buffer,
             )
         };
@@ -4511,7 +4549,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_RIG_VM_INIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_request_rig_vm_init,
                 __buffer,
             )
         };
@@ -4521,7 +4560,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_RIG_VM_INIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_request_rig_vm_init,
                 __buffer,
             )
         };
@@ -4534,7 +4574,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_AUTO_VM_RECOMPILATION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_request_auto_vm_recompilation,
                 __buffer,
             )
         };
@@ -4544,7 +4585,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REQUEST_AUTO_VM_RECOMPILATION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_request_auto_vm_recompilation,
                 __buffer,
             )
         };
@@ -4561,7 +4603,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RENAME_MEMBER_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_rename_member_variable,
                 __buffer,
             )
         };
@@ -4585,7 +4628,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RENAME_MEMBER_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_rename_member_variable,
                 __buffer,
             )
         };
@@ -4604,7 +4648,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_remove_model,
                 __buffer,
             )
         };
@@ -4635,7 +4680,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_remove_model,
                 __buffer,
             )
         };
@@ -4649,7 +4695,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MEMBER_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_remove_member_variable,
                 __buffer,
             )
         };
@@ -4662,7 +4709,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_REMOVE_MEMBER_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_remove_member_variable,
                 __buffer,
             )
         };
@@ -4676,7 +4724,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM_IF_REQUIRED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_recompile_vm_if_required,
                 __buffer,
             )
         };
@@ -4686,7 +4735,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM_IF_REQUIRED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_recompile_vm_if_required,
                 __buffer,
             )
         };
@@ -4699,7 +4749,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_recompile_vm,
                 __buffer,
             )
         };
@@ -4709,7 +4760,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_RECOMPILE_VM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_recompile_vm,
                 __buffer,
             )
         };
@@ -4725,7 +4777,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_JOIN_ASSET_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_join_asset_variant,
                 __buffer,
             )
         };
@@ -4742,7 +4795,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_JOIN_ASSET_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_join_asset_variant,
                 __buffer,
             )
         };
@@ -4758,7 +4812,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_RIG_VM_HOST_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_rig_vm_host_class,
                 __buffer,
             )
         };
@@ -4768,7 +4823,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_RIG_VM_HOST_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_rig_vm_host_class,
                 __buffer,
             )
         };
@@ -4790,7 +4846,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_LOCAL_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_or_create_local_function_library,
                 __buffer,
             )
         };
@@ -4807,7 +4864,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_LOCAL_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_or_create_local_function_library,
                 __buffer,
             )
         };
@@ -4824,7 +4882,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_CONTROLLER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_or_create_controller,
                 __buffer,
             )
         };
@@ -4841,7 +4900,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_OR_CREATE_CONTROLLER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_or_create_controller,
                 __buffer,
             )
         };
@@ -4858,7 +4918,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_model,
                 __buffer,
             )
         };
@@ -4875,7 +4936,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_model,
                 __buffer,
             )
         };
@@ -4889,7 +4951,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MEMBER_VARIABLES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_member_variables,
                 __buffer,
             )
         };
@@ -4899,7 +4962,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MEMBER_VARIABLES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_member_variables,
                 __buffer,
             )
         };
@@ -4917,7 +4981,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MATCHING_VARIANTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_matching_variants,
                 __buffer,
             )
         };
@@ -4927,7 +4992,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_MATCHING_VARIANTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_matching_variants,
                 __buffer,
             )
         };
@@ -4946,7 +5012,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_LOCAL_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_local_function_library,
                 __buffer,
             )
         };
@@ -4956,7 +5023,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_LOCAL_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_local_function_library,
                 __buffer,
             )
         };
@@ -4970,7 +5038,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_FOCUSED_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_focused_model,
                 __buffer,
             )
         };
@@ -4980,7 +5049,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_FOCUSED_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_focused_model,
                 __buffer,
             )
         };
@@ -4994,7 +5064,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEFAULT_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_default_model,
                 __buffer,
             )
         };
@@ -5004,7 +5075,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEFAULT_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_default_model,
                 __buffer,
             )
         };
@@ -5020,7 +5092,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEBUGGED_RIG_VM_HOST,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_debugged_rig_vm_host,
                 __buffer,
             )
         };
@@ -5030,7 +5103,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_DEBUGGED_RIG_VM_HOST,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_debugged_rig_vm_host,
                 __buffer,
             )
         };
@@ -5049,7 +5123,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_controller_by_name,
                 __buffer,
             )
         };
@@ -5066,7 +5141,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_controller_by_name,
                 __buffer,
             )
         };
@@ -5080,7 +5156,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_controller,
                 __buffer,
             )
         };
@@ -5097,7 +5174,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_CONTROLLER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_controller,
                 __buffer,
             )
         };
@@ -5113,7 +5191,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AVAILABLE_RIG_VM_STRUCTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_available_rig_vm_structs,
                 __buffer,
             )
         };
@@ -5123,7 +5202,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AVAILABLE_RIG_VM_STRUCTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_available_rig_vm_structs,
                 __buffer,
             )
         };
@@ -5142,7 +5222,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AUTO_VM_RECOMPILE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_auto_vm_recompile,
                 __buffer,
             )
         };
@@ -5152,7 +5233,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_AUTO_VM_RECOMPILE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_auto_vm_recompile,
                 __buffer,
             )
         };
@@ -5166,7 +5248,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_REF,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_asset_variant_ref,
                 __buffer,
             )
         };
@@ -5176,7 +5259,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_REF,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_asset_variant_ref,
                 __buffer,
             )
         };
@@ -5192,7 +5276,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_BP,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_asset_variant_bp,
                 __buffer,
             )
         };
@@ -5202,7 +5287,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ASSET_VARIANT_BP,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_asset_variant_bp,
                 __buffer,
             )
         };
@@ -5218,7 +5304,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ALL_MODELS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_all_models,
                 __buffer,
             )
         };
@@ -5228,7 +5315,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GET_ALL_MODELS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_get_all_models,
                 __buffer,
             )
         };
@@ -5245,7 +5333,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GENERATE_PYTHON_COMMANDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_generate_python_commands,
                 __buffer,
             )
         };
@@ -5262,7 +5351,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_GENERATE_PYTHON_COMMANDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_generate_python_commands,
                 __buffer,
             )
         };
@@ -5276,7 +5366,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CREATE_RIG_VM_HOST,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_create_rig_vm_host,
                 __buffer,
             )
         };
@@ -5286,7 +5377,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CREATE_RIG_VM_HOST,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_create_rig_vm_host,
                 __buffer,
             )
         };
@@ -5309,7 +5401,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CHANGE_MEMBER_VARIABLE_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_change_member_variable_type,
                 __buffer,
             )
         };
@@ -5350,7 +5443,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_CHANGE_MEMBER_VARIABLE_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_change_member_variable_type,
                 __buffer,
             )
         };
@@ -5364,7 +5458,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_BULK_REMOVE_MEMBER_VARIABLES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_bulk_remove_member_variables,
                 __buffer,
             )
         };
@@ -5381,7 +5476,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_BULK_REMOVE_MEMBER_VARIABLES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_bulk_remove_member_variables,
                 __buffer,
             )
         };
@@ -5400,7 +5496,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_add_model,
                 __buffer,
             )
         };
@@ -5431,7 +5528,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MODEL,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_add_model,
                 __buffer,
             )
         };
@@ -5452,7 +5550,8 @@ impl URigVMBlueprint {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MEMBER_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_add_member_variable,
                 __buffer,
             )
         };
@@ -5493,7 +5592,8 @@ impl URigVMBlueprint {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BLUEPRINT_ADD_MEMBER_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_blueprint_add_member_variable,
                 __buffer,
             )
         };
@@ -5534,7 +5634,8 @@ impl URigVMCompiler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE_VM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_compiler_compile_vm,
                 __buffer,
             )
         };
@@ -5574,7 +5675,8 @@ impl URigVMCompiler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE_VM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_compiler_compile_vm,
                 __buffer,
             )
         };
@@ -5599,7 +5701,8 @@ impl URigVMCompiler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_compiler_compile,
                 __buffer,
             )
         };
@@ -5630,7 +5733,8 @@ impl URigVMCompiler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMPILER_COMPILE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_compiler_compile,
                 __buffer,
             )
         };
@@ -5665,7 +5769,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_IS_EXCLUDED_BY_EARLY_EXIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_is_excluded_by_early_exit,
                 __buffer,
             )
         };
@@ -5682,7 +5787,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_IS_EXCLUDED_BY_EARLY_EXIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_is_excluded_by_early_exit,
                 __buffer,
             )
         };
@@ -5695,7 +5801,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_EARLY_EXIT_MARKER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_has_early_exit_marker,
                 __buffer,
             )
         };
@@ -5708,7 +5815,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_EARLY_EXIT_MARKER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_has_early_exit_marker,
                 __buffer,
             )
         };
@@ -5721,7 +5829,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_BREAKPOINT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_has_breakpoint,
                 __buffer,
             )
         };
@@ -5734,7 +5843,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_HAS_BREAKPOINT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_has_breakpoint,
                 __buffer,
             )
         };
@@ -5747,7 +5857,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_execution_is_halted_at_this_node,
                 __buffer,
             )
         };
@@ -5760,7 +5871,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_SET_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_set_execution_is_halted_at_this_node,
                 __buffer,
             )
         };
@@ -5773,7 +5885,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_VISIBLE_IN_UI,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_visible_in_ui,
                 __buffer,
             )
         };
@@ -5783,7 +5896,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_VISIBLE_IN_UI,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_visible_in_ui,
                 __buffer,
             )
         };
@@ -5797,7 +5911,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_TRAIT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_trait_pin,
                 __buffer,
             )
         };
@@ -5810,7 +5925,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_TRAIT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_trait_pin,
                 __buffer,
             )
         };
@@ -5824,7 +5940,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_SELECTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_selected,
                 __buffer,
             )
         };
@@ -5834,7 +5951,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_SELECTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_selected,
                 __buffer,
             )
         };
@@ -5848,7 +5966,7 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PURE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_node_is_pure,
                 __buffer,
             )
         };
@@ -5858,7 +5976,7 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PURE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_node_is_pure,
                 __buffer,
             )
         };
@@ -5872,7 +5990,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PIN_CATEGORY_EXPANDED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_pin_category_expanded,
                 __buffer,
             )
         };
@@ -5889,7 +6008,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_PIN_CATEGORY_EXPANDED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_pin_category_expanded,
                 __buffer,
             )
         };
@@ -5903,7 +6023,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_MUTABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_mutable,
                 __buffer,
             )
         };
@@ -5913,7 +6034,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_MUTABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_mutable,
                 __buffer,
             )
         };
@@ -5927,7 +6049,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LOOP_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_loop_node,
                 __buffer,
             )
         };
@@ -5937,7 +6060,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LOOP_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_loop_node,
                 __buffer,
             )
         };
@@ -5951,7 +6075,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LINKED_TO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_linked_to,
                 __buffer,
             )
         };
@@ -5968,7 +6093,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_LINKED_TO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_linked_to,
                 __buffer,
             )
         };
@@ -5982,7 +6108,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INPUT_AGGREGATE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_input_aggregate,
                 __buffer,
             )
         };
@@ -5992,7 +6119,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INPUT_AGGREGATE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_input_aggregate,
                 __buffer,
             )
         };
@@ -6006,7 +6134,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INJECTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_injected,
                 __buffer,
             )
         };
@@ -6016,7 +6145,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_INJECTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_injected,
                 __buffer,
             )
         };
@@ -6030,7 +6160,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_HIGHLIGHTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_highlighted,
                 __buffer,
             )
         };
@@ -6040,7 +6171,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_HIGHLIGHTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_highlighted,
                 __buffer,
             )
         };
@@ -6054,7 +6186,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EXCLUDED_BY_EARLY_EXIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_excluded_by_early_exit,
                 __buffer,
             )
         };
@@ -6064,7 +6197,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EXCLUDED_BY_EARLY_EXIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_excluded_by_early_exit,
                 __buffer,
             )
         };
@@ -6078,7 +6212,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EVENT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_event,
                 __buffer,
             )
         };
@@ -6088,7 +6223,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_EVENT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_event,
                 __buffer,
             )
         };
@@ -6102,7 +6238,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_VARYING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_defined_as_varying,
                 __buffer,
             )
         };
@@ -6112,7 +6249,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_VARYING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_defined_as_varying,
                 __buffer,
             )
         };
@@ -6126,7 +6264,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_CONSTANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_defined_as_constant,
                 __buffer,
             )
         };
@@ -6136,7 +6275,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_DEFINED_AS_CONSTANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_defined_as_constant,
                 __buffer,
             )
         };
@@ -6150,7 +6290,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_CONTROL_FLOW_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_control_flow_node,
                 __buffer,
             )
         };
@@ -6160,7 +6301,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_CONTROL_FLOW_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_control_flow_node,
                 __buffer,
             )
         };
@@ -6174,7 +6316,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_AGGREGATE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_aggregate,
                 __buffer,
             )
         };
@@ -6184,7 +6327,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_IS_AGGREGATE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_is_aggregate,
                 __buffer,
             )
         };
@@ -6201,7 +6345,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_PIN_OF_DIRECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_pin_of_direction,
                 __buffer,
             )
         };
@@ -6218,7 +6363,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_PIN_OF_DIRECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_pin_of_direction,
                 __buffer,
             )
         };
@@ -6232,7 +6378,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_OUTPUT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_output_pin,
                 __buffer,
             )
         };
@@ -6249,7 +6396,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_OUTPUT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_output_pin,
                 __buffer,
             )
         };
@@ -6263,7 +6411,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_ORPHANED_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_orphaned_pins,
                 __buffer,
             )
         };
@@ -6273,7 +6422,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_ORPHANED_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_orphaned_pins,
                 __buffer,
             )
         };
@@ -6287,7 +6437,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_LAZY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_lazy_pin,
                 __buffer,
             )
         };
@@ -6304,7 +6455,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_LAZY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_lazy_pin,
                 __buffer,
             )
         };
@@ -6318,7 +6470,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_IO_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_io_pin,
                 __buffer,
             )
         };
@@ -6328,7 +6481,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_IO_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_io_pin,
                 __buffer,
             )
         };
@@ -6342,7 +6496,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_INPUT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_input_pin,
                 __buffer,
             )
         };
@@ -6359,7 +6514,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_INPUT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_input_pin,
                 __buffer,
             )
         };
@@ -6373,7 +6529,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_EARLY_EXIT_MARKER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_early_exit_marker,
                 __buffer,
             )
         };
@@ -6383,7 +6540,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_EARLY_EXIT_MARKER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_early_exit_marker,
                 __buffer,
             )
         };
@@ -6397,7 +6555,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_BREAKPOINT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_breakpoint,
                 __buffer,
             )
         };
@@ -6407,7 +6566,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_HAS_BREAKPOINT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_has_breakpoint,
                 __buffer,
             )
         };
@@ -6421,7 +6581,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TRAIT_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_trait_pins,
                 __buffer,
             )
         };
@@ -6431,7 +6592,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TRAIT_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_trait_pins,
                 __buffer,
             )
         };
@@ -6445,7 +6607,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TOOL_TIP_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_tool_tip_text,
                 __buffer,
             )
         };
@@ -6455,7 +6618,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_TOOL_TIP_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_tool_tip_text,
                 __buffer,
             )
         };
@@ -6473,7 +6637,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUPPORTED_WORKFLOWS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_supported_workflows,
                 __buffer,
             )
         };
@@ -6499,7 +6664,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUPPORTED_WORKFLOWS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_supported_workflows,
                 __buffer,
             )
         };
@@ -6523,7 +6689,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUB_PIN_CATEGORIES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_sub_pin_categories,
                 __buffer,
             )
         };
@@ -6554,7 +6721,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SUB_PIN_CATEGORIES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_sub_pin_categories,
                 __buffer,
             )
         };
@@ -6568,7 +6736,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_size,
                 __buffer,
             )
         };
@@ -6578,7 +6747,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_size,
                 __buffer,
             )
         };
@@ -6594,7 +6764,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SECOND_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_second_aggregate_pin,
                 __buffer,
             )
         };
@@ -6604,7 +6775,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_SECOND_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_second_aggregate_pin,
                 __buffer,
             )
         };
@@ -6618,7 +6790,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ROOT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_root_graph,
                 __buffer,
             )
         };
@@ -6628,7 +6801,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ROOT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_root_graph,
                 __buffer,
             )
         };
@@ -6642,7 +6816,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PREVIOUS_F_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_previous_f_name,
                 __buffer,
             )
         };
@@ -6652,7 +6827,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PREVIOUS_F_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_previous_f_name,
                 __buffer,
             )
         };
@@ -6666,7 +6842,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_POSITION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_position,
                 __buffer,
             )
         };
@@ -6676,7 +6853,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_POSITION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_position,
                 __buffer,
             )
         };
@@ -6695,7 +6873,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS_FOR_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pins_for_category,
                 __buffer,
             )
         };
@@ -6712,7 +6891,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS_FOR_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pins_for_category,
                 __buffer,
             )
         };
@@ -6726,7 +6906,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pins,
                 __buffer,
             )
         };
@@ -6736,7 +6917,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pins,
                 __buffer,
             )
         };
@@ -6750,7 +6932,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pin_category_name,
                 __buffer,
             )
         };
@@ -6767,7 +6950,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pin_category_name,
                 __buffer,
             )
         };
@@ -6781,7 +6965,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORIES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pin_categories,
                 __buffer,
             )
         };
@@ -6791,7 +6976,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PIN_CATEGORIES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_pin_categories,
                 __buffer,
             )
         };
@@ -6809,7 +6995,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_parent_pin_category,
                 __buffer,
             )
         };
@@ -6833,7 +7020,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_parent_pin_category,
                 __buffer,
             )
         };
@@ -6852,7 +7040,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORIES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_parent_pin_categories,
                 __buffer,
             )
         };
@@ -6883,7 +7072,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_PARENT_PIN_CATEGORIES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_parent_pin_categories,
                 __buffer,
             )
         };
@@ -6897,7 +7087,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ORPHANED_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_orphaned_pins,
                 __buffer,
             )
         };
@@ -6907,7 +7098,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ORPHANED_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_orphaned_pins,
                 __buffer,
             )
         };
@@ -6921,7 +7113,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_OPPOSITE_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_opposite_aggregate_pin,
                 __buffer,
             )
         };
@@ -6931,7 +7124,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_OPPOSITE_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_opposite_aggregate_pin,
                 __buffer,
             )
         };
@@ -6945,7 +7139,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_TITLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_title,
                 __buffer,
             )
         };
@@ -6955,7 +7150,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_TITLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_title,
                 __buffer,
             )
         };
@@ -6969,7 +7165,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_SUB_TITLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_sub_title,
                 __buffer,
             )
         };
@@ -6979,7 +7176,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_SUB_TITLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_sub_title,
                 __buffer,
             )
         };
@@ -6993,7 +7191,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_path,
                 __buffer,
             )
         };
@@ -7010,7 +7209,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_path,
                 __buffer,
             )
         };
@@ -7027,7 +7227,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_LAYOUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_layout,
                 __buffer,
             )
         };
@@ -7044,7 +7245,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_LAYOUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_layout,
                 __buffer,
             )
         };
@@ -7060,7 +7262,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_index,
                 __buffer,
             )
         };
@@ -7070,7 +7273,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_index,
                 __buffer,
             )
         };
@@ -7084,7 +7288,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_COLOR,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_color,
                 __buffer,
             )
         };
@@ -7094,7 +7299,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NODE_COLOR,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_node_color,
                 __buffer,
             )
         };
@@ -7110,7 +7316,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NEXT_AGGREGATE_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_next_aggregate_name,
                 __buffer,
             )
         };
@@ -7127,7 +7334,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_NEXT_AGGREGATE_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_next_aggregate_name,
                 __buffer,
             )
         };
@@ -7141,7 +7349,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_links,
                 __buffer,
             )
         };
@@ -7151,7 +7360,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_links,
                 __buffer,
             )
         };
@@ -7165,7 +7375,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_TARGET_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_linked_target_nodes,
                 __buffer,
             )
         };
@@ -7175,7 +7386,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_TARGET_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_linked_target_nodes,
                 __buffer,
             )
         };
@@ -7189,7 +7401,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_SOURCE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_linked_source_nodes,
                 __buffer,
             )
         };
@@ -7199,7 +7412,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_LINKED_SOURCE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_linked_source_nodes,
                 __buffer,
             )
         };
@@ -7213,7 +7427,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_INJECTION_INFO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_injection_info,
                 __buffer,
             )
         };
@@ -7223,7 +7438,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_INJECTION_INFO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_injection_info,
                 __buffer,
             )
         };
@@ -7237,7 +7453,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH_DEPTH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_graph_depth,
                 __buffer,
             )
         };
@@ -7247,7 +7464,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH_DEPTH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_graph_depth,
                 __buffer,
             )
         };
@@ -7261,7 +7479,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_graph,
                 __buffer,
             )
         };
@@ -7271,7 +7490,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_graph,
                 __buffer,
             )
         };
@@ -7285,7 +7505,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_FIRST_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_first_aggregate_pin,
                 __buffer,
             )
         };
@@ -7295,7 +7516,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_FIRST_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_first_aggregate_pin,
                 __buffer,
             )
         };
@@ -7309,7 +7531,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_EVENT_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_event_name,
                 __buffer,
             )
         };
@@ -7319,7 +7542,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_EVENT_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_event_name,
                 __buffer,
             )
         };
@@ -7333,7 +7557,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ALL_PINS_RECURSIVELY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_all_pins_recursively,
                 __buffer,
             )
         };
@@ -7343,7 +7568,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_ALL_PINS_RECURSIVELY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_all_pins_recursively,
                 __buffer,
             )
         };
@@ -7357,7 +7583,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_OUTPUTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_aggregate_outputs,
                 __buffer,
             )
         };
@@ -7367,7 +7594,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_OUTPUTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_aggregate_outputs,
                 __buffer,
             )
         };
@@ -7381,7 +7609,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_INPUTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_aggregate_inputs,
                 __buffer,
             )
         };
@@ -7391,7 +7620,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_GET_AGGREGATE_INPUTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_get_aggregate_inputs,
                 __buffer,
             )
         };
@@ -7405,7 +7635,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_ROOT_PIN_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_root_pin_by_name,
                 __buffer,
             )
         };
@@ -7422,7 +7653,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_ROOT_PIN_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_root_pin_by_name,
                 __buffer,
             )
         };
@@ -7436,7 +7668,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_pin,
                 __buffer,
             )
         };
@@ -7453,7 +7686,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_pin,
                 __buffer,
             )
         };
@@ -7467,7 +7701,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_FUNCTION_FOR_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_function_for_node,
                 __buffer,
             )
         };
@@ -7477,7 +7712,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_FUNCTION_FOR_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_function_for_node,
                 __buffer,
             )
         };
@@ -7491,7 +7727,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_EXECUTE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_execute_pin,
                 __buffer,
             )
         };
@@ -7501,7 +7738,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_FIND_EXECUTE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_find_execute_pin,
                 __buffer,
             )
         };
@@ -7515,7 +7753,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_execution_is_halted_at_this_node,
                 __buffer,
             )
         };
@@ -7525,7 +7764,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_EXECUTION_IS_HALTED_AT_THIS_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_execution_is_halted_at_this_node,
                 __buffer,
             )
         };
@@ -7539,7 +7779,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_ONLY_EXIST_ONCE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_can_only_exist_once,
                 __buffer,
             )
         };
@@ -7549,7 +7790,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_ONLY_EXIST_ONCE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_can_only_exist_once,
                 __buffer,
             )
         };
@@ -7563,7 +7805,8 @@ impl URigVMNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_BE_UPGRADED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_can_be_upgraded,
                 __buffer,
             )
         };
@@ -7573,7 +7816,8 @@ impl URigVMNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_NODE_CAN_BE_UPGRADED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_node_can_be_upgraded,
                 __buffer,
             )
         };
@@ -7608,7 +7852,8 @@ impl URigVMTemplateNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_SINGLETON,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_is_singleton,
                 __buffer,
             )
         };
@@ -7618,7 +7863,8 @@ impl URigVMTemplateNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_SINGLETON,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_is_singleton,
                 __buffer,
             )
         };
@@ -7632,7 +7878,8 @@ impl URigVMTemplateNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_RESOLVED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_is_resolved,
                 __buffer,
             )
         };
@@ -7642,7 +7889,8 @@ impl URigVMTemplateNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_RESOLVED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_is_resolved,
                 __buffer,
             )
         };
@@ -7656,7 +7904,8 @@ impl URigVMTemplateNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_FULLY_UNRESOLVED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_is_fully_unresolved,
                 __buffer,
             )
         };
@@ -7666,7 +7915,8 @@ impl URigVMTemplateNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_IS_FULLY_UNRESOLVED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_is_fully_unresolved,
                 __buffer,
             )
         };
@@ -7682,7 +7932,8 @@ impl URigVMTemplateNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_SCRIPT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_get_script_struct,
                 __buffer,
             )
         };
@@ -7692,7 +7943,8 @@ impl URigVMTemplateNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_SCRIPT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_get_script_struct,
                 __buffer,
             )
         };
@@ -7711,7 +7963,8 @@ impl URigVMTemplateNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_NOTATION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_get_notation,
                 __buffer,
             )
         };
@@ -7721,7 +7974,8 @@ impl URigVMTemplateNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_TEMPLATE_NODE_GET_NOTATION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_template_node_get_notation,
                 __buffer,
             )
         };
@@ -7758,7 +8012,8 @@ impl URigVMLibraryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_MATCHING_VARIANTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_matching_variants,
                 __buffer,
             )
         };
@@ -7768,7 +8023,8 @@ impl URigVMLibraryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_MATCHING_VARIANTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_matching_variants,
                 __buffer,
             )
         };
@@ -7787,7 +8043,8 @@ impl URigVMLibraryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_library,
                 __buffer,
             )
         };
@@ -7797,7 +8054,8 @@ impl URigVMLibraryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_library,
                 __buffer,
             )
         };
@@ -7811,7 +8069,8 @@ impl URigVMLibraryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT_REF,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_function_variant_ref,
                 __buffer,
             )
         };
@@ -7821,7 +8080,8 @@ impl URigVMLibraryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT_REF,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_function_variant_ref,
                 __buffer,
             )
         };
@@ -7837,7 +8097,8 @@ impl URigVMLibraryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_function_variant,
                 __buffer,
             )
         };
@@ -7847,7 +8108,8 @@ impl URigVMLibraryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_function_variant,
                 __buffer,
             )
         };
@@ -7863,7 +8125,8 @@ impl URigVMLibraryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_CONTAINED_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_contained_graph,
                 __buffer,
             )
         };
@@ -7873,7 +8136,8 @@ impl URigVMLibraryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LIBRARY_NODE_GET_CONTAINED_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_library_node_get_contained_graph,
                 __buffer,
             )
         };
@@ -7950,7 +8214,8 @@ impl UDEPRECATED_RigVMArrayNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_OP_CODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .udeprecated_rig_vm_array_node_get_op_code,
                 __buffer,
             )
         };
@@ -7960,7 +8225,8 @@ impl UDEPRECATED_RigVMArrayNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_OP_CODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .udeprecated_rig_vm_array_node_get_op_code,
                 __buffer,
             )
         };
@@ -7974,7 +8240,8 @@ impl UDEPRECATED_RigVMArrayNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .udeprecated_rig_vm_array_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -7984,7 +8251,8 @@ impl UDEPRECATED_RigVMArrayNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .udeprecated_rig_vm_array_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -8003,7 +8271,8 @@ impl UDEPRECATED_RigVMArrayNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .udeprecated_rig_vm_array_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -8013,7 +8282,8 @@ impl UDEPRECATED_RigVMArrayNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::UDEPRECATED_RIG_VM_ARRAY_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .udeprecated_rig_vm_array_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -8069,7 +8339,8 @@ impl URigVMCommentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_text,
                 __buffer,
             )
         };
@@ -8079,7 +8350,8 @@ impl URigVMCommentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_text,
                 __buffer,
             )
         };
@@ -8093,7 +8365,8 @@ impl URigVMCommentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_FONT_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_font_size,
                 __buffer,
             )
         };
@@ -8103,7 +8376,8 @@ impl URigVMCommentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_FONT_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_font_size,
                 __buffer,
             )
         };
@@ -8117,7 +8391,8 @@ impl URigVMCommentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_COLOR_BUBBLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_color_bubble,
                 __buffer,
             )
         };
@@ -8127,7 +8402,8 @@ impl URigVMCommentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_COLOR_BUBBLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_color_bubble,
                 __buffer,
             )
         };
@@ -8141,7 +8417,8 @@ impl URigVMCommentNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_BUBBLE_VISIBLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_bubble_visible,
                 __buffer,
             )
         };
@@ -8151,7 +8428,8 @@ impl URigVMCommentNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_COMMENT_NODE_GET_COMMENT_BUBBLE_VISIBLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_comment_node_get_comment_bubble_visible,
                 __buffer,
             )
         };
@@ -8207,7 +8485,8 @@ impl URigVMEnumNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_ENUM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_enum_node_get_enum,
                 __buffer,
             )
         };
@@ -8217,7 +8496,8 @@ impl URigVMEnumNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_ENUM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_enum_node_get_enum,
                 __buffer,
             )
         };
@@ -8233,7 +8513,8 @@ impl URigVMEnumNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_enum_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -8243,7 +8524,8 @@ impl URigVMEnumNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_enum_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -8262,7 +8544,8 @@ impl URigVMEnumNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_enum_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -8272,7 +8555,8 @@ impl URigVMEnumNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_ENUM_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_enum_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -8351,7 +8635,8 @@ impl URigVMFunctionReferenceNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_REFERENCE_NODE_GET_REFERENCED_FUNCTION_HEADER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_reference_node_get_referenced_function_header_for_blueprint,
                 __buffer,
             )
         };
@@ -8361,7 +8646,8 @@ impl URigVMFunctionReferenceNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_REFERENCE_NODE_GET_REFERENCED_FUNCTION_HEADER_FOR_BLUEPRINT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_reference_node_get_referenced_function_header_for_blueprint,
                 __buffer,
             )
         };
@@ -8443,7 +8729,8 @@ impl URigVMInvokeEntryNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_INVOKE_ENTRY_NODE_GET_ENTRY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_invoke_entry_node_get_entry_name,
                 __buffer,
             )
         };
@@ -8453,7 +8740,8 @@ impl URigVMInvokeEntryNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_INVOKE_ENTRY_NODE_GET_ENTRY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_invoke_entry_node_get_entry_name,
                 __buffer,
             )
         };
@@ -8488,7 +8776,8 @@ impl URigVMParameterNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_IS_INPUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_is_input,
                 __buffer,
             )
         };
@@ -8498,7 +8787,8 @@ impl URigVMParameterNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_IS_INPUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_is_input,
                 __buffer,
             )
         };
@@ -8512,7 +8802,8 @@ impl URigVMParameterNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_parameter_name,
                 __buffer,
             )
         };
@@ -8522,7 +8813,8 @@ impl URigVMParameterNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_parameter_name,
                 __buffer,
             )
         };
@@ -8536,7 +8828,8 @@ impl URigVMParameterNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_parameter_description,
                 __buffer,
             )
         };
@@ -8546,7 +8839,8 @@ impl URigVMParameterNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_PARAMETER_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_parameter_description,
                 __buffer,
             )
         };
@@ -8560,7 +8854,8 @@ impl URigVMParameterNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_default_value,
                 __buffer,
             )
         };
@@ -8570,7 +8865,8 @@ impl URigVMParameterNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_default_value,
                 __buffer,
             )
         };
@@ -8584,7 +8880,8 @@ impl URigVMParameterNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -8594,7 +8891,8 @@ impl URigVMParameterNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -8613,7 +8911,8 @@ impl URigVMParameterNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -8623,7 +8922,8 @@ impl URigVMParameterNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PARAMETER_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_parameter_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -8700,7 +9000,8 @@ impl URigVMUnitNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_STRUCT_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_unit_node_get_struct_default_value,
                 __buffer,
             )
         };
@@ -8710,7 +9011,8 @@ impl URigVMUnitNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_STRUCT_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_unit_node_get_struct_default_value,
                 __buffer,
             )
         };
@@ -8724,7 +9026,8 @@ impl URigVMUnitNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_METHOD_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_unit_node_get_method_name,
                 __buffer,
             )
         };
@@ -8734,7 +9037,8 @@ impl URigVMUnitNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_UNIT_NODE_GET_METHOD_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_unit_node_get_method_name,
                 __buffer,
             )
         };
@@ -8769,7 +9073,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_local_variable,
                 __buffer,
             )
         };
@@ -8779,7 +9084,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_local_variable,
                 __buffer,
             )
         };
@@ -8793,7 +9099,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_INPUT_ARGUMENT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_input_argument,
                 __buffer,
             )
         };
@@ -8803,7 +9110,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_INPUT_ARGUMENT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_input_argument,
                 __buffer,
             )
         };
@@ -8817,7 +9125,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_GETTER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_getter,
                 __buffer,
             )
         };
@@ -8827,7 +9136,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_GETTER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_getter,
                 __buffer,
             )
         };
@@ -8841,7 +9151,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_EXTERNAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_external_variable,
                 __buffer,
             )
         };
@@ -8851,7 +9162,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_IS_EXTERNAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_is_external_variable,
                 __buffer,
             )
         };
@@ -8865,7 +9177,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_variable_name,
                 __buffer,
             )
         };
@@ -8875,7 +9188,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_variable_name,
                 __buffer,
             )
         };
@@ -8889,7 +9203,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_variable_description,
                 __buffer,
             )
         };
@@ -8899,7 +9214,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_VARIABLE_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_variable_description,
                 __buffer,
             )
         };
@@ -8913,7 +9229,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_default_value,
                 __buffer,
             )
         };
@@ -8923,7 +9240,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_default_value,
                 __buffer,
             )
         };
@@ -8937,7 +9255,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -8947,7 +9266,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -8966,7 +9286,8 @@ impl URigVMVariableNode {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -8976,7 +9297,8 @@ impl URigVMVariableNode {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_VARIABLE_NODE_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_variable_node_get_cpp_type,
                 __buffer,
             )
         };
@@ -9014,7 +9336,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_SPLIT_VARIANT_FROM_SET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_split_variant_from_set,
                 __buffer,
             )
         };
@@ -9031,7 +9354,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_SPLIT_VARIANT_FROM_SET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_split_variant_from_set,
                 __buffer,
             )
         };
@@ -9051,7 +9375,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_JOIN_VARIANT_SET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_join_variant_set,
                 __buffer,
             )
         };
@@ -9075,7 +9400,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_JOIN_VARIANT_SET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_join_variant_set,
                 __buffer,
             )
         };
@@ -9094,7 +9420,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_VARIANT_REF_FOR_ASSET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_variant_ref_for_asset,
                 __buffer,
             )
         };
@@ -9111,7 +9438,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_VARIANT_REF_FOR_ASSET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_variant_ref_for_asset,
                 __buffer,
             )
         };
@@ -9130,7 +9458,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_USED_FUNCTION_IDENTIFIERS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_used_function_identifiers,
                 __buffer,
             )
         };
@@ -9147,7 +9476,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_USED_FUNCTION_IDENTIFIERS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_used_function_identifiers,
                 __buffer,
             )
         };
@@ -9169,7 +9499,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_FUNCTION_IDENTIFIER_FOR_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_function_identifier_for_variant,
                 __buffer,
             )
         };
@@ -9186,7 +9517,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_FUNCTION_IDENTIFIER_FOR_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_function_identifier_for_variant,
                 __buffer,
             )
         };
@@ -9208,7 +9540,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_asset_data_for_variant,
                 __buffer,
             )
         };
@@ -9225,7 +9558,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_asset_data_for_variant,
                 __buffer,
             )
         };
@@ -9244,7 +9578,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_asset_data_for_path,
                 __buffer,
             )
         };
@@ -9263,7 +9598,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ASSET_DATA_FOR_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_asset_data_for_path,
                 __buffer,
             )
         };
@@ -9282,7 +9618,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ALL_FUNCTION_IDENTIFIERS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_all_function_identifiers,
                 __buffer,
             )
         };
@@ -9299,7 +9636,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET_ALL_FUNCTION_IDENTIFIERS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get_all_function_identifiers,
                 __buffer,
             )
         };
@@ -9318,7 +9656,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get,
                 __buffer,
             )
         };
@@ -9328,7 +9667,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_get,
                 __buffer,
             )
         };
@@ -9345,7 +9685,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_FUNCTION_VARIANT_REFS_FOR_ASSET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_function_variant_refs_for_asset,
                 __buffer,
             )
         };
@@ -9362,7 +9703,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_FUNCTION_VARIANT_REFS_FOR_ASSET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_function_variant_refs_for_asset,
                 __buffer,
             )
         };
@@ -9383,7 +9725,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_FUNCTION_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_all_function_variant_refs,
                 __buffer,
             )
         };
@@ -9393,7 +9736,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_FUNCTION_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_all_function_variant_refs,
                 __buffer,
             )
         };
@@ -9414,7 +9758,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_ASSET_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_all_asset_variant_refs,
                 __buffer,
             )
         };
@@ -9424,7 +9769,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_GATHER_ALL_ASSET_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_gather_all_asset_variant_refs,
                 __buffer,
             )
         };
@@ -9446,7 +9792,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_FUNCTION_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_find_function_variant_refs,
                 __buffer,
             )
         };
@@ -9463,7 +9810,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_FUNCTION_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_find_function_variant_refs,
                 __buffer,
             )
         };
@@ -9485,7 +9833,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_ASSET_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_find_asset_variant_refs,
                 __buffer,
             )
         };
@@ -9502,7 +9851,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_FIND_ASSET_VARIANT_REFS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_find_asset_variant_refs,
                 __buffer,
             )
         };
@@ -9525,7 +9875,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_create_function_variant,
                 __buffer,
             )
         };
@@ -9547,7 +9898,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_create_function_variant,
                 __buffer,
             )
         };
@@ -9567,7 +9919,8 @@ impl URigVMBuildData {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_ASSET_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_create_asset_variant,
                 __buffer,
             )
         };
@@ -9591,7 +9944,8 @@ impl URigVMBuildData {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_BUILD_DATA_CREATE_ASSET_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_build_data_create_asset_variant,
                 __buffer,
             )
         };
@@ -9737,7 +10091,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_SCHEMA_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_set_schema_class,
                 __buffer,
             )
         };
@@ -9754,7 +10109,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_SCHEMA_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_set_schema_class,
                 __buffer,
             )
         };
@@ -9770,7 +10126,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_DEFAULT_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_set_default_function_library,
                 __buffer,
             )
         };
@@ -9787,7 +10144,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_SET_DEFAULT_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_set_default_function_library,
                 __buffer,
             )
         };
@@ -9800,7 +10158,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_TOP_LEVEL_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_top_level_graph,
                 __buffer,
             )
         };
@@ -9810,7 +10169,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_TOP_LEVEL_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_top_level_graph,
                 __buffer,
             )
         };
@@ -9824,7 +10184,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_ROOT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_root_graph,
                 __buffer,
             )
         };
@@ -9834,7 +10195,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_ROOT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_root_graph,
                 __buffer,
             )
         };
@@ -9848,7 +10210,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_SELECTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_node_selected,
                 __buffer,
             )
         };
@@ -9865,7 +10228,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_SELECTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_node_selected,
                 __buffer,
             )
         };
@@ -9879,7 +10243,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_HIGHLIGHTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_node_highlighted,
                 __buffer,
             )
         };
@@ -9896,7 +10261,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_IS_NODE_HIGHLIGHTED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_is_node_highlighted,
                 __buffer,
             )
         };
@@ -9910,7 +10276,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_VARIABLE_DESCRIPTIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_variable_descriptions,
                 __buffer,
             )
         };
@@ -9920,7 +10287,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_VARIABLE_DESCRIPTIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_variable_descriptions,
                 __buffer,
             )
         };
@@ -9936,7 +10304,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SELECT_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_select_nodes,
                 __buffer,
             )
         };
@@ -9946,7 +10315,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SELECT_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_select_nodes,
                 __buffer,
             )
         };
@@ -9960,7 +10330,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_schema_class,
                 __buffer,
             )
         };
@@ -9970,7 +10341,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_schema_class,
                 __buffer,
             )
         };
@@ -9984,7 +10356,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_schema,
                 __buffer,
             )
         };
@@ -9994,7 +10367,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_SCHEMA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_schema,
                 __buffer,
             )
         };
@@ -10008,7 +10382,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ROOT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_root_graph,
                 __buffer,
             )
         };
@@ -10018,7 +10393,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ROOT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_root_graph,
                 __buffer,
             )
         };
@@ -10032,7 +10408,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_RETURN_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_return_node,
                 __buffer,
             )
         };
@@ -10042,7 +10419,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_RETURN_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_return_node,
                 __buffer,
             )
         };
@@ -10056,7 +10434,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_PARENT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_parent_graph,
                 __buffer,
             )
         };
@@ -10066,7 +10445,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_PARENT_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_parent_graph,
                 __buffer,
             )
         };
@@ -10080,7 +10460,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_OUTPUT_ARGUMENTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_output_arguments,
                 __buffer,
             )
         };
@@ -10090,7 +10471,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_OUTPUT_ARGUMENTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_output_arguments,
                 __buffer,
             )
         };
@@ -10106,7 +10488,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_nodes,
                 __buffer,
             )
         };
@@ -10116,7 +10499,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_nodes,
                 __buffer,
             )
         };
@@ -10130,7 +10514,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODE_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_node_path,
                 __buffer,
             )
         };
@@ -10140,7 +10525,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_NODE_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_node_path,
                 __buffer,
             )
         };
@@ -10157,7 +10543,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LOCAL_VARIABLES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_local_variables,
                 __buffer,
             )
         };
@@ -10174,7 +10561,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LOCAL_VARIABLES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_local_variables,
                 __buffer,
             )
         };
@@ -10190,7 +10578,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_links,
                 __buffer,
             )
         };
@@ -10200,7 +10589,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_links,
                 __buffer,
             )
         };
@@ -10214,7 +10604,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_INPUT_ARGUMENTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_input_arguments,
                 __buffer,
             )
         };
@@ -10224,7 +10615,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_INPUT_ARGUMENTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_input_arguments,
                 __buffer,
             )
         };
@@ -10240,7 +10632,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_graph_name,
                 __buffer,
             )
         };
@@ -10250,7 +10643,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_graph_name,
                 __buffer,
             )
         };
@@ -10264,7 +10658,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_DEPTH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_graph_depth,
                 __buffer,
             )
         };
@@ -10274,7 +10669,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_GRAPH_DEPTH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_graph_depth,
                 __buffer,
             )
         };
@@ -10288,7 +10684,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_EVENT_NAMES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_event_names,
                 __buffer,
             )
         };
@@ -10298,7 +10695,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_EVENT_NAMES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_event_names,
                 __buffer,
             )
         };
@@ -10312,7 +10710,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ENTRY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_entry_node,
                 __buffer,
             )
         };
@@ -10322,7 +10721,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_ENTRY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_entry_node,
                 __buffer,
             )
         };
@@ -10336,7 +10736,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_DEFAULT_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_default_function_library,
                 __buffer,
             )
         };
@@ -10346,7 +10747,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_DEFAULT_FUNCTION_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_default_function_library,
                 __buffer,
             )
         };
@@ -10360,7 +10762,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_CONTAINED_GRAPHS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_contained_graphs,
                 __buffer,
             )
         };
@@ -10377,7 +10780,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_GET_CONTAINED_GRAPHS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_get_contained_graphs,
                 __buffer,
             )
         };
@@ -10391,7 +10795,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_pin,
                 __buffer,
             )
         };
@@ -10408,7 +10813,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_pin,
                 __buffer,
             )
         };
@@ -10422,7 +10828,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_node_by_name,
                 __buffer,
             )
         };
@@ -10439,7 +10846,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_node_by_name,
                 __buffer,
             )
         };
@@ -10453,7 +10861,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_node,
                 __buffer,
             )
         };
@@ -10470,7 +10879,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_node,
                 __buffer,
             )
         };
@@ -10487,7 +10897,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_link,
                 __buffer,
             )
         };
@@ -10504,7 +10915,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_FIND_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_find_link,
                 __buffer,
             )
         };
@@ -10518,7 +10930,8 @@ impl URigVMGraph {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_CONTAINS_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_contains_link,
                 __buffer,
             )
         };
@@ -10535,7 +10948,8 @@ impl URigVMGraph {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_GRAPH_CONTAINS_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_graph_contains_link,
                 __buffer,
             )
         };
@@ -10573,7 +10987,8 @@ impl URigVMFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCES_FOR_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_references_for_function,
                 __buffer,
             )
         };
@@ -10590,7 +11005,8 @@ impl URigVMFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCES_FOR_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_references_for_function,
                 __buffer,
             )
         };
@@ -10612,7 +11028,8 @@ impl URigVMFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCE_PATHS_FOR_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_reference_paths_for_function,
                 __buffer,
             )
         };
@@ -10629,7 +11046,8 @@ impl URigVMFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_REFERENCE_PATHS_FOR_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_reference_paths_for_function,
                 __buffer,
             )
         };
@@ -10643,7 +11061,8 @@ impl URigVMFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_FUNCTIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_functions,
                 __buffer,
             )
         };
@@ -10653,7 +11072,8 @@ impl URigVMFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_GET_FUNCTIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_get_functions,
                 __buffer,
             )
         };
@@ -10670,7 +11090,8 @@ impl URigVMFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION_FOR_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_find_function_for_node,
                 __buffer,
             )
         };
@@ -10687,7 +11108,8 @@ impl URigVMFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION_FOR_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_find_function_for_node,
                 __buffer,
             )
         };
@@ -10701,7 +11123,8 @@ impl URigVMFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_find_function,
                 __buffer,
             )
         };
@@ -10718,7 +11141,8 @@ impl URigVMFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_FUNCTION_LIBRARY_FIND_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_function_library_find_function,
                 __buffer,
             )
         };
@@ -10753,7 +11177,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_target_pin,
                 __buffer,
             )
         };
@@ -10763,7 +11188,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_target_pin,
                 __buffer,
             )
         };
@@ -10777,7 +11203,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_target_node,
                 __buffer,
             )
         };
@@ -10787,7 +11214,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_TARGET_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_target_node,
                 __buffer,
             )
         };
@@ -10801,7 +11229,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_source_pin,
                 __buffer,
             )
         };
@@ -10811,7 +11240,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_source_pin,
                 __buffer,
             )
         };
@@ -10825,7 +11255,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_source_node,
                 __buffer,
             )
         };
@@ -10835,7 +11266,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_SOURCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_source_node,
                 __buffer,
             )
         };
@@ -10849,7 +11281,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_PIN_PATH_REPRESENTATION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_pin_path_representation,
                 __buffer,
             )
         };
@@ -10859,7 +11292,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_PIN_PATH_REPRESENTATION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_pin_path_representation,
                 __buffer,
             )
         };
@@ -10873,7 +11307,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_OPPOSITE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_opposite_pin,
                 __buffer,
             )
         };
@@ -10890,7 +11325,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_OPPOSITE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_opposite_pin,
                 __buffer,
             )
         };
@@ -10904,7 +11340,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_LINK_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_link_index,
                 __buffer,
             )
         };
@@ -10914,7 +11351,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_LINK_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_link_index,
                 __buffer,
             )
         };
@@ -10928,7 +11366,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH_DEPTH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_graph_depth,
                 __buffer,
             )
         };
@@ -10938,7 +11377,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH_DEPTH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_graph_depth,
                 __buffer,
             )
         };
@@ -10952,7 +11392,8 @@ impl URigVMLink {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_graph,
                 __buffer,
             )
         };
@@ -10962,7 +11403,8 @@ impl URigVMLink {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_LINK_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_link_get_graph,
                 __buffer,
             )
         };
@@ -10997,7 +11439,8 @@ impl URigVMInjectionInfo {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_injection_info_get_pin,
                 __buffer,
             )
         };
@@ -11007,7 +11450,8 @@ impl URigVMInjectionInfo {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_injection_info_get_pin,
                 __buffer,
             )
         };
@@ -11021,7 +11465,8 @@ impl URigVMInjectionInfo {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_injection_info_get_graph,
                 __buffer,
             )
         };
@@ -11031,7 +11476,8 @@ impl URigVMInjectionInfo {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_INJECTION_INFO_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_injection_info_get_graph,
                 __buffer,
             )
         };
@@ -11066,7 +11512,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_ONLY_SHOW_SUB_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_should_only_show_sub_pins,
                 __buffer,
             )
         };
@@ -11076,7 +11523,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_ONLY_SHOW_SUB_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_should_only_show_sub_pins,
                 __buffer,
             )
         };
@@ -11090,7 +11538,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_HIDE_SUB_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_should_hide_sub_pins,
                 __buffer,
             )
         };
@@ -11100,7 +11549,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_SHOULD_HIDE_SUB_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_should_hide_sub_pins,
                 __buffer,
             )
         };
@@ -11114,7 +11564,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_REQUIRES_WATCH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_requires_watch,
                 __buffer,
             )
         };
@@ -11131,7 +11582,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_REQUIRES_WATCH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_requires_watch,
                 __buffer,
             )
         };
@@ -11145,7 +11597,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_WILD_CARD,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_wild_card,
                 __buffer,
             )
         };
@@ -11155,7 +11608,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_WILD_CARD,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_wild_card,
                 __buffer,
             )
         };
@@ -11169,7 +11623,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_VALID_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_valid_default_value,
                 __buffer,
             )
         };
@@ -11186,7 +11641,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_VALID_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_valid_default_value,
                 __buffer,
             )
         };
@@ -11200,7 +11656,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_U_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_u_object,
                 __buffer,
             )
         };
@@ -11210,7 +11667,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_U_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_u_object,
                 __buffer,
             )
         };
@@ -11224,7 +11682,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_TRAIT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_trait_pin,
                 __buffer,
             )
         };
@@ -11234,7 +11693,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_TRAIT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_trait_pin,
                 __buffer,
             )
         };
@@ -11248,7 +11708,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT_MEMBER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_struct_member,
                 __buffer,
             )
         };
@@ -11258,7 +11719,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT_MEMBER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_struct_member,
                 __buffer,
             )
         };
@@ -11272,7 +11734,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_struct,
                 __buffer,
             )
         };
@@ -11282,7 +11745,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_struct,
                 __buffer,
             )
         };
@@ -11296,7 +11760,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRING_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_string_type,
                 __buffer,
             )
         };
@@ -11306,7 +11771,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_STRING_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_string_type,
                 __buffer,
             )
         };
@@ -11320,7 +11786,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ROOT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_root_pin,
                 __buffer,
             )
         };
@@ -11330,7 +11797,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ROOT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_root_pin,
                 __buffer,
             )
         };
@@ -11344,7 +11812,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_REFERENCE_COUNTED_CONTAINER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_reference_counted_container,
                 __buffer,
             )
         };
@@ -11354,7 +11823,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_REFERENCE_COUNTED_CONTAINER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_reference_counted_container,
                 __buffer,
             )
         };
@@ -11368,7 +11838,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LINKED_TO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_linked_to,
                 __buffer,
             )
         };
@@ -11385,7 +11856,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LINKED_TO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_linked_to,
                 __buffer,
             )
         };
@@ -11399,7 +11871,7 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LAZY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_is_lazy,
                 __buffer,
             )
         };
@@ -11409,7 +11881,7 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_LAZY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_is_lazy,
                 __buffer,
             )
         };
@@ -11423,7 +11895,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_INTERFACE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_interface,
                 __buffer,
             )
         };
@@ -11433,7 +11906,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_INTERFACE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_interface,
                 __buffer,
             )
         };
@@ -11447,7 +11921,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_FIXED_SIZE_ARRAY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_fixed_size_array,
                 __buffer,
             )
         };
@@ -11457,7 +11932,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_FIXED_SIZE_ARRAY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_fixed_size_array,
                 __buffer,
             )
         };
@@ -11471,7 +11947,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXPANDED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_expanded,
                 __buffer,
             )
         };
@@ -11481,7 +11958,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXPANDED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_expanded,
                 __buffer,
             )
         };
@@ -11495,7 +11973,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXECUTE_CONTEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_execute_context,
                 __buffer,
             )
         };
@@ -11505,7 +11984,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_EXECUTE_CONTEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_execute_context,
                 __buffer,
             )
         };
@@ -11519,7 +11999,7 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ENUM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_is_enum,
                 __buffer,
             )
         };
@@ -11529,7 +12009,7 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ENUM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_is_enum,
                 __buffer,
             )
         };
@@ -11543,7 +12023,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DYNAMIC_ARRAY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_dynamic_array,
                 __buffer,
             )
         };
@@ -11553,7 +12034,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DYNAMIC_ARRAY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_dynamic_array,
                 __buffer,
             )
         };
@@ -11567,7 +12049,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DEFINED_AS_CONSTANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_defined_as_constant,
                 __buffer,
             )
         };
@@ -11577,7 +12060,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_DEFINED_AS_CONSTANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_defined_as_constant,
                 __buffer,
             )
         };
@@ -11591,7 +12075,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY_ELEMENT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_array_element,
                 __buffer,
             )
         };
@@ -11601,7 +12086,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY_ELEMENT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_is_array_element,
                 __buffer,
             )
         };
@@ -11615,7 +12101,7 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_is_array,
                 __buffer,
             )
         };
@@ -11625,7 +12111,7 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_IS_ARRAY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_is_array,
                 __buffer,
             )
         };
@@ -11639,7 +12125,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_USER_PROVIDED_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_user_provided_default_value,
                 __buffer,
             )
         };
@@ -11649,7 +12136,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_USER_PROVIDED_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_user_provided_default_value,
                 __buffer,
             )
         };
@@ -11663,7 +12151,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_ORIGINAL_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_original_default_value,
                 __buffer,
             )
         };
@@ -11673,7 +12162,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_ORIGINAL_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_original_default_value,
                 __buffer,
             )
         };
@@ -11687,7 +12177,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_META_DATA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_meta_data,
                 __buffer,
             )
         };
@@ -11700,7 +12191,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_META_DATA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_meta_data,
                 __buffer,
             )
         };
@@ -11714,7 +12206,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_DEFAULT_VALUE_OVERRIDE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_default_value_override,
                 __buffer,
             )
         };
@@ -11724,7 +12217,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_HAS_DEFAULT_VALUE_OVERRIDE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_has_default_value_override,
                 __buffer,
             )
         };
@@ -11738,7 +12232,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TOOL_TIP_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_tool_tip_text,
                 __buffer,
             )
         };
@@ -11748,7 +12243,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TOOL_TIP_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_tool_tip_text,
                 __buffer,
             )
         };
@@ -11762,7 +12258,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TARGET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_target_links,
                 __buffer,
             )
         };
@@ -11779,7 +12276,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_TARGET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_target_links,
                 __buffer,
             )
         };
@@ -11793,7 +12291,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_sub_pins,
                 __buffer,
             )
         };
@@ -11803,7 +12302,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_sub_pins,
                 __buffer,
             )
         };
@@ -11821,7 +12321,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PIN_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_sub_pin_path,
                 __buffer,
             )
         };
@@ -11845,7 +12346,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SUB_PIN_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_sub_pin_path,
                 __buffer,
             )
         };
@@ -11859,7 +12361,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SOURCE_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_source_links,
                 __buffer,
             )
         };
@@ -11876,7 +12379,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SOURCE_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_source_links,
                 __buffer,
             )
         };
@@ -11890,7 +12394,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SEGMENT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_segment_path,
                 __buffer,
             )
         };
@@ -11907,7 +12412,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SEGMENT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_segment_path,
                 __buffer,
             )
         };
@@ -11923,7 +12429,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SCRIPT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_script_struct,
                 __buffer,
             )
         };
@@ -11933,7 +12440,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_SCRIPT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_script_struct,
                 __buffer,
             )
         };
@@ -11952,7 +12460,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ROOT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_root_pin,
                 __buffer,
             )
         };
@@ -11962,7 +12471,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ROOT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_root_pin,
                 __buffer,
             )
         };
@@ -11976,7 +12486,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_pin_path,
                 __buffer,
             )
         };
@@ -11993,7 +12504,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_pin_path,
                 __buffer,
             )
         };
@@ -12007,7 +12519,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_pin_index,
                 __buffer,
             )
         };
@@ -12017,7 +12530,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_pin_index,
                 __buffer,
             )
         };
@@ -12031,7 +12545,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_FOR_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_pin_for_link,
                 __buffer,
             )
         };
@@ -12041,7 +12556,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PIN_FOR_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_pin_for_link,
                 __buffer,
             )
         };
@@ -12058,7 +12574,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_SCRIPT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_parent_script_struct,
                 __buffer,
             )
         };
@@ -12075,7 +12592,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_SCRIPT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_parent_script_struct,
                 __buffer,
             )
         };
@@ -12094,7 +12612,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_parent_pin,
                 __buffer,
             )
         };
@@ -12104,7 +12623,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_PARENT_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_parent_pin,
                 __buffer,
             )
         };
@@ -12118,7 +12638,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_PIN_FROM_INJECTED_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_original_pin_from_injected_node,
                 __buffer,
             )
         };
@@ -12128,7 +12649,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_PIN_FROM_INJECTED_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_original_pin_from_injected_node,
                 __buffer,
             )
         };
@@ -12142,7 +12664,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_original_default_value,
                 __buffer,
             )
         };
@@ -12152,7 +12675,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ORIGINAL_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_original_default_value,
                 __buffer,
             )
         };
@@ -12166,7 +12690,7 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_get_node,
                 __buffer,
             )
         };
@@ -12176,7 +12700,7 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_get_node,
                 __buffer,
             )
         };
@@ -12190,7 +12714,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_META_DATA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_meta_data,
                 __buffer,
             )
         };
@@ -12203,7 +12728,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_META_DATA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_meta_data,
                 __buffer,
             )
         };
@@ -12217,7 +12743,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_links,
                 __buffer,
             )
         };
@@ -12227,7 +12754,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_links,
                 __buffer,
             )
         };
@@ -12241,7 +12769,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_TARGET_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_linked_target_pins,
                 __buffer,
             )
         };
@@ -12258,7 +12787,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_TARGET_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_linked_target_pins,
                 __buffer,
             )
         };
@@ -12272,7 +12802,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_SOURCE_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_linked_source_pins,
                 __buffer,
             )
         };
@@ -12289,7 +12820,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_LINKED_SOURCE_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_linked_source_pins,
                 __buffer,
             )
         };
@@ -12303,7 +12835,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_INDEX_IN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_index_in_category,
                 __buffer,
             )
         };
@@ -12313,7 +12846,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_INDEX_IN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_index_in_category,
                 __buffer,
             )
         };
@@ -12327,7 +12861,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_graph,
                 __buffer,
             )
         };
@@ -12337,7 +12872,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_graph,
                 __buffer,
             )
         };
@@ -12351,7 +12887,7 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ENUM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_get_enum,
                 __buffer,
             )
         };
@@ -12361,7 +12897,7 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ENUM,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS.u_rig_vm_pin_get_enum,
                 __buffer,
             )
         };
@@ -12377,7 +12913,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DISPLAY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_display_name,
                 __buffer,
             )
         };
@@ -12387,7 +12924,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DISPLAY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_display_name,
                 __buffer,
             )
         };
@@ -12401,7 +12939,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DIRECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_direction,
                 __buffer,
             )
         };
@@ -12411,7 +12950,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DIRECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_direction,
                 __buffer,
             )
         };
@@ -12427,7 +12967,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_default_value_type,
                 __buffer,
             )
         };
@@ -12437,7 +12978,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_default_value_type,
                 __buffer,
             )
         };
@@ -12451,7 +12993,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_default_value,
                 __buffer,
             )
         };
@@ -12461,7 +13004,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_default_value,
                 __buffer,
             )
         };
@@ -12475,7 +13019,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CUSTOM_WIDGET_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_custom_widget_name,
                 __buffer,
             )
         };
@@ -12485,7 +13030,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CUSTOM_WIDGET_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_custom_widget_name,
                 __buffer,
             )
         };
@@ -12499,7 +13045,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -12509,7 +13056,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE_OBJECT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_cpp_type_object,
                 __buffer,
             )
         };
@@ -12528,7 +13076,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_cpp_type,
                 __buffer,
             )
         };
@@ -12538,7 +13087,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_cpp_type,
                 __buffer,
             )
         };
@@ -12552,7 +13102,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_category,
                 __buffer,
             )
         };
@@ -12562,7 +13113,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_category,
                 __buffer,
             )
         };
@@ -12576,7 +13128,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_array_size,
                 __buffer,
             )
         };
@@ -12586,7 +13139,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_array_size,
                 __buffer,
             )
         };
@@ -12600,7 +13154,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_ELEMENT_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_array_element_cpp_type,
                 __buffer,
             )
         };
@@ -12610,7 +13165,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ARRAY_ELEMENT_CPP_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_array_element_cpp_type,
                 __buffer,
             )
         };
@@ -12624,7 +13180,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ALL_SUB_PINS_RECURSIVELY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_all_sub_pins_recursively,
                 __buffer,
             )
         };
@@ -12634,7 +13191,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ALL_SUB_PINS_RECURSIVELY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_all_sub_pins_recursively,
                 __buffer,
             )
         };
@@ -12648,7 +13206,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ABSOLUTE_PIN_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_absolute_pin_index,
                 __buffer,
             )
         };
@@ -12658,7 +13217,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_GET_ABSOLUTE_PIN_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_get_absolute_pin_index,
                 __buffer,
             )
         };
@@ -12672,7 +13232,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_SUB_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_find_sub_pin,
                 __buffer,
             )
         };
@@ -12689,7 +13250,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_SUB_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_find_sub_pin,
                 __buffer,
             )
         };
@@ -12703,7 +13265,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_LINK_FOR_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_find_link_for_pin,
                 __buffer,
             )
         };
@@ -12720,7 +13283,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_FIND_LINK_FOR_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_find_link_for_pin,
                 __buffer,
             )
         };
@@ -12734,7 +13298,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CONTAINS_WILD_CARD_SUB_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_contains_wild_card_sub_pin,
                 __buffer,
             )
         };
@@ -12744,7 +13309,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CONTAINS_WILD_CARD_SUB_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_contains_wild_card_sub_pin,
                 __buffer,
             )
         };
@@ -12758,7 +13324,8 @@ impl URigVMPin {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CAN_PROVIDE_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_can_provide_default_value,
                 __buffer,
             )
         };
@@ -12768,7 +13335,8 @@ impl URigVMPin {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_PIN_CAN_PROVIDE_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_pin_can_provide_default_value,
                 __buffer,
             )
         };
@@ -12824,7 +13392,8 @@ impl URigVMUserWorkflowRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_UNREGISTER_PROVIDER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_unregister_provider,
                 __buffer,
             )
         };
@@ -12837,7 +13406,8 @@ impl URigVMUserWorkflowRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_UNREGISTER_PROVIDER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_unregister_provider,
                 __buffer,
             )
         };
@@ -12854,7 +13424,8 @@ impl URigVMUserWorkflowRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_REGISTER_PROVIDER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_register_provider,
                 __buffer,
             )
         };
@@ -12880,7 +13451,8 @@ impl URigVMUserWorkflowRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_REGISTER_PROVIDER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_register_provider,
                 __buffer,
             )
         };
@@ -12899,7 +13471,8 @@ impl URigVMUserWorkflowRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET_WORKFLOWS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_get_workflows,
                 __buffer,
             )
         };
@@ -12934,7 +13507,8 @@ impl URigVMUserWorkflowRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET_WORKFLOWS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_get_workflows,
                 __buffer,
             )
         };
@@ -12953,7 +13527,8 @@ impl URigVMUserWorkflowRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_get,
                 __buffer,
             )
         };
@@ -12963,7 +13538,8 @@ impl URigVMUserWorkflowRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_USER_WORKFLOW_REGISTRY_GET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_user_workflow_registry_get,
                 __buffer,
             )
         };
@@ -13007,7 +13583,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UPGRADE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_upgrade_nodes,
                 __buffer,
             )
         };
@@ -13045,7 +13622,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UPGRADE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_upgrade_nodes,
                 __buffer,
             )
         };
@@ -13064,7 +13642,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNRESOLVE_TEMPLATE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_unresolve_template_nodes,
                 __buffer,
             )
         };
@@ -13095,7 +13674,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNRESOLVE_TEMPLATE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_unresolve_template_nodes,
                 __buffer,
             )
         };
@@ -13109,7 +13689,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNDO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_undo,
                 __buffer,
             )
         };
@@ -13119,7 +13700,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNDO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_undo,
                 __buffer,
             )
         };
@@ -13138,7 +13720,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNBIND_PIN_FROM_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_unbind_pin_from_variable,
                 __buffer,
             )
         };
@@ -13169,7 +13752,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_UNBIND_PIN_FROM_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_unbind_pin_from_variable,
                 __buffer,
             )
         };
@@ -13190,7 +13774,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_swap_function_reference_by_name,
                 __buffer,
             )
         };
@@ -13237,7 +13822,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_swap_function_reference_by_name,
                 __buffer,
             )
         };
@@ -13258,7 +13844,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_swap_function_reference,
                 __buffer,
             )
         };
@@ -13305,7 +13892,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_FUNCTION_REFERENCE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_swap_function_reference,
                 __buffer,
             )
         };
@@ -13326,7 +13914,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_ALL_FUNCTION_REFERENCES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_swap_all_function_references,
                 __buffer,
             )
         };
@@ -13375,7 +13964,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SWAP_ALL_FUNCTION_REFERENCES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_swap_all_function_references,
                 __buffer,
             )
         };
@@ -13394,7 +13984,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SPLIT_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_split_function_variant,
                 __buffer,
             )
         };
@@ -13425,7 +14016,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SPLIT_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_split_function_variant,
                 __buffer,
             )
         };
@@ -13445,7 +14037,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_UNIT_NODE_DEFAULTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_unit_node_defaults,
                 __buffer,
             )
         };
@@ -13483,7 +14076,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_UNIT_NODE_DEFAULTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_unit_node_defaults,
                 __buffer,
             )
         };
@@ -13497,7 +14091,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_schema_class,
                 __buffer,
             )
         };
@@ -13514,7 +14109,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA_CLASS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_schema_class,
                 __buffer,
             )
         };
@@ -13527,7 +14123,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_schema,
                 __buffer,
             )
         };
@@ -13544,7 +14141,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_SCHEMA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_schema,
                 __buffer,
             )
         };
@@ -13563,7 +14161,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_REMAPPED_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_remapped_variable,
                 __buffer,
             )
         };
@@ -13601,7 +14200,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_REMAPPED_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_remapped_variable,
                 __buffer,
             )
         };
@@ -13620,7 +14220,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_IS_WATCHED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_is_watched,
                 __buffer,
             )
         };
@@ -13651,7 +14252,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_IS_WATCHED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_is_watched,
                 __buffer,
             )
         };
@@ -13671,7 +14273,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_INDEX_IN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_index_in_category,
                 __buffer,
             )
         };
@@ -13709,7 +14312,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_INDEX_IN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_index_in_category,
                 __buffer,
             )
         };
@@ -13729,7 +14333,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_EXPANSION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_expansion,
                 __buffer,
             )
         };
@@ -13767,7 +14372,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_EXPANSION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_expansion,
                 __buffer,
             )
         };
@@ -13787,7 +14393,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DISPLAY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_display_name,
                 __buffer,
             )
         };
@@ -13825,7 +14432,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DISPLAY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_display_name,
                 __buffer,
             )
         };
@@ -13848,7 +14456,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_default_value,
                 __buffer,
             )
         };
@@ -13907,7 +14516,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_default_value,
                 __buffer,
             )
         };
@@ -13928,7 +14538,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_category_index,
                 __buffer,
             )
         };
@@ -13973,7 +14584,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_category_index,
                 __buffer,
             )
         };
@@ -13994,7 +14606,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_EXPANSION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_category_expansion,
                 __buffer,
             )
         };
@@ -14039,7 +14652,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY_EXPANSION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_category_expansion,
                 __buffer,
             )
         };
@@ -14059,7 +14673,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_category,
                 __buffer,
             )
         };
@@ -14097,7 +14712,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_pin_category,
                 __buffer,
             )
         };
@@ -14117,7 +14733,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_title_by_name,
                 __buffer,
             )
         };
@@ -14155,7 +14772,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_title_by_name,
                 __buffer,
             )
         };
@@ -14176,7 +14794,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_title,
                 __buffer,
             )
         };
@@ -14221,7 +14840,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_TITLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_title,
                 __buffer,
             )
         };
@@ -14242,7 +14862,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_size_by_name,
                 __buffer,
             )
         };
@@ -14287,7 +14908,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_size_by_name,
                 __buffer,
             )
         };
@@ -14308,7 +14930,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_size,
                 __buffer,
             )
         };
@@ -14353,7 +14976,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_size,
                 __buffer,
             )
         };
@@ -14372,7 +14996,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SELECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_selection,
                 __buffer,
             )
         };
@@ -14403,7 +15028,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_SELECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_selection,
                 __buffer,
             )
         };
@@ -14424,7 +15050,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_position_by_name,
                 __buffer,
             )
         };
@@ -14469,7 +15096,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_position_by_name,
                 __buffer,
             )
         };
@@ -14490,7 +15118,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_position,
                 __buffer,
             )
         };
@@ -14535,7 +15164,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_POSITION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_position,
                 __buffer,
             )
         };
@@ -14555,7 +15185,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_LAYOUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_layout,
                 __buffer,
             )
         };
@@ -14593,7 +15224,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_LAYOUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_layout,
                 __buffer,
             )
         };
@@ -14613,7 +15245,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_keywords_by_name,
                 __buffer,
             )
         };
@@ -14651,7 +15284,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_keywords_by_name,
                 __buffer,
             )
         };
@@ -14672,7 +15306,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_keywords,
                 __buffer,
             )
         };
@@ -14717,7 +15352,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_KEYWORDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_keywords,
                 __buffer,
             )
         };
@@ -14737,7 +15373,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_description_by_name,
                 __buffer,
             )
         };
@@ -14775,7 +15412,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_description_by_name,
                 __buffer,
             )
         };
@@ -14796,7 +15434,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_description,
                 __buffer,
             )
         };
@@ -14841,7 +15480,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_description,
                 __buffer,
             )
         };
@@ -14861,7 +15501,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_color_by_name,
                 __buffer,
             )
         };
@@ -14899,7 +15540,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_color_by_name,
                 __buffer,
             )
         };
@@ -14920,7 +15562,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_color,
                 __buffer,
             )
         };
@@ -14965,7 +15608,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_COLOR,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_color,
                 __buffer,
             )
         };
@@ -14985,7 +15629,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_category_by_name,
                 __buffer,
             )
         };
@@ -15023,7 +15668,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_category_by_name,
                 __buffer,
             )
         };
@@ -15044,7 +15690,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_category,
                 __buffer,
             )
         };
@@ -15089,7 +15736,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_NODE_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_node_category,
                 __buffer,
             )
         };
@@ -15110,7 +15758,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_type_from_object_path,
                 __buffer,
             )
         };
@@ -15155,7 +15804,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_type_from_object_path,
                 __buffer,
             )
         };
@@ -15176,7 +15826,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_type,
                 __buffer,
             )
         };
@@ -15221,7 +15872,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_type,
                 __buffer,
             )
         };
@@ -15241,7 +15893,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_default_value,
                 __buffer,
             )
         };
@@ -15279,7 +15932,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_LOCAL_VARIABLE_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_local_variable_default_value,
                 __buffer,
             )
         };
@@ -15293,7 +15947,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_IS_RUNNING_UNIT_TEST,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_is_running_unit_test,
                 __buffer,
             )
         };
@@ -15310,7 +15965,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_IS_RUNNING_UNIT_TEST,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_is_running_unit_test,
                 __buffer,
             )
         };
@@ -15323,7 +15979,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_graph,
                 __buffer,
             )
         };
@@ -15340,7 +15997,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_graph,
                 __buffer,
             )
         };
@@ -15359,7 +16017,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_EXPOSED_PIN_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_exposed_pin_index,
                 __buffer,
             )
         };
@@ -15397,7 +16056,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_EXPOSED_PIN_INDEX,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_exposed_pin_index,
                 __buffer,
             )
         };
@@ -15420,7 +16080,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_comment_text_by_name,
                 __buffer,
             )
         };
@@ -15479,7 +16140,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_comment_text_by_name,
                 __buffer,
             )
         };
@@ -15502,7 +16164,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_comment_text,
                 __buffer,
             )
         };
@@ -15561,7 +16224,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_COMMENT_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_comment_text,
                 __buffer,
             )
         };
@@ -15582,7 +16246,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ARRAY_PIN_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_array_pin_size,
                 __buffer,
             )
         };
@@ -15623,7 +16288,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ARRAY_PIN_SIZE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_array_pin_size,
                 __buffer,
             )
         };
@@ -15637,7 +16303,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ACTION_STACK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_action_stack,
                 __buffer,
             )
         };
@@ -15654,7 +16321,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SET_ACTION_STACK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_set_action_stack,
                 __buffer,
             )
         };
@@ -15673,7 +16341,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_ISLANDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_node_islands,
                 __buffer,
             )
         };
@@ -15711,7 +16380,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_ISLANDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_node_islands,
                 __buffer,
             )
         };
@@ -15730,7 +16400,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_node_by_name,
                 __buffer,
             )
         };
@@ -15757,7 +16428,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_node_by_name,
                 __buffer,
             )
         };
@@ -15777,7 +16449,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_node,
                 __buffer,
             )
         };
@@ -15811,7 +16484,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_node,
                 __buffer,
             )
         };
@@ -15832,7 +16506,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_LINKED_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_linked_nodes,
                 __buffer,
             )
         };
@@ -15877,7 +16552,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_SELECT_LINKED_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_select_linked_nodes,
                 __buffer,
             )
         };
@@ -15898,7 +16574,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESOLVE_WILD_CARD_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_resolve_wild_card_pin,
                 __buffer,
             )
         };
@@ -15943,7 +16620,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESOLVE_WILD_CARD_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_resolve_wild_card_pin,
                 __buffer,
             )
         };
@@ -15962,7 +16640,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_PIN_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_pin_default_value,
                 __buffer,
             )
         };
@@ -15993,7 +16672,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_PIN_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_pin_default_value,
                 __buffer,
             )
         };
@@ -16012,7 +16692,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_pins,
                 __buffer,
             )
         };
@@ -16043,7 +16724,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_pins,
                 __buffer,
             )
         };
@@ -16062,7 +16744,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_all_pins_on_nodes,
                 __buffer,
             )
         };
@@ -16093,7 +16776,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_all_pins_on_nodes,
                 __buffer,
             )
         };
@@ -16112,7 +16796,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_all_pins_on_node,
                 __buffer,
             )
         };
@@ -16143,7 +16828,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RESET_DEFAULT_VALUE_FOR_ALL_PINS_ON_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_reset_default_value_for_all_pins_on_node,
                 __buffer,
             )
         };
@@ -16164,7 +16850,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REPLACE_PARAMETER_NODE_WITH_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_replace_parameter_node_with_variable,
                 __buffer,
             )
         };
@@ -16209,7 +16896,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REPLACE_PARAMETER_NODE_WITH_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_replace_parameter_node_with_variable,
                 __buffer,
             )
         };
@@ -16228,7 +16916,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_variable,
                 __buffer,
             )
         };
@@ -16259,7 +16948,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_variable,
                 __buffer,
             )
         };
@@ -16280,7 +16970,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_pin_category,
                 __buffer,
             )
         };
@@ -16325,7 +17016,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_pin_category,
                 __buffer,
             )
         };
@@ -16344,7 +17036,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PARAMETER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_parameter,
                 __buffer,
             )
         };
@@ -16375,7 +17068,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_PARAMETER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_parameter,
                 __buffer,
             )
         };
@@ -16395,7 +17089,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_node,
                 __buffer,
             )
         };
@@ -16433,7 +17128,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_node,
                 __buffer,
             )
         };
@@ -16453,7 +17149,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_local_variable,
                 __buffer,
             )
         };
@@ -16491,7 +17188,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_local_variable,
                 __buffer,
             )
         };
@@ -16511,7 +17209,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_function,
                 __buffer,
             )
         };
@@ -16549,7 +17248,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_function,
                 __buffer,
             )
         };
@@ -16569,7 +17269,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_EXPOSED_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_exposed_pin,
                 __buffer,
             )
         };
@@ -16607,7 +17308,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_RENAME_EXPOSED_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_rename_exposed_pin,
                 __buffer,
             )
         };
@@ -16627,7 +17329,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TRAIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_trait,
                 __buffer,
             )
         };
@@ -16665,7 +17368,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TRAIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_trait,
                 __buffer,
             )
         };
@@ -16685,7 +17389,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TAG_FROM_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_tag_from_function_variant,
                 __buffer,
             )
         };
@@ -16723,7 +17428,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_TAG_FROM_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_tag_from_function_variant,
                 __buffer,
             )
         };
@@ -16743,7 +17449,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_pin_category,
                 __buffer,
             )
         };
@@ -16781,7 +17488,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_pin_category,
                 __buffer,
             )
         };
@@ -16800,7 +17508,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_nodes_by_name,
                 __buffer,
             )
         };
@@ -16831,7 +17540,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_nodes_by_name,
                 __buffer,
             )
         };
@@ -16850,7 +17560,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_nodes,
                 __buffer,
             )
         };
@@ -16881,7 +17592,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_nodes,
                 __buffer,
             )
         };
@@ -16900,7 +17612,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_node_by_name,
                 __buffer,
             )
         };
@@ -16931,7 +17644,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_node_by_name,
                 __buffer,
             )
         };
@@ -16950,7 +17664,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_node,
                 __buffer,
             )
         };
@@ -16981,7 +17696,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_node,
                 __buffer,
             )
         };
@@ -17000,7 +17716,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_local_variable,
                 __buffer,
             )
         };
@@ -17031,7 +17748,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_local_variable,
                 __buffer,
             )
         };
@@ -17051,7 +17769,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_INJECTED_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_injected_node,
                 __buffer,
             )
         };
@@ -17089,7 +17808,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_INJECTED_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_injected_node,
                 __buffer,
             )
         };
@@ -17108,7 +17828,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_FUNCTION_FROM_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_function_from_library,
                 __buffer,
             )
         };
@@ -17139,7 +17860,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_FUNCTION_FROM_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_function_from_library,
                 __buffer,
             )
         };
@@ -17158,7 +17880,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_EXPOSED_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_exposed_pin,
                 __buffer,
             )
         };
@@ -17189,7 +17912,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_EXPOSED_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_exposed_pin,
                 __buffer,
             )
         };
@@ -17208,7 +17932,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_array_pin,
                 __buffer,
             )
         };
@@ -17239,7 +17964,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_array_pin,
                 __buffer,
             )
         };
@@ -17258,7 +17984,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_aggregate_pin,
                 __buffer,
             )
         };
@@ -17289,7 +18016,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REMOVE_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_remove_aggregate_pin,
                 __buffer,
             )
         };
@@ -17311,7 +18039,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REFRESH_VARIABLE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_refresh_variable_node,
                 __buffer,
             )
         };
@@ -17363,7 +18092,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REFRESH_VARIABLE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_refresh_variable_node,
                 __buffer,
             )
         };
@@ -17376,7 +18106,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REDO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_redo,
                 __buffer,
             )
         };
@@ -17386,7 +18117,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_REDO,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_redo,
                 __buffer,
             )
         };
@@ -17404,7 +18136,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PUSH_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_push_graph,
                 __buffer,
             )
         };
@@ -17428,7 +18161,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PUSH_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_push_graph,
                 __buffer,
             )
         };
@@ -17449,7 +18183,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_PIN_TO_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_pin_to_variable,
                 __buffer,
             )
         };
@@ -17494,7 +18229,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_PIN_TO_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_pin_to_variable,
                 __buffer,
             )
         };
@@ -17514,7 +18250,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_FUNCTION_REFERENCE_NODE_TO_COLLAPSE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_function_reference_node_to_collapse_node,
                 __buffer,
             )
         };
@@ -17552,7 +18289,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_FUNCTION_REFERENCE_NODE_TO_COLLAPSE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_function_reference_node_to_collapse_node,
                 __buffer,
             )
         };
@@ -17572,7 +18310,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_COLLAPSE_NODE_TO_FUNCTION_REFERENCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_collapse_node_to_function_reference_node,
                 __buffer,
             )
         };
@@ -17610,7 +18349,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PROMOTE_COLLAPSE_NODE_TO_FUNCTION_REFERENCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_promote_collapse_node_to_function_reference_node,
                 __buffer,
             )
         };
@@ -17624,7 +18364,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_POP_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_pop_graph,
                 __buffer,
             )
         };
@@ -17641,7 +18382,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_POP_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_pop_graph,
                 __buffer,
             )
         };
@@ -17660,7 +18402,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PERFORM_USER_WORKFLOW,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_perform_user_workflow,
                 __buffer,
             )
         };
@@ -17693,7 +18436,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_PERFORM_USER_WORKFLOW,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_perform_user_workflow,
                 __buffer,
             )
         };
@@ -17707,7 +18451,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_OPEN_UNDO_BRACKET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_open_undo_bracket,
                 __buffer,
             )
         };
@@ -17724,7 +18469,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_OPEN_UNDO_BRACKET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_open_undo_bracket,
                 __buffer,
             )
         };
@@ -17744,7 +18490,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MARK_FUNCTION_AS_PUBLIC,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_mark_function_as_public,
                 __buffer,
             )
         };
@@ -17782,7 +18529,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MARK_FUNCTION_AS_PUBLIC,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_mark_function_as_public,
                 __buffer,
             )
         };
@@ -17802,7 +18550,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_VARIABLE_NODE_FROM_BINDING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_make_variable_node_from_binding,
                 __buffer,
             )
         };
@@ -17840,7 +18589,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_VARIABLE_NODE_FROM_BINDING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_make_variable_node_from_binding,
                 __buffer,
             )
         };
@@ -17858,7 +18608,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_OPTIONS_FOR_WORKFLOW,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_make_options_for_workflow,
                 __buffer,
             )
         };
@@ -17882,7 +18633,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_OPTIONS_FOR_WORKFLOW,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_make_options_for_workflow,
                 __buffer,
             )
         };
@@ -17906,7 +18658,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_BINDINGS_FROM_VARIABLE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_make_bindings_from_variable_node,
                 __buffer,
             )
         };
@@ -17937,7 +18690,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_MAKE_BINDINGS_FROM_VARIABLE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_make_bindings_from_variable_node,
                 __buffer,
             )
         };
@@ -17962,7 +18716,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_localize_functions,
                 __buffer,
             )
         };
@@ -18004,7 +18759,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTIONS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_localize_functions,
                 __buffer,
             )
         };
@@ -18035,7 +18791,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION_FROM_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_localize_function_from_path,
                 __buffer,
             )
         };
@@ -18080,7 +18837,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION_FROM_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_localize_function_from_path,
                 __buffer,
             )
         };
@@ -18100,7 +18858,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_localize_function,
                 __buffer,
             )
         };
@@ -18140,7 +18899,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_LOCALIZE_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_localize_function,
                 __buffer,
             )
         };
@@ -18160,7 +18920,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_JOIN_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_join_function_variant,
                 __buffer,
             )
         };
@@ -18198,7 +18959,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_JOIN_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_join_function_variant,
                 __buffer,
             )
         };
@@ -18212,7 +18974,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_TRANSACTING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_is_transacting,
                 __buffer,
             )
         };
@@ -18222,7 +18985,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_TRANSACTING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_is_transacting,
                 __buffer,
             )
         };
@@ -18236,7 +19000,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_REPORTING_ENABLED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_is_reporting_enabled,
                 __buffer,
             )
         };
@@ -18246,7 +19011,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_REPORTING_ENABLED,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_is_reporting_enabled,
                 __buffer,
             )
         };
@@ -18260,7 +19026,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_FUNCTION_PUBLIC,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_is_function_public,
                 __buffer,
             )
         };
@@ -18277,7 +19044,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IS_FUNCTION_PUBLIC,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_is_function_public,
                 __buffer,
             )
         };
@@ -18298,7 +19066,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_INSERT_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_insert_array_pin,
                 __buffer,
             )
         };
@@ -18339,7 +19108,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_INSERT_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_insert_array_pin,
                 __buffer,
             )
         };
@@ -18358,7 +19128,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IMPORT_NODES_FROM_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_import_nodes_from_text,
                 __buffer,
             )
         };
@@ -18389,7 +19160,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_IMPORT_NODES_FROM_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_import_nodes_from_text,
                 __buffer,
             )
         };
@@ -18405,7 +19177,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_UNIT_STRUCTS_FOR_TEMPLATE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_unit_structs_for_template,
                 __buffer,
             )
         };
@@ -18422,7 +19195,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_UNIT_STRUCTS_FOR_TEMPLATE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_unit_structs_for_template,
                 __buffer,
             )
         };
@@ -18441,7 +19215,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TOP_LEVEL_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_top_level_graph,
                 __buffer,
             )
         };
@@ -18451,7 +19226,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TOP_LEVEL_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_top_level_graph,
                 __buffer,
             )
         };
@@ -18468,7 +19244,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TEMPLATE_FOR_UNIT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_template_for_unit_struct,
                 __buffer,
             )
         };
@@ -18494,7 +19271,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_TEMPLATE_FOR_UNIT_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_template_for_unit_struct,
                 __buffer,
             )
         };
@@ -18508,7 +19286,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_SCHEMA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_schema,
                 __buffer,
             )
         };
@@ -18518,7 +19297,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_SCHEMA,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_schema,
                 __buffer,
             )
         };
@@ -18534,7 +19314,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_UNIT_STRUCTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_registered_unit_structs,
                 __buffer,
             )
         };
@@ -18544,7 +19325,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_UNIT_STRUCTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_registered_unit_structs,
                 __buffer,
             )
         };
@@ -18563,7 +19345,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_TEMPLATES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_registered_templates,
                 __buffer,
             )
         };
@@ -18573,7 +19356,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_REGISTERED_TEMPLATES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_registered_templates,
                 __buffer,
             )
         };
@@ -18587,7 +19371,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_PIN_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_pin_default_value,
                 __buffer,
             )
         };
@@ -18604,7 +19389,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_PIN_DEFAULT_VALUE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_pin_default_value,
                 __buffer,
             )
         };
@@ -18618,7 +19404,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_graph,
                 __buffer,
             )
         };
@@ -18628,7 +19415,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_graph,
                 __buffer,
             )
         };
@@ -18645,7 +19433,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_CONTROLLER_FOR_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_controller_for_graph,
                 __buffer,
             )
         };
@@ -18662,7 +19451,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_CONTROLLER_FOR_GRAPH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_controller_for_graph,
                 __buffer,
             )
         };
@@ -18676,7 +19466,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_ACTION_STACK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_action_stack,
                 __buffer,
             )
         };
@@ -18686,7 +19477,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GET_ACTION_STACK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_get_action_stack,
                 __buffer,
             )
         };
@@ -18700,7 +19492,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_generate_python_commands,
                 __buffer,
             )
         };
@@ -18710,7 +19503,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_GENERATE_PYTHON_COMMANDS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_generate_python_commands,
                 __buffer,
             )
         };
@@ -18727,7 +19521,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_VARIANTS_OF_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_variants_of_function,
                 __buffer,
             )
         };
@@ -18744,7 +19539,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_VARIANTS_OF_FUNCTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_variants_of_function,
                 __buffer,
             )
         };
@@ -18767,7 +19563,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_IDENTIFIER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_identifier,
                 __buffer,
             )
         };
@@ -18791,7 +19588,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_IDENTIFIER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_identifier,
                 __buffer,
             )
         };
@@ -18814,7 +19612,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_header_by_name,
                 __buffer,
             )
         };
@@ -18838,7 +19637,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER_BY_NAME,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_header_by_name,
                 __buffer,
             )
         };
@@ -18860,7 +19660,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_header,
                 __buffer,
             )
         };
@@ -18879,7 +19680,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_FIND_GRAPH_FUNCTION_HEADER,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_find_graph_function_header,
                 __buffer,
             )
         };
@@ -18901,7 +19703,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_SELECTED_NODES_TO_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_export_selected_nodes_to_text,
                 __buffer,
             )
         };
@@ -18918,7 +19721,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_SELECTED_NODES_TO_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_export_selected_nodes_to_text,
                 __buffer,
             )
         };
@@ -18936,7 +19740,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODE_TO_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_export_node_to_text,
                 __buffer,
             )
         };
@@ -18960,7 +19765,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODE_TO_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_export_node_to_text,
                 __buffer,
             )
         };
@@ -18978,7 +19784,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODES_TO_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_export_nodes_to_text,
                 __buffer,
             )
         };
@@ -19002,7 +19809,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPORT_NODES_TO_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_export_nodes_to_text,
                 __buffer,
             )
         };
@@ -19021,7 +19829,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPAND_LIBRARY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_expand_library_node,
                 __buffer,
             )
         };
@@ -19052,7 +19861,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EXPAND_LIBRARY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_expand_library_node,
                 __buffer,
             )
         };
@@ -19066,7 +19876,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ENABLE_REPORTING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_enable_reporting,
                 __buffer,
             )
         };
@@ -19079,7 +19890,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ENABLE_REPORTING,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_enable_reporting,
                 __buffer,
             )
         };
@@ -19097,7 +19909,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EJECT_NODE_FROM_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_eject_node_from_pin,
                 __buffer,
             )
         };
@@ -19128,7 +19941,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_EJECT_NODE_FROM_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_eject_node_from_pin,
                 __buffer,
             )
         };
@@ -19147,7 +19961,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_DUPLICATE_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_duplicate_array_pin,
                 __buffer,
             )
         };
@@ -19178,7 +19993,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_DUPLICATE_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_duplicate_array_pin,
                 __buffer,
             )
         };
@@ -19198,7 +20014,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CREATE_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_create_function_variant,
                 __buffer,
             )
         };
@@ -19236,7 +20053,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CREATE_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_create_function_variant,
                 __buffer,
             )
         };
@@ -19257,7 +20075,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_COLLAPSE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_collapse_nodes,
                 __buffer,
             )
         };
@@ -19302,7 +20121,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_COLLAPSE_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_collapse_nodes,
                 __buffer,
             )
         };
@@ -19316,7 +20136,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLOSE_UNDO_BRACKET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_close_undo_bracket,
                 __buffer,
             )
         };
@@ -19326,7 +20147,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLOSE_UNDO_BRACKET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_close_undo_bracket,
                 __buffer,
             )
         };
@@ -19345,7 +20167,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_pin_category,
                 __buffer,
             )
         };
@@ -19376,7 +20199,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_pin_category,
                 __buffer,
             )
         };
@@ -19395,7 +20219,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_pins,
                 __buffer,
             )
         };
@@ -19426,7 +20251,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_pins,
                 __buffer,
             )
         };
@@ -19445,7 +20271,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_pin,
                 __buffer,
             )
         };
@@ -19476,7 +20303,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_pin,
                 __buffer,
             )
         };
@@ -19495,7 +20323,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_all_pins_on_nodes,
                 __buffer,
             )
         };
@@ -19526,7 +20355,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_all_pins_on_nodes,
                 __buffer,
             )
         };
@@ -19545,7 +20375,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_all_pins_on_node,
                 __buffer,
             )
         };
@@ -19576,7 +20407,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_OVERRIDE_ON_ALL_PINS_ON_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_override_on_all_pins_on_node,
                 __buffer,
             )
         };
@@ -19594,7 +20426,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_SELECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_node_selection,
                 __buffer,
             )
         };
@@ -19618,7 +20451,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_SELECTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_node_selection,
                 __buffer,
             )
         };
@@ -19637,7 +20471,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_LAYOUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_node_layout,
                 __buffer,
             )
         };
@@ -19668,7 +20503,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_NODE_LAYOUT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_node_layout,
                 __buffer,
             )
         };
@@ -19687,7 +20523,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_array_pin,
                 __buffer,
             )
         };
@@ -19718,7 +20555,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CLEAR_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_clear_array_pin,
                 __buffer,
             )
         };
@@ -19740,7 +20578,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CHANGE_EXPOSED_PIN_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_change_exposed_pin_type,
                 __buffer,
             )
         };
@@ -19792,7 +20631,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CHANGE_EXPOSED_PIN_TYPE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_change_exposed_pin_type,
                 __buffer,
             )
         };
@@ -19809,7 +20649,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CAN_IMPORT_NODES_FROM_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_can_import_nodes_from_text,
                 __buffer,
             )
         };
@@ -19826,7 +20667,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CAN_IMPORT_NODES_FROM_TEXT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_can_import_nodes_from_text,
                 __buffer,
             )
         };
@@ -19840,7 +20682,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CANCEL_UNDO_BRACKET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_cancel_undo_bracket,
                 __buffer,
             )
         };
@@ -19850,7 +20693,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_CANCEL_UNDO_BRACKET,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_cancel_undo_bracket,
                 __buffer,
             )
         };
@@ -19870,7 +20714,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_break_link,
                 __buffer,
             )
         };
@@ -19908,7 +20753,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_break_link,
                 __buffer,
             )
         };
@@ -19928,7 +20774,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_ALL_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_break_all_links,
                 __buffer,
             )
         };
@@ -19966,7 +20813,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BREAK_ALL_LINKS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_break_all_links,
                 __buffer,
             )
         };
@@ -19986,7 +20834,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BIND_PIN_TO_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_bind_pin_to_variable,
                 __buffer,
             )
         };
@@ -20024,7 +20873,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_BIND_PIN_TO_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_bind_pin_to_variable,
                 __buffer,
             )
         };
@@ -20049,7 +20899,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_variable_node_from_object_path,
                 __buffer,
             )
         };
@@ -20122,7 +20973,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_variable_node_from_object_path,
                 __buffer,
             )
         };
@@ -20147,7 +20999,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_variable_node,
                 __buffer,
             )
         };
@@ -20220,7 +21073,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_VARIABLE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_variable_node,
                 __buffer,
             )
         };
@@ -20243,7 +21097,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_WITH_DEFAULTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_unit_node_with_defaults,
                 __buffer,
             )
         };
@@ -20304,7 +21159,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_WITH_DEFAULTS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_unit_node_with_defaults,
                 __buffer,
             )
         };
@@ -20326,7 +21182,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_FROM_STRUCT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_unit_node_from_struct_path,
                 __buffer,
             )
         };
@@ -20378,7 +21235,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE_FROM_STRUCT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_unit_node_from_struct_path,
                 __buffer,
             )
         };
@@ -20400,7 +21258,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_unit_node,
                 __buffer,
             )
         };
@@ -20454,7 +21313,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_UNIT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_unit_node,
                 __buffer,
             )
         };
@@ -20477,7 +21337,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TRAIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_trait,
                 __buffer,
             )
         };
@@ -20536,7 +21397,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TRAIT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_trait,
                 __buffer,
             )
         };
@@ -20557,7 +21419,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TEMPLATE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_template_node,
                 __buffer,
             )
         };
@@ -20602,7 +21465,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TEMPLATE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_template_node,
                 __buffer,
             )
         };
@@ -20622,7 +21486,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TAG_TO_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_tag_to_function_variant,
                 __buffer,
             )
         };
@@ -20660,7 +21525,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_TAG_TO_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_tag_to_function_variant,
                 __buffer,
             )
         };
@@ -20680,7 +21546,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE_FROM_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_select_node_from_struct,
                 __buffer,
             )
         };
@@ -20720,7 +21587,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE_FROM_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_select_node_from_struct,
                 __buffer,
             )
         };
@@ -20742,7 +21610,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_select_node,
                 __buffer,
             )
         };
@@ -20794,7 +21663,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_SELECT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_select_node,
                 __buffer,
             )
         };
@@ -20816,7 +21686,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_reroute_node_on_pin,
                 __buffer,
             )
         };
@@ -20868,7 +21739,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_reroute_node_on_pin,
                 __buffer,
             )
         };
@@ -20889,7 +21761,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_reroute_node_on_link_path,
                 __buffer,
             )
         };
@@ -20934,7 +21807,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_reroute_node_on_link_path,
                 __buffer,
             )
         };
@@ -20955,7 +21829,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_reroute_node_on_link,
                 __buffer,
             )
         };
@@ -21000,7 +21875,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_REROUTE_NODE_ON_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_reroute_node_on_link,
                 __buffer,
             )
         };
@@ -21025,7 +21901,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_parameter_node_from_object_path,
                 __buffer,
             )
         };
@@ -21098,7 +21975,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_parameter_node_from_object_path,
                 __buffer,
             )
         };
@@ -21123,7 +22001,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_parameter_node,
                 __buffer,
             )
         };
@@ -21196,7 +22075,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_PARAMETER_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_parameter_node,
                 __buffer,
             )
         };
@@ -21215,7 +22095,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_pins,
                 __buffer,
             )
         };
@@ -21246,7 +22127,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PINS,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_pins,
                 __buffer,
             )
         };
@@ -21265,7 +22147,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_pin,
                 __buffer,
             )
         };
@@ -21296,7 +22179,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_pin,
                 __buffer,
             )
         };
@@ -21315,7 +22199,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_all_pins_on_nodes,
                 __buffer,
             )
         };
@@ -21346,7 +22231,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODES,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_all_pins_on_nodes,
                 __buffer,
             )
         };
@@ -21365,7 +22251,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_all_pins_on_node,
                 __buffer,
             )
         };
@@ -21396,7 +22283,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_OVERRIDE_TO_ALL_PINS_ON_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_override_to_all_pins_on_node,
                 __buffer,
             )
         };
@@ -21417,7 +22305,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_local_variable_from_object_path,
                 __buffer,
             )
         };
@@ -21462,7 +22351,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_local_variable_from_object_path,
                 __buffer,
             )
         };
@@ -21484,7 +22374,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_local_variable,
                 __buffer,
             )
         };
@@ -21536,7 +22427,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LOCAL_VARIABLE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_local_variable,
                 __buffer,
             )
         };
@@ -21558,7 +22450,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_link,
                 __buffer,
             )
         };
@@ -21610,7 +22503,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_LINK,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_link,
                 __buffer,
             )
         };
@@ -21631,7 +22525,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INVOKE_ENTRY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_invoke_entry_node,
                 __buffer,
             )
         };
@@ -21676,7 +22571,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INVOKE_ENTRY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_invoke_entry_node,
                 __buffer,
             )
         };
@@ -21700,7 +22596,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE_FROM_STRUCT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_injected_node_from_struct_path,
                 __buffer,
             )
         };
@@ -21766,7 +22663,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE_FROM_STRUCT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_injected_node_from_struct_path,
                 __buffer,
             )
         };
@@ -21791,7 +22689,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_injected_node,
                 __buffer,
             )
         };
@@ -21866,7 +22765,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_INJECTED_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_injected_node,
                 __buffer,
             )
         };
@@ -21886,7 +22786,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE_FROM_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_if_node_from_struct,
                 __buffer,
             )
         };
@@ -21926,7 +22827,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE_FROM_STRUCT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_if_node_from_struct,
                 __buffer,
             )
         };
@@ -21948,7 +22850,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_if_node,
                 __buffer,
             )
         };
@@ -22000,7 +22903,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_IF_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_if_node,
                 __buffer,
             )
         };
@@ -22021,7 +22925,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_TO_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_function_to_library,
                 __buffer,
             )
         };
@@ -22066,7 +22971,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_TO_LIBRARY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_function_to_library,
                 __buffer,
             )
         };
@@ -22087,7 +22993,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE_FROM_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_function_reference_node_from_description,
                 __buffer,
             )
         };
@@ -22134,7 +23041,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE_FROM_DESCRIPTION,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_function_reference_node_from_description,
                 __buffer,
             )
         };
@@ -22155,7 +23063,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_function_reference_node,
                 __buffer,
             )
         };
@@ -22200,7 +23109,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FUNCTION_REFERENCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_function_reference_node,
                 __buffer,
             )
         };
@@ -22224,7 +23134,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FREE_REROUTE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_free_reroute_node,
                 __buffer,
             )
         };
@@ -22290,7 +23201,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_FREE_REROUTE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_free_reroute_node,
                 __buffer,
             )
         };
@@ -22312,7 +23224,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXTERNAL_FUNCTION_REFERENCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_external_function_reference_node,
                 __buffer,
             )
         };
@@ -22364,7 +23277,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXTERNAL_FUNCTION_REFERENCE_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_external_function_reference_node,
                 __buffer,
             )
         };
@@ -22387,7 +23301,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXPOSED_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_exposed_pin,
                 __buffer,
             )
         };
@@ -22446,7 +23361,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EXPOSED_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_exposed_pin,
                 __buffer,
             )
         };
@@ -22467,7 +23383,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ENUM_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_enum_node,
                 __buffer,
             )
         };
@@ -22512,7 +23429,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ENUM_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_enum_node,
                 __buffer,
             )
         };
@@ -22532,7 +23450,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EMPTY_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_empty_pin_category,
                 __buffer,
             )
         };
@@ -22570,7 +23489,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_EMPTY_PIN_CATEGORY,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_empty_pin_category,
                 __buffer,
             )
         };
@@ -22590,7 +23510,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_DEFAULT_TAG_TO_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_default_tag_to_function_variant,
                 __buffer,
             )
         };
@@ -22628,7 +23549,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_DEFAULT_TAG_TO_FUNCTION_VARIANT,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_default_tag_to_function_variant,
                 __buffer,
             )
         };
@@ -22651,7 +23573,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_COMMENT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_comment_node,
                 __buffer,
             )
         };
@@ -22710,7 +23633,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_COMMENT_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_comment_node,
                 __buffer,
             )
         };
@@ -22730,7 +23654,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_BRANCH_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_branch_node,
                 __buffer,
             )
         };
@@ -22768,7 +23693,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_BRANCH_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_branch_node,
                 __buffer,
             )
         };
@@ -22788,7 +23714,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_array_pin,
                 __buffer,
             )
         };
@@ -22826,7 +23753,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_array_pin,
                 __buffer,
             )
         };
@@ -22850,7 +23778,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_array_node_from_object_path,
                 __buffer,
             )
         };
@@ -22916,7 +23845,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE_FROM_OBJECT_PATH,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_array_node_from_object_path,
                 __buffer,
             )
         };
@@ -22940,7 +23870,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_array_node,
                 __buffer,
             )
         };
@@ -23006,7 +23937,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_ARRAY_NODE,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_array_node,
                 __buffer,
             )
         };
@@ -23027,7 +23959,8 @@ impl URigVMController {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_aggregate_pin,
                 __buffer,
             )
         };
@@ -23072,7 +24005,8 @@ impl URigVMController {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::rig_vm_developer::U_RIG_VM_CONTROLLER_ADD_AGGREGATE_PIN,
+                crate::bindings::rig_vm_developer::__FUNCTION_PTRS
+                    .u_rig_vm_controller_add_aggregate_pin,
                 __buffer,
             )
         };

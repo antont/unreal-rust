@@ -1,110 +1,119 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_TO_SOFT_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_SORTING_PREDICATE_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_SORT_BY_PREDICATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_SORT_BY_ASSET_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_SET_FILTER_TAGS_AND_VALUES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_IS_U_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_IS_REDIRECTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_IS_ASSET_LOADED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_IS_ASSET_COOKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_TAG_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_FULL_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_EXPORT_TEXT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_DERIVED_CLASS_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_BLUEPRINT_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_ASSET_REGISTRY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_GET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_FIND_ASSET_NATIVE_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_CREATE_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HELPERS_ASSET_HAS_EDITOR_ONLY_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_WAIT_FOR_PACKAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_WAIT_FOR_COMPLETION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_USE_FILTER_TO_EXCLUDE_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_SEARCH_ALL_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_SCAN_PATHS_SYNCHRONOUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_SCAN_MODIFIED_ASSET_FILES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_SCAN_FILES_SYNCHRONOUS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_RUN_ASSETS_THROUGH_FILTER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_PRIORITIZE_SEARCH_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_K2_GET_REFERENCERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_K2_GET_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_K2_GET_ASSET_BY_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_IS_SEARCH_ASYNC: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_IS_SEARCH_ALL_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_IS_LOADING_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_HAS_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_SUB_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_IN_MEMORY_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_DERIVED_CLASS_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ASSETS_BY_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ASSETS_BY_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ASSETS_BY_PACKAGE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ASSETS_BY_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ASSET_BY_OBJECT_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ANCESTOR_CLASS_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ALL_CACHED_PATHS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_REGISTRY_GET_ALL_ASSETS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_asset_registry_helpers_to_soft_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_sorting_predicate_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_sort_by_predicate: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_sort_by_asset_name: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_set_filter_tags_and_values: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_is_u_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_is_redirector: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_is_asset_loaded: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_is_asset_cooked: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_tag_value: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_full_name: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_export_text_name: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_derived_class_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_class: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_blueprint_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_asset_registry: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_get_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_find_asset_native_class: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_create_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_helpers_asset_has_editor_only_data: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_wait_for_package: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_wait_for_completion: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_use_filter_to_exclude_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_search_all_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_scan_paths_synchronous: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_scan_modified_asset_files: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_scan_files_synchronous: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_run_assets_through_filter: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_prioritize_search_path: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_k2_get_referencers: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_k2_get_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_k2_get_asset_by_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_is_search_async: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_is_search_all_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_is_loading_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_has_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_sub_paths: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_in_memory_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_derived_class_names: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_assets_by_paths: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_assets_by_path: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_assets_by_package_name: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_assets_by_class: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_assets: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_asset_by_object_path: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_ancestor_class_names: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_all_cached_paths: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_registry_get_all_assets: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_asset_registry_helpers_to_soft_object_path: std::ptr::null_mut(),
+            u_asset_registry_helpers_sorting_predicate_delegate_signature: std::ptr::null_mut(),
+            u_asset_registry_helpers_sort_by_predicate: std::ptr::null_mut(),
+            u_asset_registry_helpers_sort_by_asset_name: std::ptr::null_mut(),
+            u_asset_registry_helpers_set_filter_tags_and_values: std::ptr::null_mut(),
+            u_asset_registry_helpers_is_valid: std::ptr::null_mut(),
+            u_asset_registry_helpers_is_u_asset: std::ptr::null_mut(),
+            u_asset_registry_helpers_is_redirector: std::ptr::null_mut(),
+            u_asset_registry_helpers_is_asset_loaded: std::ptr::null_mut(),
+            u_asset_registry_helpers_is_asset_cooked: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_tag_value: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_full_name: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_export_text_name: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_derived_class_asset_data: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_class: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_blueprint_assets: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_asset_registry: std::ptr::null_mut(),
+            u_asset_registry_helpers_get_asset: std::ptr::null_mut(),
+            u_asset_registry_helpers_find_asset_native_class: std::ptr::null_mut(),
+            u_asset_registry_helpers_create_asset_data: std::ptr::null_mut(),
+            u_asset_registry_helpers_asset_has_editor_only_data: std::ptr::null_mut(),
+            u_asset_registry_wait_for_package: std::ptr::null_mut(),
+            u_asset_registry_wait_for_completion: std::ptr::null_mut(),
+            u_asset_registry_use_filter_to_exclude_assets: std::ptr::null_mut(),
+            u_asset_registry_search_all_assets: std::ptr::null_mut(),
+            u_asset_registry_scan_paths_synchronous: std::ptr::null_mut(),
+            u_asset_registry_scan_modified_asset_files: std::ptr::null_mut(),
+            u_asset_registry_scan_files_synchronous: std::ptr::null_mut(),
+            u_asset_registry_run_assets_through_filter: std::ptr::null_mut(),
+            u_asset_registry_prioritize_search_path: std::ptr::null_mut(),
+            u_asset_registry_k2_get_referencers: std::ptr::null_mut(),
+            u_asset_registry_k2_get_dependencies: std::ptr::null_mut(),
+            u_asset_registry_k2_get_asset_by_object_path: std::ptr::null_mut(),
+            u_asset_registry_is_search_async: std::ptr::null_mut(),
+            u_asset_registry_is_search_all_assets: std::ptr::null_mut(),
+            u_asset_registry_is_loading_assets: std::ptr::null_mut(),
+            u_asset_registry_has_assets: std::ptr::null_mut(),
+            u_asset_registry_get_sub_paths: std::ptr::null_mut(),
+            u_asset_registry_get_in_memory_assets: std::ptr::null_mut(),
+            u_asset_registry_get_derived_class_names: std::ptr::null_mut(),
+            u_asset_registry_get_assets_by_paths: std::ptr::null_mut(),
+            u_asset_registry_get_assets_by_path: std::ptr::null_mut(),
+            u_asset_registry_get_assets_by_package_name: std::ptr::null_mut(),
+            u_asset_registry_get_assets_by_class: std::ptr::null_mut(),
+            u_asset_registry_get_assets: std::ptr::null_mut(),
+            u_asset_registry_get_asset_by_object_path: std::ptr::null_mut(),
+            u_asset_registry_get_ancestor_class_names: std::ptr::null_mut(),
+            u_asset_registry_get_all_cached_paths: std::ptr::null_mut(),
+            u_asset_registry_get_all_assets: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -114,147 +123,149 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ToSoftObjectPath"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_TO_SOFT_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_to_soft_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortingPredicate__DelegateSignature"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_SORTING_PREDICATE_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_registry_helpers_sorting_predicate_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortByPredicate"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_SORT_BY_PREDICATE,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_sort_by_predicate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SortByAssetName"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_SORT_BY_ASSET_NAME,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_sort_by_asset_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFilterTagsAndValues"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_SET_FILTER_TAGS_AND_VALUES,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_set_filter_tags_and_values,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsUAsset"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_IS_U_ASSET,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_u_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRedirector"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_IS_REDIRECTOR,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_redirector,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAssetLoaded"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_IS_ASSET_LOADED,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_asset_loaded,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAssetCooked"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_IS_ASSET_COOKED,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_is_asset_cooked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTagValue"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_TAG_VALUE,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_tag_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFullName"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_FULL_NAME,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_full_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetExportTextName"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_EXPORT_TEXT_NAME,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_export_text_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDerivedClassAssetData"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_DERIVED_CLASS_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_registry_helpers_get_derived_class_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetClass"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_CLASS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlueprintAssets"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_BLUEPRINT_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_blueprint_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetRegistry"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_ASSET_REGISTRY,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_asset_registry,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAsset"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_GET_ASSET,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_get_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindAssetNativeClass"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_FIND_ASSET_NATIVE_CLASS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_find_asset_native_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateAssetData"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_CREATE_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_create_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AssetHasEditorOnlyData"),
-            &raw mut U_ASSET_REGISTRY_HELPERS_ASSET_HAS_EDITOR_ONLY_DATA,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_helpers_asset_has_editor_only_data,
         );
     }
     unsafe {
@@ -265,196 +276,196 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WaitForPackage"),
-            &raw mut U_ASSET_REGISTRY_WAIT_FOR_PACKAGE,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_wait_for_package,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WaitForCompletion"),
-            &raw mut U_ASSET_REGISTRY_WAIT_FOR_COMPLETION,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_wait_for_completion,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UseFilterToExcludeAssets"),
-            &raw mut U_ASSET_REGISTRY_USE_FILTER_TO_EXCLUDE_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_use_filter_to_exclude_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SearchAllAssets"),
-            &raw mut U_ASSET_REGISTRY_SEARCH_ALL_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_search_all_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScanPathsSynchronous"),
-            &raw mut U_ASSET_REGISTRY_SCAN_PATHS_SYNCHRONOUS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_scan_paths_synchronous,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScanModifiedAssetFiles"),
-            &raw mut U_ASSET_REGISTRY_SCAN_MODIFIED_ASSET_FILES,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_scan_modified_asset_files,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ScanFilesSynchronous"),
-            &raw mut U_ASSET_REGISTRY_SCAN_FILES_SYNCHRONOUS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_scan_files_synchronous,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RunAssetsThroughFilter"),
-            &raw mut U_ASSET_REGISTRY_RUN_ASSETS_THROUGH_FILTER,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_run_assets_through_filter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PrioritizeSearchPath"),
-            &raw mut U_ASSET_REGISTRY_PRIORITIZE_SEARCH_PATH,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_prioritize_search_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetReferencers"),
-            &raw mut U_ASSET_REGISTRY_K2_GET_REFERENCERS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_referencers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetDependencies"),
-            &raw mut U_ASSET_REGISTRY_K2_GET_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetAssetByObjectPath"),
-            &raw mut U_ASSET_REGISTRY_K2_GET_ASSET_BY_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_k2_get_asset_by_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSearchAsync"),
-            &raw mut U_ASSET_REGISTRY_IS_SEARCH_ASYNC,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_is_search_async,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSearchAllAssets"),
-            &raw mut U_ASSET_REGISTRY_IS_SEARCH_ALL_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_is_search_all_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLoadingAssets"),
-            &raw mut U_ASSET_REGISTRY_IS_LOADING_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_is_loading_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasAssets"),
-            &raw mut U_ASSET_REGISTRY_HAS_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_has_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSubPaths"),
-            &raw mut U_ASSET_REGISTRY_GET_SUB_PATHS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_sub_paths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInMemoryAssets"),
-            &raw mut U_ASSET_REGISTRY_GET_IN_MEMORY_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_in_memory_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDerivedClassNames"),
-            &raw mut U_ASSET_REGISTRY_GET_DERIVED_CLASS_NAMES,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_derived_class_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsByPaths"),
-            &raw mut U_ASSET_REGISTRY_GET_ASSETS_BY_PATHS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_paths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsByPath"),
-            &raw mut U_ASSET_REGISTRY_GET_ASSETS_BY_PATH,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsByPackageName"),
-            &raw mut U_ASSET_REGISTRY_GET_ASSETS_BY_PACKAGE_NAME,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_package_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsByClass"),
-            &raw mut U_ASSET_REGISTRY_GET_ASSETS_BY_CLASS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets_by_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssets"),
-            &raw mut U_ASSET_REGISTRY_GET_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_assets,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetByObjectPath"),
-            &raw mut U_ASSET_REGISTRY_GET_ASSET_BY_OBJECT_PATH,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_asset_by_object_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAncestorClassNames"),
-            &raw mut U_ASSET_REGISTRY_GET_ANCESTOR_CLASS_NAMES,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_ancestor_class_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllCachedPaths"),
-            &raw mut U_ASSET_REGISTRY_GET_ALL_CACHED_PATHS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_all_cached_paths,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllAssets"),
-            &raw mut U_ASSET_REGISTRY_GET_ALL_ASSETS,
+            &raw mut __FUNCTION_PTRS.u_asset_registry_get_all_assets,
         );
     }
 }
@@ -505,7 +516,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_TO_SOFT_OBJECT_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_to_soft_object_path,
                 __buffer,
             )
         };
@@ -522,7 +534,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_TO_SOFT_OBJECT_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_to_soft_object_path,
                 __buffer,
             )
         };
@@ -545,7 +558,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_SORT_BY_PREDICATE,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_sort_by_predicate,
                 __buffer,
             )
         };
@@ -578,7 +592,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_SORT_BY_PREDICATE,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_sort_by_predicate,
                 __buffer,
             )
         };
@@ -600,7 +615,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_SORT_BY_ASSET_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_sort_by_asset_name,
                 __buffer,
             )
         };
@@ -626,7 +642,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_SORT_BY_ASSET_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_sort_by_asset_name,
                 __buffer,
             )
         };
@@ -648,7 +665,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_SET_FILTER_TAGS_AND_VALUES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_set_filter_tags_and_values,
                 __buffer,
             )
         };
@@ -672,7 +690,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_SET_FILTER_TAGS_AND_VALUES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_set_filter_tags_and_values,
                 __buffer,
             )
         };
@@ -688,7 +707,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_VALID,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_valid,
                 __buffer,
             )
         };
@@ -705,7 +725,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_VALID,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_valid,
                 __buffer,
             )
         };
@@ -721,7 +742,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_U_ASSET,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_u_asset,
                 __buffer,
             )
         };
@@ -738,7 +760,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_U_ASSET,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_u_asset,
                 __buffer,
             )
         };
@@ -754,7 +777,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_REDIRECTOR,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_redirector,
                 __buffer,
             )
         };
@@ -771,7 +795,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_REDIRECTOR,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_redirector,
                 __buffer,
             )
         };
@@ -787,7 +812,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_ASSET_LOADED,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_asset_loaded,
                 __buffer,
             )
         };
@@ -804,7 +830,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_ASSET_LOADED,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_asset_loaded,
                 __buffer,
             )
         };
@@ -820,7 +847,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_ASSET_COOKED,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_asset_cooked,
                 __buffer,
             )
         };
@@ -837,7 +865,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_IS_ASSET_COOKED,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_is_asset_cooked,
                 __buffer,
             )
         };
@@ -855,7 +884,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_TAG_VALUE,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_tag_value,
                 __buffer,
             )
         };
@@ -886,7 +916,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_TAG_VALUE,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_tag_value,
                 __buffer,
             )
         };
@@ -905,7 +936,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_FULL_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_full_name,
                 __buffer,
             )
         };
@@ -922,7 +954,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_FULL_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_full_name,
                 __buffer,
             )
         };
@@ -938,7 +971,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_EXPORT_TEXT_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_export_text_name,
                 __buffer,
             )
         };
@@ -955,7 +989,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_EXPORT_TEXT_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_export_text_name,
                 __buffer,
             )
         };
@@ -974,7 +1009,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_DERIVED_CLASS_ASSET_DATA,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_derived_class_asset_data,
                 __buffer,
             )
         };
@@ -1004,7 +1040,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_DERIVED_CLASS_ASSET_DATA,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_derived_class_asset_data,
                 __buffer,
             )
         };
@@ -1025,7 +1062,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_CLASS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_class,
                 __buffer,
             )
         };
@@ -1042,7 +1080,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_CLASS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_class,
                 __buffer,
             )
         };
@@ -1064,7 +1103,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_BLUEPRINT_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_blueprint_assets,
                 __buffer,
             )
         };
@@ -1090,7 +1130,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_BLUEPRINT_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_blueprint_assets,
                 __buffer,
             )
         };
@@ -1109,7 +1150,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_ASSET_REGISTRY,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_asset_registry,
                 __buffer,
             )
         };
@@ -1119,7 +1161,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_ASSET_REGISTRY,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_asset_registry,
                 __buffer,
             )
         };
@@ -1135,7 +1178,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_ASSET,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_asset,
                 __buffer,
             )
         };
@@ -1152,7 +1196,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_GET_ASSET,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_get_asset,
                 __buffer,
             )
         };
@@ -1173,7 +1218,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_FIND_ASSET_NATIVE_CLASS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_find_asset_native_class,
                 __buffer,
             )
         };
@@ -1190,7 +1236,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_FIND_ASSET_NATIVE_CLASS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_find_asset_native_class,
                 __buffer,
             )
         };
@@ -1212,7 +1259,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_CREATE_ASSET_DATA,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_create_asset_data,
                 __buffer,
             )
         };
@@ -1236,7 +1284,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_CREATE_ASSET_DATA,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_create_asset_data,
                 __buffer,
             )
         };
@@ -1254,7 +1303,8 @@ impl UAssetRegistryHelpers {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_ASSET_HAS_EDITOR_ONLY_DATA,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_asset_has_editor_only_data,
                 __buffer,
             )
         };
@@ -1271,7 +1321,8 @@ impl UAssetRegistryHelpers {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HELPERS_ASSET_HAS_EDITOR_ONLY_DATA,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_helpers_asset_has_editor_only_data,
                 __buffer,
             )
         };
@@ -1307,7 +1358,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_WAIT_FOR_PACKAGE,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_wait_for_package,
                 __buffer,
             )
         };
@@ -1324,7 +1376,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_WAIT_FOR_PACKAGE,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_wait_for_package,
                 __buffer,
             )
         };
@@ -1337,7 +1390,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_WAIT_FOR_COMPLETION,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_wait_for_completion,
                 __buffer,
             )
         };
@@ -1347,7 +1401,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_WAIT_FOR_COMPLETION,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_wait_for_completion,
                 __buffer,
             )
         };
@@ -1364,7 +1419,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_USE_FILTER_TO_EXCLUDE_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_use_filter_to_exclude_assets,
                 __buffer,
             )
         };
@@ -1390,7 +1446,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_USE_FILTER_TO_EXCLUDE_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_use_filter_to_exclude_assets,
                 __buffer,
             )
         };
@@ -1409,7 +1466,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SEARCH_ALL_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_search_all_assets,
                 __buffer,
             )
         };
@@ -1426,7 +1484,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SEARCH_ALL_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_search_all_assets,
                 __buffer,
             )
         };
@@ -1444,7 +1503,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SCAN_PATHS_SYNCHRONOUS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_scan_paths_synchronous,
                 __buffer,
             )
         };
@@ -1475,7 +1535,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SCAN_PATHS_SYNCHRONOUS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_scan_paths_synchronous,
                 __buffer,
             )
         };
@@ -1488,7 +1549,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SCAN_MODIFIED_ASSET_FILES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_scan_modified_asset_files,
                 __buffer,
             )
         };
@@ -1505,7 +1567,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SCAN_MODIFIED_ASSET_FILES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_scan_modified_asset_files,
                 __buffer,
             )
         };
@@ -1522,7 +1585,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SCAN_FILES_SYNCHRONOUS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_scan_files_synchronous,
                 __buffer,
             )
         };
@@ -1546,7 +1610,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_SCAN_FILES_SYNCHRONOUS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_scan_files_synchronous,
                 __buffer,
             )
         };
@@ -1563,7 +1628,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_RUN_ASSETS_THROUGH_FILTER,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_run_assets_through_filter,
                 __buffer,
             )
         };
@@ -1589,7 +1655,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_RUN_ASSETS_THROUGH_FILTER,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_run_assets_through_filter,
                 __buffer,
             )
         };
@@ -1608,7 +1675,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_PRIORITIZE_SEARCH_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_prioritize_search_path,
                 __buffer,
             )
         };
@@ -1625,7 +1693,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_PRIORITIZE_SEARCH_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_prioritize_search_path,
                 __buffer,
             )
         };
@@ -1643,7 +1712,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_K2_GET_REFERENCERS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_k2_get_referencers,
                 __buffer,
             )
         };
@@ -1674,7 +1744,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_K2_GET_REFERENCERS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_k2_get_referencers,
                 __buffer,
             )
         };
@@ -1696,7 +1767,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_K2_GET_DEPENDENCIES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_k2_get_dependencies,
                 __buffer,
             )
         };
@@ -1727,7 +1799,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_K2_GET_DEPENDENCIES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_k2_get_dependencies,
                 __buffer,
             )
         };
@@ -1749,7 +1822,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_K2_GET_ASSET_BY_OBJECT_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_k2_get_asset_by_object_path,
                 __buffer,
             )
         };
@@ -1782,7 +1856,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_K2_GET_ASSET_BY_OBJECT_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_k2_get_asset_by_object_path,
                 __buffer,
             )
         };
@@ -1798,7 +1873,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_IS_SEARCH_ASYNC,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_is_search_async,
                 __buffer,
             )
         };
@@ -1808,7 +1884,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_IS_SEARCH_ASYNC,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_is_search_async,
                 __buffer,
             )
         };
@@ -1822,7 +1899,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_IS_SEARCH_ALL_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_is_search_all_assets,
                 __buffer,
             )
         };
@@ -1832,7 +1910,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_IS_SEARCH_ALL_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_is_search_all_assets,
                 __buffer,
             )
         };
@@ -1846,7 +1925,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_IS_LOADING_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_is_loading_assets,
                 __buffer,
             )
         };
@@ -1856,7 +1936,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_IS_LOADING_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_is_loading_assets,
                 __buffer,
             )
         };
@@ -1870,7 +1951,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HAS_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_has_assets,
                 __buffer,
             )
         };
@@ -1894,7 +1976,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_HAS_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_has_assets,
                 __buffer,
             )
         };
@@ -1913,7 +1996,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_SUB_PATHS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_sub_paths,
                 __buffer,
             )
         };
@@ -1944,7 +2028,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_SUB_PATHS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_sub_paths,
                 __buffer,
             )
         };
@@ -1965,7 +2050,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_IN_MEMORY_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_in_memory_assets,
                 __buffer,
             )
         };
@@ -1998,7 +2084,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_IN_MEMORY_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_in_memory_assets,
                 __buffer,
             )
         };
@@ -2025,7 +2112,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_DERIVED_CLASS_NAMES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_derived_class_names,
                 __buffer,
             )
         };
@@ -2064,7 +2152,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_DERIVED_CLASS_NAMES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_derived_class_names,
                 __buffer,
             )
         };
@@ -2089,7 +2178,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_PATHS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_paths,
                 __buffer,
             )
         };
@@ -2129,7 +2219,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_PATHS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_paths,
                 __buffer,
             )
         };
@@ -2155,7 +2246,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_path,
                 __buffer,
             )
         };
@@ -2195,7 +2287,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_path,
                 __buffer,
             )
         };
@@ -2221,7 +2314,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_PACKAGE_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_package_name,
                 __buffer,
             )
         };
@@ -2261,7 +2355,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_PACKAGE_NAME,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_package_name,
                 __buffer,
             )
         };
@@ -2286,7 +2381,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_CLASS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_class,
                 __buffer,
             )
         };
@@ -2321,7 +2417,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS_BY_CLASS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets_by_class,
                 __buffer,
             )
         };
@@ -2346,7 +2443,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets,
                 __buffer,
             )
         };
@@ -2379,7 +2477,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_assets,
                 __buffer,
             )
         };
@@ -2403,7 +2502,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSET_BY_OBJECT_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_asset_by_object_path,
                 __buffer,
             )
         };
@@ -2427,7 +2527,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ASSET_BY_OBJECT_PATH,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_asset_by_object_path,
                 __buffer,
             )
         };
@@ -2449,7 +2550,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ANCESTOR_CLASS_NAMES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_ancestor_class_names,
                 __buffer,
             )
         };
@@ -2479,7 +2581,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ANCESTOR_CLASS_NAMES,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_ancestor_class_names,
                 __buffer,
             )
         };
@@ -2499,7 +2602,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ALL_CACHED_PATHS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_all_cached_paths,
                 __buffer,
             )
         };
@@ -2516,7 +2620,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ALL_CACHED_PATHS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_all_cached_paths,
                 __buffer,
             )
         };
@@ -2536,7 +2641,8 @@ impl UAssetRegistry {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ALL_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_all_assets,
                 __buffer,
             )
         };
@@ -2562,7 +2668,8 @@ impl UAssetRegistry {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_registry::U_ASSET_REGISTRY_GET_ALL_ASSETS,
+                crate::bindings::asset_registry::__FUNCTION_PTRS
+                    .u_asset_registry_get_all_assets,
                 __buffer,
             )
         };

@@ -1,378 +1,387 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_META_SOUND_ASSET_SUBSYSTEM_UNREGISTER_ASSET_CLASSES_IN_DIRECTORIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_ASSET_SUBSYSTEM_REPLACE_REFERENCES_IN_DIRECTORY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_ASSET_SUBSYSTEM_REGISTER_ASSET_CLASSES_IN_DIRECTORIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_ASSET_SUBSYSTEM_REASSIGN_CLASS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_ASSET_SUBSYSTEM_FIND_REFERENCING_ASSET_CLASS_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_ASSET_SUBSYSTEM_FIND_ASSET_CLASS_INFO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_NODE_INPUT_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_DATA_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_ACCESS_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DATA_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_ACCESS_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_REMOVE_UNUSED_DEPENDENCIES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_REMOVE_NODE_INPUT_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_REMOVE_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_REMOVE_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_NODES_ARE_CONNECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_NODE_OUTPUT_IS_CONNECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_NODE_INPUT_IS_CONNECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_IS_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_INTERFACE_IS_DECLARED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_ROOT_GRAPH_CLASS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_REFERENCED_PRESET_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_IS_CONSTRUCTOR_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_IS_CONSTRUCTOR_PIN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_CLASS_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_VARIABLE_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_OUTPUT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_DEFAULT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS_BY_DATA_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS_BY_DATA_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_PARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_BY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_NODE_CLASS_VERSION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_OUTPUT_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_INPUT_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_GRAPH_OUTPUT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_FIND_GRAPH_INPUT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES_BY_INTERFACE_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONVERT_TO_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONVERT_FROM_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONTAINS_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NODES_BY_INTERFACE_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUT_TO_GRAPH_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUTS_TO_MATCHING_GRAPH_INTERFACE_OUTPUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUT_TO_GRAPH_INPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUTS_TO_MATCHING_GRAPH_INTERFACE_INPUTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_NAMED_GRAPH_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_GRAPH_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_BUILD_NEW_META_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_BUILD_AND_OVERWRITE_META_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_BUILD: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_NODE_BY_CLASS_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_INTERFACE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_SET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_DELAYED_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_OUTPUT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_INPUT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SOURCE_BUILDER_SET_SAMPLE_RATE_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SOURCE_BUILDER_SET_QUALITY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SOURCE_BUILDER_SET_FORMAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SOURCE_BUILDER_SET_BLOCK_RATE_OVERRIDE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SOURCE_BUILDER_GET_LIVE_UPDATES_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SOURCE_BUILDER_AUDITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_SOURCE_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_PATCH_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_SET_TARGET_PAGE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_SOURCE_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_PATCH_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_IS_INTERFACE_REGISTERED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_SOURCE_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PATCH_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PARENT_BUILDER_OF_PRESET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER_OF_DOCUMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_PRESET_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_PRESET_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_BUILDER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_META_SOUND_LITERAL_FROM_PARAM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_ARRAY_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_ARRAY_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_ARRAY_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_ARRAY_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_ARRAY_VALUE_FROM_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_EQUAL_EQUAL_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_PARAM: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN_ARRAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_AUDIO_PARAMETER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_ARRAY_META_SOUND_LITERAL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CONV_META_SOUND_LITERAL_TO_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_GENERATOR_HANDLE_WATCH_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_GENERATOR_HANDLE_UPDATE_WATCHERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_GENERATOR_HANDLE_GET_CPU_CORE_UTILIZATION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_GENERATOR_HANDLE_ENABLE_RUNTIME_RENDER_TIMING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_GENERATOR_HANDLE_CREATE_META_SOUND_GENERATOR_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_GENERATOR_HANDLE_APPLY_PARAMETER_PACK: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_CACHE_SUBSYSTEM_TOUCH_OR_PRECACHE_META_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_CACHE_SUBSYSTEM_REMOVE_CACHED_OPERATORS_FOR_META_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_CACHE_SUBSYSTEM_PRECACHE_META_SOUND: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_TIME_SECONDS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_STRING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_INT32: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_FLOAT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_BOOL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_OUTPUT_SUBSYSTEM_WATCH_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_OUTPUT_SUBSYSTEM_UNWATCH_OUTPUT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_QUALITY_HELPER_GET_QUALITY_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SETTINGS_GET_QUALITY_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_META_SOUND_SETTINGS_GET_PAGE_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_meta_sound_asset_subsystem_unregister_asset_classes_in_directories: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_asset_subsystem_replace_references_in_directory: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_asset_subsystem_register_asset_classes_in_directories: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_asset_subsystem_reassign_class_name: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_asset_subsystem_find_referencing_asset_class_info: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_asset_subsystem_find_asset_class_info: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_node_input_default: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_graph_output_name: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_graph_output_data_type: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_graph_output_access_type: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_graph_input_name: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_graph_input_default: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_graph_input_data_type: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_set_graph_input_access_type: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_remove_unused_dependencies: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_remove_node_input_default: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_remove_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_remove_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_remove_graph_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_remove_graph_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_remove_graph_input: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_nodes_are_connected: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_node_output_is_connected: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_node_input_is_connected: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_is_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_interface_is_declared: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_root_graph_class_name: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_referenced_preset_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_node_output_is_constructor_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_node_output_data: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_node_input_is_constructor_pin: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_node_input_default: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_node_input_data: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_node_input_class_default: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_graph_variable_default: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_graph_output_names: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_graph_input_names: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_get_graph_input_default: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_outputs_by_data_type: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_outputs: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_output_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_output_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_inputs_by_data_type: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_inputs: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_input_parent: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_input_by_name: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_node_class_version: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_interface_output_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_interface_input_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_graph_output_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_find_graph_input_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_disconnect_nodes_by_interface_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_disconnect_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_disconnect_node_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_disconnect_node_input: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_convert_to_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_convert_from_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_contains_node_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_contains_node_input: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_contains_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_nodes_by_interface_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_node_output_to_graph_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_node_outputs_to_matching_graph_interface_outputs: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_node_input_to_graph_input: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_node_inputs_to_matching_graph_interface_inputs: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_named_node_output_to_named_graph_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_connect_named_node_output_to_graph_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_build_new_meta_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_build_and_overwrite_meta_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_build: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_node_by_class_name: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_interface: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_graph_variable_set_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_graph_variable_get_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_graph_variable_get_delayed_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_graph_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_graph_output_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_base_add_graph_input_node: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_source_builder_set_sample_rate_override: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_source_builder_set_quality: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_source_builder_set_format: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_source_builder_set_block_rate_override: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_source_builder_get_live_updates_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_source_builder_audition: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_unregister_source_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_unregister_patch_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_unregister_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_set_target_page: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_register_source_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_register_patch_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_register_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_is_interface_registered: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_find_source_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_find_patch_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_find_parent_builder_of_preset: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_find_builder_of_document: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_find_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_string_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_string_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_source_preset_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_source_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_patch_preset_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_patch_builder: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_object_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_object_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_meta_sound_literal_from_param: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_int_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_int_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_float_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_float_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_bool_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_builder_subsystem_create_bool_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_type: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_string_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_string_array_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_object_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_object_array_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_int_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_int_array_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_float_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_float_array_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_bool_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_get_bool_array_value_from_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_equal_equal_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_string_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_string_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_object_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_object_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_param: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean_array: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_audio_parameter: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_int_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_int_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_float_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_float_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_bool_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_create_bool_array_meta_sound_literal: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_frontend_literal_blueprint_access_conv_meta_sound_literal_to_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_generator_handle_watch_output: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_generator_handle_update_watchers: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_generator_handle_get_cpu_core_utilization: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_generator_handle_enable_runtime_render_timing: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_generator_handle_create_meta_sound_generator_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_generator_handle_apply_parameter_pack: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_cache_subsystem_touch_or_precache_meta_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_cache_subsystem_remove_cached_operators_for_meta_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_cache_subsystem_precache_meta_sound: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_is_time: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_is_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_is_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_is_float: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_is_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_get_time_seconds: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_get_string: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_get_int32: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_get_float: *mut crate::ffi::UFunctionOpague,
+    pub u_metasound_output_blueprint_access_get_bool: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_output_subsystem_watch_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_output_subsystem_unwatch_output: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_quality_helper_get_quality_names: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_settings_get_quality_names: *mut crate::ffi::UFunctionOpague,
+    pub u_meta_sound_settings_get_page_names: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_meta_sound_asset_subsystem_unregister_asset_classes_in_directories: std::ptr::null_mut(),
+            u_meta_sound_asset_subsystem_replace_references_in_directory: std::ptr::null_mut(),
+            u_meta_sound_asset_subsystem_register_asset_classes_in_directories: std::ptr::null_mut(),
+            u_meta_sound_asset_subsystem_reassign_class_name: std::ptr::null_mut(),
+            u_meta_sound_asset_subsystem_find_referencing_asset_class_info: std::ptr::null_mut(),
+            u_meta_sound_asset_subsystem_find_asset_class_info: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_node_input_default: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_graph_output_name: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_graph_output_data_type: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_graph_output_access_type: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_graph_input_name: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_graph_input_default: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_graph_input_data_type: std::ptr::null_mut(),
+            u_meta_sound_builder_base_set_graph_input_access_type: std::ptr::null_mut(),
+            u_meta_sound_builder_base_remove_unused_dependencies: std::ptr::null_mut(),
+            u_meta_sound_builder_base_remove_node_input_default: std::ptr::null_mut(),
+            u_meta_sound_builder_base_remove_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_remove_interface: std::ptr::null_mut(),
+            u_meta_sound_builder_base_remove_graph_variable: std::ptr::null_mut(),
+            u_meta_sound_builder_base_remove_graph_output: std::ptr::null_mut(),
+            u_meta_sound_builder_base_remove_graph_input: std::ptr::null_mut(),
+            u_meta_sound_builder_base_nodes_are_connected: std::ptr::null_mut(),
+            u_meta_sound_builder_base_node_output_is_connected: std::ptr::null_mut(),
+            u_meta_sound_builder_base_node_input_is_connected: std::ptr::null_mut(),
+            u_meta_sound_builder_base_is_preset: std::ptr::null_mut(),
+            u_meta_sound_builder_base_interface_is_declared: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_root_graph_class_name: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_referenced_preset_asset: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_node_output_is_constructor_pin: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_node_output_data: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_node_input_is_constructor_pin: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_node_input_default: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_node_input_data: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_node_input_class_default: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_graph_variable_default: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_graph_output_names: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_graph_input_names: std::ptr::null_mut(),
+            u_meta_sound_builder_base_get_graph_input_default: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_outputs_by_data_type: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_outputs: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_output_parent: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_output_by_name: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_inputs_by_data_type: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_inputs: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_input_parent: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_input_by_name: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_node_class_version: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_interface_output_nodes: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_interface_input_nodes: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_graph_output_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_find_graph_input_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_disconnect_nodes_by_interface_bindings: std::ptr::null_mut(),
+            u_meta_sound_builder_base_disconnect_nodes: std::ptr::null_mut(),
+            u_meta_sound_builder_base_disconnect_node_output: std::ptr::null_mut(),
+            u_meta_sound_builder_base_disconnect_node_input: std::ptr::null_mut(),
+            u_meta_sound_builder_base_convert_to_preset: std::ptr::null_mut(),
+            u_meta_sound_builder_base_convert_from_preset: std::ptr::null_mut(),
+            u_meta_sound_builder_base_contains_node_output: std::ptr::null_mut(),
+            u_meta_sound_builder_base_contains_node_input: std::ptr::null_mut(),
+            u_meta_sound_builder_base_contains_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_nodes_by_interface_bindings: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_nodes: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_node_output_to_graph_output: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_node_outputs_to_matching_graph_interface_outputs: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_node_input_to_graph_input: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_node_inputs_to_matching_graph_interface_inputs: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_named_node_output_to_named_graph_output: std::ptr::null_mut(),
+            u_meta_sound_builder_base_connect_named_node_output_to_graph_output: std::ptr::null_mut(),
+            u_meta_sound_builder_base_build_new_meta_sound: std::ptr::null_mut(),
+            u_meta_sound_builder_base_build_and_overwrite_meta_sound: std::ptr::null_mut(),
+            u_meta_sound_builder_base_build: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_node_by_class_name: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_interface: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_graph_variable_set_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_graph_variable_get_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_graph_variable_get_delayed_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_graph_variable: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_graph_output_node: std::ptr::null_mut(),
+            u_meta_sound_builder_base_add_graph_input_node: std::ptr::null_mut(),
+            u_meta_sound_source_builder_set_sample_rate_override: std::ptr::null_mut(),
+            u_meta_sound_source_builder_set_quality: std::ptr::null_mut(),
+            u_meta_sound_source_builder_set_format: std::ptr::null_mut(),
+            u_meta_sound_source_builder_set_block_rate_override: std::ptr::null_mut(),
+            u_meta_sound_source_builder_get_live_updates_enabled: std::ptr::null_mut(),
+            u_meta_sound_source_builder_audition: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_unregister_source_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_unregister_patch_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_unregister_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_set_target_page: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_register_source_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_register_patch_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_register_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_is_interface_registered: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_find_source_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_find_patch_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_find_parent_builder_of_preset: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_find_builder_of_document: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_find_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_string_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_string_array_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_source_preset_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_source_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_patch_preset_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_patch_builder: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_object_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_object_array_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_meta_sound_literal_from_param: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_int_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_int_array_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_float_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_float_array_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_bool_meta_sound_literal: std::ptr::null_mut(),
+            u_meta_sound_builder_subsystem_create_bool_array_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_type: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_string_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_string_array_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_object_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_object_array_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_int_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_int_array_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_float_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_float_array_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_bool_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_get_bool_array_value_from_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_equal_equal_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_string_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_string_array_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_object_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_object_array_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_param: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean_array: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_audio_parameter: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_int_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_int_array_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_float_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_float_array_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_bool_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_create_bool_array_meta_sound_literal: std::ptr::null_mut(),
+            u_metasound_frontend_literal_blueprint_access_conv_meta_sound_literal_to_string: std::ptr::null_mut(),
+            u_metasound_generator_handle_watch_output: std::ptr::null_mut(),
+            u_metasound_generator_handle_update_watchers: std::ptr::null_mut(),
+            u_metasound_generator_handle_get_cpu_core_utilization: std::ptr::null_mut(),
+            u_metasound_generator_handle_enable_runtime_render_timing: std::ptr::null_mut(),
+            u_metasound_generator_handle_create_meta_sound_generator_handle: std::ptr::null_mut(),
+            u_metasound_generator_handle_apply_parameter_pack: std::ptr::null_mut(),
+            u_meta_sound_cache_subsystem_touch_or_precache_meta_sound: std::ptr::null_mut(),
+            u_meta_sound_cache_subsystem_remove_cached_operators_for_meta_sound: std::ptr::null_mut(),
+            u_meta_sound_cache_subsystem_precache_meta_sound: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_is_time: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_is_string: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_is_int32: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_is_float: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_is_bool: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_get_time_seconds: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_get_string: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_get_int32: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_get_float: std::ptr::null_mut(),
+            u_metasound_output_blueprint_access_get_bool: std::ptr::null_mut(),
+            u_meta_sound_output_subsystem_watch_output: std::ptr::null_mut(),
+            u_meta_sound_output_subsystem_unwatch_output: std::ptr::null_mut(),
+            u_meta_sound_quality_helper_get_quality_names: std::ptr::null_mut(),
+            u_meta_sound_settings_get_quality_names: std::ptr::null_mut(),
+            u_meta_sound_settings_get_page_names: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -382,42 +391,46 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterAssetClassesInDirectories"),
-            &raw mut U_META_SOUND_ASSET_SUBSYSTEM_UNREGISTER_ASSET_CLASSES_IN_DIRECTORIES,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_asset_subsystem_unregister_asset_classes_in_directories,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceReferencesInDirectory"),
-            &raw mut U_META_SOUND_ASSET_SUBSYSTEM_REPLACE_REFERENCES_IN_DIRECTORY,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_asset_subsystem_replace_references_in_directory,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterAssetClassesInDirectories"),
-            &raw mut U_META_SOUND_ASSET_SUBSYSTEM_REGISTER_ASSET_CLASSES_IN_DIRECTORIES,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_asset_subsystem_register_asset_classes_in_directories,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReassignClassName"),
-            &raw mut U_META_SOUND_ASSET_SUBSYSTEM_REASSIGN_CLASS_NAME,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_asset_subsystem_reassign_class_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindReferencingAssetClassInfo"),
-            &raw mut U_META_SOUND_ASSET_SUBSYSTEM_FIND_REFERENCING_ASSET_CLASS_INFO,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_asset_subsystem_find_referencing_asset_class_info,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindAssetClassInfo"),
-            &raw mut U_META_SOUND_ASSET_SUBSYSTEM_FIND_ASSET_CLASS_INFO,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_asset_subsystem_find_asset_class_info,
         );
     }
     unsafe {
@@ -428,399 +441,411 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetNodeInputDefault"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_NODE_INPUT_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_node_input_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphOutputName"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_NAME,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_output_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphOutputDataType"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_DATA_TYPE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_output_data_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphOutputAccessType"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_ACCESS_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_set_graph_output_access_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphInputName"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_NAME,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_input_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphInputDefault"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_input_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphInputDataType"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DATA_TYPE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_set_graph_input_data_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGraphInputAccessType"),
-            &raw mut U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_ACCESS_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_set_graph_input_access_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveUnusedDependencies"),
-            &raw mut U_META_SOUND_BUILDER_BASE_REMOVE_UNUSED_DEPENDENCIES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_unused_dependencies,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNodeInputDefault"),
-            &raw mut U_META_SOUND_BUILDER_BASE_REMOVE_NODE_INPUT_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_node_input_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_REMOVE_NODE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveInterface"),
-            &raw mut U_META_SOUND_BUILDER_BASE_REMOVE_INTERFACE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveGraphVariable"),
-            &raw mut U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveGraphOutput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveGraphInput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_INPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_remove_graph_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NodesAreConnected"),
-            &raw mut U_META_SOUND_BUILDER_BASE_NODES_ARE_CONNECTED,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_nodes_are_connected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NodeOutputIsConnected"),
-            &raw mut U_META_SOUND_BUILDER_BASE_NODE_OUTPUT_IS_CONNECTED,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_node_output_is_connected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("NodeInputIsConnected"),
-            &raw mut U_META_SOUND_BUILDER_BASE_NODE_INPUT_IS_CONNECTED,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_node_input_is_connected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPreset"),
-            &raw mut U_META_SOUND_BUILDER_BASE_IS_PRESET,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_is_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("InterfaceIsDeclared"),
-            &raw mut U_META_SOUND_BUILDER_BASE_INTERFACE_IS_DECLARED,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_interface_is_declared,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootGraphClassName"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_ROOT_GRAPH_CLASS_NAME,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_root_graph_class_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetReferencedPresetAsset"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_REFERENCED_PRESET_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_get_referenced_preset_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeOutputIsConstructorPin"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_IS_CONSTRUCTOR_PIN,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_get_node_output_is_constructor_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeOutputData"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_DATA,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_output_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeInputIsConstructorPin"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_IS_CONSTRUCTOR_PIN,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_get_node_input_is_constructor_pin,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeInputDefault"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_input_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeInputData"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DATA,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_node_input_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNodeInputClassDefault"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_CLASS_DEFAULT,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_get_node_input_class_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphVariableDefault"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_VARIABLE_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_variable_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphOutputNames"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_OUTPUT_NAMES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_output_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphInputNames"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_NAMES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_input_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGraphInputDefault"),
-            &raw mut U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_DEFAULT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_get_graph_input_default,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeOutputsByDataType"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS_BY_DATA_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_find_node_outputs_by_data_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeOutputs"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_outputs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeOutputParent"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_PARENT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_output_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeOutputByName"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_output_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeInputsByDataType"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS_BY_DATA_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_find_node_inputs_by_data_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeInputs"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_inputs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeInputParent"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_PARENT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_input_parent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeInputByName"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_BY_NAME,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_input_by_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindNodeClassVersion"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_NODE_CLASS_VERSION,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_node_class_version,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindInterfaceOutputNodes"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_OUTPUT_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_find_interface_output_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindInterfaceInputNodes"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_INPUT_NODES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_interface_input_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindGraphOutputNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_GRAPH_OUTPUT_NODE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_graph_output_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindGraphInputNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_FIND_GRAPH_INPUT_NODE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_find_graph_input_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectNodesByInterfaceBindings"),
-            &raw mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES_BY_INTERFACE_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_disconnect_nodes_by_interface_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectNodes"),
-            &raw mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectNodeOutput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_node_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DisconnectNodeInput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_INPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_disconnect_node_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToPreset"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONVERT_TO_PRESET,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_convert_to_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertFromPreset"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONVERT_FROM_PRESET,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_convert_from_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ContainsNodeOutput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ContainsNodeInput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_INPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ContainsNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONTAINS_NODE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_contains_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectNodesByInterfaceBindings"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NODES_BY_INTERFACE_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_connect_nodes_by_interface_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectNodes"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NODES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_connect_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectNodeOutputToGraphOutput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUT_TO_GRAPH_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_connect_node_output_to_graph_output,
         );
         (bindings
             .core_fns
@@ -829,119 +854,128 @@ pub fn initialize() {
             unreal_ffi::Utf8Str::from(
                 "ConnectNodeOutputsToMatchingGraphInterfaceOutputs",
             ),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUTS_TO_MATCHING_GRAPH_INTERFACE_OUTPUTS,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_connect_node_outputs_to_matching_graph_interface_outputs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectNodeInputToGraphInput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUT_TO_GRAPH_INPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_connect_node_input_to_graph_input,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectNodeInputsToMatchingGraphInterfaceInputs"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUTS_TO_MATCHING_GRAPH_INTERFACE_INPUTS,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_connect_node_inputs_to_matching_graph_interface_inputs,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectNamedNodeOutputToNamedGraphOutput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_NAMED_GRAPH_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_connect_named_node_output_to_named_graph_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConnectNamedNodeOutputToGraphOutput"),
-            &raw mut U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_GRAPH_OUTPUT,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_connect_named_node_output_to_graph_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BuildNewMetaSound"),
-            &raw mut U_META_SOUND_BUILDER_BASE_BUILD_NEW_META_SOUND,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_build_new_meta_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BuildAndOverwriteMetaSound"),
-            &raw mut U_META_SOUND_BUILDER_BASE_BUILD_AND_OVERWRITE_META_SOUND,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_build_and_overwrite_meta_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Build"),
-            &raw mut U_META_SOUND_BUILDER_BASE_BUILD,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_build,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNodeByClassName"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_NODE_BY_CLASS_NAME,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_node_by_class_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_NODE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddInterface"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_INTERFACE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_interface,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGraphVariableSetNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_SET_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_add_graph_variable_set_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGraphVariableGetNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_add_graph_variable_get_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGraphVariableGetDelayedNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_DELAYED_NODE,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_base_add_graph_variable_get_delayed_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGraphVariable"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGraphOutputNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_OUTPUT_NODE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_output_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddGraphInputNode"),
-            &raw mut U_META_SOUND_BUILDER_BASE_ADD_GRAPH_INPUT_NODE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_base_add_graph_input_node,
         );
     }
     unsafe {
@@ -952,42 +986,42 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSampleRateOverride"),
-            &raw mut U_META_SOUND_SOURCE_BUILDER_SET_SAMPLE_RATE_OVERRIDE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_sample_rate_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetQuality"),
-            &raw mut U_META_SOUND_SOURCE_BUILDER_SET_QUALITY,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_quality,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetFormat"),
-            &raw mut U_META_SOUND_SOURCE_BUILDER_SET_FORMAT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_format,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetBlockRateOverride"),
-            &raw mut U_META_SOUND_SOURCE_BUILDER_SET_BLOCK_RATE_OVERRIDE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_set_block_rate_override,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLiveUpdatesEnabled"),
-            &raw mut U_META_SOUND_SOURCE_BUILDER_GET_LIVE_UPDATES_ENABLED,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_get_live_updates_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Audition"),
-            &raw mut U_META_SOUND_SOURCE_BUILDER_AUDITION,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_source_builder_audition,
         );
     }
     unsafe {
@@ -998,196 +1032,216 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterSourceBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_SOURCE_BUILDER,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_unregister_source_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterPatchBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_PATCH_BUILDER,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_unregister_patch_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnregisterBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_BUILDER,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_unregister_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTargetPage"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_SET_TARGET_PAGE,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_set_target_page,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterSourceBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_SOURCE_BUILDER,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_register_source_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterPatchBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_PATCH_BUILDER,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_register_patch_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RegisterBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_BUILDER,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_register_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInterfaceRegistered"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_IS_INTERFACE_REGISTERED,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_is_interface_registered,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindSourceBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_SOURCE_BUILDER,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_find_source_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindPatchBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PATCH_BUILDER,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_find_patch_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindParentBuilderOfPreset"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PARENT_BUILDER_OF_PRESET,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_find_parent_builder_of_preset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBuilderOfDocument"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER_OF_DOCUMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_find_builder_of_document,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_find_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateStringMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_string_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateStringArrayMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_string_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateSourcePresetBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_PRESET_BUILDER,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_source_preset_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateSourceBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_BUILDER,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_create_source_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePatchPresetBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_PRESET_BUILDER,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_patch_preset_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreatePatchBuilder"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_BUILDER,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_builder_subsystem_create_patch_builder,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateObjectMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_object_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateObjectArrayMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_object_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromParam"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_META_SOUND_LITERAL_FROM_PARAM,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_meta_sound_literal_from_param,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateIntMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_int_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateIntArrayMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_int_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFloatMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_float_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFloatArrayMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_float_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateBoolMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_bool_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateBoolArrayMetaSoundLiteral"),
-            &raw mut U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_builder_subsystem_create_bool_array_meta_sound_literal,
         );
     }
     unsafe {
@@ -1198,315 +1252,360 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetType"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStringValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_string_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetStringArrayValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_ARRAY_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_string_array_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_object_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectArrayValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_ARRAY_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_object_array_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsStringArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsString"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsObjectArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsObject"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsIntegerArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsInteger"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsFloatArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsFloat"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsBoolArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMetaSoundLiteralAsBool"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIntValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_int_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetIntArrayValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_ARRAY_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_int_array_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_float_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloatArrayValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_ARRAY_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_float_array_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoolValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_bool_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoolArrayValueFromLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_ARRAY_VALUE_FROM_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_get_bool_array_value_from_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EqualEqual_MetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_EQUAL_EQUAL_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_equal_equal_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateStringMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_string_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateStringArrayMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_string_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateObjectMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_object_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateObjectArrayMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_object_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromStringArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromString"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromParam"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_PARAM,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_param,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromObjectArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromObject"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromIntegerArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromInteger"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromFloatArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromFloat"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromBooleanArray"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN_ARRAY,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean_array,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromBoolean"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundLiteralFromAudioParameter"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_AUDIO_PARAMETER,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_audio_parameter,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateIntMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_int_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateIntArrayMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_int_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFloatMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_float_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateFloatArrayMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_float_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateBoolMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_bool_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateBoolArrayMetaSoundLiteral"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_ARRAY_META_SOUND_LITERAL,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_create_bool_array_meta_sound_literal,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Conv_MetaSoundLiteralToString"),
-            &raw mut U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CONV_META_SOUND_LITERAL_TO_STRING,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_frontend_literal_blueprint_access_conv_meta_sound_literal_to_string,
         );
     }
     unsafe {
@@ -1517,42 +1616,45 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WatchOutput"),
-            &raw mut U_METASOUND_GENERATOR_HANDLE_WATCH_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_watch_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UpdateWatchers"),
-            &raw mut U_METASOUND_GENERATOR_HANDLE_UPDATE_WATCHERS,
+            &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_update_watchers,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCPUCoreUtilization"),
-            &raw mut U_METASOUND_GENERATOR_HANDLE_GET_CPU_CORE_UTILIZATION,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_generator_handle_get_cpu_core_utilization,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EnableRuntimeRenderTiming"),
-            &raw mut U_METASOUND_GENERATOR_HANDLE_ENABLE_RUNTIME_RENDER_TIMING,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_generator_handle_enable_runtime_render_timing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateMetaSoundGeneratorHandle"),
-            &raw mut U_METASOUND_GENERATOR_HANDLE_CREATE_META_SOUND_GENERATOR_HANDLE,
+            &raw mut __FUNCTION_PTRS
+                .u_metasound_generator_handle_create_meta_sound_generator_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ApplyParameterPack"),
-            &raw mut U_METASOUND_GENERATOR_HANDLE_APPLY_PARAMETER_PACK,
+            &raw mut __FUNCTION_PTRS.u_metasound_generator_handle_apply_parameter_pack,
         );
     }
     unsafe {
@@ -1563,21 +1665,23 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("TouchOrPrecacheMetaSound"),
-            &raw mut U_META_SOUND_CACHE_SUBSYSTEM_TOUCH_OR_PRECACHE_META_SOUND,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_cache_subsystem_touch_or_precache_meta_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveCachedOperatorsForMetaSound"),
-            &raw mut U_META_SOUND_CACHE_SUBSYSTEM_REMOVE_CACHED_OPERATORS_FOR_META_SOUND,
+            &raw mut __FUNCTION_PTRS
+                .u_meta_sound_cache_subsystem_remove_cached_operators_for_meta_sound,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PrecacheMetaSound"),
-            &raw mut U_META_SOUND_CACHE_SUBSYSTEM_PRECACHE_META_SOUND,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_cache_subsystem_precache_meta_sound,
         );
     }
     unsafe {
@@ -1588,70 +1692,70 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTime"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_TIME,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsString"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_STRING,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInt32"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_INT32,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_int32,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsFloat"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsBool"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_BOOL,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_is_bool,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTimeSeconds"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_TIME_SECONDS,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_time_seconds,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetString"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_STRING,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_string,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetInt32"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_INT32,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_int32,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFloat"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_FLOAT,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_float,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBool"),
-            &raw mut U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_BOOL,
+            &raw mut __FUNCTION_PTRS.u_metasound_output_blueprint_access_get_bool,
         );
     }
     unsafe {
@@ -1662,14 +1766,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("WatchOutput"),
-            &raw mut U_META_SOUND_OUTPUT_SUBSYSTEM_WATCH_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_output_subsystem_watch_output,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("UnwatchOutput"),
-            &raw mut U_META_SOUND_OUTPUT_SUBSYSTEM_UNWATCH_OUTPUT,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_output_subsystem_unwatch_output,
         );
     }
     unsafe {
@@ -1680,7 +1784,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQualityNames"),
-            &raw mut U_META_SOUND_QUALITY_HELPER_GET_QUALITY_NAMES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_quality_helper_get_quality_names,
         );
     }
     unsafe {
@@ -1691,14 +1795,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetQualityNames"),
-            &raw mut U_META_SOUND_SETTINGS_GET_QUALITY_NAMES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_settings_get_quality_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPageNames"),
-            &raw mut U_META_SOUND_SETTINGS_GET_PAGE_NAMES,
+            &raw mut __FUNCTION_PTRS.u_meta_sound_settings_get_page_names,
         );
     }
 }
@@ -1807,7 +1911,8 @@ impl UMetaSoundAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_UNREGISTER_ASSET_CLASSES_IN_DIRECTORIES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_unregister_asset_classes_in_directories,
                 __buffer,
             )
         };
@@ -1824,7 +1929,8 @@ impl UMetaSoundAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_UNREGISTER_ASSET_CLASSES_IN_DIRECTORIES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_unregister_asset_classes_in_directories,
                 __buffer,
             )
         };
@@ -1844,7 +1950,8 @@ impl UMetaSoundAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_REPLACE_REFERENCES_IN_DIRECTORY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_replace_references_in_directory,
                 __buffer,
             )
         };
@@ -1905,7 +2012,8 @@ impl UMetaSoundAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_REPLACE_REFERENCES_IN_DIRECTORY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_replace_references_in_directory,
                 __buffer,
             )
         };
@@ -1922,7 +2030,8 @@ impl UMetaSoundAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_REGISTER_ASSET_CLASSES_IN_DIRECTORIES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_register_asset_classes_in_directories,
                 __buffer,
             )
         };
@@ -1939,7 +2048,8 @@ impl UMetaSoundAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_REGISTER_ASSET_CLASSES_IN_DIRECTORIES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_register_asset_classes_in_directories,
                 __buffer,
             )
         };
@@ -1957,7 +2067,8 @@ impl UMetaSoundAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_REASSIGN_CLASS_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_reassign_class_name,
                 __buffer,
             )
         };
@@ -1980,7 +2091,8 @@ impl UMetaSoundAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_REASSIGN_CLASS_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_reassign_class_name,
                 __buffer,
             )
         };
@@ -2008,7 +2120,8 @@ impl UMetaSoundAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_FIND_REFERENCING_ASSET_CLASS_INFO,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_find_referencing_asset_class_info,
                 __buffer,
             )
         };
@@ -2082,7 +2195,8 @@ impl UMetaSoundAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_FIND_REFERENCING_ASSET_CLASS_INFO,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_find_referencing_asset_class_info,
                 __buffer,
             )
         };
@@ -2126,7 +2240,8 @@ impl UMetaSoundAssetSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_FIND_ASSET_CLASS_INFO,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_find_asset_class_info,
                 __buffer,
             )
         };
@@ -2174,7 +2289,8 @@ impl UMetaSoundAssetSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_ASSET_SUBSYSTEM_FIND_ASSET_CLASS_INFO,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_asset_subsystem_find_asset_class_info,
                 __buffer,
             )
         };
@@ -2228,7 +2344,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_NODE_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_node_input_default,
                 __buffer,
             )
         };
@@ -2263,7 +2380,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_NODE_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_node_input_default,
                 __buffer,
             )
         };
@@ -2284,7 +2402,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_name,
                 __buffer,
             )
         };
@@ -2315,7 +2434,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_name,
                 __buffer,
             )
         };
@@ -2336,7 +2456,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_data_type,
                 __buffer,
             )
         };
@@ -2367,7 +2488,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_data_type,
                 __buffer,
             )
         };
@@ -2388,7 +2510,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_ACCESS_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_access_type,
                 __buffer,
             )
         };
@@ -2423,7 +2546,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_OUTPUT_ACCESS_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_output_access_type,
                 __buffer,
             )
         };
@@ -2444,7 +2568,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_name,
                 __buffer,
             )
         };
@@ -2475,7 +2600,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_name,
                 __buffer,
             )
         };
@@ -2496,7 +2622,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_default,
                 __buffer,
             )
         };
@@ -2531,7 +2658,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_default,
                 __buffer,
             )
         };
@@ -2552,7 +2680,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_data_type,
                 __buffer,
             )
         };
@@ -2583,7 +2712,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_data_type,
                 __buffer,
             )
         };
@@ -2604,7 +2734,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_ACCESS_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_access_type,
                 __buffer,
             )
         };
@@ -2639,7 +2770,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_SET_GRAPH_INPUT_ACCESS_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_set_graph_input_access_type,
                 __buffer,
             )
         };
@@ -2655,7 +2787,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_UNUSED_DEPENDENCIES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_unused_dependencies,
                 __buffer,
             )
         };
@@ -2665,7 +2798,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_UNUSED_DEPENDENCIES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_unused_dependencies,
                 __buffer,
             )
         };
@@ -2682,7 +2816,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_NODE_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_node_input_default,
                 __buffer,
             )
         };
@@ -2706,7 +2841,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_NODE_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_node_input_default,
                 __buffer,
             )
         };
@@ -2727,7 +2863,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_node,
                 __buffer,
             )
         };
@@ -2758,7 +2895,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_node,
                 __buffer,
             )
         };
@@ -2778,7 +2916,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_INTERFACE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_interface,
                 __buffer,
             )
         };
@@ -2802,7 +2941,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_INTERFACE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_interface,
                 __buffer,
             )
         };
@@ -2822,7 +2962,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_VARIABLE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_graph_variable,
                 __buffer,
             )
         };
@@ -2842,7 +2983,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_VARIABLE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_graph_variable,
                 __buffer,
             )
         };
@@ -2862,7 +3004,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_graph_output,
                 __buffer,
             )
         };
@@ -2882,7 +3025,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_graph_output,
                 __buffer,
             )
         };
@@ -2902,7 +3046,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_graph_input,
                 __buffer,
             )
         };
@@ -2922,7 +3067,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_REMOVE_GRAPH_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_remove_graph_input,
                 __buffer,
             )
         };
@@ -2942,7 +3088,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_NODES_ARE_CONNECTED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_nodes_are_connected,
                 __buffer,
             )
         };
@@ -2966,7 +3113,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_NODES_ARE_CONNECTED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_nodes_are_connected,
                 __buffer,
             )
         };
@@ -2983,7 +3131,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_NODE_OUTPUT_IS_CONNECTED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_node_output_is_connected,
                 __buffer,
             )
         };
@@ -3000,7 +3149,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_NODE_OUTPUT_IS_CONNECTED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_node_output_is_connected,
                 __buffer,
             )
         };
@@ -3017,7 +3167,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_NODE_INPUT_IS_CONNECTED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_node_input_is_connected,
                 __buffer,
             )
         };
@@ -3034,7 +3185,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_NODE_INPUT_IS_CONNECTED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_node_input_is_connected,
                 __buffer,
             )
         };
@@ -3048,7 +3200,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_IS_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_is_preset,
                 __buffer,
             )
         };
@@ -3058,7 +3211,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_IS_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_is_preset,
                 __buffer,
             )
         };
@@ -3072,7 +3226,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_INTERFACE_IS_DECLARED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_interface_is_declared,
                 __buffer,
             )
         };
@@ -3089,7 +3244,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_INTERFACE_IS_DECLARED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_interface_is_declared,
                 __buffer,
             )
         };
@@ -3105,7 +3261,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_ROOT_GRAPH_CLASS_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_root_graph_class_name,
                 __buffer,
             )
         };
@@ -3115,7 +3272,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_ROOT_GRAPH_CLASS_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_root_graph_class_name,
                 __buffer,
             )
         };
@@ -3138,7 +3296,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_REFERENCED_PRESET_ASSET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_referenced_preset_asset,
                 __buffer,
             )
         };
@@ -3148,7 +3307,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_REFERENCED_PRESET_ASSET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_referenced_preset_asset,
                 __buffer,
             )
         };
@@ -3170,7 +3330,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_IS_CONSTRUCTOR_PIN,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_output_is_constructor_pin,
                 __buffer,
             )
         };
@@ -3187,7 +3348,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_IS_CONSTRUCTOR_PIN,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_output_is_constructor_pin,
                 __buffer,
             )
         };
@@ -3207,7 +3369,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_DATA,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_output_data,
                 __buffer,
             )
         };
@@ -3241,7 +3404,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_OUTPUT_DATA,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_output_data,
                 __buffer,
             )
         };
@@ -3266,7 +3430,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_IS_CONSTRUCTOR_PIN,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_is_constructor_pin,
                 __buffer,
             )
         };
@@ -3283,7 +3448,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_IS_CONSTRUCTOR_PIN,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_is_constructor_pin,
                 __buffer,
             )
         };
@@ -3301,7 +3467,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_default,
                 __buffer,
             )
         };
@@ -3325,7 +3492,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_default,
                 __buffer,
             )
         };
@@ -3353,7 +3521,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DATA,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_data,
                 __buffer,
             )
         };
@@ -3387,7 +3556,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_DATA,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_data,
                 __buffer,
             )
         };
@@ -3413,7 +3583,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_CLASS_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_class_default,
                 __buffer,
             )
         };
@@ -3437,7 +3608,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_NODE_INPUT_CLASS_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_node_input_class_default,
                 __buffer,
             )
         };
@@ -3463,7 +3635,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_VARIABLE_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_variable_default,
                 __buffer,
             )
         };
@@ -3487,7 +3660,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_VARIABLE_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_variable_default,
                 __buffer,
             )
         };
@@ -3512,7 +3686,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_OUTPUT_NAMES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_output_names,
                 __buffer,
             )
         };
@@ -3529,7 +3704,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_OUTPUT_NAMES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_output_names,
                 __buffer,
             )
         };
@@ -3549,7 +3725,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_NAMES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_input_names,
                 __buffer,
             )
         };
@@ -3566,7 +3743,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_NAMES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_input_names,
                 __buffer,
             )
         };
@@ -3587,7 +3765,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_input_default,
                 __buffer,
             )
         };
@@ -3611,7 +3790,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_GET_GRAPH_INPUT_DEFAULT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_get_graph_input_default,
                 __buffer,
             )
         };
@@ -3638,7 +3818,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS_BY_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_outputs_by_data_type,
                 __buffer,
             )
         };
@@ -3669,7 +3850,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS_BY_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_outputs_by_data_type,
                 __buffer,
             )
         };
@@ -3692,7 +3874,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_outputs,
                 __buffer,
             )
         };
@@ -3716,7 +3899,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_outputs,
                 __buffer,
             )
         };
@@ -3739,7 +3923,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_PARENT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_output_parent,
                 __buffer,
             )
         };
@@ -3763,7 +3948,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_PARENT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_output_parent,
                 __buffer,
             )
         };
@@ -3785,7 +3971,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_BY_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_output_by_name,
                 __buffer,
             )
         };
@@ -3816,7 +4003,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_OUTPUT_BY_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_output_by_name,
                 __buffer,
             )
         };
@@ -3838,7 +4026,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS_BY_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_inputs_by_data_type,
                 __buffer,
             )
         };
@@ -3869,7 +4058,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS_BY_DATA_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_inputs_by_data_type,
                 __buffer,
             )
         };
@@ -3892,7 +4082,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_inputs,
                 __buffer,
             )
         };
@@ -3916,7 +4107,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_inputs,
                 __buffer,
             )
         };
@@ -3939,7 +4131,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_PARENT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_input_parent,
                 __buffer,
             )
         };
@@ -3963,7 +4156,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_PARENT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_input_parent,
                 __buffer,
             )
         };
@@ -3985,7 +4179,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_BY_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_input_by_name,
                 __buffer,
             )
         };
@@ -4016,7 +4211,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_INPUT_BY_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_input_by_name,
                 __buffer,
             )
         };
@@ -4037,7 +4233,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_CLASS_VERSION,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_class_version,
                 __buffer,
             )
         };
@@ -4061,7 +4258,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_NODE_CLASS_VERSION,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_node_class_version,
                 __buffer,
             )
         };
@@ -4087,7 +4285,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_OUTPUT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_interface_output_nodes,
                 __buffer,
             )
         };
@@ -4111,7 +4310,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_OUTPUT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_interface_output_nodes,
                 __buffer,
             )
         };
@@ -4132,7 +4332,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_INPUT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_interface_input_nodes,
                 __buffer,
             )
         };
@@ -4156,7 +4357,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_INTERFACE_INPUT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_interface_input_nodes,
                 __buffer,
             )
         };
@@ -4179,7 +4381,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_GRAPH_OUTPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_graph_output_node,
                 __buffer,
             )
         };
@@ -4217,7 +4420,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_GRAPH_OUTPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_graph_output_node,
                 __buffer,
             )
         };
@@ -4249,7 +4453,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_GRAPH_INPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_graph_input_node,
                 __buffer,
             )
         };
@@ -4287,7 +4492,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_FIND_GRAPH_INPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_find_graph_input_node,
                 __buffer,
             )
         };
@@ -4318,7 +4524,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES_BY_INTERFACE_BINDINGS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_nodes_by_interface_bindings,
                 __buffer,
             )
         };
@@ -4349,7 +4556,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES_BY_INTERFACE_BINDINGS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_nodes_by_interface_bindings,
                 __buffer,
             )
         };
@@ -4370,7 +4578,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_nodes,
                 __buffer,
             )
         };
@@ -4401,7 +4610,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_nodes,
                 __buffer,
             )
         };
@@ -4421,7 +4631,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_node_output,
                 __buffer,
             )
         };
@@ -4445,7 +4656,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_node_output,
                 __buffer,
             )
         };
@@ -4465,7 +4677,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_node_input,
                 __buffer,
             )
         };
@@ -4489,7 +4702,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_DISCONNECT_NODE_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_disconnect_node_input,
                 __buffer,
             )
         };
@@ -4511,7 +4725,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONVERT_TO_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_convert_to_preset,
                 __buffer,
             )
         };
@@ -4541,7 +4756,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONVERT_TO_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_convert_to_preset,
                 __buffer,
             )
         };
@@ -4557,7 +4773,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONVERT_FROM_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_convert_from_preset,
                 __buffer,
             )
         };
@@ -4574,7 +4791,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONVERT_FROM_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_convert_from_preset,
                 __buffer,
             )
         };
@@ -4593,7 +4811,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_contains_node_output,
                 __buffer,
             )
         };
@@ -4610,7 +4829,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_contains_node_output,
                 __buffer,
             )
         };
@@ -4624,7 +4844,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_contains_node_input,
                 __buffer,
             )
         };
@@ -4641,7 +4862,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONTAINS_NODE_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_contains_node_input,
                 __buffer,
             )
         };
@@ -4655,7 +4877,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONTAINS_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_contains_node,
                 __buffer,
             )
         };
@@ -4672,7 +4895,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONTAINS_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_contains_node,
                 __buffer,
             )
         };
@@ -4691,7 +4915,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODES_BY_INTERFACE_BINDINGS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_nodes_by_interface_bindings,
                 __buffer,
             )
         };
@@ -4722,7 +4947,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODES_BY_INTERFACE_BINDINGS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_nodes_by_interface_bindings,
                 __buffer,
             )
         };
@@ -4743,7 +4969,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_nodes,
                 __buffer,
             )
         };
@@ -4774,7 +5001,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODES,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_nodes,
                 __buffer,
             )
         };
@@ -4795,7 +5023,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUT_TO_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_output_to_graph_output,
                 __buffer,
             )
         };
@@ -4826,7 +5055,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUT_TO_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_output_to_graph_output,
                 __buffer,
             )
         };
@@ -4846,7 +5076,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUTS_TO_MATCHING_GRAPH_INTERFACE_OUTPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_outputs_to_matching_graph_interface_outputs,
                 __buffer,
             )
         };
@@ -4870,7 +5101,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_OUTPUTS_TO_MATCHING_GRAPH_INTERFACE_OUTPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_outputs_to_matching_graph_interface_outputs,
                 __buffer,
             )
         };
@@ -4894,7 +5126,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUT_TO_GRAPH_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_input_to_graph_input,
                 __buffer,
             )
         };
@@ -4925,7 +5158,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUT_TO_GRAPH_INPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_input_to_graph_input,
                 __buffer,
             )
         };
@@ -4945,7 +5179,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUTS_TO_MATCHING_GRAPH_INTERFACE_INPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_inputs_to_matching_graph_interface_inputs,
                 __buffer,
             )
         };
@@ -4969,7 +5204,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NODE_INPUTS_TO_MATCHING_GRAPH_INTERFACE_INPUTS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_node_inputs_to_matching_graph_interface_inputs,
                 __buffer,
             )
         };
@@ -4994,7 +5230,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_NAMED_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_named_node_output_to_named_graph_output,
                 __buffer,
             )
         };
@@ -5032,7 +5269,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_NAMED_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_named_node_output_to_named_graph_output,
                 __buffer,
             )
         };
@@ -5054,7 +5292,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_named_node_output_to_graph_output,
                 __buffer,
             )
         };
@@ -5092,7 +5331,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_CONNECT_NAMED_NODE_OUTPUT_TO_GRAPH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_connect_named_node_output_to_graph_output,
                 __buffer,
             )
         };
@@ -5113,7 +5353,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_BUILD_NEW_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_build_new_meta_sound,
                 __buffer,
             )
         };
@@ -5130,7 +5371,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_BUILD_NEW_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_build_new_meta_sound,
                 __buffer,
             )
         };
@@ -5159,7 +5401,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_BUILD_AND_OVERWRITE_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_build_and_overwrite_meta_sound,
                 __buffer,
             )
         };
@@ -5189,7 +5432,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_BUILD_AND_OVERWRITE_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_build_and_overwrite_meta_sound,
                 __buffer,
             )
         };
@@ -5208,7 +5452,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_BUILD,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_build,
                 __buffer,
             )
         };
@@ -5232,7 +5477,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_BUILD,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_build,
                 __buffer,
             )
         };
@@ -5260,7 +5506,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_NODE_BY_CLASS_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_node_by_class_name,
                 __buffer,
             )
         };
@@ -5295,7 +5542,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_NODE_BY_CLASS_NAME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_node_by_class_name,
                 __buffer,
             )
         };
@@ -5318,7 +5566,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_node,
                 __buffer,
             )
         };
@@ -5348,7 +5597,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_node,
                 __buffer,
             )
         };
@@ -5369,7 +5619,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_INTERFACE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_interface,
                 __buffer,
             )
         };
@@ -5393,7 +5644,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_INTERFACE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_interface,
                 __buffer,
             )
         };
@@ -5413,7 +5665,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_SET_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_set_node,
                 __buffer,
             )
         };
@@ -5433,7 +5686,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_SET_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_set_node,
                 __buffer,
             )
         };
@@ -5454,7 +5708,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_get_node,
                 __buffer,
             )
         };
@@ -5474,7 +5729,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_get_node,
                 __buffer,
             )
         };
@@ -5495,7 +5751,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_DELAYED_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_get_delayed_node,
                 __buffer,
             )
         };
@@ -5515,7 +5772,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE_GET_DELAYED_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable_get_delayed_node,
                 __buffer,
             )
         };
@@ -5538,7 +5796,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable,
                 __buffer,
             )
         };
@@ -5576,7 +5835,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_VARIABLE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_variable,
                 __buffer,
             )
         };
@@ -5599,7 +5859,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_OUTPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_output_node,
                 __buffer,
             )
         };
@@ -5644,7 +5905,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_OUTPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_output_node,
                 __buffer,
             )
         };
@@ -5668,7 +5930,8 @@ impl UMetaSoundBuilderBase {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_INPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_input_node,
                 __buffer,
             )
         };
@@ -5713,7 +5976,8 @@ impl UMetaSoundBuilderBase {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_BASE_ADD_GRAPH_INPUT_NODE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_base_add_graph_input_node,
                 __buffer,
             )
         };
@@ -5772,7 +6036,8 @@ impl UMetaSoundSourceBuilder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_SAMPLE_RATE_OVERRIDE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_sample_rate_override,
                 __buffer,
             )
         };
@@ -5789,7 +6054,8 @@ impl UMetaSoundSourceBuilder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_SAMPLE_RATE_OVERRIDE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_sample_rate_override,
                 __buffer,
             )
         };
@@ -5802,7 +6068,8 @@ impl UMetaSoundSourceBuilder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_QUALITY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_quality,
                 __buffer,
             )
         };
@@ -5815,7 +6082,8 @@ impl UMetaSoundSourceBuilder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_QUALITY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_quality,
                 __buffer,
             )
         };
@@ -5832,7 +6100,8 @@ impl UMetaSoundSourceBuilder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_FORMAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_format,
                 __buffer,
             )
         };
@@ -5856,7 +6125,8 @@ impl UMetaSoundSourceBuilder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_FORMAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_format,
                 __buffer,
             )
         };
@@ -5872,7 +6142,8 @@ impl UMetaSoundSourceBuilder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_BLOCK_RATE_OVERRIDE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_block_rate_override,
                 __buffer,
             )
         };
@@ -5885,7 +6156,8 @@ impl UMetaSoundSourceBuilder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_SET_BLOCK_RATE_OVERRIDE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_set_block_rate_override,
                 __buffer,
             )
         };
@@ -5898,7 +6170,8 @@ impl UMetaSoundSourceBuilder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_GET_LIVE_UPDATES_ENABLED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_get_live_updates_enabled,
                 __buffer,
             )
         };
@@ -5908,7 +6181,8 @@ impl UMetaSoundSourceBuilder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_GET_LIVE_UPDATES_ENABLED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_get_live_updates_enabled,
                 __buffer,
             )
         };
@@ -5928,7 +6202,8 @@ impl UMetaSoundSourceBuilder {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_AUDITION,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_audition,
                 __buffer,
             )
         };
@@ -5966,7 +6241,8 @@ impl UMetaSoundSourceBuilder {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_SOURCE_BUILDER_AUDITION,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_source_builder_audition,
                 __buffer,
             )
         };
@@ -6000,7 +6276,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_source_builder,
                 __buffer,
             )
         };
@@ -6017,7 +6294,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_source_builder,
                 __buffer,
             )
         };
@@ -6031,7 +6309,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_patch_builder,
                 __buffer,
             )
         };
@@ -6048,7 +6327,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_patch_builder,
                 __buffer,
             )
         };
@@ -6062,7 +6342,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_builder,
                 __buffer,
             )
         };
@@ -6079,7 +6360,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_UNREGISTER_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_unregister_builder,
                 __buffer,
             )
         };
@@ -6093,7 +6375,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_SET_TARGET_PAGE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_set_target_page,
                 __buffer,
             )
         };
@@ -6110,7 +6393,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_SET_TARGET_PAGE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_set_target_page,
                 __buffer,
             )
         };
@@ -6128,7 +6412,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_source_builder,
                 __buffer,
             )
         };
@@ -6152,7 +6437,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_source_builder,
                 __buffer,
             )
         };
@@ -6169,7 +6455,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_patch_builder,
                 __buffer,
             )
         };
@@ -6193,7 +6480,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_patch_builder,
                 __buffer,
             )
         };
@@ -6210,7 +6498,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_builder,
                 __buffer,
             )
         };
@@ -6234,7 +6523,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_REGISTER_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_register_builder,
                 __buffer,
             )
         };
@@ -6247,7 +6537,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_IS_INTERFACE_REGISTERED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_is_interface_registered,
                 __buffer,
             )
         };
@@ -6264,7 +6555,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_IS_INTERFACE_REGISTERED,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_is_interface_registered,
                 __buffer,
             )
         };
@@ -6281,7 +6573,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_source_builder,
                 __buffer,
             )
         };
@@ -6298,7 +6591,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_source_builder,
                 __buffer,
             )
         };
@@ -6315,7 +6609,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_patch_builder,
                 __buffer,
             )
         };
@@ -6332,7 +6627,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_patch_builder,
                 __buffer,
             )
         };
@@ -6352,7 +6648,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PARENT_BUILDER_OF_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_parent_builder_of_preset,
                 __buffer,
             )
         };
@@ -6382,7 +6679,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_PARENT_BUILDER_OF_PRESET,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_parent_builder_of_preset,
                 __buffer,
             )
         };
@@ -6401,7 +6699,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER_OF_DOCUMENT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_builder_of_document,
                 __buffer,
             )
         };
@@ -6424,7 +6723,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER_OF_DOCUMENT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_builder_of_document,
                 __buffer,
             )
         };
@@ -6438,7 +6738,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_builder,
                 __buffer,
             )
         };
@@ -6455,7 +6756,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_FIND_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_find_builder,
                 __buffer,
             )
         };
@@ -6473,7 +6775,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_string_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6493,7 +6796,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_string_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6519,7 +6823,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_string_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6543,7 +6848,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_STRING_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_string_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6572,7 +6878,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_PRESET_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_source_preset_builder,
                 __buffer,
             )
         };
@@ -6609,7 +6916,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_PRESET_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_source_preset_builder,
                 __buffer,
             )
         };
@@ -6635,7 +6943,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_source_builder,
                 __buffer,
             )
         };
@@ -6694,7 +7003,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_SOURCE_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_source_builder,
                 __buffer,
             )
         };
@@ -6736,7 +7046,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_PRESET_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_patch_preset_builder,
                 __buffer,
             )
         };
@@ -6773,7 +7084,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_PRESET_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_patch_preset_builder,
                 __buffer,
             )
         };
@@ -6794,7 +7106,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_patch_builder,
                 __buffer,
             )
         };
@@ -6818,7 +7131,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_PATCH_BUILDER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_patch_builder,
                 __buffer,
             )
         };
@@ -6838,7 +7152,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_object_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6855,7 +7170,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_object_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6877,7 +7193,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_object_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6896,7 +7213,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_object_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6918,7 +7236,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_META_SOUND_LITERAL_FROM_PARAM,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_meta_sound_literal_from_param,
                 __buffer,
             )
         };
@@ -6937,7 +7256,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_META_SOUND_LITERAL_FROM_PARAM,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_meta_sound_literal_from_param,
                 __buffer,
             )
         };
@@ -6960,7 +7280,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_int_meta_sound_literal,
                 __buffer,
             )
         };
@@ -6976,7 +7297,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_int_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7002,7 +7324,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_int_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7026,7 +7349,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_INT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_int_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7052,7 +7376,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_float_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7068,7 +7393,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_float_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7094,7 +7420,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_float_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7118,7 +7445,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_float_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7144,7 +7472,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_bool_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7160,7 +7489,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_bool_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7186,7 +7516,8 @@ impl UMetaSoundBuilderSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_bool_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7210,7 +7541,8 @@ impl UMetaSoundBuilderSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_BUILDER_SUBSYSTEM_CREATE_BOOL_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_builder_subsystem_create_bool_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -7255,7 +7587,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_type,
                 __buffer,
             )
         };
@@ -7276,7 +7609,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_TYPE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_type,
                 __buffer,
             )
         };
@@ -7300,7 +7634,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_string_value_from_literal,
                 __buffer,
             )
         };
@@ -7328,7 +7663,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_string_value_from_literal,
                 __buffer,
             )
         };
@@ -7348,7 +7684,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_string_array_value_from_literal,
                 __buffer,
             )
         };
@@ -7376,7 +7713,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_STRING_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_string_array_value_from_literal,
                 __buffer,
             )
         };
@@ -7396,7 +7734,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_object_value_from_literal,
                 __buffer,
             )
         };
@@ -7424,7 +7763,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_object_value_from_literal,
                 __buffer,
             )
         };
@@ -7449,7 +7789,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_object_array_value_from_literal,
                 __buffer,
             )
         };
@@ -7477,7 +7818,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_OBJECT_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_object_array_value_from_literal,
                 __buffer,
             )
         };
@@ -7501,7 +7843,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string_array,
                 __buffer,
             )
         };
@@ -7522,7 +7865,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string_array,
                 __buffer,
             )
         };
@@ -7538,7 +7882,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string,
                 __buffer,
             )
         };
@@ -7559,7 +7904,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_string,
                 __buffer,
             )
         };
@@ -7575,7 +7921,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object_array,
                 __buffer,
             )
         };
@@ -7596,7 +7943,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object_array,
                 __buffer,
             )
         };
@@ -7617,7 +7965,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object,
                 __buffer,
             )
         };
@@ -7638,7 +7987,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_OBJECT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_object,
                 __buffer,
             )
         };
@@ -7659,7 +8009,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer_array,
                 __buffer,
             )
         };
@@ -7680,7 +8031,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer_array,
                 __buffer,
             )
         };
@@ -7696,7 +8048,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer,
                 __buffer,
             )
         };
@@ -7717,7 +8070,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_INTEGER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_integer,
                 __buffer,
             )
         };
@@ -7733,7 +8087,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float_array,
                 __buffer,
             )
         };
@@ -7754,7 +8109,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float_array,
                 __buffer,
             )
         };
@@ -7770,7 +8126,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float,
                 __buffer,
             )
         };
@@ -7791,7 +8148,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_float,
                 __buffer,
             )
         };
@@ -7807,7 +8165,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool_array,
                 __buffer,
             )
         };
@@ -7828,7 +8187,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool_array,
                 __buffer,
             )
         };
@@ -7844,7 +8204,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool,
                 __buffer,
             )
         };
@@ -7865,7 +8226,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_META_SOUND_LITERAL_AS_BOOL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_meta_sound_literal_as_bool,
                 __buffer,
             )
         };
@@ -7882,7 +8244,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_int_value_from_literal,
                 __buffer,
             )
         };
@@ -7910,7 +8273,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_int_value_from_literal,
                 __buffer,
             )
         };
@@ -7930,7 +8294,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_int_array_value_from_literal,
                 __buffer,
             )
         };
@@ -7958,7 +8323,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_INT_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_int_array_value_from_literal,
                 __buffer,
             )
         };
@@ -7978,7 +8344,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_float_value_from_literal,
                 __buffer,
             )
         };
@@ -8006,7 +8373,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_float_value_from_literal,
                 __buffer,
             )
         };
@@ -8026,7 +8394,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_float_array_value_from_literal,
                 __buffer,
             )
         };
@@ -8054,7 +8423,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_FLOAT_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_float_array_value_from_literal,
                 __buffer,
             )
         };
@@ -8074,7 +8444,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_bool_value_from_literal,
                 __buffer,
             )
         };
@@ -8102,7 +8473,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_bool_value_from_literal,
                 __buffer,
             )
         };
@@ -8122,7 +8494,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_bool_array_value_from_literal,
                 __buffer,
             )
         };
@@ -8150,7 +8523,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_GET_BOOL_ARRAY_VALUE_FROM_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_get_bool_array_value_from_literal,
                 __buffer,
             )
         };
@@ -8170,7 +8544,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_EQUAL_EQUAL_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_equal_equal_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8202,7 +8577,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_EQUAL_EQUAL_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_equal_equal_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8218,7 +8594,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_string_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8231,7 +8608,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_string_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8252,7 +8630,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_string_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8269,7 +8648,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_STRING_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_string_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8290,7 +8670,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_object_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8307,7 +8688,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_object_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8328,7 +8710,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_object_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8347,7 +8730,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_OBJECT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_object_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8368,7 +8752,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string_array,
                 __buffer,
             )
         };
@@ -8385,7 +8770,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string_array,
                 __buffer,
             )
         };
@@ -8406,7 +8792,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string,
                 __buffer,
             )
         };
@@ -8423,7 +8810,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_string,
                 __buffer,
             )
         };
@@ -8444,7 +8832,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_PARAM,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_param,
                 __buffer,
             )
         };
@@ -8463,7 +8852,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_PARAM,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_param,
                 __buffer,
             )
         };
@@ -8484,7 +8874,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object_array,
                 __buffer,
             )
         };
@@ -8503,7 +8894,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object_array,
                 __buffer,
             )
         };
@@ -8524,7 +8916,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object,
                 __buffer,
             )
         };
@@ -8541,7 +8934,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_OBJECT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_object,
                 __buffer,
             )
         };
@@ -8562,7 +8956,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer_array,
                 __buffer,
             )
         };
@@ -8579,7 +8974,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer_array,
                 __buffer,
             )
         };
@@ -8600,7 +8996,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer,
                 __buffer,
             )
         };
@@ -8613,7 +9010,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_INTEGER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_integer,
                 __buffer,
             )
         };
@@ -8634,7 +9032,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float_array,
                 __buffer,
             )
         };
@@ -8651,7 +9050,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float_array,
                 __buffer,
             )
         };
@@ -8672,7 +9072,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float,
                 __buffer,
             )
         };
@@ -8685,7 +9086,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_float,
                 __buffer,
             )
         };
@@ -8706,7 +9108,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean_array,
                 __buffer,
             )
         };
@@ -8723,7 +9126,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN_ARRAY,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean_array,
                 __buffer,
             )
         };
@@ -8744,7 +9148,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean,
                 __buffer,
             )
         };
@@ -8761,7 +9166,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_BOOLEAN,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_boolean,
                 __buffer,
             )
         };
@@ -8782,7 +9188,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_AUDIO_PARAMETER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_audio_parameter,
                 __buffer,
             )
         };
@@ -8801,7 +9208,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_META_SOUND_LITERAL_FROM_AUDIO_PARAMETER,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_meta_sound_literal_from_audio_parameter,
                 __buffer,
             )
         };
@@ -8822,7 +9230,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_int_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8835,7 +9244,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_int_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8856,7 +9266,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_int_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8873,7 +9284,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_INT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_int_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8894,7 +9306,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_float_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8907,7 +9320,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_float_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8928,7 +9342,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_float_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8945,7 +9360,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_FLOAT_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_float_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8966,7 +9382,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_bool_meta_sound_literal,
                 __buffer,
             )
         };
@@ -8979,7 +9396,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_bool_meta_sound_literal,
                 __buffer,
             )
         };
@@ -9000,7 +9418,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_bool_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -9017,7 +9436,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CREATE_BOOL_ARRAY_META_SOUND_LITERAL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_create_bool_array_meta_sound_literal,
                 __buffer,
             )
         };
@@ -9038,7 +9458,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CONV_META_SOUND_LITERAL_TO_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_conv_meta_sound_literal_to_string,
                 __buffer,
             )
         };
@@ -9059,7 +9480,8 @@ impl UMetasoundFrontendLiteralBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_FRONTEND_LITERAL_BLUEPRINT_ACCESS_CONV_META_SOUND_LITERAL_TO_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_frontend_literal_blueprint_access_conv_meta_sound_literal_to_string,
                 __buffer,
             )
         };
@@ -9100,7 +9522,8 @@ impl UMetasoundGeneratorHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_WATCH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_watch_output,
                 __buffer,
             )
         };
@@ -9138,7 +9561,8 @@ impl UMetasoundGeneratorHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_WATCH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_watch_output,
                 __buffer,
             )
         };
@@ -9152,7 +9576,8 @@ impl UMetasoundGeneratorHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_UPDATE_WATCHERS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_update_watchers,
                 __buffer,
             )
         };
@@ -9162,7 +9587,8 @@ impl UMetasoundGeneratorHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_UPDATE_WATCHERS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_update_watchers,
                 __buffer,
             )
         };
@@ -9175,7 +9601,8 @@ impl UMetasoundGeneratorHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_GET_CPU_CORE_UTILIZATION,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_get_cpu_core_utilization,
                 __buffer,
             )
         };
@@ -9185,7 +9612,8 @@ impl UMetasoundGeneratorHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_GET_CPU_CORE_UTILIZATION,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_get_cpu_core_utilization,
                 __buffer,
             )
         };
@@ -9199,7 +9627,8 @@ impl UMetasoundGeneratorHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_ENABLE_RUNTIME_RENDER_TIMING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_enable_runtime_render_timing,
                 __buffer,
             )
         };
@@ -9212,7 +9641,8 @@ impl UMetasoundGeneratorHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_ENABLE_RUNTIME_RENDER_TIMING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_enable_runtime_render_timing,
                 __buffer,
             )
         };
@@ -9227,7 +9657,8 @@ impl UMetasoundGeneratorHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_CREATE_META_SOUND_GENERATOR_HANDLE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_create_meta_sound_generator_handle,
                 __buffer,
             )
         };
@@ -9244,7 +9675,8 @@ impl UMetasoundGeneratorHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_CREATE_META_SOUND_GENERATOR_HANDLE,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_create_meta_sound_generator_handle,
                 __buffer,
             )
         };
@@ -9261,7 +9693,8 @@ impl UMetasoundGeneratorHandle {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_APPLY_PARAMETER_PACK,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_apply_parameter_pack,
                 __buffer,
             )
         };
@@ -9284,7 +9717,8 @@ impl UMetasoundGeneratorHandle {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_GENERATOR_HANDLE_APPLY_PARAMETER_PACK,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_generator_handle_apply_parameter_pack,
                 __buffer,
             )
         };
@@ -9323,7 +9757,8 @@ impl UMetaSoundCacheSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_CACHE_SUBSYSTEM_TOUCH_OR_PRECACHE_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_touch_or_precache_meta_sound,
                 __buffer,
             )
         };
@@ -9347,7 +9782,8 @@ impl UMetaSoundCacheSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_CACHE_SUBSYSTEM_TOUCH_OR_PRECACHE_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_touch_or_precache_meta_sound,
                 __buffer,
             )
         };
@@ -9363,7 +9799,8 @@ impl UMetaSoundCacheSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_CACHE_SUBSYSTEM_REMOVE_CACHED_OPERATORS_FOR_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_remove_cached_operators_for_meta_sound,
                 __buffer,
             )
         };
@@ -9380,7 +9817,8 @@ impl UMetaSoundCacheSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_CACHE_SUBSYSTEM_REMOVE_CACHED_OPERATORS_FOR_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_remove_cached_operators_for_meta_sound,
                 __buffer,
             )
         };
@@ -9397,7 +9835,8 @@ impl UMetaSoundCacheSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_CACHE_SUBSYSTEM_PRECACHE_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_precache_meta_sound,
                 __buffer,
             )
         };
@@ -9421,7 +9860,8 @@ impl UMetaSoundCacheSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_CACHE_SUBSYSTEM_PRECACHE_META_SOUND,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_cache_subsystem_precache_meta_sound,
                 __buffer,
             )
         };
@@ -9455,7 +9895,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_TIME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_time,
                 __buffer,
             )
         };
@@ -9472,7 +9913,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_TIME,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_time,
                 __buffer,
             )
         };
@@ -9486,7 +9928,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_string,
                 __buffer,
             )
         };
@@ -9503,7 +9946,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_string,
                 __buffer,
             )
         };
@@ -9517,7 +9961,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_INT32,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_int32,
                 __buffer,
             )
         };
@@ -9534,7 +9979,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_INT32,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_int32,
                 __buffer,
             )
         };
@@ -9548,7 +9994,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_float,
                 __buffer,
             )
         };
@@ -9565,7 +10012,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_float,
                 __buffer,
             )
         };
@@ -9579,7 +10027,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_BOOL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_bool,
                 __buffer,
             )
         };
@@ -9596,7 +10045,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_IS_BOOL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_is_bool,
                 __buffer,
             )
         };
@@ -9610,7 +10060,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_TIME_SECONDS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_time_seconds,
                 __buffer,
             )
         };
@@ -9630,7 +10081,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_TIME_SECONDS,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_time_seconds,
                 __buffer,
             )
         };
@@ -9647,7 +10099,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_string,
                 __buffer,
             )
         };
@@ -9667,7 +10120,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_STRING,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_string,
                 __buffer,
             )
         };
@@ -9684,7 +10138,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_INT32,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_int32,
                 __buffer,
             )
         };
@@ -9704,7 +10159,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_INT32,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_int32,
                 __buffer,
             )
         };
@@ -9721,7 +10177,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_float,
                 __buffer,
             )
         };
@@ -9741,7 +10198,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_FLOAT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_float,
                 __buffer,
             )
         };
@@ -9758,7 +10216,8 @@ impl UMetasoundOutputBlueprintAccess {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_BOOL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_bool,
                 __buffer,
             )
         };
@@ -9778,7 +10237,8 @@ impl UMetasoundOutputBlueprintAccess {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_METASOUND_OUTPUT_BLUEPRINT_ACCESS_GET_BOOL,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_metasound_output_blueprint_access_get_bool,
                 __buffer,
             )
         };
@@ -9823,7 +10283,8 @@ impl UMetaSoundOutputSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_OUTPUT_SUBSYSTEM_WATCH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_output_subsystem_watch_output,
                 __buffer,
             )
         };
@@ -9868,7 +10329,8 @@ impl UMetaSoundOutputSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_OUTPUT_SUBSYSTEM_WATCH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_output_subsystem_watch_output,
                 __buffer,
             )
         };
@@ -9889,7 +10351,8 @@ impl UMetaSoundOutputSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::metasound_engine::U_META_SOUND_OUTPUT_SUBSYSTEM_UNWATCH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_output_subsystem_unwatch_output,
                 __buffer,
             )
         };
@@ -9934,7 +10397,8 @@ impl UMetaSoundOutputSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::metasound_engine::U_META_SOUND_OUTPUT_SUBSYSTEM_UNWATCH_OUTPUT,
+                crate::bindings::metasound_engine::__FUNCTION_PTRS
+                    .u_meta_sound_output_subsystem_unwatch_output,
                 __buffer,
             )
         };

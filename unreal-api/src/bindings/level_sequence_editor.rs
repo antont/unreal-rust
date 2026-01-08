@@ -1,200 +1,209 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_RANDOM_COLOR_FOR_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_PLAYBACK_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOOP_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_CAMERA_CUT_TO_VIEWPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCAL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_GLOBAL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_LOCAL_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_FOLDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_REFRESH_CURRENT_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PAUSE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_OPEN_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ENABLED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ACTIVE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_PLAYING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_LEVEL_SEQUENCE_LOCKED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_CAMERA_CUT_LOCKED_TO_VIEWPORT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_HAS_CUSTOM_COLOR_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_TRACK_FILTER_NAMES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SUB_SEQUENCE_HIERARCHY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_START: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_END: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_FOLDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_START_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_SPEED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_END_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOOP_MODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOCAL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_GLOBAL_POSITION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_FOCUSED_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CUSTOM_COLOR_FOR_CHANNEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LOCAL_TIME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CHANNELS_WITH_SELECTED_KEYS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_BOUND_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FORCE_UPDATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_PARENT_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_EMPTY_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DESELECT_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DELETE_COLOR_FOR_CHANNELS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_CLOSE_LEVEL_SEQUENCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SYNC_SECTIONS_USING_SOURCE_TIMECODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SNAP_SECTIONS_TO_TIMELINE_USING_SOURCE_TIMECODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SAVE_DEFAULT_SPAWNABLE_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REPLACE_BINDING_WITH_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_INVALID_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ALL_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ACTORS_FROM_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REBIND_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_FOLDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_SCRIPTING_LAYER: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDINGS_OF_TYPE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CURVE_EDITOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_FIX_ACTOR_REFERENCES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CREATE_CAMERA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_TRACKS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_SECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_FOLDERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_BINDINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_SPAWNABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_POSSESSABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_CUSTOM_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CHANGE_ACTOR_TEMPLATE_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_BAKE_TRANSFORM_WITH_SETTINGS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS_TO_BINDING: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_level_sequence_editor_blueprint_library_set_track_filter_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_track_filter_active: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_selection_range_start: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_selection_range_end: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_random_color_for_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_playback_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_loop_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_lock_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_lock_camera_cut_to_viewport: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_local_position: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_global_position: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_custom_color_for_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_custom_color_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_current_time: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_set_current_local_time: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_select_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_select_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_select_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_select_folders: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_select_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_select_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_refresh_current_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_play_to: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_play: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_pause: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_open_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_is_track_filter_enabled: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_is_track_filter_active: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_is_playing: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_is_level_sequence_locked: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_is_camera_cut_locked_to_viewport: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_has_custom_color_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_track_filter_names: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_sub_sequence_hierarchy: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selection_range_start: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selection_range_end: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selected_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selected_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selected_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selected_folders: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selected_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_selected_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_playback_start_position: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_playback_speed: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_playback_end_position: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_loop_mode: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_local_position: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_global_position: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_focused_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_custom_color_for_channel: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_current_time: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_current_local_time: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_current_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_channels_with_selected_keys: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_get_bound_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_force_update: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_focus_parent_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_focus_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_empty_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_deselect_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_delete_color_for_channels: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_blueprint_library_close_level_sequence: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_sync_sections_using_source_timecode: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_snap_sections_to_timeline_using_source_timecode: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_save_default_spawnable_state: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_replace_binding_with_actors: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_remove_invalid_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_remove_all_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_remove_actors_from_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_rebind_component: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_paste_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_paste_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_paste_folders: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_paste_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_get_scripting_layer: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_get_custom_binding_type: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_get_custom_bindings_of_type: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_get_custom_binding_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_get_curve_editor: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_fix_actor_references: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_create_camera: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_copy_tracks: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_copy_sections: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_copy_folders: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_copy_bindings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_convert_to_spawnable: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_convert_to_possessable: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_convert_to_custom_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_change_actor_template_class: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_bake_transform_with_settings: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_add_spawnable_from_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_add_spawnable_from_class: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_add_actors_to_binding: *mut crate::ffi::UFunctionOpague,
+    pub u_level_sequence_editor_subsystem_add_actors: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_level_sequence_editor_blueprint_library_set_track_filter_enabled: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_track_filter_active: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_selection_range_start: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_selection_range_end: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_random_color_for_channels: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_playback_speed: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_loop_mode: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_lock_level_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_lock_camera_cut_to_viewport: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_local_position: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_global_position: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_custom_color_for_channels: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_custom_color_for_channel: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_current_time: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_set_current_local_time: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_select_tracks: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_select_sections: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_select_keys: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_select_folders: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_select_channels: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_select_bindings: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_refresh_current_level_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_play_to: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_play: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_pause: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_open_level_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_is_track_filter_enabled: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_is_track_filter_active: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_is_playing: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_is_level_sequence_locked: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_is_camera_cut_locked_to_viewport: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_has_custom_color_for_channel: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_track_filter_names: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_sub_sequence_hierarchy: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selection_range_start: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selection_range_end: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selected_tracks: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selected_sections: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selected_keys: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selected_folders: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selected_channels: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_selected_bindings: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_playback_start_position: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_playback_speed: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_playback_end_position: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_loop_mode: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_local_position: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_global_position: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_focused_level_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_custom_color_for_channel: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_current_time: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_current_local_time: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_current_level_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_channels_with_selected_keys: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_get_bound_objects: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_force_update: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_focus_parent_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_focus_level_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_empty_selection: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_deselect_bindings: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_delete_color_for_channels: std::ptr::null_mut(),
+            u_level_sequence_editor_blueprint_library_close_level_sequence: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_sync_sections_using_source_timecode: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_snap_sections_to_timeline_using_source_timecode: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_save_default_spawnable_state: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_replace_binding_with_actors: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_remove_invalid_bindings: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_remove_all_bindings: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_remove_actors_from_binding: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_rebind_component: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_paste_tracks: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_paste_sections: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_paste_folders: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_paste_bindings: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_get_scripting_layer: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_get_custom_binding_type: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_get_custom_bindings_of_type: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_get_custom_binding_objects: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_get_curve_editor: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_fix_actor_references: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_create_camera: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_copy_tracks: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_copy_sections: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_copy_folders: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_copy_bindings: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_convert_to_spawnable: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_convert_to_possessable: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_convert_to_custom_binding: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_change_actor_template_class: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_bake_transform_with_settings: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_add_spawnable_from_instance: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_add_spawnable_from_class: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_add_actors_to_binding: std::ptr::null_mut(),
+            u_level_sequence_editor_subsystem_add_actors: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -204,434 +213,492 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrackFilterEnabled"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_track_filter_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetTrackFilterActive"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ACTIVE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_track_filter_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelectionRangeStart"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_selection_range_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelectionRangeEnd"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_END,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_selection_range_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetRandomColorForChannels"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_RANDOM_COLOR_FOR_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_random_color_for_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPlaybackSpeed"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_PLAYBACK_SPEED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_playback_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLoopMode"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOOP_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_loop_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLockLevelSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_lock_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLockCameraCutToViewport"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_CAMERA_CUT_TO_VIEWPORT,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_lock_camera_cut_to_viewport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLocalPosition"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCAL_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_local_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetGlobalPosition"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_GLOBAL_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_global_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomColorForChannels"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_custom_color_for_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomColorForChannel"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_custom_color_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentTime"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_current_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCurrentLocalTime"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_LOCAL_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_set_current_local_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectTracks"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_TRACKS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_select_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectSections"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_SECTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_select_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectKeys"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_select_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectFolders"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_FOLDERS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_select_folders,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectChannels"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_select_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectBindings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_select_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RefreshCurrentLevelSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_REFRESH_CURRENT_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_refresh_current_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PlayTo"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY_TO,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_play_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Play"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_play,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Pause"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PAUSE,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_pause,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OpenLevelSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_OPEN_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_open_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTrackFilterEnabled"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ENABLED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_is_track_filter_enabled,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsTrackFilterActive"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ACTIVE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_is_track_filter_active,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsPlaying"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_PLAYING,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_blueprint_library_is_playing,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsLevelSequenceLocked"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_LEVEL_SEQUENCE_LOCKED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_is_level_sequence_locked,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsCameraCutLockedToViewport"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_CAMERA_CUT_LOCKED_TO_VIEWPORT,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_is_camera_cut_locked_to_viewport,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasCustomColorForChannel"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_HAS_CUSTOM_COLOR_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_has_custom_color_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTrackFilterNames"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_TRACK_FILTER_NAMES,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_track_filter_names,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSubSequenceHierarchy"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SUB_SEQUENCE_HIERARCHY,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_sub_sequence_hierarchy,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionRangeStart"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_START,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selection_range_start,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionRangeEnd"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_END,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selection_range_end,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedTracks"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_TRACKS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selected_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedSections"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_SECTIONS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selected_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedKeys"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selected_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedFolders"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_FOLDERS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selected_folders,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedChannels"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selected_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedBindings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_selected_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackStartPosition"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_START_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_playback_start_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackSpeed"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_SPEED,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_playback_speed,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPlaybackEndPosition"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_END_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_playback_end_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLoopMode"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOOP_MODE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_loop_mode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLocalPosition"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOCAL_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_local_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetGlobalPosition"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_GLOBAL_POSITION,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_global_position,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetFocusedLevelSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_FOCUSED_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_focused_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomColorForChannel"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CUSTOM_COLOR_FOR_CHANNEL,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_custom_color_for_channel,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentTime"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_current_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentLocalTime"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LOCAL_TIME,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_current_local_time,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentLevelSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_current_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChannelsWithSelectedKeys"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CHANNELS_WITH_SELECTED_KEYS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_channels_with_selected_keys,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBoundObjects"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_BOUND_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_get_bound_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ForceUpdate"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FORCE_UPDATE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_force_update,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FocusParentSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_PARENT_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_focus_parent_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FocusLevelSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_focus_level_sequence,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EmptySelection"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_EMPTY_SELECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_empty_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectBindings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DESELECT_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_deselect_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteColorForChannels"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DELETE_COLOR_FOR_CHANNELS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_delete_color_for_channels,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CloseLevelSequence"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_CLOSE_LEVEL_SEQUENCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_blueprint_library_close_level_sequence,
         );
     }
     unsafe {
@@ -642,224 +709,244 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SyncSectionsUsingSourceTimecode"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SYNC_SECTIONS_USING_SOURCE_TIMECODE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_sync_sections_using_source_timecode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SnapSectionsToTimelineUsingSourceTimecode"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SNAP_SECTIONS_TO_TIMELINE_USING_SOURCE_TIMECODE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_snap_sections_to_timeline_using_source_timecode,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SaveDefaultSpawnableState"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SAVE_DEFAULT_SPAWNABLE_STATE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_save_default_spawnable_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReplaceBindingWithActors"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REPLACE_BINDING_WITH_ACTORS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_replace_binding_with_actors,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveInvalidBindings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_INVALID_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_remove_invalid_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAllBindings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ALL_BINDINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_remove_all_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveActorsFromBinding"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ACTORS_FROM_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_remove_actors_from_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RebindComponent"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REBIND_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_rebind_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PasteTracks"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_TRACKS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PasteSections"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PasteFolders"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_FOLDERS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_folders,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PasteBindings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_BINDINGS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_paste_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetScriptingLayer"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_SCRIPTING_LAYER,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_get_scripting_layer,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBindingType"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_get_custom_binding_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBindingsOfType"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDINGS_OF_TYPE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_get_custom_bindings_of_type,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCustomBindingObjects"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_OBJECTS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_get_custom_binding_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurveEditor"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CURVE_EDITOR,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_get_curve_editor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FixActorReferences"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_FIX_ACTOR_REFERENCES,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_fix_actor_references,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateCamera"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CREATE_CAMERA,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_create_camera,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyTracks"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_TRACKS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_tracks,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopySections"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_SECTIONS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_sections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyFolders"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_FOLDERS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_folders,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopyBindings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_BINDINGS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_copy_bindings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToSpawnable"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_SPAWNABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_convert_to_spawnable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToPossessable"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_POSSESSABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_convert_to_possessable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ConvertToCustomBinding"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_CUSTOM_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_convert_to_custom_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ChangeActorTemplateClass"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CHANGE_ACTOR_TEMPLATE_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_change_actor_template_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("BakeTransformWithSettings"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_BAKE_TRANSFORM_WITH_SETTINGS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_bake_transform_with_settings,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSpawnableFromInstance"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_add_spawnable_from_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddSpawnableFromClass"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_CLASS,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_add_spawnable_from_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActorsToBinding"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS_TO_BINDING,
+            &raw mut __FUNCTION_PTRS
+                .u_level_sequence_editor_subsystem_add_actors_to_binding,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddActors"),
-            &raw mut U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS,
+            &raw mut __FUNCTION_PTRS.u_level_sequence_editor_subsystem_add_actors,
         );
     }
 }
@@ -1001,7 +1088,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ENABLED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_track_filter_enabled,
                 __buffer,
             )
         };
@@ -1025,7 +1113,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ENABLED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_track_filter_enabled,
                 __buffer,
             )
         };
@@ -1038,7 +1127,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ACTIVE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_track_filter_active,
                 __buffer,
             )
         };
@@ -1058,7 +1148,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_TRACK_FILTER_ACTIVE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_track_filter_active,
                 __buffer,
             )
         };
@@ -1071,7 +1162,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_START,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_selection_range_start,
                 __buffer,
             )
         };
@@ -1084,7 +1176,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_START,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_selection_range_start,
                 __buffer,
             )
         };
@@ -1097,7 +1190,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_END,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_selection_range_end,
                 __buffer,
             )
         };
@@ -1110,7 +1204,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_SELECTION_RANGE_END,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_selection_range_end,
                 __buffer,
             )
         };
@@ -1126,7 +1221,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_RANDOM_COLOR_FOR_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_random_color_for_channels,
                 __buffer,
             )
         };
@@ -1152,7 +1248,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_RANDOM_COLOR_FOR_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_random_color_for_channels,
                 __buffer,
             )
         };
@@ -1165,7 +1262,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_PLAYBACK_SPEED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_playback_speed,
                 __buffer,
             )
         };
@@ -1182,7 +1280,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_PLAYBACK_SPEED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_playback_speed,
                 __buffer,
             )
         };
@@ -1195,7 +1294,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOOP_MODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_loop_mode,
                 __buffer,
             )
         };
@@ -1212,7 +1312,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOOP_MODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_loop_mode,
                 __buffer,
             )
         };
@@ -1225,7 +1326,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_lock_level_sequence,
                 __buffer,
             )
         };
@@ -1238,7 +1340,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_lock_level_sequence,
                 __buffer,
             )
         };
@@ -1251,7 +1354,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_CAMERA_CUT_TO_VIEWPORT,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_lock_camera_cut_to_viewport,
                 __buffer,
             )
         };
@@ -1264,7 +1368,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCK_CAMERA_CUT_TO_VIEWPORT,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_lock_camera_cut_to_viewport,
                 __buffer,
             )
         };
@@ -1280,7 +1385,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_local_position,
                 __buffer,
             )
         };
@@ -1310,7 +1416,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_LOCAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_local_position,
                 __buffer,
             )
         };
@@ -1326,7 +1433,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_GLOBAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_global_position,
                 __buffer,
             )
         };
@@ -1356,7 +1464,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_GLOBAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_global_position,
                 __buffer,
             )
         };
@@ -1373,7 +1482,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_custom_color_for_channels,
                 __buffer,
             )
         };
@@ -1408,7 +1518,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_custom_color_for_channels,
                 __buffer,
             )
         };
@@ -1425,7 +1536,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -1458,7 +1570,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -1471,7 +1584,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_current_time,
                 __buffer,
             )
         };
@@ -1484,7 +1598,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_current_time,
                 __buffer,
             )
         };
@@ -1497,7 +1612,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_LOCAL_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_current_local_time,
                 __buffer,
             )
         };
@@ -1510,7 +1626,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SET_CURRENT_LOCAL_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_set_current_local_time,
                 __buffer,
             )
         };
@@ -1525,7 +1642,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_tracks,
                 __buffer,
             )
         };
@@ -1546,7 +1664,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_tracks,
                 __buffer,
             )
         };
@@ -1561,7 +1680,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_sections,
                 __buffer,
             )
         };
@@ -1582,7 +1702,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_sections,
                 __buffer,
             )
         };
@@ -1598,7 +1719,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_KEYS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_keys,
                 __buffer,
             )
         };
@@ -1626,7 +1748,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_KEYS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_keys,
                 __buffer,
             )
         };
@@ -1641,7 +1764,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_folders,
                 __buffer,
             )
         };
@@ -1662,7 +1786,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_folders,
                 __buffer,
             )
         };
@@ -1679,7 +1804,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_channels,
                 __buffer,
             )
         };
@@ -1702,7 +1828,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_channels,
                 __buffer,
             )
         };
@@ -1717,7 +1844,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_bindings,
                 __buffer,
             )
         };
@@ -1738,7 +1866,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_SELECT_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_select_bindings,
                 __buffer,
             )
         };
@@ -1751,7 +1880,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_REFRESH_CURRENT_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_refresh_current_level_sequence,
                 __buffer,
             )
         };
@@ -1761,7 +1891,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_REFRESH_CURRENT_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_refresh_current_level_sequence,
                 __buffer,
             )
         };
@@ -1777,7 +1908,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY_TO,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_play_to,
                 __buffer,
             )
         };
@@ -1807,7 +1939,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY_TO,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_play_to,
                 __buffer,
             )
         };
@@ -1820,7 +1953,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_play,
                 __buffer,
             )
         };
@@ -1830,7 +1964,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PLAY,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_play,
                 __buffer,
             )
         };
@@ -1843,7 +1978,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PAUSE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_pause,
                 __buffer,
             )
         };
@@ -1853,7 +1989,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_PAUSE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_pause,
                 __buffer,
             )
         };
@@ -1868,7 +2005,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_OPEN_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_open_level_sequence,
                 __buffer,
             )
         };
@@ -1887,7 +2025,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_OPEN_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_open_level_sequence,
                 __buffer,
             )
         };
@@ -1901,7 +2040,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ENABLED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_track_filter_enabled,
                 __buffer,
             )
         };
@@ -1918,7 +2058,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ENABLED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_track_filter_enabled,
                 __buffer,
             )
         };
@@ -1932,7 +2073,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ACTIVE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_track_filter_active,
                 __buffer,
             )
         };
@@ -1949,7 +2091,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_TRACK_FILTER_ACTIVE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_track_filter_active,
                 __buffer,
             )
         };
@@ -1963,7 +2106,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_PLAYING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_playing,
                 __buffer,
             )
         };
@@ -1973,7 +2117,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_PLAYING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_playing,
                 __buffer,
             )
         };
@@ -1987,7 +2132,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_LEVEL_SEQUENCE_LOCKED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_level_sequence_locked,
                 __buffer,
             )
         };
@@ -1997,7 +2143,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_LEVEL_SEQUENCE_LOCKED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_level_sequence_locked,
                 __buffer,
             )
         };
@@ -2011,7 +2158,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_CAMERA_CUT_LOCKED_TO_VIEWPORT,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_camera_cut_locked_to_viewport,
                 __buffer,
             )
         };
@@ -2021,7 +2169,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_IS_CAMERA_CUT_LOCKED_TO_VIEWPORT,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_is_camera_cut_locked_to_viewport,
                 __buffer,
             )
         };
@@ -2038,7 +2187,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_HAS_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_has_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -2064,7 +2214,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_HAS_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_has_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -2078,7 +2229,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_TRACK_FILTER_NAMES,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_track_filter_names,
                 __buffer,
             )
         };
@@ -2088,7 +2240,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_TRACK_FILTER_NAMES,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_track_filter_names,
                 __buffer,
             )
         };
@@ -2104,7 +2257,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SUB_SEQUENCE_HIERARCHY,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_sub_sequence_hierarchy,
                 __buffer,
             )
         };
@@ -2114,7 +2268,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SUB_SEQUENCE_HIERARCHY,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_sub_sequence_hierarchy,
                 __buffer,
             )
         };
@@ -2135,7 +2290,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_START,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selection_range_start,
                 __buffer,
             )
         };
@@ -2145,7 +2301,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_START,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selection_range_start,
                 __buffer,
             )
         };
@@ -2159,7 +2316,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_END,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selection_range_end,
                 __buffer,
             )
         };
@@ -2169,7 +2327,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTION_RANGE_END,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selection_range_end,
                 __buffer,
             )
         };
@@ -2185,7 +2344,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_tracks,
                 __buffer,
             )
         };
@@ -2195,7 +2355,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_tracks,
                 __buffer,
             )
         };
@@ -2216,7 +2377,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_sections,
                 __buffer,
             )
         };
@@ -2226,7 +2388,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_sections,
                 __buffer,
             )
         };
@@ -2247,7 +2410,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_KEYS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_keys,
                 __buffer,
             )
         };
@@ -2268,7 +2432,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_KEYS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_keys,
                 __buffer,
             )
         };
@@ -2284,7 +2449,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_folders,
                 __buffer,
             )
         };
@@ -2294,7 +2460,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_folders,
                 __buffer,
             )
         };
@@ -2315,7 +2482,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_channels,
                 __buffer,
             )
         };
@@ -2325,7 +2493,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_channels,
                 __buffer,
             )
         };
@@ -2350,7 +2519,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_bindings,
                 __buffer,
             )
         };
@@ -2360,7 +2530,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_SELECTED_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_selected_bindings,
                 __buffer,
             )
         };
@@ -2381,7 +2552,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_START_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_start_position,
                 __buffer,
             )
         };
@@ -2400,7 +2572,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_START_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_start_position,
                 __buffer,
             )
         };
@@ -2421,7 +2594,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_SPEED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_speed,
                 __buffer,
             )
         };
@@ -2431,7 +2605,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_SPEED,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_speed,
                 __buffer,
             )
         };
@@ -2447,7 +2622,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_END_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_end_position,
                 __buffer,
             )
         };
@@ -2466,7 +2642,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_PLAYBACK_END_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_playback_end_position,
                 __buffer,
             )
         };
@@ -2487,7 +2664,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOOP_MODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_loop_mode,
                 __buffer,
             )
         };
@@ -2497,7 +2675,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOOP_MODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_loop_mode,
                 __buffer,
             )
         };
@@ -2518,7 +2697,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOCAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_local_position,
                 __buffer,
             )
         };
@@ -2537,7 +2717,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_LOCAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_local_position,
                 __buffer,
             )
         };
@@ -2560,7 +2741,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_GLOBAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_global_position,
                 __buffer,
             )
         };
@@ -2579,7 +2761,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_GLOBAL_POSITION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_global_position,
                 __buffer,
             )
         };
@@ -2602,7 +2785,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_FOCUSED_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_focused_level_sequence,
                 __buffer,
             )
         };
@@ -2612,7 +2796,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_FOCUSED_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_focused_level_sequence,
                 __buffer,
             )
         };
@@ -2634,7 +2819,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -2660,7 +2846,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CUSTOM_COLOR_FOR_CHANNEL,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_custom_color_for_channel,
                 __buffer,
             )
         };
@@ -2679,7 +2866,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_time,
                 __buffer,
             )
         };
@@ -2689,7 +2877,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_time,
                 __buffer,
             )
         };
@@ -2703,7 +2892,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LOCAL_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_local_time,
                 __buffer,
             )
         };
@@ -2713,7 +2903,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LOCAL_TIME,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_local_time,
                 __buffer,
             )
         };
@@ -2729,7 +2920,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_level_sequence,
                 __buffer,
             )
         };
@@ -2739,7 +2931,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CURRENT_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_current_level_sequence,
                 __buffer,
             )
         };
@@ -2760,7 +2953,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CHANNELS_WITH_SELECTED_KEYS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_channels_with_selected_keys,
                 __buffer,
             )
         };
@@ -2770,7 +2964,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_CHANNELS_WITH_SELECTED_KEYS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_channels_with_selected_keys,
                 __buffer,
             )
         };
@@ -2795,7 +2990,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_BOUND_OBJECTS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_bound_objects,
                 __buffer,
             )
         };
@@ -2814,7 +3010,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_GET_BOUND_OBJECTS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_get_bound_objects,
                 __buffer,
             )
         };
@@ -2833,7 +3030,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FORCE_UPDATE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_force_update,
                 __buffer,
             )
         };
@@ -2843,7 +3041,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FORCE_UPDATE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_force_update,
                 __buffer,
             )
         };
@@ -2856,7 +3055,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_PARENT_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_focus_parent_sequence,
                 __buffer,
             )
         };
@@ -2866,7 +3066,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_PARENT_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_focus_parent_sequence,
                 __buffer,
             )
         };
@@ -2881,7 +3082,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_focus_level_sequence,
                 __buffer,
             )
         };
@@ -2900,7 +3102,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_FOCUS_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_focus_level_sequence,
                 __buffer,
             )
         };
@@ -2913,7 +3116,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_EMPTY_SELECTION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_empty_selection,
                 __buffer,
             )
         };
@@ -2923,7 +3127,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_EMPTY_SELECTION,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_empty_selection,
                 __buffer,
             )
         };
@@ -2938,7 +3143,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DESELECT_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_deselect_bindings,
                 __buffer,
             )
         };
@@ -2959,7 +3165,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DESELECT_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_deselect_bindings,
                 __buffer,
             )
         };
@@ -2975,7 +3182,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DELETE_COLOR_FOR_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_delete_color_for_channels,
                 __buffer,
             )
         };
@@ -3001,7 +3209,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_DELETE_COLOR_FOR_CHANNELS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_delete_color_for_channels,
                 __buffer,
             )
         };
@@ -3017,7 +3226,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_CLOSE_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_close_level_sequence,
                 __buffer,
             )
         };
@@ -3027,7 +3237,8 @@ impl ULevelSequenceEditorBlueprintLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_BLUEPRINT_LIBRARY_CLOSE_LEVEL_SEQUENCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_blueprint_library_close_level_sequence,
                 __buffer,
             )
         };
@@ -3085,7 +3296,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SYNC_SECTIONS_USING_SOURCE_TIMECODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_sync_sections_using_source_timecode,
                 __buffer,
             )
         };
@@ -3106,7 +3318,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SYNC_SECTIONS_USING_SOURCE_TIMECODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_sync_sections_using_source_timecode,
                 __buffer,
             )
         };
@@ -3122,7 +3335,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SNAP_SECTIONS_TO_TIMELINE_USING_SOURCE_TIMECODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_snap_sections_to_timeline_using_source_timecode,
                 __buffer,
             )
         };
@@ -3143,7 +3357,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SNAP_SECTIONS_TO_TIMELINE_USING_SOURCE_TIMECODE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_snap_sections_to_timeline_using_source_timecode,
                 __buffer,
             )
         };
@@ -3159,7 +3374,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SAVE_DEFAULT_SPAWNABLE_STATE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_save_default_spawnable_state,
                 __buffer,
             )
         };
@@ -3178,7 +3394,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_SAVE_DEFAULT_SPAWNABLE_STATE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_save_default_spawnable_state,
                 __buffer,
             )
         };
@@ -3195,7 +3412,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REPLACE_BINDING_WITH_ACTORS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_replace_binding_with_actors,
                 __buffer,
             )
         };
@@ -3221,7 +3439,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REPLACE_BINDING_WITH_ACTORS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_replace_binding_with_actors,
                 __buffer,
             )
         };
@@ -3237,7 +3456,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_INVALID_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_invalid_bindings,
                 __buffer,
             )
         };
@@ -3256,7 +3476,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_INVALID_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_invalid_bindings,
                 __buffer,
             )
         };
@@ -3272,7 +3493,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ALL_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_all_bindings,
                 __buffer,
             )
         };
@@ -3291,7 +3513,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ALL_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_all_bindings,
                 __buffer,
             )
         };
@@ -3308,7 +3531,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ACTORS_FROM_BINDING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_actors_from_binding,
                 __buffer,
             )
         };
@@ -3334,7 +3558,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REMOVE_ACTORS_FROM_BINDING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_remove_actors_from_binding,
                 __buffer,
             )
         };
@@ -3353,7 +3578,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REBIND_COMPONENT,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_rebind_component,
                 __buffer,
             )
         };
@@ -3381,7 +3607,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_REBIND_COMPONENT,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_rebind_component,
                 __buffer,
             )
         };
@@ -3399,7 +3626,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_tracks,
                 __buffer,
             )
         };
@@ -3436,7 +3664,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_tracks,
                 __buffer,
             )
         };
@@ -3461,7 +3690,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_sections,
                 __buffer,
             )
         };
@@ -3500,7 +3730,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_sections,
                 __buffer,
             )
         };
@@ -3525,7 +3756,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_folders,
                 __buffer,
             )
         };
@@ -3562,7 +3794,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_folders,
                 __buffer,
             )
         };
@@ -3589,7 +3822,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_bindings,
                 __buffer,
             )
         };
@@ -3628,7 +3862,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_PASTE_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_paste_bindings,
                 __buffer,
             )
         };
@@ -3650,7 +3885,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_SCRIPTING_LAYER,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_scripting_layer,
                 __buffer,
             )
         };
@@ -3660,7 +3896,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_SCRIPTING_LAYER,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_scripting_layer,
                 __buffer,
             )
         };
@@ -3684,7 +3921,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_TYPE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_binding_type,
                 __buffer,
             )
         };
@@ -3703,7 +3941,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_TYPE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_binding_type,
                 __buffer,
             )
         };
@@ -3729,7 +3968,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDINGS_OF_TYPE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_bindings_of_type,
                 __buffer,
             )
         };
@@ -3752,7 +3992,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDINGS_OF_TYPE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_bindings_of_type,
                 __buffer,
             )
         };
@@ -3774,7 +4015,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_OBJECTS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_binding_objects,
                 __buffer,
             )
         };
@@ -3793,7 +4035,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CUSTOM_BINDING_OBJECTS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_custom_binding_objects,
                 __buffer,
             )
         };
@@ -3816,7 +4059,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CURVE_EDITOR,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_curve_editor,
                 __buffer,
             )
         };
@@ -3826,7 +4070,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_GET_CURVE_EDITOR,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_get_curve_editor,
                 __buffer,
             )
         };
@@ -3849,7 +4094,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_FIX_ACTOR_REFERENCES,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_fix_actor_references,
                 __buffer,
             )
         };
@@ -3859,7 +4105,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_FIX_ACTOR_REFERENCES,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_fix_actor_references,
                 __buffer,
             )
         };
@@ -3876,7 +4123,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CREATE_CAMERA,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_create_camera,
                 __buffer,
             )
         };
@@ -3902,7 +4150,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CREATE_CAMERA,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_create_camera,
                 __buffer,
             )
         };
@@ -3931,7 +4180,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_tracks,
                 __buffer,
             )
         };
@@ -3959,7 +4209,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_TRACKS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_tracks,
                 __buffer,
             )
         };
@@ -3979,7 +4230,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_sections,
                 __buffer,
             )
         };
@@ -4007,7 +4259,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_SECTIONS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_sections,
                 __buffer,
             )
         };
@@ -4029,7 +4282,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_folders,
                 __buffer,
             )
         };
@@ -4071,7 +4325,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_FOLDERS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_folders,
                 __buffer,
             )
         };
@@ -4097,7 +4352,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_bindings,
                 __buffer,
             )
         };
@@ -4125,7 +4381,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_COPY_BINDINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_copy_bindings,
                 __buffer,
             )
         };
@@ -4144,7 +4401,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_SPAWNABLE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_spawnable,
                 __buffer,
             )
         };
@@ -4163,7 +4421,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_SPAWNABLE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_spawnable,
                 __buffer,
             )
         };
@@ -4185,7 +4444,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_POSSESSABLE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_possessable,
                 __buffer,
             )
         };
@@ -4204,7 +4464,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_POSSESSABLE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_possessable,
                 __buffer,
             )
         };
@@ -4227,7 +4488,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_CUSTOM_BINDING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_custom_binding,
                 __buffer,
             )
         };
@@ -4259,7 +4521,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CONVERT_TO_CUSTOM_BINDING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_convert_to_custom_binding,
                 __buffer,
             )
         };
@@ -4282,7 +4545,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CHANGE_ACTOR_TEMPLATE_CLASS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_change_actor_template_class,
                 __buffer,
             )
         };
@@ -4308,7 +4572,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_CHANGE_ACTOR_TEMPLATE_CLASS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_change_actor_template_class,
                 __buffer,
             )
         };
@@ -4327,7 +4592,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_BAKE_TRANSFORM_WITH_SETTINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_bake_transform_with_settings,
                 __buffer,
             )
         };
@@ -4366,7 +4632,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_BAKE_TRANSFORM_WITH_SETTINGS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_bake_transform_with_settings,
                 __buffer,
             )
         };
@@ -4384,7 +4651,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_INSTANCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_spawnable_from_instance,
                 __buffer,
             )
         };
@@ -4410,7 +4678,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_INSTANCE,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_spawnable_from_instance,
                 __buffer,
             )
         };
@@ -4433,7 +4702,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_CLASS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_spawnable_from_class,
                 __buffer,
             )
         };
@@ -4461,7 +4731,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_SPAWNABLE_FROM_CLASS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_spawnable_from_class,
                 __buffer,
             )
         };
@@ -4484,7 +4755,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS_TO_BINDING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_actors_to_binding,
                 __buffer,
             )
         };
@@ -4510,7 +4782,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS_TO_BINDING,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_actors_to_binding,
                 __buffer,
             )
         };
@@ -4526,7 +4799,8 @@ impl ULevelSequenceEditorSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_actors,
                 __buffer,
             )
         };
@@ -4543,7 +4817,8 @@ impl ULevelSequenceEditorSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::level_sequence_editor::U_LEVEL_SEQUENCE_EDITOR_SUBSYSTEM_ADD_ACTORS,
+                crate::bindings::level_sequence_editor::__FUNCTION_PTRS
+                    .u_level_sequence_editor_subsystem_add_actors,
                 __buffer,
             )
         };

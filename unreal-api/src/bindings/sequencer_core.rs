@@ -1,44 +1,53 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SOLO_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_PINNED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_MUTE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_LOCKED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_DEACTIVATED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SOLO_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_ROOT_NODE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_PINNED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_MUTE_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_LOCKED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_DEACTIVATED_NODES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_CHILDREN: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_PATH: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_LABEL: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_sequencer_outliner_scripting_object_set_solo_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_set_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_set_pinned_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_set_mute_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_set_locked_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_set_deactivated_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_solo_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_root_node: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_pinned_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_mute_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_locked_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_deactivated_nodes: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_outliner_scripting_object_get_children: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_view_model_struct_extensions_get_path: *mut crate::ffi::UFunctionOpague,
+    pub u_sequencer_view_model_struct_extensions_get_label: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_sequencer_outliner_scripting_object_set_solo_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_set_selection: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_set_pinned_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_set_mute_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_set_locked_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_set_deactivated_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_solo_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_selection: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_root_node: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_pinned_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_mute_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_locked_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_deactivated_nodes: std::ptr::null_mut(),
+            u_sequencer_outliner_scripting_object_get_children: std::ptr::null_mut(),
+            u_sequencer_view_model_struct_extensions_get_path: std::ptr::null_mut(),
+            u_sequencer_view_model_struct_extensions_get_label: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -48,98 +57,104 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSoloNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SOLO_NODES,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_set_solo_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelection"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_set_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetPinnedNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_PINNED_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_outliner_scripting_object_set_pinned_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetMuteNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_MUTE_NODES,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_set_mute_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetLockedNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_LOCKED_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_outliner_scripting_object_set_locked_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetDeactivatedNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_DEACTIVATED_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_outliner_scripting_object_set_deactivated_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSoloNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SOLO_NODES,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_solo_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelection"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetRootNode"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_ROOT_NODE,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_root_node,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPinnedNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_PINNED_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_outliner_scripting_object_get_pinned_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetMuteNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_MUTE_NODES,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_mute_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLockedNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_LOCKED_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_outliner_scripting_object_get_locked_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDeactivatedNodes"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_DEACTIVATED_NODES,
+            &raw mut __FUNCTION_PTRS
+                .u_sequencer_outliner_scripting_object_get_deactivated_nodes,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildren"),
-            &raw mut U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_CHILDREN,
+            &raw mut __FUNCTION_PTRS.u_sequencer_outliner_scripting_object_get_children,
         );
     }
     unsafe {
@@ -150,14 +165,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetPath"),
-            &raw mut U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_PATH,
+            &raw mut __FUNCTION_PTRS.u_sequencer_view_model_struct_extensions_get_path,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetLabel"),
-            &raw mut U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_LABEL,
+            &raw mut __FUNCTION_PTRS.u_sequencer_view_model_struct_extensions_get_label,
         );
     }
 }
@@ -199,7 +214,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SOLO_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_solo_nodes,
                 __buffer,
             )
         };
@@ -223,7 +239,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SOLO_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_solo_nodes,
                 __buffer,
             )
         };
@@ -239,7 +256,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SELECTION,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_selection,
                 __buffer,
             )
         };
@@ -256,7 +274,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_SELECTION,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_selection,
                 __buffer,
             )
         };
@@ -273,7 +292,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_PINNED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_pinned_nodes,
                 __buffer,
             )
         };
@@ -297,7 +317,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_PINNED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_pinned_nodes,
                 __buffer,
             )
         };
@@ -314,7 +335,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_MUTE_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_mute_nodes,
                 __buffer,
             )
         };
@@ -338,7 +360,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_MUTE_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_mute_nodes,
                 __buffer,
             )
         };
@@ -355,7 +378,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_LOCKED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_locked_nodes,
                 __buffer,
             )
         };
@@ -379,7 +403,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_LOCKED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_locked_nodes,
                 __buffer,
             )
         };
@@ -396,7 +421,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_DEACTIVATED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_deactivated_nodes,
                 __buffer,
             )
         };
@@ -420,7 +446,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_SET_DEACTIVATED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_set_deactivated_nodes,
                 __buffer,
             )
         };
@@ -433,7 +460,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SOLO_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_solo_nodes,
                 __buffer,
             )
         };
@@ -443,7 +471,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SOLO_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_solo_nodes,
                 __buffer,
             )
         };
@@ -459,7 +488,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SELECTION,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_selection,
                 __buffer,
             )
         };
@@ -469,7 +499,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_SELECTION,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_selection,
                 __buffer,
             )
         };
@@ -485,7 +516,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_ROOT_NODE,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_root_node,
                 __buffer,
             )
         };
@@ -495,7 +527,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_ROOT_NODE,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_root_node,
                 __buffer,
             )
         };
@@ -509,7 +542,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_PINNED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_pinned_nodes,
                 __buffer,
             )
         };
@@ -519,7 +553,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_PINNED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_pinned_nodes,
                 __buffer,
             )
         };
@@ -535,7 +570,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_MUTE_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_mute_nodes,
                 __buffer,
             )
         };
@@ -545,7 +581,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_MUTE_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_mute_nodes,
                 __buffer,
             )
         };
@@ -561,7 +598,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_LOCKED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_locked_nodes,
                 __buffer,
             )
         };
@@ -571,7 +609,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_LOCKED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_locked_nodes,
                 __buffer,
             )
         };
@@ -589,7 +628,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_DEACTIVATED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_deactivated_nodes,
                 __buffer,
             )
         };
@@ -599,7 +639,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_DEACTIVATED_NODES,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_deactivated_nodes,
                 __buffer,
             )
         };
@@ -619,7 +660,8 @@ impl USequencerOutlinerScriptingObject {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_CHILDREN,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_children,
                 __buffer,
             )
         };
@@ -643,7 +685,8 @@ impl USequencerOutlinerScriptingObject {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_OUTLINER_SCRIPTING_OBJECT_GET_CHILDREN,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_outliner_scripting_object_get_children,
                 __buffer,
             )
         };
@@ -703,7 +746,8 @@ impl USequencerViewModelStructExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_PATH,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_view_model_struct_extensions_get_path,
                 __buffer,
             )
         };
@@ -720,7 +764,8 @@ impl USequencerViewModelStructExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_PATH,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_view_model_struct_extensions_get_path,
                 __buffer,
             )
         };
@@ -734,7 +779,8 @@ impl USequencerViewModelStructExtensions {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_LABEL,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_view_model_struct_extensions_get_label,
                 __buffer,
             )
         };
@@ -751,7 +797,8 @@ impl USequencerViewModelStructExtensions {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::sequencer_core::U_SEQUENCER_VIEW_MODEL_STRUCT_EXTENSIONS_GET_LABEL,
+                crate::bindings::sequencer_core::__FUNCTION_PTRS
+                    .u_sequencer_view_model_struct_extensions_get_label,
                 __buffer,
             )
         };

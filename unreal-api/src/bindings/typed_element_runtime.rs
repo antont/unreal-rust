@@ -1,100 +1,109 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SET_SELECTION_FROM_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SELECT_ELEMENTS_FROM_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_ELEMENT_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_DESELECT_ELEMENTS_FROM_LIST: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_SET_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_RESTORE_SELECTION_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_ON_PRE_CHANGE_DYNAMIC_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_ON_CHANGE_DYNAMIC_DELEGATE_SIGNATURE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_K2_GET_SELECTED_ELEMENT_HANDLES: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_IS_ELEMENT_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_GET_TOP_SELECTED_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTION_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTED_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_GET_NUM_SELECTED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_GET_CURRENT_SELECTION_STATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_GET_BOTTOM_SELECTED_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_OBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_CLEAR_SELECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_CAN_SELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_CAN_DESELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_SET_ALLOW_SELECTION_MODIFIERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ALL_REFERENCED_ASSET_DATAS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_PARENT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_CHILD_ELEMENTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA_VALUE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_INTERFACE_SELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_INTERFACE_IS_ELEMENT_SELECTED: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_INTERFACE_GET_SELECTION_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_INTERFACE_DESELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_SELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_DESELECT_ELEMENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_TYPED_ELEMENT_SELECTION_INTERFACE_ALLOW_SELECTION_MODIFIERS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_typed_element_selection_set_library_set_selection_from_list: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_library_select_elements_from_list: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_library_get_normalized_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_library_get_normalized_element_list: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_library_deselect_elements_from_list: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_set_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_select_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_select_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_restore_selection_state: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_on_pre_change_dynamic_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_on_change_dynamic_delegate_signature: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_k2_get_selected_element_handles: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_is_element_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_has_selected_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_has_selected_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_get_top_selected_object: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_get_selection_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_get_selected_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_get_num_selected_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_get_current_selection_state: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_get_bottom_selected_object: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_deselect_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_deselect_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_count_selected_objects: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_count_selected_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_clear_selection: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_can_select_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_can_deselect_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_set_allow_selection_modifiers: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_asset_data_interface_get_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_asset_data_interface_get_all_referenced_asset_datas: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_hierarchy_interface_get_parent_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_hierarchy_interface_get_child_elements: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_object_interface_get_object_class: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_object_interface_get_object: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_primitive_custom_data_interface_set_custom_data_value: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_primitive_custom_data_interface_set_custom_data: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_interface_select_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_interface_is_element_selected: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_interface_get_selection_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_interface_deselect_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_interface_can_select_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_interface_can_deselect_element: *mut crate::ffi::UFunctionOpague,
+    pub u_typed_element_selection_interface_allow_selection_modifiers: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_typed_element_selection_set_library_set_selection_from_list: std::ptr::null_mut(),
+            u_typed_element_selection_set_library_select_elements_from_list: std::ptr::null_mut(),
+            u_typed_element_selection_set_library_get_normalized_selection: std::ptr::null_mut(),
+            u_typed_element_selection_set_library_get_normalized_element_list: std::ptr::null_mut(),
+            u_typed_element_selection_set_library_deselect_elements_from_list: std::ptr::null_mut(),
+            u_typed_element_selection_set_set_selection: std::ptr::null_mut(),
+            u_typed_element_selection_set_select_elements: std::ptr::null_mut(),
+            u_typed_element_selection_set_select_element: std::ptr::null_mut(),
+            u_typed_element_selection_set_restore_selection_state: std::ptr::null_mut(),
+            u_typed_element_selection_set_on_pre_change_dynamic_delegate_signature: std::ptr::null_mut(),
+            u_typed_element_selection_set_on_change_dynamic_delegate_signature: std::ptr::null_mut(),
+            u_typed_element_selection_set_k2_get_selected_element_handles: std::ptr::null_mut(),
+            u_typed_element_selection_set_is_element_selected: std::ptr::null_mut(),
+            u_typed_element_selection_set_has_selected_objects: std::ptr::null_mut(),
+            u_typed_element_selection_set_has_selected_elements: std::ptr::null_mut(),
+            u_typed_element_selection_set_get_top_selected_object: std::ptr::null_mut(),
+            u_typed_element_selection_set_get_selection_element: std::ptr::null_mut(),
+            u_typed_element_selection_set_get_selected_objects: std::ptr::null_mut(),
+            u_typed_element_selection_set_get_num_selected_elements: std::ptr::null_mut(),
+            u_typed_element_selection_set_get_current_selection_state: std::ptr::null_mut(),
+            u_typed_element_selection_set_get_bottom_selected_object: std::ptr::null_mut(),
+            u_typed_element_selection_set_deselect_elements: std::ptr::null_mut(),
+            u_typed_element_selection_set_deselect_element: std::ptr::null_mut(),
+            u_typed_element_selection_set_count_selected_objects: std::ptr::null_mut(),
+            u_typed_element_selection_set_count_selected_elements: std::ptr::null_mut(),
+            u_typed_element_selection_set_clear_selection: std::ptr::null_mut(),
+            u_typed_element_selection_set_can_select_element: std::ptr::null_mut(),
+            u_typed_element_selection_set_can_deselect_element: std::ptr::null_mut(),
+            u_typed_element_selection_set_allow_selection_modifiers: std::ptr::null_mut(),
+            u_typed_element_asset_data_interface_get_asset_data: std::ptr::null_mut(),
+            u_typed_element_asset_data_interface_get_all_referenced_asset_datas: std::ptr::null_mut(),
+            u_typed_element_hierarchy_interface_get_parent_element: std::ptr::null_mut(),
+            u_typed_element_hierarchy_interface_get_child_elements: std::ptr::null_mut(),
+            u_typed_element_object_interface_get_object_class: std::ptr::null_mut(),
+            u_typed_element_object_interface_get_object: std::ptr::null_mut(),
+            u_typed_element_primitive_custom_data_interface_set_custom_data_value: std::ptr::null_mut(),
+            u_typed_element_primitive_custom_data_interface_set_custom_data: std::ptr::null_mut(),
+            u_typed_element_selection_interface_select_element: std::ptr::null_mut(),
+            u_typed_element_selection_interface_is_element_selected: std::ptr::null_mut(),
+            u_typed_element_selection_interface_get_selection_element: std::ptr::null_mut(),
+            u_typed_element_selection_interface_deselect_element: std::ptr::null_mut(),
+            u_typed_element_selection_interface_can_select_element: std::ptr::null_mut(),
+            u_typed_element_selection_interface_can_deselect_element: std::ptr::null_mut(),
+            u_typed_element_selection_interface_allow_selection_modifiers: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -104,35 +113,40 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelectionFromList"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SET_SELECTION_FROM_LIST,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_library_set_selection_from_list,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectElementsFromList"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SELECT_ELEMENTS_FROM_LIST,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_library_select_elements_from_list,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedSelection"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_SELECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_library_get_normalized_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNormalizedElementList"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_ELEMENT_LIST,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_library_get_normalized_element_list,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectElementsFromList"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_DESELECT_ELEMENTS_FROM_LIST,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_library_deselect_elements_from_list,
         );
     }
     unsafe {
@@ -143,168 +157,178 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetSelection"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_SET_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_set_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectElements"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_select_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_select_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RestoreSelectionState"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_RESTORE_SELECTION_STATE,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_restore_selection_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnPreChangeDynamic__DelegateSignature"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_ON_PRE_CHANGE_DYNAMIC_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_on_pre_change_dynamic_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("OnChangeDynamic__DelegateSignature"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_ON_CHANGE_DYNAMIC_DELEGATE_SIGNATURE,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_on_change_dynamic_delegate_signature,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetSelectedElementHandles"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_K2_GET_SELECTED_ELEMENT_HANDLES,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_k2_get_selected_element_handles,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsElementSelected"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_IS_ELEMENT_SELECTED,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_is_element_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasSelectedObjects"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_has_selected_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("HasSelectedElements"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_has_selected_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetTopSelectedObject"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_GET_TOP_SELECTED_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_get_top_selected_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTION_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_get_selection_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectedObjects"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTED_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_get_selected_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetNumSelectedElements"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_GET_NUM_SELECTED_ELEMENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_get_num_selected_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCurrentSelectionState"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_GET_CURRENT_SELECTION_STATE,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_get_current_selection_state,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBottomSelectedObject"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_GET_BOTTOM_SELECTED_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_get_bottom_selected_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectElements"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_deselect_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_deselect_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CountSelectedObjects"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_OBJECTS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_count_selected_objects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CountSelectedElements"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_ELEMENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_count_selected_elements,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ClearSelection"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_CLEAR_SELECTION,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_clear_selection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanSelectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_CAN_SELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_can_select_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanDeselectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_CAN_DESELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_set_can_deselect_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AllowSelectionModifiers"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_SET_ALLOW_SELECTION_MODIFIERS,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_set_allow_selection_modifiers,
         );
     }
     unsafe {
@@ -315,14 +339,15 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetData"),
-            &raw mut U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS.u_typed_element_asset_data_interface_get_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAllReferencedAssetDatas"),
-            &raw mut U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ALL_REFERENCED_ASSET_DATAS,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_asset_data_interface_get_all_referenced_asset_datas,
         );
     }
     unsafe {
@@ -333,14 +358,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentElement"),
-            &raw mut U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_PARENT_ELEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_hierarchy_interface_get_parent_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetChildElements"),
-            &raw mut U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_CHILD_ELEMENTS,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_hierarchy_interface_get_child_elements,
         );
     }
     unsafe {
@@ -351,14 +378,14 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectClass"),
-            &raw mut U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT_CLASS,
+            &raw mut __FUNCTION_PTRS.u_typed_element_object_interface_get_object_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_object_interface_get_object,
         );
     }
     unsafe {
@@ -369,14 +396,16 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomDataValue"),
-            &raw mut U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA_VALUE,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_primitive_custom_data_interface_set_custom_data_value,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SetCustomData"),
-            &raw mut U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_primitive_custom_data_interface_set_custom_data,
         );
     }
     unsafe {
@@ -387,49 +416,54 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("SelectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_INTERFACE_SELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_interface_select_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsElementSelected"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_INTERFACE_IS_ELEMENT_SELECTED,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_interface_is_element_selected,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetSelectionElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_INTERFACE_GET_SELECTION_ELEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_interface_get_selection_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeselectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_INTERFACE_DESELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS.u_typed_element_selection_interface_deselect_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanSelectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_SELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_interface_can_select_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanDeselectElement"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_DESELECT_ELEMENT,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_interface_can_deselect_element,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AllowSelectionModifiers"),
-            &raw mut U_TYPED_ELEMENT_SELECTION_INTERFACE_ALLOW_SELECTION_MODIFIERS,
+            &raw mut __FUNCTION_PTRS
+                .u_typed_element_selection_interface_allow_selection_modifiers,
         );
     }
 }
@@ -499,7 +533,8 @@ impl UTypedElementSelectionSetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SET_SELECTION_FROM_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_set_selection_from_list,
                 __buffer,
             )
         };
@@ -534,7 +569,8 @@ impl UTypedElementSelectionSetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SET_SELECTION_FROM_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_set_selection_from_list,
                 __buffer,
             )
         };
@@ -552,7 +588,8 @@ impl UTypedElementSelectionSetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SELECT_ELEMENTS_FROM_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_select_elements_from_list,
                 __buffer,
             )
         };
@@ -587,7 +624,8 @@ impl UTypedElementSelectionSetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_SELECT_ELEMENTS_FROM_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_select_elements_from_list,
                 __buffer,
             )
         };
@@ -604,7 +642,8 @@ impl UTypedElementSelectionSetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_SELECTION,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_get_normalized_selection,
                 __buffer,
             )
         };
@@ -628,7 +667,8 @@ impl UTypedElementSelectionSetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_SELECTION,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_get_normalized_selection,
                 __buffer,
             )
         };
@@ -653,7 +693,8 @@ impl UTypedElementSelectionSetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_ELEMENT_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_get_normalized_element_list,
                 __buffer,
             )
         };
@@ -688,7 +729,8 @@ impl UTypedElementSelectionSetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_GET_NORMALIZED_ELEMENT_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_get_normalized_element_list,
                 __buffer,
             )
         };
@@ -713,7 +755,8 @@ impl UTypedElementSelectionSetLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_DESELECT_ELEMENTS_FROM_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_deselect_elements_from_list,
                 __buffer,
             )
         };
@@ -748,7 +791,8 @@ impl UTypedElementSelectionSetLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_LIBRARY_DESELECT_ELEMENTS_FROM_LIST,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_library_deselect_elements_from_list,
                 __buffer,
             )
         };
@@ -789,7 +833,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SET_SELECTION,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_set_selection,
                 __buffer,
             )
         };
@@ -819,7 +864,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SET_SELECTION,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_set_selection,
                 __buffer,
             )
         };
@@ -839,7 +885,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_select_elements,
                 __buffer,
             )
         };
@@ -869,7 +916,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_select_elements,
                 __buffer,
             )
         };
@@ -887,7 +935,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_select_element,
                 __buffer,
             )
         };
@@ -915,7 +964,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_select_element,
                 __buffer,
             )
         };
@@ -932,7 +982,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_RESTORE_SELECTION_STATE,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_restore_selection_state,
                 __buffer,
             )
         };
@@ -949,7 +1000,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_RESTORE_SELECTION_STATE,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_restore_selection_state,
                 __buffer,
             )
         };
@@ -965,7 +1017,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_K2_GET_SELECTED_ELEMENT_HANDLES,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_k2_get_selected_element_handles,
                 __buffer,
             )
         };
@@ -984,7 +1037,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_K2_GET_SELECTED_ELEMENT_HANDLES,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_k2_get_selected_element_handles,
                 __buffer,
             )
         };
@@ -1011,7 +1065,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_IS_ELEMENT_SELECTED,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_is_element_selected,
                 __buffer,
             )
         };
@@ -1039,7 +1094,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_IS_ELEMENT_SELECTED,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_is_element_selected,
                 __buffer,
             )
         };
@@ -1056,7 +1112,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_OBJECTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_has_selected_objects,
                 __buffer,
             )
         };
@@ -1075,7 +1132,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_OBJECTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_has_selected_objects,
                 __buffer,
             )
         };
@@ -1092,7 +1150,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_has_selected_elements,
                 __buffer,
             )
         };
@@ -1111,7 +1170,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_HAS_SELECTED_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_has_selected_elements,
                 __buffer,
             )
         };
@@ -1128,7 +1188,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_TOP_SELECTED_OBJECT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_top_selected_object,
                 __buffer,
             )
         };
@@ -1147,7 +1208,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_TOP_SELECTED_OBJECT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_top_selected_object,
                 __buffer,
             )
         };
@@ -1170,7 +1232,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTION_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_selection_element,
                 __buffer,
             )
         };
@@ -1198,7 +1261,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTION_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_selection_element,
                 __buffer,
             )
         };
@@ -1222,7 +1286,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTED_OBJECTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_selected_objects,
                 __buffer,
             )
         };
@@ -1241,7 +1306,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_SELECTED_OBJECTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_selected_objects,
                 __buffer,
             )
         };
@@ -1260,7 +1326,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_NUM_SELECTED_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_num_selected_elements,
                 __buffer,
             )
         };
@@ -1270,7 +1337,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_NUM_SELECTED_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_num_selected_elements,
                 __buffer,
             )
         };
@@ -1284,7 +1352,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_CURRENT_SELECTION_STATE,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_current_selection_state,
                 __buffer,
             )
         };
@@ -1294,7 +1363,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_CURRENT_SELECTION_STATE,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_current_selection_state,
                 __buffer,
             )
         };
@@ -1311,7 +1381,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_BOTTOM_SELECTED_OBJECT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_bottom_selected_object,
                 __buffer,
             )
         };
@@ -1330,7 +1401,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_GET_BOTTOM_SELECTED_OBJECT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_get_bottom_selected_object,
                 __buffer,
             )
         };
@@ -1355,7 +1427,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_deselect_elements,
                 __buffer,
             )
         };
@@ -1385,7 +1458,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_deselect_elements,
                 __buffer,
             )
         };
@@ -1403,7 +1477,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_deselect_element,
                 __buffer,
             )
         };
@@ -1431,7 +1506,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_deselect_element,
                 __buffer,
             )
         };
@@ -1448,7 +1524,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_OBJECTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_count_selected_objects,
                 __buffer,
             )
         };
@@ -1467,7 +1544,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_OBJECTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_count_selected_objects,
                 __buffer,
             )
         };
@@ -1484,7 +1562,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_count_selected_elements,
                 __buffer,
             )
         };
@@ -1503,7 +1582,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_COUNT_SELECTED_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_count_selected_elements,
                 __buffer,
             )
         };
@@ -1520,7 +1600,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CLEAR_SELECTION,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_clear_selection,
                 __buffer,
             )
         };
@@ -1537,7 +1618,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CLEAR_SELECTION,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_clear_selection,
                 __buffer,
             )
         };
@@ -1555,7 +1637,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_can_select_element,
                 __buffer,
             )
         };
@@ -1583,7 +1666,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_can_select_element,
                 __buffer,
             )
         };
@@ -1601,7 +1685,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_can_deselect_element,
                 __buffer,
             )
         };
@@ -1629,7 +1714,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_CAN_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_can_deselect_element,
                 __buffer,
             )
         };
@@ -1646,7 +1732,8 @@ impl UTypedElementSelectionSet {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_ALLOW_SELECTION_MODIFIERS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_allow_selection_modifiers,
                 __buffer,
             )
         };
@@ -1667,7 +1754,8 @@ impl UTypedElementSelectionSet {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_SET_ALLOW_SELECTION_MODIFIERS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_set_allow_selection_modifiers,
                 __buffer,
             )
         };
@@ -1706,7 +1794,8 @@ impl UTypedElementAssetDataInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ASSET_DATA,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_asset_data_interface_get_asset_data,
                 __buffer,
             )
         };
@@ -1727,7 +1816,8 @@ impl UTypedElementAssetDataInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ASSET_DATA,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_asset_data_interface_get_asset_data,
                 __buffer,
             )
         };
@@ -1746,7 +1836,8 @@ impl UTypedElementAssetDataInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ALL_REFERENCED_ASSET_DATAS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_asset_data_interface_get_all_referenced_asset_datas,
                 __buffer,
             )
         };
@@ -1767,7 +1858,8 @@ impl UTypedElementAssetDataInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_ASSET_DATA_INTERFACE_GET_ALL_REFERENCED_ASSET_DATAS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_asset_data_interface_get_all_referenced_asset_datas,
                 __buffer,
             )
         };
@@ -1812,7 +1904,8 @@ impl UTypedElementHierarchyInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_PARENT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_hierarchy_interface_get_parent_element,
                 __buffer,
             )
         };
@@ -1840,7 +1933,8 @@ impl UTypedElementHierarchyInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_PARENT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_hierarchy_interface_get_parent_element,
                 __buffer,
             )
         };
@@ -1868,7 +1962,8 @@ impl UTypedElementHierarchyInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_CHILD_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_hierarchy_interface_get_child_elements,
                 __buffer,
             )
         };
@@ -1909,7 +2004,8 @@ impl UTypedElementHierarchyInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_HIERARCHY_INTERFACE_GET_CHILD_ELEMENTS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_hierarchy_interface_get_child_elements,
                 __buffer,
             )
         };
@@ -1957,7 +2053,8 @@ impl UTypedElementObjectInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT_CLASS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_object_interface_get_object_class,
                 __buffer,
             )
         };
@@ -1978,7 +2075,8 @@ impl UTypedElementObjectInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT_CLASS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_object_interface_get_object_class,
                 __buffer,
             )
         };
@@ -2000,7 +2098,8 @@ impl UTypedElementObjectInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_object_interface_get_object,
                 __buffer,
             )
         };
@@ -2021,7 +2120,8 @@ impl UTypedElementObjectInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_OBJECT_INTERFACE_GET_OBJECT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_object_interface_get_object,
                 __buffer,
             )
         };
@@ -2068,7 +2168,8 @@ impl UTypedElementPrimitiveCustomDataInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA_VALUE,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_primitive_custom_data_interface_set_custom_data_value,
                 __buffer,
             )
         };
@@ -2110,7 +2211,8 @@ impl UTypedElementPrimitiveCustomDataInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA_VALUE,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_primitive_custom_data_interface_set_custom_data_value,
                 __buffer,
             )
         };
@@ -2128,7 +2230,8 @@ impl UTypedElementPrimitiveCustomDataInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_primitive_custom_data_interface_set_custom_data,
                 __buffer,
             )
         };
@@ -2163,7 +2266,8 @@ impl UTypedElementPrimitiveCustomDataInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_PRIMITIVE_CUSTOM_DATA_INTERFACE_SET_CUSTOM_DATA,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_primitive_custom_data_interface_set_custom_data,
                 __buffer,
             )
         };
@@ -2203,7 +2307,8 @@ impl UTypedElementSelectionInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_select_element,
                 __buffer,
             )
         };
@@ -2242,7 +2347,8 @@ impl UTypedElementSelectionInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_select_element,
                 __buffer,
             )
         };
@@ -2261,7 +2367,8 @@ impl UTypedElementSelectionInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_IS_ELEMENT_SELECTED,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_is_element_selected,
                 __buffer,
             )
         };
@@ -2300,7 +2407,8 @@ impl UTypedElementSelectionInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_IS_ELEMENT_SELECTED,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_is_element_selected,
                 __buffer,
             )
         };
@@ -2319,7 +2427,8 @@ impl UTypedElementSelectionInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_GET_SELECTION_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_get_selection_element,
                 __buffer,
             )
         };
@@ -2358,7 +2467,8 @@ impl UTypedElementSelectionInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_GET_SELECTION_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_get_selection_element,
                 __buffer,
             )
         };
@@ -2384,7 +2494,8 @@ impl UTypedElementSelectionInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_deselect_element,
                 __buffer,
             )
         };
@@ -2423,7 +2534,8 @@ impl UTypedElementSelectionInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_deselect_element,
                 __buffer,
             )
         };
@@ -2441,7 +2553,8 @@ impl UTypedElementSelectionInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_can_select_element,
                 __buffer,
             )
         };
@@ -2469,7 +2582,8 @@ impl UTypedElementSelectionInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_SELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_can_select_element,
                 __buffer,
             )
         };
@@ -2487,7 +2601,8 @@ impl UTypedElementSelectionInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_can_deselect_element,
                 __buffer,
             )
         };
@@ -2515,7 +2630,8 @@ impl UTypedElementSelectionInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_CAN_DESELECT_ELEMENT,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_can_deselect_element,
                 __buffer,
             )
         };
@@ -2533,7 +2649,8 @@ impl UTypedElementSelectionInterface {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_ALLOW_SELECTION_MODIFIERS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_allow_selection_modifiers,
                 __buffer,
             )
         };
@@ -2565,7 +2682,8 @@ impl UTypedElementSelectionInterface {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::typed_element_runtime::U_TYPED_ELEMENT_SELECTION_INTERFACE_ALLOW_SELECTION_MODIFIERS,
+                crate::bindings::typed_element_runtime::__FUNCTION_PTRS
+                    .u_typed_element_selection_interface_allow_selection_modifiers,
                 __buffer,
             )
         };

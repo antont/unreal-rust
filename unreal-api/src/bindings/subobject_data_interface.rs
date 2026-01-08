@@ -1,120 +1,129 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_SCENE_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_NATIVE_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INHERITED_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_HANDLE_VALID: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_DEFAULT_SCENE_ROOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_CHILD_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ATTACHED_TO: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ACTOR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_VARIABLE_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_PARENT_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DISPLAY_NAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_ASSOCIATED_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_REPARENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_RENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_EDIT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DUPLICATE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DELETE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_COPY: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT_MEMBER_VARIABLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_PASTE_SUBOBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_MAKE_NEW_SCENE_ROOT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_BLUEPRINT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_FIND_SUBOBJECT_DATA_FROM_HANDLE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECTS_FROM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECT_FROM_INSTANCE: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_IS_VALID_RENAME: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_FIND_HANDLE_FOR_OBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_DUPLICATE_SUBOBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_DETACH_SUBOBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_CPP_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_BP_COMPONENT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_COPY_SUBOBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_CHANGE_SUBOBJECT_CLASS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_CAN_PASTE_SUBOBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_CAN_COPY_SUBOBJECTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_ATTACH_SUBOBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_SUBOBJECT_DATA_SUBSYSTEM_ADD_NEW_SUBOBJECT: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_subobject_data_blueprint_function_library_is_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_scene_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_root_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_root_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_native_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_instanced_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_instanced_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_inherited_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_handle_valid: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_default_scene_root: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_child_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_attached_to: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_is_actor: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_variable_name: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_parent_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_object_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_object: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_display_name: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_data: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_get_associated_object: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_can_reparent: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_can_rename: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_can_edit: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_can_duplicate: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_can_delete: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_blueprint_function_library_can_copy: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_reparent_subobjects: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_reparent_subobject: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_rename_subobject_member_variable: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_rename_subobject: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_paste_subobjects: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_make_new_scene_root: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_k2_gather_subobject_data_for_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_k2_gather_subobject_data_for_blueprint: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_k2_find_subobject_data_from_handle: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_k2_delete_subobjects_from_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_k2_delete_subobject_from_instance: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_is_valid_rename: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_find_handle_for_object: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_duplicate_subobjects: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_detach_subobject: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_delete_subobjects: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_delete_subobject: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_create_new_cpp_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_create_new_bp_component: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_copy_subobjects: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_change_subobject_class: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_can_paste_subobjects: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_can_copy_subobjects: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_attach_subobject: *mut crate::ffi::UFunctionOpague,
+    pub u_subobject_data_subsystem_add_new_subobject: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_subobject_data_blueprint_function_library_is_valid: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_scene_component: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_root_component: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_root_actor: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_native_component: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_instanced_component: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_instanced_actor: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_inherited_component: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_handle_valid: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_default_scene_root: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_component: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_child_actor: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_attached_to: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_is_actor: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_variable_name: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_parent_handle: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_object_for_blueprint: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_object: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_handle: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_display_name: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_data: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_blueprint: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_get_associated_object: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_can_reparent: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_can_rename: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_can_edit: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_can_duplicate: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_can_delete: std::ptr::null_mut(),
+            u_subobject_data_blueprint_function_library_can_copy: std::ptr::null_mut(),
+            u_subobject_data_subsystem_reparent_subobjects: std::ptr::null_mut(),
+            u_subobject_data_subsystem_reparent_subobject: std::ptr::null_mut(),
+            u_subobject_data_subsystem_rename_subobject_member_variable: std::ptr::null_mut(),
+            u_subobject_data_subsystem_rename_subobject: std::ptr::null_mut(),
+            u_subobject_data_subsystem_paste_subobjects: std::ptr::null_mut(),
+            u_subobject_data_subsystem_make_new_scene_root: std::ptr::null_mut(),
+            u_subobject_data_subsystem_k2_gather_subobject_data_for_instance: std::ptr::null_mut(),
+            u_subobject_data_subsystem_k2_gather_subobject_data_for_blueprint: std::ptr::null_mut(),
+            u_subobject_data_subsystem_k2_find_subobject_data_from_handle: std::ptr::null_mut(),
+            u_subobject_data_subsystem_k2_delete_subobjects_from_instance: std::ptr::null_mut(),
+            u_subobject_data_subsystem_k2_delete_subobject_from_instance: std::ptr::null_mut(),
+            u_subobject_data_subsystem_is_valid_rename: std::ptr::null_mut(),
+            u_subobject_data_subsystem_find_handle_for_object: std::ptr::null_mut(),
+            u_subobject_data_subsystem_duplicate_subobjects: std::ptr::null_mut(),
+            u_subobject_data_subsystem_detach_subobject: std::ptr::null_mut(),
+            u_subobject_data_subsystem_delete_subobjects: std::ptr::null_mut(),
+            u_subobject_data_subsystem_delete_subobject: std::ptr::null_mut(),
+            u_subobject_data_subsystem_create_new_cpp_component: std::ptr::null_mut(),
+            u_subobject_data_subsystem_create_new_bp_component: std::ptr::null_mut(),
+            u_subobject_data_subsystem_copy_subobjects: std::ptr::null_mut(),
+            u_subobject_data_subsystem_change_subobject_class: std::ptr::null_mut(),
+            u_subobject_data_subsystem_can_paste_subobjects: std::ptr::null_mut(),
+            u_subobject_data_subsystem_can_copy_subobjects: std::ptr::null_mut(),
+            u_subobject_data_subsystem_attach_subobject: std::ptr::null_mut(),
+            u_subobject_data_subsystem_add_new_subobject: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -124,203 +133,227 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValid"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_VALID,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_is_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsSceneComponent"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_SCENE_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_scene_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRootComponent"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_root_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsRootActor"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_root_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsNativeComponent"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_NATIVE_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_native_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInstancedComponent"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_instanced_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInstancedActor"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_instanced_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsInheritedComponent"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INHERITED_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_inherited_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsHandleValid"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_HANDLE_VALID,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_handle_valid,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsDefaultSceneRoot"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_DEFAULT_SCENE_ROOT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_default_scene_root,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsComponent"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_COMPONENT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsChildActor"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_CHILD_ACTOR,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_child_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsAttachedTo"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ATTACHED_TO,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_is_attached_to,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsActor"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ACTOR,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_is_actor,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetVariableName"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_VARIABLE_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_variable_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetParentHandle"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_PARENT_HANDLE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_parent_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObjectForBlueprint"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_object_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetObject"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetHandle"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_HANDLE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetDisplayName"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DISPLAY_NAME,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_display_name,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetData"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DATA,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_get_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetBlueprint"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssociatedObject"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_ASSOCIATED_OBJECT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_get_associated_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanReparent"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_REPARENT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_can_reparent,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanRename"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_RENAME,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_can_rename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanEdit"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_EDIT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_can_edit,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanDuplicate"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DUPLICATE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_can_duplicate,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanDelete"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DELETE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_blueprint_function_library_can_delete,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanCopy"),
-            &raw mut U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_COPY,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_blueprint_function_library_can_copy,
         );
     }
     unsafe {
@@ -331,175 +364,181 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReparentSubobjects"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_reparent_subobjects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReparentSubobject"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_reparent_subobject,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameSubobjectMemberVariable"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT_MEMBER_VARIABLE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_subsystem_rename_subobject_member_variable,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameSubobject"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_rename_subobject,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("PasteSubobjects"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_PASTE_SUBOBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_paste_subobjects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("MakeNewSceneRoot"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_MAKE_NEW_SCENE_ROOT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_make_new_scene_root,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GatherSubobjectDataForInstance"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_subsystem_k2_gather_subobject_data_for_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GatherSubobjectDataForBlueprint"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_BLUEPRINT,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_subsystem_k2_gather_subobject_data_for_blueprint,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_FindSubobjectDataFromHandle"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_FIND_SUBOBJECT_DATA_FROM_HANDLE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_subsystem_k2_find_subobject_data_from_handle,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_DeleteSubobjectsFromInstance"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECTS_FROM_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_subsystem_k2_delete_subobjects_from_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_DeleteSubobjectFromInstance"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECT_FROM_INSTANCE,
+            &raw mut __FUNCTION_PTRS
+                .u_subobject_data_subsystem_k2_delete_subobject_from_instance,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("IsValidRename"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_IS_VALID_RENAME,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_is_valid_rename,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("FindHandleForObject"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_FIND_HANDLE_FOR_OBJECT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_find_handle_for_object,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DuplicateSubobjects"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_DUPLICATE_SUBOBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_duplicate_subobjects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DetachSubobject"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_DETACH_SUBOBJECT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_detach_subobject,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteSubobjects"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_delete_subobjects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DeleteSubobject"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_delete_subobject,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewCPPComponent"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_CPP_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_create_new_cpp_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateNewBPComponent"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_BP_COMPONENT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_create_new_bp_component,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CopySubobjects"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_COPY_SUBOBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_copy_subobjects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ChangeSubobjectClass"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_CHANGE_SUBOBJECT_CLASS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_change_subobject_class,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanPasteSubobjects"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_CAN_PASTE_SUBOBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_can_paste_subobjects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CanCopySubobjects"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_CAN_COPY_SUBOBJECTS,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_can_copy_subobjects,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AttachSubobject"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_ATTACH_SUBOBJECT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_attach_subobject,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddNewSubobject"),
-            &raw mut U_SUBOBJECT_DATA_SUBSYSTEM_ADD_NEW_SUBOBJECT,
+            &raw mut __FUNCTION_PTRS.u_subobject_data_subsystem_add_new_subobject,
         );
     }
 }
@@ -558,7 +597,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_VALID,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_valid,
                 __buffer,
             )
         };
@@ -575,7 +615,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_VALID,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_valid,
                 __buffer,
             )
         };
@@ -589,7 +630,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_SCENE_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_scene_component,
                 __buffer,
             )
         };
@@ -606,7 +648,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_SCENE_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_scene_component,
                 __buffer,
             )
         };
@@ -620,7 +663,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_root_component,
                 __buffer,
             )
         };
@@ -637,7 +681,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_root_component,
                 __buffer,
             )
         };
@@ -651,7 +696,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_root_actor,
                 __buffer,
             )
         };
@@ -668,7 +714,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ROOT_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_root_actor,
                 __buffer,
             )
         };
@@ -682,7 +729,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_NATIVE_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_native_component,
                 __buffer,
             )
         };
@@ -699,7 +747,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_NATIVE_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_native_component,
                 __buffer,
             )
         };
@@ -713,7 +762,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_instanced_component,
                 __buffer,
             )
         };
@@ -730,7 +780,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_instanced_component,
                 __buffer,
             )
         };
@@ -744,7 +795,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_instanced_actor,
                 __buffer,
             )
         };
@@ -761,7 +813,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INSTANCED_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_instanced_actor,
                 __buffer,
             )
         };
@@ -775,7 +828,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INHERITED_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_inherited_component,
                 __buffer,
             )
         };
@@ -792,7 +846,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_INHERITED_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_inherited_component,
                 __buffer,
             )
         };
@@ -806,7 +861,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_HANDLE_VALID,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_handle_valid,
                 __buffer,
             )
         };
@@ -823,7 +879,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_HANDLE_VALID,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_handle_valid,
                 __buffer,
             )
         };
@@ -837,7 +894,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_DEFAULT_SCENE_ROOT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_default_scene_root,
                 __buffer,
             )
         };
@@ -854,7 +912,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_DEFAULT_SCENE_ROOT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_default_scene_root,
                 __buffer,
             )
         };
@@ -868,7 +927,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_component,
                 __buffer,
             )
         };
@@ -885,7 +945,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_component,
                 __buffer,
             )
         };
@@ -899,7 +960,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_CHILD_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_child_actor,
                 __buffer,
             )
         };
@@ -916,7 +978,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_CHILD_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_child_actor,
                 __buffer,
             )
         };
@@ -933,7 +996,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ATTACHED_TO,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_attached_to,
                 __buffer,
             )
         };
@@ -957,7 +1021,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ATTACHED_TO,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_attached_to,
                 __buffer,
             )
         };
@@ -971,7 +1036,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_actor,
                 __buffer,
             )
         };
@@ -988,7 +1054,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_IS_ACTOR,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_is_actor,
                 __buffer,
             )
         };
@@ -1002,7 +1069,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_VARIABLE_NAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_variable_name,
                 __buffer,
             )
         };
@@ -1019,7 +1087,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_VARIABLE_NAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_variable_name,
                 __buffer,
             )
         };
@@ -1036,7 +1105,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_PARENT_HANDLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_parent_handle,
                 __buffer,
             )
         };
@@ -1060,7 +1130,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_PARENT_HANDLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_parent_handle,
                 __buffer,
             )
         };
@@ -1079,7 +1150,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT_FOR_BLUEPRINT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_object_for_blueprint,
                 __buffer,
             )
         };
@@ -1103,7 +1175,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT_FOR_BLUEPRINT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_object_for_blueprint,
                 __buffer,
             )
         };
@@ -1125,7 +1198,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_object,
                 __buffer,
             )
         };
@@ -1149,7 +1223,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_OBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_object,
                 __buffer,
             )
         };
@@ -1168,7 +1243,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_HANDLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_handle,
                 __buffer,
             )
         };
@@ -1192,7 +1268,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_HANDLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_handle,
                 __buffer,
             )
         };
@@ -1208,7 +1285,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DISPLAY_NAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_display_name,
                 __buffer,
             )
         };
@@ -1225,7 +1303,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DISPLAY_NAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_display_name,
                 __buffer,
             )
         };
@@ -1239,7 +1318,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DATA,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_data,
                 __buffer,
             )
         };
@@ -1263,7 +1343,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_DATA,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_data,
                 __buffer,
             )
         };
@@ -1281,7 +1362,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_BLUEPRINT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_blueprint,
                 __buffer,
             )
         };
@@ -1298,7 +1380,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_BLUEPRINT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_blueprint,
                 __buffer,
             )
         };
@@ -1316,7 +1399,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_ASSOCIATED_OBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_associated_object,
                 __buffer,
             )
         };
@@ -1333,7 +1417,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_GET_ASSOCIATED_OBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_get_associated_object,
                 __buffer,
             )
         };
@@ -1352,7 +1437,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_REPARENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_reparent,
                 __buffer,
             )
         };
@@ -1369,7 +1455,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_REPARENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_reparent,
                 __buffer,
             )
         };
@@ -1383,7 +1470,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_RENAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_rename,
                 __buffer,
             )
         };
@@ -1400,7 +1488,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_RENAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_rename,
                 __buffer,
             )
         };
@@ -1414,7 +1503,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_EDIT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_edit,
                 __buffer,
             )
         };
@@ -1431,7 +1521,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_EDIT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_edit,
                 __buffer,
             )
         };
@@ -1445,7 +1536,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DUPLICATE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_duplicate,
                 __buffer,
             )
         };
@@ -1462,7 +1554,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DUPLICATE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_duplicate,
                 __buffer,
             )
         };
@@ -1476,7 +1569,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DELETE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_delete,
                 __buffer,
             )
         };
@@ -1493,7 +1587,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_DELETE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_delete,
                 __buffer,
             )
         };
@@ -1507,7 +1602,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_COPY,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_copy,
                 __buffer,
             )
         };
@@ -1524,7 +1620,8 @@ impl USubobjectDataBlueprintFunctionLibrary {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_BLUEPRINT_FUNCTION_LIBRARY_CAN_COPY,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_blueprint_function_library_can_copy,
                 __buffer,
             )
         };
@@ -1563,7 +1660,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_reparent_subobjects,
                 __buffer,
             )
         };
@@ -1587,7 +1685,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_reparent_subobjects,
                 __buffer,
             )
         };
@@ -1605,7 +1704,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_reparent_subobject,
                 __buffer,
             )
         };
@@ -1629,7 +1729,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_REPARENT_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_reparent_subobject,
                 __buffer,
             )
         };
@@ -1647,7 +1748,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT_MEMBER_VARIABLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_rename_subobject_member_variable,
                 __buffer,
             )
         };
@@ -1678,7 +1780,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT_MEMBER_VARIABLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_rename_subobject_member_variable,
                 __buffer,
             )
         };
@@ -1695,7 +1798,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_rename_subobject,
                 __buffer,
             )
         };
@@ -1719,7 +1823,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_RENAME_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_rename_subobject,
                 __buffer,
             )
         };
@@ -1739,7 +1844,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_PASTE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_paste_subobjects,
                 __buffer,
             )
         };
@@ -1777,7 +1883,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_PASTE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_paste_subobjects,
                 __buffer,
             )
         };
@@ -1801,7 +1908,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_MAKE_NEW_SCENE_ROOT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_make_new_scene_root,
                 __buffer,
             )
         };
@@ -1832,7 +1940,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_MAKE_NEW_SCENE_ROOT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_make_new_scene_root,
                 __buffer,
             )
         };
@@ -1850,7 +1959,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_INSTANCE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_gather_subobject_data_for_instance,
                 __buffer,
             )
         };
@@ -1874,7 +1984,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_INSTANCE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_gather_subobject_data_for_instance,
                 __buffer,
             )
         };
@@ -1894,7 +2005,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_BLUEPRINT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_gather_subobject_data_for_blueprint,
                 __buffer,
             )
         };
@@ -1918,7 +2030,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_GATHER_SUBOBJECT_DATA_FOR_BLUEPRINT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_gather_subobject_data_for_blueprint,
                 __buffer,
             )
         };
@@ -1938,7 +2051,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_FIND_SUBOBJECT_DATA_FROM_HANDLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_find_subobject_data_from_handle,
                 __buffer,
             )
         };
@@ -1962,7 +2076,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_FIND_SUBOBJECT_DATA_FROM_HANDLE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_find_subobject_data_from_handle,
                 __buffer,
             )
         };
@@ -1983,7 +2098,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECTS_FROM_INSTANCE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_delete_subobjects_from_instance,
                 __buffer,
             )
         };
@@ -2007,7 +2123,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECTS_FROM_INSTANCE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_delete_subobjects_from_instance,
                 __buffer,
             )
         };
@@ -2025,7 +2142,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECT_FROM_INSTANCE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_delete_subobject_from_instance,
                 __buffer,
             )
         };
@@ -2049,7 +2167,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_K2_DELETE_SUBOBJECT_FROM_INSTANCE,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_k2_delete_subobject_from_instance,
                 __buffer,
             )
         };
@@ -2068,7 +2187,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_IS_VALID_RENAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_is_valid_rename,
                 __buffer,
             )
         };
@@ -2099,7 +2219,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_IS_VALID_RENAME,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_is_valid_rename,
                 __buffer,
             )
         };
@@ -2121,7 +2242,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_FIND_HANDLE_FOR_OBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_find_handle_for_object,
                 __buffer,
             )
         };
@@ -2152,7 +2274,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_FIND_HANDLE_FOR_OBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_find_handle_for_object,
                 __buffer,
             )
         };
@@ -2172,7 +2295,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DUPLICATE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_duplicate_subobjects,
                 __buffer,
             )
         };
@@ -2210,7 +2334,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DUPLICATE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_duplicate_subobjects,
                 __buffer,
             )
         };
@@ -2233,7 +2358,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DETACH_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_detach_subobject,
                 __buffer,
             )
         };
@@ -2257,7 +2383,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DETACH_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_detach_subobject,
                 __buffer,
             )
         };
@@ -2276,7 +2403,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_delete_subobjects,
                 __buffer,
             )
         };
@@ -2307,7 +2435,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_delete_subobjects,
                 __buffer,
             )
         };
@@ -2326,7 +2455,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_delete_subobject,
                 __buffer,
             )
         };
@@ -2357,7 +2487,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_DELETE_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_delete_subobject,
                 __buffer,
             )
         };
@@ -2375,7 +2506,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_CPP_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_create_new_cpp_component,
                 __buffer,
             )
         };
@@ -2408,7 +2540,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_CPP_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_create_new_cpp_component,
                 __buffer,
             )
         };
@@ -2431,7 +2564,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_BP_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_create_new_bp_component,
                 __buffer,
             )
         };
@@ -2464,7 +2598,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CREATE_NEW_BP_COMPONENT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_create_new_bp_component,
                 __buffer,
             )
         };
@@ -2487,7 +2622,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_COPY_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_copy_subobjects,
                 __buffer,
             )
         };
@@ -2511,7 +2647,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_COPY_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_copy_subobjects,
                 __buffer,
             )
         };
@@ -2528,7 +2665,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CHANGE_SUBOBJECT_CLASS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_change_subobject_class,
                 __buffer,
             )
         };
@@ -2554,7 +2692,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CHANGE_SUBOBJECT_CLASS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_change_subobject_class,
                 __buffer,
             )
         };
@@ -2572,7 +2711,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CAN_PASTE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_can_paste_subobjects,
                 __buffer,
             )
         };
@@ -2596,7 +2736,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CAN_PASTE_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_can_paste_subobjects,
                 __buffer,
             )
         };
@@ -2610,7 +2751,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CAN_COPY_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_can_copy_subobjects,
                 __buffer,
             )
         };
@@ -2627,7 +2769,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_CAN_COPY_SUBOBJECTS,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_can_copy_subobjects,
                 __buffer,
             )
         };
@@ -2645,7 +2788,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_ATTACH_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_attach_subobject,
                 __buffer,
             )
         };
@@ -2669,7 +2813,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_ATTACH_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_attach_subobject,
                 __buffer,
             )
         };
@@ -2687,7 +2832,8 @@ impl USubobjectDataSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_ADD_NEW_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_add_new_subobject,
                 __buffer,
             )
         };
@@ -2711,7 +2857,8 @@ impl USubobjectDataSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::subobject_data_interface::U_SUBOBJECT_DATA_SUBSYSTEM_ADD_NEW_SUBOBJECT,
+                crate::bindings::subobject_data_interface::__FUNCTION_PTRS
+                    .u_subobject_data_subsystem_add_new_subobject,
                 __buffer,
             )
         };

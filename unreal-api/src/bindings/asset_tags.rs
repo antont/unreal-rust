@@ -1,68 +1,77 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_REPARENT_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_RENAME_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSETS_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSET_FROM_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_K2_GET_COLLECTIONS_CONTAINING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSET_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSETS_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_GET_ASSETS_IN_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_EMPTY_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_DESTROY_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_CREATE_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_COLLECTION_EXISTS: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
-#[doc(hidden)]
-pub static mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_asset_tags_subsystem_reparent_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_rename_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_remove_assets_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_remove_asset_ptrs_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_remove_asset_ptr_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_remove_asset_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_remove_asset_datas_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_remove_asset_data_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_k2_remove_assets_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_k2_remove_asset_from_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_k2_get_collections_containing_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_k2_add_asset_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_k2_add_assets_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_get_collections_containing_asset_ptr: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_get_collections_containing_asset_data: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_get_collections_containing_asset: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_get_collections: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_get_assets_in_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_empty_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_destroy_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_create_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_collection_exists: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_add_asset_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_add_assets_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_add_asset_ptr_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_add_asset_ptrs_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_add_asset_data_to_collection: *mut crate::ffi::UFunctionOpague,
+    pub u_asset_tags_subsystem_add_asset_datas_to_collection: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_asset_tags_subsystem_reparent_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_rename_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_remove_assets_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_remove_asset_ptrs_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_remove_asset_ptr_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_remove_asset_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_remove_asset_datas_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_remove_asset_data_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_k2_remove_assets_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_k2_remove_asset_from_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_k2_get_collections_containing_asset: std::ptr::null_mut(),
+            u_asset_tags_subsystem_k2_add_asset_to_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_k2_add_assets_to_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_get_collections_containing_asset_ptr: std::ptr::null_mut(),
+            u_asset_tags_subsystem_get_collections_containing_asset_data: std::ptr::null_mut(),
+            u_asset_tags_subsystem_get_collections_containing_asset: std::ptr::null_mut(),
+            u_asset_tags_subsystem_get_collections: std::ptr::null_mut(),
+            u_asset_tags_subsystem_get_assets_in_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_empty_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_destroy_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_create_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_collection_exists: std::ptr::null_mut(),
+            u_asset_tags_subsystem_add_asset_to_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_add_assets_to_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_add_asset_ptr_to_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_add_asset_ptrs_to_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_add_asset_data_to_collection: std::ptr::null_mut(),
+            u_asset_tags_subsystem_add_asset_datas_to_collection: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -72,196 +81,206 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("ReparentCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_REPARENT_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_reparent_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RenameCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_RENAME_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_rename_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetsFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_remove_assets_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetPtrsFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_remove_asset_ptrs_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetPtrFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_remove_asset_ptr_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_remove_asset_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetDatasFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_remove_asset_datas_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("RemoveAssetDataFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_remove_asset_data_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_RemoveAssetsFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSETS_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_k2_remove_assets_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_RemoveAssetFromCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSET_FROM_COLLECTION,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_k2_remove_asset_from_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_GetCollectionsContainingAsset"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_K2_GET_COLLECTIONS_CONTAINING_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_k2_get_collections_containing_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_AddAssetToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSET_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_k2_add_asset_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("K2_AddAssetsToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSETS_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_k2_add_assets_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetPtr"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_get_collections_containing_asset_ptr,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionsContainingAssetData"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_get_collections_containing_asset_data,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollectionsContainingAsset"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+            &raw mut __FUNCTION_PTRS
+                .u_asset_tags_subsystem_get_collections_containing_asset,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetCollections"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_get_collections,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("GetAssetsInCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_get_assets_in_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("EmptyCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_EMPTY_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_empty_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("DestroyCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_DESTROY_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_destroy_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CreateCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_CREATE_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_create_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("CollectionExists"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_COLLECTION_EXISTS,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_collection_exists,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetsToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_assets_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetPtrToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_ptr_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetPtrsToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_ptrs_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetDataToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_data_to_collection,
         );
         (bindings
             .core_fns
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("AddAssetDatasToCollection"),
-            &raw mut U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+            &raw mut __FUNCTION_PTRS.u_asset_tags_subsystem_add_asset_datas_to_collection,
         );
     }
 }
@@ -293,7 +312,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REPARENT_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_reparent_collection,
                 __buffer,
             )
         };
@@ -313,7 +333,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REPARENT_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_reparent_collection,
                 __buffer,
             )
         };
@@ -327,7 +348,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_RENAME_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_rename_collection,
                 __buffer,
             )
         };
@@ -347,7 +369,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_RENAME_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_rename_collection,
                 __buffer,
             )
         };
@@ -365,7 +388,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_assets_from_collection,
                 __buffer,
             )
         };
@@ -385,7 +409,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSETS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_assets_from_collection,
                 __buffer,
             )
         };
@@ -403,7 +428,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_ptrs_from_collection,
                 __buffer,
             )
         };
@@ -425,7 +451,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTRS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_ptrs_from_collection,
                 __buffer,
             )
         };
@@ -443,7 +470,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_ptr_from_collection,
                 __buffer,
             )
         };
@@ -463,7 +491,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_PTR_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_ptr_from_collection,
                 __buffer,
             )
         };
@@ -481,7 +510,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_from_collection,
                 __buffer,
             )
         };
@@ -501,7 +531,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_from_collection,
                 __buffer,
             )
         };
@@ -519,7 +550,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_datas_from_collection,
                 __buffer,
             )
         };
@@ -541,7 +573,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATAS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_datas_from_collection,
                 __buffer,
             )
         };
@@ -559,7 +592,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_data_from_collection,
                 __buffer,
             )
         };
@@ -579,7 +613,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_REMOVE_ASSET_DATA_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_remove_asset_data_from_collection,
                 __buffer,
             )
         };
@@ -597,7 +632,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSETS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_remove_assets_from_collection,
                 __buffer,
             )
         };
@@ -619,7 +655,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSETS_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_remove_assets_from_collection,
                 __buffer,
             )
         };
@@ -637,7 +674,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSET_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_remove_asset_from_collection,
                 __buffer,
             )
         };
@@ -659,7 +697,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_REMOVE_ASSET_FROM_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_remove_asset_from_collection,
                 __buffer,
             )
         };
@@ -676,7 +715,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_GET_COLLECTIONS_CONTAINING_ASSET,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_get_collections_containing_asset,
                 __buffer,
             )
         };
@@ -695,7 +735,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_GET_COLLECTIONS_CONTAINING_ASSET,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_get_collections_containing_asset,
                 __buffer,
             )
         };
@@ -713,7 +754,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSET_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_add_asset_to_collection,
                 __buffer,
             )
         };
@@ -735,7 +777,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSET_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_add_asset_to_collection,
                 __buffer,
             )
         };
@@ -753,7 +796,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSETS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_add_assets_to_collection,
                 __buffer,
             )
         };
@@ -775,7 +819,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_K2_ADD_ASSETS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_k2_add_assets_to_collection,
                 __buffer,
             )
         };
@@ -792,7 +837,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset_ptr,
                 __buffer,
             )
         };
@@ -809,7 +855,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_PTR,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset_ptr,
                 __buffer,
             )
         };
@@ -826,7 +873,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset_data,
                 __buffer,
             )
         };
@@ -843,7 +891,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET_DATA,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset_data,
                 __buffer,
             )
         };
@@ -860,7 +909,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset,
                 __buffer,
             )
         };
@@ -877,7 +927,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS_CONTAINING_ASSET,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections_containing_asset,
                 __buffer,
             )
         };
@@ -891,7 +942,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections,
                 __buffer,
             )
         };
@@ -901,7 +953,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_COLLECTIONS,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_collections,
                 __buffer,
             )
         };
@@ -918,7 +971,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_assets_in_collection,
                 __buffer,
             )
         };
@@ -931,7 +985,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_GET_ASSETS_IN_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_get_assets_in_collection,
                 __buffer,
             )
         };
@@ -950,7 +1005,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_EMPTY_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_empty_collection,
                 __buffer,
             )
         };
@@ -963,7 +1019,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_EMPTY_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_empty_collection,
                 __buffer,
             )
         };
@@ -977,7 +1034,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_DESTROY_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_destroy_collection,
                 __buffer,
             )
         };
@@ -990,7 +1048,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_DESTROY_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_destroy_collection,
                 __buffer,
             )
         };
@@ -1008,7 +1067,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_CREATE_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_create_collection,
                 __buffer,
             )
         };
@@ -1030,7 +1090,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_CREATE_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_create_collection,
                 __buffer,
             )
         };
@@ -1044,7 +1105,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_COLLECTION_EXISTS,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_collection_exists,
                 __buffer,
             )
         };
@@ -1057,7 +1119,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_COLLECTION_EXISTS,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_collection_exists,
                 __buffer,
             )
         };
@@ -1075,7 +1138,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_to_collection,
                 __buffer,
             )
         };
@@ -1095,7 +1159,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_to_collection,
                 __buffer,
             )
         };
@@ -1113,7 +1178,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_assets_to_collection,
                 __buffer,
             )
         };
@@ -1133,7 +1199,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSETS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_assets_to_collection,
                 __buffer,
             )
         };
@@ -1151,7 +1218,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_ptr_to_collection,
                 __buffer,
             )
         };
@@ -1171,7 +1239,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTR_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_ptr_to_collection,
                 __buffer,
             )
         };
@@ -1189,7 +1258,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_ptrs_to_collection,
                 __buffer,
             )
         };
@@ -1211,7 +1281,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_PTRS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_ptrs_to_collection,
                 __buffer,
             )
         };
@@ -1229,7 +1300,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_data_to_collection,
                 __buffer,
             )
         };
@@ -1249,7 +1321,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATA_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_data_to_collection,
                 __buffer,
             )
         };
@@ -1267,7 +1340,8 @@ impl UAssetTagsSubsystem {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_datas_to_collection,
                 __buffer,
             )
         };
@@ -1289,7 +1363,8 @@ impl UAssetTagsSubsystem {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::asset_tags::U_ASSET_TAGS_SUBSYSTEM_ADD_ASSET_DATAS_TO_COLLECTION,
+                crate::bindings::asset_tags::__FUNCTION_PTRS
+                    .u_asset_tags_subsystem_add_asset_datas_to_collection,
                 __buffer,
             )
         };

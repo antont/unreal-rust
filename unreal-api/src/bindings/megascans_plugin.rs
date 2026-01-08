@@ -1,14 +1,23 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
-#![allow(non_camel_case_types)]
 #![allow(clippy::non_camel_case_types)]
 #![allow(clippy::new_without_default)]
 #![allow(clippy::new_ret_no_self)]
 pub use crate::bindings::opague_definitions::*;
 pub use crate::core_data::*;
 #[doc(hidden)]
-pub static mut U_VERSION_INFO_HANDLER_GET: *mut crate::ffi::UFunctionOpague = std::ptr::null_mut();
+pub static mut __FUNCTION_PTRS: FunctionPtrs = FunctionPtrs::empty();
+pub struct FunctionPtrs {
+    pub u_version_info_handler_get: *mut crate::ffi::UFunctionOpague,
+}
+impl FunctionPtrs {
+    pub const fn empty() -> Self {
+        Self {
+            u_version_info_handler_get: std::ptr::null_mut(),
+        }
+    }
+}
 pub fn initialize() {
     unsafe {
         let bindings = crate::module::bindings();
@@ -18,7 +27,7 @@ pub fn initialize() {
             .find_function_by_name)(
             class_ptr,
             unreal_ffi::Utf8Str::from("Get"),
-            &raw mut U_VERSION_INFO_HANDLER_GET,
+            &raw mut __FUNCTION_PTRS.u_version_info_handler_get,
         );
     }
 }
@@ -134,7 +143,8 @@ impl UVersionInfoHandler {
             (__bindings
                 .core_fns
                 .initialize_values_in_param_buffer)(
-                crate::bindings::megascans_plugin::U_VERSION_INFO_HANDLER_GET,
+                crate::bindings::megascans_plugin::__FUNCTION_PTRS
+                    .u_version_info_handler_get,
                 __buffer,
             )
         };
@@ -144,7 +154,8 @@ impl UVersionInfoHandler {
                 .core_fns
                 .process_event)(
                 __object_ptr,
-                crate::bindings::megascans_plugin::U_VERSION_INFO_HANDLER_GET,
+                crate::bindings::megascans_plugin::__FUNCTION_PTRS
+                    .u_version_info_handler_get,
                 __buffer,
             )
         };
